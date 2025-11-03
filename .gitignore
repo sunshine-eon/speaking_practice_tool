@@ -1,0 +1,41 @@
+# Environment
+.env
+.venv/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database
+progress.db
+
+# Sensitive files
+prompts.py
+
+# Server files
+server.log
+server.pid
+*.log
+
+# Audio files (generated content)
+*.mp3
+*.wav
+audio/
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp

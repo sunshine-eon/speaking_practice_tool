@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking Practice Roadmap - Phase 1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-area">
+            <header>
+                <h1 id="weekTitle">Speaking Practice Roadmap</h1>
+                <p id="todayDate" class="today-date"></p>
+                <div class="generate-all-section">
+                    <button id="generateAllBtn" class="generate-all-btn" onclick="generateAllContent()">Generate content</button>
+                </div>
+            </header>
+
+            <div class="activities" id="activities">
+                <!-- Activities will be loaded dynamically -->
+            </div>
+        </div>
+
+        <aside class="week-sidebar" id="weekSidebar">
+            <button class="toggle-sidebar-btn" id="toggleSidebarBtn" onclick="toggleSidebar()" title="Toggle sidebar">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <div class="sidebar-title-section">
+                        <h2>Weeks</h2>
+                    </div>
+                    <button id="currentWeekBtn" class="current-week-btn" onclick="goToCurrentWeek()">Current Week</button>
+                </div>
+                <div class="week-list" id="weekList">
+                    <!-- Weeks will be loaded dynamically -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}?v={{ timestamp }}"></script>
+</body>
+</html>
+

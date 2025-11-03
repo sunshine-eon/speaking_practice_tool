@@ -1,0 +1,524 @@
+{
+  "last_updated": "2025-11-02T16:56:33.905537",
+  "weeks": {
+    "2025-W44": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": [
+          {
+            "word": "excited",
+            "part_of_speech": "adjective",
+            "hint": "Feeling excited about weekend plans."
+          },
+          {
+            "word": "explore",
+            "part_of_speech": "verb",
+            "hint": "I want to explore new hobbies this month."
+          },
+          {
+            "word": "appreciate",
+            "part_of_speech": "verb",
+            "hint": "I appreciate the little things in life."
+          }
+        ]
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_summary": "kjl",
+        "video_name": "",
+        "script": "Imagine standing at the foot of a colossal pyramid, its limestone blocks shimmering under the midday sun. It's impossible not to wonder: How did an ancient civilization, with seemingly primitive technology, construct such architectural marvels? What drove the Egyptians, the Mayans, and the Aztecs to invest their resources into building these enduring monuments? Today, we embark on a journey through history, culture, and human spirit, to uncover the mysteries behind these grandiose structures and explore what they reveal about us as a collective human race.\n\nThe pyramids, in their many forms across the globe, are monumental testaments to human ingenuity and determination. Let's delve into the construction techniques—how did people, thousands of years ago, move massive stones without the machinery we rely on today? Scholars suggest it was a combination of ingenuity and cooperation. Teams of workers used sledges, lubricated paths, and intricate systems of ramps to transport stones. This feat was not solely about physical labor but also about leveraging scientific principles, like friction and physics, in ways that were revolutionary for their times.\n\nBut the pyramids are more than just expressions of human engineering prowess. They are profound statements of cultural and spiritual identity. Imagine the Egyptian pyramid, towering against the horizon—a beacon meant to bridge the earthly and the divine. For the ancient Egyptians, these structures were tombs designed to honor and protect the remains of their pharaohs, whom they believed would join the gods in the afterlife. The meticulous alignment of the pyramids with celestial bodies reflects an advanced understanding of astronomy and a deep connection to their spiritual beliefs. To the Egyptians, the pyramids were not just structures of stone; they were vessels of eternity.\n\nSimilarly, across the ocean, the pyramids of the Maya and Aztec civilizations communicated different stories. The Pyramid of the Sun in Teotihuacan and the grand stone structures of Tikal served as ceremonial centers for these vibrant cultures. Climbing to their summits, one could imagine priests performing rituals designed to appease their gods, secure a good harvest, or bring victory in battle. These pyramids represented the cosmos in microcosm—a physical embodiment of myths and cosmology intrinsic to their way of life.\n\nBeyond their practical and spiritual purposes, pyramids are profound reminders of human narratives and the interplay of time, power, and legacy. Each stone laid was not just a building block but a story of a society striving to etch their existence into the annals of time. The construction of pyramids also required immense social organization. The labor forces, often numbering tens of thousands, were coordinated with precision, emphasizing community and shared purpose. This remarkable collaboration speaks volumes about human ability to unite towards a common goal, defying obstacles, and achieving the extraordinary.\n\nHowever, the pyramids also remind us of the transient nature of power and the inevitable tide of change. Despite their monumental might, these structures were not immune to the ravages of time. Societies that once revered these pyramids faded, replaced by new cultures and new ideas. Yet, the pyramids remain—silent witnesses to the passage of civilizations, whispering tales of past triumphs and human aspirations.\n\nToday, these ancient wonders continue to inspire and intrigue. They have become iconic representations not only of the cultures that created them but of human creativity and perseverance. In modern times, they fuel scientific and archaeological inquiry. Researchers study them intricately to unravel the enigmas of our ancestors, employing technology like 3D scanning and ground-penetrating radar to unearth hidden secrets and new insights.\n\nMoreover, the pyramids foster a sense of shared heritage and identity. In a world often divided by differences, they remind us of our common connections as human beings. No matter where we come from, we share the same dreams and desires—to be remembered, to transcend time, and to leave behind a legacy that speaks to future generations.\n\nAs we stand in awe before these ancient monuments, we are compelled to reflect on what they mean for us today. How might future societies interpret our architectural endeavors? What legacy are we building, and how does it speak to our own values and aspirations? The pyramids invite us to contemplate the impact of our actions and creations, urging us to consider how we, too, can contribute positively to the human story.\n\nIn closing, let us carry forward the lessons of the pyramids: the power of unity, the significance of culture and identity, and the enduring human spirit. They remind us that, while our time on earth is finite, our contributions can echo through eternity. By embracing this legacy, we connect with those who came before us, and pave the way for those who will follow. Like the ancient builders of these great monuments, we hold the power to shape our world, to build bridges across time, and to leave an indelible mark on history.",
+        "audio_url": "audio/week_2025-W44.wav"
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "Discuss the importance of prioritization in product management.\n\nConsider the following points:\n\n1. Definition of Prioritization: Explain what prioritization means in the context of product management and why it is essential for resource allocation and decision-making.\n\n2. Frameworks for Prioritization: Discuss common frameworks used for prioritization, such as the MoSCoW method, RICE scoring, or the Eisenhower matrix.\n\n3. Stakeholder Involvement: Reflect on how you would involve various stakeholders in the prioritization process, and why their input is valuable.\n\n4. Balancing Short-term and Long-term Goals: Address how to balance immediate needs with long-term product strategy in your prioritization decisions.\n\n5. Case Study: Provide an example from your experience or a hypothetical scenario where effective prioritization led to a successful product outcome.",
+        "words": [
+          {
+            "word": "iteration",
+            "part_of_speech": "noun",
+            "hint": "In product management, iteration refers to the process of refining a product through repeated cycles of development and feedback."
+          },
+          {
+            "word": "disruption",
+            "part_of_speech": "noun",
+            "hint": "Disruption in the market can create opportunities for new products that challenge existing norms or practices."
+          },
+          {
+            "word": "benchmarking",
+            "part_of_speech": "noun",
+            "hint": "Benchmarking involves comparing your product's performance with industry standards to identify areas for improvement."
+          },
+          {
+            "word": "persona",
+            "part_of_speech": "noun",
+            "hint": "A persona represents a fictional character created based on user research to embody the needs and behaviors of your target audience."
+          },
+          {
+            "word": "scalability",
+            "part_of_speech": "noun",
+            "hint": "Scalability is the ability of a product to handle growth in users or demand without compromising performance or quality."
+          }
+        ]
+      }
+    },
+    "2025-W45": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2025-W46": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2025-W47": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2025-W48": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2025-W49": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2025-W50": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2025-W51": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2025-W52": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W01": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W02": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W03": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W04": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W05": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W06": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W07": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W08": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W09": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W10": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W11": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W12": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W13": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W14": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W15": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W16": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W17": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2026-W18": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    },
+    "2025-W43": {
+      "voice_journaling": {
+        "completed_days": [],
+        "words": []
+      },
+      "shadowing_practice": {
+        "completed_days": [],
+        "video_name": "",
+        "script": "",
+        "audio_url": ""
+      },
+      "weekly_speaking_prompt": {
+        "completed_days": [],
+        "prompt": "",
+        "words": []
+      }
+    }
+  }
+}
