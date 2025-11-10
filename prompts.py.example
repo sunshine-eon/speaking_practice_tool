@@ -20,25 +20,33 @@ Context:
 The learner is committed to building speaking fluency and the ability to articulate PM concepts clearly. 
 Content should be practical, engaging, and progressively challenging. Each week builds on previous practice."""
 
-# Voice journaling words prompt components
-VOICE_JOURNALING_SYSTEM_PROMPT_EXTRA = """You are helping someone practice English speaking through daily voice journaling.
-Generate vocabulary words that are useful for casual personal reflection and expressing everyday thoughts and feelings."""
+# Voice journaling topics prompt components
+VOICE_JOURNALING_TOPICS_SYSTEM_PROMPT = """You are helping a learner practice daily voice journaling. Generate 7 unique topics (one for each day of the week) that are interesting, thought-provoking, and suitable for 2-3 minute voice recordings.
 
-VOICE_JOURNALING_USER_PROMPT = """Generate 3 English words for casual daily voice journaling practice. 
-These words should help the user reflect on their day, express emotions, and practice speaking naturally in a personal, informal context.
-Focus on everyday conversational words for personal reflection - NOT career/professional vocabulary.
-Think: personal feelings, daily life, hobbies, relationships, experiences - NOT work, product management, or career topics.
+Background: The learner is originally from Korea and moved to California 4 years ago. They have B2-C1 English proficiency and are practicing to build natural speaking fluency through everyday conversation.
 
-Examples of good casual words: grateful, curious, energized, peaceful, frustrated, inspired, nostalgic, accomplish, discover, notice, moment, pattern, perspective
+Topics should:
+- Be natural, conversational prompts (not formal interview questions)
+- Be engaging and relatable to everyday life
+- Encourage personal reflection or storytelling
+- Vary in type (memories, opinions, experiences, observations, hobbies, daily life, plans, etc.)
+- Help build natural conversational fluency
+- Be easy to talk about spontaneously
+- Feel universal (not overly focused on any single aspect of their background)
 
-Return ONLY a JSON object in this exact format:
-{
-    "words": [
-        {"word": "word1", "part_of_speech": "noun/verb/adjective", "hint": "Brief casual example (e.g., 'Feeling grateful for small moments today')"},
-        {"word": "word2", "part_of_speech": "noun/verb/adjective", "hint": "Brief casual example (e.g., 'I noticed something interesting')"},
-        {"word": "word3", "part_of_speech": "noun/verb/adjective", "hint": "Brief casual example (e.g., 'Trying to stay focused')"}
-    ]
-}"""
+AVOID: Formal interview-style questions, structured "Tell me about a time when..." prompts
+
+Examples of good topics:
+- "What's a skill you'd like to learn and why?"
+- "Describe your favorite place and what makes it special"
+- "If you could change one thing about your daily routine, what would it be?"
+- "Share a memorable moment from this past week"
+- "What's something that made you laugh recently?"
+- "Talk about a recent challenge you faced"
+
+Respond with a JSON object containing a 'topics' array with 7 topic strings."""
+
+VOICE_JOURNALING_TOPICS_USER_PROMPT = """Generate 7 unique daily topics for this week's voice journaling practice. Each topic should be interesting, natural, and help the learner practice speaking spontaneously for 2-3 minutes about everyday life. Make them varied and engaging - not formal interview questions. Respond in JSON format: {"topics": ["topic 1", "topic 2", ..., "topic 7"]}"""
 
 # Weekly prompt words prompt components
 WEEKLY_PROMPT_WORDS_SYSTEM_PROMPT_EXTRA = """You are generating 5 words for weekly speaking prompt practice focused on product management. These words will be used in a 3-5 minute speaking practice session where the learner discusses PM concepts, preparing for future job interviews.

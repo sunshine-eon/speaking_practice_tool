@@ -459,7 +459,7 @@ header h1 {
 
 .shadowing-days {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(7, 1fr);
     gap: 0.8rem;
     margin-bottom: 1rem;
 }
@@ -890,5 +890,247 @@ header h1 {
     .progress-text {
         text-align: center;
     }
+}
+
+/* Recording UI Styles */
+.shadowing-days {
+    position: relative;
+}
+
+.day-container {
+    display: contents;
+}
+
+.day-box {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    grid-row: 1;
+}
+
+.day-box.active {
+    background-color: #e3f2fd;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px #3498db;
+}
+
+.day-box.active .day-label {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.day-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.recording-indicator {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.recording-ui {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    background-color: #ffffff;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.daily-topic {
+    background-color: #f0f8ff;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #3498db;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.daily-topic strong {
+    color: #2c3e50;
+}
+
+.activity-description {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.recording-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.recording-controls-secondary {
+    margin-top: 0.75rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.complete-btn {
+    padding: 0.5rem 1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.complete-btn:hover:not(:disabled) {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.complete-btn.completed {
+    background-color: #6c757d;
+}
+
+.complete-btn.completed:hover:not(:disabled) {
+    background-color: #5a6268;
+}
+
+.complete-btn:disabled {
+    background-color: #d6d6d6;
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.record-btn,
+.stop-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.record-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.record-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.stop-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.stop-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+.recording-status {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.recording-timer {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #dc3545;
+    font-family: 'Courier New', monospace;
+    margin-left: 0.5rem;
+}
+
+.recording-visualizer {
+    margin: 0.75rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.recording-visualizer canvas {
+    display: block;
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+}
+
+.recordings-list {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    min-height: 40px;
+}
+
+.no-recordings {
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.recording-item {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.recording-item:last-child {
+    margin-bottom: 0;
+}
+
+.recording-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.recording-attempt {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.recording-time {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.delete-recording-btn {
+    padding: 0.3rem 0.6rem;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.delete-recording-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.recording-player {
+    width: 100%;
+    height: 32px;
 }
 

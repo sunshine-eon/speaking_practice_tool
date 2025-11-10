@@ -106,7 +106,7 @@ def get_previous_weeks_content(progress: Dict[str, Any], week_key: str, num_week
     Returns:
         Dictionary with previous weeks' content:
         {
-            'voice_journaling_words': [list of words that appeared 3+ consecutive weeks],
+            'voice_journaling_topics': [list of previous topics to avoid repetition],
             'shadowing_scripts': [list of previous script topics/summaries],
             'weekly_prompts': [list of previous prompts],
             'weekly_prompt_words': [list of words that appeared 3+ consecutive weeks]
@@ -120,10 +120,10 @@ def get_previous_weeks_content(progress: Dict[str, Any], week_key: str, num_week
         year = int(year_str)
         week_num = int(week_str)
     except (ValueError, AttributeError):
-        return {'voice_journaling_words': [], 'shadowing_scripts': [], 'weekly_prompts': [], 'weekly_prompt_words': []}
+        return {'voice_journaling_topics': [], 'shadowing_scripts': [], 'weekly_prompts': [], 'weekly_prompt_words': []}
     
     previous_content = {
-        'voice_journaling_words': [],  # Words that appeared 3+ consecutive weeks
+        'voice_journaling_topics': [],  # Previous topics to avoid repetition
         'shadowing_scripts': [],  # Previous script summaries
         'weekly_prompts': [],  # Previous prompts
         'weekly_prompt_words': []  # Words that appeared 3+ consecutive weeks
@@ -139,25 +139,20 @@ def get_previous_weeks_content(progress: Dict[str, Any], week_key: str, num_week
         # Get previous weeks (up to num_weeks before current, going backwards)
         prev_indices = range(max(0, current_index - num_weeks), current_index)
         
-        # Track consecutive appearances of words
-        voice_journaling_word_appearances = {}  # word -> list of week indices where it appeared
+        # Track consecutive appearances of words and collect topics
         weekly_prompt_word_appearances = {}  # word -> list of week indices where it appeared
         
-        # Collect all words from recent weeks
+        # Collect all content from recent weeks
         recent_weeks_indices = list(reversed(prev_indices))  # Most recent first
         for idx in recent_weeks_indices:
             prev_week_key = all_week_keys[idx]
             week_data = progress['weeks'][prev_week_key]
             
-            # Track voice journaling words
-            if 'voice_journaling' in week_data and 'words' in week_data['voice_journaling']:
-                words = week_data['voice_journaling']['words']
-                if words:
-                    for word_obj in words:
-                        word = word_obj.get('word', word_obj) if isinstance(word_obj, dict) else word_obj
-                        if word not in voice_journaling_word_appearances:
-                            voice_journaling_word_appearances[word] = []
-                        voice_journaling_word_appearances[word].append(idx)
+            # Collect voice journaling topics (simple list of all previous topics)
+            if 'voice_journaling' in week_data and 'topics' in week_data['voice_journaling']:
+                topics = week_data['voice_journaling']['topics']
+                if topics and isinstance(topics, list):
+                    previous_content['voice_journaling_topics'].extend(topics)
             
             # Track weekly prompt words
             if 'weekly_speaking_prompt' in week_data and 'words' in week_data['weekly_speaking_prompt']:
@@ -183,32 +178,9 @@ def get_previous_weeks_content(progress: Dict[str, Any], week_key: str, num_week
                 if prompt:
                     previous_content['weekly_prompts'].append(prompt)
         
-        # Find words that appeared in 3+ consecutive weeks
+        # Find words that appeared in 3+ consecutive weeks for weekly prompt words
         # Check if a word appears in 3+ consecutive week positions
         consecutive_threshold = 3
-        
-        for word, appearance_indices in voice_journaling_word_appearances.items():
-            if len(appearance_indices) < consecutive_threshold:
-                continue
-            
-            # Sort appearance indices (most recent first - highest index)
-            sorted_indices = sorted(appearance_indices, reverse=True)
-            
-            # Check if the most recent 3+ appearances are consecutive weeks
-            # Since all_week_keys is sorted, consecutive weeks have consecutive indices
-            most_recent_idx = sorted_indices[0]
-            consecutive_count = 1
-            
-            # Count how many consecutive weeks starting from the most recent
-            for i in range(1, len(sorted_indices)):
-                expected_idx = most_recent_idx - i
-                if expected_idx in sorted_indices:
-                    consecutive_count += 1
-                else:
-                    break
-            
-            if consecutive_count >= consecutive_threshold:
-                previous_content['voice_journaling_words'].append(word)
         
         for word, appearance_indices in weekly_prompt_word_appearances.items():
             if len(appearance_indices) < consecutive_threshold:

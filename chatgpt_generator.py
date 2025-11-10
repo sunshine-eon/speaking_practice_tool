@@ -33,8 +33,8 @@ from config import OPENAI_API_KEY
 try:
     from prompts import (
         BACKGROUND_CONTEXT,
-        VOICE_JOURNALING_SYSTEM_PROMPT_EXTRA,
-        VOICE_JOURNALING_USER_PROMPT,
+        VOICE_JOURNALING_TOPICS_SYSTEM_PROMPT,
+        VOICE_JOURNALING_TOPICS_USER_PROMPT,
         WEEKLY_PROMPT_WORDS_SYSTEM_PROMPT_EXTRA,
         WEEKLY_PROMPT_WORDS_USER_PROMPT,
         SHADOWING_SCRIPT_SYSTEM_PROMPT_EXTRA,
@@ -52,18 +52,25 @@ Context:
 - Learning approach: Progressive weekly practice with three main activities
 - Target: Product management roles that require strong English communication skills
 
-The learner is committed to building speaking fluency and the ability to articulate PM concepts clearly. 
+    The learner is committed to building speaking fluency and the ability to articulate PM concepts clearly. 
 Content should be practical, engaging, and progressively challenging. Each week builds on previous practice."""
     
     # Default prompt components (can be customized in prompts.py)
-    VOICE_JOURNALING_SYSTEM_PROMPT_EXTRA = """You are generating 3 words for weekly voice journaling practice (2-3 minute recordings). The words should be practical, interesting, and help build vocabulary for daily conversations. These words will be used by a learner preparing for PM job interviews over 24 months, currently in Phase 1 focusing on daily speaking habits.
+    VOICE_JOURNALING_TOPICS_SYSTEM_PROMPT = """You are helping a learner practice daily voice journaling. Generate 7 unique topics (one for each day of the week) that are interesting, thought-provoking, and suitable for 2-3 minute voice recordings.
 
-IMPORTANT: Avoid words that have appeared in 3 or more consecutive recent weeks. It's fine if a word from 5 weeks ago comes back (that shows it's important), but avoid words that appeared week after week recently. The system will provide you with words that appeared 3+ consecutive weeks to avoid.
+Topics should:
+- Be natural, conversational prompts (not formal interview questions)
+- Be engaging and relatable to everyday life
+- Encourage personal reflection or storytelling
+- Vary in type (memories, opinions, experiences, observations, hobbies, daily life, plans)
+- Help build natural conversational fluency
+- Feel universal and broadly relatable
 
-For each word, provide: the word, its part of speech, and a brief context hint (one sentence). 
-Respond with a JSON object containing a 'words' array, where each word is an object with 'word', 'part_of_speech', and 'hint' fields."""
+AVOID: Formal interview-style questions, structured "Tell me about a time when..." prompts
+
+Respond with a JSON object containing a 'topics' array with 7 topic strings."""
     
-    VOICE_JOURNALING_USER_PROMPT = """Generate 3 words for this week's voice journaling practice. Make them practical, useful for daily conversations, and appropriate for someone building speaking fluency. The words should be interesting enough to incorporate naturally into a 2-3 minute voice journal entry. Respond in JSON format: {"words": [{"word": "...", "part_of_speech": "...", "hint": "..."}, ...]}"""
+    VOICE_JOURNALING_TOPICS_USER_PROMPT = """Generate 7 unique daily topics for this week's voice journaling practice. Each topic should be interesting, natural, and help practice speaking spontaneously for 2-3 minutes about everyday life. Make them varied and engaging - not formal interview questions. Respond in JSON format: {"topics": ["topic 1", "topic 2", ..., "topic 7"]}"""
     
     WEEKLY_PROMPT_WORDS_SYSTEM_PROMPT_EXTRA = """You are generating 5 words for weekly speaking prompt practice focused on product management. These words will be used in a 3-5 minute speaking practice session where the learner discusses PM concepts, preparing for future job interviews.
 
@@ -153,42 +160,35 @@ def get_openai_client():
     return OpenAI(api_key=OPENAI_API_KEY)
 
 
-def generate_voice_journaling_words(previous_words=None, regenerate=False):
+def generate_voice_journaling_topics(previous_topics=None, regenerate=False):
     """
-    Generate 3 words to include in voice journaling.
+    Generate 7 daily topics for voice journaling (one for each day of the week).
     
     Args:
-        previous_words: List of previous words from past weeks to avoid repetition
+        previous_topics: List of previous topics from past weeks to avoid repetition
         regenerate: If True, indicates this is a regeneration and should generate different content
     
     Returns:
-        List of 3 words with context/hints.
+        List of 7 daily topics (strings).
     """
     try:
         client = get_openai_client()
         
+        user_prompt = VOICE_JOURNALING_TOPICS_USER_PROMPT
+        
+        if previous_topics:
+            user_prompt += f"\n\nIMPORTANT: Avoid these topics from recent weeks: {', '.join(previous_topics[:20])}. Generate fresh, different topics."
+        
+        if regenerate:
+            user_prompt += "\n\nNOTE: This is a regeneration - please generate COMPLETELY DIFFERENT topics from what was previously generated for this week."
+        
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {
-                    "role": "system",
-                    "content": f"""{BACKGROUND_CONTEXT}
-
-{VOICE_JOURNALING_SYSTEM_PROMPT_EXTRA}"""
-                },
-                {
-                    "role": "user",
-                    "content": VOICE_JOURNALING_USER_PROMPT + (
-                        f"\n\nIMPORTANT: Avoid these words that appeared in 3+ consecutive recent weeks: {previous_words}. "
-                        f"It's fine if a word from 5+ weeks ago comes back (shows importance), but avoid words that appeared week after week recently."
-                        if previous_words else ""
-                    ) + (
-                        "\n\nNOTE: This is a regeneration - please generate COMPLETELY DIFFERENT words from what was previously generated for this week."
-                        if regenerate else ""
-                    )
-                }
+                {"role": "system", "content": VOICE_JOURNALING_TOPICS_SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}
             ],
-            temperature=0.9 if regenerate else 0.7,  # Higher temperature for regeneration
+            temperature=0.9 if regenerate else 0.7,
             response_format={"type": "json_object"}
         )
         
@@ -196,27 +196,30 @@ def generate_voice_journaling_words(previous_words=None, regenerate=False):
         import json
         data = json.loads(result)
         
-        # Extract words from the response
-        if 'words' in data and isinstance(data['words'], list):
-            return data['words']
-        elif isinstance(data, list):
-            return data
+        if 'topics' in data and isinstance(data['topics'], list) and len(data['topics']) == 7:
+            return data['topics']
         else:
-            # Fallback: try to find any array in the response
-            for key in data:
-                if isinstance(data[key], list):
-                    return data[key]
-            return []
-            
+            # Fallback topics
+            return [
+                "Describe your ideal weekend",
+                "Talk about a recent challenge you overcame",
+                "What motivates you to keep learning?",
+                "Share a memorable experience from the past year",
+                "Discuss a book, movie, or article that impacted you",
+                "What are you grateful for today?",
+                "Describe your goals for the next month"
+            ]
     except Exception as e:
-        print(f"Error generating words: {e}")
-        # Return fallback words (3 words)
+        print(f"Error generating voice journaling topics: {e}")
         return [
-            {"word": "reflect", "part_of_speech": "verb", "hint": "Think back on your day"},
-            {"word": "grateful", "part_of_speech": "adjective", "hint": "Appreciate something positive"},
-            {"word": "accomplish", "part_of_speech": "verb", "hint": "Something you achieved"}
+            "Describe your ideal weekend",
+            "Talk about a recent challenge you overcame",
+            "What motivates you to keep learning?",
+            "Share a memorable experience from the past year",
+            "Discuss a book, movie, or article that impacted you",
+            "What are you grateful for today?",
+            "Describe your goals for the next month"
         ]
-
 
 def generate_weekly_prompt_words(previous_words=None, regenerate=False):
     """
