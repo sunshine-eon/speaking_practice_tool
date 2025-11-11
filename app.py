@@ -18,9 +18,10 @@ from progress_manager import (
 )
 from chatgpt_generator import (
     generate_voice_journaling_topics,
-    generate_shadowing_script,
+    generate_shadowing_scripts,
     generate_weekly_prompt,
     generate_weekly_prompt_words,
+    generate_shadowing_audio_openai_for_week,
 )
 from typecast_generator import (
     generate_shadowing_audio_for_week,
@@ -212,19 +213,60 @@ def api_generate_content(activity_id):
     # Get previous weeks' content to avoid repetition
     previous_content = get_previous_weeks_content(progress, week_key)
     
+    # Check if this is a regeneration (content already exists for this week)
+    current_week_data = progress['weeks'][week_key]
+    has_existing_content = False
+    
+    if activity_id == 'voice_journaling':
+        has_existing_content = bool(current_week_data.get('voice_journaling', {}).get('topics'))
+        # For regeneration, include current week's topics to avoid repetition
+        if has_existing_content:
+            current_topics = current_week_data.get('voice_journaling', {}).get('topics', [])
+            if current_topics:
+                previous_content['voice_journaling_topics'].extend(current_topics)
+    elif activity_id == 'shadowing_practice':
+        has_existing_content = bool(current_week_data.get('shadowing_practice', {}).get('script1') or 
+                                   current_week_data.get('shadowing_practice', {}).get('script'))
+        # For regeneration, include current script to avoid repetition
+        if has_existing_content:
+            current_script = current_week_data.get('shadowing_practice', {}).get('script1') or \
+                           current_week_data.get('shadowing_practice', {}).get('script', '')
+            if current_script:
+                script_words = current_script.split()[:50]  # First 50 words as summary
+                previous_content['shadowing_scripts'].insert(0, ' '.join(script_words))
+    elif activity_id == 'weekly_speaking_prompt':
+        has_existing_content = bool(current_week_data.get('weekly_speaking_prompt', {}).get('prompt'))
+        # For regeneration, include current prompt to avoid repetition
+        if has_existing_content:
+            current_prompt = current_week_data.get('weekly_speaking_prompt', {}).get('prompt', '')
+            if current_prompt:
+                previous_content['weekly_prompts'].insert(0, current_prompt)
+    
     try:
         if activity_id == 'voice_journaling':
-            topics = generate_voice_journaling_topics(previous_content.get('voice_journaling_topics'))
+            topics = generate_voice_journaling_topics(
+                previous_content.get('voice_journaling_topics'),
+                regenerate=has_existing_content
+            )
             progress['weeks'][week_key]['voice_journaling']['topics'] = topics
             result = {'topics': topics}
             
         elif activity_id == 'shadowing_practice':
-            script = generate_shadowing_script(previous_content.get('shadowing_scripts'))
-            progress['weeks'][week_key]['shadowing_practice']['script'] = script
-            result = {'script': script}
+            scripts = generate_shadowing_scripts(
+                previous_content.get('shadowing_scripts'),
+                regenerate=has_existing_content
+            )
+            progress['weeks'][week_key]['shadowing_practice']['script1'] = scripts['script1']
+            progress['weeks'][week_key]['shadowing_practice']['script2'] = scripts['script2']
+            # Keep 'script' for backwards compatibility (defaults to script1)
+            progress['weeks'][week_key]['shadowing_practice']['script'] = scripts['script1']
+            result = {'script1': scripts['script1'], 'script2': scripts['script2']}
             
         elif activity_id == 'weekly_speaking_prompt':
-            prompt = generate_weekly_prompt(previous_content.get('weekly_prompts'))
+            prompt = generate_weekly_prompt(
+                previous_content.get('weekly_prompts'),
+                regenerate=has_existing_content
+            )
             progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = prompt
             result = {'prompt': prompt}
             
@@ -263,9 +305,195 @@ def api_get_voices():
         return jsonify({'error': f'Failed to fetch voices: {str(e)}'}), 500
 
 
+@app.route('/api/generate-audio-single', methods=['POST'])
+def api_generate_audio_single():
+    """Generate audio for a single script using both Typecast and OpenAI TTS."""
+    data = request.get_json()
+    week_key = data.get('week_key') if data else None
+    script_num = data.get('script_num', 1) if data else 1  # 1 or 2
+    voice_id = data.get('voice_id') if data else None  # Typecast voice ID
+    typecast_model = data.get('typecast_model') if data else None  # Typecast model (ssfm-v21 or ssfm-v30)
+    openai_voice = data.get('openai_voice') if data else None  # OpenAI voice (alloy, echo, fable, onyx, nova, shimmer)
+    speed = data.get('speed', 1.0) if data else 1.0  # Default speed (used if typecast_speed/openai_speed not provided)
+    typecast_speed = data.get('typecast_speed') if data else None  # Typecast-specific speed
+    openai_speed = data.get('openai_speed') if data else None  # OpenAI-specific speed
+    source_type = data.get('source_type') if data else None  # 'typecast', 'openai', or None (both)
+    
+    if week_key is None:
+        week_key = get_current_week_key()
+    
+    progress = load_progress()
+    ensure_week_exists(progress, week_key)
+    
+    script = progress['weeks'][week_key]['shadowing_practice'].get(f'script{script_num}', '')
+    
+    # Fallback to legacy 'script' field if script1 doesn't exist
+    if not script and script_num == 1:
+        script = progress['weeks'][week_key]['shadowing_practice'].get('script', '')
+    
+    if not script:
+        return jsonify({'error': f'No script{script_num} available. Generate scripts first.'}), 400
+    
+    try:
+        typecast_result = None
+        openai_result = None
+        typecast_error = None
+        openai_error = None
+        
+        # Determine speeds and model to use
+        typecast_speed_to_use = typecast_speed if typecast_speed is not None else speed
+        openai_speed_to_use = openai_speed if openai_speed is not None else speed
+        typecast_model_to_use = typecast_model if typecast_model is not None else "ssfm-v21"
+        
+        # Generate Typecast audio (only if source_type is None or 'typecast')
+        if source_type is None or source_type == 'typecast':
+            try:
+                typecast_result = generate_shadowing_audio_for_week(script, f"{week_key}_script{script_num}", voice_id=voice_id, speed=typecast_speed_to_use, model=typecast_model_to_use, return_timestamps=True)
+            except Exception as e:
+                typecast_error = str(e)
+                import traceback
+                traceback.print_exc()
+        
+        # Generate OpenAI audio (only if source_type is None or 'openai')
+        if source_type is None or source_type == 'openai':
+            try:
+                openai_result = generate_shadowing_audio_openai_for_week(script, f"{week_key}_script{script_num}", voice=openai_voice, speed=openai_speed_to_use, return_timestamps=True)
+            except Exception as e:
+                openai_error = str(e)
+                import traceback
+                traceback.print_exc()
+        
+        # Check if at least one succeeded (or the requested one succeeded)
+        if source_type == 'typecast':
+            if not typecast_result:
+                error_msg = "Failed to generate Typecast audio."
+                if typecast_error:
+                    error_msg = f"Failed to generate Typecast audio: {typecast_error}"
+                return jsonify({'error': error_msg}), 500
+        elif source_type == 'openai':
+            if not openai_result:
+                error_msg = "Failed to generate OpenAI audio. "
+                if openai_error:
+                    error_msg += f"Error: {openai_error}. "
+                return jsonify({'error': error_msg}), 500
+        else:
+            # Both should be generated, at least one must succeed
+            if not typecast_result and not openai_result:
+                error_msg = "Failed to generate both audio versions. "
+                if typecast_error:
+                    error_msg += f"Typecast error: {typecast_error}. "
+                if openai_error:
+                    error_msg += f"OpenAI error: {openai_error}. "
+                return jsonify({'error': error_msg}), 500
+        
+        # Get voice name from available voices
+        from typecast_generator import get_available_voices
+        voice_name = None
+        if voice_id:
+            voices = get_available_voices(language='eng')
+            for v in voices:
+                if v.get('voice_id') == voice_id:
+                    voice_name = v.get('name')
+                    break
+        
+        # Store audio for this specific script (store what was successfully generated)
+        typecast_url = None
+        typecast_timestamps = None
+        openai_url = None
+        openai_timestamps = None
+        
+        if typecast_result:
+            typecast_url, typecast_timestamps = typecast_result
+            progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_typecast_url'] = typecast_url
+            progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_typecast_timestamps'] = typecast_timestamps
+            # Store Typecast settings
+            if voice_name:
+                progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_typecast_voice'] = voice_name
+            if typecast_model_to_use:
+                progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_typecast_model'] = typecast_model_to_use
+            if typecast_speed_to_use:
+                progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_typecast_speed'] = typecast_speed_to_use
+        
+        if openai_result:
+            openai_url, openai_timestamps = openai_result
+            progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_openai_url'] = openai_url
+            progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_openai_timestamps'] = openai_timestamps
+            # Store OpenAI settings
+            if openai_voice:
+                progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_openai_voice'] = openai_voice
+            if openai_speed_to_use:
+                progress['weeks'][week_key]['shadowing_practice'][f'script{script_num}_openai_speed'] = openai_speed_to_use
+        
+        # Update legacy fields if this is script1 (prefer Typecast, fallback to OpenAI)
+        if script_num == 1:
+            legacy_url = typecast_url or openai_url
+            if legacy_url:
+                progress['weeks'][week_key]['shadowing_practice']['audio_url'] = legacy_url
+            if typecast_url:
+                progress['weeks'][week_key]['shadowing_practice']['audio_typecast_url'] = typecast_url
+            if openai_url:
+                progress['weeks'][week_key]['shadowing_practice']['audio_openai_url'] = openai_url
+        
+        if voice_name:
+            progress['weeks'][week_key]['shadowing_practice']['voice_name'] = voice_name
+        if speed:
+            progress['weeks'][week_key]['shadowing_practice']['audio_speed'] = speed
+        progress['last_updated'] = datetime.now().isoformat()
+        
+        # Save to file
+        if save_progress(progress):
+            result = {
+                'success': True,
+                'progress': progress,
+                'typecast_url': typecast_url,
+                'openai_url': openai_url,
+                'typecast_timestamps': typecast_timestamps,
+                'openai_timestamps': openai_timestamps,
+                'warnings': []
+            }
+            
+            # Add warnings if one failed (only when generating both)
+            if source_type is None:
+                if not typecast_result:
+                    result['warnings'].append('Typecast audio generation failed')
+                if not openai_result:
+                    result['warnings'].append('OpenAI audio generation failed')
+            
+            try:
+                return jsonify(result)
+            except (BrokenPipeError, OSError) as e:
+                # Connection was closed by client, but we still saved the progress
+                print(f"Connection closed by client during response: {e}")
+                # Return a simple response that won't cause issues
+                return jsonify({'success': True, 'note': 'Audio generated but connection closed'}), 200
+        else:
+            return jsonify({'error': 'Failed to save audio URLs'}), 500
+            
+    except BrokenPipeError as e:
+        # Client disconnected during processing
+        print(f"Broken pipe error - client disconnected: {e}")
+        return jsonify({'error': 'Connection interrupted. Audio generation may have completed. Please refresh the page.'}), 500
+    except OSError as e:
+        # Other connection-related errors
+        if e.errno == 32:  # Broken pipe
+            print(f"Broken pipe error (errno 32): {e}")
+            return jsonify({'error': 'Connection interrupted. Audio generation may have completed. Please refresh the page.'}), 500
+        else:
+            print(f"OS error: {e}")
+            return jsonify({'error': f'Failed to generate audio: {str(e)}'}), 500
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': f'Failed to generate audio: {str(e)}'}), 500
+
+
 @app.route('/api/generate-audio', methods=['POST'])
 def api_generate_audio():
-    """Generate audio from script using Typecast.ai."""
+    """
+    Generate audio from both scripts using both Typecast and OpenAI TTS.
+    NOTE: This endpoint is legacy and may not be actively used.
+    For new code, use /api/generate-audio-single instead.
+    """
     data = request.get_json()
     week_key = data.get('week_key') if data else None
     voice_id = data.get('voice_id') if data else None
@@ -277,15 +505,32 @@ def api_generate_audio():
     progress = load_progress()
     ensure_week_exists(progress, week_key)
     
-    script = progress['weeks'][week_key]['shadowing_practice'].get('script', '')
-    if not script:
-        return jsonify({'error': 'No script available. Generate script first.'}), 400
+    script1 = progress['weeks'][week_key]['shadowing_practice'].get('script1', '')
+    script2 = progress['weeks'][week_key]['shadowing_practice'].get('script2', '')
+    
+    # Fallback to legacy 'script' field if script1 doesn't exist
+    if not script1:
+        script1 = progress['weeks'][week_key]['shadowing_practice'].get('script', '')
+    
+    if not script1:
+        return jsonify({'error': 'No scripts available. Generate scripts first.'}), 400
     
     try:
-        # Generate audio from script with selected voice and speed
-        audio_url = generate_shadowing_audio_for_week(script, week_key, voice_id=voice_id, speed=speed)
+        # Generate audio for Script 1
+        typecast_result1 = generate_shadowing_audio_for_week(script1, f"{week_key}_script1", voice_id=voice_id, speed=speed, return_timestamps=True)
+        openai_result1 = generate_shadowing_audio_openai_for_week(script1, f"{week_key}_script1", speed=speed, return_timestamps=True)
         
-        if audio_url:
+        # Generate audio for Script 2 (if it exists)
+        typecast_result2 = None
+        openai_result2 = None
+        if script2:
+            typecast_result2 = generate_shadowing_audio_for_week(script2, f"{week_key}_script2", voice_id=voice_id, speed=speed, return_timestamps=True)
+            openai_result2 = generate_shadowing_audio_openai_for_week(script2, f"{week_key}_script2", speed=speed, return_timestamps=True)
+        
+        if typecast_result1 and openai_result1:
+            typecast_url1, typecast_timestamps1 = typecast_result1
+            openai_url1, openai_timestamps1 = openai_result1
+            
             # Get voice name from available voices
             from typecast_generator import get_available_voices
             voice_name = None
@@ -296,8 +541,26 @@ def api_generate_audio():
                         voice_name = v.get('name')
                         break
             
-            # Update progress with audio URL, voice name, and speed
-            progress['weeks'][week_key]['shadowing_practice']['audio_url'] = audio_url
+            # Store Script 1 audio
+            progress['weeks'][week_key]['shadowing_practice']['script1_typecast_url'] = typecast_url1
+            progress['weeks'][week_key]['shadowing_practice']['script1_openai_url'] = openai_url1
+            progress['weeks'][week_key]['shadowing_practice']['script1_typecast_timestamps'] = typecast_timestamps1
+            progress['weeks'][week_key]['shadowing_practice']['script1_openai_timestamps'] = openai_timestamps1
+            
+            # Store Script 2 audio (if generated)
+            if typecast_result2 and openai_result2:
+                typecast_url2, typecast_timestamps2 = typecast_result2
+                openai_url2, openai_timestamps2 = openai_result2
+                progress['weeks'][week_key]['shadowing_practice']['script2_typecast_url'] = typecast_url2
+                progress['weeks'][week_key]['shadowing_practice']['script2_openai_url'] = openai_url2
+                progress['weeks'][week_key]['shadowing_practice']['script2_typecast_timestamps'] = typecast_timestamps2
+                progress['weeks'][week_key]['shadowing_practice']['script2_openai_timestamps'] = openai_timestamps2
+            
+            # Keep legacy fields for backwards compatibility (pointing to script1)
+            progress['weeks'][week_key]['shadowing_practice']['audio_url'] = typecast_url1
+            progress['weeks'][week_key]['shadowing_practice']['audio_typecast_url'] = typecast_url1
+            progress['weeks'][week_key]['shadowing_practice']['audio_openai_url'] = openai_url1
+            
             if voice_name:
                 progress['weeks'][week_key]['shadowing_practice']['voice_name'] = voice_name
             if speed:
@@ -306,15 +569,24 @@ def api_generate_audio():
             
             # Save to file
             if save_progress(progress):
-                return jsonify({
+                result = {
                     'success': True,
                     'progress': progress,
-                    'audio_url': audio_url
-                })
+                    'script1_typecast_url': typecast_url1,
+                    'script1_openai_url': openai_url1,
+                    'script1_typecast_timestamps': typecast_timestamps1,
+                    'script1_openai_timestamps': openai_timestamps1
+                }
+                if typecast_result2 and openai_result2:
+                    result['script2_typecast_url'] = typecast_url2
+                    result['script2_openai_url'] = openai_url2
+                    result['script2_typecast_timestamps'] = typecast_timestamps2
+                    result['script2_openai_timestamps'] = openai_timestamps2
+                return jsonify(result)
             else:
-                return jsonify({'error': 'Failed to save audio URL'}), 500
+                return jsonify({'error': 'Failed to save audio URLs'}), 500
         else:
-            return jsonify({'error': 'Failed to generate audio'}), 500
+            return jsonify({'error': 'Failed to generate audio for Script 1'}), 500
             
     except Exception as e:
         return jsonify({'error': f'Failed to generate audio: {str(e)}'}), 500
@@ -374,7 +646,7 @@ def api_generate_all():
             previous_content.get('voice_journaling_topics'),
             regenerate=has_existing_content
         )  # 7 daily topics
-        script = generate_shadowing_script(
+        scripts = generate_shadowing_scripts(
             previous_content.get('shadowing_scripts'),
             regenerate=has_existing_content
         )
@@ -392,7 +664,10 @@ def api_generate_all():
         
         # Update progress
         progress['weeks'][week_key]['voice_journaling']['topics'] = voice_journaling_topics
-        progress['weeks'][week_key]['shadowing_practice']['script'] = script
+        progress['weeks'][week_key]['shadowing_practice']['script1'] = scripts['script1']
+        progress['weeks'][week_key]['shadowing_practice']['script2'] = scripts['script2']
+        # Keep 'script' for backwards compatibility (defaults to script1)
+        progress['weeks'][week_key]['shadowing_practice']['script'] = scripts['script1']
         # Note: audio_url is NOT updated here - use separate "Generate audio" button
         progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = prompt
         progress['weeks'][week_key]['weekly_speaking_prompt']['words'] = weekly_prompt_words
@@ -410,7 +685,8 @@ def api_generate_all():
                 'regenerated': has_existing_content,  # Indicate if this was a regeneration
                 'generated': {
                     'voice_journaling_topics': voice_journaling_topics,
-                    'script': script,
+                    'script1': scripts['script1'],
+                    'script2': scripts['script2'],
                     'audio_url': None,  # Audio is generated separately via "Generate audio" button
                     'prompt': prompt,
                     'weekly_prompt_words': weekly_prompt_words

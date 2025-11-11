@@ -545,6 +545,7 @@ header h1 {
 }
 
 .voice-select,
+.model-select,
 .speed-select {
     padding: 0.5rem;
     border: 1px solid #ced4da;
@@ -561,16 +562,22 @@ header h1 {
     max-width: 200px;
 }
 
+.model-select {
+    flex: 0 0 110px;
+}
+
 .speed-select {
     flex: 0 0 95px;
 }
 
 .voice-select:hover,
+.model-select:hover,
 .speed-select:hover {
     border-color: #80bdff;
 }
 
 .voice-select:focus,
+.model-select:focus,
 .speed-select:focus {
     outline: none;
     border-color: #80bdff;
@@ -629,8 +636,7 @@ header h1 {
     font-weight: 500;
 }
 
-.audio-name-text,
-.prompt-text {
+.audio-name-text {
     margin-top: 0.5rem;
     padding: 0.7rem;
     color: #555;
@@ -641,7 +647,23 @@ header h1 {
 }
 
 .prompt-text {
+    margin-top: 0;
+    padding: 1rem;
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     min-height: 60px;
+}
+
+.prompt-indicator {
+    color: #666;
+    margin-right: 0.3rem;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 1.5rem;
 }
 
 .notes-section {
@@ -780,7 +802,7 @@ header h1 {
     background-color: #f8f9fa;
     border-left: 3px solid #3498db;
     border-radius: 4px;
-    max-height: 400px;
+    max-height: 300px;
     overflow-y: auto;
     text-indent: 0;
     padding-left: 0.7rem;
@@ -789,6 +811,230 @@ header h1 {
 
 .script-text.script-collapsible {
     display: none;
+}
+
+/* Script display */
+.script-display {
+    padding: 1rem;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f8f9fa;
+    border-left: 3px solid #3498db;
+    border-radius: 4px;
+    max-height: 300px;
+    max-width: 70ch;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+/* Audio player section - below script */
+.audio-player-section {
+    margin-top: 1rem;
+}
+
+.audio-player-with-options {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.audio-more-options-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    line-height: 1;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-more-options-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #2c3e50;
+}
+
+.audio-options-dropdown {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.audio-info-item {
+    font-size: 0.9rem;
+    color: #495057;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.audio-info-item:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.audio-regen-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.audio-regen-controls label {
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+
+.voice-select-compact,
+.model-select-compact,
+.speed-select-compact {
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.voice-select-compact:hover,
+.model-select-compact:hover,
+.speed-select-compact:hover {
+    border-color: #80bdff;
+}
+
+.voice-select-compact:focus,
+.model-select-compact:focus,
+.speed-select-compact:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.regen-btn-compact {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.regen-btn-compact:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #d35400 0%, #e67e22 100%);
+}
+
+.regen-btn-compact:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.regen-btn-compact:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Audio generation section (shown when no audio exists) */
+.audio-generation-section {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.audio-generation-header {
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+}
+
+.audio-generation-section .audio-generation-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.audio-generation-section .voice-select {
+    flex: 1.5;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.audio-generation-section .model-select {
+    flex: 0 0 110px;
+}
+
+.audio-generation-section .speed-select {
+    flex: 0 0 95px;
+}
+
+.audio-generation-section .generate-audio-btn {
+    flex: 1;
+    min-width: 140px;
+    max-width: 180px;
+}
+
+/* Audio source settings (Typecast and OpenAI sections) */
+.audio-source-settings {
+    margin-bottom: 1rem;
+}
+
+.source-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-size: 0.9rem;
+}
+
+.audio-generation-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .audio-generation-section .audio-generation-options {
+        flex-direction: column;
+    }
+    
+    .audio-generation-section .voice-select,
+    .audio-generation-section .model-select,
+    .audio-generation-section .speed-select,
+    .audio-generation-section .generate-audio-btn {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .audio-regen-controls {
+        width: 100%;
+    }
+    
+    .voice-select-compact,
+    .speed-select-compact,
+    .regen-btn-compact {
+        width: 100%;
+    }
 }
 
 .generate-btn {
@@ -1134,3 +1380,338 @@ header h1 {
     height: 32px;
 }
 
+
+/* Script tabs for shadowing practice */
+.script-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.script-tab {
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.script-tab:hover {
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.script-tab.active {
+    color: #2196f3;
+    border-bottom-color: #2196f3;
+}
+
+/* Script content containers */
+.script-content {
+    display: none;
+}
+
+.script-content.active {
+    display: block;
+}
+
+/* Old audio player wrapper removed - using custom controls now */
+
+/* Old paragraph markers removed - now using overlay on progress bar */
+
+/* Audio player container */
+.audio-player-container {
+    margin-bottom: 1rem;
+}
+
+.audio-player-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Activity kebab menu button */
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.activity-kebab-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.activity-kebab-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Activity options dropdown */
+.activity-options-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    margin-top: 0.25rem;
+    min-width: 180px;
+}
+
+.activity-option-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.activity-option-btn:hover {
+    background-color: #f5f5f5;
+}
+
+/* Audio kebab menu button */
+.audio-kebab-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    margin-bottom: 0.5rem;
+}
+
+.audio-kebab-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Audio regenerate dropdown */
+.audio-regen-dropdown {
+    position: relative;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    z-index: 100;
+}
+
+.audio-regen-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.audio-regen-controls label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.audio-regen-controls .voice-select-compact,
+.audio-regen-controls .speed-select-compact {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.audio-regen-controls .regen-btn-compact {
+    padding: 0.5rem 1rem;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.audio-regen-controls .regen-btn-compact:hover:not(:disabled) {
+    background-color: #1976d2;
+}
+
+.audio-regen-controls .regen-btn-compact:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Download audio link - subtle styling */
+.audio-option-section {
+    margin-bottom: 0.5rem;
+}
+
+.download-audio-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    display: inline-block;
+    transition: color 0.2s;
+    border-radius: 3px;
+}
+
+.download-audio-link:hover {
+    color: #2196f3;
+    background-color: #f5f5f5;
+}
+
+.audio-option-divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 0.75rem 0;
+}
+
+/* Generate audio button - prevent resizing */
+.generate-audio-btn {
+    min-width: 120px;
+    white-space: nowrap;
+}
+
+.regen-btn-compact {
+    min-width: 100px;
+    white-space: nowrap;
+}
+
+/* Custom audio player controls */
+.audio-player-wrapper-custom {
+    flex: 1;
+    position: relative;
+}
+
+audio {
+    display: none; /* Hide native audio controls */
+}
+
+.custom-audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    position: relative;
+    isolation: isolate;
+}
+
+.play-pause-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.play-pause-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.progress-bar-container {
+    flex: 1;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #2196f3;
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    font-size: 0.85rem;
+    color: #666;
+    min-width: 80px;
+    text-align: right;
+    font-family: monospace;
+    white-space: nowrap;
+    position: relative;
+    z-index: 10;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Audio player with options - kebab button inline */
+.audio-player-with-options {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.audio-more-options-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    line-height: 1;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.audio-more-options-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #2c3e50;
+}
+
+/* Audio regenerate dropdown - positioned absolutely relative to kebab button */
+.audio-regen-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    z-index: 1000;
+    min-width: 250px;
+}

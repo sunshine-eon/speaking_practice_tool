@@ -9,15 +9,15 @@ Copy prompts.py.example to prompts.py and customize as needed.
 """
 
 # Shared background context for all ChatGPT prompts
-BACKGROUND_CONTEXT = """You are helping a learner who is following a 24-month speaking practice roadmap to prepare for product management job interviews. 
+BACKGROUND_CONTEXT = """You are helping a learner who is following a 24-month speaking practice roadmap to build professional English communication skills. 
 
 Context:
-- Goal: Prepare for PM job interviews in 24 months (currently in Phase 1: 0-6 months)
+- Goal: Develop fluency and confidence in professional speaking contexts (currently in Phase 1: 0-6 months)
 - Phase 1 Focus: Daily Speaking Habits - building consistency, real-time speaking flow, and natural delivery
 - Learning approach: Progressive weekly practice with three main activities
-- Target: Product management roles that require strong English communication skills
+- Target: Professional contexts that require strong English communication skills
 
-The learner is committed to building speaking fluency and the ability to articulate PM concepts clearly. 
+The learner is committed to building speaking fluency and the ability to articulate professional concepts clearly. 
 Content should be practical, engaging, and progressively challenging. Each week builds on previous practice."""
 
 # Voice journaling topics prompt components
@@ -49,7 +49,7 @@ Respond with a JSON object containing a 'topics' array with 7 topic strings."""
 VOICE_JOURNALING_TOPICS_USER_PROMPT = """Generate 7 unique daily topics for this week's voice journaling practice. Each topic should be interesting, natural, and help the learner practice speaking spontaneously for 2-3 minutes about everyday life. Make them varied and engaging - not formal interview questions. Respond in JSON format: {"topics": ["topic 1", "topic 2", ..., "topic 7"]}"""
 
 # Weekly prompt words prompt components
-WEEKLY_PROMPT_WORDS_SYSTEM_PROMPT_EXTRA = """You are generating 5 words for weekly speaking prompt practice focused on product management. These words will be used in a 3-5 minute speaking practice session where the learner discusses PM concepts, preparing for future job interviews.
+WEEKLY_PROMPT_WORDS_SYSTEM_PROMPT_EXTRA = """You are generating 5 words for weekly speaking prompt practice focused on product management. These words will be used in a 3-5 minute speaking practice session where the learner discusses PM concepts in professional contexts.
 
 IMPORTANT: Avoid words that have appeared in 3 or more consecutive recent weeks. It's fine if a word from 5 weeks ago comes back (that shows it's important), but avoid words that appeared week after week recently. The system will provide you with words that appeared 3+ consecutive weeks to avoid.
 
@@ -58,7 +58,7 @@ The words should be relevant to product management topics like: strategy, user e
 For each word, provide: the word, its part of speech, and a brief context hint (one sentence) that helps the learner understand how to use it in PM contexts.
 Respond with a JSON object containing a 'words' array, where each word is an object with 'word', 'part_of_speech', and 'hint' fields."""
 
-WEEKLY_PROMPT_WORDS_USER_PROMPT = """Generate 5 product management-related words for this week's speaking prompt practice. These words should help build PM vocabulary and can be naturally incorporated into a 3-5 minute speaking practice about PM concepts. Focus on practical PM terminology that will be useful in future interviews. Respond in JSON format: {"words": [{"word": "...", "part_of_speech": "...", "hint": "..."}, ...]}"""
+WEEKLY_PROMPT_WORDS_USER_PROMPT = """Generate 5 product management-related words for this week's speaking prompt practice. These words should help build PM vocabulary and can be naturally incorporated into a 3-5 minute speaking practice about PM concepts. Focus on practical PM terminology that will be useful in professional contexts. Respond in JSON format: {"words": [{"word": "...", "part_of_speech": "...", "hint": "..."}, ...]}"""
 
 # Shadowing script prompt components
 SHADOWING_SCRIPT_SYSTEM_PROMPT_EXTRA = """You are a TED talk script writer creating engaging 7-10 minute talks.
@@ -97,10 +97,10 @@ Imagine waking up one morning to find... (and continue with the full speech)
 Count your words carefully to ensure you reach 875-1,250 words."""
 
 # Weekly speaking prompt prompt components
-WEEKLY_PROMPT_SYSTEM_PROMPT_EXTRA = """You are a product management interview coach helping someone prepare for PM interviews.
+WEEKLY_PROMPT_SYSTEM_PROMPT_EXTRA = """You are a product management communication coach helping someone build professional speaking skills.
 Generate thoughtful speaking prompts focused on product management topics with helpful hints."""
 
-WEEKLY_PROMPT_USER_PROMPT = """Generate a weekly speaking prompt for product management interview preparation.
+WEEKLY_PROMPT_USER_PROMPT = """Generate a weekly speaking prompt for product management communication practice.
 
 The prompt should:
 - Focus on a specific PM topic or skill (user research, prioritization, metrics, stakeholder management, product strategy, etc.)

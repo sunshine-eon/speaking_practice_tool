@@ -119,6 +119,7 @@ function renderActivities() {
         const activityElement = createActivityElement(activity);
         activitiesContainer.appendChild(activityElement);
     });
+    
 }
 
 // Create activity element
@@ -196,69 +197,528 @@ function createActivityElement(activity) {
             </div>
         `;
     } else if (activity.id === 'shadowing_practice') {
-        // Shadowing Practice: Show audio player, audio name, and script
+        // Shadowing Practice: Show tabs for two scripts, audio players for each
         const audioName = activityProgress?.video_name || '';  // Using video_name field for audio name
-        const audioUrl = activityProgress?.audio_url || '';
-        const script = activityProgress?.script || '';
+        const script1 = activityProgress?.script1 || activityProgress?.script || '';
+        const script2 = activityProgress?.script2 || '';
+        
+        // Audio URLs and timestamps for Script 1
+        const script1TypecastUrl = activityProgress?.script1_typecast_url || activityProgress?.audio_typecast_url || activityProgress?.audio_url || '';
+        const script1OpenaiUrl = activityProgress?.script1_openai_url || activityProgress?.audio_openai_url || '';
+        const script1TypecastTimestamps = activityProgress?.script1_typecast_timestamps || activityProgress?.typecast_timestamps || [];
+        const script1OpenaiTimestamps = activityProgress?.script1_openai_timestamps || activityProgress?.openai_timestamps || [];
+        
+        // Audio URLs and timestamps for Script 2
+        const script2TypecastUrl = activityProgress?.script2_typecast_url || '';
+        const script2OpenaiUrl = activityProgress?.script2_openai_url || '';
+        const script2TypecastTimestamps = activityProgress?.script2_typecast_timestamps || [];
+        const script2OpenaiTimestamps = activityProgress?.script2_openai_timestamps || [];
+        
         const voiceName = activityProgress?.voice_name || '';
         const audioSpeed = activityProgress?.audio_speed || '';
-        const scriptId = `script-${activity.id}-${currentWeek}`;
-        const hasScript = script && script.trim() !== '';
-        const hasAudio = audioUrl && audioUrl.trim() !== '';
+        
+        // Get settings for each audio source
+        const script1TypecastVoice = activityProgress?.script1_typecast_voice || '';
+        const script1TypecastModel = activityProgress?.script1_typecast_model || '';
+        const script1TypecastSpeed = activityProgress?.script1_typecast_speed || '';
+        const script1OpenaiVoice = activityProgress?.script1_openai_voice || '';
+        const script1OpenaiSpeed = activityProgress?.script1_openai_speed || '';
+        
+        const script2TypecastVoice = activityProgress?.script2_typecast_voice || '';
+        const script2TypecastModel = activityProgress?.script2_typecast_model || '';
+        const script2TypecastSpeed = activityProgress?.script2_typecast_speed || '';
+        const script2OpenaiVoice = activityProgress?.script2_openai_voice || '';
+        const script2OpenaiSpeed = activityProgress?.script2_openai_speed || '';
+        
+        // Helper function to format settings label
+        const formatSettingsLabel = (voice, model, speed, sourceType) => {
+            const parts = [];
+            if (voice) {
+                // Capitalize OpenAI voice names (onyx -> Onyx, alloy -> Alloy, etc.)
+                const voiceDisplay = sourceType === 'openai' 
+                    ? voice.charAt(0).toUpperCase() + voice.slice(1)
+                    : voice;
+                parts.push(voiceDisplay);
+            }
+            if (model && sourceType === 'typecast') {
+                // Format model name nicely - only v21 now
+                const modelDisplay = model === 'ssfm-v21' ? 'SSFM v21' : model;
+                parts.push(modelDisplay);
+            }
+            if (speed) {
+                // Format speed to always show one decimal place (1.0x instead of 1x)
+                const speedNum = parseFloat(speed) || 1.0;
+                parts.push(`${speedNum.toFixed(1)}x`);
+            }
+            return parts.length > 0 ? ` (${parts.join(', ')})` : '';
+        };
+        
+        const hasScript1 = script1 && script1.trim() !== '';
+        const hasScript2 = script2 && script2.trim() !== '';
+        const hasTypecastAudio1 = script1TypecastUrl && script1TypecastUrl.trim() !== '';
+        const hasOpenaiAudio1 = script1OpenaiUrl && script1OpenaiUrl.trim() !== '';
+        const hasAudio1 = hasTypecastAudio1 || hasOpenaiAudio1;
+        const hasTypecastAudio2 = script2TypecastUrl && script2TypecastUrl.trim() !== '';
+        const hasOpenaiAudio2 = script2OpenaiUrl && script2OpenaiUrl.trim() !== '';
+        const hasAudio2 = hasTypecastAudio2 || hasOpenaiAudio2;
         
         activityContent = `
             <div class="shadowing-audio-info">
-                <div class="audio-name-section">
-                    <strong>This week's audio:</strong>
-                    ${hasAudio && (voiceName || audioSpeed) ? `
-                        <div class="audio-metadata">
-                            ${voiceName ? `Voice: ${escapeHtml(voiceName)}` : ''}${voiceName && audioSpeed ? ' • ' : ''}${audioSpeed ? `Speed: ${audioSpeed}x` : ''}
+                <!-- Tabs for switching between scripts -->
+                <div class="script-tabs">
+                    <button class="script-tab active" onclick="switchScript('${currentWeek}', 1); event.stopPropagation();" id="tab-${currentWeek}-1">Script 1</button>
+                    ${hasScript2 ? `<button class="script-tab" onclick="switchScript('${currentWeek}', 2); event.stopPropagation();" id="tab-${currentWeek}-2">Script 2</button>` : ''}
+                </div>
+                
+                <!-- Script 1 Content -->
+                <div class="script-content active" id="script-${currentWeek}-1">
+                    <div class="script-display">${escapeHtml(script1) || 'No script generated yet'}</div>
+                    ${hasAudio1 ? `
+                    <div class="audio-player-section">
+                            ${script1TypecastUrl ? `
+                                <div class="audio-player-container">
+                                    <div class="audio-player-label">Typecast Audio${formatSettingsLabel(script1TypecastVoice, script1TypecastModel, script1TypecastSpeed, 'typecast')}:</div>
+                        <div class="audio-player-with-options">
+                                        <div class="audio-player-wrapper-custom">
+                                            <audio id="audio-player-typecast-${currentWeek}-1" data-week="${currentWeek}" data-script="1" data-source="typecast">
+                                                <source src="/static/${script1TypecastUrl}?v=${Date.now()}" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                                            <div class="custom-audio-controls" id="controls-typecast-${currentWeek}-1">
+                                                <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 1)">▶</button>
+                                                <div class="progress-bar-container" onclick="seekAudio('typecast', '${currentWeek}', 1, event)">
+                                                    <div class="progress-bar" id="progress-typecast-${currentWeek}-1"></div>
+                        </div>
+                                                <span class="time-display" id="time-typecast-${currentWeek}-1">0:00 / 0:00</span>
+                                            </div>
+                                        </div>
+                                        <button class="audio-more-options-btn" onclick="toggleAudioRegenOptions('${currentWeek}', 1, 'typecast', event); event.stopPropagation();" title="Audio options">⋮</button>
+                                        <div class="audio-regen-dropdown" id="audio-regen-${currentWeek}-1" style="display: none;">
+                                            <div class="audio-regen-controls">
+                                                <div class="audio-option-section">
+                                                    <label><strong>Playback Speed:</strong></label>
+                                                    <select id="playback-speed-typecast-${currentWeek}-1" class="speed-select-compact" onchange="setPlaybackSpeed('typecast', '${currentWeek}', 1, this.value); event.stopPropagation();">
+                                                        <option value="0.5">0.5x</option>
+                                                        <option value="0.75">0.75x</option>
+                                                        <option value="0.8">0.8x</option>
+                                                        <option value="0.9">0.9x</option>
+                                                        <option value="1.0" selected>1.0x</option>
+                                                        <option value="1.1">1.1x</option>
+                                                        <option value="1.25">1.25x</option>
+                                                        <option value="1.5">1.5x</option>
+                                                        <option value="1.75">1.75x</option>
+                                                        <option value="2.0">2.0x</option>
+                                                    </select>
+                                                </div>
+                                                <div class="audio-option-divider"></div>
+                                                <div class="audio-option-section">
+                                                    <a href="/static/${script1TypecastUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
+                                                        ⬇️ Download
+                                                    </a>
+                                                </div>
+                                                <div class="audio-option-divider"></div>
+                                                <label><strong>Re-generate Typecast audio:</strong></label>
+                                                <select id="voice-select-regen-${currentWeek}-1" class="voice-select-compact">
+                                                    <option value="">Loading voices...</option>
+                                                </select>
+                                                <select id="model-select-regen-${currentWeek}-1" class="model-select-compact" style="display: none;">
+                                                    <option value="ssfm-v21" selected>SSFM v21</option>
+                                                </select>
+                                                <select id="speed-select-regen-${currentWeek}-1" class="speed-select-compact">
+                                                    <option value="0.8">0.8x</option>
+                                                    <option value="0.9">0.9x</option>
+                                                    <option value="1.0" selected>1.0x</option>
+                                                    <option value="1.1">1.1x</option>
+                                                    <option value="1.2">1.2x</option>
+                                                    <option value="1.3">1.3x</option>
+                                                    <option value="1.4">1.4x</option>
+                                                    <option value="1.5">1.5x</option>
+                                                    <option value="1.6">1.6x</option>
+                                                    <option value="1.7">1.7x</option>
+                                                    <option value="1.8">1.8x</option>
+                                                    <option value="1.9">1.9x</option>
+                                                    <option value="2.0">2.0x</option>
+                                                </select>
+                                                <button class="regen-btn-compact" onclick="generateAudioForScript('${currentWeek}', 1, this, 'typecast'); event.stopPropagation();">
+                                                    Re-generate
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ` : ''}
+                            ${script1OpenaiUrl ? `
+                                <div class="audio-player-container">
+                                    <div class="audio-player-label">OpenAI Audio${formatSettingsLabel(script1OpenaiVoice, null, script1OpenaiSpeed, 'openai')}:</div>
+                                    <div class="audio-player-with-options">
+                                        <div class="audio-player-wrapper-custom">
+                                            <audio id="audio-player-openai-${currentWeek}-1" data-week="${currentWeek}" data-script="1" data-source="openai">
+                                                <source src="/static/${script1OpenaiUrl}?v=${Date.now()}" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <div class="custom-audio-controls" id="controls-openai-${currentWeek}-1">
+                                                <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 1)">▶</button>
+                                                <div class="progress-bar-container" onclick="seekAudio('openai', '${currentWeek}', 1, event)">
+                                                    <div class="progress-bar" id="progress-openai-${currentWeek}-1"></div>
+                                                </div>
+                                                <span class="time-display" id="time-openai-${currentWeek}-1">0:00 / 0:00</span>
+                                            </div>
+                                        </div>
+                                        <button class="audio-more-options-btn" onclick="toggleAudioRegenOptions('${currentWeek}', 1, 'openai', event); event.stopPropagation();" title="Audio options">⋮</button>
+                                        <div class="audio-regen-dropdown" id="audio-regen-openai-${currentWeek}-1" style="display: none;">
+                            <div class="audio-regen-controls">
+                                                <div class="audio-option-section">
+                                                    <label><strong>Playback Speed:</strong></label>
+                                                    <select id="playback-speed-openai-${currentWeek}-1" class="speed-select-compact" onchange="setPlaybackSpeed('openai', '${currentWeek}', 1, this.value); event.stopPropagation();">
+                                                        <option value="0.5">0.5x</option>
+                                                        <option value="0.75">0.75x</option>
+                                                        <option value="0.8">0.8x</option>
+                                                        <option value="0.9">0.9x</option>
+                                                        <option value="1.0" selected>1.0x</option>
+                                                        <option value="1.1">1.1x</option>
+                                                        <option value="1.25">1.25x</option>
+                                                        <option value="1.5">1.5x</option>
+                                                        <option value="1.75">1.75x</option>
+                                                        <option value="2.0">2.0x</option>
+                                                    </select>
+                                                </div>
+                                                <div class="audio-option-divider"></div>
+                                                <div class="audio-option-section">
+                                                    <a href="/static/${script1OpenaiUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
+                                                        ⬇️ Download
+                                                    </a>
+                                                </div>
+                                                <div class="audio-option-divider"></div>
+                                                <label><strong>Re-generate OpenAI audio:</strong></label>
+                                                <select id="voice-select-regen-openai-${currentWeek}-1" class="voice-select-compact">
+                                    <option value="">Loading voices...</option>
+                                </select>
+                                                <select id="speed-select-regen-openai-${currentWeek}-1" class="speed-select-compact">
+                                    <option value="0.8">0.8x</option>
+                                    <option value="0.9">0.9x</option>
+                                    <option value="1.0" selected>1.0x</option>
+                                    <option value="1.1">1.1x</option>
+                                    <option value="1.2">1.2x</option>
+                                    <option value="1.3">1.3x</option>
+                                    <option value="1.4">1.4x</option>
+                                    <option value="1.5">1.5x</option>
+                                    <option value="1.6">1.6x</option>
+                                    <option value="1.7">1.7x</option>
+                                    <option value="1.8">1.8x</option>
+                                    <option value="1.9">1.9x</option>
+                                    <option value="2.0">2.0x</option>
+                                </select>
+                                                <button class="regen-btn-compact" onclick="generateAudioForScript('${currentWeek}', 1, this, 'openai'); event.stopPropagation();">
+                                    Re-generate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                                </div>
+                            ` : ''}
                         </div>
                     ` : ''}
-                    ${hasAudio ? `
-                        <audio controls style="width: 100%; margin-top: 0.5rem; margin-bottom: 0.5rem;">
-                            <source src="/static/${audioUrl}?v=${Date.now()}" type="audio/wav">
-                            Your browser does not support the audio element.
-                        </audio>
+                    
+                    <!-- Audio generation for Script 1 (shown when audio is missing) -->
+                    ${!hasTypecastAudio1 || !hasOpenaiAudio1 ? `
+                    <div class="audio-generation-section">
+                        <div class="audio-generation-header">
+                            <strong>Generate Audio:</strong>
+                        </div>
+                            
+                            ${!hasTypecastAudio1 ? `
+                            <!-- Typecast Settings -->
+                            <div class="audio-source-settings">
+                                <label class="source-label"><strong>Typecast:</strong></label>
+                        <div class="audio-generation-options">
+                                    <select id="voice-select-typecast-${currentWeek}-1" class="voice-select" ${!hasScript1 ? 'disabled' : ''}>
+                                <option value="">Loading voices...</option>
+                            </select>
+                                    <select id="model-select-typecast-${currentWeek}-1" class="model-select" ${!hasScript1 ? 'disabled' : ''} style="display: none;">
+                                        <option value="ssfm-v21" selected>SSFM v21</option>
+                                    </select>
+                                    <select id="speed-select-typecast-${currentWeek}-1" class="speed-select" ${!hasScript1 ? 'disabled' : ''}>
+                                <option value="0.8">0.8x</option>
+                                <option value="0.9">0.9x</option>
+                                <option value="1.0" selected>1.0x</option>
+                                <option value="1.1">1.1x</option>
+                                <option value="1.2">1.2x</option>
+                                <option value="1.3">1.3x</option>
+                                <option value="1.4">1.4x</option>
+                                <option value="1.5">1.5x</option>
+                                <option value="1.6">1.6x</option>
+                                <option value="1.7">1.7x</option>
+                                <option value="1.8">1.8x</option>
+                                <option value="1.9">1.9x</option>
+                                <option value="2.0">2.0x</option>
+                            </select>
+                                </div>
+                            </div>
+                            ` : ''}
+                            
+                            ${!hasOpenaiAudio1 ? `
+                            <!-- OpenAI Settings -->
+                            <div class="audio-source-settings">
+                                <label class="source-label"><strong>OpenAI:</strong></label>
+                                <div class="audio-generation-options">
+                                    <select id="voice-select-openai-${currentWeek}-1" class="voice-select" ${!hasScript1 ? 'disabled' : ''}>
+                                        <option value="">Loading voices...</option>
+                                    </select>
+                                    <select id="speed-select-openai-${currentWeek}-1" class="speed-select" ${!hasScript1 ? 'disabled' : ''}>
+                                        <option value="0.8">0.8x</option>
+                                        <option value="0.9">0.9x</option>
+                                        <option value="1.0" selected>1.0x</option>
+                                        <option value="1.1">1.1x</option>
+                                        <option value="1.2">1.2x</option>
+                                        <option value="1.3">1.3x</option>
+                                        <option value="1.4">1.4x</option>
+                                        <option value="1.5">1.5x</option>
+                                        <option value="1.6">1.6x</option>
+                                        <option value="1.7">1.7x</option>
+                                        <option value="1.8">1.8x</option>
+                                        <option value="1.9">1.9x</option>
+                                        <option value="2.0">2.0x</option>
+                                    </select>
+                                </div>
+                            </div>
+                            ` : ''}
+                            
+                            <div class="audio-generation-actions">
+                                <button class="generate-audio-btn" onclick="generateAudioForScript('${currentWeek}', 1, this)" ${!hasScript1 ? 'disabled' : ''} style="min-width: 120px;">
+                                    Generate ${!hasTypecastAudio1 && !hasOpenaiAudio1 ? '' : !hasTypecastAudio1 ? 'Typecast' : 'OpenAI'}
+                            </button>
+                        </div>
+                    </div>
                     ` : ''}
-                    ${audioName ? `<div class="audio-name-text">${escapeHtml(audioName)}</div>` : ''}
                 </div>
-                <div class="audio-controls">
-                    <div class="audio-generation-options">
-                        <select id="voice-select-${currentWeek}" class="voice-select" ${!hasScript ? 'disabled' : ''}>
-                            <option value="">Loading voices...</option>
-                        </select>
-                        <select id="speed-select-${currentWeek}" class="speed-select" ${!hasScript ? 'disabled' : ''}>
-                            <option value="0.8">0.8x</option>
-                            <option value="0.9">0.9x</option>
-                            <option value="1.0" selected>1.0x</option>
-                            <option value="1.1">1.1x</option>
-                            <option value="1.2">1.2x</option>
-                            <option value="1.3">1.3x</option>
-                            <option value="1.4">1.4x</option>
-                            <option value="1.5">1.5x</option>
-                            <option value="1.6">1.6x</option>
-                            <option value="1.7">1.7x</option>
-                            <option value="1.8">1.8x</option>
-                            <option value="1.9">1.9x</option>
-                            <option value="2.0">2.0x</option>
-                        </select>
-                        <button class="generate-audio-btn ${hasAudio ? 'regenerate-audio-btn' : ''}" onclick="generateAudio('${currentWeek}', this)" ${!hasScript ? 'disabled' : ''}>
-                            ${hasAudio ? 'Re-generate audio' : 'Generate audio'}
-                        </button>
+                
+                <!-- Script 2 Content -->
+                ${hasScript2 ? `
+                    <div class="script-content" id="script-${currentWeek}-2">
+                        <div class="script-display">${escapeHtml(script2)}</div>
+                        ${hasAudio2 ? `
+                            <div class="audio-player-section">
+                                ${script2TypecastUrl ? `
+                                    <div class="audio-player-container">
+                                        <div class="audio-player-label">Typecast Audio${formatSettingsLabel(script2TypecastVoice, script2TypecastModel, script2TypecastSpeed, 'typecast')}:</div>
+                                        <div class="audio-player-with-options">
+                                            <div class="audio-player-wrapper-custom">
+                                                <audio id="audio-player-typecast-${currentWeek}-2" data-week="${currentWeek}" data-script="2" data-source="typecast">
+                                                    <source src="/static/${script2TypecastUrl}?v=${Date.now()}" type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                                <div class="custom-audio-controls" id="controls-typecast-${currentWeek}-2">
+                                                    <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 2)">▶</button>
+                                                    <div class="progress-bar-container" onclick="seekAudio('typecast', '${currentWeek}', 2, event)">
+                                                        <div class="progress-bar" id="progress-typecast-${currentWeek}-2"></div>
+                                                    </div>
+                                                    <span class="time-display" id="time-typecast-${currentWeek}-2">0:00 / 0:00</span>
+                                                </div>
+                                            </div>
+                                            <button class="audio-more-options-btn" onclick="toggleAudioRegenOptions('${currentWeek}', 2, 'typecast', event); event.stopPropagation();" title="Audio options">⋮</button>
+                                            <div class="audio-regen-dropdown" id="audio-regen-${currentWeek}-2" style="display: none;">
+                                                <div class="audio-regen-controls">
+                                                    <div class="audio-option-section">
+                                                        <label><strong>Playback Speed:</strong></label>
+                                                        <select id="playback-speed-typecast-${currentWeek}-2" class="speed-select-compact" onchange="setPlaybackSpeed('typecast', '${currentWeek}', 2, this.value); event.stopPropagation();">
+                                                            <option value="0.5">0.5x</option>
+                                                            <option value="0.75">0.75x</option>
+                                                            <option value="0.8">0.8x</option>
+                                                            <option value="0.9">0.9x</option>
+                                                            <option value="1.0" selected>1.0x</option>
+                                                            <option value="1.1">1.1x</option>
+                                                            <option value="1.25">1.25x</option>
+                                                            <option value="1.5">1.5x</option>
+                                                            <option value="1.75">1.75x</option>
+                                                            <option value="2.0">2.0x</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="audio-option-divider"></div>
+                                                    <div class="audio-option-section">
+                                                        <a href="/static/${script2TypecastUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
+                                                            ⬇️ Download
+                                                        </a>
+                                                    </div>
+                                                    <div class="audio-option-divider"></div>
+                                                    <label><strong>Re-generate Typecast audio:</strong></label>
+                                                    <select id="voice-select-regen-${currentWeek}-2" class="voice-select-compact">
+                                                        <option value="">Loading voices...</option>
+                                                    </select>
+                                                    <select id="model-select-regen-${currentWeek}-2" class="model-select-compact" style="display: none;">
+                                                        <option value="ssfm-v21" selected>SSFM v21</option>
+                                                    </select>
+                                                    <select id="speed-select-regen-${currentWeek}-2" class="speed-select-compact">
+                                                        <option value="0.8">0.8x</option>
+                                                        <option value="0.9">0.9x</option>
+                                                        <option value="1.0" selected>1.0x</option>
+                                                        <option value="1.1">1.1x</option>
+                                                        <option value="1.2">1.2x</option>
+                                                        <option value="1.3">1.3x</option>
+                                                        <option value="1.4">1.4x</option>
+                                                        <option value="1.5">1.5x</option>
+                                                        <option value="1.6">1.6x</option>
+                                                        <option value="1.7">1.7x</option>
+                                                        <option value="1.8">1.8x</option>
+                                                        <option value="1.9">1.9x</option>
+                                                        <option value="2.0">2.0x</option>
+                                                    </select>
+                                                    <button class="regen-btn-compact" onclick="generateAudioForScript('${currentWeek}', 2, this, 'typecast'); event.stopPropagation();">
+                                                        Re-generate
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ` : ''}
+                                ${script2OpenaiUrl ? `
+                                    <div class="audio-player-container">
+                                        <div class="audio-player-label">OpenAI Audio${formatSettingsLabel(script2OpenaiVoice, null, script2OpenaiSpeed, 'openai')}:</div>
+                                        <div class="audio-player-with-options">
+                                            <div class="audio-player-wrapper-custom">
+                                                <audio id="audio-player-openai-${currentWeek}-2" data-week="${currentWeek}" data-script="2" data-source="openai">
+                                                    <source src="/static/${script2OpenaiUrl}?v=${Date.now()}" type="audio/mpeg">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                                <div class="custom-audio-controls" id="controls-openai-${currentWeek}-2">
+                                                    <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 2)">▶</button>
+                                                    <div class="progress-bar-container" onclick="seekAudio('openai', '${currentWeek}', 2, event)">
+                                                        <div class="progress-bar" id="progress-openai-${currentWeek}-2"></div>
+                                                    </div>
+                                                    <span class="time-display" id="time-openai-${currentWeek}-2">0:00 / 0:00</span>
+                                                </div>
+                                            </div>
+                                            <button class="audio-more-options-btn" onclick="toggleAudioRegenOptions('${currentWeek}', 2, 'openai', event); event.stopPropagation();" title="Audio options">⋮</button>
+                                            <div class="audio-regen-dropdown" id="audio-regen-openai-${currentWeek}-2" style="display: none;">
+                                                <div class="audio-regen-controls">
+                                                    <div class="audio-option-section">
+                                                        <label><strong>Playback Speed:</strong></label>
+                                                        <select id="playback-speed-openai-${currentWeek}-2" class="speed-select-compact" onchange="setPlaybackSpeed('openai', '${currentWeek}', 2, this.value); event.stopPropagation();">
+                                                            <option value="0.5">0.5x</option>
+                                                            <option value="0.75">0.75x</option>
+                                                            <option value="0.8">0.8x</option>
+                                                            <option value="0.9">0.9x</option>
+                                                            <option value="1.0" selected>1.0x</option>
+                                                            <option value="1.1">1.1x</option>
+                                                            <option value="1.25">1.25x</option>
+                                                            <option value="1.5">1.5x</option>
+                                                            <option value="1.75">1.75x</option>
+                                                            <option value="2.0">2.0x</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="audio-option-divider"></div>
+                                                    <div class="audio-option-section">
+                                                        <a href="/static/${script2OpenaiUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
+                                                            ⬇️ Download
+                                                        </a>
+                                                    </div>
+                                                    <div class="audio-option-divider"></div>
+                                                    <label><strong>Re-generate OpenAI audio:</strong></label>
+                                                    <select id="voice-select-regen-openai-${currentWeek}-2" class="voice-select-compact">
+                                                        <option value="">Loading voices...</option>
+                                                    </select>
+                                                    <select id="speed-select-regen-openai-${currentWeek}-2" class="speed-select-compact">
+                                                        <option value="0.8">0.8x</option>
+                                                        <option value="0.9">0.9x</option>
+                                                        <option value="1.0" selected>1.0x</option>
+                                                        <option value="1.1">1.1x</option>
+                                                        <option value="1.2">1.2x</option>
+                                                        <option value="1.3">1.3x</option>
+                                                        <option value="1.4">1.4x</option>
+                                                        <option value="1.5">1.5x</option>
+                                                        <option value="1.6">1.6x</option>
+                                                        <option value="1.7">1.7x</option>
+                                                        <option value="1.8">1.8x</option>
+                                                        <option value="1.9">1.9x</option>
+                                                        <option value="2.0">2.0x</option>
+                                                    </select>
+                                                    <button class="regen-btn-compact" onclick="generateAudioForScript('${currentWeek}', 2, this, 'openai'); event.stopPropagation();">
+                                                        Re-generate
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        ` : ''}
+                        
+                        <!-- Audio generation for Script 2 (shown when audio is missing) -->
+                        ${!hasTypecastAudio2 || !hasOpenaiAudio2 ? `
+                            <div class="audio-generation-section">
+                                <div class="audio-generation-header">
+                                    <strong>Generate Audio:</strong>
+                                </div>
+                                
+                                ${!hasTypecastAudio2 ? `
+                                <!-- Typecast Settings -->
+                                <div class="audio-source-settings">
+                                    <label class="source-label"><strong>Typecast:</strong></label>
+                                    <div class="audio-generation-options">
+                                        <select id="voice-select-typecast-${currentWeek}-2" class="voice-select" ${!hasScript2 ? 'disabled' : ''}>
+                                            <option value="">Loading voices...</option>
+                                        </select>
+                                        <select id="model-select-typecast-${currentWeek}-2" class="model-select" ${!hasScript2 ? 'disabled' : ''} style="display: none;">
+                                            <option value="ssfm-v21" selected>SSFM v21</option>
+                                        </select>
+                                        <select id="speed-select-typecast-${currentWeek}-2" class="speed-select" ${!hasScript2 ? 'disabled' : ''}>
+                                            <option value="0.8">0.8x</option>
+                                            <option value="0.9">0.9x</option>
+                                            <option value="1.0" selected>1.0x</option>
+                                            <option value="1.1">1.1x</option>
+                                            <option value="1.2">1.2x</option>
+                                            <option value="1.3">1.3x</option>
+                                            <option value="1.4">1.4x</option>
+                                            <option value="1.5">1.5x</option>
+                                            <option value="1.6">1.6x</option>
+                                            <option value="1.7">1.7x</option>
+                                            <option value="1.8">1.8x</option>
+                                            <option value="1.9">1.9x</option>
+                                            <option value="2.0">2.0x</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                ` : ''}
+                                
+                                ${!hasOpenaiAudio2 ? `
+                                <!-- OpenAI Settings -->
+                                <div class="audio-source-settings">
+                                    <label class="source-label"><strong>OpenAI:</strong></label>
+                                    <div class="audio-generation-options">
+                                        <select id="voice-select-openai-${currentWeek}-2" class="voice-select" ${!hasScript2 ? 'disabled' : ''}>
+                                            <option value="">Loading voices...</option>
+                                        </select>
+                                        <select id="speed-select-openai-${currentWeek}-2" class="speed-select" ${!hasScript2 ? 'disabled' : ''}>
+                                            <option value="0.8">0.8x</option>
+                                            <option value="0.9">0.9x</option>
+                                            <option value="1.0" selected>1.0x</option>
+                                            <option value="1.1">1.1x</option>
+                                            <option value="1.2">1.2x</option>
+                                            <option value="1.3">1.3x</option>
+                                            <option value="1.4">1.4x</option>
+                                            <option value="1.5">1.5x</option>
+                                            <option value="1.6">1.6x</option>
+                                            <option value="1.7">1.7x</option>
+                                            <option value="1.8">1.8x</option>
+                                            <option value="1.9">1.9x</option>
+                                            <option value="2.0">2.0x</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                ` : ''}
+                                
+                                <div class="audio-generation-actions">
+                                    <button class="generate-audio-btn" onclick="generateAudioForScript('${currentWeek}', 2, this)" ${!hasScript2 ? 'disabled' : ''} style="min-width: 120px;">
+                                        Generate ${!hasTypecastAudio2 && !hasOpenaiAudio2 ? '' : !hasTypecastAudio2 ? 'Typecast' : 'OpenAI'}
+                                    </button>
+                                </div>
+                            </div>
+                        ` : ''}
                     </div>
-                </div>
-                <div class="script-section">
-                    <div class="script-header" onclick="toggleScript('${scriptId}')">
-                        <strong>Script:</strong>
-                        <span class="script-toggle" id="toggle-${scriptId}">▼</span>
-                    </div>
-                    <div class="script-text ${hasScript ? 'script-collapsible' : ''}" id="${scriptId}" style="${hasScript ? 'display: none;' : ''}">${escapeHtml(script) || 'No script generated yet'}</div>
-                </div>
+                ` : ''}
             </div>
         `;
     } else if (activity.id === 'weekly_speaking_prompt') {
-        // Weekly Speaking Prompt: Show prompt and target length
+        // Weekly Speaking Prompt: Show prompt with hints and notes
         const prompt = activityProgress?.prompt || '';
         
         // Parse prompt to separate main question from hints
@@ -280,8 +740,7 @@ function createActivityElement(activity) {
         
         activityContent = `
             <div class="prompt-section">
-                <strong>Prompt:</strong>
-                <div class="prompt-text">${escapeHtml(mainPrompt)}</div>
+                <div class="prompt-text"><span class="prompt-indicator">"</span>${escapeHtml(mainPrompt)}</div>
                 ${hints ? `
                     <div class="hints-section">
                         <div class="hints-header" onclick="toggleScript('${hintsId}')">
@@ -303,15 +762,25 @@ function createActivityElement(activity) {
                     >${escapeHtml(notes)}</textarea>
                 </div>
             </div>
-            <div class="activity-target-length">
-                <strong>Target length:</strong> ${activity.target_length || '3-5 mins'}
-            </div>
         `;
     }
+    
+    // Add kebab menu button for re-generate
+    const hasContent = (activity.id === 'voice_journaling' && activityProgress?.topics?.length > 0) ||
+                       (activity.id === 'shadowing_practice' && (activityProgress?.script1 || activityProgress?.script)) ||
+                       (activity.id === 'weekly_speaking_prompt' && activityProgress?.prompt);
     
     div.innerHTML = `
         <div class="activity-header">
             <h3>${activity.title}</h3>
+            ${hasContent ? `
+                <button class="activity-kebab-btn" onclick="toggleActivityOptions('${activity.id}', '${currentWeek}', event); event.stopPropagation();" title="Options">⋮</button>
+                <div class="activity-options-dropdown" id="activity-options-${activity.id}-${currentWeek}" style="display: none;">
+                    <button class="activity-option-btn" onclick="regenerateActivity('${activity.id}', '${currentWeek}', this); event.stopPropagation();">
+                        Re-generate ${activity.title}
+                    </button>
+                </div>
+            ` : ''}
         </div>
         ${activityContent}
         <div class="activity-actions">
@@ -732,7 +1201,7 @@ function toggleScript(scriptId) {
     
     if (scriptDiv) {
         if (scriptDiv.style.display === 'none') {
-            scriptDiv.style.display = 'block';
+            scriptDiv.style.display = 'flex';
             if (toggleIcon) toggleIcon.textContent = '▼';
         } else {
             scriptDiv.style.display = 'none';
@@ -740,6 +1209,210 @@ function toggleScript(scriptId) {
         }
     }
 }
+
+// Switch between script tabs
+function switchScript(weekKey, scriptNum) {
+    // Update tab buttons
+    const tab1 = document.getElementById(`tab-${weekKey}-1`);
+    const tab2 = document.getElementById(`tab-${weekKey}-2`);
+    const script1 = document.getElementById(`script-${weekKey}-1`);
+    const script2 = document.getElementById(`script-${weekKey}-2`);
+    
+    if (scriptNum === 1) {
+        if (tab1) tab1.classList.add('active');
+        if (tab2) tab2.classList.remove('active');
+        if (script1) script1.classList.add('active');
+        if (script2) script2.classList.remove('active');
+    } else {
+        if (tab1) tab1.classList.remove('active');
+        if (tab2) tab2.classList.add('active');
+        if (script1) script1.classList.remove('active');
+        if (script2) script2.classList.add('active');
+    }
+}
+
+// Toggle audio regenerate options menu (kebab menu)
+function toggleAudioRegenOptions(weekKey, scriptNum, sourceType, event) {
+    if (event) event.stopPropagation();
+    
+    // Handle both typecast and openai dropdowns
+    const menuId = sourceType === 'openai' ? `audio-regen-openai-${weekKey}-${scriptNum}` : `audio-regen-${weekKey}-${scriptNum}`;
+    const menu = document.getElementById(menuId);
+    
+    if (menu) {
+        // Close all other audio regen menus
+        document.querySelectorAll('.audio-regen-dropdown').forEach(m => {
+            if (m.id !== menuId) m.style.display = 'none';
+        });
+        
+        if (menu.style.display === 'none') {
+            menu.style.display = 'block';
+            // Populate voice dropdown if not already populated
+            const voiceSelectId = sourceType === 'openai' ? `voice-select-regen-openai-${weekKey}-${scriptNum}` : `voice-select-regen-${weekKey}-${scriptNum}`;
+            const voiceSelect = document.getElementById(voiceSelectId);
+            if (voiceSelect && voiceSelect.options.length <= 1) {
+                if (sourceType === 'openai') {
+                    populateOpenAIVoiceDropdown(voiceSelectId);
+                } else {
+                    updateVoiceDropdowns();
+                }
+            }
+            
+            // Also populate generation dropdowns if they exist
+            if (sourceType === 'openai') {
+                const genVoiceSelectId = `voice-select-openai-${weekKey}-${scriptNum}`;
+                const genVoiceSelect = document.getElementById(genVoiceSelectId);
+                if (genVoiceSelect && genVoiceSelect.options.length <= 1) {
+                    populateOpenAIVoiceDropdown(genVoiceSelectId);
+                }
+            } else {
+                const genVoiceSelectId = `voice-select-typecast-${weekKey}-${scriptNum}`;
+                const genVoiceSelect = document.getElementById(genVoiceSelectId);
+                if (genVoiceSelect && genVoiceSelect.options.length <= 1) {
+                    updateVoiceDropdowns();
+                }
+            }
+        } else {
+            menu.style.display = 'none';
+        }
+    }
+}
+
+// Toggle activity options menu (kebab menu)
+function toggleActivityOptions(activityId, weekKey, event) {
+    if (event) event.stopPropagation();
+    
+    const menu = document.getElementById(`activity-options-${activityId}-${weekKey}`);
+    if (menu) {
+        // Close all other activity option menus
+        document.querySelectorAll('.activity-options-dropdown').forEach(m => {
+            if (m.id !== menu.id) m.style.display = 'none';
+        });
+        
+        if (menu.style.display === 'none') {
+            menu.style.display = 'block';
+        } else {
+            menu.style.display = 'none';
+        }
+    }
+}
+
+// Regenerate activity content
+async function regenerateActivity(activityId, weekKey, buttonElement) {
+    // Find the button if not provided
+    const button = buttonElement || document.querySelector(`#activity-options-${activityId}-${weekKey} .activity-option-btn`);
+    const originalText = button ? button.textContent : '';
+    
+    // Update button to show loading state
+    if (button) {
+        button.disabled = true;
+        button.textContent = '⏳ Re-generating...';
+    }
+    
+    try {
+        const response = await fetch(`/api/generate/${activityId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                week_key: weekKey
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            await loadWeek(weekKey);
+            showSuccess(`${activityId.replace(/_/g, ' ')} regenerated successfully!`);
+        } else {
+            throw new Error(data.error || 'Failed to regenerate');
+        }
+    } catch (error) {
+        console.error('Error regenerating activity:', error);
+        showError(`Failed to regenerate ${activityId.replace(/_/g, ' ')}: ${error.message}`);
+    } finally {
+        // Restore button state
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    }
+}
+
+// Download audio file
+function downloadAudio(audioUrl, sourceType, weekKey, scriptNum) {
+    if (!audioUrl) {
+        showError('No audio file available to download');
+        return;
+    }
+    
+    try {
+        // Construct the full URL
+        const fullUrl = `/static/${audioUrl}`;
+        
+        // Extract filename from URL or create a default one
+        const urlParts = audioUrl.split('/');
+        let filename = urlParts[urlParts.length - 1];
+        
+        // If no filename, create one based on parameters
+        if (!filename || filename === audioUrl) {
+            const extension = sourceType === 'openai' ? 'mp3' : 'wav';
+            filename = `script${scriptNum}_${sourceType}_${weekKey}.${extension}`;
+        }
+        
+        // Create a temporary anchor element to trigger download
+        const link = document.createElement('a');
+        link.href = fullUrl;
+        link.download = filename;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } catch (error) {
+        console.error('Error downloading audio:', error);
+        showError(`Failed to download audio: ${error.message}`);
+    }
+}
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+    // Close audio regen dropdowns
+    document.querySelectorAll('.audio-regen-dropdown').forEach(menu => {
+        if (menu.style.display !== 'none') {
+            // Find the kebab button (it's the previous sibling button)
+            const container = menu.parentElement;
+            const button = container ? container.querySelector('.audio-more-options-btn') : null;
+            if (button && !button.contains(event.target) && !menu.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        }
+    });
+    
+    // Close activity option dropdowns
+    document.querySelectorAll('.activity-options-dropdown').forEach(menu => {
+        if (menu.style.display !== 'none') {
+            const button = menu.previousElementSibling;
+            if (button && !button.contains(event.target) && !menu.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        }
+    });
+});
+
 
 // Toggle sidebar visibility
 function toggleSidebar() {
@@ -756,7 +1429,243 @@ function toggleSidebar() {
     }
 }
 
-// Generate audio from script using Typecast.ai
+// Generate audio for a specific script
+async function generateAudioForScript(weekKey, scriptNum, buttonElement, sourceType = null) {
+    if (!weekKey) weekKey = currentWeek;
+    
+    const button = buttonElement;
+    
+    // Determine source type from button context if not provided
+    if (!sourceType && button) {
+        // Check if button is in an OpenAI dropdown
+        const openaiDropdown = button.closest('[id*="openai"]');
+        if (openaiDropdown) {
+            sourceType = 'openai';
+        } else {
+            // Check if button is in a Typecast dropdown
+            const typecastDropdown = button.closest('[id*="regen"]');
+            if (typecastDropdown && !typecastDropdown.id.includes('openai')) {
+                sourceType = 'typecast';
+            }
+        }
+    }
+    
+    // Try to get voice/speed from regen dropdown based on source type
+    let typecastVoiceSelect = null;
+    let typecastModelSelect = null;
+    let openaiVoiceSelect = null;
+    let speedSelect = null;
+    
+    if (sourceType === 'openai') {
+        // OpenAI regeneration
+        openaiVoiceSelect = document.getElementById(`voice-select-regen-openai-${weekKey}-${scriptNum}`);
+        speedSelect = document.getElementById(`speed-select-regen-openai-${weekKey}-${scriptNum}`);
+    } else if (sourceType === 'typecast') {
+        // Typecast regeneration
+        typecastVoiceSelect = document.getElementById(`voice-select-regen-${weekKey}-${scriptNum}`);
+        typecastModelSelect = document.getElementById(`model-select-regen-${weekKey}-${scriptNum}`);
+        speedSelect = document.getElementById(`speed-select-regen-${weekKey}-${scriptNum}`);
+    } else {
+        // Fallback: try both regen dropdowns, then generation dropdowns
+        typecastVoiceSelect = document.getElementById(`voice-select-regen-${weekKey}-${scriptNum}`);
+        typecastModelSelect = document.getElementById(`model-select-regen-${weekKey}-${scriptNum}`);
+        openaiVoiceSelect = document.getElementById(`voice-select-regen-openai-${weekKey}-${scriptNum}`);
+        speedSelect = document.getElementById(`speed-select-regen-${weekKey}-${scriptNum}`) || 
+                     document.getElementById(`speed-select-regen-openai-${weekKey}-${scriptNum}`);
+        
+        // Fallback to generation dropdowns if regen dropdowns don't exist
+        if (!typecastVoiceSelect) {
+            typecastVoiceSelect = document.getElementById(`voice-select-typecast-${weekKey}-${scriptNum}`);
+        }
+        if (!typecastModelSelect) {
+            typecastModelSelect = document.getElementById(`model-select-typecast-${weekKey}-${scriptNum}`);
+        }
+        if (!openaiVoiceSelect) {
+            openaiVoiceSelect = document.getElementById(`voice-select-openai-${weekKey}-${scriptNum}`);
+        }
+        if (!speedSelect) {
+            // Try typecast speed first, then openai speed
+            speedSelect = document.getElementById(`speed-select-typecast-${weekKey}-${scriptNum}`) ||
+                         document.getElementById(`speed-select-openai-${weekKey}-${scriptNum}`);
+        }
+    }
+    
+    const typecastVoiceId = typecastVoiceSelect ? typecastVoiceSelect.value : null;
+    const typecastModel = typecastModelSelect ? typecastModelSelect.value : 'ssfm-v21';
+    const openaiVoice = openaiVoiceSelect ? openaiVoiceSelect.value : null;
+    
+    // Get speeds - separate for Typecast and OpenAI when generating both
+    let typecastSpeed = 1.0;
+    let openaiSpeed = 1.0;
+    let speed = 1.0;  // Fallback/default speed
+    
+    if (sourceType === 'openai') {
+        // OpenAI regeneration - use OpenAI speed
+        if (speedSelect) {
+            openaiSpeed = parseFloat(speedSelect.value) || 1.0;
+        } else {
+            const openaiSpeedSelect = document.getElementById(`speed-select-openai-${weekKey}-${scriptNum}`);
+            if (openaiSpeedSelect) {
+                openaiSpeed = parseFloat(openaiSpeedSelect.value) || 1.0;
+            }
+        }
+        speed = openaiSpeed;
+    } else if (sourceType === 'typecast') {
+        // Typecast regeneration - use Typecast speed
+        if (speedSelect) {
+            typecastSpeed = parseFloat(speedSelect.value) || 1.0;
+        } else {
+            const typecastSpeedSelect = document.getElementById(`speed-select-typecast-${weekKey}-${scriptNum}`);
+            if (typecastSpeedSelect) {
+                typecastSpeed = parseFloat(typecastSpeedSelect.value) || 1.0;
+            }
+        }
+        speed = typecastSpeed;
+    } else {
+        // Generating both - get separate speeds
+        const typecastSpeedSelect = document.getElementById(`speed-select-typecast-${weekKey}-${scriptNum}`);
+        const openaiSpeedSelect = document.getElementById(`speed-select-openai-${weekKey}-${scriptNum}`);
+        
+        if (typecastSpeedSelect) {
+            typecastSpeed = parseFloat(typecastSpeedSelect.value) || 1.0;
+        }
+        if (openaiSpeedSelect) {
+            openaiSpeed = parseFloat(openaiSpeedSelect.value) || 1.0;
+        }
+        speed = typecastSpeed;  // Default fallback
+    }
+    
+    if (button) {
+        button.disabled = true;
+        if (sourceType === 'openai') {
+            button.textContent = '⏳ Generating OpenAI...';
+        } else if (sourceType === 'typecast') {
+            button.textContent = '⏳ Generating Typecast...';
+        } else {
+            button.textContent = '⏳ Generating both...';
+        }
+    }
+    
+    // Disable dropdowns during generation
+    const disableDropdowns = (disabled) => {
+        if (sourceType === 'typecast' || sourceType === null) {
+            // Disable Typecast dropdowns
+            const typecastVoiceSelect = document.getElementById(`voice-select-typecast-${weekKey}-${scriptNum}`) || 
+                                       document.getElementById(`voice-select-regen-${weekKey}-${scriptNum}`);
+            const typecastModelSelect = document.getElementById(`model-select-typecast-${weekKey}-${scriptNum}`) || 
+                                       document.getElementById(`model-select-regen-${weekKey}-${scriptNum}`);
+            const typecastSpeedSelect = document.getElementById(`speed-select-typecast-${weekKey}-${scriptNum}`) || 
+                                       document.getElementById(`speed-select-regen-${weekKey}-${scriptNum}`);
+            if (typecastVoiceSelect) typecastVoiceSelect.disabled = disabled;
+            if (typecastModelSelect) typecastModelSelect.disabled = disabled;
+            if (typecastSpeedSelect) typecastSpeedSelect.disabled = disabled;
+        }
+        if (sourceType === 'openai' || sourceType === null) {
+            // Disable OpenAI dropdowns
+            const openaiVoiceSelect = document.getElementById(`voice-select-openai-${weekKey}-${scriptNum}`) || 
+                                     document.getElementById(`voice-select-regen-openai-${weekKey}-${scriptNum}`);
+            const openaiSpeedSelect = document.getElementById(`speed-select-openai-${weekKey}-${scriptNum}`) || 
+                                     document.getElementById(`speed-select-regen-openai-${weekKey}-${scriptNum}`);
+            if (openaiVoiceSelect) openaiVoiceSelect.disabled = disabled;
+            if (openaiSpeedSelect) openaiSpeedSelect.disabled = disabled;
+        }
+    };
+    
+    disableDropdowns(true);
+    
+    try {
+        const response = await fetch('/api/generate-audio-single', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                week_key: weekKey,
+                script_num: scriptNum,
+                voice_id: typecastVoiceId,
+                typecast_model: typecastModel,
+                openai_voice: openaiVoice,
+                speed: speed,  // Fallback/default speed
+                typecast_speed: sourceType === null ? typecastSpeed : (sourceType === 'typecast' ? typecastSpeed : null),
+                openai_speed: sourceType === null ? openaiSpeed : (sourceType === 'openai' ? openaiSpeed : null),
+                source_type: sourceType  // 'typecast', 'openai', or null (both)
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            
+            // Verify audio URLs were generated based on what was requested
+            const weekData = progress?.weeks?.[weekKey]?.shadowing_practice;
+            const typecastUrl = weekData?.[`script${scriptNum}_typecast_url`];
+            const openaiUrl = weekData?.[`script${scriptNum}_openai_url`];
+            
+            
+            // Show success message based on what was generated
+            if (sourceType === 'openai') {
+                showError('OpenAI audio generated successfully!');
+            } else if (sourceType === 'typecast') {
+                showError('Typecast audio generated successfully!');
+            } else {
+                // Show warnings if any
+                if (data.warnings && data.warnings.length > 0) {
+                    showError(`Audio generated with warnings: ${data.warnings.join(', ')}`);
+                } else {
+                    showError('Both Typecast and OpenAI audio generated successfully!');
+                }
+            }
+            
+            // Reload the current week to show new audio players
+            await loadWeek(weekKey);
+            
+            // Restore the script tab that was being used (stay on the same script tab)
+            setTimeout(() => {
+                switchScript(weekKey, scriptNum);
+            }, 100);
+            
+        } else {
+            throw new Error(data.error || 'Failed to generate audio');
+        }
+    } catch (error) {
+        console.error('Error generating audio:', error);
+        showError(`Failed to generate audio: ${error.message}`);
+        if (button) {
+            button.disabled = false;
+            button.textContent = button.classList.contains('regen-btn-compact') ? 'Re-generate' : 'Generate';
+        }
+    } finally {
+        // Re-enable dropdowns after generation completes (success or error)
+        const disableDropdowns = (disabled) => {
+            if (sourceType === 'typecast' || sourceType === null) {
+                // Re-enable Typecast dropdowns
+                const typecastVoiceSelect = document.getElementById(`voice-select-typecast-${weekKey}-${scriptNum}`) || 
+                                           document.getElementById(`voice-select-regen-${weekKey}-${scriptNum}`);
+                const typecastModelSelect = document.getElementById(`model-select-typecast-${weekKey}-${scriptNum}`) || 
+                                           document.getElementById(`model-select-regen-${weekKey}-${scriptNum}`);
+                const typecastSpeedSelect = document.getElementById(`speed-select-typecast-${weekKey}-${scriptNum}`) || 
+                                           document.getElementById(`speed-select-regen-${weekKey}-${scriptNum}`);
+                if (typecastVoiceSelect) typecastVoiceSelect.disabled = disabled;
+                if (typecastModelSelect) typecastModelSelect.disabled = disabled;
+                if (typecastSpeedSelect) typecastSpeedSelect.disabled = disabled;
+            }
+            if (sourceType === 'openai' || sourceType === null) {
+                // Re-enable OpenAI dropdowns
+                const openaiVoiceSelect = document.getElementById(`voice-select-openai-${weekKey}-${scriptNum}`) || 
+                                         document.getElementById(`voice-select-regen-openai-${weekKey}-${scriptNum}`);
+                const openaiSpeedSelect = document.getElementById(`speed-select-openai-${weekKey}-${scriptNum}`) || 
+                                         document.getElementById(`speed-select-regen-openai-${weekKey}-${scriptNum}`);
+                if (openaiVoiceSelect) openaiVoiceSelect.disabled = disabled;
+                if (openaiSpeedSelect) openaiSpeedSelect.disabled = disabled;
+            }
+        };
+        disableDropdowns(false);
+    }
+}
+
+// Generate audio from script using Typecast (LEGACY - NOT USED, kept for backwards compatibility)
+// All audio generation now uses generateAudioForScript() instead
 async function generateAudio(weekKey, buttonElement) {
     if (!weekKey) weekKey = currentWeek;
     
@@ -1162,11 +2071,10 @@ async function loadVoices() {
         if (age < cacheExpiry) {
             try {
                 availableVoices = JSON.parse(cachedVoices);
-                console.log(`Loaded ${availableVoices.length} voices from cache`);
                 updateVoiceDropdowns();
                 return;
             } catch (e) {
-                console.warn('Failed to parse cached voices, fetching fresh data');
+                // Failed to parse cache, will fetch fresh data
             }
         }
     }
@@ -1183,10 +2091,17 @@ async function loadVoices() {
             localStorage.setItem('typecast_voices', JSON.stringify(availableVoices));
             localStorage.setItem('typecast_voices_timestamp', Date.now().toString());
             
-            console.log(`Loaded ${availableVoices.length} voices from API (cached for 24h)`);
             updateVoiceDropdowns();
+            
+            // Also populate OpenAI voice dropdowns
+            setTimeout(() => {
+                document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
+                    if (select.options.length <= 1) {
+                        populateOpenAIVoiceDropdown(select.id);
+                    }
+                });
+            }, 100);
         } else {
-            console.warn('No voices returned from API');
             updateVoiceDropdowns();
         }
     } catch (error) {
@@ -1196,9 +2111,15 @@ async function loadVoices() {
 }
 
 function updateVoiceDropdowns() {
-    const voiceSelects = document.querySelectorAll('.voice-select');
+    // Only update Typecast voice dropdowns (exclude OpenAI ones)
+    const voiceSelects = document.querySelectorAll('.voice-select, .voice-select-compact, select[id^="voice-select-regen-"]');
     
     voiceSelects.forEach(select => {
+        // Skip OpenAI voice dropdowns
+        if (select.id && select.id.includes('openai')) {
+            return;
+        }
+        
         const currentValue = select.value;
         
         // Clear existing options
@@ -1233,6 +2154,50 @@ function updateVoiceDropdowns() {
             }
         }
     });
+    
+}
+
+// Populate OpenAI voice dropdown with OpenAI voices
+function populateOpenAIVoiceDropdown(selectId) {
+    const select = document.getElementById(selectId);
+    if (!select) return;
+    
+    const currentValue = select.value;
+    
+    // OpenAI TTS voice options: alloy, echo, fable, onyx, nova, shimmer
+    const openAIVoices = [
+        { value: 'alloy', name: 'Alloy' },
+        { value: 'echo', name: 'Echo' },
+        { value: 'fable', name: 'Fable' },
+        { value: 'onyx', name: 'Onyx' },
+        { value: 'nova', name: 'Nova' },
+        { value: 'shimmer', name: 'Shimmer' }
+    ];
+    
+    // Clear existing options
+    select.innerHTML = '';
+    
+    // Add OpenAI voice options
+    openAIVoices.forEach(voice => {
+        const option = document.createElement('option');
+        option.value = voice.value;
+        option.textContent = voice.name;
+        select.appendChild(option);
+    });
+    
+    // Restore previous selection if it exists, otherwise default to 'onyx'
+    if (currentValue && Array.from(select.options).some(opt => opt.value === currentValue)) {
+        select.value = currentValue;
+    } else {
+        // Default to 'onyx' (current default)
+        const onyxOption = Array.from(select.options).find(opt => opt.value === 'onyx');
+        if (onyxOption) {
+            select.value = 'onyx';
+        } else {
+            select.selectedIndex = 0;
+        }
+    }
+    
 }
 
 // ==================== RECORDING FUNCTIONALITY ====================
@@ -1476,7 +2441,6 @@ function stopRecording() {
 // Save recording to server
 async function saveRecording(audioBlob, activityId, day) {
     try {
-        console.log(`Saving recording: ${audioBlob.size} bytes, activity: ${activityId}, day: ${day}, week: ${currentWeek}`);
         
         const formData = new FormData();
         formData.append('audio', audioBlob, 'recording.webm');
@@ -1489,22 +2453,16 @@ async function saveRecording(audioBlob, activityId, day) {
             body: formData
         });
         
-        console.log('Save recording response status:', response.status);
         
         if (!response.ok) {
             const errorText = await response.text();
-            console.error('Save recording error response:', errorText);
             throw new Error(`Server error: ${response.status} - ${errorText}`);
         }
         
         const data = await response.json();
-        console.log('Save recording response data:', data);
         
         if (data.success) {
             showSuccess('Recording saved successfully!');
-            
-            // Auto-mark day as completed
-            await autoMarkDayCompleted(activityId, day);
             
             // Reload recordings for this day
             await loadRecordings(activityId, day);
@@ -1601,11 +2559,12 @@ async function loadRecordings(activityId, day) {
 }
 
 // Display recordings in the UI
-function displayRecordings(activityId, day, recordings) {
+async function displayRecordings(activityId, day, recordings) {
     const dayId = day.replace(/-/g, '_');
     const recordingsList = document.querySelector(`#${activityId}_recordings_${dayId}`);
     const recordBtn = document.querySelector(`#${activityId}_record_${dayId}`);
     const completeBtn = document.querySelector(`#${activityId}_complete_${dayId}`);
+    const dayBox = document.querySelector(`[data-day="${day}"]`);
     
     if (!recordingsList) return;
     
@@ -1628,10 +2587,59 @@ function displayRecordings(activityId, day, recordings) {
         } else {
             completeBtn.disabled = true;
             completeBtn.title = 'Record audio first to mark as completed';
-            // If user somehow marked it complete before, uncheck it
+            // If user somehow marked it complete before, uncheck it and sync with backend
             if (completeBtn.classList.contains('completed')) {
                 completeBtn.classList.remove('completed');
                 completeBtn.textContent = 'Mark as completed';
+                
+                // Also update the day box visual state
+                if (dayBox) {
+                    dayBox.classList.remove('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions) {
+                        const mark = dayActions.querySelector('.completed-mark');
+                        if (mark) mark.remove();
+                    }
+                }
+                
+                // Sync with backend - unmark as completed
+                try {
+                    let toggleFunction;
+                    if (activityId === 'voice_journaling') {
+                        toggleFunction = 'toggleVoiceJournalingDay';
+                    } else if (activityId === 'shadowing_practice') {
+                        toggleFunction = 'toggleShadowingDay';
+                    } else if (activityId === 'weekly_speaking_prompt') {
+                        toggleFunction = 'togglePromptDay';
+                    }
+                    
+                    if (toggleFunction) {
+                        const response = await fetch('/api/progress', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                activity_id: activityId,
+                                day: day,
+                                completed: false,
+                                week_key: currentWeek
+                            })
+                        });
+                        
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (data.success) {
+                                progress = data.progress;
+                                weeklySummary = data.weekly_summary;
+                                updateProgressSummary();
+                            }
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error syncing completion state:', error);
+                    // Don't show error to user - this is a background sync
+                }
             }
         }
     }
@@ -1703,10 +2711,69 @@ function updateRecordingUI(activityId, day, state) {
     }
 }
 
+function togglePlayPause(sourceType, weekKey, scriptNum) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (!audioElement) return;
+    
+    if (audioElement.paused) {
+        audioElement.play();
+    } else {
+        audioElement.pause();
+    }
+}
+
+function seekAudio(sourceType, weekKey, scriptNum, event) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    const container = event.currentTarget;
+    if (!audioElement || !container || !audioElement.duration) return;
+    
+    const rect = container.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const percent = Math.max(0, Math.min(1, x / rect.width));
+    audioElement.currentTime = percent * audioElement.duration;
+}
+
+function updateTimeDisplay(audioElement, timeDisplay) {
+    if (!timeDisplay || !audioElement.duration) return;
+    
+    const current = formatTime(audioElement.currentTime);
+    const total = formatTime(audioElement.duration);
+    // Explicitly style the colon to prevent blue dot rendering issue
+    const currentParts = current.split(':');
+    const totalParts = total.split(':');
+    timeDisplay.innerHTML = `<span>${currentParts[0]}</span><span style="color: #666;">:</span><span>${currentParts[1]}</span> <span style="color: #666;">/</span> <span>${totalParts[0]}</span><span style="color: #666;">:</span><span>${totalParts[1]}</span>`;
+}
+
+// Set playback speed for audio player
+function setPlaybackSpeed(sourceType, weekKey, scriptNum, speed) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (audioElement) {
+        const speedValue = parseFloat(speed) || 1.0;
+        audioElement.playbackRate = speedValue;
+    }
+}
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', async () => {
     await loadData();
     updateWeekList();
     await loadVoices();  // Load voices after initial data
+    
+    // Populate OpenAI voice dropdowns in generation sections
+    setTimeout(() => {
+        document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
+            if (select.id.includes('-1') || select.id.includes('-2')) {
+                if (select.options.length <= 1) {
+                    populateOpenAIVoiceDropdown(select.id);
+                }
+            }
+        });
+    }, 500);
 });
 
