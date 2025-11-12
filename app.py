@@ -22,6 +22,7 @@ from chatgpt_generator import (
     generate_weekly_prompt,
     generate_weekly_prompt_words,
     generate_shadowing_audio_openai_for_week,
+    get_openai_client,
 )
 from typecast_generator import (
     generate_shadowing_audio_for_week,
@@ -733,6 +734,37 @@ def api_save_notes():
         return jsonify({'error': 'Failed to save notes'}), 500
 
 
+def transcribe_audio(filepath):
+    """
+    Transcribe audio file using OpenAI Whisper API.
+    
+    Args:
+        filepath: Path to the audio file
+        
+    Returns:
+        Transcription text as string, or None if transcription fails
+    """
+    try:
+        client = get_openai_client()
+        
+        # Open the audio file in binary mode
+        with open(filepath, 'rb') as audio_file:
+            # Use Whisper API for transcription
+            # The file parameter expects a file-like object opened in binary mode
+            transcript = client.audio.transcriptions.create(
+                model="whisper-1",
+                file=audio_file,
+                language="en"  # Specify English for better accuracy
+            )
+            
+            return transcript.text
+    except Exception as e:
+        print(f"Error transcribing audio: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
+
+
 @app.route('/api/save-recording', methods=['POST'])
 def api_save_recording():
     """Save audio recording for an activity."""
@@ -784,6 +816,20 @@ def api_save_recording():
     # Save the audio file
     audio_file.save(filepath)
     
+    # Transcribe audio if this is a voice journaling recording
+    transcription = None
+    if activity_id == 'voice_journaling':
+        try:
+            transcription = transcribe_audio(filepath)
+            if transcription:
+                print(f"Transcription successful for {filename}")
+            else:
+                print(f"Transcription failed for {filename}")
+        except Exception as e:
+            print(f"Error during transcription: {e}")
+            # Don't fail the whole request if transcription fails
+            transcription = None
+    
     # Update progress.json with recording metadata
     if activity_id not in progress['weeks'][week_key]:
         progress['weeks'][week_key][activity_id] = {}
@@ -801,6 +847,10 @@ def api_save_recording():
         'timestamp': timestamp,
         'date': day
     }
+    
+    # Add transcription if available
+    if transcription:
+        recording_metadata['transcription'] = transcription
     
     progress['weeks'][week_key][activity_id]['recordings'][day].append(recording_metadata)
     progress['last_updated'] = datetime.now(PST).isoformat()
@@ -911,7 +961,7 @@ def api_delete_recording():
 @app.route('/api/weekly-expressions/mp3-list', methods=['GET'])
 def api_get_mp3_list():
     """Get list of available MP3 files."""
-    mp3_dir = '네이티브 영어표현력 사전_mp3'
+    mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     
     if not os.path.exists(mp3_dir):
         return jsonify({'error': 'MP3 directory not found'}), 404
@@ -930,7 +980,7 @@ def api_get_mp3_list():
 @app.route('/api/weekly-expressions/mp3/<path:filename>', methods=['GET'])
 def api_serve_mp3(filename):
     """Serve MP3 files."""
-    mp3_dir = '네이티브 영어표현력 사전_mp3'
+    mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     
     # Security: ensure filename doesn't contain path traversal
     if '..' in filename or '/' in filename or '\\' in filename:
@@ -968,7 +1018,7 @@ def api_select_mp3():
     ensure_week_exists(progress, week_key)
     
     # Verify file exists
-    mp3_dir = '네이티브 영어표현력 사전_mp3'
+    mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     filepath = os.path.join(mp3_dir, mp3_file)
     if not os.path.exists(filepath):
         return jsonify({'error': 'MP3 file not found'}), 404

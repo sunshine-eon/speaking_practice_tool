@@ -272,7 +272,7 @@ def get_mp3_file_for_week(week_key: str) -> Optional[str]:
     Returns:
         MP3 filename or None if no MP3 files found
     """
-    mp3_dir = '네이티브 영어표현력 사전_mp3'
+    mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     
     if not os.path.exists(mp3_dir):
         return None

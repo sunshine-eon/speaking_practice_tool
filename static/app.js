@@ -292,6 +292,18 @@ function createActivityElement(activity) {
                                     </audio>
                                     <div class="custom-audio-controls" id="controls-weekly-expressions-${currentWeek}">
                                         <button class="play-pause-btn" onclick="toggleWeeklyExpressionsPlayPause('${currentWeek}')">▶</button>
+                                        <button class="skip-btn" onclick="skipWeeklyExpressionsAudio('${currentWeek}', -5)" title="Rewind 5 seconds">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M11 3L5 8l6 5V3z"/>
+                                                <path d="M3 3h2v10H3V3z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="skip-btn" onclick="skipWeeklyExpressionsAudio('${currentWeek}', 5)" title="Forward 5 seconds">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M5 3l6 5-6 5V3z"/>
+                                                <path d="M11 3h2v10h-2V3z"/>
+                                            </svg>
+                                        </button>
                                         <div class="progress-bar-container" onclick="seekWeeklyExpressionsAudio('${currentWeek}', event)">
                                             <div class="progress-bar" id="progress-weekly-expressions-${currentWeek}"></div>
                                             <div class="progress-playhead" id="playhead-weekly-expressions-${currentWeek}"></div>
@@ -408,6 +420,18 @@ function createActivityElement(activity) {
                             </audio>
                                             <div class="custom-audio-controls" id="controls-typecast-${currentWeek}-1">
                                                 <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 1)">▶</button>
+                                                <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 1, -5)" title="Rewind 5 seconds">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M11 3L5 8l6 5V3z"/>
+                                                        <path d="M3 3h2v10H3V3z"/>
+                                                    </svg>
+                                                </button>
+                                                <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 1, 5)" title="Forward 5 seconds">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M5 3l6 5-6 5V3z"/>
+                                                        <path d="M11 3h2v10h-2V3z"/>
+                                                    </svg>
+                                                </button>
                                                 <div class="progress-bar-container" onclick="seekAudio('typecast', '${currentWeek}', 1, event)">
                                                     <div class="progress-bar" id="progress-typecast-${currentWeek}-1"></div>
                                                     <div class="progress-playhead" id="playhead-typecast-${currentWeek}-1"></div>
@@ -465,6 +489,18 @@ function createActivityElement(activity) {
                                             </audio>
                                             <div class="custom-audio-controls" id="controls-openai-${currentWeek}-1">
                                                 <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 1)">▶</button>
+                                                <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 1, -5)" title="Rewind 5 seconds">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M11 3L5 8l6 5V3z"/>
+                                                        <path d="M3 3h2v10H3V3z"/>
+                                                    </svg>
+                                                </button>
+                                                <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 1, 5)" title="Forward 5 seconds">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M5 3l6 5-6 5V3z"/>
+                                                        <path d="M11 3h2v10h-2V3z"/>
+                                                    </svg>
+                                                </button>
                                                 <div class="progress-bar-container" onclick="seekAudio('openai', '${currentWeek}', 1, event)">
                                                     <div class="progress-bar" id="progress-openai-${currentWeek}-1"></div>
                                                     <div class="progress-playhead" id="playhead-openai-${currentWeek}-1"></div>
@@ -601,6 +637,18 @@ function createActivityElement(activity) {
                                                 </audio>
                                                 <div class="custom-audio-controls" id="controls-typecast-${currentWeek}-2">
                                                     <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 2)">▶</button>
+                                                    <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 2, -5)" title="Rewind 5 seconds">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path d="M11 3L5 8l6 5V3z"/>
+                                                            <path d="M3 3h2v10H3V3z"/>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 2, 5)" title="Forward 5 seconds">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path d="M5 3l6 5-6 5V3z"/>
+                                                            <path d="M11 3h2v10h-2V3z"/>
+                                                        </svg>
+                                                    </button>
                                                     <div class="progress-bar-container" onclick="seekAudio('typecast', '${currentWeek}', 2, event)">
                                                         <div class="progress-bar" id="progress-typecast-${currentWeek}-2"></div>
                                                         <div class="progress-playhead" id="playhead-typecast-${currentWeek}-2"></div>
@@ -658,6 +706,18 @@ function createActivityElement(activity) {
                                                 </audio>
                                                 <div class="custom-audio-controls" id="controls-openai-${currentWeek}-2">
                                                     <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 2)">▶</button>
+                                                    <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 2, -5)" title="Rewind 5 seconds">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path d="M11 3L5 8l6 5V3z"/>
+                                                            <path d="M3 3h2v10H3V3z"/>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 2, 5)" title="Forward 5 seconds">
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                            <path d="M5 3l6 5-6 5V3z"/>
+                                                            <path d="M11 3h2v10h-2V3z"/>
+                                                        </svg>
+                                                    </button>
                                                     <div class="progress-bar-container" onclick="seekAudio('openai', '${currentWeek}', 2, event)">
                                                         <div class="progress-bar" id="progress-openai-${currentWeek}-2"></div>
                                                         <div class="progress-playhead" id="playhead-openai-${currentWeek}-2"></div>
@@ -815,14 +875,12 @@ function createActivityElement(activity) {
                     </div>
                 ` : ''}
                 <div class="notes-section">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                        <label for="${notesId}"><strong>Your notes / brainstorming</strong></label>
-                        <button class="save-notes-btn" onclick="savePromptNotes('${currentWeek}')" style="padding: 6px 12px; background: none; color: #666; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">💾 Save</button>
-                    </div>
+                    <label for="${notesId}"><strong>Your notes / brainstorming</strong></label>
                     <textarea 
                         id="${notesId}" 
                         class="prompt-notes" 
-                        placeholder="Write your thoughts, brainstorm ideas, or draft your response here..."
+                        placeholder="Write your thoughts, brainstorm ideas, or draft your response here... (Auto-saved)"
+                        onblur="savePromptNotes('${currentWeek}')"
                     >${escapeHtml(notes)}</textarea>
                 </div>
             </div>
@@ -971,8 +1029,9 @@ async function toggleVoiceJournalingDay(dateStr, element) {
             weeklySummary = data.weekly_summary;
             updateProgressSummary();
             
-            // Update visual state
-            const dayBox = document.querySelector(`[data-day="${dateStr}"]`);
+            // Update visual state - scope to voice_journaling activity
+            const activityContainer = document.querySelector('[data-activity-id="voice_journaling"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
             if (dayBox) {
                 if (newCompletedState) {
                     dayBox.classList.add('completed');
@@ -985,6 +1044,14 @@ async function toggleVoiceJournalingDay(dateStr, element) {
                     }
                     element.textContent = '✓ Completed';
                     element.classList.add('completed');
+                    
+                    // Close the recording UI if it's open
+                    const dayId = dateStr.replace(/-/g, '_');
+                    const recordingUI = document.getElementById(`voice_journaling_recording_ui_${dayId}`);
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
                 } else {
                     dayBox.classList.remove('completed');
                     const dayActions = dayBox.querySelector('.day-actions');
@@ -1071,8 +1138,9 @@ async function toggleShadowingDay(dateStr, element) {
             weeklySummary = data.weekly_summary;
             updateProgressSummary();
             
-            // Update visual state
-            const dayBox = document.querySelector(`[data-day="${dateStr}"]`);
+            // Update visual state - scope to shadowing_practice activity
+            const activityContainer = document.querySelector('[data-activity-id="shadowing_practice"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
             if (dayBox) {
                 if (newCompletedState) {
                     dayBox.classList.add('completed');
@@ -1085,6 +1153,14 @@ async function toggleShadowingDay(dateStr, element) {
                     }
                     element.textContent = '✓ Completed';
                     element.classList.add('completed');
+                    
+                    // Close the recording UI if it's open
+                    const dayId = dateStr.replace(/-/g, '_');
+                    const recordingUI = document.getElementById(`shadowing_practice_recording_ui_${dayId}`);
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
                 } else {
                     dayBox.classList.remove('completed');
                     const dayActions = dayBox.querySelector('.day-actions');
@@ -1157,8 +1233,9 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
             weeklySummary = data.weekly_summary;
             updateProgressSummary();
             
-            // Update UI
-            const dayBox = document.querySelector(`[data-day="${dateStr}"]`);
+            // Update UI - scope to weekly_expressions activity
+            const activityContainer = document.querySelector('[data-activity-id="weekly_expressions"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
             if (dayBox) {
                 if (newCompletedState) {
                     dayBox.classList.add('completed');
@@ -1171,6 +1248,14 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
                     }
                     element.textContent = '✓ Completed';
                     element.classList.add('completed');
+                    
+                    // Close the recording UI if it's open
+                    const dayId = dateStr.replace(/-/g, '_');
+                    const recordingUI = document.getElementById(`weekly_expressions_recording_ui_${dayId}`);
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
                 } else {
                     dayBox.classList.remove('completed');
                     const dayActions = dayBox.querySelector('.day-actions');
@@ -1226,8 +1311,9 @@ async function togglePromptDay(dateStr, element) {
             weeklySummary = data.weekly_summary;
             updateProgressSummary();
             
-            // Update visual state
-            const dayBox = document.querySelector(`[data-day="${dateStr}"]`);
+            // Update visual state - scope to weekly_speaking_prompt activity
+            const activityContainer = document.querySelector('[data-activity-id="weekly_speaking_prompt"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
             if (dayBox) {
                 if (newCompletedState) {
                     dayBox.classList.add('completed');
@@ -1240,6 +1326,14 @@ async function togglePromptDay(dateStr, element) {
                     }
                     element.textContent = '✓ Completed';
                     element.classList.add('completed');
+                    
+                    // Close the recording UI if it's open
+                    const dayId = dateStr.replace(/-/g, '_');
+                    const recordingUI = document.getElementById(`weekly_speaking_prompt_recording_ui_${dayId}`);
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
                 } else {
                     dayBox.classList.remove('completed');
                     const dayActions = dayBox.querySelector('.day-actions');
@@ -1314,13 +1408,12 @@ async function updatePrompt(activityId, value) {
     }
 }
 
-// Save prompt notes
+// Save prompt notes (auto-saves silently on blur)
 async function savePromptNotes(weekKey) {
     const notesId = `notes-weekly_speaking_prompt-${weekKey}`;
     const notesTextarea = document.getElementById(notesId);
     if (!notesTextarea) {
-        showError('Notes textarea not found.');
-        return;
+        return; // Silently fail if textarea not found
     }
     
     const notes = notesTextarea.value || '';
@@ -1342,13 +1435,13 @@ async function savePromptNotes(weekKey) {
         const data = await response.json();
         if (data.success) {
             progress = data.progress;
-            showSuccess('Notes saved successfully!');
+            // Silent save - no popup notification
         } else {
-            throw new Error(data.error || 'Failed to save notes');
+            console.error('Failed to save notes:', data.error);
         }
     } catch (error) {
         console.error('Error saving notes:', error);
-        showError('Failed to save notes. Please try again.');
+        // Silent fail - don't show error popup for auto-save
     }
 }
 
@@ -2861,6 +2954,17 @@ async function displayRecordings(activityId, day, recordings) {
     
     const timestamp = formatTimestamp(recording.timestamp);
     
+    // Build transcription HTML if available (only for voice_journaling)
+    let transcriptionHtml = '';
+    if (activityId === 'voice_journaling' && recording.transcription) {
+        transcriptionHtml = `
+            <div class="recording-transcription">
+                <div class="transcription-label">Transcription:</div>
+                <div class="transcription-text">${escapeHtml(recording.transcription)}</div>
+            </div>
+        `;
+    }
+    
     recordingDiv.innerHTML = `
         <div class="recording-info">
             <span class="recording-time">Recorded: ${timestamp}</span>
@@ -2870,6 +2974,7 @@ async function displayRecordings(activityId, day, recordings) {
             <source src="${recording.url}" type="audio/webm">
             Your browser does not support audio playback.
         </audio>
+        ${transcriptionHtml}
     `;
     
     recordingsList.appendChild(recordingDiv);
@@ -3007,6 +3112,25 @@ function seekWeeklyExpressionsAudio(weekKey, event) {
     
     // Update progress bar and playhead immediately
     updateWeeklyExpressionsProgressBar(weekKey, percent);
+}
+
+// Skip audio for weekly expressions (seconds can be positive or negative)
+function skipWeeklyExpressionsAudio(weekKey, seconds) {
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
+    if (!audioElement || !audioElement.duration) return;
+    
+    const newTime = Math.max(0, Math.min(audioElement.duration, audioElement.currentTime + seconds));
+    audioElement.currentTime = newTime;
+    
+    // Update progress bar and playhead immediately
+    const percent = newTime / audioElement.duration;
+    updateWeeklyExpressionsProgressBar(weekKey, percent);
+    
+    // Update time display
+    const timeDisplay = document.getElementById(`time-weekly-expressions-${weekKey}`);
+    if (timeDisplay) {
+        updateTimeDisplay(audioElement, timeDisplay);
+    }
 }
 
 // Update progress bar and playhead for weekly expressions
@@ -3275,6 +3399,25 @@ function seekAudio(sourceType, weekKey, scriptNum, event) {
     
     // Update progress bar and playhead immediately
     updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent);
+}
+
+// Skip audio for shadowing practice (seconds can be positive or negative)
+function skipShadowingAudio(sourceType, weekKey, scriptNum, seconds) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (!audioElement || !audioElement.duration) return;
+    
+    const newTime = Math.max(0, Math.min(audioElement.duration, audioElement.currentTime + seconds));
+    audioElement.currentTime = newTime;
+    
+    // Update progress bar and playhead immediately
+    const percent = newTime / audioElement.duration;
+    updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent);
+    
+    // Update time display
+    const timeDisplay = document.getElementById(`time-${sourceType}-${weekKey}-${scriptNum}`);
+    if (timeDisplay) {
+        updateTimeDisplay(audioElement, timeDisplay);
+    }
 }
 
 // Update progress bar and playhead for shadowing practice

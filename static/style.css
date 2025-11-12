@@ -1435,6 +1435,29 @@ header h1 {
     height: 32px;
 }
 
+.recording-transcription {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+}
+
+.transcription-label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.transcription-text {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 
 /* Script tabs for shadowing practice */
 .script-tabs {
@@ -1692,6 +1715,35 @@ header h1 {
 
 .play-pause-btn:hover {
     background-color: #f0f0f0;
+}
+
+.skip-btn {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #666;
+    cursor: pointer;
+    padding: 0.25rem 0.4rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1;
+}
+
+.skip-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.skip-btn:active {
+    background-color: #e0e0e0;
+    transform: scale(0.95);
 }
 
 .progress-bar-container {

@@ -161,7 +161,7 @@ def get_openai_client():
     return OpenAI(api_key=OPENAI_API_KEY)
 
 
-def load_pm_questions(csv_path='pm_questions.csv', sample_size=20):
+def load_pm_questions(csv_path='references/pm_questions.csv', sample_size=20):
     """
     Load PM questions from CSV file (for internal reference only).
     
@@ -519,7 +519,7 @@ def generate_weekly_prompt(previous_prompts=None, regenerate=False):
         client = get_openai_client()
         
         # Check if PM questions database exists (for context reference)
-        pm_questions_exist = os.path.exists('pm_questions.csv')
+        pm_questions_exist = os.path.exists('references/pm_questions.csv')
         
         # Build context about PM questions (reference, not copy)
         pm_questions_context = ""
