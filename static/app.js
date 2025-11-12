@@ -56,22 +56,92 @@ function renderPage() {
     
     // Load recordings for all activities
     loadAllRecordings();
+    
+    // Populate OpenAI voice dropdowns after rendering
+    setTimeout(() => {
+        document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
+            if (select.options.length <= 1 || select.options[0].textContent === 'Loading voices...') {
+                populateOpenAIVoiceDropdown(select.id);
+            }
+        });
+    }, 100);
+    
+    // Set up audio controls for weekly expressions
+    setTimeout(() => {
+        setupAllWeeklyExpressionsAudioControls();
+    }, 200);
+    
+    // Set up audio controls for shadowing practice
+    setTimeout(() => {
+        setupAllShadowingAudioControls();
+    }, 200);
 }
 
 // Update today's date display
 function updateTodayDate() {
+    const todayDateElement = document.getElementById('todayDate');
+    if (!todayDateElement) return;
+    
+    // Get the days of the current week
+    const daysOfWeek = getDaysOfWeek();
     const today = new Date();
-    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    
+    // Format today's date in local timezone (what the user sees)
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const todayDateStr = `${year}-${month}-${day}`;
+    
+    // Find today's index in the week - compare with local date only
+    let todayIndex = -1;
+    daysOfWeek.forEach((day, index) => {
+        if (day.date === todayDateStr) {
+            todayIndex = index;
+        }
+    });
+    
+    // Create visual progress bar
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     
-    const dayName = dayNames[today.getDay()];
-    const month = monthNames[today.getMonth()];
-    const day = today.getDate();
+    const progressBarHtml = `
+        <div class="week-progress-bar">
+            ${daysOfWeek.map((day, index) => {
+                const isToday = day.date === todayDateStr;
+                const dayName = dayNames[index];
+                // Parse date string (YYYY-MM-DD) directly to avoid timezone issues
+                const [yearStr, monthStr, dayStr] = day.date.split('-');
+                const dayNum = parseInt(dayStr, 10);
+                const monthIndex = parseInt(monthStr, 10) - 1;
+                const monthName = monthNames[monthIndex];
+                const dateLabel = `${monthName} ${dayNum}`;
+                
+                return `
+                    <div class="week-progress-day ${isToday ? 'today' : ''}" 
+                         style="flex: 1; position: relative;">
+                        <div class="week-progress-segment" 
+                             style="background: ${isToday ? '#4a90e2' : index < todayIndex ? '#2ecc71' : '#e0e0e0'}; 
+                                    height: ${isToday ? '8px' : '4px'}; 
+                                    border-radius: 2px;
+                                    margin-bottom: 4px;
+                                    transition: all 0.3s;">
+                        </div>
+                        <div class="week-progress-label" 
+                             style="font-size: 0.75rem; 
+                                    color: ${isToday ? '#4a90e2' : '#666'}; 
+                                    font-weight: ${isToday ? 'bold' : 'normal'};
+                                    text-align: center;">
+                            <div>${dayName}</div>
+                            <div style="font-size: 0.7rem; margin-top: 2px;">${dateLabel}</div>
+                        </div>
+                        ${isToday ? '<div class="today-indicator" style="position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid #4a90e2;"></div>' : ''}
+                    </div>
+                `;
+            }).join('')}
+        </div>
+    `;
     
-    const todayDateElement = document.getElementById('todayDate');
-    if (todayDateElement) {
-        todayDateElement.textContent = `Today is ${dayName}, ${month} ${day}`;
-    }
+    todayDateElement.innerHTML = progressBarHtml;
 }
 
 // Update week title with current week and date range (Sunday-Saturday format)
@@ -132,12 +202,14 @@ function createActivityElement(activity) {
     const activityProgress = getActivityProgress(activity.id);
     
     let checkboxHtml = '';
-    if (activity.id === 'voice_journaling' || activity.id === 'shadowing_practice' || activity.id === 'weekly_speaking_prompt') {
-        // Special handling for daily activities (voice journaling, shadowing practice, and weekly speaking prompt)
+    if (activity.id === 'weekly_expressions' || activity.id === 'voice_journaling' || activity.id === 'shadowing_practice' || activity.id === 'weekly_speaking_prompt') {
+        // Special handling for daily activities (weekly expressions, voice journaling, shadowing practice, and weekly speaking prompt)
         const daysCompleted = activityProgress?.completed_days || [];
         const daysOfWeek = getDaysOfWeek();
         let toggleFunction = 'toggleActivity';
-        if (activity.id === 'shadowing_practice') {
+        if (activity.id === 'weekly_expressions') {
+            toggleFunction = 'toggleWeeklyExpressionsDay';
+        } else if (activity.id === 'shadowing_practice') {
             toggleFunction = 'toggleShadowingDay';
         } else if (activity.id === 'weekly_speaking_prompt') {
             toggleFunction = 'togglePromptDay';
@@ -162,6 +234,7 @@ function createActivityElement(activity) {
                             </div>
                             <div id="${activity.id}_recording_ui_${dayId}" class="recording-ui" style="display: none;" data-activity="${activity.id}" data-day="${dateStr}" data-day-index="${index}">
                                 ${activity.id === 'voice_journaling' ? `<div class="daily-topic" id="${activity.id}_topic_${dayId}"></div>` : ''}
+                                ${activity.id !== 'weekly_expressions' ? `
                                 <div class="recording-controls">
                                     <button id="${activity.id}_record_${dayId}" class="record-btn" onclick="startRecording('${activity.id}', '${dateStr}'); event.stopPropagation();">🎤 Record</button>
                                     <button id="${activity.id}_stop_${dayId}" class="stop-btn" onclick="stopRecording(); event.stopPropagation();" style="display: none;">⏹ Stop</button>
@@ -171,6 +244,18 @@ function createActivityElement(activity) {
                                     <canvas id="${activity.id}_canvas_${dayId}" width="400" height="60"></canvas>
                                 </div>
                                 <div id="${activity.id}_recordings_${dayId}" class="recordings-list"></div>
+                                ` : ''}
+                                ${activity.id === 'weekly_expressions' ? `
+                                <div class="notes-section" style="margin-top: 15px;">
+                                    <label for="${activity.id}_notes_${dayId}"><strong>Dictation/notes</strong></label>
+                                    <textarea 
+                                        id="${activity.id}_notes_${dayId}" 
+                                        class="prompt-notes" 
+                                        placeholder="Add your notes here... (Saved when you mark as completed)"
+                                        style="min-height: 100px;"
+                                    ></textarea>
+                                </div>
+                                ` : ''}
                                 <div class="recording-controls-secondary">
                                     <button id="${activity.id}_complete_${dayId}" 
                                             class="complete-btn ${isChecked ? 'completed' : ''}"
@@ -189,11 +274,48 @@ function createActivityElement(activity) {
     // Build activity-specific content
     let activityContent = '';
     
-    if (activity.id === 'voice_journaling') {
+    if (activity.id === 'weekly_expressions') {
+        // Weekly Expressions: Show audio player (MP3 is automatically assigned based on week)
+        const selectedMp3 = (activityProgress && activityProgress.mp3_file) ? activityProgress.mp3_file : '';
+        console.log('Weekly expressions rendering - currentWeek:', currentWeek, 'selectedMp3:', selectedMp3, 'activityProgress:', activityProgress, 'progress:', progress);
+        activityContent = `
+            <div class="weekly-expressions-content">
+                <div class="audio-player-section" id="weekly-expressions-audio-section-${currentWeek}">
+                    ${selectedMp3 ? `
+                        <div class="audio-player-label" style="margin-bottom: 8px; font-weight: bold;">${escapeHtml(selectedMp3)}</div>
+                        <div class="audio-player-container">
+                            <div class="audio-player-with-options">
+                                <div class="audio-player-wrapper-custom">
+                                    <audio id="audio-player-weekly-expressions-${currentWeek}" data-week="${currentWeek}">
+                                        <source src="/api/weekly-expressions/mp3/${encodeURIComponent(selectedMp3)}" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <div class="custom-audio-controls" id="controls-weekly-expressions-${currentWeek}">
+                                        <button class="play-pause-btn" onclick="toggleWeeklyExpressionsPlayPause('${currentWeek}')">▶</button>
+                                        <div class="progress-bar-container" onclick="seekWeeklyExpressionsAudio('${currentWeek}', event)">
+                                            <div class="progress-bar" id="progress-weekly-expressions-${currentWeek}"></div>
+                                            <div class="progress-playhead" id="playhead-weekly-expressions-${currentWeek}"></div>
+                                        </div>
+                                        <span class="time-display" id="time-weekly-expressions-${currentWeek}">0:00 / 0:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 10px;">
+                            <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.0')" data-speed="1.0" style="padding: 6px 16px; border: 1px solid #4a90e2; border-radius: 4px; background: #4a90e2; color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">1.0x</button>
+                            <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.2')" data-speed="1.2" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">1.2x</button>
+                            <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.4')" data-speed="1.4" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">1.4x</button>
+                            <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.6')" data-speed="1.6" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">1.6x</button>
+                        </div>
+                    ` : '<div class="no-mp3-selected" style="padding: 10px; background: #f0f0f0; border-radius: 4px; color: #666;">MP3 file will be automatically assigned for this week.</div>'}
+                </div>
+            </div>
+        `;
+    } else if (activity.id === 'voice_journaling') {
         // Voice Journaling: Just show target length, topics shown per-day
         activityContent = `
             <div class="activity-target-length">
-                <strong>Target length:</strong> ${activity.target_length || '2-3 mins'}
+                <strong>Target length</strong> ${activity.target_length || '2-3 mins'}
             </div>
         `;
     } else if (activity.id === 'shadowing_practice') {
@@ -277,7 +399,7 @@ function createActivityElement(activity) {
                     <div class="audio-player-section">
                             ${script1TypecastUrl ? `
                                 <div class="audio-player-container">
-                                    <div class="audio-player-label">Typecast Audio${formatSettingsLabel(script1TypecastVoice, script1TypecastModel, script1TypecastSpeed, 'typecast')}:</div>
+                                    <div class="audio-player-label">Typecast${script1TypecastVoice ? ` (Voice: ${script1TypecastVoice})` : ''}</div>
                         <div class="audio-player-with-options">
                                         <div class="audio-player-wrapper-custom">
                                             <audio id="audio-player-typecast-${currentWeek}-1" data-week="${currentWeek}" data-script="1" data-source="typecast">
@@ -288,6 +410,7 @@ function createActivityElement(activity) {
                                                 <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 1)">▶</button>
                                                 <div class="progress-bar-container" onclick="seekAudio('typecast', '${currentWeek}', 1, event)">
                                                     <div class="progress-bar" id="progress-typecast-${currentWeek}-1"></div>
+                                                    <div class="progress-playhead" id="playhead-typecast-${currentWeek}-1"></div>
                         </div>
                                                 <span class="time-display" id="time-typecast-${currentWeek}-1">0:00 / 0:00</span>
                                             </div>
@@ -296,28 +419,12 @@ function createActivityElement(activity) {
                                         <div class="audio-regen-dropdown" id="audio-regen-${currentWeek}-1" style="display: none;">
                                             <div class="audio-regen-controls">
                                                 <div class="audio-option-section">
-                                                    <label><strong>Playback Speed:</strong></label>
-                                                    <select id="playback-speed-typecast-${currentWeek}-1" class="speed-select-compact" onchange="setPlaybackSpeed('typecast', '${currentWeek}', 1, this.value); event.stopPropagation();">
-                                                        <option value="0.5">0.5x</option>
-                                                        <option value="0.75">0.75x</option>
-                                                        <option value="0.8">0.8x</option>
-                                                        <option value="0.9">0.9x</option>
-                                                        <option value="1.0" selected>1.0x</option>
-                                                        <option value="1.1">1.1x</option>
-                                                        <option value="1.25">1.25x</option>
-                                                        <option value="1.5">1.5x</option>
-                                                        <option value="1.75">1.75x</option>
-                                                        <option value="2.0">2.0x</option>
-                                                    </select>
-                                                </div>
-                                                <div class="audio-option-divider"></div>
-                                                <div class="audio-option-section">
                                                     <a href="/static/${script1TypecastUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
                                                         ⬇️ Download
                                                     </a>
                                                 </div>
                                                 <div class="audio-option-divider"></div>
-                                                <label><strong>Re-generate Typecast audio:</strong></label>
+                                                <label><strong>Re-generate Typecast audio</strong></label>
                                                 <select id="voice-select-regen-${currentWeek}-1" class="voice-select-compact">
                                                     <option value="">Loading voices...</option>
                                                 </select>
@@ -349,7 +456,7 @@ function createActivityElement(activity) {
                             ` : ''}
                             ${script1OpenaiUrl ? `
                                 <div class="audio-player-container">
-                                    <div class="audio-player-label">OpenAI Audio${formatSettingsLabel(script1OpenaiVoice, null, script1OpenaiSpeed, 'openai')}:</div>
+                                    <div class="audio-player-label">OpenAI${script1OpenaiVoice ? ` (Voice: ${script1OpenaiVoice.charAt(0).toUpperCase() + script1OpenaiVoice.slice(1)})` : ''}</div>
                                     <div class="audio-player-with-options">
                                         <div class="audio-player-wrapper-custom">
                                             <audio id="audio-player-openai-${currentWeek}-1" data-week="${currentWeek}" data-script="1" data-source="openai">
@@ -360,6 +467,7 @@ function createActivityElement(activity) {
                                                 <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 1)">▶</button>
                                                 <div class="progress-bar-container" onclick="seekAudio('openai', '${currentWeek}', 1, event)">
                                                     <div class="progress-bar" id="progress-openai-${currentWeek}-1"></div>
+                                                    <div class="progress-playhead" id="playhead-openai-${currentWeek}-1"></div>
                                                 </div>
                                                 <span class="time-display" id="time-openai-${currentWeek}-1">0:00 / 0:00</span>
                                             </div>
@@ -368,28 +476,12 @@ function createActivityElement(activity) {
                                         <div class="audio-regen-dropdown" id="audio-regen-openai-${currentWeek}-1" style="display: none;">
                             <div class="audio-regen-controls">
                                                 <div class="audio-option-section">
-                                                    <label><strong>Playback Speed:</strong></label>
-                                                    <select id="playback-speed-openai-${currentWeek}-1" class="speed-select-compact" onchange="setPlaybackSpeed('openai', '${currentWeek}', 1, this.value); event.stopPropagation();">
-                                                        <option value="0.5">0.5x</option>
-                                                        <option value="0.75">0.75x</option>
-                                                        <option value="0.8">0.8x</option>
-                                                        <option value="0.9">0.9x</option>
-                                                        <option value="1.0" selected>1.0x</option>
-                                                        <option value="1.1">1.1x</option>
-                                                        <option value="1.25">1.25x</option>
-                                                        <option value="1.5">1.5x</option>
-                                                        <option value="1.75">1.75x</option>
-                                                        <option value="2.0">2.0x</option>
-                                                    </select>
-                                                </div>
-                                                <div class="audio-option-divider"></div>
-                                                <div class="audio-option-section">
                                                     <a href="/static/${script1OpenaiUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
                                                         ⬇️ Download
                                                     </a>
                                                 </div>
                                                 <div class="audio-option-divider"></div>
-                                                <label><strong>Re-generate OpenAI audio:</strong></label>
+                                                <label><strong>Re-generate OpenAI audio</strong></label>
                                                 <select id="voice-select-regen-openai-${currentWeek}-1" class="voice-select-compact">
                                     <option value="">Loading voices...</option>
                                 </select>
@@ -423,13 +515,13 @@ function createActivityElement(activity) {
                     ${!hasTypecastAudio1 || !hasOpenaiAudio1 ? `
                     <div class="audio-generation-section">
                         <div class="audio-generation-header">
-                            <strong>Generate Audio:</strong>
+                            <strong>Generate Audio</strong>
                         </div>
                             
                             ${!hasTypecastAudio1 ? `
                             <!-- Typecast Settings -->
                             <div class="audio-source-settings">
-                                <label class="source-label"><strong>Typecast:</strong></label>
+                                <label class="source-label"><strong>Typecast</strong></label>
                         <div class="audio-generation-options">
                                     <select id="voice-select-typecast-${currentWeek}-1" class="voice-select" ${!hasScript1 ? 'disabled' : ''}>
                                 <option value="">Loading voices...</option>
@@ -459,7 +551,7 @@ function createActivityElement(activity) {
                             ${!hasOpenaiAudio1 ? `
                             <!-- OpenAI Settings -->
                             <div class="audio-source-settings">
-                                <label class="source-label"><strong>OpenAI:</strong></label>
+                                <label class="source-label"><strong>OpenAI</strong></label>
                                 <div class="audio-generation-options">
                                     <select id="voice-select-openai-${currentWeek}-1" class="voice-select" ${!hasScript1 ? 'disabled' : ''}>
                                         <option value="">Loading voices...</option>
@@ -500,7 +592,7 @@ function createActivityElement(activity) {
                             <div class="audio-player-section">
                                 ${script2TypecastUrl ? `
                                     <div class="audio-player-container">
-                                        <div class="audio-player-label">Typecast Audio${formatSettingsLabel(script2TypecastVoice, script2TypecastModel, script2TypecastSpeed, 'typecast')}:</div>
+                                        <div class="audio-player-label">Typecast${script2TypecastVoice ? ` (Voice: ${script2TypecastVoice})` : ''}</div>
                                         <div class="audio-player-with-options">
                                             <div class="audio-player-wrapper-custom">
                                                 <audio id="audio-player-typecast-${currentWeek}-2" data-week="${currentWeek}" data-script="2" data-source="typecast">
@@ -511,6 +603,7 @@ function createActivityElement(activity) {
                                                     <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 2)">▶</button>
                                                     <div class="progress-bar-container" onclick="seekAudio('typecast', '${currentWeek}', 2, event)">
                                                         <div class="progress-bar" id="progress-typecast-${currentWeek}-2"></div>
+                                                        <div class="progress-playhead" id="playhead-typecast-${currentWeek}-2"></div>
                                                     </div>
                                                     <span class="time-display" id="time-typecast-${currentWeek}-2">0:00 / 0:00</span>
                                                 </div>
@@ -519,28 +612,12 @@ function createActivityElement(activity) {
                                             <div class="audio-regen-dropdown" id="audio-regen-${currentWeek}-2" style="display: none;">
                                                 <div class="audio-regen-controls">
                                                     <div class="audio-option-section">
-                                                        <label><strong>Playback Speed:</strong></label>
-                                                        <select id="playback-speed-typecast-${currentWeek}-2" class="speed-select-compact" onchange="setPlaybackSpeed('typecast', '${currentWeek}', 2, this.value); event.stopPropagation();">
-                                                            <option value="0.5">0.5x</option>
-                                                            <option value="0.75">0.75x</option>
-                                                            <option value="0.8">0.8x</option>
-                                                            <option value="0.9">0.9x</option>
-                                                            <option value="1.0" selected>1.0x</option>
-                                                            <option value="1.1">1.1x</option>
-                                                            <option value="1.25">1.25x</option>
-                                                            <option value="1.5">1.5x</option>
-                                                            <option value="1.75">1.75x</option>
-                                                            <option value="2.0">2.0x</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="audio-option-divider"></div>
-                                                    <div class="audio-option-section">
                                                         <a href="/static/${script2TypecastUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
                                                             ⬇️ Download
                                                         </a>
                                                     </div>
                                                     <div class="audio-option-divider"></div>
-                                                    <label><strong>Re-generate Typecast audio:</strong></label>
+                                                    <label><strong>Re-generate Typecast audio</strong></label>
                                                     <select id="voice-select-regen-${currentWeek}-2" class="voice-select-compact">
                                                         <option value="">Loading voices...</option>
                                                     </select>
@@ -572,7 +649,7 @@ function createActivityElement(activity) {
                                 ` : ''}
                                 ${script2OpenaiUrl ? `
                                     <div class="audio-player-container">
-                                        <div class="audio-player-label">OpenAI Audio${formatSettingsLabel(script2OpenaiVoice, null, script2OpenaiSpeed, 'openai')}:</div>
+                                        <div class="audio-player-label">OpenAI${script2OpenaiVoice ? ` (Voice: ${script2OpenaiVoice.charAt(0).toUpperCase() + script2OpenaiVoice.slice(1)})` : ''}</div>
                                         <div class="audio-player-with-options">
                                             <div class="audio-player-wrapper-custom">
                                                 <audio id="audio-player-openai-${currentWeek}-2" data-week="${currentWeek}" data-script="2" data-source="openai">
@@ -583,6 +660,7 @@ function createActivityElement(activity) {
                                                     <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 2)">▶</button>
                                                     <div class="progress-bar-container" onclick="seekAudio('openai', '${currentWeek}', 2, event)">
                                                         <div class="progress-bar" id="progress-openai-${currentWeek}-2"></div>
+                                                        <div class="progress-playhead" id="playhead-openai-${currentWeek}-2"></div>
                                                     </div>
                                                     <span class="time-display" id="time-openai-${currentWeek}-2">0:00 / 0:00</span>
                                                 </div>
@@ -591,28 +669,12 @@ function createActivityElement(activity) {
                                             <div class="audio-regen-dropdown" id="audio-regen-openai-${currentWeek}-2" style="display: none;">
                                                 <div class="audio-regen-controls">
                                                     <div class="audio-option-section">
-                                                        <label><strong>Playback Speed:</strong></label>
-                                                        <select id="playback-speed-openai-${currentWeek}-2" class="speed-select-compact" onchange="setPlaybackSpeed('openai', '${currentWeek}', 2, this.value); event.stopPropagation();">
-                                                            <option value="0.5">0.5x</option>
-                                                            <option value="0.75">0.75x</option>
-                                                            <option value="0.8">0.8x</option>
-                                                            <option value="0.9">0.9x</option>
-                                                            <option value="1.0" selected>1.0x</option>
-                                                            <option value="1.1">1.1x</option>
-                                                            <option value="1.25">1.25x</option>
-                                                            <option value="1.5">1.5x</option>
-                                                            <option value="1.75">1.75x</option>
-                                                            <option value="2.0">2.0x</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="audio-option-divider"></div>
-                                                    <div class="audio-option-section">
                                                         <a href="/static/${script2OpenaiUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
                                                             ⬇️ Download
                                                         </a>
                                                     </div>
                                                     <div class="audio-option-divider"></div>
-                                                    <label><strong>Re-generate OpenAI audio:</strong></label>
+                                                    <label><strong>Re-generate OpenAI audio</strong></label>
                                                     <select id="voice-select-regen-openai-${currentWeek}-2" class="voice-select-compact">
                                                         <option value="">Loading voices...</option>
                                                     </select>
@@ -646,13 +708,13 @@ function createActivityElement(activity) {
                         ${!hasTypecastAudio2 || !hasOpenaiAudio2 ? `
                             <div class="audio-generation-section">
                                 <div class="audio-generation-header">
-                                    <strong>Generate Audio:</strong>
+                                    <strong>Generate Audio</strong>
                                 </div>
                                 
                                 ${!hasTypecastAudio2 ? `
                                 <!-- Typecast Settings -->
                                 <div class="audio-source-settings">
-                                    <label class="source-label"><strong>Typecast:</strong></label>
+                                    <label class="source-label"><strong>Typecast</strong></label>
                                     <div class="audio-generation-options">
                                         <select id="voice-select-typecast-${currentWeek}-2" class="voice-select" ${!hasScript2 ? 'disabled' : ''}>
                                             <option value="">Loading voices...</option>
@@ -682,7 +744,7 @@ function createActivityElement(activity) {
                                 ${!hasOpenaiAudio2 ? `
                                 <!-- OpenAI Settings -->
                                 <div class="audio-source-settings">
-                                    <label class="source-label"><strong>OpenAI:</strong></label>
+                                    <label class="source-label"><strong>OpenAI</strong></label>
                                     <div class="audio-generation-options">
                                         <select id="voice-select-openai-${currentWeek}-2" class="voice-select" ${!hasScript2 ? 'disabled' : ''}>
                                             <option value="">Loading voices...</option>
@@ -753,19 +815,21 @@ function createActivityElement(activity) {
                     </div>
                 ` : ''}
                 <div class="notes-section">
-                    <label for="${notesId}"><strong>Your notes / brainstorming:</strong></label>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <label for="${notesId}"><strong>Your notes / brainstorming</strong></label>
+                        <button class="save-notes-btn" onclick="savePromptNotes('${currentWeek}')" style="padding: 6px 12px; background: none; color: #666; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">💾 Save</button>
+                    </div>
                     <textarea 
                         id="${notesId}" 
                         class="prompt-notes" 
                         placeholder="Write your thoughts, brainstorm ideas, or draft your response here..."
-                        onblur="savePromptNotes('${currentWeek}', this.value)"
                     >${escapeHtml(notes)}</textarea>
                 </div>
             </div>
         `;
     }
     
-    // Add kebab menu button for re-generate
+    // Add kebab menu button for re-generate (weekly_expressions doesn't need regeneration)
     const hasContent = (activity.id === 'voice_journaling' && activityProgress?.topics?.length > 0) ||
                        (activity.id === 'shadowing_practice' && (activityProgress?.script1 || activityProgress?.script)) ||
                        (activity.id === 'weekly_speaking_prompt' && activityProgress?.prompt);
@@ -823,7 +887,11 @@ function getDaysOfWeek() {
         for (let i = 0; i < 7; i++) {
             const date = new Date(startOfWeek);
             date.setDate(startOfWeek.getDate() + i);
-            const dateStr = date.toISOString().split('T')[0];
+            // Format date as YYYY-MM-DD in local timezone
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const dateStr = `${year}-${month}-${day}`;
             const label = `${dayNames[i]} ${date.getDate()}`;
             days.push({ date: dateStr, label: label });
         }
@@ -854,8 +922,14 @@ function getDaysOfWeek() {
     for (let i = 0; i < 7; i++) {
         const date = new Date(sundayOfTargetWeek);
         date.setUTCDate(sundayOfTargetWeek.getUTCDate() + i);
-        const dateStr = date.toISOString().split('T')[0];
-        const label = `${dayNames[i]} ${date.getUTCDate()}`;
+        // Convert UTC date to local date for display and comparison
+        // The UTC date represents midnight UTC, convert to local midnight
+        const localMidnight = new Date(date.getTime() + (date.getTimezoneOffset() * 60000));
+        const year = localMidnight.getFullYear();
+        const month = String(localMidnight.getMonth() + 1).padStart(2, '0');
+        const day = String(localMidnight.getDate()).padStart(2, '0');
+        const dateStr = `${year}-${month}-${day}`;
+        const label = `${dayNames[i]} ${localMidnight.getDate()}`;
         days.push({ date: dateStr, label: label });
     }
     
@@ -1031,6 +1105,92 @@ async function toggleShadowingDay(dateStr, element) {
     }
 }
 
+// Toggle weekly expressions day
+async function toggleWeeklyExpressionsDay(dateStr, element) {
+    const newCompletedState = !element.classList.contains('completed');
+    
+    // If marking as completed, save the notes first
+    if (newCompletedState) {
+        const dayId = dateStr.replace(/-/g, '_');
+        const notesTextarea = document.getElementById(`weekly_expressions_notes_${dayId}`);
+        if (notesTextarea) {
+            const notes = notesTextarea.value || '';
+            // Save notes synchronously before marking as completed
+            try {
+                await saveWeeklyExpressionsNotes(dateStr, notes);
+            } catch (error) {
+                console.error('Error saving notes:', error);
+                showError('Failed to save notes. Please try again.');
+                return; // Don't mark as completed if notes save fails
+            }
+        }
+    }
+    
+    try {
+        const response = await fetch('/api/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'weekly_expressions',
+                day: dateStr,
+                completed: newCompletedState
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        if (data.success) {
+            progress = data.progress;
+            weeklySummary = data.weekly_summary;
+            updateProgressSummary();
+            
+            // Update UI
+            const dayBox = document.querySelector(`[data-day="${dateStr}"]`);
+            if (dayBox) {
+                if (newCompletedState) {
+                    dayBox.classList.add('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
+                        const mark = document.createElement('span');
+                        mark.className = 'completed-mark';
+                        mark.textContent = '✓';
+                        dayActions.insertBefore(mark, dayActions.firstChild);
+                    }
+                    element.textContent = '✓ Completed';
+                    element.classList.add('completed');
+                } else {
+                    dayBox.classList.remove('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions) {
+                        const mark = dayActions.querySelector('.completed-mark');
+                        if (mark) mark.remove();
+                    }
+                    element.textContent = 'Mark as completed';
+                    element.classList.remove('completed');
+                }
+            }
+        } else {
+            throw new Error(data.error || 'Failed to update progress');
+        }
+    } catch (error) {
+        console.error('Error updating progress:', error);
+        showError(`Failed to save progress: ${error.message}`);
+    }
+}
+
 // Toggle weekly speaking prompt day
 async function togglePromptDay(dateStr, element) {
     const newCompletedState = !element.classList.contains('completed');
@@ -1155,7 +1315,16 @@ async function updatePrompt(activityId, value) {
 }
 
 // Save prompt notes
-async function savePromptNotes(weekKey, notes) {
+async function savePromptNotes(weekKey) {
+    const notesId = `notes-weekly_speaking_prompt-${weekKey}`;
+    const notesTextarea = document.getElementById(notesId);
+    if (!notesTextarea) {
+        showError('Notes textarea not found.');
+        return;
+    }
+    
+    const notes = notesTextarea.value || '';
+    
     try {
         const response = await fetch('/api/activity-info', {
             method: 'POST',
@@ -1173,11 +1342,41 @@ async function savePromptNotes(weekKey, notes) {
         const data = await response.json();
         if (data.success) {
             progress = data.progress;
+            showSuccess('Notes saved successfully!');
+        } else {
+            throw new Error(data.error || 'Failed to save notes');
+        }
+    } catch (error) {
+        console.error('Error saving notes:', error);
+        showError('Failed to save notes. Please try again.');
+    }
+}
+
+// Save weekly expressions notes for a specific day
+async function saveWeeklyExpressionsNotes(day, notes) {
+    try {
+        const response = await fetch('/api/activity-info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'weekly_expressions',
+                week_key: currentWeek,
+                field_name: 'notes',
+                field_value: notes,
+                day: day
+            })
+        });
+        
+        const data = await response.json();
+        if (data.success) {
+            progress = data.progress;
         } else {
             throw new Error('Failed to save notes');
         }
     } catch (error) {
-        console.error('Error saving notes:', error);
+        console.error('Error saving weekly expressions notes:', error);
         showError('Failed to save notes. Please try again.');
     }
 }
@@ -1189,9 +1388,22 @@ function showError(message) {
 }
 
 function showSuccess(message) {
-    // Simple success display - could be enhanced with a toast notification
-    console.log('✓ ' + message);
-    // Optional: show a brief toast notification instead of alert
+    // Create a temporary success notification
+    const notification = document.createElement('div');
+    notification.style.cssText = 'position: fixed; top: 20px; right: 20px; background-color: #4caf50; color: white; padding: 12px 20px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 10000; font-size: 0.9rem;';
+    notification.textContent = '✓ ' + message;
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transition = 'opacity 0.3s';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
 }
 
 // Toggle script visibility
@@ -1494,46 +1706,10 @@ async function generateAudioForScript(weekKey, scriptNum, buttonElement, sourceT
     const typecastModel = typecastModelSelect ? typecastModelSelect.value : 'ssfm-v21';
     const openaiVoice = openaiVoiceSelect ? openaiVoiceSelect.value : null;
     
-    // Get speeds - separate for Typecast and OpenAI when generating both
+    // Always use 1.0x speed for audio generation
     let typecastSpeed = 1.0;
     let openaiSpeed = 1.0;
-    let speed = 1.0;  // Fallback/default speed
-    
-    if (sourceType === 'openai') {
-        // OpenAI regeneration - use OpenAI speed
-        if (speedSelect) {
-            openaiSpeed = parseFloat(speedSelect.value) || 1.0;
-        } else {
-            const openaiSpeedSelect = document.getElementById(`speed-select-openai-${weekKey}-${scriptNum}`);
-            if (openaiSpeedSelect) {
-                openaiSpeed = parseFloat(openaiSpeedSelect.value) || 1.0;
-            }
-        }
-        speed = openaiSpeed;
-    } else if (sourceType === 'typecast') {
-        // Typecast regeneration - use Typecast speed
-        if (speedSelect) {
-            typecastSpeed = parseFloat(speedSelect.value) || 1.0;
-        } else {
-            const typecastSpeedSelect = document.getElementById(`speed-select-typecast-${weekKey}-${scriptNum}`);
-            if (typecastSpeedSelect) {
-                typecastSpeed = parseFloat(typecastSpeedSelect.value) || 1.0;
-            }
-        }
-        speed = typecastSpeed;
-    } else {
-        // Generating both - get separate speeds
-        const typecastSpeedSelect = document.getElementById(`speed-select-typecast-${weekKey}-${scriptNum}`);
-        const openaiSpeedSelect = document.getElementById(`speed-select-openai-${weekKey}-${scriptNum}`);
-        
-        if (typecastSpeedSelect) {
-            typecastSpeed = parseFloat(typecastSpeedSelect.value) || 1.0;
-        }
-        if (openaiSpeedSelect) {
-            openaiSpeed = parseFloat(openaiSpeedSelect.value) || 1.0;
-        }
-        speed = typecastSpeed;  // Default fallback
-    }
+    let speed = 1.0;
     
     if (button) {
         button.disabled = true;
@@ -1827,6 +2003,15 @@ async function loadWeek(weekKey) {
         
         // Update voice dropdowns after rendering
         updateVoiceDropdowns();
+        
+        // Populate OpenAI voice dropdowns after rendering
+        setTimeout(() => {
+            document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
+                if (select.options.length <= 1 || (select.options.length > 0 && select.options[0].textContent === 'Loading voices...')) {
+                    populateOpenAIVoiceDropdown(select.id);
+                }
+            });
+        }, 150);
     } catch (error) {
         console.error('Error loading week:', error);
         showError('Failed to load week. Please try again.');
@@ -2096,7 +2281,7 @@ async function loadVoices() {
             // Also populate OpenAI voice dropdowns
             setTimeout(() => {
                 document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
-                    if (select.options.length <= 1) {
+                    if (select.options.length <= 1 || (select.options.length > 0 && select.options[0].textContent === 'Loading voices...')) {
                         populateOpenAIVoiceDropdown(select.id);
                     }
                 });
@@ -2160,7 +2345,10 @@ function updateVoiceDropdowns() {
 // Populate OpenAI voice dropdown with OpenAI voices
 function populateOpenAIVoiceDropdown(selectId) {
     const select = document.getElementById(selectId);
-    if (!select) return;
+    if (!select) {
+        console.warn('OpenAI voice dropdown not found:', selectId);
+        return;
+    }
     
     const currentValue = select.value;
     
@@ -2193,11 +2381,10 @@ function populateOpenAIVoiceDropdown(selectId) {
         const onyxOption = Array.from(select.options).find(opt => opt.value === 'onyx');
         if (onyxOption) {
             select.value = 'onyx';
-        } else {
+        } else if (select.options.length > 0) {
             select.selectedIndex = 0;
         }
     }
-    
 }
 
 // ==================== RECORDING FUNCTIONALITY ====================
@@ -2219,13 +2406,17 @@ function toggleRecordingUI(activityId, day, event) {
     
     const dayId = day.replace(/-/g, '_');
     const recordingUI = document.getElementById(`${activityId}_recording_ui_${dayId}`);
-    const dayBox = document.querySelector(`[data-day="${day}"]`);
+    
+    // Find the day box within the current activity's container
+    const activityContainer = document.querySelector(`[data-activity-id="${activityId}"]`);
+    const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${day}"]`) : null;
     
     if (!recordingUI) return;
     
     // Close all other recording UIs for this activity and remove active state
     const allRecordingUIs = document.querySelectorAll(`[id^="${activityId}_recording_ui_"]`);
-    const allDayBoxes = document.querySelectorAll(`[data-day]`);
+    // Only select day boxes within this activity's container
+    const allDayBoxes = activityContainer ? activityContainer.querySelectorAll(`[data-day]`) : [];
     allRecordingUIs.forEach(ui => {
         if (ui.id !== recordingUI.id && ui.style.display !== 'none') {
             ui.style.display = 'none';
@@ -2250,12 +2441,24 @@ function toggleRecordingUI(activityId, day, event) {
             
             const topicElement = document.getElementById(`${activityId}_topic_${dayId}`);
             if (topicElement) {
-                topicElement.innerHTML = `<strong>Today's Topic:</strong> ${escapeHtml(topic)}`;
+                topicElement.innerHTML = `<strong>Today's Topic</strong> ${escapeHtml(topic)}`;
             }
         }
         
-        // Load recordings when opening
+        // For weekly expressions, load notes
+        if (activityId === 'weekly_expressions') {
+            // Load notes for this day
+            const notesTextarea = document.getElementById(`${activityId}_notes_${dayId}`);
+            if (notesTextarea) {
+                const notes = progress?.weeks?.[currentWeek]?.weekly_expressions?.notes?.[day] || '';
+                notesTextarea.value = notes;
+            }
+        }
+        
+        // Load recordings when opening (skip for weekly_expressions)
+        if (activityId !== 'weekly_expressions') {
         loadRecordings(activityId, day);
+        }
     } else {
         recordingUI.style.display = 'none';
         if (dayBox) dayBox.classList.remove('active');
@@ -2711,6 +2914,341 @@ function updateRecordingUI(activityId, day, state) {
     }
 }
 
+// Ensure weekly expressions audio player is updated (MP3 is automatically assigned)
+function ensureWeeklyExpressionsAudioPlayer() {
+    const selectedMp3 = progress?.weeks?.[currentWeek]?.weekly_expressions?.mp3_file || '';
+    if (selectedMp3) {
+        updateWeeklyExpressionsAudioPlayer(selectedMp3);
+    }
+}
+
+// Update the weekly expressions audio player
+function updateWeeklyExpressionsAudioPlayer(mp3File) {
+    if (!mp3File) return;
+    
+    const audioSection = document.getElementById(`weekly-expressions-audio-section-${currentWeek}`);
+    if (audioSection) {
+        // Get current speed if audio element exists
+        const existingAudio = document.getElementById(`audio-player-weekly-expressions-${currentWeek}`);
+        const currentSpeed = existingAudio ? existingAudio.playbackRate : 1.0;
+        
+        audioSection.innerHTML = `
+            <div class="audio-player-label" style="margin-bottom: 8px; font-weight: bold;">${escapeHtml(mp3File)}</div>
+            <div class="audio-player-container">
+                <div class="audio-player-with-options">
+                    <div class="audio-player-wrapper-custom">
+                        <audio id="audio-player-weekly-expressions-${currentWeek}" data-week="${currentWeek}">
+                            <source src="/api/weekly-expressions/mp3/${encodeURIComponent(mp3File)}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="custom-audio-controls" id="controls-weekly-expressions-${currentWeek}">
+                            <button class="play-pause-btn" onclick="toggleWeeklyExpressionsPlayPause('${currentWeek}')">▶</button>
+                        <div class="progress-bar-container" onclick="seekWeeklyExpressionsAudio('${currentWeek}', event)">
+                            <div class="progress-bar" id="progress-weekly-expressions-${currentWeek}"></div>
+                            <div class="progress-playhead" id="playhead-weekly-expressions-${currentWeek}"></div>
+                        </div>
+                            <span class="time-display" id="time-weekly-expressions-${currentWeek}">0:00 / 0:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 10px;">
+                <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.0')" data-speed="1.0" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: ${currentSpeed === 1.0 ? '#4a90e2' : '#fff'}; color: ${currentSpeed === 1.0 ? '#fff' : '#333'}; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">1.0x</button>
+                <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.2')" data-speed="1.2" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: ${currentSpeed === 1.2 ? '#4a90e2' : '#fff'}; color: ${currentSpeed === 1.2 ? '#fff' : '#333'}; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">1.2x</button>
+                <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.4')" data-speed="1.4" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: ${currentSpeed === 1.4 ? '#4a90e2' : '#fff'}; color: ${currentSpeed === 1.4 ? '#fff' : '#333'}; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">1.4x</button>
+                <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.6')" data-speed="1.6" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: ${currentSpeed === 1.6 ? '#4a90e2' : '#fff'}; color: ${currentSpeed === 1.6 ? '#fff' : '#333'}; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">1.6x</button>
+            </div>
+        `;
+        
+        // Set up audio event listeners after creating the audio element
+        setTimeout(() => {
+            setupWeeklyExpressionsAudioControls(currentWeek, currentSpeed);
+        }, 100);
+        
+        console.log('Audio player updated with:', mp3File);
+    } else {
+        console.warn('Audio section not found:', `weekly-expressions-audio-section-${currentWeek}`);
+    }
+}
+
+// Set playback speed for weekly expressions audio
+function setWeeklyExpressionsSpeed(weekKey, speed) {
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
+    if (audioElement) {
+        const speedValue = parseFloat(speed) || 1.0;
+        audioElement.playbackRate = speedValue;
+        // Update button styles
+        updateSpeedButtonStyles(weekKey, speedValue);
+    }
+}
+
+// Toggle play/pause for weekly expressions audio
+function toggleWeeklyExpressionsPlayPause(weekKey) {
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
+    if (!audioElement) return;
+    
+    if (audioElement.paused) {
+        audioElement.play();
+    } else {
+        audioElement.pause();
+    }
+}
+
+// Seek audio for weekly expressions
+function seekWeeklyExpressionsAudio(weekKey, event) {
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
+    const container = event.currentTarget;
+    if (!audioElement || !container || !audioElement.duration) return;
+    
+    const rect = container.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const percent = Math.max(0, Math.min(1, x / rect.width));
+    audioElement.currentTime = percent * audioElement.duration;
+    
+    // Update progress bar and playhead immediately
+    updateWeeklyExpressionsProgressBar(weekKey, percent);
+}
+
+// Update progress bar and playhead for weekly expressions
+function updateWeeklyExpressionsProgressBar(weekKey, percent) {
+    const progressBar = document.getElementById(`progress-weekly-expressions-${weekKey}`);
+    const playhead = document.getElementById(`playhead-weekly-expressions-${weekKey}`);
+    
+    if (progressBar) {
+        progressBar.style.width = (percent * 100) + '%';
+    }
+    if (playhead) {
+        playhead.style.left = (percent * 100) + '%';
+    }
+}
+
+// Handle dragging for weekly expressions audio
+function setupWeeklyExpressionsAudioDrag(weekKey) {
+    const container = document.querySelector(`#controls-weekly-expressions-${weekKey} .progress-bar-container`);
+    const playhead = document.getElementById(`playhead-weekly-expressions-${weekKey}`);
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
+    
+    if (!container || !audioElement) return;
+    
+    let isDragging = false;
+    
+    const handleMove = (clientX) => {
+        if (!audioElement.duration) return;
+        const rect = container.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const percent = Math.max(0, Math.min(1, x / rect.width));
+        audioElement.currentTime = percent * audioElement.duration;
+        updateWeeklyExpressionsProgressBar(weekKey, percent);
+    };
+    
+    const startDrag = (e) => {
+        isDragging = true;
+        if (playhead) {
+            playhead.style.transition = 'none';
+        }
+        handleMove(e.clientX);
+        e.preventDefault();
+        e.stopPropagation();
+    };
+    
+    // Make playhead draggable
+    if (playhead) {
+        playhead.addEventListener('mousedown', (e) => {
+            startDrag(e);
+        });
+    }
+    
+    // Make container draggable
+    container.addEventListener('mousedown', (e) => {
+        startDrag(e);
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            handleMove(e.clientX);
+        }
+    });
+    
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            if (playhead) {
+                playhead.style.transition = 'left 0.1s linear';
+            }
+        }
+    });
+}
+
+// Set up audio controls event listeners for weekly expressions
+function setupWeeklyExpressionsAudioControls(weekKey, initialSpeed) {
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
+    const playPauseBtn = document.querySelector(`#controls-weekly-expressions-${weekKey} .play-pause-btn`);
+    const progressBar = document.getElementById(`progress-weekly-expressions-${weekKey}`);
+    const timeDisplay = document.getElementById(`time-weekly-expressions-${weekKey}`);
+    
+    if (!audioElement) return;
+    
+    // Set up drag functionality
+    setupWeeklyExpressionsAudioDrag(weekKey);
+    
+    // Set initial playback speed
+    if (initialSpeed) {
+        audioElement.playbackRate = initialSpeed;
+    }
+    
+    // Update play/pause button
+    function updatePlayPauseButton() {
+        if (playPauseBtn) {
+            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
+        }
+    }
+    
+    // Update progress bar
+    function updateProgressBar() {
+        if (progressBar && audioElement.duration) {
+            const percent = (audioElement.currentTime / audioElement.duration) * 100;
+            progressBar.style.width = percent + '%';
+            
+            // Update playhead position
+            const playheadId = progressBar.id.replace('progress-', 'playhead-');
+            const playhead = document.getElementById(playheadId);
+            if (playhead) {
+                playhead.style.left = percent + '%';
+            }
+        }
+    }
+    
+    // Update time display
+    function updateTimeDisplayFunc() {
+        if (timeDisplay && audioElement.duration) {
+            updateTimeDisplay(audioElement, timeDisplay);
+        }
+    }
+    
+    // Event listeners
+    audioElement.addEventListener('play', updatePlayPauseButton);
+    audioElement.addEventListener('pause', updatePlayPauseButton);
+    audioElement.addEventListener('timeupdate', () => {
+        updateProgressBar();
+        updateTimeDisplayFunc();
+    });
+    audioElement.addEventListener('loadedmetadata', () => {
+        updateTimeDisplayFunc();
+    });
+    
+    // Initial update
+    updatePlayPauseButton();
+    updateProgressBar();
+    updateTimeDisplayFunc();
+}
+
+// Set up all weekly expressions audio controls on page load
+function setupAllWeeklyExpressionsAudioControls() {
+    if (!currentWeek) return;
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${currentWeek}`);
+    if (audioElement) {
+        const currentSpeed = audioElement.playbackRate || 1.0;
+        setupWeeklyExpressionsAudioControls(currentWeek, currentSpeed);
+    }
+}
+
+// Update speed button styles to show which one is active
+function updateSpeedButtonStyles(weekKey, activeSpeed) {
+    const buttons = document.querySelectorAll(`[onclick*="setWeeklyExpressionsSpeed('${weekKey}'"]`);
+    buttons.forEach(btn => {
+        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
+        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
+            btn.style.background = '#4a90e2';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#4a90e2';
+        } else {
+            btn.style.background = '#fff';
+            btn.style.color = '#333';
+            btn.style.borderColor = '#ddd';
+        }
+    });
+}
+
+// Set playback speed for weekly expressions audio in day view
+function setWeeklyExpressionsDaySpeed(dayId, speed) {
+    const audioElement = document.getElementById(`weekly-expressions-audio-day-${dayId}`);
+    if (audioElement) {
+        const speedValue = parseFloat(speed) || 1.0;
+        audioElement.playbackRate = speedValue;
+        // Update button styles
+        updateSpeedButtonStylesDay(dayId, speedValue);
+    }
+}
+
+// Update speed button styles for day view
+function updateSpeedButtonStylesDay(dayId, activeSpeed) {
+    const buttons = document.querySelectorAll(`[onclick*="setWeeklyExpressionsDaySpeed('${dayId}'"]`);
+    buttons.forEach(btn => {
+        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
+        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
+            btn.style.background = '#4a90e2';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#4a90e2';
+        } else {
+            btn.style.background = '#fff';
+            btn.style.color = '#333';
+            btn.style.borderColor = '#ddd';
+        }
+    });
+}
+
+// Select MP3 file for weekly expressions
+async function selectMp3File(weekKey, mp3File) {
+    if (!mp3File) return;
+    
+    try {
+        const response = await fetch('/api/weekly-expressions/select-mp3', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                week_key: weekKey,
+                mp3_file: mp3File
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        if (data.success) {
+            // Update progress with the full response
+            progress = data.progress;
+            
+            // Update the selected MP3 file
+            const selectedMp3 = mp3File;
+            
+            // Re-render the activity to show the audio player
+            renderActivities();
+            
+            // Wait a bit for DOM to update, then update audio player
+            setTimeout(() => {
+                updateWeeklyExpressionsAudioPlayer(selectedMp3);
+            }, 100);
+        } else {
+            throw new Error(data.error || 'Failed to select MP3 file');
+        }
+    } catch (error) {
+        console.error('Error selecting MP3 file:', error);
+        showError(`Failed to select MP3 file: ${error.message}`);
+    }
+}
+
 function togglePlayPause(sourceType, weekKey, scriptNum) {
     const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
     if (!audioElement) return;
@@ -2720,6 +3258,9 @@ function togglePlayPause(sourceType, weekKey, scriptNum) {
     } else {
         audioElement.pause();
     }
+    
+    // Update play/pause button immediately
+    updateShadowingPlayPauseButton(sourceType, weekKey, scriptNum);
 }
 
 function seekAudio(sourceType, weekKey, scriptNum, event) {
@@ -2731,6 +3272,79 @@ function seekAudio(sourceType, weekKey, scriptNum, event) {
     const x = event.clientX - rect.left;
     const percent = Math.max(0, Math.min(1, x / rect.width));
     audioElement.currentTime = percent * audioElement.duration;
+    
+    // Update progress bar and playhead immediately
+    updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent);
+}
+
+// Update progress bar and playhead for shadowing practice
+function updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent) {
+    const progressBar = document.getElementById(`progress-${sourceType}-${weekKey}-${scriptNum}`);
+    const playhead = document.getElementById(`playhead-${sourceType}-${weekKey}-${scriptNum}`);
+    
+    if (progressBar) {
+        progressBar.style.width = (percent * 100) + '%';
+    }
+    if (playhead) {
+        playhead.style.left = (percent * 100) + '%';
+    }
+}
+
+// Handle dragging for shadowing practice audio
+function setupShadowingAudioDrag(sourceType, weekKey, scriptNum) {
+    const container = document.querySelector(`#controls-${sourceType}-${weekKey}-${scriptNum} .progress-bar-container`);
+    const playhead = document.getElementById(`playhead-${sourceType}-${weekKey}-${scriptNum}`);
+    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    
+    if (!container || !audioElement) return;
+    
+    let isDragging = false;
+    
+    const handleMove = (clientX) => {
+        if (!audioElement.duration) return;
+        const rect = container.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const percent = Math.max(0, Math.min(1, x / rect.width));
+        audioElement.currentTime = percent * audioElement.duration;
+        updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent);
+    };
+    
+    const startDrag = (e) => {
+        isDragging = true;
+        if (playhead) {
+            playhead.style.transition = 'none';
+        }
+        handleMove(e.clientX);
+        e.preventDefault();
+        e.stopPropagation();
+    };
+    
+    // Make playhead draggable
+    if (playhead) {
+        playhead.addEventListener('mousedown', (e) => {
+            startDrag(e);
+        });
+    }
+    
+    // Make container draggable
+    container.addEventListener('mousedown', (e) => {
+        startDrag(e);
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            handleMove(e.clientX);
+        }
+    });
+    
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            if (playhead) {
+                playhead.style.transition = 'left 0.1s linear';
+            }
+        }
+    });
 }
 
 function updateTimeDisplay(audioElement, timeDisplay) {
@@ -2757,6 +3371,91 @@ function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Set up audio controls event listeners for shadowing practice
+function setupShadowingAudioControls(sourceType, weekKey, scriptNum) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    const playPauseBtn = document.querySelector(`#controls-${sourceType}-${weekKey}-${scriptNum} .play-pause-btn`);
+    const progressBar = document.getElementById(`progress-${sourceType}-${weekKey}-${scriptNum}`);
+    const timeDisplay = document.getElementById(`time-${sourceType}-${weekKey}-${scriptNum}`);
+    
+    if (!audioElement) return;
+    
+    // Set up drag functionality
+    setupShadowingAudioDrag(sourceType, weekKey, scriptNum);
+    
+    // Update play/pause button
+    function updatePlayPauseButton() {
+        if (playPauseBtn) {
+            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
+        }
+    }
+    
+    // Update progress bar
+    function updateProgressBar() {
+        if (progressBar && audioElement.duration) {
+            const percent = (audioElement.currentTime / audioElement.duration) * 100;
+            progressBar.style.width = percent + '%';
+            
+            // Update playhead position
+            const playheadId = progressBar.id.replace('progress-', 'playhead-');
+            const playhead = document.getElementById(playheadId);
+            if (playhead) {
+                playhead.style.left = percent + '%';
+            }
+        }
+    }
+    
+    // Update time display
+    function updateTimeDisplayFunc() {
+        if (timeDisplay && audioElement.duration) {
+            updateTimeDisplay(audioElement, timeDisplay);
+        }
+    }
+    
+    // Event listeners
+    audioElement.addEventListener('play', updatePlayPauseButton);
+    audioElement.addEventListener('pause', updatePlayPauseButton);
+    audioElement.addEventListener('timeupdate', () => {
+        updateProgressBar();
+        updateTimeDisplayFunc();
+    });
+    audioElement.addEventListener('loadedmetadata', () => {
+        updateTimeDisplayFunc();
+    });
+    
+    // Initial update
+    updatePlayPauseButton();
+    updateProgressBar();
+    updateTimeDisplayFunc();
+}
+
+// Update play/pause button for shadowing practice (called from togglePlayPause)
+function updateShadowingPlayPauseButton(sourceType, weekKey, scriptNum) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    const playPauseBtn = document.querySelector(`#controls-${sourceType}-${weekKey}-${scriptNum} .play-pause-btn`);
+    if (audioElement && playPauseBtn) {
+        playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
+    }
+}
+
+// Set up all shadowing practice audio controls on page load
+function setupAllShadowingAudioControls() {
+    if (!currentWeek) return;
+    
+    // Set up controls for all shadowing practice audio players
+    const sourceTypes = ['typecast', 'openai'];
+    const scriptNums = [1, 2];
+    
+    sourceTypes.forEach(sourceType => {
+        scriptNums.forEach(scriptNum => {
+            const audioElement = document.getElementById(`audio-player-${sourceType}-${currentWeek}-${scriptNum}`);
+            if (audioElement) {
+                setupShadowingAudioControls(sourceType, currentWeek, scriptNum);
+            }
+        });
+    });
 }
 
 // Initialize on page load

@@ -85,7 +85,7 @@ def api_update_progress():
     if not activity_id:
         return jsonify({'error': 'activity_id is required'}), 400
     
-    if activity_id not in ['voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt']:
+    if activity_id not in ['weekly_expressions', 'voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt']:
         return jsonify({'error': 'Invalid activity_id'}), 400
     
     # All activities are now daily - require day parameter
@@ -185,6 +185,14 @@ def api_update_activity_info():
             if 'words' not in progress['weeks'][week_key]['weekly_speaking_prompt']:
                 progress['weeks'][week_key]['weekly_speaking_prompt']['words'] = []
             progress['weeks'][week_key]['weekly_speaking_prompt']['words'] = field_value
+    elif activity_id == 'weekly_expressions':
+        if field_name == 'notes':
+            day = data.get('day')
+            if not day:
+                return jsonify({'error': 'day is required for weekly_expressions notes'}), 400
+            if 'notes' not in progress['weeks'][week_key]['weekly_expressions']:
+                progress['weeks'][week_key]['weekly_expressions']['notes'] = {}
+            progress['weeks'][week_key]['weekly_expressions']['notes'][day] = field_value
     
     progress['last_updated'] = datetime.now().isoformat()
     
@@ -738,7 +746,7 @@ def api_save_recording():
     week_key = request.form.get('week_key')
     day = request.form.get('day')
     
-    if not activity_id or activity_id not in ['voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt']:
+    if not activity_id or activity_id not in ['weekly_expressions', 'voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt']:
         return jsonify({'error': 'Invalid or missing activity_id'}), 400
     
     if not week_key:
@@ -898,6 +906,91 @@ def api_delete_recording():
     except Exception as e:
         print(f"Error deleting recording: {e}")
         return jsonify({'error': f'Failed to delete recording: {str(e)}'}), 500
+
+
+@app.route('/api/weekly-expressions/mp3-list', methods=['GET'])
+def api_get_mp3_list():
+    """Get list of available MP3 files."""
+    mp3_dir = '네이티브 영어표현력 사전_mp3'
+    
+    if not os.path.exists(mp3_dir):
+        return jsonify({'error': 'MP3 directory not found'}), 404
+    
+    try:
+        mp3_files = [f for f in os.listdir(mp3_dir) if f.endswith('.mp3')]
+        mp3_files.sort()  # Sort alphabetically
+        return jsonify({
+            'success': True,
+            'mp3_files': mp3_files
+        })
+    except Exception as e:
+        return jsonify({'error': f'Failed to list MP3 files: {str(e)}'}), 500
+
+
+@app.route('/api/weekly-expressions/mp3/<path:filename>', methods=['GET'])
+def api_serve_mp3(filename):
+    """Serve MP3 files."""
+    mp3_dir = '네이티브 영어표현력 사전_mp3'
+    
+    # Security: ensure filename doesn't contain path traversal
+    if '..' in filename or '/' in filename or '\\' in filename:
+        return jsonify({'error': 'Invalid filename'}), 400
+    
+    if not os.path.exists(mp3_dir):
+        return jsonify({'error': 'MP3 directory not found'}), 404
+    
+    filepath = os.path.join(mp3_dir, filename)
+    
+    if not os.path.exists(filepath) or not filename.endswith('.mp3'):
+        return jsonify({'error': 'File not found'}), 404
+    
+    return send_from_directory(mp3_dir, filename, mimetype='audio/mpeg')
+
+
+@app.route('/api/weekly-expressions/select-mp3', methods=['POST'])
+def api_select_mp3():
+    """Select an MP3 file for a specific week."""
+    data = request.get_json()
+    week_key = data.get('week_key') if data else None
+    mp3_file = data.get('mp3_file') if data else None
+    
+    if week_key is None:
+        week_key = get_current_week_key()
+    
+    if not mp3_file:
+        return jsonify({'error': 'mp3_file is required'}), 400
+    
+    # Security: ensure filename doesn't contain path traversal
+    if '..' in mp3_file or '/' in mp3_file or '\\' in mp3_file:
+        return jsonify({'error': 'Invalid filename'}), 400
+    
+    progress = load_progress()
+    ensure_week_exists(progress, week_key)
+    
+    # Verify file exists
+    mp3_dir = '네이티브 영어표현력 사전_mp3'
+    filepath = os.path.join(mp3_dir, mp3_file)
+    if not os.path.exists(filepath):
+        return jsonify({'error': 'MP3 file not found'}), 404
+    
+    # Store selected MP3 file
+    if 'weekly_expressions' not in progress['weeks'][week_key]:
+        progress['weeks'][week_key]['weekly_expressions'] = {
+            'completed_days': [],
+            'mp3_file': ''
+        }
+    
+    progress['weeks'][week_key]['weekly_expressions']['mp3_file'] = mp3_file
+    progress['last_updated'] = datetime.now().isoformat()
+    
+    if save_progress(progress):
+        return jsonify({
+            'success': True,
+            'mp3_file': mp3_file,
+            'progress': progress
+        })
+    else:
+        return jsonify({'error': 'Failed to save MP3 selection'}), 500
 
 
 if __name__ == '__main__':

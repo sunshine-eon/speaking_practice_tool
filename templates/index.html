@@ -10,11 +10,11 @@
     <div class="main-container">
         <div class="content-area">
             <header>
-                <h1 id="weekTitle">Speaking Practice Roadmap</h1>
-                <p id="todayDate" class="today-date"></p>
-                <div class="generate-all-section">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <h1 id="weekTitle" style="margin: 0;">Speaking Practice Roadmap</h1>
                     <button id="generateAllBtn" class="generate-all-btn" onclick="generateAllContent()">Generate content</button>
                 </div>
+                <p id="todayDate" class="today-date"></p>
             </header>
 
             <div class="activities" id="activities">
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <aside class="week-sidebar" id="weekSidebar">
+        <aside class="week-sidebar hidden" id="weekSidebar">
             <button class="toggle-sidebar-btn" id="toggleSidebarBtn" onclick="toggleSidebar()" title="Toggle sidebar">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

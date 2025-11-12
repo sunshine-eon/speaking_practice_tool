@@ -35,6 +35,7 @@ server.pid
 *.webm
 audio/
 recordings/
+네이티브 영어표현력 사전_mp3/
 
 # macOS
 .DS_Store
