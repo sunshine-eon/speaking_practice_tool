@@ -1,0 +1,65 @@
+Chapter 15: The RAPID framework and the Five-Day Alignment framework
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 38:09 - 39:51
+============================================================
+
+[38:07] to make sure that the ecosystem can run.
+[38:10] Let's talk about these two processes.
+[38:12] Rapid and what was the other one?
+[38:13] Five-day?
+[38:14] Yeah, five-day alignment.
+[38:15] They've both been around LinkedIn for a little bit,
+[38:17] but they're great.
+[38:17] The Rapid is just a question of,
+[38:19] oftentimes to your point,
+[38:20] if you're running two, three marketplaces,
+[38:22] several different business model here,
+[38:24] there's a question of who has the decision,
+[38:25] who can make the decision in this situation.
+[38:27] And so making sure that you have a single person's name
+[38:30] with the decision, and that person is,
+[38:32] you know, that is really, really important
+[38:34] because it gets a clarity real fast.
+[38:36] I mean, it's more of a personal rule,
+[38:37] but kind of one thing I love to say is,
+[38:40] if you had three back and forths in an email,
+[38:41] you got to pick up the phone,
+[38:42] and if you've been on the phone for 20 minutes,
+[38:44] it's time to just write that decision maker and go.
+[38:47] And that way you can make sure,
+[38:48] the concept of an hour,
+[38:49] you should be able to get a decision.
+[38:51] It doesn't always operate like that.
+[38:52] I'm sure there's many PMs at LinkedIn
+[38:53] who are operating, who may have some feedback from me on that,
+[38:56] but that's kind of the intent behind it.
+[38:58] And then a five-day alignment is, you know,
+[39:00] you should hold your managers accountable
+[39:03] that in five days, if someone has something
+[39:04] that they haven't been able to escalate and solve,
+[39:06] that's probably then on the next level of person.
+[39:08] But as you run that ecosystem,
+[39:10] there's so much complexity around it,
+[39:12] I think you need some of those processes in place
+[39:14] in order to start answering some of those typewreckers,
+[39:17] if you will.
+[39:18] I like that five-day rule.
+[39:19] Basically puts the clock on a manager
+[39:21] to unblock, basically.
+[39:23] Yeah, yeah.
+[39:25] And with Rapid, I don't know if I totally understand,
+[39:27] is that an acronym for something
+[39:28] or is it just make decisions rapidly?
+[39:31] No, it's a great question.
+[39:32] The D stands for decisions,
+[39:33] but the R is for who's recommending it,
+[39:35] the A at Berman has to agree,
+[39:37] the I is for other people who may be able
+[39:39] to be putting in an input.
+[39:41] And so it's basically a list of people
+[39:43] who need to be in the decision chain.
+[39:44] Got it.
+[39:45] I would argue the most important thing
+[39:46] is to have a single name on that decision line
+[39:48] because that usually makes sure
+[39:49] that you can get a decision very quickly.

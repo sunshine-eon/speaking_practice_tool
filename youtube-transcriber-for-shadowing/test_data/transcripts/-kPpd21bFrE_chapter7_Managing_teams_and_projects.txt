@@ -1,0 +1,93 @@
+Chapter 7: Managing teams and projects
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 31:33 - 41:07
+============================================================
+
+[00:00] Let me go in a different direction and see if there's more to learn here.
+[00:03] When it comes to running your teams, is there something that is kind of fairly
+[00:08] contrarian in how you approach running the product team that is maybe now not how other companies
+[00:15] operate that you think is key to your success?
+[00:17] I've changed in how I operate after I joined Revolut.
+[00:21] Probably because Revolut is a founder-led company and probably it's because SoFled.
+[00:27] And also because MyRole is quite spread across many things.
+[00:33] So MyRole of travel is leading product function across company, but also leading retail,
+[00:40] which is a core part of Revolut's business.
+[00:44] And it's very easy to be spread thinly across all those domains and catching up with 50 or 70 projects
+[00:58] that are being executed simultaneously, which would mean that you will just spend your entire week
+[01:06] just catching up on statuses, not really adding value to anyone.
+[01:12] But it's also scary to not do it because what if there are some things going wrong, right?
+[01:19] And you won't be able to stop it or steer in a better direction.
+[01:25] So I think that's why also a lot of managers, especially in senior positions,
+[01:29] they kind of stay high level and they don't go very deep into details.
+[01:34] But so how we do differently at Revolut is to go very deep into details.
+[01:43] We take maybe seven or 10 projects, which are most impactful for customers right now,
+[01:52] and we go super deep into them, like really, really deep sitting with engineers,
+[02:02] like reading code level and understanding how it's built exactly and what's the underlying issue.
+[02:10] And you could think that, okay, but what about others, like let's say 50 or 60 items, right, that are being executed.
+[02:21] But the thing is that it actually, it's counter-intuitive, but it works really well
+[02:28] because first of all, teams, they talk to each other.
+[02:32] There are formal and informal ways of communicating through meetups or just, you know, meeting in the office.
+[02:39] And they know which areas are being scrutinized right now and which team is being scrutinized.
+[02:45] And it also gives information on what are the current priorities in the company.
+[02:51] But in addition, it's a signal to other teams that if they are not proactively executing things on the expected level,
+[03:04] paying attention to all the details and being meticulous in all those details, especially in quality,
+[03:12] they will be the ones that will be reviewed to a such deep level like next phase, next cycle.
+[03:22] So as a result, it also builds a great discipline.
+[03:26] And since, like Revolute is such a high concentration of very ambitious people who thrive for being best versions of themselves and grow
+[03:41] and it's very important for them to prove that, you know, they can deliver great teams and build next great company.
+[03:53] As a result, they do everything to operate autonomously.
+[04:01] And when you start diving deep into details, like you see that everything is fine.
+[04:05] You see the modus operandi and you can understand, okay,
+[04:10] if this team is on good track or not on good track.
+[04:14] And if it's not on good track, it means that it probably will be one of your next areas of focus.
+[04:20] Okay, so what I'm hearing is there's, you said there's 50 to 60 things kind of projects being built on one.
+[04:25] Maybe close it to a hundred actually.
+[04:27] Okay.
+[04:28] Okay, so there's like a hundred things happening at any point, like features being built, products being launched.
+[04:34] And you, and this is you and the founders, choose seven to 10 to focus on, or is it just you?
+[04:40] No, it's just me.
+[04:42] Just you, okay.
+[04:43] And by the way, do you have like a leadership team that you're a part of with like a design lead or is it just you basically at the top?
+[04:49] So the way it's structured, my responsibility is a product function.
+[04:55] We also have a head of design function.
+[04:57] It's also part of my team.
+[04:59] But then all the other functions, they separate like engineering and data function and all of them report directly into CEO.
+[05:08] Got it.
+[05:09] Okay.
+[05:10] So you, so out of a hundred things you choose, here's like the seven to 10 things I'm going to go deep on.
+[05:14] These are the things that matter most to the business that if they don't go well, it'll have the most down, downside.
+[05:20] And then you just, you're, you basically said you sit next to the engineers, you get really involved in every detail.
+[05:26] Yeah.
+[05:27] Awesome.
+[05:28] Okay.
+[05:29] That is definitely counterintuitive.
+[05:30] We had Brian Chesky in the podcast and the way he approached this problem is he just cut down how many things happen at Airbnb and because he wants to be involved in everything.
+[05:39] And so I think it's cool to hear a different approach where, okay, we can still do a lot of stuff, but I'm going to choose I'm going to go deep on the things that matter most.
+[05:48] No, I think we will never cut down things.
+[05:51] It's just the appetite for, for growth and also entrepreneurial approach in the company is so high that we will never allow ourselves to give up on some great opportunities.
+[06:07] But also this, this approach is way more scalable.
+[06:11] So while leadership and obviously founders themselves keep everyone accountable and go deep into details.
+[06:19] It doesn't mean that they micromanage everyone that that's actually, that's actually a very important thing.
+[06:26] So the ideal position for any product owner is to be fully autonomous.
+[06:31] And then it doesn't mean that you will never be challenged.
+[06:34] But if when you're challenged, you can show all the logic behind decisions you've made behind the road map.
+[06:42] And even if metrics are not yet there, like you, you will still like, let's say, have this credit of trust to keep building things the way you want to build them.
+[06:54] Eventually, yeah, you will be presenting the outputs of your activity on this weekly product reviews.
+[06:59] But again, it's, it's not a micromanagement either.
+[07:02] It's more like, let's say, a last line of control to make sure that what we're building is all, all makes sense and that's value and this thoroughly thought in all details.
+[07:15] And then you said still every screen that is shipped, the founders review at some point.
+[07:19] So it's not like someone shipping stuff without the founders seeing it in some form.
+[07:23] Yeah, yeah, exactly.
+[07:25] They have like full overview over everything.
+[07:28] But also, it actually, it allows us to build so many things because there is actually little micromanagement.
+[07:42] Like, if there was, if founders had to be like involved into everything, they had to, they had to cut the things down, right?
+[07:52] By giving people autonomy, they actually boost company growth.
+[07:57] And the, and as a result, I think Revolute is, is a strong outlier in the industry in terms of how many products being shipped and how fast they shipped.
+[08:08] Another thing here is what I mentioned previously is us investing heavily into platform and so that every solution is scalable.
+[08:20] From the get go so that we don't have any custom solutions.
+[08:25] And I don't, for example, take our credit team, they ship new products like loans or credit cards in the country literally every month.
+[08:36] And it's just maybe 300 people.
+[08:40] And I think that, you know, a credit division in a, in a incumbent bank is maybe like two or 3000 people building just credit products for a single country.
+[08:55] And our team is building it for 50 countries.
+[09:00] So, and yeah, it's enabled through this approach with platforms, which we build on top of small teams, which are fully equipped with necessary functions and also have autonomy in defining what they're building.
+[09:18] And the flat hierarchy with everyone being accountable and founders have in direct view of everyone and inter intervening if necessary.

@@ -1,0 +1,135 @@
+Chapter 1: Hari’s background
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 00:00 - 05:04
+============================================================
+
+[00:00] It was March 2020 and we were just watching COVID hit.
+[00:02] It was just this heartbreaking moment where in the feed,
+[00:05] you were seeing all these people by no fault of their own
+[00:07] starting to post that they've lost their job.
+[00:10] We started seeing in our data as you had some areas,
+[00:12] like maybe hospitality was really getting hit,
+[00:14] but some areas like customer service
+[00:16] that just couldn't hire enough.
+[00:17] And you think the marketplace would balance pretty quickly.
+[00:19] You think, okay, maybe these people
+[00:21] will start moving out of their jobs,
+[00:22] but it wasn't happening.
+[00:23] And a large reason behind this,
+[00:25] people are used to looking for certain particular titles.
+[00:28] And they didn't start realizing
+[00:29] how other people could do this job.
+[00:31] So we made a pretty big push in something
+[00:32] we call skills first hiring.
+[00:34] This was the idea that we could translate people's experiences
+[00:38] into a set of skills.
+[00:39] And by that, we could help them really start balancing
+[00:41] the marketplace with a much different system, right?
+[00:43] And so I think that the job market is rebalancing,
+[00:46] but it's being done, the pathways are being done
+[00:48] in a very different way that seems to be,
+[00:50] maybe a change that holds through these ups and downs.
+[00:53] And that'll be very interesting to see.
+[00:55] Welcome to Lenny's podcast,
+[00:59] where I interview world-class product leaders
+[01:00] and growth experts to learn from their hard-won experiences
+[01:03] building and growing today's most successful products.
+[01:06] Today, my guest is Hari Srinivasan.
+[01:08] This episode has a hilarious story.
+[01:11] On Twitter, an account called the curious PM
+[01:14] tagged me with a request to have someone from LinkedIn
+[01:17] come on the podcast and talk about how they operate
+[01:19] and what they've learned about building products
+[01:21] that serve so many different types of customers.
+[01:24] I replied asking for any suggestions
+[01:26] for who he thought I should specifically talk to.
+[01:29] And he suggested Hari Srinivasan
+[01:31] by doing some research on LinkedIn.
+[01:33] So I reached out to Hari, told him about this tweet,
+[01:35] and he agreed.
+[01:36] And so here's the episode.
+[01:38] Hari's been at LinkedIn for eight and a half years,
+[01:42] and he leads the talent solutions product team
+[01:45] as VP of product, which is also LinkedIn's biggest business
+[01:48] and includes all of the hiring and learning products
+[01:50] which you'll hear about in this episode.
+[01:52] In our chat, Hari shares what he's seeing change
+[01:55] in the hiring market, what you can do to improve your odds
+[01:58] of finding a job through LinkedIn,
+[02:00] what he's learned about building
+[02:02] and maintaining really complex systems like LinkedIn,
+[02:04] tips for getting into product management,
+[02:07] and some lessons from his own course on product management.
+[02:10] Plus, we also talk about how LinkedIn has been able
+[02:12] to become a real source of valuable content
+[02:15] and a lot less cringe over the past couple of years,
+[02:17] which I've definitely noticed and I share in our chat.
+[02:20] What a fun series of events that led to this episode.
+[02:22] Big thank you to Jotun,
+[02:24] hopefully unpronouncing your name correctly,
+[02:26] the guy behind the Curious PM account
+[02:27] for making this all happen.
+[02:29] With that, I bring you Hari Srinivasan
+[02:31] after a short word from our sponsors.
+[02:35] Today's episode is brought to you by Miro,
+[02:37] an online collaborative whiteboard
+[02:39] that's designed specifically for teams like yours.
+[02:42] The best way to see what Miro's all about
+[02:44] and how it can help your team collaborate better
+[02:46] is not to listen to me talk about it,
+[02:48] but to go check it out for yourself.
+[02:50] Go to Miro.com slash Lenny.
+[02:53] With the help of the Miro team,
+[02:54] I created a super cool Miro board
+[02:56] with two of my own favorite templates,
+[02:59] my one-pager template and my managing up template
+[03:01] that you can plug and play
+[03:03] and start using immediately with your team.
+[03:05] I've also embedded a handful of my favorite templates
+[03:07] that other people have published in the Miroverse.
+[03:10] When you get to the board,
+[03:11] you can also leave suggestions for the podcast,
+[03:13] answer a question that I have for you,
+[03:15] and generally just play around to get a sense
+[03:17] of how it all works.
+[03:18] Miro is a killer tool for brainstorming with your team,
+[03:22] laying out your strategy,
+[03:23] sharing user research findings,
+[03:25] capturing ideas, giving feedback on wireframes,
+[03:28] and generally just collaborating with your colleagues.
+[03:30] I actually used Miro to collaborate with the Miro team
+[03:33] on creating my own board,
+[03:35] and it was super fun and super easy.
+[03:37] Go check it out at Miro.com slash Lenny.
+[03:41] That's M-I-R-O.com slash Lenny.
+[03:44] Today's episode is brought to you by Brave Search
+[03:47] and their newest product, the Brave Search API,
+[03:51] an independent global search index
+[03:53] you can use to power your search or AI apps.
+[03:55] If your work involves AI,
+[03:57] then you know how important new data is to train your LLMs
+[04:00] and to power your AI applications.
+[04:02] You might be building an incredible AI product,
+[04:05] but if you're using the same data sets
+[04:06] as your competitors to train your models,
+[04:08] you don't have much of an advantage.
+[04:11] Brave Search is the fastest growing surging engine
+[04:13] since being, and it's 100% independent
+[04:16] from the big tech companies.
+[04:17] Its index features billions of pages of high quality data
+[04:21] from real humans, and it's constantly updated
+[04:24] thanks to being the default search engine
+[04:25] in the Brave browser.
+[04:27] If you're building products with search capabilities,
+[04:29] you're probably experiencing soaring API costs
+[04:32] or lack of viable global alternatives to Bing or Google.
+[04:35] It's only gonna become harder to afford these challenges.
+[04:38] The Brave Search API gives you access
+[04:40] to its novel web scale data with competitive features,
+[04:44] intuitive structuring, and affordable costs.
+[04:46] AI devs will particularly benefit from data
+[04:49] containing thorough coverage of recent events.
+[04:52] Lenny's podcast listeners can get started testing
+[04:54] the API for free at brave.com slash Lenny.
+[04:58] That's brave.com slash Lenny.
+[05:01] ["Bloodline"]

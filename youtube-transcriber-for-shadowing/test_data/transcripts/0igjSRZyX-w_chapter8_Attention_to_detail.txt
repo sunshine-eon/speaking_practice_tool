@@ -1,0 +1,227 @@
+Chapter 8: Attention to detail
+Video: Superhuman's secret to success | Rahul Vohra (CEO and founder)
+Time: 30:56 - 43:00
+============================================================
+
+[00:00] I want to zoom out a little bit and there's a couple themes that came up again and again
+[00:06] when I talked to folks that you've worked with, investors and superhuman.
+[00:10] And the two themes are contrarian thinking in terms of building the company and strong
+[00:16] attention to detail.
+[00:18] Let's spend a little time on attention to detail.
+[00:20] Like I said, this is one of the things that came up again and again when I was asking
+[00:24] people about you.
+[00:25] So I have this quote from Ed Sims.
+[00:27] And maybe your first investor, were they your first investor?
+[00:30] Yeah, there's a bunch of people on Twitter who are going to fight for that.
+[00:33] But to correct what's straight, Ed Sim did actually write the first three checks into
+[00:38] superhuman.
+[00:39] First three checks, like subsequent rounds.
+[00:42] Well, yeah, I mean, quick sidebar on that.
+[00:44] He runs both start benches alongside his partner, Elliot Durbin.
+[00:50] And they have a particular interest in backing second time founders, but they'll also
+[00:56] back first time founders and they love application and infrastructure areas like superhuman.
+[01:02] So we were like the perfect investment.
+[01:04] He also wrote a check from his previous fund into Reportive.
+[01:08] And I think I'd made him like five X that money.
+[01:11] I'm nothing to write home about, but definitely I'm going to back this guy again.
+[01:14] Right.
+[01:15] And so I went to him and I said, Hey, listen, I think this is going to sound crazy.
+[01:19] I want to take on Gmail.
+[01:20] He said, Do you have a deck?
+[01:21] I was like, Yeah, here it is one slide.
+[01:23] Here it is.
+[01:23] And it was a screenshot of Gmail with most of it scribbled out.
+[01:26] I want to build that.
+[01:27] It was going to be amazing.
+[01:29] So he said, cool, we're in.
+[01:32] Can I wire you the money?
+[01:33] And I said, no, I don't even have a bank account yet.
+[01:35] I come back two days later with a bank account.
+[01:38] And he's like, cool, I want to wire you 750 K.
+[01:41] And I said, I don't even know what I'm going to do with that money.
+[01:45] I'm not paying myself.
+[01:46] I won't for a while.
+[01:47] We don't have any employees.
+[01:50] I can't think of anything I want to spend it on.
+[01:52] Tell you what, I'll just take 250 K.
+[01:55] It was like, what?
+[01:56] No, yeah, I'll just take 250 K.
+[01:59] We start having the conversation around venture economics.
+[02:01] I'm like, yeah, you know, it's fine.
+[02:03] We'll figure it out.
+[02:04] And then a few months back, I took another 250 K.
+[02:06] And a few months back, I took another 250 K as I began inventing ways
+[02:11] and finding channels to deploy capital properly.
+[02:15] I love the story.
+[02:16] I love all these stories you're showing.
+[02:17] I've never heard before.
+[02:18] And by the way, it is awesome.
+[02:19] We're talking about him coming on the podcast, maybe breaking our VC rule.
+[02:22] So specifically the story he shared with me, that is maybe an example of you in
+[02:27] your attention.
+[02:27] The detail is he said that you created your own font because existing fonts weren't
+[02:31] good enough.
+[02:32] Is that true?
+[02:34] Kind of.
+[02:36] The font that we use today is a modified version of Adele Sands.
+[02:41] And the story there is I looked at all of the major font families.
+[02:46] And honestly, none of them was what I would call truly excellent.
+[02:51] And that may sound like an odd thing to say.
+[02:53] So let's, if you will, permit me to talk about typography and email from.
+[02:59] So the first thing we did was we took our UI and we laid it out in about 15 different
+[03:05] styles using examples of the major font families.
+[03:08] We actually printed these out and we left them on a desk in the middle of our office.
+[03:14] Sometimes with design, you want to tune in to your immediate most visceral way.
+[03:21] Visceral response, but sometimes you want to truly let a design marinate.
+[03:27] And this was the latter.
+[03:28] So we let these designs marinate.
+[03:30] We let these font choices percolate.
+[03:33] And like I said, none of them was truly excellent.
+[03:35] The number one, I was looking for a font that was in and of itself gorgeous.
+[03:40] Number two, I was looking for a font that could also convey a message of any kind
+[03:44] without overpowering the sentiment of that message.
+[03:48] For example, does the font work when this is inviting you to a party?
+[03:53] Many fonts, including almost all Sarah fonts are actually too somber or too sober
+[03:58] for that, or to pick another extreme.
+[04:00] Does the font work if it is informing you of somebody's passing?
+[04:05] Many fonts are just too jointy for that.
+[04:07] You wouldn't want that kind of message in comic sans, for example.
+[04:11] And number three, I was optimizing for a font that made reading speed and
+[04:16] comprehension really fast.
+[04:18] And before I was looking for a fonts that made email addresses themselves look great.
+[04:24] So I discarded all the 15 because they weren't good enough.
+[04:27] And after searching high and low, I came across a font called Adele sans,
+[04:32] which is designed by a foundry called type together with type hyphen together.com.
+[04:36] They have a whole bunch of lovely fonts.
+[04:38] Go check them out.
+[04:40] And if you go through my list, number one, Adele sans is gorgeous.
+[04:43] I think each character is a work of art.
+[04:45] It's beautifully formed.
+[04:46] Number two, Adele sans is, I would say a beat.
+[04:49] It's optimistic, yet it's serious enough to convey any kind of message.
+[04:54] It has just the right amount of personality, yet not too much personality.
+[04:58] Number three, Adele sans is also unusually narrow and that actually fits email particularly well.
+[05:06] One of my pet peeves, which email, which by default uses Ariel, is that the lines are
+[05:11] as wide as your window.
+[05:13] So if you're in a wide screen, then the lines get really arbitrarily long.
+[05:19] And the problem with really wide and really long lines is that they decrease reading speed
+[05:23] because by the time you've reached the end of one line, your eyes have lost track
+[05:27] of the start of the next line.
+[05:29] And Ariel itself has fairly wide characters, which further exacerbates that.
+[05:34] So it's superhuman.
+[05:34] We, if you've used the product, you know this, we fix the line length
+[05:38] or the typographical measure to the optimal length for reading speed,
+[05:42] which depending on the font is around 90 to 120 characters.
+[05:47] And Adele sans is quite narrow.
+[05:49] So it actually lets us do this on quite small windows with fairly dense line.
+[05:55] So we get a lot of information on fairly small windows without getting a very long
+[06:00] typographical measure, optimizing for reading speed and for comprehension.
+[06:05] And then number four, finally Adele sans has very unusual treatment of the at
+[06:10] symbol in an email address.
+[06:11] It actually puts the base of the A in the at on the same baseline as the rest of the text.
+[06:19] So for example, if your name has an A, my name does Rahul at Vora's three A's and
+[06:25] or two A's and an at they're all actually on the same baseline.
+[06:29] It's a small thing, but it makes the email addresses look incredibly natural.
+[06:35] If you look at that and then you actually look at email addresses laid out in other fonts,
+[06:38] those are the fonts look really clunky and awkward because the A is kind of shifted
+[06:42] around and it just looks a bit silly in my opinion.
+[06:45] Now Adele sans is perfect.
+[06:46] So we then worked with a type designer on some of the specific details that there
+[06:50] are some of the glyphs, which get a little pincery as it were.
+[06:54] And what we use today is very close to retail Adele sans.
+[06:59] And this was prelaunch or this was apt to you already launched.
+[07:02] We'd probably had about 10, 15 users appetite.
+[07:07] So I think that's pretty contrarian, unique to be this focused on the font
+[07:12] and the typeface before you even launched.
+[07:15] This was like, is this even going to be a thing?
+[07:17] Will anyone even care?
+[07:18] And I think this has a lot about the way you think about product.
+[07:21] Oh, yeah, that I mean, that thought never crossed my mind.
+[07:24] I think we'll probably come to it later.
+[07:27] But the idea that is this never going to be a thing.
+[07:32] I think that's a dangerous thought.
+[07:34] We can't start thinking that way.
+[07:36] Because at what point do you stop second guessing yourself?
+[07:39] Interesting.
+[07:40] So you're like, you were confident this was going to work.
+[07:42] So because I am so confident it'll work, I will make, I need to get this right.
+[07:47] There's also just, you know, this trap founders fall into of just spending
+[07:51] too much time perfecting a thing that never works.
+[07:53] And there's always advice, launch early, launch often.
+[07:57] Well, thoughts there, just like, how do you find that balance?
+[07:59] What's your advice there?
+[08:01] How much to spend time ahead of launch really does depend on the markets
+[08:07] and the structure, the nature of your business model.
+[08:10] For example, let's say you're building a marketplace in a greenfield opportunity.
+[08:16] So imagine the Lyft or Uber in their heyday.
+[08:21] And there's a strong network effect because the more cars you have on your
+[08:23] platform, the shorter waiting times are there for people are going to
+[08:27] preferentially use your app versus the other person's app.
+[08:31] That's when there's no time to spare.
+[08:33] That's when, you know, you probably shouldn't even be sleeping.
+[08:37] You're going to hire the most aggressive maniacal people possible.
+[08:40] You're going to work 120 hour weeks because every marginal minute actually does
+[08:45] matter.
+[08:46] Every marginal minute in the market.
+[08:50] Growing compounding is going to make your next year even better.
+[08:53] That's actually not true of all startups.
+[08:57] And it certainly isn't true of something like superhuman.
+[09:00] Yes, working harder is always better.
+[09:02] And we work tremendously hard at superhuman, but not to the point where
+[09:08] it made sense to release something that didn't work.
+[09:13] I'm reminded of a story of a founder that was in Y Combinator told me about
+[09:21] their demo day experience and they used Mailbox, which some folks may remember
+[09:27] was also a startup and Dropbox famously acquired them for about a hundred million
+[09:31] dollars.
+[09:32] And the reason that they were well known apart from the acquisition is they were
+[09:36] the first to popularize swipe to archive or swipe to mark done, which of course is
+[09:41] now standard in superhuman than every other app.
+[09:44] So this founder was using Mailbox and was having an amazing demo day.
+[09:51] They're working the room, they're meeting investors, they're pitching the
+[09:55] photography app in this case.
+[09:57] And he went home that night and went to his laptop, fired up Mailbox and sent
+[10:03] off a bunch of follow up emails.
+[10:07] He waited a day.
+[10:08] Didn't hear back.
+[10:09] He waited two days.
+[10:11] Didn't hear back on the third morning.
+[10:13] He figured something was up.
+[10:14] So he fired up Gmail, went to his sent mail and you guessed it.
+[10:20] There were no sent mails there.
+[10:21] So something had broken with Mailbox.
+[10:25] So he's cursing to himself, trying to remind himself everything's going to be
+[10:28] okay, sent all the same emails from Gmail manually.
+[10:35] And they all came through.
+[10:37] But then one of the investors said, Hey, by the way, you might want to check
+[10:40] your email client because I've been getting some of your emails twice.
+[10:45] And then he goes back and says Gmail.
+[10:46] He sees that.
+[10:47] Yes, actually the original emails that were queued up in Mailbox have now
+[10:50] indeed been sent.
+[10:52] And some of the investors, unfortunately, most of the investors, he actually
+[10:55] pitched twice.
+[10:56] Now, is this the end of the world?
+[10:58] No, an investor can overlook that.
+[11:00] Probably a good thing that you're trying new apps.
+[11:02] But was it horrifying?
+[11:03] And was it, like, was it really scary?
+[11:06] Absolutely.
+[11:07] And imagine this wasn't investors.
+[11:09] Imagine this was a customer, someone who you were trying to convince that to
+[11:14] buy your thing and that you knew what you were doing and you had attention to
+[11:17] detail and you had everything just buttoned up and under control.
+[11:20] Well, now you've lost face.
+[11:21] Now you look foolish.
+[11:23] And that's why when you have a mission critical products like email, where you
+[11:28] are, you're not just a customer, you're a customer.
+[11:30] And when you have a mission critical product like email, where you are
+[11:34] interfacing with customers, with candidates, with investors, it turns out to really
+[11:39] matter.
+[11:40] Email is mission critical.
+[11:42] So it's not something where you can simply launch with a half baked product.
+[11:46] This is such an important nuance take on.
+[11:48] There's always this debate, how much, how much to focus on craft and use your
+[11:51] experience, how much to focus on time to launch and get it out and speed.
+[11:56] And what I'm hearing here, which I completely agree with as it depends on
+[11:59] the criticality essentially of how, of your product.
+[12:02] So if it's email, it just needs to work.

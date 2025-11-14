@@ -1,0 +1,70 @@
+Chapter 24: Linear’s growth journey and milestones
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 68:21 - 74:18
+============================================================
+
+[00:00] Let's transition to the third area I wanted to spend some time on which is growth
+[00:04] and basically I'd love to just understand how linear grows and what you figured out around
+[00:08] growth especially in B2B SaaS. So first question here is just how long did it take from starting
+[00:14] to work on linear to launching say v1 something that a number of people can use.
+[00:20] So we started like official in 2019 some I think months before that we were already
+[00:26] exploring and prototyping the product so it wasn't so I think we prototype different kinds of designs
+[00:33] a little bit and then we also one of the things we really wanted to solve is like we wanted to
+[00:39] make the application really fast and the way we figured out we do that is like we have more of
+[00:44] this like a local base data structure where all the data lives in the client and then and then
+[00:50] it gets synced on the back ends like with this delta packets and back then we were just exploring
+[00:57] like different off-the-shelf solutions and systems but there wasn't nothing really there
+[01:02] so we ended up like building our own and so we we spent some time like prototyping that
+[01:08] and then once we we officially I think started working on the company in April 2019 and then
+[01:14] we announced the company like roughly meet April and we had this like little website up with
+[01:19] the waitlist and and then I think by May we could use it ourselves and then we we already
+[01:28] we started inviting some friends like try it out but then I think in in June I think we started
+[01:33] more like inviting people from the waitlist and and around June July I think we had about
+[01:38] I don't know 100 200 users on it and and maybe like about 10 companies or something
+[01:45] and and then we were in this private beta stage for almost a year and the way we did it was just like
+[01:52] we had this waitlist of people on the waitlist there was like few survey questions like what
+[01:58] kind of tools you use today and and then like why do you want to use linear and then we just
+[02:03] and what's the company size and we invited people based on like we invited more like smaller
+[02:08] companies using the tools we currently supported and then also like I was trying to see like
+[02:13] who is more like interested versus I don't know I just want to try it out type of purple
+[02:19] and then a year later in June we we launched it publicly and back then maybe we already had like
+[02:27] I don't know several hundred of companies using it and and then we also launched the pricing and
+[02:34] I think like almost all of them maybe one company didn't subscribe but everyone else
+[02:40] subscribed to that paid plan okay there's a number of really interesting things here so one is you're
+[02:45] in private beta for a year and then a year later you launched how long was that period between
+[02:52] starting to like incubate and starting to build to that private beta milestone yeah I think it's
+[02:59] just like few few months like just a few months of building the v1 yeah wow okay I thought it was
+[03:05] a lot longer that is so interesting okay what a team you've got over there okay and then this
+[03:10] survey piece is really interesting I've heard a little bit about the story so essentially
+[03:14] you launched it on twitter you had kind of a following your founders had a bit of a following
+[03:18] so I think that helped build up the initial wait list but what you did there wasn't just like hey
+[03:23] go sign up for a wait list and you just add email addresses it's a survey asking them what tools
+[03:27] they use like whether it's github or something else and then also the size of the company and
+[03:32] their interest and that helped you basically prioritize who to go after and who to onboard
+[03:36] is that right yeah um and that the reason we did it because we know that like we didn't support
+[03:44] everything and like what do I said before in the focus it's like we want to like also like
+[03:48] be focused on like let's just like build a version that can work for some people or some
+[03:55] companies we don't have to like try to address everyone in the world in the in the first
+[03:59] months of the of the business and even before after that so it was very like selective
+[04:04] process and I think we yeah we were fortunate though like we were able to get people sign up
+[04:08] on a wait list and I think after after a month uh or so we had like maybe 4 000 people on the
+[04:15] wait list and then we had this like internal I think initially it was just like a very manual
+[04:21] process but eventually we built this in like an invite tool that we could just send invites
+[04:27] but in the beginning I would go read the actual surveys like in a spreadsheet then I
+[04:32] copy that email and then I email them they invite link uh from my personal email and then
+[04:38] like I would just like email them like after like a few days or a week and it's like hey what do you
+[04:42] think and the reason we and so we would invite only like in the beginning we maybe invite like
+[04:47] 10 people a week and like eventually we increase those amounts but the reason we did it that
+[04:53] way was that we thought that like if you just invite everyone at once or a lot of people
+[05:00] at once all of those people are gonna probably hit the same problems in this kind of software
+[05:05] that is very early stage so like I don't know they they hit the same bug or the same problem
+[05:10] in the software so then they will all send us feedback like hey there's this problem
+[05:15] and then we felt like it was kind of like a waste of effort so we would just do this
+[05:19] cohorts like let's invite these people and then they say like like hey this is a problem
+[05:23] like I don't this doesn't work or or something then we go fix that then after we fix that we
+[05:28] invite the next cohort of people then they say like well there's this thing that is needed or
+[05:33] this doesn't work then then we fix that so for that year we did this cohorts and then always get the
+[05:38] feedback from the cohort saying like this is like wrong or this doesn't work and then we
+[05:43] will fix that so so eventually I think it was much more like a I think like an effective way of
+[05:49] doing the initial development then just like inviting or letting everyone to use the
+[05:54] product right right at the beginning

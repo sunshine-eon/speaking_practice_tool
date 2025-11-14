@@ -1,0 +1,105 @@
+Chapter 14: Leveraging AI
+Video: Superhuman's secret to success | Rahul Vohra (CEO and founder)
+Time: 69:29 - 75:40
+============================================================
+
+[00:00] So let's talk about AI first.
+[00:01] It feels like there's this like being in the right place at the right time.
+[00:06] Feels like you guys are like, we've been building this for a while and then AI
+[00:09] just unlocked another stage in what you're able to do with email.
+[00:14] I guess just talk about what you've done and how you think about AI integrating
+[00:17] into what you're doing, how it's enabled you to kind of take off again.
+[00:23] It's true that sometimes startups boil down to being in the right place at the right time.
+[00:30] And we actually had a massive AI launch recently about two weeks ago.
+[00:34] But even before then, we had multiple flagship AI features.
+[00:39] Our first AI feature was right with AI,
+[00:41] dropped down a few words and will turn them into a fully written email.
+[00:45] We actually match the voice and tone in the emails you've already sent.
+[00:48] So unlike Copilot, unlike Gemini, unlike basically every other email app,
+[00:52] the email sounds like you.
+[00:55] And this AI feature is way more popular than I expected it to be
+[00:59] on average today, users are using it 37 times per week.
+[01:04] Number two, our next AI feature was Auto Summarize,
+[01:07] which shows a one line summary above every conversation.
+[01:11] And as new emails arrive, it updates instantly again,
+[01:14] unlike Copilot and Gemini, it's pre-computed.
+[01:17] One of the things we do is we go above and beyond to make these features
+[01:19] really premium and feel amazing.
+[01:22] The next AI feature after that was Instant Reply.
+[01:27] Imagine waking up to an inbox where every email already has a draft reply.
+[01:33] You would simply edit and then send.
+[01:35] And sometimes you wouldn't even need to edit.
+[01:38] And I can share, because we just finished this analysis,
+[01:41] that over 2024, the percentage of emails
+[01:44] that are AI written and sent with Superhuman has grown four times, just in one year.
+[01:51] Then if I remember correctly, the feature after that was Ask AI.
+[01:56] Email, of course, is this treasure trove of critical information,
+[02:00] things like project statuses, customer communication,
+[02:03] meeting updates, deal execution and so much more.
+[02:05] And for over 40 years, we've had to rely on what we literally call Search.
+[02:10] You have to remember senders, guess keywords, scan subject lines.
+[02:14] And now you can just ask, where is the key one offsite?
+[02:18] Or what are my flight details?
+[02:20] Or what is the top five most positive customer responses to the Ask AI launch?
+[02:27] A task, by the way, which previously used to take me 20 or 30 minutes
+[02:32] to read through all the emails and then create that report,
+[02:36] now happening in less than five seconds.
+[02:39] And recently, we, like I said, announced our biggest evolution yet.
+[02:44] And Superhuman AI is constantly helping you.
+[02:46] It's organizing your inbox.
+[02:48] It's also making sure you never drop the ball.
+[02:51] So we have things that we call auto labels.
+[02:54] You can now write a short prompt like job applications or requests to review work.
+[03:00] And you can then immediately see when emails match that prompt,
+[03:04] when people apply for a job or they ask you to review work with auto reminders.
+[03:09] If your email needs a response, Superhuman will now automatically set a reminder.
+[03:13] You don't have to remember to do that.
+[03:15] Then you'll never drop the ball again.
+[03:17] All you need to do is hit send with auto drafts.
+[03:22] Superhuman will now automatically draft your follow up emails for you
+[03:25] and will soon be drafting replies to basically every email that needs a response.
+[03:30] And finally, with what we call workflows, you can now turn email
+[03:36] into repeatable automated workflows.
+[03:40] For example, I often get emails from people who are interested in working at Superhuman.
+[03:45] And I would normally reply to that candidate and I would let them know
+[03:48] that the team will take a look.
+[03:50] I'll then forward the original message, including any resume or any letter
+[03:54] to our head of people and operations and ask her to reach out if interested.
+[03:59] With workflows, I can now automate this entire process.
+[04:03] And it's you can imagine sort of crazy, a little flowchart of what has to happen.
+[04:08] Not only does that save a huge amount of time,
+[04:12] with workflows, you don't even have to be in your inbox.
+[04:16] In fact, you don't even have to be working.
+[04:18] You could be on vacation while Superhuman AI is working for you.
+[04:24] This sounds like product market fit to me.
+[04:26] This all sounds wonderful.
+[04:27] Like it just makes sense.
+[04:28] This is the stuff we've been promised or underwater cities and flying cars.
+[04:33] And then just email that just works magically and replies for us and all these things.
+[04:37] So I love all these things you're doing for folks that are
+[04:41] building with AI.
+[04:42] I'm curious to just what's been maybe been the biggest surprise, either good or bad,
+[04:48] building so deeply on top of AI models that you think might be helpful for folks
+[04:52] to just like watch out for this or, hey, check this out.
+[04:56] I think for me, the biggest surprise has been how unpredictable
+[05:03] the user love has been in terms of what they love and what they don't love.
+[05:07] For example, right with AI.
+[05:09] This sounds like a commodity feature and on a surface level, it is every email app.
+[05:13] Every writing surface has a right with AI feature in.
+[05:16] I would wager hours is the best at emails.
+[05:18] And surprisingly, that's what we do.
+[05:21] But the surprising thing was just how much people love it and how often it gets used.
+[05:29] Thirty seven times per user per week is still mind blowing to me.
+[05:35] I had not expected that.
+[05:36] So that that's the most surprising thing.
+[05:38] And on the flip side, there were certain AI features where I did expect a ton of usage,
+[05:43] but we didn't quite get the usage that we were perhaps hoping for.
+[05:48] And hopefully I'm not AI Kramer, but basically everything I thought would work out.
+[05:54] Well, people use it less than they thought they did and everything I was like, I don't know,
+[05:57] but let's build the thing.
+[05:58] People love that.
+[06:00] So interesting.
+[06:01] Yeah.
+[06:01] Maybe I should just create an anti-meet to do AI road mapping.
+[06:06] That's a simple agent right there.
+[06:07] Whatever a whole.

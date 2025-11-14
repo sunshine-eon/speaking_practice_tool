@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+process_output.log
+
+# Test data (optional - uncomment if you don't want to commit test data)
+# test_data/
+
+# Audio and transcript files (optional - uncomment if you don't want to commit media files)
+# audio/
+# transcripts/
+# test_data/audio/
+# test_data/clips/
+# test_data/transcripts/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+
+audio_clips_log.txt

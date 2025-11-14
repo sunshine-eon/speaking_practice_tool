@@ -1,0 +1,5 @@
+yt-dlp>=2024.1.0
+faster-whisper>=1.0.0
+pydub>=0.25.1
+requests>=2.31.0
+

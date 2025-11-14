@@ -1,0 +1,64 @@
+Chapter 16: Brian’s thoughts on design trends
+Video: Brian Chesky’s new playbook
+Time: 42:38 - 45:36
+============================================================
+
+[00:00] We have this incredible new tab called the listing tab that we designed.
+[00:05] It's quite possibly one of the nicest things we were designed.
+[00:08] If you go to my Twitter account, you'll see a little sizzle reel from some of
+[00:11] the design we've done.
+[00:12] By the way, the design is a whole new aesthetic.
+[00:16] I'd like to like make the announcement that I think flat design is over or ending.
+[00:20] You know, I think if you remember the 2000s was dominated by skeu morphism.
+[00:24] The 2010s have been dominated with a launch of iOS seven by flat design.
+[00:29] I think we're going to move back into a world with color, texture, dimensionality,
+[00:34] more haptic feedback, but I don't think it's going to be skeu morphism where it
+[00:39] pretends to be like a woodgrain to reference like a dashboard or leather.
+[00:44] But I think it's going to have a sense of dimension.
+[00:46] I think the reason why is we're spending more and more time on screens and we
+[00:51] want the screens to replicate some of what we see in the natural environment,
+[00:55] light, texture.
+[00:57] I think it's more intuitive.
+[00:59] It's more playful.
+[01:00] I think AI allows the development of more sophisticated interfaces.
+[01:04] People in AI are gravitating to image generating art that has got more a dimension
+[01:10] to it.
+[01:11] And so I think that we've really started to push this more three-dimensional,
+[01:16] colorful aesthetic that I think, I think it's going to be where a lot of
+[01:19] interface design is going.
+[01:21] And we built this AI powered photo tour where we created our own AI computer
+[01:26] visioning language that we trained on a hundred million photos and it can basically
+[01:30] scan all your photos and organize them by room.
+[01:33] So that's what we did today.
+[01:35] Maybe just to round it up, what I would say is that none of this would have
+[01:39] been possible in the old way of working.
+[01:40] You know, we could have theoretically launched a lot of these features, but
+[01:44] you know, really getting them to work together has been key.
+[01:47] And guest favorites has required the guests, the people, you know, you have to
+[01:52] work with guests, you have to work a host.
+[01:54] You have to essentially, you know, you have to, you have to like figure out
+[01:59] how to communicate to the market.
+[02:00] So it's a much more integrated approach.
+[02:03] The designs you talked about, they are incredibly cute.
+[02:05] You tweeted a little video of a lot of them, like the couch with little textures
+[02:09] on it and it is really cool.
+[02:12] Also the listing tab, I think people that aren't hosts don't understand
+[02:16] how important the listing experience is to a host.
+[02:18] That's like, I think how many hosts are there?
+[02:20] Seven million, something like that.
+[02:22] There's, there's, there's seven million listings.
+[02:24] Yeah.
+[02:24] Oh, seven million listings.
+[02:26] Yeah.
+[02:26] And so that's like the home base.
+[02:28] That's like the small business platform for millions of people.
+[02:32] And so I worked on the host sites.
+[02:33] I have a special place in my heart for host features.
+[02:35] And I feel like travelers don't really appreciate the value of that part of the product.
+[02:39] Well, yeah, you did some amazing work there.
+[02:41] Yeah.
+[02:41] I think that like the big lesson, Lenny, the other thing we learned is to
+[02:46] create a great guest experience, you need great host and to have great host,
+[02:50] the great tools.
+[02:52] And so if you want to create a great experience for guests, it often starts with
+[02:55] building great tools for hosts to enable.

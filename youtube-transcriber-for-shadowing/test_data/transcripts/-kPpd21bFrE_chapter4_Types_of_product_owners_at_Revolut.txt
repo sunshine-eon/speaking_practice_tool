@@ -1,0 +1,79 @@
+Chapter 4: Types of product owners at Revolut
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 09:28 - 15:50
+============================================================
+
+[00:00] I love this because it's so fun just to learn about such different ways of operating.
+[00:04] Another fact that I saw is that there's two types of product donors.
+[00:08] There's a UX product donor and then there's a technical product donor.
+[00:12] We actually have three.
+[00:14] Three.
+[00:14] The third type becomes increasingly more important.
+[00:19] The first type is UX product owners.
+[00:23] Then there are technical product owners and then there are data science product owners.
+[00:27] UX product owners are the ones who work on consumer facing part of the product.
+[00:37] Usually they have a great taste for things and they understand what constitutes
+[00:48] UX that will work and which things will not work.
+[00:53] So they also have these expertise in the industry.
+[00:59] Then tech product owners, they are the ones who delve deepest into details.
+[01:06] Usually those are former engineers who grew into making decisions and driving business.
+[01:16] And the data science product owners are usually former data scientists who decided to grow into
+[01:24] management positions but they're still very hands-on.
+[01:27] And you know what?
+[01:28] There are way more things that are common to each of these three specializations.
+[01:34] So what we see sometimes is people just shifting them because I would say that
+[01:41] what defines the specialization is probably 5-10-15% while 85-90% is common to each one of them.
+[01:50] And those things are, so first of all, being a great problem solver and have a great linear
+[02:02] thinking but also have a creative approach towards nonlinear problems.
+[02:07] Then building this context for customer and building empathy towards customer and translating
+[02:16] it into the team.
+[02:18] Then going down to details very, very deep because in our domain there are no obvious things.
+[02:29] And you need to get to the root cause of the problem really, really deep to understand,
+[02:36] okay, what will work and what will not work.
+[02:40] And that means that you also need to be quite technical.
+[02:42] Even if you're an expert, you still need to often go as deep as sitting with engineers and reading code.
+[02:51] And then I would also emphasize importance of business acumen because we tend to measure
+[03:03] and quantify product performance a lot and you need to understand, okay, what things will we
+[03:09] build that will drive eventually that business metric and that target.
+[03:13] So I love this idea of the product owners having to go really deep.
+[03:16] I think a lot of people hearing this, they think they can go deep, go deep, really understand
+[03:20] the details of what they're working on.
+[03:22] I'm curious if there's an example that's illustrative of just what you actually mean here.
+[03:27] For example, to provide the best possible product in every country of presence,
+[03:34] we need to have necessary licenses.
+[03:37] In Europe, it means that we need to launch local branches of our European bank.
+[03:43] For example, the branch for France, a branch for Germany, or a branch for Italy.
+[03:48] To launch a branch, you need to fully comply with all necessary regulation.
+[03:53] You need to report necessary data on customers to various regulators and authorities.
+[04:02] You need to register with local payment systems.
+[04:07] And each of these things, they have a lot of projects nested within.
+[04:15] We have a very lean team of just a few people who need to scope everything
+[04:19] and do it at a scale of 50 countries.
+[04:23] So the way we do it is we go very deep on example of each of these projects.
+[04:29] For example, we launched a branch in Ireland, we launched a branch in Netherlands,
+[04:33] then we reverse engineered what was the best process to do it.
+[04:39] And then we went back up on top level and we said, okay,
+[04:42] but what's the ideal framework of doing it at scale?
+[04:47] And then we formalized it into a process, really like an algorithmic process
+[04:52] with steps and quality gates and assaynees and what people do we need to hire
+[04:59] and how soon do we need to start doing that before we want to launch
+[05:03] a new country.
+[05:06] And then so it's not only going deep, but also being flexible, you know,
+[05:10] and like doing this switch between zooming in very deep and then
+[05:17] raising on the level of helicopter view and then understanding, okay,
+[05:23] so these seemed very, very complex in details.
+[05:27] But then when you zoom out, how can we simplify it and build a robust process around it,
+[05:32] which is scalable?
+[05:34] And that's something that we have to do a lot.
+[05:37] As you're talking and we go through this chat, I'm keeping kind of track of what I think is
+[05:41] most contributing to your alumni product owners, product managers becoming so successful.
+[05:47] So a couple of things so far that I think are probably contributing to this is one is
+[05:51] just having a lot of ownership over what they're building,
+[05:54] which leads to building skills to start companies and become leaders at other companies.
+[05:58] So these product owners that you have are just like own a lot and are essentially
+[06:02] GMs of the of whatever product they're working on.
+[06:05] And then there's this depth in complexity where you have to really get good at understanding
+[06:09] a problem really deeply.
+[06:11] I imagine many of these people go on to work on something like that layer somewhere else
+[06:16] because they've spent all this time or they just get really good at dealing with complex
+[06:20] many layered problems.

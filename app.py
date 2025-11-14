@@ -82,6 +82,7 @@ def api_update_progress():
     week_key = data.get('week_key')
     completed = data.get('completed', True)
     day = data.get('day')  # For shadowing practice
+    mp3_file = data.get('mp3_file')  # For weekly_expressions
     
     if not activity_id:
         return jsonify({'error': 'activity_id is required'}), 400
@@ -99,7 +100,7 @@ def api_update_progress():
         week_key = get_current_week_key()
     
     # Update progress
-    update_progress(progress, activity_id, week_key, completed, day)
+    update_progress(progress, activity_id, week_key, completed, day, mp3_file=mp3_file)
     
     # Save to file
     try:
@@ -186,6 +187,14 @@ def api_update_activity_info():
             if 'words' not in progress['weeks'][week_key]['weekly_speaking_prompt']:
                 progress['weeks'][week_key]['weekly_speaking_prompt']['words'] = []
             progress['weeks'][week_key]['weekly_speaking_prompt']['words'] = field_value
+        elif field_name == 'best_answer_script':
+            if 'best_answer_script' not in progress['weeks'][week_key]['weekly_speaking_prompt']:
+                progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_script'] = ''
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_script'] = field_value
+        elif field_name == 'best_answer_hints':
+            if 'best_answer_hints' not in progress['weeks'][week_key]['weekly_speaking_prompt']:
+                progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_hints'] = ''
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_hints'] = field_value
     elif activity_id == 'weekly_expressions':
         if field_name == 'notes':
             day = data.get('day')
@@ -244,12 +253,24 @@ def api_generate_content(activity_id):
                 script_words = current_script.split()[:50]  # First 50 words as summary
                 previous_content['shadowing_scripts'].insert(0, ' '.join(script_words))
     elif activity_id == 'weekly_speaking_prompt':
-        has_existing_content = bool(current_week_data.get('weekly_speaking_prompt', {}).get('prompt'))
-        # For regeneration, include current prompt to avoid repetition
-        if has_existing_content:
-            current_prompt = current_week_data.get('weekly_speaking_prompt', {}).get('prompt', '')
-            if current_prompt:
-                previous_content['weekly_prompts'].insert(0, current_prompt)
+        # Check if shadowing mode is active
+        from progress_manager import is_shadowing_mode
+        shadowing_active = is_shadowing_mode(week_key)
+        
+        if shadowing_active:
+            has_existing_content = bool(current_week_data.get('weekly_speaking_prompt', {}).get('best_answer_script'))
+            # For regeneration, include current prompt to avoid repetition
+            if has_existing_content:
+                current_prompt = current_week_data.get('weekly_speaking_prompt', {}).get('prompt', '')
+                if current_prompt:
+                    previous_content['weekly_prompts'].insert(0, current_prompt)
+        else:
+            has_existing_content = bool(current_week_data.get('weekly_speaking_prompt', {}).get('prompt'))
+            # For regeneration, include current prompt to avoid repetition
+            if has_existing_content:
+                current_prompt = current_week_data.get('weekly_speaking_prompt', {}).get('prompt', '')
+                if current_prompt:
+                    previous_content['weekly_prompts'].insert(0, current_prompt)
     
     try:
         if activity_id == 'voice_journaling':
@@ -272,12 +293,34 @@ def api_generate_content(activity_id):
             result = {'script1': scripts['script1'], 'script2': scripts['script2']}
             
         elif activity_id == 'weekly_speaking_prompt':
-            prompt = generate_weekly_prompt(
-                previous_content.get('weekly_prompts'),
-                regenerate=has_existing_content
-            )
-            progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = prompt
-            result = {'prompt': prompt}
+            from progress_manager import is_shadowing_mode
+            shadowing_active = is_shadowing_mode(week_key)
+            
+            if shadowing_active:
+                # Generate best answer script for shadowing mode
+                best_answer_data = generate_weekly_prompt(
+                    previous_content.get('weekly_prompts'),
+                    regenerate=has_existing_content,
+                    week_key=week_key
+                )
+                # best_answer_data is a dict with 'prompt', 'best_answer_script', 'best_answer_hints'
+                progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = best_answer_data['prompt']
+                progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_script'] = best_answer_data['best_answer_script']
+                progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_hints'] = best_answer_data['best_answer_hints']
+                result = {
+                    'prompt': best_answer_data['prompt'],
+                    'best_answer_script': best_answer_data['best_answer_script'],
+                    'best_answer_hints': best_answer_data['best_answer_hints']
+                }
+            else:
+                # Original mode: generate prompt only
+                prompt = generate_weekly_prompt(
+                    previous_content.get('weekly_prompts'),
+                    regenerate=has_existing_content,
+                    week_key=week_key
+                )
+                progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = prompt
+                result = {'prompt': prompt}
             
         else:
             return jsonify({'error': 'Invalid activity_id'}), 400
@@ -352,7 +395,7 @@ def api_generate_audio_single():
         # Determine speeds and model to use
         typecast_speed_to_use = typecast_speed if typecast_speed is not None else speed
         openai_speed_to_use = openai_speed if openai_speed is not None else speed
-        typecast_model_to_use = typecast_model if typecast_model is not None else "ssfm-v21"
+        typecast_model_to_use = typecast_model if typecast_model is not None else "ssfm-v30"
         
         # Generate Typecast audio (only if source_type is None or 'typecast')
         if source_type is None or source_type == 'typecast':
@@ -490,6 +533,146 @@ def api_generate_audio_single():
         else:
             print(f"OS error: {e}")
             return jsonify({'error': f'Failed to generate audio: {str(e)}'}), 500
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': f'Failed to generate audio: {str(e)}'}), 500
+
+
+@app.route('/api/generate-weekly-prompt-audio', methods=['POST'])
+def api_generate_weekly_prompt_audio():
+    """Generate audio for weekly prompt best answer script using both Typecast and OpenAI TTS."""
+    data = request.get_json()
+    week_key = data.get('week_key') if data else None
+    voice_id = data.get('voice_id') if data else None  # Typecast voice ID
+    typecast_model = data.get('typecast_model') if data else None  # Typecast model (ssfm-v21 or ssfm-v30)
+    openai_voice = data.get('openai_voice') if data else None  # OpenAI voice (alloy, echo, fable, onyx, nova, shimmer)
+    speed = data.get('speed', 1.0) if data else 1.0  # Default speed
+    typecast_speed = data.get('typecast_speed') if data else None  # Typecast-specific speed
+    openai_speed = data.get('openai_speed') if data else None  # OpenAI-specific speed
+    source_type = data.get('source_type') if data else None  # 'typecast', 'openai', or None (both)
+    
+    if week_key is None:
+        week_key = get_current_week_key()
+    
+    progress = load_progress()
+    ensure_week_exists(progress, week_key)
+    
+    # Check if shadowing mode is active
+    from progress_manager import is_shadowing_mode
+    if not is_shadowing_mode(week_key):
+        return jsonify({'error': 'Audio generation is only available in shadowing mode (weeks <= 2025-W52)'}), 400
+    
+    script = progress['weeks'][week_key]['weekly_speaking_prompt'].get('best_answer_script', '')
+    
+    if not script:
+        return jsonify({'error': 'No best answer script available. Generate the best answer script first.'}), 400
+    
+    try:
+        typecast_result = None
+        openai_result = None
+        typecast_error = None
+        openai_error = None
+        
+        # Determine speeds and model to use
+        typecast_speed_to_use = typecast_speed if typecast_speed is not None else speed
+        openai_speed_to_use = openai_speed if openai_speed is not None else speed
+        typecast_model_to_use = typecast_model if typecast_model is not None else "ssfm-v30"
+        
+        # Generate Typecast audio (only if source_type is None or 'typecast')
+        if source_type is None or source_type == 'typecast':
+            try:
+                typecast_result = generate_shadowing_audio_for_week(script, f"{week_key}_best_answer", voice_id=voice_id, speed=typecast_speed_to_use, model=typecast_model_to_use, return_timestamps=True)
+            except Exception as e:
+                typecast_error = str(e)
+                import traceback
+                traceback.print_exc()
+        
+        # Generate OpenAI audio (only if source_type is None or 'openai')
+        if source_type is None or source_type == 'openai':
+            try:
+                openai_result = generate_shadowing_audio_openai_for_week(script, f"{week_key}_best_answer", voice=openai_voice, speed=openai_speed_to_use, return_timestamps=True)
+            except Exception as e:
+                openai_error = str(e)
+                import traceback
+                traceback.print_exc()
+        
+        # Check if at least one succeeded
+        if source_type == 'typecast':
+            if not typecast_result:
+                error_msg = "Failed to generate Typecast audio."
+                if typecast_error:
+                    error_msg = f"Failed to generate Typecast audio: {typecast_error}"
+                return jsonify({'error': error_msg}), 500
+        elif source_type == 'openai':
+            if not openai_result:
+                error_msg = "Failed to generate OpenAI audio. "
+                if openai_error:
+                    error_msg += f"Error: {openai_error}. "
+                return jsonify({'error': error_msg}), 500
+        else:
+            # Both should be generated, at least one must succeed
+            if not typecast_result and not openai_result:
+                error_msg = "Failed to generate both audio versions. "
+                if typecast_error:
+                    error_msg += f"Typecast error: {typecast_error}. "
+                if openai_error:
+                    error_msg += f"OpenAI error: {openai_error}. "
+                return jsonify({'error': error_msg}), 500
+        
+        # Get voice name from available voices
+        from typecast_generator import get_available_voices
+        voice_name = None
+        if voice_id:
+            voices = get_available_voices(language='eng')
+            for v in voices:
+                if v.get('voice_id') == voice_id:
+                    voice_name = v.get('name')
+                    break
+        
+        # Store audio for best answer
+        typecast_url = None
+        typecast_timestamps = None
+        openai_url = None
+        openai_timestamps = None
+        
+        if typecast_result:
+            typecast_url, typecast_timestamps = typecast_result
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_typecast_url'] = typecast_url
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_timestamps'] = typecast_timestamps
+        
+        if openai_result:
+            openai_url, openai_timestamps = openai_result
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_openai_url'] = openai_url
+            # Update timestamps if OpenAI is available (prefer OpenAI timestamps if both exist)
+            if openai_timestamps:
+                progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_timestamps'] = openai_timestamps
+        
+        progress['last_updated'] = datetime.now().isoformat()
+        
+        # Save to file
+        if save_progress(progress):
+            result = {
+                'success': True,
+                'progress': progress,
+                'typecast_url': typecast_url,
+                'openai_url': openai_url,
+                'typecast_timestamps': typecast_timestamps,
+                'openai_timestamps': openai_timestamps,
+                'warnings': []
+            }
+            
+            # Add warnings if one failed (only when generating both)
+            if source_type is None:
+                if not typecast_result:
+                    result['warnings'].append('Typecast audio generation failed')
+                if not openai_result:
+                    result['warnings'].append('OpenAI audio generation failed')
+            
+            return jsonify(result)
+        else:
+            return jsonify({'error': 'Failed to save audio URLs'}), 500
+            
     except Exception as e:
         import traceback
         traceback.print_exc()
@@ -659,10 +842,31 @@ def api_generate_all():
             previous_content.get('shadowing_scripts'),
             regenerate=has_existing_content
         )
-        prompt = generate_weekly_prompt(
-            previous_content.get('weekly_prompts'),
-            regenerate=has_existing_content
-        )
+        # Check if shadowing mode is active for weekly_speaking_prompt
+        from progress_manager import is_shadowing_mode
+        shadowing_active = is_shadowing_mode(week_key)
+        
+        if shadowing_active:
+            # Generate best answer script for shadowing mode
+            best_answer_data = generate_weekly_prompt(
+                previous_content.get('weekly_prompts'),
+                regenerate=has_existing_content,
+                week_key=week_key
+            )
+            # best_answer_data is a dict with 'prompt', 'best_answer_script', 'best_answer_hints'
+            prompt = best_answer_data['prompt']
+            best_answer_script = best_answer_data['best_answer_script']
+            best_answer_hints = best_answer_data['best_answer_hints']
+        else:
+            # Original mode: generate prompt only
+            prompt = generate_weekly_prompt(
+                previous_content.get('weekly_prompts'),
+                regenerate=has_existing_content,
+                week_key=week_key
+            )
+            best_answer_script = None
+            best_answer_hints = None
+        
         weekly_prompt_words = generate_weekly_prompt_words(
             previous_content.get('weekly_prompt_words'),
             regenerate=has_existing_content
@@ -680,6 +884,9 @@ def api_generate_all():
         # Note: audio_url is NOT updated here - use separate "Generate audio" button
         progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = prompt
         progress['weeks'][week_key]['weekly_speaking_prompt']['words'] = weekly_prompt_words
+        if shadowing_active:
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_script'] = best_answer_script
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_hints'] = best_answer_hints
         
         progress['last_updated'] = datetime.now().isoformat()
         
@@ -698,7 +905,9 @@ def api_generate_all():
                     'script2': scripts['script2'],
                     'audio_url': None,  # Audio is generated separately via "Generate audio" button
                     'prompt': prompt,
-                    'weekly_prompt_words': weekly_prompt_words
+                    'weekly_prompt_words': weekly_prompt_words,
+                    'best_answer_script': best_answer_script if shadowing_active else None,
+                    'best_answer_hints': best_answer_hints if shadowing_active else None
                 }
             })
         else:
@@ -1037,6 +1246,43 @@ def api_select_mp3():
         return jsonify({
             'success': True,
             'mp3_file': mp3_file,
+            'progress': progress
+        })
+    else:
+        return jsonify({'error': 'Failed to save MP3 selection'}), 500
+
+
+@app.route('/api/weekly-expressions/regenerate', methods=['POST'])
+def api_regenerate_weekly_expressions_mp3():
+    """Get a random MP3 file for weekly expressions, preferring unused files."""
+    from progress_manager import get_random_mp3_file
+    
+    data = request.get_json()
+    week_key = data.get('week_key') if data else None
+    
+    if week_key is None:
+        week_key = get_current_week_key()
+    
+    progress = load_progress()
+    ensure_week_exists(progress, week_key)
+    
+    # Get current MP3 file to exclude it from selection
+    current_mp3 = progress['weeks'][week_key].get('weekly_expressions', {}).get('mp3_file', '')
+    
+    # Get random MP3 file (preferring unused files)
+    new_mp3_file = get_random_mp3_file(week_key, progress, exclude_current=current_mp3)
+    
+    if not new_mp3_file:
+        return jsonify({'error': 'No MP3 files available'}), 404
+    
+    # Update the MP3 file for this week
+    progress['weeks'][week_key]['weekly_expressions']['mp3_file'] = new_mp3_file
+    progress['last_updated'] = datetime.now().isoformat()
+    
+    if save_progress(progress):
+        return jsonify({
+            'success': True,
+            'mp3_file': new_mp3_file,
             'progress': progress
         })
     else:

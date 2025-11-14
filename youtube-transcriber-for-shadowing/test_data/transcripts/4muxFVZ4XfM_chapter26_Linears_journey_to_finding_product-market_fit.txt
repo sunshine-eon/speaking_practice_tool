@@ -1,0 +1,72 @@
+Chapter 26: Linear’s journey to finding product-market fit
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 76:18 - 81:44
+============================================================
+
+[00:00] for it. I want to hear about the story of how you started to feel product market fit, whatever
+[00:04] that means to you. When did you start to feel like, oh, wow, this is actually going to work
+[00:08] and maybe this is going to be a real business? Yeah, I think we always been kind of, I don't
+[00:14] know, some like paranoia, those kept like, yeah, I guess maybe a paranoid is a good way about
+[00:18] the product market fit. I think like it's like a paranoid in a way like we're always wondering
+[00:24] like, do we really have it? Like, and like, with who do we have it? And I think it's true in our
+[00:30] kind of business is that like, I think, I think we started feeling it very early on. And like,
+[00:35] when people first like started using it, and we could see like, oh, now the whole company is
+[00:39] using it, and they seem like happier using it, and the feedback is good, and they might have
+[00:44] some additional asks for them, for us. But, but we started feeling like there was definitely
+[00:49] like a product market fit with certain kind of customer. And these, these were like, more like
+[00:54] smaller, like early stage companies, maybe where still the founder is still running the,
+[01:00] the product then, and they care about the speed of the shipping or they, they kind of have like
+[01:08] a certain values in a way. So it was like a good fit with them. And then I think we,
+[01:13] we always like, know that we, we want to like address the whole market and not just like these
+[01:19] early stage customers. But we knew that like, I don't like, if a Fortune 500 company came to us
+[01:26] then, or even like today, we might not be like, I don't think we can like provide them the
+[01:30] solution today that works for them. So I don't think the fit is there. So for us, like the
+[01:35] way we think about it is like, do we have that, do we have the fit in this specific
+[01:40] segments? And like how strong that fit is. And so like in the, in the company's like journey,
+[01:46] I think we, the first year, we kind of just focused on like, can we get the fit in the
+[01:51] first two years we focused on like, can we get the fit in the, in the early stage, like startup
+[01:56] kind of segment. And like, basically, the goal was like, we want to be the default for,
+[02:01] for startups, like the default tool that the startups pick. And I think we were able to
+[02:07] accomplish that. But we just purely focused on that segment and getting the product market fit there.
+[02:13] And then like after, or at the same time, we started getting some larger companies. And we
+[02:18] saw like, yeah, it's not like, really great for you right now. But like, let's work on it,
+[02:22] making it better. And so I think the last two years we've been like focusing on that.
+[02:26] And it's like, how do we make the software work better? How do we get the product
+[02:30] market fit better, like stronger in this larger company segments, like, that are like
+[02:35] thousands of people or like hundreds of people or like a thousand people?
+[02:39] I think this is such a good way and smart way of thinking about product market fit. A lot of people
+[02:44] see product market fit as this like binary, I have it or I don't. And like, when am I going to
+[02:47] really feel product market fit? And what you're describing is what I often hear is it's more of
+[02:51] this spectrum of like, more and more confidence that there's product market fit and even more
+[02:56] specifically, it's like product market fit with segments of the market. It's kind of like
+[03:00] this map of the world. And you're just like slowly acquiring territory in the market
+[03:04] with specific elements and then over time it grows and grows.
+[03:08] Yeah, I think like a spectrum is a good way to think about it too. I think it's I feel like
+[03:11] there's this blog post and like written in the past where it's like, you know, when you have product
+[03:16] market fit and I think it's it's probably like, it's like that for some, I don't know, social
+[03:23] consumer apps, like, you know, like if it's taking off or not, then you don't really have like
+[03:28] a lot of different segments, or like you don't really think about it, like you just have
+[03:32] users and you have millions of users. So and then you see like it's taking off and so you have
+[03:38] a product market fit. But then I think like in a more like a B2B world, I think there's always
+[03:43] like, you can have different sizes of customers, you can have different domains, the customers are
+[03:49] in or there's different kind of like categories where it's like, you might be doing really
+[03:53] well in one category, and then not that well another. And I think like maybe the
+[04:00] countering to do things is that like, actually, if you're doing really well in some category,
+[04:04] it's just like, kind of double down on that. This is something like I talked to, to the Zoom
+[04:09] founder, Eric at some point in the company's lifecycle. And this is also what he said, like,
+[04:14] it's like, when they were like, building Zoom in the early days, they would get this one type
+[04:19] of customer, like, I don't know, maybe it's like a university, and then they like really,
+[04:23] it worked really well for them. Then they're like, well, how do we get more of the
+[04:26] universities? So they would always like focus on a certain kind of customer,
+[04:30] rather than like, let's get everyone, like, let's focus on everything, which is not possible.
+[04:35] So again, like, it's about the like, the focus is like, if you have
+[04:39] some like, you see that something is working really well, then it's almost like,
+[04:43] you should focus on doing that more until you hit some kind of points like, okay,
+[04:46] now we do have that category, like, captured or handled as much as we want.
+[04:54] And we should like expand to new area.
+[04:56] Essentially, look for pull and just follow that and pay attention to that.
+[05:01] Yeah. And I think there's like, for us, it's often like, there can be sometimes like, for example,
+[05:07] now we have most of the AI companies are like, are using us. So I think like, it's always,
+[05:12] and before I was like a crypto company. So I think there's, like, when we see this kind
+[05:16] of things happening, then we'll start to think like, oh, could we do something
+[05:21] differently? Or like, should we could be like, get more of these AI companies?

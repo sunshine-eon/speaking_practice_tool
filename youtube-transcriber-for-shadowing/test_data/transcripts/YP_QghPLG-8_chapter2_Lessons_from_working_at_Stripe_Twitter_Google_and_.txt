@@ -1,0 +1,128 @@
+Chapter 2: Lessons from working at Stripe, Twitter, Google, and Yahoo
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 14:22 - 27:12
+============================================================
+
+[00:00] And then following that, it worked out a bunch of really important, well-run, successful companies,
+[00:07] Stripe, Twitter, Google, Yahoo. What's one thing you took away from each of these companies that
+[00:13] you've worked at that has kind of stuck with you? I know you share a lot of this on Twitter, but
+[00:17] if you just think about, like, some I took away from each of these companies or even the founders
+[00:21] that ran these companies, what might those be? Yeah, let's do this rapid-fire style,
+[00:26] because you know me, I could spend an hour just talking about this topic. But just starting with
+[00:32] Yahoo, I think I learned the importance of building multiple services under a single account. I think
+[00:41] that was the one Yahoo ID was such a powerful thing. It wasn't easy to pull off back in the day.
+[00:49] And Yahoo was perhaps the first company that kind of pulled it off really well.
+[00:54] And so that idea of bundling under a single account, which then Google really did extremely
+[01:01] well later on, was something that I got to experience very firsthand, because I was working on the
+[01:07] identity team at Yahoo. Real quick on Yahoo, because it makes me think about, I remember they
+[01:12] tried to do that with Flickr, and they had a bunch of trouble with that, right? People on Flickr
+[01:16] didn't want to log in with Yahoo. Is that right? Yes, that's the story of every acquisition where
+[01:23] there are some raving fans of the service that are perhaps not entirely happy about their beloved
+[01:30] service being acquired by a large company. So in fact, we encountered this at Google as well.
+[01:35] If you remember, YouTube accounts used to be separate from Google accounts or Gmail accounts.
+[01:44] And at some point, Google decided that you should be able to use your Google account
+[01:49] to log into YouTube. And also over time, everybody who uses YouTube should have a Google account.
+[01:56] So they went through a multi-year migration of accounts at Google, and they had similar backlash.
+[02:03] The interesting part though is nobody remembers that now. People happily use YouTube. So this
+[02:11] is one of those things where sometimes it's painful in the short term, even though it might
+[02:17] actually be the right answer over the long term. Great advice. Okay, sorry, I'll cut you off. Google.
+[02:24] Yes, Google, I think the main thing I learned was the power of thinking really big. And I know it
+[02:30] sounds very, sounds like a platitude, but like really big. And I only actually realized that
+[02:37] when I left Google, and I started working with other teams, and these were all capable teams.
+[02:43] And I was struck by how many teams kind of just limited the potential of what they could achieve.
+[02:51] And I think Google helped people sort of think big by default. And so I think my the six years I
+[02:59] spent at Google really kind of helped me understand that really well and just make it a normal part
+[03:07] of how I operated. So that was really useful for me. Is there an example that at Google that
+[03:13] some of you worked on that was like holy shit, this is going to be big or let's think bigger about
+[03:17] this? Yeah, well, as with anything, right, like there's pluses and minuses. So I worked on the
+[03:23] ad steam at Google for a number of years. And there was this kind of unwritten kind of rule of thumb
+[03:31] that, hey, if it's not going to generate more than $100 million in revenue, it's not worth talking
+[03:36] about it. Right, because the ads business was growing so fast and was so large that
+[03:43] like we would regularly not pursue opportunities that were just quote $100 million. So why do that?
+[03:52] Right, that's because Google had access to billion dollar opportunities for its as business.
+[04:00] So they were very clear on pursuing the big opportunities. And in some cases, these opportunities
+[04:07] were not obvious. So we kind of had to create those opportunities. If you think about some of
+[04:12] the innovations Google brought over the years in monetization, including things like video ads and
+[04:18] whatnot, right, like those were not obvious opportunities, but Google decided that it
+[04:24] wanted to pursue those big opportunities. And in order to do that, it had to sometimes
+[04:29] just let go of these seemingly smaller opportunities. So that tendency to kind of think about,
+[04:36] well, yes, there is a $10 million business here, but like, can we make it $100 million business?
+[04:42] Or there is a $1 million business here, can we make it a $10 million business?
+[04:46] What does it take to make it bigger is a habit, I think that got kind of ingrained for me at Google.
+[04:56] Now, of course, there's the other side of it, which is I think Google missed out on some trends
+[05:01] simply because of this filter or this high bar, where sometimes it's not clear if something is
+[05:07] a $100 million opportunity or a billion dollar opportunity. And so that is a downside of this.
+[05:17] What I mainly took away is, for instance, even at Stripe when I joined, I was just thinking a
+[05:22] lot bigger about the business I was responsible for Stripe Connect. And that helped us make different
+[05:29] decisions about what to prioritize and at what pace to go after it. So that was Google. Moving on
+[05:36] to Twitter. I think at Twitter, the main thing that struck me with all the challenges they had,
+[05:42] infrastructure challenges, and also some challenges around leadership and culture is just the stickiness
+[05:50] that comes with combining network effects with core product differentiation.
+[05:57] So because Twitter had both, we talk about network effects all the time, and I don't have much more
+[06:04] interesting things to add beyond what's already added. But this combination of core product
+[06:09] differentiation, because if you think about it, there's still no product like Twitter,
+[06:13] right? Despite it now being a long time since the product was launched. And that core product
+[06:20] differentiation combined with network effects has what enabled Twitter to have the staying power
+[06:26] it's had. And I think unless something terrible happens, I think Twitter will be around for a
+[06:31] really long time. So that's something I got to observe very closely when I worked at Twitter.
+[06:38] And then at Stripe, I think the main thing I took away was that when you combine
+[06:44] high energy, sound judgment, low ego and small teams, you just get magic. And so I just, you know,
+[06:54] Stripe wasn't by any means flawless. But I saw that combination of high energy, sound judgment,
+[07:00] low ego and small teams, more at Stripe than any other place I've been at. And so that was
+[07:08] very impactful in kind of my growth and thinking as a leader. And I can go on with the founders,
+[07:14] because I know you had asked that question. So let's do it. Let's do it. Okay, with regards to
+[07:18] the founders and what I learned from the founders, Yahoo, I didn't work much with the founders.
+[07:25] At Google, I had some interactions. I was in meetings with Larry Sergei, Eric Schmidt.
+[07:31] And I think I particularly, if I were to pick one thing, I really appreciated Larry's strategic
+[07:36] insight and particularly his ability to simulate the future to make better decisions. Twitter,
+[07:44] I just overlapped very briefly with Jack's comeback as CEO back, back when he came back. And
+[07:51] I think I was struck by his ability to listen and ask great questions in a few meetings that I
+[07:57] was with him. And so, you know, he was really impressed by like, he would just listen a lot
+[08:05] more than you would expect, say the CEO to listen. And then he would just ask one vital question.
+[08:12] And that's something I've tried to use in my leadership style ever since I saw that.
+[08:18] Is there an example that or a story of that happening that you think about?
+[08:22] Yeah, I think, you know, I forget the details and they're not that important anyway, but like,
+[08:27] there was a time when we were discussing a potential acquisition. And I was on the fence on
+[08:35] that acquisition, it would be something that my team would acquire. Jack was in the room.
+[08:40] And I remember we went through, as is common in many corporate settings, we went through,
+[08:45] you know, all the pros and cons and all the intellectual arguments and the strategic arguments
+[08:51] and the metrics arguments and all of that. And Jack was just listening through all of that.
+[08:58] And then I remember very distinctly, he asked me one question, which was something to the effect
+[09:07] of how does this make our users love Twitter more? Right? Like a simple question. But then at that
+[09:17] point, I realized, yeah, we never really talked about that. Because we were so engrossed in
+[09:24] all the other stuff, right? And we talked about it as a proxy, because we were talking about
+[09:28] metrics and impact and integration and those sorts of things. So I still remember that. I still
+[09:36] remember him asking a simple question. And frankly, at the time, I did not have a good answer to that
+[09:42] question. So that was a lesson for me to get more rigorous about about my own thinking.
+[09:47] That's a question that a lot of PMs would hear and be like, Oh my God, I can't come on, man,
+[09:52] we're trying to try to move some metrics here. But I love that you took that as like, Okay,
+[09:56] I really find this really important. And this is a really important question to think about.
+[10:00] And and as a lesson of how to approach this kind of stuff. So I love that. And oh, yeah,
+[10:05] I think you were going to talk about Stripe too, right? Yes, Stripe, I worked a lot with Patrick
+[10:09] and John. John was my manager for a while. And from John, I learned a lot about marketing.
+[10:17] John is a master marketer, among many other things that he's absolutely great at. He's just
+[10:24] a great marketer. And I just learned a lot about how to think about talking about the product in
+[10:30] terms that, you know, again, obvious stuff, but talking about product in terms that customers
+[10:35] really understand. And then sometimes emphasizing things that we as product people might not think
+[10:42] are really important, because maybe we didn't spend much time on building it. And we want to talk
+[10:48] about things that we spent a lot of time that are sort of truly innovative, etc, etc. And John would
+[10:54] often make these again, these kind of observations about, well, if we just talked about the product
+[11:00] in this manner, that will likely resonate a lot more with customers. And, you know, that got me
+[11:05] thinking a lot about how I need to kind of reframe my approach to basically separate the effort involved
+[11:12] in kind of building something with the effort you want to put behind talking about said thing.
+[11:18] And that that doesn't have to be the same features that you talk about. So, so that's
+[11:23] something I learned a lot working with John. From Patrick, I think, you know, the main thing I learned
+[11:30] was just how to think and communicate more clearly. Patrick did that extremely well.
+[11:37] And then overall, from both, I sort of learned the importance of setting the culture you want.
+[11:45] Simply by consistently being an example of the behaviors you want to replicate in the organization.
+[11:53] So instead of kind of talking about values, I saw both of them just kind of live the values
+[12:00] that they wanted the company to replicate, especially as the company was scaling.
+[12:06] And so whether it's a culture of being user centric, or it's a value around humility,
+[12:13] they just lived those values so consistently. And I think that consistency spoke louder than
+[12:21] anything that you might write on a poster on the office walls.
+[12:25] Hearing you describe all these companies and all these founders that you've worked with,
+[12:28] it's pretty incredible the set of experiences that you've had and kind of like the primordial
+[12:32] soup in which you became a PM. And it explains a lot about how you're able to squeeze so much
+[12:38] wisdom and insights about the role of product management and the art and skill of product
+[12:42] management because you've seen so many ways of doing it and so many companies that have kind of
+[12:47] done it in different ways.

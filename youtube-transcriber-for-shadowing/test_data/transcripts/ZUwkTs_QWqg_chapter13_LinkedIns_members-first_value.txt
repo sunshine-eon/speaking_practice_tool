@@ -1,0 +1,64 @@
+Chapter 13: LinkedIn’s members-first value
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 33:24 - 35:32
+============================================================
+
+[33:23] That was make total sense to me.
+[33:24] Are there other core values of LinkedIn
+[33:27] that are public that you can share?
+[33:28] I mean, you can Google them too.
+[33:29] And so they're very, very public,
+[33:31] but probably the one that I think is most important
+[33:34] to talk about in this world is,
+[33:38] there's this concept of members first.
+[33:40] And I think anytime you run an ecosystem as complex
+[33:42] as we do, and you think about it,
+[33:44] even if you're trying to connect people opportunity,
+[33:46] there's two people, how are you gonna decide right now
+[33:48] who needs it?
+[33:49] I think having clarity on which piece of the ecosystem
+[33:52] is gonna be where the focus is.
+[33:55] It helps us make sure we establish a relationship,
+[33:57] a trust first,
+[33:58] make sure to understand who's getting access to data,
+[34:00] make sure we understand our decisions that we may,
+[34:02] and I always love that as a principle that we've stuck by.
+[34:05] Yeah, I see it on the picture.
+[34:06] We put members first.
+[34:09] So...
+[34:10] Great, checks out is what you're telling me.
+[34:11] Checks out, checks out.
+[34:13] What's interesting is the connecting people to opportunity,
+[34:16] economic opportunity is not one of these values.
+[34:18] It seems like it's even broader.
+[34:20] Mission of the company basically.
+[34:23] Got it. Okay. I love that.
+[34:25] This episode is brought to you by Epo.
+[34:27] Epo is a next generation A.B. testing platform
+[34:30] built by Airbnb alums for modern growth teams.
+[34:33] Companies like DraftKings, Zapier, ClickUp, Twitch,
+[34:36] and Cameo rely on Epo to power their experiments.
+[34:39] Wherever you work, running experiments
+[34:41] is increasingly essential,
+[34:42] but there are no commercial tools
+[34:44] that integrate with a modern growth team stack.
+[34:46] This leads to waste of time building internal tools
+[34:48] or trying to run your own experiments
+[34:50] through a clunky marketing tool.
+[34:52] When I was at Airbnb,
+[34:53] one of the things that I loved most about working there
+[34:55] was our experimentation platform,
+[34:57] where I was able to slice and dice data
+[34:59] by device types, country, user stage.
+[35:02] Epo does all that and more delivering results quickly,
+[35:05] avoiding annoying prolonged analytic cycles,
+[35:07] and helping you easily get to the root cause
+[35:09] of any issue you discover.
+[35:11] Epo lets you go beyond basic click-through metrics,
+[35:13] and instead use your North Star metrics
+[35:15] like activation, retention, subscription, and payments.
+[35:19] Epo supports tests on the front end,
+[35:21] on the back end, email marketing,
+[35:23] even machine learning clients.
+[35:25] Check out Epo at geteppo.com.
+[35:28] That's geteppo.com and 10X your experiment velocity.

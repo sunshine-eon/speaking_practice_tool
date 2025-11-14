@@ -1,0 +1,25 @@
+Chapter 13: Unconventional processes at Netflix
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 46:18 - 47:55
+============================================================
+
+[00:00] This is kind of what you always hear from people giving founders advice is just
+[00:05] hire amazing people, get out of their way, and let them do their job, which is
+[00:10] often not a successful experience. What are examples that come, either things that
+[00:17] came out of this freedom, I don't know, products or features or ideas that came
+[00:20] out of this, or policies or processes you don't have that everyone else might have.
+[00:24] So I know there's no vacation time, there's like unlimited vacation time,
+[00:27] I assume, is that still a thing? Unlimited vacation time? Okay, cool. Yeah. Alright,
+[00:33] great. And then no performance reviews, we talked about that. So I guess in either
+[00:38] direction, like as an example of something that came out of this freedom, or some
+[00:42] process that would surprise people that you don't have a framework or system.
+[00:46] We've been able to deliver, you know, speak to my own team around innovations in
+[00:53] our content delivery network, or innovations in encoding, or innovations in
+[00:58] discovery and personalization. We're not driven by some leader saying, I think
+[01:04] this is a priority. They were driven in many cases by individual contributors who
+[01:10] had great ideas for innovation. So a lot of the stuff that Netflix has succeeded
+[01:14] in came from creating space for people on the team. So there's probably thousands
+[01:19] of examples of product features and things like that that came out of creating
+[01:23] this space. And right now, the trick is finding the sweet spot so that we can
+[01:27] operate efficiently at this type of scale without snuffing out some of that,
+[01:34] what was kind of the core beauty of the culture.

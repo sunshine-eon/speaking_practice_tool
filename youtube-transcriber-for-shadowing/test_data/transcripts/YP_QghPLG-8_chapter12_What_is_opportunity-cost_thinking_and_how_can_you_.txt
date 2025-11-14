@@ -1,0 +1,177 @@
+Chapter 12: What is opportunity-cost thinking and how can you apply it?
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 81:03 - 91:21
+============================================================
+
+[00:00] Just one more question along this line tactically.
+[00:03] Every PM ends up with like a spreadsheet of their ideas and ROI and cost
+[00:07] and benefit and all that stuff.
+[00:08] Do you recommend folks create kind of a column for opportunity cost?
+[00:15] Or is this more of a broad thought process you go through when you're
+[00:18] looking through your list of ideas?
+[00:21] Yeah, it's more of the latter.
+[00:22] I do not recommend trying to like quantify opportunity costs because it's a
+[00:27] lost cause.
+[00:28] Instead, what teams need is just the sometimes the freedom and sometimes
+[00:35] just permission to explore and attack these things that minimize opportunity
+[00:43] cost.
+[00:45] And so as leaders, that's the best thing we can do is to give the teams that
+[00:50] freedom or the permission to pursue these things.
+[00:53] And the way it manifests is and the way I've kind of tried to do it is when
+[01:01] we are planning, I often give guidance to the team around what percentage of
+[01:10] our time we want to spend on what type of activity.
+[01:14] Right.
+[01:14] And I learned this from Google's classic 70 2010, where during its fast
+[01:19] growth years, Google had the 70% search and ads, 20% apps, which was like
+[01:25] things like Gmail and whatnot, and 10% on other big bets.
+[01:30] Right.
+[01:31] So I have found that approach very useful during planning, where what I will
+[01:36] say is like, look, yeah, we need to spend and it again depends on the context.
+[01:40] But when the team is starting to plan the next quarter or the next half or
+[01:44] the next year, my role as a leader is hopefully I've already clarified the
+[01:48] strategy.
+[01:49] So they have that as an input.
+[01:51] But the other thing that I see in my role as a leader is to clarify the rough
+[01:56] allocation.
+[01:58] Right.
+[01:58] So what I'll share as a guidance with the team is given our situation and given
+[02:03] our strategy and given what's going on in the market, I would like us to target
+[02:08] about 60% of our time incrementals.
+[02:13] And by that, I mean incremental features that improve users' lives on
+[02:17] a day to day basis.
+[02:19] So these are like actually high ROI things that we do.
+[02:23] So 60% and again, these numbers are whatever they are, if you pick whatever
+[02:28] is right for you, but 60% I want to go towards incrementals.
+[02:33] 30% I want to allocate towards big new initiatives.
+[02:38] And because it's 30%, it can't be five big new initiatives.
+[02:42] It's probably one or two.
+[02:43] Right.
+[02:44] And then 10%, I'd like us to allocate towards stability and infrastructure.
+[02:51] Right.
+[02:52] So, so this is the guidance I'll share with the team.
+[02:55] And then I will ask the team to and teams to create their plans and proposals
+[03:00] based on this rough guidance.
+[03:02] Right.
+[03:03] So this kind of gives people the space to like say, okay, we do need, we do
+[03:08] have this 30%.
+[03:10] So there's no sense putting in more high ROI tasks in there.
+[03:14] Or quick wins in there.
+[03:15] And, and I think just the simple guidance like enables the team to kind of just
+[03:19] do the right thing.
+[03:20] And I often get surprised with all the awesome stuff they come back with.
+[03:23] Really like that rule of thumb, but an excellent nugget to include along with
+[03:28] this big idea.
+[03:29] I'm realizing we've been going for an hour and a half now and I don't want to
+[03:33] suck up all your time.
+[03:34] So there's this idea that I think it might be a really good one to end on.
+[03:37] It'll be a bonus sixth big idea around high agency and the importance of PMs
+[03:43] being high agency.
+[03:45] And the reason that it stuck out to me is this, I found to be really important in
+[03:49] my career.
+[03:50] And I think it lets a lot of the success that I saw along the way is just always
+[03:54] feeling like I have agency and feeling ownership of what I was doing and where I
+[03:58] was going.
+[03:59] And so I'm curious to hear your take on this and to kind of dive into this trade
+[04:03] of high agency and how important that is for PMs.
+[04:06] Yeah.
+[04:06] And I think Eric Weinstein coined this term high agency, which like once I
+[04:11] discovered it kind of resonated a lot and kind of aligned with some of my ideas.
+[04:16] And the way I had defined kind of this concept in my head for many years was
+[04:22] that high agency is about finding a way to get what you want without waiting for
+[04:29] conditions to be perfect or otherwise blaming the circumstances.
+[04:34] Right.
+[04:35] And so high agency people will, and we've seen, we've all seen such people.
+[04:39] They just either push through in the face of adverse conditions or often they
+[04:45] manage to reverse the adverse conditions to achieve their goals.
+[04:50] And so while this is an important trait for many areas and endeavors, I think
+[04:56] this is particularly important for product managers because as product managers,
+[05:03] we are constantly fighting adverse conditions.
+[05:07] You know, not enough resources, challenges with legacy infrastructure, staffing issues,
+[05:15] customer problems and on and on.
+[05:17] Right.
+[05:17] Like there is no dearth of problems to solve as a product manager.
+[05:21] And I noticed consistently over the years that it wasn't the, you know, as I started
+[05:26] thinking about sort of like what differentiates the PMs who had just a large impact and even
+[05:32] more important than just impact to the company or to the team.
+[05:35] PMs who've surprised me in a positive way.
+[05:40] PMs who really exceeded expectations, exceeded perhaps like their own, you know,
+[05:47] capabilities on paper.
+[05:49] Right.
+[05:49] Like you see somebody, somebody's credentials on paper and like then you see their work
+[05:53] and their impact.
+[05:54] And there's like a big difference between what you might assume on paper and the, and
+[05:58] the, the, the impact they're achieving.
+[06:02] Uh, so that and also the, the reverse of that, which is sometimes you have PMs who
+[06:08] just have tremendous potential.
+[06:10] They look great on paper.
+[06:12] And you know, when you're working with them or you're managing them, that they're
+[06:16] not achieving that potential.
+[06:20] They're nowhere close to achieving that potential.
+[06:23] And as I look at both of those situations, it became clear to me that like high agency
+[06:27] was a big contributor, which is the PMs in this first category were like, despite
+[06:34] all the disadvantages and other things, they just took strong ownership.
+[06:41] So ownership is one component.
+[06:43] Ownership mindset is one component of high agency.
+[06:46] They took strong ownership.
+[06:48] And then they creatively executed through the challenges.
+[06:54] So a creative execution is another aspect of high agency.
+[06:58] And they did that with a high degree of resilience, which is a third aspect of high agency.
+[07:06] So as I realized that I, it became very clear as to why this was happening.
+[07:11] And then it's one of those things that like, once you see it, you kind of like, you start
+[07:16] seeing it in people much more clearly.
+[07:18] And so that's when I, when I wrote about the, like the PM version of high agency, I think
+[07:23] that's why it resonated with a lot of people because it kind of like gave, again, it gave
+[07:27] vocabulary to people for what they already kind of understood and they had seen it, but
+[07:32] did not have the words for.
+[07:34] I think that's a really good way to wrap this up.
+[07:36] Just leaving people with that point of just the, the power of empowerment, basically taking
+[07:40] responsibility, feeling high agency resiliency.
+[07:43] Shreyas, this has been incredibly illuminating.
+[07:47] I suspect this is going to be helpful to a lot of product managers and even non-product
+[07:50] managers.
+[07:51] And so just two last questions, where can folks find you online if they want to reach out or
+[07:56] learn more?
+[07:56] And then how can listeners be useful to you?
+[07:59] Yeah.
+[07:59] So follow me on Twitter.
+[08:01] I'm just at Shreyas.
+[08:02] If you don't have a Twitter account, follow me on LinkedIn.
+[08:05] You can just find me there, Shreyas Doshi.
+[08:08] If you really enjoy the tweets and want to see more, then you can super follow me on Twitter.
+[08:16] So this is a smaller community that I'm really enjoying of product managers, founders, product
+[08:22] people, designers, engineers, et cetera, where we go much deeper into these types of topics and
+[08:29] more.
+[08:30] And if you'd like to learn more about my views on various things related to product, super
+[08:37] following me, perhaps is a great way to do that.
+[08:39] And in terms of other things I'm working on, I am going to be launching a course on product
+[08:45] sense and product management later this year.
+[08:48] So be on the lookout for that.
+[08:50] If that's of interest.
+[08:51] And then lastly, I think the best help I can ask for from listeners is just if any of these ideas
+[08:59] resonated with you, share them with others.
+[09:02] And of course, if there are questions, feel free to ask.
+[09:05] I think my mission here is to really help perhaps bring greater clarity on what is going on around
+[09:15] us when we're working in teams and working on projects and products.
+[09:19] And so I really like it when people share the ideas, whether it's on Twitter or publicly or
+[09:26] even with others privately.
+[09:28] So that is perhaps the best thing you can do to help me in my mission.
+[09:33] Amazing.
+[09:33] What a beautiful way to end it, Trias.
+[09:35] Thank you so much for this conversation.
+[09:38] Thanks, Lenny.
+[09:39] This was a blast.
+[09:40] Thanks for having me.
+[09:41] It's really a privilege.
+[09:43] And I am looking forward to another conversation sometime in the future.
+[09:48] Ten big ideas by Shreyas Doshi coming up.
+[09:51] I'm really excited about that, too.
+[09:52] Thank you again.
+[09:53] Great.
+[09:54] Bye.
+[09:56] Thank you so much for listening.
+[09:58] If you found this valuable, you can subscribe to the show on Apple Podcasts, Spotify or your
+[10:03] favorite podcast app.
+[10:04] Also, please consider giving us a rating or a leaving review, as that really helps other listeners
+[10:09] find the podcast.
+[10:11] You can find all past episodes or learn more about the show at Lenny's podcast.com.
+[10:15] See you in the next episode.

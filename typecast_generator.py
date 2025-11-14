@@ -296,22 +296,27 @@ def _generate_single_chunk_audio(chunk_text, voice_id, model, speed, api_key):
     Helper function to generate audio for a single chunk via Typecast API.
     This avoids recursion when processing multiple chunks.
     """
-    tts_url = f"{TYPECAST_API_BASE}/text-to-speech"
+    # Validate and normalize model parameter
+    valid_models = ["ssfm-v21", "ssfm-v30"]
+    if model not in valid_models:
+        print(f"Invalid model '{model}', defaulting to 'ssfm-v30'")
+        model = "ssfm-v30"
+    
+    # Normalize model name - ensure it matches API expectations
+    # Some APIs might expect different formats, but Typecast uses "ssfm-v21" and "ssfm-v30"
+    model_normalized = model.lower() if model else "ssfm-v30"
+    
+    # Use different endpoint for ssfm-v30
+    if model_normalized == "ssfm-v30":
+        # ssfm-v30 uses /experiment/text-to-speech endpoint with regional API base
+        tts_url = "https://ap-northeast-2.api.typecast.ai/experiment/text-to-speech"
+    else:
+        tts_url = f"{TYPECAST_API_BASE}/text-to-speech"
     
     headers = {
         "X-API-KEY": api_key,
         "Content-Type": "application/json"
     }
-    
-    # Validate and normalize model parameter
-    valid_models = ["ssfm-v21", "ssfm-v30"]
-    if model not in valid_models:
-        print(f"Invalid model '{model}', defaulting to 'ssfm-v21'")
-        model = "ssfm-v21"
-    
-    # Normalize model name - ensure it matches API expectations
-    # Some APIs might expect different formats, but Typecast uses "ssfm-v21" and "ssfm-v30"
-    model_normalized = model.lower() if model else "ssfm-v21"
     
     # Prepare request body according to Typecast API format
     payload = {
@@ -347,7 +352,7 @@ def _generate_single_chunk_audio(chunk_text, voice_id, model, speed, api_key):
         raise Exception(error_msg)
 
 
-def generate_shadowing_audio(script_text, voice_id=None, output_path=None, speed=1.0, model="ssfm-v21", return_timestamps=False):
+def generate_shadowing_audio(script_text, voice_id=None, output_path=None, speed=1.0, model="ssfm-v30", return_timestamps=False):
     """
     Generate audio from script text using Typecast.ai.
     Handles long scripts by splitting them into chunks (Typecast limit: 2000 chars).
@@ -358,7 +363,7 @@ def generate_shadowing_audio(script_text, voice_id=None, output_path=None, speed
         voice_id: Optional voice ID (if None, uses a default voice)
         output_path: Optional path to save audio file (if None, returns audio bytes)
         speed: Audio speed/tempo (default 1.0, range 0.5-2.0)
-        model: Typecast model to use (default "ssfm-v21", options: "ssfm-v21", "ssfm-v30")
+        model: Typecast model to use (default "ssfm-v30", options: "ssfm-v21", "ssfm-v30")
         return_timestamps: If True, returns tuple of (audio, paragraph_timestamps)
     
     Returns:
@@ -489,21 +494,26 @@ def generate_shadowing_audio(script_text, voice_id=None, output_path=None, speed
                 return output_buffer.getvalue()
         
         # For shorter scripts, generate directly
-        tts_url = f"{TYPECAST_API_BASE}/text-to-speech"
+        # Validate and normalize model parameter
+        valid_models = ["ssfm-v21", "ssfm-v30"]
+        if model not in valid_models:
+            print(f"Invalid model '{model}', defaulting to 'ssfm-v30'")
+            model = "ssfm-v30"
+        
+        # Normalize model name - ensure it matches API expectations
+        model_normalized = model.lower() if model else "ssfm-v30"
+        
+        # Use different endpoint for ssfm-v30
+        if model_normalized == "ssfm-v30":
+            # ssfm-v30 uses /experiment/text-to-speech endpoint with regional API base
+            tts_url = "https://ap-northeast-2.api.typecast.ai/experiment/text-to-speech"
+        else:
+            tts_url = f"{TYPECAST_API_BASE}/text-to-speech"
         
         headers = {
             "X-API-KEY": api_key,
             "Content-Type": "application/json"
         }
-        
-        # Validate and normalize model parameter
-        valid_models = ["ssfm-v21", "ssfm-v30"]
-        if model not in valid_models:
-            print(f"Invalid model '{model}', defaulting to 'ssfm-v21'")
-            model = "ssfm-v21"
-        
-        # Normalize model name - ensure it matches API expectations
-        model_normalized = model.lower() if model else "ssfm-v21"
         
         # Prepare request body according to Typecast API format
         payload = {
@@ -572,7 +582,7 @@ def generate_shadowing_audio(script_text, voice_id=None, output_path=None, speed
         raise  # Re-raise the exception so it propagates to the caller
 
 
-def generate_shadowing_audio_for_week(script_text, week_key, voice_id=None, speed=1.0, model="ssfm-v21", return_timestamps=False):
+def generate_shadowing_audio_for_week(script_text, week_key, voice_id=None, speed=1.0, model="ssfm-v30", return_timestamps=False):
     """
     Generate audio file for a specific week and save it.
     
@@ -581,7 +591,7 @@ def generate_shadowing_audio_for_week(script_text, week_key, voice_id=None, spee
         week_key: Week key (e.g., '2024-W45')
         voice_id: Optional voice ID
         speed: Audio speed/tempo (default 1.0, range 0.5-2.0)
-        model: Typecast model to use (default "ssfm-v21", options: "ssfm-v21", "ssfm-v30")
+        model: Typecast model to use (default "ssfm-v30", options: "ssfm-v21", "ssfm-v30")
         return_timestamps: If True, returns tuple of (audio_url, paragraph_timestamps)
     
     Returns:

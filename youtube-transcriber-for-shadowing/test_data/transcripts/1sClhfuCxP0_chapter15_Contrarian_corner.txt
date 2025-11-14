@@ -1,0 +1,35 @@
+Chapter 15: Contrarian corner
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 48:59 - 50:49
+============================================================
+
+[00:00] Awesome. I want to go in a completely different direction.
+[00:04] It feels like you have a lot of contrarian opinions about how to build product
+[00:08] and how to build teams and build companies and things like that.
+[00:11] So I just want to start broad.
+[00:13] What are some things you have contrarian opinions about?
+[00:16] Things you believe that a lot of other people maybe don't believe or see differently?
+[00:20] So one, for example, excellence in speed.
+[00:23] There's always like a question around that, hey, would you ship rather ship faster?
+[00:27] Or would you ship rather ship better?
+[00:29] In my opinion, when you have to make a choice, think more and ship better.
+[00:34] Most experiments should be thought experiments.
+[00:37] They should not even be tried out because they're obviously going to fail.
+[00:41] Which is contrary to let's try it out and then let's see.
+[00:45] I think that we had a lot of company time.
+[00:47] If you had smart people who could do better thinking,
+[00:51] a lot of experiments would just not even be like.
+[00:54] It's not a rule, but it's a preference.
+[00:57] I think a speed and excellence are two different axes.
+[01:01] Ideally, you should be better at both.
+[01:03] But if you had to choose one, choose excellence.
+[01:05] There's another contrarian opinion, which is I think most product managers.
+[01:13] And again, I'm probably talking a little bit of the kind of people that I've worked with
+[01:18] and have kind of interacted with in product.
+[01:21] Most product managers should not even be product managers.
+[01:24] They should think a little bit more around whether this is actually the right field for them.
+[01:29] Because I think a lot of people from other areas have entered the field
+[01:34] without fully realizing what it takes.
+[01:36] So there is definitely a way in which you can coach yourself
+[01:39] and kind of work your way upwards of that one.
+[01:43] But it can make you quite miserable if it's not right for you.

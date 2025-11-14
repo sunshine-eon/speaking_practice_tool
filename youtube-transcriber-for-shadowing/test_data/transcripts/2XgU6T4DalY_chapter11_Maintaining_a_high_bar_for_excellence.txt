@@ -1,0 +1,84 @@
+Chapter 11: Maintaining a high bar for excellence
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 39:01 - 43:54
+============================================================
+
+[00:00] I'm curious, I know this could be its own podcast and book, but just in terms of hiring
+[00:05] people that are amazing and keeping this bar of excellence.
+[00:10] Is there anything you can point out that might be helpful to other companies hiring to help
+[00:13] identify amazing people and make sure that bar stays high?
+[00:17] One thing I know is you guys pay a top market for salary.
+[00:20] I think that's one unique thing about Netflix is we just pay people.
+[00:26] So maybe that's an answer part of this answer, but just what advice do you have for people
+[00:29] to keep a really high bar in their talent?
+[00:31] Yeah, I mean, on the compensation point, we pay what we call personal top of market, meaning
+[00:39] we want to be highly competitive in the pay, but we don't want pay to be like the golden
+[00:45] handcuffs of Netflix sets market rather than paying people a strongly competitive compensation.
+[00:55] So I think that that's important for attracting and retaining talent and has been a big part
+[01:03] of the culture, but almost more importantly, we hope we don't have to rely on that to want
+[01:11] people to want to be at Netflix or for us to be able to assess whether people are going
+[01:16] to thrive at Netflix.
+[01:18] And the way that I've thought about hiring with that context is we know we're going to
+[01:23] offer you very highly competitive compensation, but are you going to come to Netflix and help
+[01:30] us identify the right problems to solve or new ways to solve existing problems?
+[01:39] And that's a different way of hiring than you might think about, especially at scale
+[01:45] where you're saying, does this person have this skill, this skill, this skill check,
+[01:50] they're going to fit in this box and they're going to deliver this work that I need them
+[01:53] to do.
+[01:54] I'm being intentionally simplistic.
+[01:57] I recognize a lot of people don't hire actually that way.
+[02:00] But at Netflix, we try really hard to say we're looking for the new perspective or the
+[02:04] person who's actually going to make us stronger as a team.
+[02:08] So thinking about additive skills, additive perspectives, people who are going to push
+[02:13] our thinking on something.
+[02:15] And that tends to help us with thinking about talent density, because you're constantly
+[02:21] introducing people to the team who up level.
+[02:24] So then the questions you have to ask in an interview might be different because yes,
+[02:28] we're trying to assess, do you have the baseline skills to be successful here?
+[02:32] But we're also looking for the things that make people exceptional or even stronger than
+[02:36] the team we've got.
+[02:38] And then you think about making the magical teams comprised of all those amazing minds
+[02:43] and what can you get out of that?
+[02:45] And that feels like more that the talent density in practice.
+[02:49] Got it.
+[02:50] So the advice there essentially is don't look for someone just simply great.
+[02:53] Look for someone that raises the bar for the whole team brings in a whole new perspective.
+[02:57] Yeah.
+[02:58] I think what's great about this idea of just maintaining excellence consistently is that
+[03:04] the best people want to work with the best people.
+[03:06] And as soon as there's one person that sucks and the company allows for that, it just brings
+[03:10] everyone down because they know, hey, we can.
+[03:13] We can be okay.
+[03:14] We'll stick around.
+[03:15] No one's going to do anything about it.
+[03:16] And when you make it clear, we only want the best and only hire the best and we keep
+[03:21] the best.
+[03:22] It keeps the best there.
+[03:24] Right?
+[03:25] I imagine that's part of the strategy.
+[03:28] It's definitely the goal.
+[03:29] And I think understanding that having gaps in the team and people's skill sets or their
+[03:35] behavior can be really toxic for other people on the team.
+[03:39] So it's a cost.
+[03:41] This episode is brought to you by Xplo, a game changer for customer facing analytics
+[03:46] and data reporting.
+[03:48] Are your users craving more dashboards, reports and analytics within your products?
+[03:52] Are you tired of trying to build it yourself?
+[03:55] As a product leader, you probably have these requests in your roadmap, but the struggle
+[03:58] to prioritize them is real.
+[04:01] Building analytics from scratch can be time consuming, expensive and a really challenging
+[04:05] process.
+[04:06] Enter Xplo.
+[04:07] Xplo is a fully white labeled, embedded analytics solution designed entirely with your user
+[04:13] in mind.
+[04:14] Getting started is easy.
+[04:16] Xplo connects to any relational database or warehouse and with its low code functionality,
+[04:21] you can build and style dashboards in minutes.
+[04:24] Once you're ready, simply embed the dashboard or report into your application with a tiny
+[04:28] code snippet.
+[04:29] The best part?
+[04:30] Your end users can use Xplo's AI features for their own report and dashboard generation.
+[04:36] Creating customer data requests for your supporting.
+[04:39] Build and embed a fully white labeled analytics experience in days.
+[04:44] Try it for free at Xplo.co.lennie.
+[04:48] That's EX-PLO.CO-LENNIE.

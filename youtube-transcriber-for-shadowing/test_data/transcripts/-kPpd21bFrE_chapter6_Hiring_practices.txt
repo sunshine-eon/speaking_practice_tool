@@ -1,0 +1,66 @@
+Chapter 6: Hiring practices
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 25:00 - 31:33
+============================================================
+
+[00:00] Let's talk about hiring then. Is there anything unique about how you approach hiring, sourcing,
+[00:06] looking for people, what you look for in people that you think might be contributing to your
+[00:10] alumni being so successful down the road?
+[00:12] I think everyone is striving for talented, skillful, smart people and experienced people.
+[00:22] Value is way more raw intellect and this unquenched hunger to build things rather than experience.
+[00:31] So let me maybe, you know, like bring an example. Imagine, we also this like you hire a great
+[00:39] experienced professional with amazing regalia of achieving a lot of things.
+[00:47] But then what I see in product, the adoption curve is usually longer than in other functions.
+[00:57] Because product owners by definition are the ones who, you know, who are the experts in that
+[01:04] domain and they know those intricacies of how product is built and how it's used.
+[01:10] So what we see from these professionals is they still take a lot of time to ramp up.
+[01:15] And sometimes they also take time to adapt to new culture or worse, they just rest on their laurels.
+[01:25] But you already have like super inflated expectations and usually the compensation is,
+[01:30] by the way, quite high and which adds up to these expectations.
+[01:34] So and I myself after conducting maybe four or five hundred interviews with product owners
+[01:42] at Revolut, I also see this. Unfortunately, professionals with a lot of years of experience
+[01:51] from established companies, they don't have this, this strong urge to change status quo,
+[02:03] which, by the way, will require, you know, total tears and sweat. And that's why
+[02:13] what even if a candidate doesn't have a lot of years of experience, but they love building things,
+[02:21] they've done it, they worked with engineers, maybe by the way, maybe in their own startup
+[02:27] or one of the best profiles that I've seen is a tech co-founder. So I think that's probably the
+[02:39] best way to boost career is to, you know, to go and find something, working in startup,
+[02:45] building things yourself or with a very small team, working all different
+[02:50] areas because in startup you have to work in all different areas. And then these kind of people,
+[02:56] they really thrive at Revolut. And even if they don't have a lot of years of experience, they actually
+[03:05] attack a specific problem, they have a sense of what can cause customer pain, and they are very
+[03:16] fast moving to solve it quickly. And then that's how they get appreciation from everyone around.
+[03:22] The team starts respecting these people because they solve some specific problem,
+[03:25] and then they take another problem, they solve it, and then they take another, and that's how
+[03:31] they grow in the company. Essentially what I'm hearing is you hire kind of more junior,
+[03:36] super high raw, intellect driven, passionate, how to just grow hungry people. And this explains why
+[03:45] so many people have so get promoted so much more that leave Revolut because they start,
+[03:50] they're earlier in their career, and you help them learn all these skills, ownership, depth,
+[03:55] understanding, working in complex environments, building amazing products. So this all makes a
+[04:00] lot of sense. Is there anything you figured out about where to find these people? Because this
+[04:04] is the dream, hire amazingly smart people that are super driven that nobody knows about yet,
+[04:08] and then make them awesome. Have you found anything about where to source and find these folks?
+[04:14] So the way we work, we have weekly catch ups with the recruitment team. So essentially they are
+[04:22] also a team that runs in sprints. So every sprint we define what do we want to focus on,
+[04:29] which areas, which companies. One of the great sources is actually looking into products and
+[04:37] depths that we love ourselves. So if someone built a great product, then it's likely a high performer.
+[04:45] So usually we provide some great products in specific areas that are more important for us
+[04:52] to the sourcing team and they just try to source targeting those companies. It could be also
+[04:59] different areas. It could be even schools, like good schools. So it varies from sprint to sprint.
+[05:05] That makes sense. There's Gokul had this really good piece of advice. I think it was on the podcast,
+[05:09] if not he tweeted about it, where you look at like there's like successful companies,
+[05:13] but then there's also like what function in that company is the key to their success.
+[05:18] And so you want to go like a company A for sales, company B for customer support,
+[05:22] company C for design. And so it sounds like that's kind of the way you guys think about it a little
+[05:27] bit. Very cool. Okay, we're I love how we're uncovering and we're uncovering this mystery.
+[05:33] This entire episode is brought to you by Stripe. Every single one of the Forbes top 50 AI companies
+[05:40] that has a product in the market today uses Stripe to monetize it. 1.4 trillion dollars
+[05:45] flows through Stripe annually, which is equivalent to over 1% of the entire global GDP. And Stripe
+[05:51] isn't just a payments platform. They also have a product called Stripe billing, which powers billing
+[05:56] for companies that you may have heard of open AI, anthropic, Figma, Atlassian, and over 300,000
+[06:03] other companies. Stripe billing lets you bill and manage customers no matter your pricing model
+[06:07] from simple recurring billing to usage based billing to sales negotiated contracts, collect
+[06:13] and retain more revenue, automate revenue management workflows and accept payments globally.
+[06:18] Use Stripe to handle all of your payment related needs, including billing, revenue operations,
+[06:23] checkout flows, or simply launching or inventing new business models. Learn all the ways that Stripe
+[06:29] can grow revenue for your business at stripe.com.

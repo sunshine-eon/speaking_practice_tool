@@ -1,0 +1,99 @@
+Chapter 14: Anuj’s “4BB framework” for product strategy
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 41:27 - 48:59
+============================================================
+
+[00:00] that awesome. Okay, another framework that you have is something that you call the 4BB
+[00:05] framework for product strategy. Can you talk about what that's all about?
+[00:09] We essentially saw that, you know, if a startup actually usually wants to do like a bunch of
+[00:15] things across the board. There's always like, hey, I should be investing in tech debt or
+[00:21] like building core platforms that would really help my product in the long term.
+[00:25] And that's super important. And that's my engineering managers and largely people
+[00:30] asking for that bandwidth. And then there is the product manager themselves,
+[00:33] who's basically saying, I want to do feature enhancement, bug fixes, my version tools,
+[00:38] you know, a few areas, experiments, and so on so forth. That's a regular product
+[00:44] backlog that would work on on sprint by sprint. And there's this leadership which
+[00:49] will say, you know what, now we have a suite of products. Now I want to take like a large,
+[00:53] you know, delta bet that may work. It may not work. But but we need to make sure that it works.
+[00:59] And but I need work across teams. And it's not only one person that needs to do it,
+[01:04] any contribution from four or five of you that come together and deliver that.
+[01:08] Or there are places where a company is lectures, reimagining their identity,
+[01:13] or they're pivoting, which is like, all right, we were doing X. Now we are doing
+[01:17] X plus Y. That's how we want to be known. Or we were doing X.
+[01:21] Now we want to do very little effects because current consumers, okay, we will take
+[01:25] care of them. But now we want to pivot into wire. So it usually isn't in these,
+[01:29] in four of these buckets. And what really happens is,
+[01:34] it gets down to product managers, eventually prioritizing between these four.
+[01:38] So I don't think it's a tactical prioritization product manager call.
+[01:42] It really is a product strategy call. And the conversation that needs to happen
+[01:46] is between, say the head of product and the CEO, or even like the leadership.
+[01:51] If I gave you 100 focus points, how much will you put in each of these buckets?
+[01:57] And what are those four buckets? Those are the four BB buckets. So what are the ones?
+[02:01] So we call them first BBs, brilliant basics. And the reason why we call it BB, brilliant basic,
+[02:06] you need to brand, you cannot brand it as big debt. So it feels like very awesome.
+[02:12] Because these are brilliant. These are important. That's what the company is built on.
+[02:16] And the company needs to invest in that. So that's one. The second one is bread and butter.
+[02:21] So that's your backlog. So if the product managers had no big ideas,
+[02:25] and they just were left on their own, what would they come up with?
+[02:29] And in terms of just improving that line of business that they're given,
+[02:34] and their big bets. And now that's where your larger ideas that have come together.
+[02:40] But how many big bets should we take? Or is this big bet even a big one?
+[02:44] That's where your working backwards of PRFQs start becoming even more important.
+[02:48] Because those are the kind of bets that cannot be taken without everybody basically signing up,
+[02:53] working backwards, and saying, we will all make this successful.
+[02:58] And making bad essentially is a different world altogether. That's where you want to redefine
+[03:02] your company. You were doing, for example, in Sweden, we were doing food delivery. Now
+[03:08] we wanted to grocery delivery as well. It's like, these are two companies working together
+[03:13] or from a food delivery company, we wanted to become a convenience company.
+[03:16] That's almost breaking bad. Again, like I said, we got cheesy.
+[03:21] But the good thing that happens is now what you can do is, along with your leadership,
+[03:24] take stock. And the head of product essentially can say, you know what, I can,
+[03:30] in this, in the next year, I can invest a lot less on my drilling basics.
+[03:36] And we should as a company focus a lot on this breaking back because that is existential.
+[03:40] But then we should not look back and say, why would tech systems a little bit broken this time?
+[03:45] Why were, you know, we had a little bit more down times. And you can basically
+[03:51] blow it out and almost showcase what to expect. For example, if we are just working on a whole
+[03:57] bunch of bread and butters, so you're starting a lot fewer bugs, customers will be a little
+[04:01] happier. You worked a lot more drilling basics, tech systems are nice, but you didn't create
+[04:05] any differentiators. Well, none of your bets went out and your competitors are catching up.
+[04:12] So does that sound like a better future? These are hard questions and these prioritization
+[04:16] questions, I don't think a product management question so much as product strategy questions.
+[04:21] But in a lot of cases, executives don't know what they're trading off against.
+[04:26] So if you are able to create the conversation around which buckets do we want to put in
+[04:33] and create three alternatives, I've kind of tried to do that a bunch of times.
+[04:37] Let's look at strategy and we see how to be divergent. If suppose we were putting like a lot
+[04:42] fewer, you know, focus points in building basics and a lot more on, for example, big bets,
+[04:51] then there will be a risk that they will be like, we won't have any experiments or very
+[04:55] less experiments. We won't have your bugs will stay bugs. But we will get a shot at
+[05:00] like kind of changing the game. Is that a future that is that sounds better or something else,
+[05:06] which is like, because your pain also by a lot of bugs and you know, constant down times.
+[05:10] So which is more secure, but we won't build something amazing. So which sounds better.
+[05:16] Because you are able to drive that now the clarity to the product managers is way clearer
+[05:20] in terms of what will they do. And also they would know that if they are,
+[05:23] they have been signed up for a big bet, then they will need to contribute to
+[05:27] the PRFQ, they will need to contribute to the actual, you know, working of that,
+[05:31] irrespective of what their product was, but now they're part of something bigger.
+[05:36] Awesome. I love it. Okay. So just to summarize so people can have a just a very short definition
+[05:41] of this framework. Brilliant basics is essentially tech debt and like things that
+[05:46] just have to do to like hygiene almost bread and butter is essentially optimizing
+[05:51] the product existing product, big bets are big bets and breaking bat are just like
+[05:57] future big rocket like moonshots just like transform the way the business works.
+[06:02] That's right. I love it. It's also interesting another thread that can comes up again and
+[06:06] again in your advice is exploring all the options before committing to one like you
+[06:11] always I think sounds like you always try to recommend three. I guess let me say what I
+[06:15] always find is important there is I think it's important for the product manager to
+[06:18] recommend one along with that. It's not just like here's three. You tell me which one you do.
+[06:22] It's like here's three. Here's my recommendation. Why is that your advice to or do you see some
+[06:26] hundred percent hundred percent? So when you have explored the three, you essentially have
+[06:31] that the work one that I have covered all basis and also crystallize them into into
+[06:36] an a concrete option. And now I'm choosing one on the company's behalf on the basis of
+[06:43] whatever I know about the market, about the company, about our strategy and about
+[06:49] how we will make it successful. If I miss something, it's also a time where you can
+[06:53] actually work with leadership and other product managers to essentially get that knowledge
+[06:58] complete. Or if there are like if you're 80 percent right, you can actually use
+[07:03] elements of strategy two and strategy three to bring into one. So that's always the
+[07:08] the way that that you have to think that one very concrete option, but because you have these other
+[07:13] tools so that you're not missing and bringing it together. But ultimately, you're the one who is
+[07:17] going to champion this. That's where the other, you know, leadership element of Amazon comes
+[07:23] in, which is disagree and commit. So once we have aligned on this one, we'll all commit to
+[07:28] launching this and then the leadership should not go back and forth on that part.

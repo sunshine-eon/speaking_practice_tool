@@ -1,0 +1,48 @@
+Chapter 17: How a business can thrive without metrics, PMs, and A/B testing
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 45:07 - 48:04
+============================================================
+
+[00:00] So just to summarize so far, if no metrics, you have no experiments, you have essentially
+[00:07] no PMs, just one product leader, you spend a lot of time on design and craft and making
+[00:13] things awesome.
+[00:16] I'm curious just what you think it takes to make a company work in that way because
+[00:19] this is pretty different from how a lot of other founders think and a lot of other
+[00:24] product teams work.
+[00:25] We like to talk about this internally, this mixture of magic and science and how we
+[00:32] describe this.
+[00:33] There's always some level of science that we do, and I think some companies are
+[00:37] very scientific on their product management that they like to measure
+[00:40] everything and they do a lot of tests and things, but we just decided we
+[00:47] don't think that's necessary or that's good for us.
+[00:51] So the science for us means that we do talk to users a lot and the whole project we
+[00:59] start with, we do some level of user research and as founders, different
+[01:04] people on the team, we might have weekly calls with customers or users.
+[01:09] We also encourage everyone on the team to go to the customer slack, they answer
+[01:13] people's questions.
+[01:15] We have shared slack channels with customers.
+[01:18] Anyone I sometimes go answer the questions there, I also see when they complain
+[01:22] about something.
+[01:23] I think the first part is the whole team has to be really understanding
+[01:30] the product and the customers and the problems people are facing and kind of
+[01:34] have that empathy as well as the understanding what is the state of
+[01:39] things today and then we talk about that and then sometimes we might pull
+[01:44] up stats and see like, oh, I wonder like, is there some kind of patterns we see
+[01:48] like, okay, these kind of companies are using this thing more and what do we
+[01:52] think about it?
+[01:53] But usually we have some kind of question we want to answer.
+[01:55] It's like, I wonder what is going on and then we look at it versus like,
+[02:00] let's just pull some metrics and then decide that we should increase this
+[02:03] metric.
+[02:04] And then the magic part is like, what happens when you kind of build
+[02:07] this understanding like everyone in the company builds, it's not like
+[02:11] everyone has the same understanding, but like everyone builds more of that
+[02:14] customer and product understanding, then like, we have discussions like,
+[02:19] what should we be doing or what decision we want to make here, then
+[02:24] everyone is much more like kind of informed of the actual reality of
+[02:29] the customers or the product and then we think like, you can much
+[02:35] more like use your intuition or thinking to do those decisions that
+[02:40] you don't have to use data or metrics to back those things up.
+[02:44] So that's like, I think the main thing is like the whole company kind of has
+[02:48] to like be with the customers or like talk to them and then like
+[02:52] understand like where the product might work well or where it might

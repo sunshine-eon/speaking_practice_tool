@@ -1,0 +1,42 @@
+Chapter 9: PM time horizon
+Video: Mastering product strategy and growing as a PM | Maggie Crowley (Toast, Drift, TripAdvisor)
+Time: 23:23 - 26:31
+============================================================
+
+[00:00] I love that point. It reminds me what I find one of the most important
+[00:05] traits of a great product manager is they create this aura that they've got this.
+[00:09] They put something on their plate and they're not going to drop it, that the threads are not
+[00:14] going to be forgotten. This connects to me there. They feel like Maggie's going to tell
+[00:19] me what happened with this experiment. I don't have to think about it as a manager.
+[00:22] Yeah. That's a really good point. Then you mentioned this a little bit ago,
+[00:27] the side benefit is that you learn more. You'll go back and learn why something happened or why
+[00:34] it didn't happen. The more that you follow up on what you've been doing and the more you learn,
+[00:40] the better you get every time you ship something. To me, the other answer of what makes a great
+[00:45] PM is the PM who's shipped a lot of stuff. The more you ship, the more you learn,
+[00:50] and that's why it can take years to build up expertise because you just have to ship a lot
+[00:55] of stuff. There's a lot of people that are always frustrated. They're not getting promoted
+[00:59] quickly enough as a PM. They're not moving up the ladder. Oh my God, I've been a PM for two years.
+[01:03] I'm not a senior PM yet. Can you speak more to just that thought and just how long it takes to
+[01:08] get actually good? I guess I'll share briefly in my experience. It took me four years to actually
+[01:12] know what the hell I was doing as a PM and then things started to really take off. What's
+[01:16] your experience? I would say similarly, it took a lot of years to feel confident that I
+[01:21] knew what I was doing. My first PM job was a product management rotation job at TripAdvisor.
+[01:27] I had no PM background. I was after business school and I left that those two years thinking,
+[01:34] like, yeah, I've worked on four different teams over the two years. I've shipped all this stuff.
+[01:38] Like I'm good. Went to a startup. There was another product person there. They left. Then
+[01:43] I was the only product person at the startup and I realized really quickly I had no idea what
+[01:47] I was doing. Like I had no one to learn from. I had only had two years of experience
+[01:51] and I was not ready for that job. I didn't feel confident in the decisions I was making.
+[01:55] That's why I joined Drift is because that team had all these really incredible product thinkers on it
+[02:00] and they were shipping all sorts of stuff. They had all this momentum
+[02:03] and I thought, okay, that's where I'm going to go to learn. Then two more years. That's
+[02:09] five years until I really felt like I knew what I was doing. That's because it takes
+[02:13] a long time to ship stuff. To people who want to progress, you can progress by job
+[02:19] hopping. You can progress by going in and out of startups. But to me staying at that,
+[02:27] when I was at Drift, I was there for almost four years, I got to see two or three cycles of the
+[02:32] same product. I learned more from that than I did out of the year or so I spent doing other
+[02:39] things each at a time because you got to see the consequences of your decisions. That's rare
+[02:46] and people, myself included, of course you want to get promoted, of course you want to
+[02:52] move up. I'm ambitious, lots of people are ambitious, but for better or for worse,
+[02:56] spending the time is really helpful and I think allowed me to move faster later because I had
+[03:02] just spent the time grinding it out for a while in order to be better later.

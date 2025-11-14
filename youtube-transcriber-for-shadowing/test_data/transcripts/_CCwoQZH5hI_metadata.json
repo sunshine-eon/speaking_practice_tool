@@ -1,0 +1,128 @@
+{
+  "video_id": "_CCwoQZH5hI",
+  "title": "Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)",
+  "url": "https://www.youtube.com/watch?v=_CCwoQZH5hI",
+  "duration": 5312,
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "title": "Jackson’s background and an overview of Duolingo’s streak feature",
+      "start_time": 0.0,
+      "end_time": 360.0,
+      "start_time_formatted": "00:00",
+      "end_time_formatted": "06:00"
+    },
+    {
+      "chapter_index": 2,
+      "title": "The impact of streaks on Duolingo’s success",
+      "start_time": 360.0,
+      "end_time": 598.0,
+      "start_time_formatted": "06:00",
+      "end_time_formatted": "09:58"
+    },
+    {
+      "chapter_index": 3,
+      "title": "The origin and evolution of streaks",
+      "start_time": 598.0,
+      "end_time": 890.0,
+      "start_time_formatted": "09:58",
+      "end_time_formatted": "14:50"
+    },
+    {
+      "chapter_index": 4,
+      "title": "Key experiments and insights",
+      "start_time": 890.0,
+      "end_time": 1478.0,
+      "start_time_formatted": "14:50",
+      "end_time_formatted": "24:38"
+    },
+    {
+      "chapter_index": 5,
+      "title": "User psychology and engagement strategies",
+      "start_time": 1478.0,
+      "end_time": 1716.0,
+      "start_time_formatted": "24:38",
+      "end_time_formatted": "28:36"
+    },
+    {
+      "chapter_index": 6,
+      "title": "Duolingo’s product review structure",
+      "start_time": 1716.0,
+      "end_time": 1987.0,
+      "start_time_formatted": "28:36",
+      "end_time_formatted": "33:07"
+    },
+    {
+      "chapter_index": 7,
+      "title": "Designing for clarity and adaptability",
+      "start_time": 1987.0,
+      "end_time": 2819.0,
+      "start_time_formatted": "33:07",
+      "end_time_formatted": "46:59"
+    },
+    {
+      "chapter_index": 8,
+      "title": "Developing the Streak Freeze feature",
+      "start_time": 2819.0,
+      "end_time": 3047.0,
+      "start_time_formatted": "46:59",
+      "end_time_formatted": "50:47"
+    },
+    {
+      "chapter_index": 9,
+      "title": "Balancing monetization and retention",
+      "start_time": 3047.0,
+      "end_time": 3248.0,
+      "start_time_formatted": "50:47",
+      "end_time_formatted": "54:08"
+    },
+    {
+      "chapter_index": 10,
+      "title": "Notification strategies",
+      "start_time": 3248.0,
+      "end_time": 3495.0,
+      "start_time_formatted": "54:08",
+      "end_time_formatted": "58:15"
+    },
+    {
+      "chapter_index": 11,
+      "title": "The Perfect Streak feature",
+      "start_time": 3495.0,
+      "end_time": 3640.0,
+      "start_time_formatted": "58:15",
+      "end_time_formatted": "60:40"
+    },
+    {
+      "chapter_index": 12,
+      "title": "Enhancing the user experience",
+      "start_time": 3640.0,
+      "end_time": 3887.0,
+      "start_time_formatted": "60:40",
+      "end_time_formatted": "64:47"
+    },
+    {
+      "chapter_index": 13,
+      "title": "Team operations and experimentation",
+      "start_time": 3887.0,
+      "end_time": 4737.0,
+      "start_time_formatted": "64:47",
+      "end_time_formatted": "78:57"
+    },
+    {
+      "chapter_index": 14,
+      "title": "Who can benefit from streaks",
+      "start_time": 4737.0,
+      "end_time": 4860.0,
+      "start_time_formatted": "78:57",
+      "end_time_formatted": "81:00"
+    },
+    {
+      "chapter_index": 15,
+      "title": "Lightning round",
+      "start_time": 4860.0,
+      "end_time": 5312,
+      "start_time_formatted": "81:00",
+      "end_time_formatted": "88:32"
+    }
+  ]
+}

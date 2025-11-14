@@ -1,0 +1,237 @@
+Chapter 23: Lightning round
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 55:02 - 64:48
+============================================================
+
+[54:59] Let's get all your gummy bears.
+[55:02] With that, we've reached our very exciting lightning round.
+[55:05] Are you ready?
+[55:06] Yeah, let's do it.
+[55:07] What are two or three books you've recommended most to other people?
+[55:10] The first one is called Thinking in Systems.
+[55:13] It's the one I give kind of the team every now and then.
+[55:15] It's just a.
+[55:17] Yeah, it's just a really good book about how I think how the people say systems
+[55:21] or you know, can we kind of talk about it can be abstract?
+[55:23] I think it goes into real detail and how people can, you know,
+[55:27] intervene at various parts in how to take actions at different systems.
+[55:30] I really enjoyed that book.
+[55:31] Directly, maybe a book I recommend, but a book that I just read that I thought was
+[55:35] phenomenal just to give readers want something good.
+[55:37] It's called Tomorrow, Tomorrow and Tomorrow.
+[55:39] I was recommending my friend.
+[55:40] Have you read it?
+[55:40] You read it? Yeah, I honestly didn't love it, but I liked it a lot.
+[55:44] I really I for some reason I thought it was very well done.
+[55:48] And there's a couple of chapters I reflected on it.
+[55:50] I just finished it.
+[55:51] I thought it was I thought it was well done.
+[55:53] So that's one that I'll throw out there.
+[55:54] Yeah, it was very sweet.
+[55:55] I feel like I got you got hype too much for me.
+[55:57] I'm like, OK, I didn't know.
+[55:59] I didn't actually know it got the key publicity.
+[56:01] OK, that's it.
+[56:03] The third one that I just downloaded, because I finished, I'm actually going to
+[56:06] open up my my audiobook and tell you because I'm about, I don't know,
+[56:10] an hour into it and I'm really enjoying it.
+[56:12] It is an immense world.
+[56:14] I don't know if you read that one yet.
+[56:16] It is about animals and how animals have different senses out there.
+[56:20] And it goes kind of through a set of different animals like and kind of how
+[56:23] they see the world.
+[56:23] And just one of those reminders that, you know, we're so limited
+[56:27] sometimes in our own interception and kind of how dogs, for instance, say,
+[56:31] you know, they can breathe in and take in sense even when they're breathing out.
+[56:35] And so they're constantly it's like vision almost.
+[56:37] And it's just phenomenal to me to kind of think about all the things
+[56:39] they're probably sensing as we're going out of my dog and I are going on our walk.
+[56:42] I've learned dogs like shoot air out of their nose first before they smell
+[56:46] to kind of clear things out.
+[56:48] And so I mean, it's not wild.
+[56:50] They kind of they can probably see so much more of what happened in the
+[56:53] history of like a little walk than we're able to just because of that.
+[56:57] Incredible. Next question.
+[56:59] What is a favorite recent movie or TV show?
+[57:03] So one thing we try to do is watch TV as a family kind of brings us together a
+[57:06] little bit. So we we are doing Star Wars with the kids, which is for the first time,
+[57:11] which has been a really enjoyable experience, just being able to witness it through them.
+[57:14] And then we've been going a little bit back in time.
+[57:17] So we watched E.T. which is, you know, it's fun.
+[57:20] It jobs in memory.
+[57:21] These are phenomenal movies that we go through.
+[57:23] I think your question is on recent TV shows that probably came up more recently.
+[57:27] Those work just as well.
+[57:28] Yeah. The other one I did like, it's not a TV show, but I
+[57:35] was called Case Night.
+[57:36] It was that podcast that came out, Case 63, I think it was called.
+[57:39] And it was a I hope that's the right name of it.
+[57:41] But it was like it was a sci fi podcast.
+[57:44] It was like 10 minutes short.
+[57:46] And the premise of it is someone comes from the future and there's a little bit
+[57:49] of speculative fiction and is at a psychologist.
+[57:51] And it was it's just a phenomenal piece.
+[57:54] I have to get you the real name.
+[57:54] Maybe I can get it if you after for the show.
+[57:56] Yeah, well edit your words and add whatever's in the show notes.
+[58:00] That's the way it meant.
+[58:02] What is a favorite interview question you like to ask?
+[58:05] I do like to ask people what kind of the most complex thing they ever built was.
+[58:10] And I just love to understand most mostly kind of what where do they gravitate to?
+[58:14] Like, is that something you're up to?
+[58:15] And two, are they able to simplify it?
+[58:16] And I think those are two really important skills.
+[58:19] What is it that you look for in their answer that tells you it was a good answer?
+[58:23] Both of those things.
+[58:24] So first, did they take on something that was super complex?
+[58:26] Like really, really hard, because I think there's only a particular group
+[58:29] who will gravitate to those kinds of realm.
+[58:31] And I do think more and more.
+[58:33] I mean, I think that's a lot of kind of the.
+[58:36] A lot of the, in my opinion, the ways the world is going to get better by the
+[58:40] things that are really, really hard to solve.
+[58:41] You can think about kind of the intimacy doesn't scale, right?
+[58:44] So when you think about how people are going to feel more connected, it's going
+[58:48] to be kind of a lot more difficult to solve.
+[58:50] When you think about health care, it's going to be very, very difficult to solve.
+[58:52] Education is a very difficult, interconnected space.
+[58:55] And so I think people who gravitate to them know those problems are hard,
+[58:59] have a very special kind of gift and kind of a, it's hard to replicate that passion.
+[59:05] So one, did you do that?
+[59:06] And then two, I think people who really kind of understand systems are able to
+[59:10] somehow this truly special people probably way smarter than me.
+[59:13] They're able to simplify it and they're able to explain it and say, this is how
+[59:16] I looked at it, but here's how I modeled it.
+[59:17] And here's kind of the lovers and how I went after it.
+[59:19] And, you know, even if it's nonlinear, they're able to say, this is how
+[59:22] the cause and effects works.
+[59:24] And I'm really looking for, you know, once you did it, did you really
+[59:26] understand them, were you able to crack it?
+[59:28] Or at least did you understand why you weren't able to crack it?
+[59:31] And I usually find this to be also the most kind of rewarding conversations.
+[59:35] Awesome.
+[59:35] Thanks for sharing all that.
+[59:37] Next question.
+[59:38] What is a favorite recent product that you've discovered that you love?
+[59:42] I'll give you one more dead one.
+[59:44] You know, so my youngest just hates brushing his teeth, just was like,
+[59:47] and there is, I should actually find the name of the toothbrush, but you can
+[59:50] just Google or Amazon this and you'll figure it out.
+[59:52] It was basically, it's like, it was this baby shark toothbrush, but it's,
+[59:56] it's a game and you played that game for two minutes and you can try to
+[59:59] like pick up different prizes you brush your teeth and turned what I loved about
+[60:03] it, because I think it's what all great products do.
+[60:04] It turns a moment of like annoyance to a moment of joy.
+[60:08] Right.
+[60:08] It went like, not even just like you, you saw the pain point.
+[60:11] It was like an unreasonable experience of like, now he loves it.
+[60:14] And like, you know, it was just so well done.
+[60:17] It's like 10 bucks and it was 10 bucks extremely well spent, so much light.
+[60:20] So whoever made that toothbrush.
+[60:22] Thank you.
+[60:23] Damn.
+[60:23] And is it playing baby shark?
+[60:24] I hope not.
+[60:25] Well, it can, it has that feature and has that capability, but it is a small
+[60:30] price to pay for, for me to get out, you know, to enjoy.
+[60:35] Good times.
+[60:36] What's something relatively minor that you've changed in your
+[60:39] product development process that has had a big impact on your team's ability to
+[60:43] execute?
+[60:44] I do like to change things, you know, relatively, like every quarter or six
+[60:48] months kind of sit down and kind of say, what can we get better at?
+[60:51] And the two areas I find myself innovating, if you will, innovating or
+[60:54] tweaking the most is when is around planning?
+[60:58] Right.
+[60:59] I think every company struggles with this and you get bigger.
+[61:01] It probably becomes a more kind of difference, especially when we talked
+[61:03] about the complexity of the ecosystem.
+[61:05] And we started this thing where just basically we call it like orange and
+[61:07] red priorities, which is a lot of times what people do is teams will
+[61:11] plan bottom up, they'll come into a manager or a leader and then the leader
+[61:15] may shift things around or say this way.
+[61:17] I think we've really started shifting it in a different way.
+[61:20] We said, these are the big rocks we got to get done.
+[61:22] We're going to get those things done first.
+[61:24] We're going to be upfront and honest with you and these are the things and
+[61:26] these are priorities.
+[61:26] And then you can kind of plan from there.
+[61:28] And that's been, I think it's relieved a lot of the progress.
+[61:31] So I think there's an honesty that comes with it and that's been a big change.
+[61:34] The others just are kind of the way we review products.
+[61:37] That's always been a kind of thing.
+[61:38] And my, my read is when we keep our product review process live too long, it
+[61:43] gets a little institutionalized and people start making, you know, like long
+[61:47] documents and stuff, right?
+[61:47] So you always have to change that every quarter.
+[61:49] And, and basically, I think it always comes down to the same thing, which is
+[61:52] how do you get their problem statement quickly?
+[61:54] And then how do you kind of design from there?
+[61:56] But the lever that we basically put in place for that was really short in the time.
+[62:00] So like I'm trying this thing, I don't know if it's going to work, but
+[62:02] could we get to like 15 minute reviews basically instead of an hour and see if
+[62:06] that kind of alleviates some of this.
+[62:09] I'll let you know how it goes when we chat up next.
+[62:10] But I, I, I'm very curious to see if this is going to be a different kind of
+[62:14] system where we might be able to get to clarity quicker or realize we're not in
+[62:18] clarity and then break and come back.
+[62:21] Reminds me of a tweet I think I just saw maybe was Instagram post of teams that
+[62:25] do standups while doing a plank to keep the meeting really short.
+[62:29] That's interesting.
+[62:30] I haven't tried that one yet, but it might be nothing we try next.
+[62:34] Last question.
+[62:35] You've been at LinkedIn for a long time.
+[62:37] I imagine you use LinkedIn a lot.
+[62:39] Is there just a pro tip that you can share of how to be more successful with
+[62:44] LinkedIn, buy more value LinkedIn, enjoy more?
+[62:46] The first is, I do think, you know, certainly there's ways and the majority
+[62:50] of ways that skills work as we infer skills, but I wouldn't, I think that
+[62:54] there is a skill section on the profile.
+[62:55] I think a lot of people ignore it because they don't realize that there's
+[62:57] value in it and that's changing, but I'm not sure if it's changing for everybody.
+[63:01] And I would pay more attention to skills as we kind of get in more in the skills
+[63:04] first off.
+[63:04] The second thing I would probably do, I don't know if it's that hidden, but I
+[63:08] would check out LinkedIn learning.
+[63:10] I do think LinkedIn learning is a gem.
+[63:11] And I think because it's sold largely through enterprises, a lot of people
+[63:14] miss it and I would hope you check it out, but more importantly, tell me areas
+[63:17] that, uh, you know, we could get better on there as well.
+[63:20] And I hope that people will find value.
+[63:22] What's the best way to find out about LinkedIn learning?
+[63:24] They just Google LinkedIn learning and they'll find the LinkedIn back slash learning.
+[63:28] Yeah.
+[63:28] LinkedIn.com slash learning.
+[63:30] Okay.
+[63:30] Great.
+[63:31] Uh, Hari, I feel like we've opened the mind of Hari up on this podcast.
+[63:36] I appreciate you being here.
+[63:37] Two final questions.
+[63:38] Where can folks find you online if they want to reach out and how can listeners
+[63:41] be useful to you?
+[63:42] You can find me on LinkedIn.
+[63:43] That's an easy one.
+[63:44] And, uh, the, uh, you know, I, I do really, really, really appreciate product feedback.
+[63:50] Like I promise you, I take it well for those listening.
+[63:53] And two, it is, you know, going back to the kind of the heart of this
+[63:56] conversation around complexity, it is really hard to know sometimes whatever
+[63:59] it's experience is because you're living in a very kind of abstracted ecosystem.
+[64:03] And so the more you could just say, Hey, this is working or not.
+[64:06] And the intentions are coming from a good place.
+[64:08] And if you, um, if you have a moment and you're not having a great experience,
+[64:11] who are having great experience, you can write it.
+[64:13] I really would appreciate to hear your perspective.
+[64:15] Amazing.
+[64:16] Hari, thank you so much for being here.
+[64:18] Thanks, Lenny.
+[64:19] It's a great meeting.
+[64:20] You too.
+[64:20] Bye everyone.
+[64:23] Thank you so much for listening.
+[64:24] If you found this valuable, you can subscribe to the show on Apple podcasts,
+[64:28] Spotify, or your favorite podcast app.
+[64:31] Also, please consider giving us a rating or leaving a review, as that really
+[64:35] helps other listeners find the podcast.
+[64:37] You can find all past episodes or learn more about the show at Lenny's
+[64:41] podcast.com.
+[64:43] See you in the next episode.

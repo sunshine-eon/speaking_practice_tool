@@ -1,0 +1,76 @@
+Chapter 9: The importance of design
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 24:58 - 29:08
+============================================================
+
+[00:00] Okay, that was a tangent because I couldn't not go in that direction.
+[00:03] But I want to come back to design again and craft.
+[00:06] So it feels like linear.
+[00:07] One of the reasons you guys have been successful is design and
+[00:10] experience is basically a huge differentiator from other products.
+[00:14] And there's always this question of can design be enough of a differentiator
+[00:19] in specific markets?
+[00:21] Is there always an opportunity to build like a significantly better
+[00:25] product experience and have a real shot at disrupting an incumbent?
+[00:29] Do you have any sense of when design can be enough of a differentiator?
+[00:33] And this is coming from like a founder trend aside, should we go big on design
+[00:36] and experience or should we invest in like distribution or new technology or
+[00:40] something along those lines?
+[00:41] Any thoughts there?
+[00:42] My belief is that like any domain or industry, the more it matters, the
+[00:47] more the design matters.
+[00:49] And I think like it's kind of like it, it's fairly easy to see in different,
+[00:53] like if even in software or in other industries is like, what happens is
+[00:57] like whenever there's like a new paradigm, I don't know, it's like the
+[01:00] mobile or the web or something, the first iterations of those products
+[01:05] existing there, they don't have to be like super well designed necessarily
+[01:08] because they are the first.
+[01:10] But then like as, as you built the hundreds, like thousand, like
+[01:14] different email clients, any email client now has to be like pretty
+[01:19] good to be, be even considered like reason of like an email client.
+[01:23] It's like that the bar is so high.
+[01:25] So I think like today, the startups like, I don't know if you look at like
+[01:30] the web page Google launched with or like the web page YouTube launched
+[01:33] with or some of these like older companies, it's, they were very basic.
+[01:38] Like if you launch that kind of website today, it's no one really pay attention.
+[01:43] So I think like the design is always like, it's almost like a very
+[01:48] basic thing now that like you from pretty much from the very beginning
+[01:52] you need like pretty high level design that people to even like pay
+[01:55] attention or consider you seriously.
+[01:58] And I think it's like, it's not necessarily fair because like sometimes
+[02:00] it's like, maybe the product is really good, but they didn't have a designer
+[02:04] or they didn't have like time to do it.
+[02:06] And then people just kind of like dismiss it because it doesn't, doesn't
+[02:09] seem like something that they interest them.
+[02:13] So I think that that's the first thing is like, I think it's, it is.
+[02:17] And it's going to be more and more important.
+[02:20] But I would also say like design is never going to be like the reason
+[02:25] or like the reason why the company is successful.
+[02:28] It's like, it's like the company still has to have some other things that
+[02:32] like the product still needs to be something, it needs to be better
+[02:36] in some ways or it needs to be different in some ways.
+[02:38] And then like a designer is just like enabling some of these things
+[02:42] like enable and similar to technology is like, if you have good technology,
+[02:46] it's like easier to do certain things and like if the product works
+[02:49] better in some ways than you having like a bad technology or bad like
+[02:54] infrastructure. So similar to design.
+[02:56] I think like if you're, if you have a good design and like people are,
+[02:59] or even like a good brand, like people are like drawn into it.
+[03:03] And then it's like makes like some like user acquisition or user retention
+[03:07] or just like even people perception of the product better.
+[03:12] I think like an example is like packaging and products is like Apple
+[03:16] or a lot of companies spend a lot of time like effort into the packaging
+[03:19] because it's kind of like already sets the expectations for the user
+[03:24] who is receiving the product is like, even before you use the product,
+[03:28] you like start thinking that this is a high quality product
+[03:31] and like I'm going to love it.
+[03:33] And then like when you actually have it, then you actually like might feel that way
+[03:37] unless the product is really bad and then like you wouldn't feel that way.
+[03:41] So I think similarly with startups or like SaaS,
+[03:45] it's like your landing page or some of the other things.
+[03:48] It's like they are already like communicating something to the user
+[03:52] and they're setting setting the expectations.
+[03:55] And then I think that that can be like very useful thing,
+[03:59] especially early on when no one really knows you or or knows the product
+[04:03] or cares about you.
+[04:03] So I think like especially I feel like design can be very good leverage in the in the beginning.

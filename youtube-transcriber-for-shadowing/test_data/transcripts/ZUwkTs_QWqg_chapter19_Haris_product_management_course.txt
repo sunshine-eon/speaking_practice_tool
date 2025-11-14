@@ -1,0 +1,106 @@
+Chapter 19: Hari’s product management course
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 45:00 - 48:19
+============================================================
+
+[44:59] Makes a lot of sense.
+[45:00] OK.
+[45:01] And so within this, you have your own course
+[45:03] on product management.
+[45:05] Well, it's funny.
+[45:05] So I mean, I've been thinking about a course for a while,
+[45:08] but largely it was this concept of I
+[45:12] wanted to make sure I tried our own product
+[45:14] and I understood the instructor pain point.
+[45:16] But it's a very scary experience.
+[45:18] It's like, first, I don't know if I had anything to teach.
+[45:20] I have concerns about that.
+[45:22] But about four or five years ago,
+[45:23] one of the things we started at PM internally
+[45:26] was product university.
+[45:28] We had our own internal university,
+[45:30] which was basically we got some survey.
+[45:31] We sent it down.
+[45:32] I think everyone told us, well, it's literally like the most
+[45:37] negative one was we didn't people
+[45:38] said I don't have the skills to do my job.
+[45:40] And I remember looking around, it's pretty obvious.
+[45:42] We hired a bunch of people.
+[45:43] There's no PM degree and we've done nothing.
+[45:46] And so what we started doing is internally creating
+[45:48] a product university.
+[45:49] It was a boot camp coming in.
+[45:50] We tried different models.
+[45:52] And one of the things we really learned
+[45:54] was you can't teach this just through frameworks.
+[45:57] You needed to have a series of case studies.
+[45:59] You needed to have a real serious examples.
+[46:01] But luckily, we had a bunch of things we'd done at LinkedIn.
+[46:03] So we started putting a curriculum against that.
+[46:06] And then just recently, a few of us got together
+[46:08] and we filmed the actual course for it.
+[46:10] So it's basically taking our product university boot camp
+[46:13] and kind of opening up to the world.
+[46:14] And you opened up some of your internal use cases
+[46:16] as a part of this course?
+[46:17] We do.
+[46:18] Yeah.
+[46:18] That's awesome.
+[46:19] I always say that one of the things you don't realize
+[46:22] you have as an advantage working at a bigger company
+[46:25] is access to tons of strategy documents and vision documents
+[46:29] and stories of this.
+[46:29] Because once you're out, no one's
+[46:31] going to be able to share those with you
+[46:32] because they're so private.
+[46:33] I don't have access to any of these anymore.
+[46:35] So that's a really cool perk of a working
+[46:37] at a company like LinkedIn.
+[46:38] Thanks.
+[46:39] Yeah.
+[46:40] Question about your course.
+[46:41] What are some of your biggest lessons that you teach?
+[46:43] Can you just give a preview of some of the tidbits
+[46:46] that you might learn in this course of years?
+[46:48] Well, again, a lot of it is case studies and use cases
+[46:50] in the same way we teach it here.
+[46:51] But a couple of things that we do talk through.
+[46:54] When we started doing our own product university,
+[46:56] we realized a couple of big pain points that people hit.
+[46:59] The first was it's actually really hard
+[47:01] to know how to validate and what the bar is for a new idea
+[47:05] in any organization.
+[47:06] I think it's really hard to say that.
+[47:08] So we provide a lot of frameworks.
+[47:09] So kind of simple things from, hey,
+[47:12] you got to prove to the world why there's duct tape in here.
+[47:16] There's someone actually physically going out
+[47:17] and trying to do it.
+[47:19] How you can prioritize a list of ideas against a pain point,
+[47:22] like how to make a simple expression,
+[47:24] and how to look through what's an acute pain point
+[47:27] and what's a wide range of people use,
+[47:29] how we'd expect data in order to be used
+[47:31] in order to validate this.
+[47:32] So kind of tools you could use to kind of say
+[47:34] if this is a good idea or a bad idea,
+[47:36] more importantly, tools to make sure you've
+[47:37] went through the process and how you communicate it.
+[47:39] That's kind of one framework set that we talk through.
+[47:42] The other is a lot about Damien, who these are growth
+[47:46] incomes, and he starts talking a lot about thinking
+[47:49] in loops.
+[47:49] And so how do you make sure that when you're building something,
+[47:52] you can have the fuel in order to cascade and grow?
+[47:54] And I think just the framework of doing that,
+[47:56] how you measure that, how you monitor that,
+[47:58] is also something that, at least when
+[48:00] I was starting and doing my startup,
+[48:01] it was quite something I wish I had access to.
+[48:05] And so those are maybe two good examples of frameworks
+[48:08] and tools that we come through.
+[48:09] And then, of course, trying to overlay that with real cases,
+[48:11] not always successful ones, of course, too.
+[48:13] We talk about a lot of the failures we've had
+[48:15] and where we probably went wrong if we
+[48:17] had to diagnose them and post-mortem.

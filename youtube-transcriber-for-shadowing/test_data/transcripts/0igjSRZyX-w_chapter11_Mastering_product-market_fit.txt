@@ -1,0 +1,95 @@
+Chapter 11: Mastering product-market fit
+Video: Superhuman's secret to success | Rahul Vohra (CEO and founder)
+Time: 52:37 - 59:33
+============================================================
+
+[00:00] Awesome. Okay. Let's talk about product market fit. I know that everyone when they think of Rahul, they think product market fit
+[00:06] You wrote this epic first round posts that describe the way you guys approach product market fit
+[00:11] We're not gonna spend a lot of time on describing it because people can look it up
+[00:15] So let me just ask you this just what are I don't know a couple things
+[00:20] That you think people still don't understand about finding product market fit getting to product market fit
+[00:26] Considering it's the most important thing you got to figure out as founder, right? If you don't find something people want nothing else matters
+[00:32] Anything there you want to share?
+[00:34] The core ideas are
+[00:36] Still weird enough that I'll start there, which is number one
+[00:40] You can measure product market fit number two you can optimize product market fit number three
+[00:47] you can systematically even
+[00:50] numerically increase product market fit and number four you can even have
+[00:56] an algorithm
+[00:57] Write your roadmap for you and that is a roadmap that is guaranteed to increase product market fit now if that sounds crazy
+[01:04] I would be the first to admit it's doesn't seem like that should be true
+[01:08] But go check out that post. I think it is still the most widely shared post on first round review
+[01:15] It's called how I think how superhuman built an engine to find products market fit or just Google the superhuman product market fit engine
+[01:23] And you'll see the algorithm laid out there fully explained and why it works
+[01:29] And I take the second thing is to get to products market fit
+[01:35] you have to deliberately not act on the feedback of many of your early users and
+[01:43] This is at the same time as listening to people intensely and
+[01:48] Building what people want right? That's what we're here to do is to make something that people want
+[01:53] But it can't be all people it can't be everybody and the question becomes
+[01:57] How do you listen to them and then even of what they say?
+[02:01] What do you pay attention to and what don't you?
+[02:05] All of that's covered in the products market fit engine
+[02:08] Okay, I got to follow this thought on
+[02:11] algorithmically building a roadmap to increase product market fit talking by just but that
+[02:16] How one would do that?
+[02:17] well, I mean that's that's really the the meat of the engine
+[02:22] So let's see if I can condense it here in a very easy to grok fashion
+[02:26] so
+[02:28] Let's assume for the sake of argument that you can put a number on products market fit and it turns out you can
+[02:34] Very simply you're going to ask people
+[02:36] How would you feel if you can no longer use this product you give them three responses?
+[02:40] One of them is very disappointed
+[02:42] The other is somewhat disappointed and there is not disappointed very disappointed means I'd be like devastated
+[02:49] I love this product or I need this product
+[02:51] and
+[02:52] What Sean Ellis found Sean Ellis if you don't know him is the guy who coined the term
+[02:58] Growth hacker and he
+[03:00] Instrumented benchmark this initial question what he found is that the companies?
+[03:06] That struggled to grow almost always had less than 40 percent very disappointed
+[03:10] Whereas the companies and grew the fastest almost always had more than 40 percent very disappointed and
+[03:16] this question this metric is way more
+[03:20] Predictive of success than something for example like net promoter score
+[03:26] Okay, so far so easy
+[03:29] How do we make this number go up? Well, you want more people to be very disappointed
+[03:36] Without your product and the trick here is
+[03:41] Not to act too much on the feedback that the very disappointed people are giving you because they already love your product
+[03:47] Also not to act at all really on the feedback that the not disappointed people are giving you because they're so far from loving your product that they are essentially a
+[03:54] Lost cause but to focus on the segment of the somewhat disappointed people
+[04:00] They kind of love your product, but something and I would wager something small is holding them back
+[04:05] So you then divide them into two camps the camp for whom the main benefit of your product resonates in the camp for whom it doesn't
+[04:12] And what do I mean by that? Well, you go back to the people who really love your product and you basically ask them
+[04:17] Why what is it about my products that you really love in the early days of superhuman?
+[04:21] It would have been speed and keep would shortcuts in the overall design aesthetic as well as the time that we were saving you
+[04:28] You then go back to the somewhat disappointed users and in the superhuman example
+[04:32] I would simply ask wait
+[04:34] Do you like superhuman because of its speed or for something else and if it's something else?
+[04:39] Well, and this is hard to do
+[04:41] but politely disregard those people and their feedback because even if you built
+[04:48] Everything that they asked for they're still pulling you in a different direction
+[04:51] And the thing that they like the most from your product isn't actually what the people who on mess love it the most for is
+[04:59] so
+[05:00] You have then articulated the sub-segment of the sub-segment that it makes sense to pay attention to and there's another question in
+[05:07] The engine to figure out what they don't like about the product now you have a list of things people love you have a list of things people don't love and
+[05:16] You can work down that list to make the product market fit score go up
+[05:21] And basically at the start of every planning cycle
+[05:23] I advise spending half your time doubling down on what people really love and half your time
+[05:28] systematically
+[05:29] overcoming the objections of the somewhat disappointed users but specifically those for whom the main benefit resonates
+[05:36] That was an excellent summary. I know I said we wouldn't spend a ton of time here, but I'm really glad we did that was really helpful
+[05:42] Let me ask you this. I know you used this initially in the early days. Are you still operating in this way in some form?
+[05:47] We don't run the engine
+[05:49] as is for
+[05:51] Superhuman as a whole there are enough sub components of superhuman now that are almost individual products
+[05:58] For example superhuman for sales our multiplayer and collaboration features
+[06:02] How we think about the enterprise ai is its whole thing
+[06:06] But we do sometimes run it on those individual pieces
+[06:09] For example, we'll ask a salesperson
+[06:12] The product market fit engine as it relates to superhuman for sales
+[06:16] And as we think about starting new products, we would absolutely deploy the product market fit engine
+[06:22] Awesome. And the way you ask this question is an in-product interstitial sort of survey pop-up thing
+[06:27] You can do it however you want the way shawen initially benchmarked the number was via email surveys
+[06:33] I think email surveys work just fine
+[06:36] The key thing is and this applies to any survey methodology if you're going to change the
+[06:42] Method of surveying all of your old numbers are invalidated. So it's just a new baseline going forwards
+[06:48] Got it. And we had shawen on the podcast and he describes this method in detail. So folks want to explore this shawen else test
+[06:54] Listen to that podcast willing to it

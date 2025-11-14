@@ -1,0 +1,58 @@
+Chapter 14: Airbnb’s winter release
+Video: Brian Chesky’s new playbook
+Time: 38:48 - 41:47
+============================================================
+
+[00:00] Speaking of rowing in the same direction, you had a huge launch today.
+[00:04] I know you wanted to talk about it, your winter release, and it kind of is the culmination
+[00:08] of a lot of the things you're talking about.
+[00:09] I'd love to hear just some of the stuff you're launching.
+[00:11] Let me just back up, Saleni.
+[00:13] So you know this problem really well.
+[00:16] One of the best things of Airbnb is that we're this marketplace where guests and hosts come
+[00:21] together and we have all this unique inventory and people list on Airbnb and every home is
+[00:26] one of a kind.
+[00:27] There are seven million homes and there's all the surprise and all the delight.
+[00:31] The problem is that every home is one of a kind and you often don't know what you're
+[00:36] going to get.
+[00:38] And so a lot of guests have described checking into Airbnb as a moment of truth, where when
+[00:44] you open the door that you know the home, you find out if the home is exactly the home
+[00:49] that you booked.
+[00:51] And this turns out to be a big problem for people wanting to book an Airbnb.
+[00:56] And when we surveyed guests or people who don't use Airbnb, the number one hotel is
+[01:02] not a special.
+[01:03] They're not as unique.
+[01:04] But the advantage they have is you know what you're going to get.
+[01:06] You know exactly what you're going to get.
+[01:08] And so what we found is that reliability is Airbnb's Achilles heel, or at least it has
+[01:13] been, that with hotels, you know you're going to get an Airbnb you don't always know you're
+[01:17] going to get.
+[01:18] And so we asked ourselves, what if we could combine the uniqueness of Airbnb with the
+[01:24] reliability that you've come to spec no tell.
+[01:27] And that's what we've done with guest favorites.
+[01:30] Guest favorites are you know homes that guests in our community love the most.
+[01:35] We took 370 million reviews on Airbnb plus millions of customer service tickets plus
+[01:41] all the host cancellation data.
+[01:43] And we use all the signal to create the top 2 million homes that this collection of 2
+[01:48] million homes that we call guest favorites because the gallons the guests rate the highest.
+[01:52] We think combined the uniqueness of Airbnb with the reliability you come to expect no
+[01:57] tell and I can't imagine there's a lot of use case where you wouldn't want to book a
+[02:00] guest favorite.
+[02:02] We think that's also part of this broader system of readings and reviews.
+[02:06] You see as you know Airbnb is built on a system of trust and we invented this new way for
+[02:10] people to trust one another, you know at least at scale, you know through living together
+[02:15] certainly.
+[02:16] And we felt like the reading review system could use a little bit of an upgrade.
+[02:20] So we obviously made some upgrades to the readings reviews.
+[02:22] And the final thing and this brings up another point I might bring up is we've completely
+[02:27] overhauled the host tab.
+[02:29] So you know one of the most important things when you get to an Airbnb is the listing is
+[02:33] accurate.
+[02:34] But the problem is that a lot of host listings don't have all the details up to up to date.
+[02:41] So they might not like describe perfectly their listing.
+[02:44] They might not have filled up their amenities.
+[02:46] They might not have a photo tour.
+[02:47] And the reason why as we're doing research is because they found it was hard to manage
+[02:51] their listing.
+[02:53] And it was hard to manage your listing because it was designed as this hodgepodge thing by
+[02:56] different teams over many years.

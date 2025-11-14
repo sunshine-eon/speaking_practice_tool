@@ -1,0 +1,112 @@
+Chapter 4: What are the best practices in running a pre-mortem meeting?
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 33:23 - 39:27
+============================================================
+
+[00:00] So just simple idea that is clearly going to benefit you and your team.
+[00:05] And so, and it's interesting that people don't, don't often do this or
+[00:08] haven't even thought about doing this.
+[00:10] And so just to get a little bit deeper, how would you, how do you actually
+[00:14] execute this meeting?
+[00:15] Who do you invite?
+[00:16] What, what are the questions you ask?
+[00:17] When exactly do you, do you do this, that kind of stuff?
+[00:20] As I started doing pre mortems, they got more and more popular at Stripe.
+[00:24] Other teams started doing them.
+[00:26] And then afterwards I helped some startups kind of also do pre mortems.
+[00:32] And at some point I decided I should just like write down my template for pre
+[00:36] mortems.
+[00:37] So I worked with the folks at Koda to create a Koda doc, which you can find
+[00:42] and we can put in the show notes if possible.
+[00:44] Basically that's an entire kind of template for how to run pre mortems using
+[00:49] this method that I talked about, including tigers, paper tigers, elephants, all of that.
+[00:54] The main thing about a pre mortem is to include people from every function that
+[01:01] is going to be involved in, say, if you're doing a launch.
+[01:05] And so if it's a really large launch, sometimes I will separate it into two
+[01:10] groups.
+[01:10] One is everything related to kind of like the engineering side of things where
+[01:16] you can kind of bring in, usually the engineering team is fairly large.
+[01:18] So you can bring in every engineer.
+[01:20] So that's really important.
+[01:21] Every engineer needs to be in the meeting.
+[01:24] And so it might be a meeting of 10, 15, 20, whatever engineers and maybe a PM,
+[01:29] maybe design counterpart and so on.
+[01:32] That's just focused on the product engineering side of things, like what
+[01:37] could go wrong.
+[01:39] And then again, for a large launch, I like doing a separate pre mortem for the
+[01:43] go to market side.
+[01:45] And so that will involve sales team, support team, marketing team, the involved
+[01:51] design team, some of the core engineering leads will also need to be at
+[01:56] that meeting.
+[01:57] And then over there, PR will be there.
+[01:59] Over there, we'll talk about more of the go to market risks.
+[02:02] So that's what I like to do for a very large launch.
+[02:05] For a smaller launch, I just like to do one meeting where everybody is present.
+[02:10] And like I said, start with the prompt of imagine this has failed.
+[02:13] So as the pre mortem meeting leader, it's my responsibility to share the prompt.
+[02:18] And then I like doing these pre mortems where we alternate between speaking and
+[02:22] quiet time.
+[02:23] So I'll share the prompt and then I'll say, okay, now the next five minutes or
+[02:27] the next 10 minutes is quiet time where I already have that template, like the
+[02:31] code of doc, where people start entering their own kind of tigers and paper
+[02:35] tigers and elephants in a way that nobody else sees.
+[02:39] And so people do that.
+[02:41] And then we go around the room and kind of share.
+[02:44] And the one other innovation I added as I did this often was I also, after
+[02:50] people shared, I asked people to pick the tiger that they find more scary, but
+[02:57] then somebody else mentioned, so not their own tiger, but some other tiger that
+[03:03] somebody else mentioned that they found more scary.
+[03:06] So that ends up being a sort of, you know, people basically are voting.
+[03:10] And then as the pre mortem leader, it's my responsibility to take all of that,
+[03:15] like output that the team has generated in this document and then prioritize.
+[03:21] Cause again, the point is not to solve every problem.
+[03:24] Right.
+[03:24] The point is to identify threats that we are not talking about openly or that we
+[03:29] might just be missing or we might be assuming that somebody else is going to
+[03:32] deal with it only to find nobody was thinking about it.
+[03:35] So then I like to create a post pre mortem action plan and then share that
+[03:39] with the team and kind of keep myself as the leader accountable for actually
+[03:43] making progress on it.
+[03:45] Having started doing this, have you noticed a less need for post mortems?
+[03:49] Basically projects failing less than having less problems.
+[03:52] Like what kind of impact have you seen executing on this idea?
+[03:55] Yeah, absolutely.
+[03:56] I've seen us identify certain issues that just wouldn't have come up and likely,
+[04:02] you know, you can't really run a simulation and see what the counter
+[04:05] factor looked like in real life.
+[04:07] But those likely would have resulted in a problematic situation afterwards.
+[04:12] Like, you know, a great example is sometimes you'll see a company announced
+[04:17] something and they have massive backlash.
+[04:22] And then, you know, a reasonable observer might say, well, how did this
+[04:29] company miss this?
+[04:30] Right.
+[04:30] Because what happens is they have the backlash.
+[04:32] Then the company realizes, oh, we have this backlash.
+[04:36] Then they start doing damage control.
+[04:39] They sometimes might even backtrack and undo whatever they did.
+[04:42] They'll say, sorry, we didn't think about these issues.
+[04:45] Like give us some more time and we'll kind of come back and we'll perhaps
+[04:48] relaunch the feature, but in a better way.
+[04:51] Right.
+[04:52] To the casual observer, like it may seem like that it should have been obvious.
+[04:58] And sometimes it's not.
+[04:59] But oftentimes.
+[05:02] I agree.
+[05:02] It should be obvious to these teams what issues these things are going to cause.
+[05:08] In fact, it is obvious to team members, some team members, but the problem
+[05:13] is that they perhaps haven't created that psychological safety and that
+[05:18] vocabulary to be able to talk about it in an objective way and to decide with intent.
+[05:23] Are we going to solve for this or not?
+[05:26] So I do see a lot of those scenarios in our industry, which end up just actually
+[05:30] wasting a lot of time.
+[05:32] Whereas a premotem is like a very sort of inexpensive way to see these things
+[05:38] because all it is is one meeting followed by some work that the leader
+[05:44] needs to do to prioritize, followed by some mitigating actions, which you
+[05:48] would have had to take anyway.
+[05:50] So that's why I'm a huge fan of premotems is it's one of those very
+[05:53] low downside, but very high upside things that I've experienced.
+[05:57] I'm excited to see this template.
+[05:58] I haven't seen it yet.
+[05:59] I don't know that you put one together.
+[06:00] So that's awesome.
+[06:02] And yeah, we'll link it in the notes.

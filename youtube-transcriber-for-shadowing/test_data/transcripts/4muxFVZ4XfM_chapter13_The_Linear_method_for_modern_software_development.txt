@@ -1,0 +1,27 @@
+Chapter 13: The Linear method for modern software development
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 38:34 - 40:07
+============================================================
+
+[00:00] Awesome. So that's a good segue to another area. I wanted to spend some time, which is the linear method
+[00:05] You espouse this way of building product
+[00:07] You call the linear method which you publish online and willing to in the show notes
+[00:11] And I just want to ask a few questions around this way of building product
+[00:16] One is you are big on this idea of building opinionated software
+[00:21] Can you talk about just what does that mean?
+[00:23] And then maybe give an example or two of how you actually have done that a linear
+[00:27] So first like with the linear method what we
+[00:30] Why why did we create it in the first place?
+[00:32] It's like we just believe that there is more of like this modern ways of building software and thinking about it
+[00:37] And we wanted to like share some of our our thinking on it
+[00:41] And that's kind of like also it relates to how we build linear as well
+[00:45] Like so you might like
+[00:47] Understand why we make some choices because this is like the way we think about making these choices
+[00:52] So we're trying to like share our thinking behind the product and notice like here's the product and like figure it out
+[00:58] Yeah, so like the opinionated piece like I personally have like this belief that
+[01:03] Productivity software should be and especially
+[01:07] Company software should be opinionated
+[01:09] I think that like what the productivity software is trying to do is is like
+[01:15] Make people productive and I think like what what productive means is like you actually do something that matters for the company
+[01:22] Which is which is like I don't know built some new feature or like fix something or design something
+[01:27] Like all of those things are like eventually they provide some kind of value for the customer

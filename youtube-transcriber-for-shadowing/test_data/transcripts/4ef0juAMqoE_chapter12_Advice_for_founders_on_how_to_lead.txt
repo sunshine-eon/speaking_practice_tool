@@ -1,0 +1,40 @@
+Chapter 12: Advice for founders on how to lead
+Video: Brian Chesky’s new playbook
+Time: 31:38 - 34:15
+============================================================
+
+[00:00] If you're a founder, what I would tell you is the problem with finding a negotiation between how you want to run the company, the people you want,
+[00:07] is that's a good way to make everyone miserable. Because what everyone really wants is clarity.
+[00:12] What everyone really wants is to be able to row in the same direction really quickly.
+[00:17] And also, if you try to appease employees,
+[00:20] they may not even be there for the whole time. So we have entire projects, the company, where somebody advocated to do it.
+[00:26] It was a big commitment, and then they left. And now we're still doing the project they advocated for.
+[00:31] So it really has to be something that everyone wants to sign up for,
+[00:34] not just the person who's there because they might not always be there.
+[00:38] And so, you know, I basically got involved in every single detail.
+[00:41] And I basically told leaders that leaders are in the details. And there's this negative term called micro management. And I think
+[00:49] I think there's a difference between micro management, which is like telling people exactly what to do and being in the details.
+[00:56] Being the details is what every responsible company's board does to the CEO.
+[01:01] That doesn't mean the board is telling them what to do.
+[01:03] But if you don't know the details, how do you know people are doing a good job?
+[01:07] People think that great leaders' job is to like hire people and just empower them to do a good job.
+[01:12] Well, how do you know they're doing a good job if you're not in the details?
+[01:14] And so I made sure I was in the details and we really drove the product.
+[01:19] This episode is brought to you by Epo.
+[01:22] Epo is a next generation A-B testing and feature management platform
+[01:26] built by alums of Airbnb and Snowflake for modern growth teams.
+[01:30] Companies like Twitch, Muro, ClickUp, and DraftKings rely on Epo to power their experiments.
+[01:36] Experimentation is increasingly essential for driving growth and for understanding the performance of new features.
+[01:42] And Epo helps you increase experimentation velocity while unlocking rigorous,
+[01:46] deep analysis in a way that no other commercial tool does.
+[01:49] When I was at Airbnb, one of the things that I left most was our experimentation platform,
+[01:53] where I could set up experiments easily, troubleshoot issues, and analyze performance all on my own.
+[01:59] Epo does all that and more with advanced statistical methods that can help you shape weeks off experiment time
+[02:04] and accessible UI for diving deeper into performance and out of the box reporting
+[02:09] that helps you avoid annoying, prolonged analytic cycles.
+[02:12] Epo also makes it easy for you to share experiment insight through your team,
+[02:16] sparking new ideas for the A-B testing flywheel.
+[02:19] Epo powers experimentation across every use case, including product,
+[02:23] growth, machine learning, monetization, and email marketing.
+[02:27] Check out Epo at getepo.com slash Lenny and 10X your experiment velocity.
+[02:32] That's geteppo.com slash Lenny.

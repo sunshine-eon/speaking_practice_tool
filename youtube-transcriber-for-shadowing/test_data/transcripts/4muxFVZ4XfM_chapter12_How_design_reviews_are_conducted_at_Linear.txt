@@ -1,0 +1,75 @@
+Chapter 12: How design reviews are conducted at Linear
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 33:08 - 38:34
+============================================================
+
+[00:00] Coming back to design briefly just like very practically
+[00:04] How do you guys do design reviews? Just like how do you actually go about reviewing what's going on?
+[00:08] And then to this may be too big a question, but just whatever you can share is just like what do you how do you know?
+[00:13] When it's done. How do you know when it's ready and approved car? You see old checkbox ready to go
+[00:18] We've been doing like exploring different ways of doing this. I think like today. I
+[00:24] still
+[00:25] Run the design team. So I do see some of the designs like on a weekly basis and and then like I
+[00:32] I on or one of the other co-founders or
+[00:35] One of the or the head of product. We are basically the the sponsors for the projects
+[00:40] So then like we we are kind of like responsible like check like reviewing the reviewing the work
+[00:45] And so we might just have a meeting where we go through okay
+[00:48] Let's let's go through the demo and like people can explain what's what's going on and like how they think about it
+[00:53] And why and then we might have like feedback. Okay, this seems like
+[00:57] Strange or or or something and then I might just after that
+[01:01] I might just like go into the product myself and like try it out and then what happens sometimes like it's like
+[01:09] In the initial stages like obviously we're not gonna like
+[01:13] Start fixing everything. It's more like let's try to get the like the main concept there and like figure out how it works
+[01:19] But then like before we are
+[01:21] Launching it
+[01:22] I might just go in like try it out and like try the different states and click it click it around and and sometimes I find things like
+[01:29] like we were building this
+[01:31] threading to comments and and
+[01:33] Then like when it looked all good in the demos and stuff
+[01:37] And then then I went to try it and like try different lengths of messages and stuff
+[01:41] And then I start see like oh sometimes the animations are kind of janky or it's just like off like they don't go
+[01:47] The right way that I don't know the screen doesn't scroll exactly, right?
+[01:51] so then I just like I kind of like captured those things and like send it to the team and so we had to like
+[01:58] Kind of pull back the release a little bit until those things were fixed that one was like it's very like
+[02:04] I think like a simple concept and it's like very
+[02:07] Known concept like okay, this is how trading comments works so that that was mostly about like, okay
+[02:13] What's the execution of this but then we have projects where we are like not sure exactly how this should work and like we can't really like
+[02:21] Like we can try it ourselves. We also have to see how how companies use it to something like we built this feature
+[02:28] Project updates and it's like a common thing companies do is like you you need to write an update on a project
+[02:33] Is it yellow green red and like companies have very different ways of doing this in different tools?
+[02:39] And we just thought like what I think would be like really cool really nice if it's like in inside linear
+[02:44] You can the team when they work on a project that can write the update linear can also capture some of the stats like what actually happened
+[02:51] I think with that feature it's like it's been working well, but then also now would be like exploring it's like
+[02:57] After using it a while we think like oh actually that it there could be like more robust way of following these updates
+[03:03] Maybe people could maybe the leadership could just like get this updates over email or like maybe so when you have a lot of updates
+[03:08] You should have a search or like a filtering system or something
+[03:11] So I think a lot of times we just think like okay
+[03:14] This is like the scope of it for now and we are okay like launching this and the execution is good
+[03:20] But we know that like this is not the like fully figured out version
+[03:23] And we just need to see people trying it out then like see that see the feedback
+[03:28] So it sounds like on the decision of whether it goes out or not
+[03:31] It's kind of this intuitive feeling from your actual experience trying it out feeling gut level. This is ready or this needs a little work
+[03:38] Yeah, I would say like a lot of things that we do is it's more like that
+[03:41] But we don't do AP testing or we don't do specifically go follow like certain metrics or something
+[03:47] We might sometimes we do have
+[03:50] Telemetry or like we can look at like how people use certain things and we sometimes do that
+[03:56] But like that's not usually the goal we have in mind. It's like yeah, we should move this number this much
+[04:01] so it's more about like
+[04:03] Based on the understanding of the problem we have and based on the way what we think is right
+[04:09] Is this the right solution and is this a good enough solution to be
+[04:14] released to to the customers one more question along this thread is how do you actually
+[04:19] Structure these reviews. It sounds like you go straight to a prototype. Is there like a design
+[04:25] Review phase is all kind of informal and people just review here's what we need your feedback on
+[04:30] Yeah, so that there's like projects don't like necessarily how like specific states to them
+[04:33] But like I would say like roughly usually we do start with designs
+[04:37] So there's like did some explorations on the design like okay
+[04:41] There's like different ways of we could like approach this or some less
+[04:44] There's just one way because it's like pretty clear clear
+[04:46] But then like I think what I said before is that like we do try to like get into the building phase as quickly as possible
+[04:52] Because then we can also like see is this this direction actually like reasonable and like what what else does it call?
+[04:59] Like is there some problems it causes or how does it just generally feel here?
+[05:04] so I think like that that there isn't like specific like
+[05:08] review
+[05:10] Stages it's more like yeah, let's check like if let's check on this project like every week or every two weeks
+[05:16] And then before releasing
+[05:19] Let's also make a like a review of it and like really test it out that like is it that is it the quality we want?

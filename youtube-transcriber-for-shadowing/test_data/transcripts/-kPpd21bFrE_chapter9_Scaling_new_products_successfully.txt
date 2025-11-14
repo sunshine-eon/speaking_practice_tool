@@ -1,0 +1,76 @@
+Chapter 9: Scaling new products successfully
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 44:40 - 52:10
+============================================================
+
+[00:00] Okay, I want to talk a bit about new stuff that you work on.
+[00:03] So new products that you decide to invest in.
+[00:07] Is there anything that you've figured out about just like how to set up new products for success?
+[00:13] Because a lot of the stuff we've been talking about is staying on top of stuff that you're iterating on and making better.
+[00:18] What have you learned about just helping new products succeed?
+[00:21] Yeah, so we launched quite a few products that you actually maybe wouldn't expect from a bank.
+[00:28] Starting with crypto that was insanely successful, but also non-financial services like booking a hotel through Revoltape,
+[00:37] our loyalty program, Revpoints, which is sort of disrupting European market where people don't get great benefits from spending with cards.
+[00:48] In the US, you can easily get like what, 2% cash back with a credit card or in some sort of point.
+[00:54] In Europe, they don't have it. And we are actually the first to build a program on card spend,
+[01:02] rewarding people with really meaningful monetary rewards.
+[01:08] In the manner that I described, we understood, okay, what's the recipe of this success to then scale it and reproduce.
+[01:17] So we built a new bets framework and essentially everyone can come up with a new idea.
+[01:24] It could be a product on it, but it could be anyone like.
+[01:27] And they need to show some key important things which you usually can expect from a startup like market is there, business case is there.
+[01:36] We know that we can do it way better than competitors leveraging, for example, some things that we have obviously some
+[01:46] concepts of product and then what customer problem we're solving and so on.
+[01:51] And there is very little bureaucracy. Again, thanks to having founder hands on, we can easily get a green light on anything.
+[02:00] Start launching it quickly. What we do is assemble same-link team with just a few people to build first version and then iterate and iterate.
+[02:11] And the main thing here is to build first version very quickly to get feedback, but then not scale it before you polish the product.
+[02:23] But then after we make sure that all metrics are fine, retention is great, we start scaling it.
+[02:30] And the good news is that it can be instantly multiplied by our 50 million customer base and get great traction.
+[02:37] So, for example, one of the products that you mentioned during the accounts, essentially an account that you could have with a significant other one,
+[02:44] was one of the recently launched feature and it grew significantly and now it has over a million active users.
+[02:53] I hear one of the ways you kind of approach these early products differently is you guys invest a lot in actually making it good and not just like a scrappy MVP.
+[03:03] Is that Ringabelle? Does that resonate?
+[03:04] Indeed, that's what I maybe meant by keeping your first version narrow down to a small user base.
+[03:15] But even in this case, we still make sure that the product is well.
+[03:21] So, no one is excluded from this requirement of building a super polished product.
+[03:29] It takes time, but it pays off.
+[03:32] You know, the thing is that when you launch a scrappy version and it's not getting traction, how do you know?
+[03:39] Is it because the underlying idea is wrong or maybe your product just sucks and you need to improve it?
+[03:46] So, by forcing everyone to build a product that people will love by building a wow product,
+[03:57] we kind of cut out these parts of uncertainty.
+[04:01] So, bottom line, we can cut down the product in terms of functionality to just most critical features,
+[04:10] but we will never compromise on the quality and UX and aesthetics.
+[04:15] An interesting advantage you guys have that I'm realizing as you talk is like most of the stuff you launch is stuff that is clearly something people will want.
+[04:25] Because it's stuff that they get other places, but they get the advantages of it being integrated into all the other features and products you have.
+[04:32] So, it's like a cryptocurrency product.
+[04:35] It's kind of like, okay, yeah, people would love a great cryptocurrency product built into this or joint accounts.
+[04:40] So, there's almost like a benefit of just like, okay, people will want this.
+[04:44] Now let's just make it work really well with everything else we got and not hurt.
+[04:48] Like, you almost don't need to be the best at every product, although it sounds like you still try to be the best.
+[04:55] But we must be the best, yeah, 100%.
+[04:57] But there's also like, you know, like if you don't have the best joint accounts, but all the other stuff is awesome, people are like, all right, it's fine.
+[05:03] It just makes my life easier.
+[05:04] But tell me what I might be missing because...
+[05:06] So, I think there are those kind of table stakes that we're building that anyone would expect from a bank.
+[05:14] Like, for example, savings account, right?
+[05:16] It's just a basic thing that if a bank is not providing savings account, you wouldn't even consider it.
+[05:22] But then we make sure that our rates are very competitive, if not the best.
+[05:29] Then we make sure that there is no bad UX, like, you know, some banks, for example,
+[05:34] they don't allow you to withdraw instantly and there are delays or they don't pay interest on daily basis.
+[05:43] We will never do that.
+[05:44] We will allow you, if you want to move money out, you will be able to do it.
+[05:48] You won't lose any interest and interest is being paid daily.
+[05:53] And this is a fully flexible product.
+[05:56] And then on top of it, what I would call, like maybe some deliters is we will allow you to open the savings account in many currencies.
+[06:09] So, we want to add like different currencies.
+[06:11] So, because now interest rates are going down.
+[06:14] So, people might find it valuable to open the savings account in, for example, I know, in Europe,
+[06:20] like Swedish corona, interest rates are higher than Europe, but it could be even something like Brazilian Real or with what 12% interest rate versus like 2 or 3% on yours.
+[06:31] And then, as a cherry on top, there is this, all that in an amazing U.F. very smooth.
+[06:38] You can set custom wallpapers, you can set goals, you can automate
+[06:44] spare change towards your savings content and all those features.
+[06:48] So, there is an underlying basic, like fundamental layer where you need to be just, you know, on par with competition.
+[07:00] But then there are a lot of things on top that just make people love your product way more.
+[07:06] And obviously, there are a lot of synergies in between those things.
+[07:10] So, yeah, thinking of crypto, you can just receive crypto on your wallet and then you can just instantly convert it to cash on your account or just spend it with your card.
+[07:23] How amazing can it be, right?
+[07:25] Buy a coffee with Ethereum. I love that.

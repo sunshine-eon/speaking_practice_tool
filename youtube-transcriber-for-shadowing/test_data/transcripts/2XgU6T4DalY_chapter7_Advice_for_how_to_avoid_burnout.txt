@@ -1,0 +1,42 @@
+Chapter 7: Advice for how to avoid burnout
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 25:02 - 27:44
+============================================================
+
+[00:00] Another thing someone may be feeling when they're hearing this is like, oh my god
+[00:03] It's gonna be take me so many hours to just get it to a place Elizabeth is happy with and I know you said that this doesn't mean
+[00:09] necessarily many hours
+[00:11] Do you have any advice or thoughts on just how to avoid like burnout and working all the time?
+[00:15] But also keeping this really high bar and high expectations
+[00:19] It truly is not about time. I even found myself in a meeting earlier today saying
+[00:24] If we're clear in the objectives of something it might be that the last
+[00:33] 20% of polish on the document is a really bad use of time
+[00:38] so if we're gonna come together to talk through
+[00:42] Like quarterly business review was the example. What were the highlights? What were the lowlights?
+[00:46] What were the learnings from the quarter?
+[00:49] Where are there places of misalignment?
+[00:52] The reason we're doing the quarterly business review is to have a really candid conversation about how we think things are going to have a debate about
+[00:59] Things where maybe we're stuck. It's not to have a perfectly polished document for that conversation
+[01:05] So my feedback in that instance would be I would much rather have someone spend the time thinking about what's the conversation?
+[01:12] We really want to have how do I tee that up?
+[01:15] Not could I spend another 20 hours to make it look like everything's perfect in this document?
+[01:20] And so I think in that sense it's
+[01:23] It's not just excellence like you wrote the perfect document
+[01:26] I should probably be careful to not use that as the only example
+[01:30] But instead we really got to the outcome
+[01:33] We wanted to get to you because we were thoughtful about it and we put a lot of energy and time and iteration into making sure we got to that outcome
+[01:41] And is this an example where you gave someone feedback because they spent too much time on the polish?
+[01:45] Or is this earlier and they give the pyramid of this framework you kind of shared?
+[01:49] Have said expectations give specific feedback help them fill the gap and then do it in private
+[01:53] Is this like the expectation setting in this example or is this like feedback you spend too much time on?
+[01:58] This is expectation setting
+[02:00] So one of the things in my new role is that there's some practices that the team has had where they're trying to
+[02:07] Understand are we still going to have those practices?
+[02:09] What's going to be the same versus different about those things and get an understanding of my expectations?
+[02:15] So it's great that people ask that question
+[02:18] So that I can be clear about oh wait
+[02:21] If you're on the last 20 percent of this polishing the dock
+[02:24] I'd rather spend time over here
+[02:26] And here's how I would like the conversation to go
+[02:29] So we all get something out of it instead of it feeling like it's just a leadership reviewer on my behalf
+[02:35] So this in this specific situation it was setting expectations ahead of time so that we can set everyone up for success

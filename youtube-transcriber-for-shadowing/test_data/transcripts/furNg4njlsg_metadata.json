@@ -1,0 +1,176 @@
+{
+  "video_id": "furNg4njlsg",
+  "title": "An inside look at how Miro builds product | Varun Parmar (CPO of Miro)",
+  "url": "https://www.youtube.com/watch?v=furNg4njlsg",
+  "duration": 5111,
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "title": "Varun’s background",
+      "start_time": 0.0,
+      "end_time": 248.0,
+      "start_time_formatted": "00:00",
+      "end_time_formatted": "04:08"
+    },
+    {
+      "chapter_index": 2,
+      "title": "How Miro operates as a cross-cultural product team",
+      "start_time": 248.0,
+      "end_time": 442.0,
+      "start_time_formatted": "04:08",
+      "end_time_formatted": "07:22"
+    },
+    {
+      "chapter_index": 3,
+      "title": "How applying empathy helped Miro build Miro Talktrack",
+      "start_time": 442.0,
+      "end_time": 711.0,
+      "start_time_formatted": "07:22",
+      "end_time_formatted": "11:51"
+    },
+    {
+      "chapter_index": 4,
+      "title": "What makes Miro stand out",
+      "start_time": 711.0,
+      "end_time": 1028.0,
+      "start_time_formatted": "11:51",
+      "end_time_formatted": "17:08"
+    },
+    {
+      "chapter_index": 5,
+      "title": "Miro’s AMPED structure",
+      "start_time": 1028.0,
+      "end_time": 1377.0,
+      "start_time_formatted": "17:08",
+      "end_time_formatted": "22:57"
+    },
+    {
+      "chapter_index": 6,
+      "title": "The benefit of having product marketing as a part of the cross-functional team",
+      "start_time": 1377.0,
+      "end_time": 1524.0,
+      "start_time_formatted": "22:57",
+      "end_time_formatted": "25:24"
+    },
+    {
+      "chapter_index": 7,
+      "title": "How competition affects growth and product strategy",
+      "start_time": 1524.0,
+      "end_time": 1903.0,
+      "start_time_formatted": "25:24",
+      "end_time_formatted": "31:43"
+    },
+    {
+      "chapter_index": 8,
+      "title": "Why speed is so important and how to improve it",
+      "start_time": 1903.0,
+      "end_time": 2061.0,
+      "start_time_formatted": "31:43",
+      "end_time_formatted": "34:21"
+    },
+    {
+      "chapter_index": 9,
+      "title": "How Miro ensures that their products meet quality standards",
+      "start_time": 2061.0,
+      "end_time": 2239.0,
+      "start_time_formatted": "34:21",
+      "end_time_formatted": "37:19"
+    },
+    {
+      "chapter_index": 10,
+      "title": "How to remove blockers",
+      "start_time": 2239.0,
+      "end_time": 2842.0,
+      "start_time_formatted": "37:19",
+      "end_time_formatted": "47:22"
+    },
+    {
+      "chapter_index": 11,
+      "title": "Miro’s product development process",
+      "start_time": 2842.0,
+      "end_time": 3214.0,
+      "start_time_formatted": "47:22",
+      "end_time_formatted": "53:34"
+    },
+    {
+      "chapter_index": 12,
+      "title": "How OKRs work at Miro",
+      "start_time": 3214.0,
+      "end_time": 3355.0,
+      "start_time_formatted": "53:34",
+      "end_time_formatted": "55:55"
+    },
+    {
+      "chapter_index": 13,
+      "title": "The product stack at Miro",
+      "start_time": 3355.0,
+      "end_time": 3680.0,
+      "start_time_formatted": "55:55",
+      "end_time_formatted": "61:20"
+    },
+    {
+      "chapter_index": 14,
+      "title": "Big bets vs. maintenance and bug fixes at Miro",
+      "start_time": 3680.0,
+      "end_time": 3824.0,
+      "start_time_formatted": "61:20",
+      "end_time_formatted": "63:44"
+    },
+    {
+      "chapter_index": 15,
+      "title": "The “three horizons” framework",
+      "start_time": 3824.0,
+      "end_time": 3870.0,
+      "start_time_formatted": "63:44",
+      "end_time_formatted": "64:30"
+    },
+    {
+      "chapter_index": 16,
+      "title": "The importance of accountability",
+      "start_time": 3870.0,
+      "end_time": 4246.0,
+      "start_time_formatted": "64:30",
+      "end_time_formatted": "70:46"
+    },
+    {
+      "chapter_index": 17,
+      "title": "How Miro got their first 1,000 users",
+      "start_time": 4246.0,
+      "end_time": 4353.0,
+      "start_time_formatted": "70:46",
+      "end_time_formatted": "72:33"
+    },
+    {
+      "chapter_index": 18,
+      "title": "Other growth levers at Miro",
+      "start_time": 4353.0,
+      "end_time": 4553.0,
+      "start_time_formatted": "72:33",
+      "end_time_formatted": "75:53"
+    },
+    {
+      "chapter_index": 19,
+      "title": "Adding a sales motion",
+      "start_time": 4553.0,
+      "end_time": 4688.0,
+      "start_time_formatted": "75:53",
+      "end_time_formatted": "78:08"
+    },
+    {
+      "chapter_index": 20,
+      "title": "Miro AI, and new updates and enhancements coming soon",
+      "start_time": 4688.0,
+      "end_time": 4812.0,
+      "start_time_formatted": "78:08",
+      "end_time_formatted": "80:12"
+    },
+    {
+      "chapter_index": 21,
+      "title": "Lightning round",
+      "start_time": 4812.0,
+      "end_time": 5110,
+      "start_time_formatted": "80:12",
+      "end_time_formatted": "85:10"
+    }
+  ]
+}

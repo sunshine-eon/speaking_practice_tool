@@ -1,0 +1,124 @@
+Chapter 17: Maggie’s one-pager doc
+Video: Mastering product strategy and growing as a PM | Maggie Crowley (Toast, Drift, TripAdvisor)
+Time: 48:09 - 54:16
+============================================================
+
+[00:00] I'm going to summarize the template real quick and then I'm going to have another question
+[00:03] kind of along the line.
+[00:04] So if you're trying to create your own little template, you start with the mission, the business,
+[00:09] and then I imagine you also share the mission of your team because oftentimes it's a little
+[00:13] more specific.
+[00:14] If you're working on it like a product team strategy, then there's a landscape of
+[00:18] what's happening.
+[00:19] So you include competitive, like SWAT analysis of competition, risks, product state,
+[00:26] business state, things like that.
+[00:29] And then you share the current goals of what you're trying to achieve as a team
+[00:32] slash business.
+[00:34] And there's an honest accounting of what's happening in the product and technical
+[00:37] hurdles and things like that that'll keep you from moving, I guess, achieving some of
+[00:42] these goals.
+[00:43] And then you share, here's the opportunity I see, how we win and how we actually
+[00:48] achieve this opportunity, where we place bets and things like that, or we could
+[00:51] place bets.
+[00:53] Then challenges of doing this, what needs to be true for this to be possible.
+[00:59] Then you finally get to here's what I think we should do, essentially the solution,
+[01:03] ideally three bullet points.
+[01:05] And then the plan.
+[01:06] And I imagine the plan is, step one, get signed off from exec.
+[01:11] Step two, resource the team.
+[01:12] Step three, start on this design research sprint.
+[01:17] Pretty much.
+[01:18] All right.
+[01:19] Amazing.
+[01:20] Somebody will create this template if you don't end up doing it.
+[01:23] There's another.
+[01:24] I hope somebody does.
+[01:25] Okay.
+[01:26] That'd be awesome.
+[01:27] We'll tweet it and we will put it in the show notes.
+[01:30] So many promises already from this podcast.
+[01:33] Along the same lines, you also have a one pager template and process that I think people
+[01:38] find really useful.
+[01:39] So how about we chat about that one briefly and then I'm going to go in a whole different
+[01:42] direction.
+[01:43] Okay.
+[01:44] You're the one pager.
+[01:46] I don't think I have much to say about this that has not been said by many people
+[01:50] many times, but whether it's a spec, a PRD, a one pager, I don't even know what else people
+[01:57] call it.
+[01:58] It's the, you know, the document that you use to define the thing that you're doing
+[02:03] as a product team.
+[02:04] And that means like product design engineering, like your little squad.
+[02:09] And what I think is really useful about this process is that it's the PM's artifact.
+[02:16] So, you know, designers produce designs, engineers write code, you know, what a PM's
+[02:22] do a lot of people might say nothing.
+[02:25] In theory, we write at least this document, right?
+[02:28] And it can be a pain.
+[02:32] I've seen lots of ways where it hasn't been done very well, but when I think it's done
+[02:35] really well and when it's really effective is it's a tool that allows the PM to start
+[02:40] with why.
+[02:41] And if you structure it correctly, the most important section, in my opinion, in
+[02:45] the document is the first part, which is like, what is the background and context?
+[02:51] What is the problem?
+[02:52] Why does it matter?
+[02:53] And why does it matter now?
+[02:54] And if you get those things right, the rest gets really easy, but it gives you a chance
+[02:59] as a PM to center the team around the problem, you know, why that problem exists, whether
+[03:05] it's created by, you know, your own product or it's something the user is experiencing
+[03:11] and why that problem is worth solving.
+[03:13] That's a part that I think people sometimes forget to think about and like why it's worth
+[03:17] solving right now versus all the other problems you could be solving.
+[03:20] And then it can become the home base of the decisions that you make along the way.
+[03:25] So I think it's best when you have those sections and then also best when you write
+[03:29] down, okay, on this day, we made this decision or we decided not to do this or we decided
+[03:34] only to solve this part of the problem, not this part of the problem, keeping a running
+[03:37] list of that and the link off to all the different artifacts and research and
+[03:41] things is helpful for a team.
+[03:43] So just to summarize, what would be the headings again, just if someone's taken notes
+[03:46] in one secret, the little template, I don't think these templates have to be
+[03:49] very complicated.
+[03:50] It's like background and context, the problem.
+[03:54] I would literally write why this problem matters and why this problem
+[03:57] matters now, like, don't make it complicated, just put answer those
+[04:01] questions and if you can do that.
+[04:04] And then again, it's only really helpful if then you bring that document
+[04:10] before you go any further to your team and you use it to have a conversation
+[04:15] and you get the smart people around you to take shots at it.
+[04:19] I should have mentioned this earlier with the strategy.
+[04:21] The first person I go to was typically speaking my engineering
+[04:24] counterpart and I say like, shred this, like go through it, rip it apart, vomit
+[04:28] comments on it, like tear this down because that's how it gets better.
+[04:32] And as a PM, you can't be like precious about your work.
+[04:35] You have to need people to like poke holes in it.
+[04:39] The why this matters now point is so interesting.
+[04:42] I don't often hear that.
+[04:43] And I think it's such an important part of specs and plans and strategies
+[04:48] because there's so many things you can do and there are certain things
+[04:51] that are perishable that you can only do now, that if you don't do now,
+[04:54] you miss the opportunity.
+[04:56] And so I think that's a really interesting element that most people
+[04:59] don't include and it reminds me of, I think I've done enough podcast
+[05:02] episodes now where I'm just connecting all these things as people
+[05:04] are talking. It's like John Nash thing happening where Kari, the founder
+[05:10] of Linear talked about this concept of side quests as a founder because he's
+[05:14] so good at staying focused and I was just like, how do you stay focused
+[05:17] and just get stuff done when you have so many people coming out?
+[05:19] He's just like, there's the main quest and there's the side quests
+[05:22] and side quest I don't need to do right now.
+[05:24] There's the main quest, which is build a really successful business.
+[05:27] And I feel like this is a good example of that in action.
+[05:30] Yeah, I love his take on quality and taste too.
+[05:34] Yeah, what a jam.
+[05:35] Yeah, big fan of that.
+[05:36] But yeah, I mean, it's really hard to stay disciplined.
+[05:39] It's hard to stay focused and to your point, there's a million things
+[05:42] you could do at any given time, especially if you work in a bigger company.
+[05:45] And so the why now is is an important question to answer
+[05:48] because if not, somebody is going to ask you.
+[05:51] So you may as well think about it.
+[05:52] Yeah, it's interesting.
+[05:53] Why now comes up a lot in investing and startups, but rarely
+[05:56] in product building and it feels like it should, although I will say
+[06:00] in the research I've done, why now ends up not being that important for
+[06:02] startups being successful or not.
+[06:04] So I think there's two sides of that coin.

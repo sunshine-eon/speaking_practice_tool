@@ -1,0 +1,184 @@
+{
+  "video_id": "F0_IKKY3HCk",
+  "title": "Building a culture of excellence | David Singleton (CTO of Stripe)",
+  "url": "https://www.youtube.com/watch?v=F0_IKKY3HCk",
+  "duration": 5400,
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "title": "David’s background",
+      "start_time": 0.0,
+      "end_time": 262.0,
+      "start_time_formatted": "00:00",
+      "end_time_formatted": "04:22"
+    },
+    {
+      "chapter_index": 2,
+      "title": "How Stripe’s unique hiring process has helped them build an incredible team",
+      "start_time": 262.0,
+      "end_time": 747.0,
+      "start_time_formatted": "04:22",
+      "end_time_formatted": "12:27"
+    },
+    {
+      "chapter_index": 3,
+      "title": "An example of a relentlessly curious and passionate employee",
+      "start_time": 747.0,
+      "end_time": 851.0,
+      "start_time_formatted": "12:27",
+      "end_time_formatted": "14:11"
+    },
+    {
+      "chapter_index": 4,
+      "title": "Structured hiring loops at Stripe",
+      "start_time": 851.0,
+      "end_time": 999.0,
+      "start_time_formatted": "14:11",
+      "end_time_formatted": "16:39"
+    },
+    {
+      "chapter_index": 5,
+      "title": "How Stripe built a product-minded engineering culture",
+      "start_time": 999.0,
+      "end_time": 1316.0,
+      "start_time_formatted": "16:39",
+      "end_time_formatted": "21:56"
+    },
+    {
+      "chapter_index": 6,
+      "title": "Stripe’s operating principles",
+      "start_time": 1316.0,
+      "end_time": 1539.0,
+      "start_time_formatted": "21:56",
+      "end_time_formatted": "25:39"
+    },
+    {
+      "chapter_index": 7,
+      "title": "How Stripe uses “friction logging” to build a meticulous product culture",
+      "start_time": 1539.0,
+      "end_time": 1942.0,
+      "start_time_formatted": "25:39",
+      "end_time_formatted": "32:22"
+    },
+    {
+      "chapter_index": 8,
+      "title": "How to operationalize friction logging",
+      "start_time": 1942.0,
+      "end_time": 2102.0,
+      "start_time_formatted": "32:22",
+      "end_time_formatted": "35:02"
+    },
+    {
+      "chapter_index": 9,
+      "title": "How to set PMs up for success",
+      "start_time": 2102.0,
+      "end_time": 2213.0,
+      "start_time_formatted": "35:02",
+      "end_time_formatted": "36:53"
+    },
+    {
+      "chapter_index": 10,
+      "title": "Stripe’s collaborative approach to product evaluation",
+      "start_time": 2213.0,
+      "end_time": 2477.0,
+      "start_time_formatted": "36:53",
+      "end_time_formatted": "41:17"
+    },
+    {
+      "chapter_index": 11,
+      "title": "Advice for presenting to CTOs",
+      "start_time": 2477.0,
+      "end_time": 2578.0,
+      "start_time_formatted": "41:17",
+      "end_time_formatted": "42:58"
+    },
+    {
+      "chapter_index": 12,
+      "title": "How to get better at building products",
+      "start_time": 2578.0,
+      "end_time": 2728.0,
+      "start_time_formatted": "42:58",
+      "end_time_formatted": "45:28"
+    },
+    {
+      "chapter_index": 13,
+      "title": "Stripe’s “engineerications” and the importance of getting into the weeds as a leader",
+      "start_time": 2728.0,
+      "end_time": 3123.0,
+      "start_time_formatted": "45:28",
+      "end_time_formatted": "52:03"
+    },
+    {
+      "chapter_index": 14,
+      "title": "Auto-testing and other strategies to improve shipping speeds",
+      "start_time": 3123.0,
+      "end_time": 3569.0,
+      "start_time_formatted": "52:03",
+      "end_time_formatted": "59:29"
+    },
+    {
+      "chapter_index": 15,
+      "title": "Improving developer productivity",
+      "start_time": 3569.0,
+      "end_time": 3654.0,
+      "start_time_formatted": "59:29",
+      "end_time_formatted": "60:54"
+    },
+    {
+      "chapter_index": 16,
+      "title": "How AI has impacted the way Stripe builds product",
+      "start_time": 3654.0,
+      "end_time": 4023.0,
+      "start_time_formatted": "60:54",
+      "end_time_formatted": "67:03"
+    },
+    {
+      "chapter_index": 17,
+      "title": "Why David is excited about Copilot",
+      "start_time": 4023.0,
+      "end_time": 4164.0,
+      "start_time_formatted": "67:03",
+      "end_time_formatted": "69:24"
+    },
+    {
+      "chapter_index": 18,
+      "title": "Lessons from managing people",
+      "start_time": 4164.0,
+      "end_time": 4470.0,
+      "start_time_formatted": "69:24",
+      "end_time_formatted": "74:30"
+    },
+    {
+      "chapter_index": 19,
+      "title": "Planning and prioritization based on first-principles thinking",
+      "start_time": 4470.0,
+      "end_time": 4703.0,
+      "start_time_formatted": "74:30",
+      "end_time_formatted": "78:23"
+    },
+    {
+      "chapter_index": 20,
+      "title": "Lenny’s feedback from using Stripe",
+      "start_time": 4703.0,
+      "end_time": 4754.0,
+      "start_time_formatted": "78:23",
+      "end_time_formatted": "79:14"
+    },
+    {
+      "chapter_index": 21,
+      "title": "What’s next for Stripe",
+      "start_time": 4754.0,
+      "end_time": 4930.0,
+      "start_time_formatted": "79:14",
+      "end_time_formatted": "82:10"
+    },
+    {
+      "chapter_index": 22,
+      "title": "Lightning round",
+      "start_time": 4930.0,
+      "end_time": 5399,
+      "start_time_formatted": "82:10",
+      "end_time_formatted": "89:59"
+    }
+  ]
+}

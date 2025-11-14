@@ -1,0 +1,152 @@
+Chapter 5: Success and career growth
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 10:07 - 20:15
+============================================================
+
+[00:00] I was looking at your LinkedIn and looking at your career over the years and it seems
+[00:05] like you've had a meteoric rise at four different companies and I'll just walk through them
+[00:10] briefly.
+[00:11] So at your first job, you went from associate to vice president in three years.
+[00:15] At the next company, Nuna, you went from manager of data science to COO in two years.
+[00:20] At Netflix, you went from VP to CTO in three years.
+[00:24] I think that's really rare.
+[00:26] I'm curious, what is your secret sauce to being so successful at so many places and
+[00:31] especially in the context of what advice can you share with folks earlier in their career?
+[00:39] This is one of those questions that sparks the reflection that I wouldn't normally do.
+[00:44] So that's great.
+[00:47] I really don't think of it as a secret sauce, but maybe I can walk through some of the things
+[00:51] that I think have been instrumental.
+[00:55] As you listed that out, it sounds like the two to three year point is the real sweet
+[00:59] spot.
+[01:00] So maybe there's something about that timeline, but I think some things almost feel trite in
+[01:09] how I would say them, which is I'm very dedicated to the work and to the teams I'm part of.
+[01:17] It's been part of who I am for a long time that I give everything I've got to the job
+[01:23] that I'm in.
+[01:25] And I think that dedication and that I get joy out of that has mattered.
+[01:31] It matters because I enjoy what I'm doing.
+[01:33] I do the best work I possibly can, less so for myself and my own ambition and more so
+[01:39] because I think of myself as being part of a team.
+[01:42] And so I really need to deliver for that team.
+[01:45] And I think that framing in my mind and that motivation has helped me in a few fronts,
+[01:52] which is the way in which I build partnerships with people I work with that I really care
+[01:59] about setting other people up for success and being someone that people want to work
+[02:05] with.
+[02:06] So I learned from them, they learned from me and we get better outcomes for the business
+[02:09] together.
+[02:11] I have found that part of that is being someone that people can leverage to translate from
+[02:17] technical to non-technical and non-technical to technical.
+[02:21] So that I do think has been a relative advantage in my role.
+[02:25] So while I was often sitting in more technically oriented teams, a lot of the advancement in
+[02:33] my career was to roles that required that type of communication fluency.
+[02:38] And it grew out of being able to partner with people across the businesses who didn't necessarily
+[02:43] have the same background, but where we needed to really connect spaces so that we could
+[02:47] be more effective.
+[02:50] And that was something that I think really the training for that came from Analysis Group,
+[02:55] where it was a very quantitative set of work that we had to find a way to communicate to
+[03:01] judges and juries for economic cases.
+[03:04] So that was something that was trained in other roles and I think I've been able to leverage.
+[03:10] I'm a relatively introverted only child, so I observe a lot, which means that I learn
+[03:18] from other people.
+[03:20] And in each of these roles, I have tried really hard to watch what other people are doing,
+[03:27] think about like how could I learn something from them, whether it's the thing that I want
+[03:30] to be able to do myself or it's the thing that I think, oh, that doesn't quite fit or
+[03:34] feel authentic with my style.
+[03:37] And I do a lot of that introspection.
+[03:39] So I have been surrounded by amazing people in all these roles and I have a feeling that
+[03:44] I learned a lot by osmosis and observation and then have been able to leverage that to
+[03:52] be stronger in the roles I was sitting in.
+[03:55] So I took a few notes here.
+[03:56] So a few things you mentioned is just like dedication, essentially working really hard
+[04:00] and taking your work seriously, being part of a team and setting other people up for
+[04:04] us, translating complex tech language and problems to non-tech people and then being
+[04:10] really good at observing and learning from other people around you.
+[04:13] Is there an example or two that you could share of some of these to make it even more
+[04:16] concrete for people?
+[04:17] Like dedication, is that just like working many hours?
+[04:21] Being part of a team, anything along the lines to share a story maybe to help people put
+[04:27] this into practice?
+[04:28] No, and it's a good clarification because the dedication piece really isn't about long
+[04:35] working hours.
+[04:37] It's more about how much I care about excellence, I guess.
+[04:46] So giving it my best in those situations.
+[04:50] And that might not mean that I work really wild hours or I work weekends or I'm the
+[04:56] one who's willing to sacrifice the vacation.
+[04:58] I've actually tried to avoid setting that as an expectation, but more that I hold myself
+[05:03] to a very high standard.
+[05:06] So an example would be, especially as I've gotten more senior in roles, there can be
+[05:15] an expectation that it's okay for other people to wait on me.
+[05:24] So whether it's like the timing for a meeting or providing input on something or reviewing
+[05:29] a document or following through on something I said that I was going to do.
+[05:34] And I really try to avoid that, which means that if someone sends me something, I try
+[05:41] to be very responsive about it.
+[05:43] If I know that I said I'm going to do something, I follow through on it in the timeline that
+[05:47] I said I was going to do.
+[05:50] If I have a meeting, I try to be on time to that meeting.
+[05:53] And those are all flavors of dedication to the work that show up and oh, it seems like
+[05:58] Elizabeth works really hard, but the motivation factor is other people are relying on me and
+[06:04] I want to show up for them.
+[06:07] And so that's when I say dedication and it's related to the second point around showing
+[06:10] up well for the team.
+[06:12] Those would all be examples of I feel urgency in responding to people and doing high quality
+[06:19] work.
+[06:20] For the other parts of technical to non-technical, I think a great example is actually a very
+[06:27] timely one at Netflix, which is we are making strides to offer live content types.
+[06:37] So live events, live TV shows, we announced this week that we're going to be hosting WWE
+[06:44] starting later this year and early next year 2025.
+[06:48] That is easier said than done.
+[06:51] I know that there's a lot of entertainment companies that have live content, but Netflix
+[06:57] has really been in the streaming content business.
+[06:59] So live content is something new for us and it's something that's going to require a really
+[07:05] close partnership between our content organization and our products and technology organization
+[07:11] because there's a content strategy to it.
+[07:13] There's a business strategy.
+[07:15] There's a technology strategy to it.
+[07:18] A big part of my role is can I explain how we're going to approach those technical problems
+[07:24] in a way that builds confidence with the content team?
+[07:28] Can I try to understand their content strategy in a way that sets the technical teams up
+[07:33] for success and we understand what we need to be able to deliver on here in terms of
+[07:37] requirements?
+[07:39] I don't think I'd be able to do my current role well if I wasn't able to do that type
+[07:44] of translation for something that's going to be a big bet for the business and some
+[07:48] of you want to invest in jointly and then to set my partners up for success in that.
+[07:54] So I'm going to do everything I can to make sure we deliver well for my content partners
+[07:58] because I feel like that's what's best for Netflix in the business.
+[08:02] Amazing examples.
+[08:03] In terms of live content, I think about The Love Is Blind.
+[08:06] I think it was for Premiere or whatever reunion that we got sucked into that show.
+[08:12] That's a good job.
+[08:13] And I think there were some issues with that reunion stream.
+[08:17] Yeah, that was about a little less than a year ago now.
+[08:22] So the amazing thing about failure is you learn a lot.
+[08:26] We learned a lot.
+[08:28] We've taken notes on it and we had a couple of successful events after that, including
+[08:33] the Netflix Cup last October.
+[08:36] We've got some exciting events coming up.
+[08:38] So I think that's something that strengthened us, but did reveal that we're tackling a hard
+[08:42] problem.
+[08:43] Yeah, the Twitter feeds during that.
+[08:45] Love is blind for me.
+[08:46] We're hilarious.
+[08:47] Yeah.
+[08:48] People are pissed.
+[08:49] Okay.
+[08:50] And then in terms of keeping a high bar for yourself, I love that.
+[08:54] I think about a quote that there's a VC Ann Murico at Floodgate and she did this interview
+[09:00] with Tim Ferriss and she shared that her dad always asked her, are you doing a world-class
+[09:05] job with this?
+[09:06] Are you doing a world-class job with your homework?
+[09:08] Are you doing a world-class job with your piano recital?
+[09:12] And that's the bar that he always had for her.
+[09:14] And I feel like that's a really good way to think about work and life in general, if
+[09:19] you can.
+[09:20] Yeah.
+[09:21] My mother used to describe to me, probably still does, though it required more repeating
+[09:30] when I was younger, that the last 5% is the 5% that really mattered.
+[09:39] And so it is that framing of the thing, the extra effort you put into something to make
+[09:45] it world-class or to make it excellent.
+[09:48] And so I do like to push myself that way.
+[09:51] And I hope it sets a good example for other people too.
+[09:55] And it's very consistent with, especially the company cultures that I tend to thrive
+[09:59] in, where that's the general expectation of the culture so you don't feel like you're
+[10:04] doing it alone.
+[10:05] Because then I think you can start to feel frustrated by that.

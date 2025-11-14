@@ -1,0 +1,89 @@
+Chapter 3: When modern product thinking started to gain traction in India
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 08:34 - 14:01
+============================================================
+
+[00:00] You said that in the Bay Area, things started like 1970s, something like that.
+[00:04] When would you say things started to really ramp up in modern product thinking in India?
+[00:09] I think 2010 was kind of when it started because there were a few products that were built
+[00:15] before that also.
+[00:16] And I think somebody said this clearly that usually when modern consumer internet starts
+[00:21] coming in countries, it usually starts with travel.
+[00:24] So you do have basically any country we would start with, which is the first travel company.
+[00:29] So I think India started with some companies like MakeMetrip and so on like way earlier.
+[00:33] There were a few very interesting products being built in India which were solving uniquely
+[00:37] for the Indian consumers that were in the matrimony side, which is Shadi.com and BharatMetrimony.com
+[00:44] and so on.
+[00:45] But like what do you think about Tinder?
+[00:46] Like India is famous for arranged marriages.
+[00:48] So like a product that would really understand that, hey, if you are a parent, if you want
+[00:52] to get your kid up for matrimony, how would you solve for them?
+[00:57] And that marketplace of matriculation, et cetera started.
+[01:00] So a few blips here and there, which was solving uniquely for India.
+[01:03] But in 2010 was a decade of time when I can like very clearly imagine that's where like
+[01:08] a lot of people started building for India.
+[01:10] So I think and Flipkart started that that kind of journey.
+[01:14] But in a couple of years, then they were like say Ola, which was in a way similar to Uber,
+[01:19] what they were doing elsewhere.
+[01:20] And then a whole bunch of other startups that started coming in.
+[01:24] So for example, in food delivery, when I was working at Swiggy that came in like say,
+[01:28] 2015, 2014, in that timeframe.
+[01:31] And now you see a whole bunch of startups which are trying to do not only things, which are
+[01:36] what could an Uber for India look like or what could a DoaDash for India look like, very
+[01:41] different and also very innovative.
+[01:45] So I think now is the time when you see a lot more product building around that area.
+[01:50] What are some numbers of just like companies in India, people in India's money spent in
+[01:54] India, I don't know things that would be like, wow, that is a much bigger opportunity than
+[01:58] I thought.
+[01:59] All right, this is a very wide question.
+[02:02] So I'll tell you before the opportunity in India, I think I'll talk about the complexity
+[02:07] in India, which is very, which I think a lot of people don't understand.
+[02:12] So India has what 1.4 billion people.
+[02:17] So there are three waves really that happened in India, but also in the globe.
+[02:21] Like the first wave was like from desktop to mobile.
+[02:25] And then even from mobile to smartphones.
+[02:28] And from smartphones, there was what we call the geo revolutions as an Indian company called
+[02:31] Sri Lankan Zero that basically got internet at the cheapest prices for smartphones.
+[02:36] So because of this, a whole population came onto the internet, which was hungry for new
+[02:41] products, new content, completely different ways of interacting with each other and using
+[02:46] internet for all sorts of different things.
+[02:48] That was one of the waves.
+[02:50] The other part is really what the Indian government really enabled, which is especially
+[02:55] in digitization of a bunch of absolute core fundamental, you know, citizen related machinery,
+[03:04] which is either through digital payments, which is a whole bunch of Indians now started
+[03:08] having a bank account by default and something called UPI.
+[03:13] So even if you do not have a bank account or that bank account is linked to your mobile
+[03:16] phone number, but now everybody would pay through that.
+[03:20] And that brought in like a very different kind of revolution.
+[03:22] So even if five rupees, that is basically like, you know, 10 cents or less than that,
+[03:27] that would be paid through UPI and people started moving away from cash and so on.
+[03:31] And there's something called the India stack that is like all of these things coming together,
+[03:35] which is social security, identity, payments and so on, that a whole bunch of other apps
+[03:41] can now use to build their own, you know, layers on top of that.
+[03:45] So many interesting cases kind of started coming up.
+[03:47] So that's kind of one, which is just a number and the infrastructure.
+[03:51] Now, the other thing to look at is India is very diverse.
+[03:54] So the number of languages spoken here, even the official languages is so high.
+[03:59] And they say there's this code in India, like every 15 miles, the language will change
+[04:04] and the people and their culture will change.
+[04:06] And it's a huge country of so many people.
+[04:08] So your traditional ways of thinking about products also that whom I'm building for is very different.
+[04:14] Is I building for this person or that, etc.
+[04:17] So a bunch of frameworks kind of break down because it's not even that the same language will apply.
+[04:21] While English is a language that is used by the people at least who have the money
+[04:26] and who have the dollar to even like give to you.
+[04:29] But you have to think way more widely.
+[04:31] The other thing that about India that is interesting is
+[04:35] the price that people are willing to pay.
+[04:39] So and it generally is also look at like the per capita, you know,
+[04:43] money that people have is very low.
+[04:46] It's in the two, two and a half thousand dollar range compared to US,
+[04:50] which is maybe for 30 times more and so on.
+[04:53] Like so while there's a lot of people who are going to give you, you know,
+[04:57] traffic and engagement and so on, but with the craft of actually choosing the right kind of
+[05:03] paying customer who will actually come and engage and give you money is, is, is at a premium.
+[05:08] So a lot harder work needs to be done.
+[05:11] If you're running e-commerce, who are the people who will pay me delivery fee?
+[05:14] Who are the people who will actually buy this expensive stuff?
+[05:17] And so a whole bunch of different ways of thinking has evolved in this country.
+[05:22] And that's why it's so vibrant and so different than any other global products.

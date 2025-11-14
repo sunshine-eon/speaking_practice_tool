@@ -1,0 +1,81 @@
+Chapter 3: Linear’s design process and its focus on quality
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 06:43 - 12:25
+============================================================
+
+[00:00] That is insane. I didn't even know that. Okay, so for all those reasons a lot of founders and a lot of product leaders
+[00:06] Look up to the way when you're built product and the way you think about product and so to kind of frame this conversation
+[00:12] There's three areas. I want to dive into one is just how you approach a building product
+[00:17] Two is how you go about building the team and the business in general and then three is just how you grow linear and
+[00:24] To start I want to talk about craft
+[00:28] Clearly one of the biggest reasons that people look up to linear and use linear is the quality of the user experience and the product
+[00:34] And I know your team puts a lot of emphasis on craft and user experience
+[00:39] Imagine that also comes at the cost of some trade-offs like takes probably longer to get stuff out the dairy
+[00:45] Probably losing sales because people are waiting for a feature and you're not ready ready to launch yet
+[00:49] Because you want to make it better
+[00:51] What have you learned about creating space for craft and building product that is really really great?
+[00:57] Yeah, and I think it's interesting that those things we mentioned like hiring building business and building product and craft is like
+[01:03] I think that all of those are someone's related to to each other
+[01:07] but so what what I can say about the product craft per se is like
+[01:12] It's it's definitely like starts with the people that like on the on the hiring front
+[01:16] We always look for people that care about it as a business like
+[01:20] Why we really care about it is is that like we see that
+[01:23] Cooperation only happens if people use the product then and like our product
+[01:27] Which is supposed to help the core collaboration coordination
+[01:31] If there's friction or that the experience isn't that great or there's this little paper cuts
+[01:35] I think it gets really annoying for people to use and so we think like for the business to be successful
+[01:40] The quality is and the graph is very important
+[01:43] There's definitely like trade-offs sometimes like
+[01:46] There can be like for example timelines like we we are about to launch something and then
+[01:51] For example, I or someone else goes to look at it then and see it's like oh, this this doesn't like feel right
+[01:56] And we just like should fix it. So I don't think we should launch this now
+[01:59] So sometimes like it doesn't definitely push that
+[02:02] Timelines, but this this might be like days. It's not like we need to like redo everything
+[02:08] The other way we think about it's like we are actually very okay
+[02:11] Like pushing things out to ourselves and into for like a small group of customers
+[02:18] Like if they opt in to that so whenever we build a new feature one of the things is like we don't want to spend
+[02:25] Tons of time up front just like designing it and polishing it perfectly
+[02:29] Because we actually believe that when when you start building the thing
+[02:32] You actually start realizing more like how it could how it should work and how it should be better
+[02:37] So a lot of times with the teams we tell them like just just put it there and like I don't know the first week
+[02:42] Almost like after you have some kind of designs in place or some kind of design ideas
+[02:47] Just like put it into the app and like ship it to
+[02:51] Production but only visible to us. So we internally can test it out
+[02:56] And then I think the next stage is like we look for like a customer that could be interested in this feature or
+[03:02] Or we just like ask people to opt in to like some kind of better
+[03:06] Program and in those stages the experience can be a little
+[03:10] Like janky or it's not that like polished, but we're okay with it because we are saying it's not finished
+[03:15] Like we just want to get your feedback early so we can make it better
+[03:18] But like once we get to the kind of like it the full general release then we like
+[03:24] Pay more attention to the actual like polish or the or the craft that is so interesting
+[03:29] I didn't know you do that
+[03:30] So you actually go ahead and launch things really early to select a group of people that want the early stuff
+[03:36] And then did you say that you find one customer to kind of co-create and help evolve the feature and change with
+[03:42] Yeah, usually it can be one or it's like three or five or ten
+[03:47] so it's it's often
+[03:49] Especially with the larger company like larger company facing features
+[03:52] We usually do try to find a large company because sometimes it's hard to like imagine these things how they should work
+[03:59] And so it's better if if someone is willing to work with us to like explain. Okay. This is how
+[04:04] We we do something and something like for example, we we work this way with versail that
+[04:09] There were some some changes they wanted to see in the in the roadmap feature
+[04:13] So we work with them to to like improve it then and then they could like give us feedback along the way
+[04:19] That is so interesting because I think people seeing linear from the outside
+[04:22] It feels like you just take the time it need you need to build something awesome
+[04:26] And then it launches and it's amazing and it's great
+[04:29] But turns out that isn't exactly how you build it's you actually do launch things really early
+[04:33] And people don't necessarily see it until it's done, but there's this whole process behind the scenes
+[04:38] Yeah, I think like sometimes people can believe like think of that craft is is about perfecting things and like perfecting them in a
+[04:44] in a very like
+[04:46] Organized way or like very early on the downside with this like perfection mindset is that it can be sometimes
+[04:53] Hard to like put anything out because nothing is ever like fully perfect
+[04:57] And so we try to like balance this
+[04:59] Thinking with the fact that we should be always pushing things out very quickly
+[05:04] But then like also fixing them like improving them very quickly. So
+[05:08] It's almost like the opposite ideas
+[05:11] But then we we try to like
+[05:13] Kind of combine that and I think it's been it's been working well that and generally in the company
+[05:19] there's not
+[05:20] necessarily like a lot of reviews or something that we we always like review everything that like gets shipped this way
+[05:27] Because we do want people to like feel that they can like put something in the app
+[05:31] And then we can try it out. So it's more like let's just like try it out
+[05:36] And then but then like yeah, we do need to look at it again when before we release it to everyone

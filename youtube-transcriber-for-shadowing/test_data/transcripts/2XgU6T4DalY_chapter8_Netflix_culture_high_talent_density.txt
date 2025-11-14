@@ -1,0 +1,19 @@
+Chapter 8: Netflix culture: high talent density
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 27:44 - 30:31
+============================================================
+
+[00:00] Awesome. Okay. So we've kind of been talking around this, but this is an important part of the Netflix culture. So just broadly, Netflix has a really special and unique culture, even though it's been around for, I think, over 25 years now, it feels like the culture has come up.
+[00:15] Many times there's that initial culture deck that came out that kind of blew everyone's minds. There's a recent book, No Rules Rules, I think it's called, and it feels like Netflix has done a great job at maintaining its culture.
+[00:25] And it feels to me there's kind of these three important elements, and maybe there's more. One is very high talent density and a focus on high performers.
+[00:34] Two is candor and being really direct. And then three is giving people freedom and responsibility and getting rid of useless processes like vacation time and things like that.
+[00:45] So maybe just to dive into that first one of high talent density, which in this focus on high performance, I guess the question there is just like, how does this actually look?
+[00:55] What does this look like in Netflix and imagine part of it as hiring, part of it as performance reviews? And then just why is it so important? Why is this such a focus in Netflix?
+[01:04] What happens when you have such a high talent density?
+[01:07] It's just so intrinsic to who Netflix is as a company. And in some ways it's very reflective of Reed Hastings as founder of Netflix.
+[01:18] So when he founded Netflix and grew the company over time, it was with a belief that there could be a different approach to building a company that would make it a place that people thrived in and loved being and would feel different than other people.
+[01:36] They feel different than other places, both in the quality of that talent density, but even more importantly, like the excellence and outcomes, and that that's where people would derive a lot of sense of fulfillment.
+[01:47] So it's very deeply seated at Netflix from its original days. And a big piece of that talent density is definitely hiring. So who are the people coming in and joining the team?
+[02:03] And a lot of it is we can't really have any of the other aspects of the culture, including candor learning, seeking excellence and improvement, freedom and responsibility, if you don't start with high talent density.
+[02:20] And so in some ways that's a, it's not the end, it's the means to the end in what Reed and the rest of the leadership team has been trying to build.
+[02:32] In order to do that, you have to really hold yourself to a lot of stuff that doesn't feel like natural human behavior. And what I mean by that is giving the feedback.

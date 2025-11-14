@@ -1,0 +1,55 @@
+Chapter 10: Community-driven product development
+Video: The woman behind Canva shares how she built a $42B company from nothing | Melanie Perkins
+Time: 38:02 - 40:37
+============================================================
+
+[00:00] is actually really beneficial.
+[00:02] I want to come back to this closing the loop process,
+[00:05] let's say, that you have where you figure out what to build.
+[00:09] A lot of your ideas come actually from the community.
+[00:11] Talk about just that process and how many of your ideas actually came from your community.
+[00:14] Oh, it's one of my favorite things we've been doing it for years now.
+[00:18] And so we get more than a million requests from our community every year.
+[00:22] And we then we've got a whole incredible team that then tallies them,
+[00:27] breaks them down and then delivers them to all of our product teams.
+[00:30] And then those actually get closed.
+[00:31] So this year we've closed more than 200 loops.
+[00:34] But we know that each one of those things is going to be loved and needed by so many more people
+[00:39] that don't bother to actually fill out the request form.
+[00:43] And so so many things from gradient text, like little things like gradient text,
+[00:48] to really big things like our sheets product.
+[00:51] There's just been countless products.
+[00:54] In the early days with our AI products, we didn't release them to teachers
+[00:57] because we knew there was a lot of hesitancy for teachers using AI in the classroom.
+[01:01] And we got so many requests from teachers saying,
+[01:03] can I please use this magic right in the classroom?
+[01:06] And so with them, we unlocked that and put on safety controls for teachers.
+[01:11] And so it's just constant, actually.
+[01:14] It's just part of our product process.
+[01:15] I think there's two parts to product.
+[01:16] One is building the future and towards the mission
+[01:19] and the mission tellers, as I was saying before.
+[01:21] And the other is actually listening to our community and building what they want.
+[01:25] And so I think that that's the two core pieces of product in my mind.
+[01:31] And the closing of the loop comes in so many different forms as the explicit asks.
+[01:35] And then the other thing that we double down on all the time is user testing
+[01:39] and watching people use it.
+[01:40] And if people hesitate clicking a button or people don't quite understand how something works,
+[01:44] it's amazing to me how you can find 10 random people on the internet
+[01:48] and they can give such astute feedback that then is so representative
+[01:51] for such a large number of people.
+[01:52] So I've personally run hundreds, if not thousands of user tests myself.
+[01:58] And it's been deeply embedded in our product teams also.
+[02:01] Wow. That must be really stressful for someone looking at a test of Canva
+[02:04] trying to try someone when you're in the room.
+[02:06] It's actually, we do it all online, actually.
+[02:09] I mean, the ones I've run are typically online.
+[02:11] So people are so much more frank, I think, when they just,
+[02:15] it's just them and their camera and they don't really,
+[02:20] yeah, they tell you really how it is.
+[02:22] Is there a tool or a kind of a process there that you find really helpful?
+[02:25] I don't know if you want to name names of products or anything like that,
+[02:27] but it's something that you find helpful and useful.
+[02:29] Yeah, we use a lot of user testing.com.
+[02:31] I find that super, super valuable.
+[02:33] All right, go user test.

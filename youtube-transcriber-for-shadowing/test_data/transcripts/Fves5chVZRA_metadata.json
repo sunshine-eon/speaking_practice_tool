@@ -1,0 +1,128 @@
+{
+  "video_id": "Fves5chVZRA",
+  "title": "Matt Mullenweg on the future of open source and why he’s taking a stand",
+  "url": "https://www.youtube.com/watch?v=Fves5chVZRA",
+  "duration": 5667,
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "title": "Introduction to Matt Mullenweg",
+      "start_time": 0.0,
+      "end_time": 310.0,
+      "start_time_formatted": "00:00",
+      "end_time_formatted": "05:10"
+    },
+    {
+      "chapter_index": 2,
+      "title": "Matt’s career journey",
+      "start_time": 310.0,
+      "end_time": 675.0,
+      "start_time_formatted": "05:10",
+      "end_time_formatted": "11:15"
+    },
+    {
+      "chapter_index": 3,
+      "title": "Bay Lights project and philanthropy",
+      "start_time": 675.0,
+      "end_time": 1048.0,
+      "start_time_formatted": "11:15",
+      "end_time_formatted": "17:28"
+    },
+    {
+      "chapter_index": 4,
+      "title": "How Matt got involved with open source",
+      "start_time": 1048.0,
+      "end_time": 1405.0,
+      "start_time_formatted": "17:28",
+      "end_time_formatted": "23:25"
+    },
+    {
+      "chapter_index": 5,
+      "title": "Why products like Meta’s Llama are “fake open source”",
+      "start_time": 1405.0,
+      "end_time": 1634.0,
+      "start_time_formatted": "23:25",
+      "end_time_formatted": "27:14"
+    },
+    {
+      "chapter_index": 6,
+      "title": "The future of open source and how to get involved",
+      "start_time": 1634.0,
+      "end_time": 2125.0,
+      "start_time_formatted": "27:14",
+      "end_time_formatted": "35:25"
+    },
+    {
+      "chapter_index": 7,
+      "title": "Building a successful online community",
+      "start_time": 2125.0,
+      "end_time": 2352.0,
+      "start_time_formatted": "35:25",
+      "end_time_formatted": "39:12"
+    },
+    {
+      "chapter_index": 8,
+      "title": "The WP Engine controversy",
+      "start_time": 2352.0,
+      "end_time": 3024.0,
+      "start_time_formatted": "39:12",
+      "end_time_formatted": "50:24"
+    },
+    {
+      "chapter_index": 9,
+      "title": "Facing criticism and controversy",
+      "start_time": 3024.0,
+      "end_time": 3329.0,
+      "start_time_formatted": "50:24",
+      "end_time_formatted": "55:29"
+    },
+    {
+      "chapter_index": 10,
+      "title": "Addressing community concerns",
+      "start_time": 3329.0,
+      "end_time": 4109.0,
+      "start_time_formatted": "55:29",
+      "end_time_formatted": "68:29"
+    },
+    {
+      "chapter_index": 11,
+      "title": "Forking Advanced Custom Fields",
+      "start_time": 4109.0,
+      "end_time": 4275.0,
+      "start_time_formatted": "68:29",
+      "end_time_formatted": "71:15"
+    },
+    {
+      "chapter_index": 12,
+      "title": "The role of social media and public perception",
+      "start_time": 4275.0,
+      "end_time": 4603.0,
+      "start_time_formatted": "71:15",
+      "end_time_formatted": "76:43"
+    },
+    {
+      "chapter_index": 13,
+      "title": "Acquiring and reviving Tumblr",
+      "start_time": 4603.0,
+      "end_time": 5065.0,
+      "start_time_formatted": "76:43",
+      "end_time_formatted": "84:25"
+    },
+    {
+      "chapter_index": 14,
+      "title": "Automattic’s acquisition strategy",
+      "start_time": 5065.0,
+      "end_time": 5331.0,
+      "start_time_formatted": "84:25",
+      "end_time_formatted": "88:51"
+    },
+    {
+      "chapter_index": 15,
+      "title": "Final thoughts and future plans",
+      "start_time": 5331.0,
+      "end_time": 5666,
+      "start_time_formatted": "88:51",
+      "end_time_formatted": "94:26"
+    }
+  ]
+}

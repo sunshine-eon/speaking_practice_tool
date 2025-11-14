@@ -1,0 +1,31 @@
+Chapter 13: The impact of using this framework
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 39:14 - 41:27
+============================================================
+
+[00:00] What kind of impact have you seen from implementing something like this? Or is there an example of
+[00:03] something that came out of this that was a big unlock? And again, it's probably a lot of work
+[00:08] for someone to put together a whole board, keep it updated, screenshots, marketing funnels of
+[00:12] where people are coming from. What sort of impact do you see from doing this, either on
+[00:17] growth or what people think? I think the largest impact that happens here is on alignment.
+[00:25] So how CXOs are thinking, if that is not very clear, and that can be a document and so on so
+[00:30] forth. But for a lot of people, it's not very clear on, I can see one part of the funnel, I can
+[00:36] understand the marketing team can understand the best why we are acquiring those users, but they
+[00:41] don't kind of fully see the picture of if I attract this kind of users, why will some, these users
+[00:46] become loyal? And what does that entire thing look like? Or say some other team which is building
+[00:51] a part of the product, where do I come in? And so on. So I think the largest impact that
+[00:57] the show don't tell has is on basically getting the entire company together on the same page
+[01:03] and them being able to understand why I'm doing and which part of the entire picture I am working
+[01:10] on and why others are working on so that I can actually work with them to solve that part.
+[01:14] That's one. The other thing that that it helps, Lenny, it also helps in choosing directions.
+[01:21] Like I said, like it's because we are not doing one, but three of them, and why I'm
+[01:26] choosing one alternative versus the other. And sometimes these strategic discussions,
+[01:30] they can get going like all sorts of different ways. And maybe you will talk about one
+[01:35] particular unique point and go deeper, rather than look at the entire picture together
+[01:39] and say, this is good because of all of these five points that we presented in page one versus the
+[01:45] other one. I think the other benefit just like one of the benefits of working backwards in Amazon's
+[01:51] whole written down memo approach is it forces you to crystallize ideas and not stay superficial
+[01:56] because there's so many like good ideas in theory. But then when you have to get really
+[01:59] concrete, that's actually a terrible idea. Like basically it's the same benefit in a
+[02:03] lot of ways of like, get very concrete, what are you actually going to do? And that'll help
+[02:08] you identify, okay, and this isn't going to work. What are we even thinking? And so, so

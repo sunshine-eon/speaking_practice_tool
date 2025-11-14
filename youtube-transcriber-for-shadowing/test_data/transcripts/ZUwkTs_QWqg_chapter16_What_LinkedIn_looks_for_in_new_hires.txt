@@ -1,0 +1,36 @@
+Chapter 16: What LinkedIn looks for in new hires
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 39:51 - 40:51
+============================================================
+
+[39:49] that you can get a decision very quickly.
+[39:51] Are there any other really common frameworks
+[39:53] or processes along these lines at LinkedIn
+[39:55] that you find really helpful?
+[39:56] The third thing is just in how we think about talent,
+[40:00] especially in the product organization.
+[40:02] And I often really do try to suss out during interviews
+[40:06] or how we prevent people
+[40:07] with just their ability to see systems.
+[40:09] Because I do think it's again,
+[40:11] I do think it's a different skill set
+[40:12] and a different capability
+[40:13] of how we kind of map those things out in a complexing group.
+[40:16] And so oftentimes I think those talent systems will,
+[40:20] those who are able to see the whole
+[40:22] and make decisions out the whole,
+[40:23] that's kind of rare actually.
+[40:24] I think most talent systems are,
+[40:25] hey, how did your division grow, your product grow,
+[40:28] your error grow?
+[40:29] And we've tried our best to understand
+[40:31] if it's not just about that.
+[40:33] I mean, you want accountability in the ecosystem, of course,
+[40:35] but how well does this person work across?
+[40:38] And I think it's kind of,
+[40:39] we've created telemetry around that
+[40:41] or organizational understanding of that,
+[40:43] how we've understood ourselves kind of just,
+[40:46] hey, this is the skill set that's really important here.
+[40:48] I think that's quite rare
+[40:49] in driving that kind of complex system as well.

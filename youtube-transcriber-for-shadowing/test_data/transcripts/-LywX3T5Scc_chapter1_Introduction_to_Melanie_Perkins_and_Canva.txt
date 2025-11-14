@@ -1,0 +1,129 @@
+Chapter 1: Introduction to Melanie Perkins and Canva
+Video: The woman behind Canva shares how she built a $42B company from nothing | Melanie Perkins
+Time: 00:00 - 04:44
+============================================================
+
+[00:00] There's a very famous story about Canva.
+[00:01] Early on, you pitched over 100 investors,
+[00:04] and over 100 investors said no to you.
+[00:06] It was really clear in my mind that it was the future,
+[00:08] and I thought the investors were wrong, frankly.
+[00:11] But investors also gave really helpful feedback,
+[00:14] and feedback often in the form of rejection.
+[00:16] They would say, oh, your market's not big enough,
+[00:18] and I would say it's going to be huge.
+[00:20] And I'd add a new page in my pitch deck
+[00:22] that said how big the market, I believe, was.
+[00:24] And then they'd say, you're the same as some other company.
+[00:26] And I would say, hey, now I've got a new slide in my pitch deck
+[00:28] that shows all the players and the huge gap in the market
+[00:31] that we believe we're going to fill.
+[00:33] 20 of your values.
+[00:33] Crazy big goals.
+[00:34] I love that as a value.
+[00:35] The thing that I love about a crazy big goal
+[00:37] is that you feel completely inadequate before it.
+[00:39] You want to work really hard to will it into existence.
+[00:42] I really like to start by just imagining
+[00:44] what is the future that you actually want.
+[00:46] Right now, I have a wall in my house in my office,
+[00:49] which is my vision for what I'd like the world to look like in 2050.
+[00:52] I heard from one of your human members, Melissa Tan,
+[00:54] that there's a deck like this.
+[00:56] For every project you kick off, there's this big vision deck.
+[00:59] And so we have this concept of chaos to clarity.
+[01:01] Every idea starts in the chaos side,
+[01:03] and then you have to work all the way to the other side,
+[01:05] which is clarity.
+[01:06] That very first step at the far end of chaos
+[01:09] was quite a embarrassing step, actually,
+[01:11] because you don't have mastery at that point.
+[01:13] You don't have all the answers.
+[01:14] A lot of people think of Canada as like a design graphics
+[01:17] for social media and marketing and things like that.
+[01:19] But you also have spreadsheets, docs, whiteboards, charts,
+[01:22] AI coding tool.
+[01:24] It was funny looking back from really old decks.
+[01:26] We were trying to do AI, but AI was actually a thing.
+[01:30] Today, my guest is Melanie Perkins,
+[01:33] CEO and co-founder of Canva.
+[01:35] Melanie is on track to be the most successful
+[01:37] female tech founder in history
+[01:40] and one of the most successful founders, period.
+[01:43] Canva has currently valued at over $42 billion,
+[01:46] making over $3.3 billion in revenue a year.
+[01:49] They've been profitable for eight years straight
+[01:51] and are one of the hottest private tech companies
+[01:53] in the world right now.
+[01:54] But it wasn't always this way.
+[01:56] Melanie was rejected by over 100 investors
+[01:59] when she was trying to raise her first round.
+[02:00] Their team spent two years rewriting their entire code base
+[02:03] and were unable to ship any new features for over two years,
+[02:07] something they expected to just take six months.
+[02:09] And they even went through a big pivot early on
+[02:11] from a yearbook publishing platform
+[02:13] to the Canva that you know today.
+[02:15] Melanie does not do a lot of podcasts.
+[02:17] She shares stories that I've never heard before
+[02:19] and lessons that I'm still thinking about.
+[02:21] This is a really rare opportunity
+[02:23] to learn from a legendary founder.
+[02:25] A huge thank you to Cameron Adams and Melissa Tan
+[02:27] for suggesting topics for this conversation.
+[02:29] If you enjoy this podcast, don't forget to subscribe
+[02:31] and follow it in your favorite podcasting app or YouTube.
+[02:34] And if you become an annual subscriber of my newsletter,
+[02:37] you get a year free of 17 incredible products,
+[02:40] including Devon, Lovable, Replic Bolt,
+[02:42] N8 and Linear Superhuman Descript,
+[02:44] Pusperflow Gamma, Proplexity, Warp,
+[02:45] Granola Magic Pad, AndreKast, JPRD and Mobbin.
+[02:47] Head on over to lennysnewsletter.com
+[02:49] and click product pass.
+[02:51] With that, I bring you Melanie Perkins
+[02:53] after a short word from our sponsors.
+[02:55] My podcast guests and I love talking about craft and taste
+[02:59] and agency and product market fit.
+[03:01] You know what we don't love talking about?
+[03:03] Sock 2.
+[03:04] That's where Vanta comes in.
+[03:06] Vanta helps companies of all sizes get complying fast
+[03:09] and stay that way with industry leading AI,
+[03:11] automation and continuous monitoring.
+[03:14] Whether you are a startup tackling your first Sock 2
+[03:16] or ISO 27001 or an enterprise managing vendor risk,
+[03:20] Vanta's trust management platform
+[03:22] makes it quicker, easier and more scalable.
+[03:24] Vanta also helps you complete security questionnaires
+[03:27] up to five times faster
+[03:28] so that you can win bigger deals sooner.
+[03:31] The result, according to a recent IDC study,
+[03:34] Vanta customers slashed over $500,000 a year
+[03:38] and are three times more productive.
+[03:40] Establishing trust isn't optional.
+[03:43] Vanta makes it automatic.
+[03:45] Get $1000 off at vanta.com slash Lenny.
+[03:50] Last year, 1.3% of global GDP flow through Stripe.
+[03:55] That's over $1.4 trillion.
+[03:58] Stripe helps ambitious founders start companies
+[04:00] and scale them from pre-seed to IPO and beyond.
+[04:04] Used by 78% of the Forbes AI50,
+[04:07] Stripe provides financial infrastructure
+[04:09] for payments, billing and software
+[04:11] to platforms and marketplaces
+[04:13] so they can monetize faster,
+[04:15] experiment with pricing and grow revenue.
+[04:17] With Stripe, businesses achieve
+[04:19] massive global scale faster than they would otherwise
+[04:22] and at the beginning of that journey
+[04:23] is where Stripe startups comes in.
+[04:25] Stripe startups is a program designed
+[04:27] to support early stage venture-backed businesses
+[04:30] as they build, iterate and scale.
+[04:32] Founders enrolled in Stripe startups
+[04:33] get access to credits, to offset Stripe fees,
+[04:36] expert insights and a focused community
+[04:38] of other founders building on Stripe.
+[04:40] You can learn more and apply for the program today
+[04:43] at stripe.com.

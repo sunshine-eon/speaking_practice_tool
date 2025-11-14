@@ -1,0 +1,83 @@
+Chapter 14: Building and maintaining complex systems
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 35:32 - 38:09
+============================================================
+
+[35:32] You've kind of touched on this idea of a complex system,
+[35:35] and I wanna spend a little bit more time there.
+[35:37] So, LinkedIn is, as you said, very, very complicated.
+[35:40] There's all these marketplaces within marketplaces.
+[35:44] There's so many customers you gotta make happy.
+[35:47] They all have to work together.
+[35:49] I'm just curious what you've learned about building
+[35:52] and maintaining a complex ecosystem like that.
+[35:55] So, it's a fantastic question,
+[35:57] and it's, first of all, I just openly think,
+[36:00] first of all, just career-wise,
+[36:01] always been drawn to that.
+[36:02] I think, as many, we talk about product as a whole, right?
+[36:06] We always talk about it as a whole,
+[36:07] but there's many different things you can build,
+[36:09] many different types of things,
+[36:10] and then we kind of go,
+[36:11] maybe there's hardware and software, consumer goods.
+[36:13] I actually try to kind of think about products
+[36:15] by their complexity curve a lot.
+[36:17] I think that the skills you need to manage
+[36:19] a complicated kind of ecosystem
+[36:21] versus maybe the skills you need to design,
+[36:23] something that's less interconnected or quite different.
+[36:25] And I will get to the details,
+[36:27] maybe what I mean in a minute,
+[36:29] but I do think LinkedIn is a particularly complicated place,
+[36:31] and I do think that the skill sets that you think through
+[36:34] and you try to manage
+[36:35] are in a complicated ecosystem or quite different.
+[36:37] So, maybe some tactics that can help if it's something
+[36:40] that's really important.
+[36:41] Yeah, let's do it.
+[36:42] You know, one of the things that I often think about
+[36:45] is this concept of cause and effect, right?
+[36:47] Like, if you have non-interconnected things,
+[36:50] it's actually quite easy not to have to think about that.
+[36:52] You made something people love,
+[36:54] and you know, I wrote a children's book not too long ago,
+[36:58] and it was fun.
+[36:59] It was awesome to write.
+[37:00] Once it was done, it was kind of done,
+[37:02] and it was out there and it was able to go.
+[37:04] And that's a little bit different than here, right?
+[37:06] If you kind of make a change, like open to work,
+[37:09] all of a sudden you're thinking through the perception
+[37:11] of someone on the other side, what is that gonna do?
+[37:13] Are they gonna use the platform less or more?
+[37:15] Are you thinking about customers?
+[37:17] What are they gonna do with that data?
+[37:18] Are they gonna, to your point,
+[37:19] receive someone in a different way or not?
+[37:21] You have to think through a second and third,
+[37:23] and maybe even fourth or third of effects,
+[37:25] and kind of manage that as you go through.
+[37:27] And I think that is something we really pride ourselves on,
+[37:29] is how do we start thinking through these different things,
+[37:31] and how do we start measuring them as we go?
+[37:33] And that is one.
+[37:35] The second thing I actually think is
+[37:36] it does lead to your point a lot.
+[37:38] You need a different kind of decision-making mechanism,
+[37:40] because there's a lot more ties in the ecosystem
+[37:42] and a lot of people who just need way to break it,
+[37:44] and we've kind of put in things like,
+[37:45] we have something called Rapid,
+[37:46] which is a really easy way to know who the decision-maker is.
+[37:49] Just you line up who's your recommender,
+[37:51] who has to agree who's a decision-maker.
+[37:53] We have something called a five-day escalation rule,
+[37:55] which makes sure that those items are in.
+[37:57] And I think you lead a lot more of those views,
+[37:59] I don't know what they're called,
+[38:00] but they're just systems in place
+[38:02] and where to manage that complexity so that things get done.
+[38:05] And I think that those processes
+[38:06] are actually really, really important
+[38:07] to make sure that the ecosystem can run.

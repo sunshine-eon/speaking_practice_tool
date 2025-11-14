@@ -1,0 +1,28 @@
+Chapter 2: Overview of Linear
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 04:25 - 06:43
+============================================================
+
+[00:00] Kari, thank you so much for being here. Welcome to the podcast.
+[00:04] Thanks, Lenny. It's great to be here.
+[00:06] Maybe to start, set a little context. Can you just explain what does linear do?
+[00:11] And then share maybe a few stats of just the scale of linear at this point.
+[00:16] So, linear is the project and issue tracking system that software companies and technical teams love to use.
+[00:22] We help like software companies to build software.
+[00:25] We started 2019.
+[00:28] Today, some of the top growth companies like Block, Versailles, Ramp, Retool, Mercury and Substack are building with linear.
+[00:39] We also additionally have lots of other companies, like thousands of other companies using linear.
+[00:45] These companies can be like very early stage team, like some companies just graduated from YC or a public company.
+[00:52] And just briefly why we created linear is that I work with you at the Airbnb and before that I work at Coinbase.
+[01:02] And before that I had my own startup and all of us founders, there's three of us.
+[01:07] We had a similar base where we worked in multiple different companies in different stages.
+[01:13] And what we saw often is that the tools available for managing software projects burned that, like really cutting it.
+[01:22] I think a lot of them felt very conky or complex or just like they had this kind of legacy way of thinking about software development.
+[01:31] And so we just felt like we should do something about it.
+[01:35] So with linear we set out to do like build this like most frictionless and streamlined system for modern software development.
+[01:45] I'm also happy to share that we've been profitable the last two years.
+[01:50] And we also have this thing where we actually have this net negative lifetime burn rate,
+[01:56] which means that we just have more cash in the bank today than we have raised.
+[02:01] I think a lot of startups like usually the normal ways is that like you raise money and then you need to spend it to build it.
+[02:08] But I think we since we were able to build the business pretty early on,
+[02:12] we've been able to be in this position that actually we haven't spent any money on building the business.

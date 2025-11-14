@@ -1,0 +1,31 @@
+Chapter 18: Three reasons why leaders fail
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 54:00 - 56:21
+============================================================
+
+[00:00] problem. There are only three reasons again why things do not happen the way you want them to
+[00:04] happen as a leader. And you can look at a person and you would say either that person can't do
+[00:10] which is a capability issue or they won't do which is a motivation or an alignment issue
+[00:16] or they were not set up to do which is really your problem that you didn't set up the ways
+[00:21] of working in org design properly or your OKR structure success and so on and so forth.
+[00:26] So as a leader it's almost the opposite of what like what we talked about great influence and raw
+[00:32] shops like if the how do you have the right people in terms of capability and if not is the right
+[00:41] answer for us to coach them or to like really put them or mentor them and so on or move them to
+[00:46] some other place because maybe the capability suited elsewhere if they won't do why won't
+[00:52] they like are they not aligned to you do they not agree with your vision do they not
+[00:58] does have enough time and so on so forth. So you need to really go deeper there why won't they do
+[01:04] and there are different answers for that but if it's a setup issue and at least I have realized
+[01:09] that apart from what product managers can do almost 70 80 percent of problems why things don't happen
+[01:15] are a setup issue. Product leaders or other leaders are not thought through what OKRs are
+[01:22] doing to my company not really fully thought through around org design if you have read the
+[01:28] book called team topologies that's like one one interesting book which starts with Conway's law
+[01:33] and essentially saying show me an engineering architecture and I will actually tell you
+[01:38] what the org design of this company is but that also manifests itself in products like
+[01:44] you can basically look at a product in most cases you will be able to say what was org design that
+[01:49] led to this kind of product. I've heard that book mentioned a couple of times recently I got to
+[01:54] check it out just to the three you just shared which is another three I love it can do won't do
+[01:59] what was the third one again didn't do. Not set up to do. Not set up to do that one's a long
+[02:04] that's a long one I think what's cool about these are it they're essentially ways to measure
+[02:09] performance maybe you have a product manager like performance reviews like can did you have
+[02:13] the skills to do this did you have the motivation to do this or did something not set up for you
+[02:18] success like you weren't set up for success basically.

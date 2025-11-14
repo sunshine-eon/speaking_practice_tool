@@ -1,0 +1,55 @@
+Chapter 4: Building a craft-oriented company
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 12:25 - 16:41
+============================================================
+
+[00:00] A lot of founders, a lot of product leaders, a lot of designers definitely want to create
+[00:05] space for craft and making products really great, something they're really proud of,
+[00:10] but in practice it's really hard. Very few teams and companies do this. Is there anything else
+[00:16] you've learned about creating space for this sort of thing and prioritizing it
+[00:20] for founders that are listening that are trying to instill more and more of this,
+[00:23] or do you have to be a designer CEO like Kari, and it's hard to do otherwise?
+[00:27] Yeah, I don't think actually it's not purely coming from me, so I think all of us founders,
+[00:33] like Jory and Thomas, and additionally their background is engineering, but I would say they
+[00:39] actually have almost like, I think they spend even more time on the details than sometimes I do.
+[00:45] I think very early on when it was three of us, I would be the one doing the broad strokes
+[00:51] designs, like this is how the UI works, and this is how some of the things work,
+[00:56] and they were the ones that like, oh there should be animation here and there should be like
+[01:00] this kind of thing here. So I think it's kind of like that DNA I think comes from all of us,
+[01:05] and I think like with the craft it always starts with people need to care about it,
+[01:10] like if it's not valued in the company, then it's very hard to do for anyone to do,
+[01:15] because people don't feel like it's valued. And I gave this advice to some founder,
+[01:21] he was asking me about it, and like in their case, like the founders were coming from different
+[01:26] companies, like maybe this one founder came from European B and then the other ones came from my
+[01:31] Facebook and Amazon. And I think like this, like for example, I think Facebook and Amazon have
+[01:37] a very different culture on quality or craft or shipping. And I think like where I said to
+[01:43] them, like you just like you need to align on it, like it's like you cannot run a company
+[01:48] with multiple different kinds of cultures. I think I made some points like why the quality is
+[01:53] important for certain kind of products, and like you should all kind of believe in that,
+[01:57] and then like instill that with everyone you hire. The other thing I would say that
+[02:02] what we like to do is we actually don't have much BMs in the company, we only have one.
+[02:08] And like, we can talk about more about it, but the one of the things I think that happens
+[02:14] is like when you build a team and you start creating this very specific roles for everything,
+[02:21] where like I think that often the BM can be the one that like figuring things out and like
+[02:25] making decisions and guiding the team, but they're not the ones like building the feature,
+[02:30] so they're not there like looking at it like the whole day, it's like how is this,
+[02:34] where does this button go or how does it work. And I think like a lot of that like this graph
+[02:39] for us happens when we give the project team this like ownership, and the project team is just
+[02:44] engineering and design, and then when they start building that feature, they start seeing these
+[02:49] opportunities that this thing could be better. Like a good example of this is like we one of our
+[02:55] engineers Andreas like when we were building this right click menu in the app, like so you
+[03:01] can right click different things and under that you have sub menus, like Mac OS does this well,
+[03:06] where it's like when you menu open that menu, you hover on the menu and then you want to go to the
+[03:11] sub menu, so you hover to the right, you don't have to go like exactly like horizontally to get into
+[03:17] that menu, you can actually go kind of like diagonally or like you don't actually have to
+[03:22] hit the menu exactly, there's like this kind of safe zone, but like a lot of software like just
+[03:26] implements like, hey, let's do this menu, let's make the sub menu, it only works if you
+[03:32] exactly hover over the menu. And then like what happens is the user often like misses like
+[03:38] with few pixels what they were trying to like do. So what Andreas did like which we didn't tell him
+[03:43] to do is like, yeah, this kind of sucks and like we should make this better. And so he figured out
+[03:48] the way to like create those like safe areas that are dynamic based on like, like the sub menu
+[03:53] positioning and everything. So it's much easier now, like you can go diagonally to the
+[03:58] actual thing you want to go to. So I think like these kind of things like happen when you give
+[04:04] people like more of the ownership of the project and also like the space to do that and then you
+[04:09] also have like leadership or or generally the company culture that that values the quality or the
+[04:15] craft.

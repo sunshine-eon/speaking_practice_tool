@@ -30,6 +30,13 @@ import csv
 import random
 from config import OPENAI_API_KEY
 
+# Try to import python-docx for reading resume
+try:
+    from docx import Document
+    DOCX_AVAILABLE = True
+except ImportError:
+    DOCX_AVAILABLE = False
+
 # Load prompts from prompts.py if it exists, otherwise use defaults
 try:
     from prompts import (
@@ -42,6 +49,9 @@ try:
         SHADOWING_SCRIPT_USER_PROMPT,
         WEEKLY_PROMPT_SYSTEM_PROMPT_EXTRA,
         WEEKLY_PROMPT_USER_PROMPT,
+        WEEKLY_PROMPT_BEST_ANSWER_SYSTEM_PROMPT,
+        WEEKLY_PROMPT_BEST_ANSWER_USER_PROMPT,
+        WEEKLY_PROMPT_BEST_ANSWER_HINTS_PROMPT,
     )
 except ImportError:
     # Default prompts (used if prompts.py doesn't exist)
@@ -141,6 +151,11 @@ The prompt should:
 The learner is in Phase 1 (0-6 months), focusing on building consistency and natural delivery, so the prompt should be approachable yet substantive."""
     
     WEEKLY_PROMPT_USER_PROMPT = """Generate a weekly speaking prompt for product management practice. The prompt should: 1) Be related to product management (e.g., strategy, user experience, metrics, prioritization, problem-solving, stakeholder management, product launches, user research), 2) Encourage 3-5 minutes of speaking, 3) Help develop PM thinking and communication skills for professional contexts, 4) Be something that helps practice speaking about PM concepts in a natural way, 5) Be engaging and thought-provoking, appropriate for Phase 1 learning (building foundation and fluency). Make it something the learner can speak about naturally while incorporating PM vocabulary and concepts."""
+    
+    # Default prompts for best answer generation (shadowing mode)
+    WEEKLY_PROMPT_BEST_ANSWER_SYSTEM_PROMPT = """You are an expert product management career coach who has fully internalized the content from "Cracking the PM Interview" and Lewis Lin's interview answer techniques."""
+    WEEKLY_PROMPT_BEST_ANSWER_USER_PROMPT = """Generate a complete "best answer" script for a product management interview question. This answer will be used for shadowing practice (3-5 minutes of speaking). Length: 375-625 words, pure speech text only."""
+    WEEKLY_PROMPT_BEST_ANSWER_HINTS_PROMPT = """Generate explanatory hints for the best answer script. These hints should explain each part/section of the generated best answer."""
 
 try:
     from openai import OpenAI
@@ -503,18 +518,27 @@ def generate_shadowing_script(previous_scripts=None, regenerate=False):
     return result['script1']
 
 
-def generate_weekly_prompt(previous_prompts=None, regenerate=False):
+def generate_weekly_prompt(previous_prompts=None, regenerate=False, week_key=None):
     """
     Generate a weekly speaking prompt for practice.
     
     Args:
         previous_prompts: List of previous prompts from past weeks to avoid repetition
         regenerate: If True, indicates this is a regeneration and should generate different content
+        week_key: Week key (e.g., '2025-W45') to determine if shadowing mode is active
     
     Returns:
         A prompt that encourages 3-5 minutes of speaking.
         Focused on product management topics for professional communication practice.
+        In shadowing mode (weeks <= 2025-W52), returns a dictionary with 'prompt', 'best_answer_script', and 'best_answer_hints'.
+        Otherwise, returns a string prompt.
     """
+    # Check if shadowing mode is active
+    if week_key:
+        from progress_manager import is_shadowing_mode
+        if is_shadowing_mode(week_key):
+            # Generate best answer script instead of prompt
+            return generate_weekly_prompt_best_answer(previous_prompts, regenerate, week_key)
     try:
         client = get_openai_client()
         
@@ -578,6 +602,214 @@ DO NOT copy or directly use questions from the database. Instead, create origina
         ]
         import random
         return random.choice(fallback_prompts)
+
+
+def get_resume_context():
+    """
+    Read and extract text from the resume file to provide context for generating relatable stories.
+    
+    Returns:
+        String containing resume text, or empty string if resume not found or can't be read
+    """
+    resume_path = 'references/Resume_Hebinna Jeong_062325 (Dolby).docx'
+    
+    if not os.path.exists(resume_path):
+        # Try to find any resume file
+        resume_files = [f for f in os.listdir('references') if 'resume' in f.lower() and (f.endswith('.docx') or f.endswith('.pdf'))]
+        if resume_files:
+            resume_path = os.path.join('references', resume_files[0])
+        else:
+            return ""
+    
+    if not DOCX_AVAILABLE:
+        return ""
+    
+    try:
+        doc = Document(resume_path)
+        resume_text = []
+        for paragraph in doc.paragraphs:
+            if paragraph.text.strip():
+                resume_text.append(paragraph.text.strip())
+        
+        # Also extract text from tables
+        for table in doc.tables:
+            for row in table.rows:
+                row_text = []
+                for cell in row.cells:
+                    if cell.text.strip():
+                        row_text.append(cell.text.strip())
+                if row_text:
+                    resume_text.append(" | ".join(row_text))
+        
+        return "\n".join(resume_text)
+    except Exception as e:
+        print(f"Error reading resume: {e}")
+        return ""
+
+
+def generate_weekly_prompt_best_answer(previous_prompts=None, regenerate=False, week_key=None):
+    """
+    Generate a weekly prompt with best answer script for shadowing mode.
+    
+    Args:
+        previous_prompts: List of previous prompts from past weeks to avoid repetition
+        regenerate: If True, indicates this is a regeneration and should generate different content
+        week_key: Week key (e.g., '2025-W45')
+    
+    Returns:
+        Dictionary with:
+        - 'prompt': The PM interview question/prompt
+        - 'best_answer_script': The complete best answer script (375-625 words)
+        - 'best_answer_hints': Explanatory hints for each part of the answer
+    """
+    try:
+        client = get_openai_client()
+        
+        # Check if PM questions database exists (for context reference)
+        pm_questions_exist = os.path.exists('references/pm_questions.csv')
+        
+        # Build context about PM questions (reference, not copy)
+        pm_questions_context = ""
+        if pm_questions_exist:
+            pm_questions_context = """
+
+IMPORTANT CONTEXT - Reference PM Question Database:
+The learner has a database of PM questions covering various topics like: product strategy, metrics and success measurement, prioritization, user research, stakeholder management, product design, execution, A/B testing, and behavioral scenarios.
+
+When generating the prompt and best answer, reference these question types conceptually:
+- Align the prompt topics with the PM domains covered in those questions
+- Structure the best answer to demonstrate strong PM thinking and frameworks
+- Focus on PM concepts and skills that appear frequently in PM interviews
+- Show structured thinking and communication patterns useful for interviews"""
+        
+        # First, generate the prompt/question
+        prompt_response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": f"""{BACKGROUND_CONTEXT}
+
+{WEEKLY_PROMPT_SYSTEM_PROMPT_EXTRA}"""
+                },
+                {
+                    "role": "user",
+                    "content": """Generate a product management interview question/prompt. This will be used to generate a best answer for shadowing practice.
+
+The prompt should:
+- Focus on a specific PM topic or skill (user research, prioritization, metrics, stakeholder management, product strategy, etc.)
+- Be a clear, specific interview question that can be answered in 3-5 minutes
+- Be suitable for generating a strong, structured best answer
+- Reference PM interview question types (product strategy, metrics, prioritization, user research, stakeholder management, product design, execution, A/B testing, behavioral scenarios)
+
+Return ONLY the question/prompt itself, no hints or additional text. Start directly with the question.""" + pm_questions_context + (
+                        f"\n\nIMPORTANT: Create a DIFFERENT prompt from previous weeks. "
+                        f"Previous prompts ({len(previous_prompts or [])}): {', '.join([p[:80] + '...' if len(p) > 80 else p for p in (previous_prompts or [])[:3]])}. "
+                        f"Choose a new PM topic or approach that hasn't been covered recently."
+                        if previous_prompts else ""
+                    ) + (
+                        "\n\nNOTE: This is a regeneration - please generate a COMPLETELY DIFFERENT prompt from what was previously generated for this week."
+                        if regenerate else ""
+                    )
+                }
+            ],
+            temperature=0.9 if regenerate else 0.8,
+            max_tokens=200
+        )
+        
+        prompt = prompt_response.choices[0].message.content.strip()
+        
+        # Get resume context for relatable stories
+        resume_context = get_resume_context()
+        resume_context_section = ""
+        if resume_context:
+            # Limit resume context to avoid token limits (keep it concise)
+            resume_summary = resume_context[:2000]  # First 2000 chars should be enough
+            resume_context_section = f"""
+
+IMPORTANT - LEARNER'S BACKGROUND CONTEXT:
+The learner's resume/work history is provided below. When creating stories and examples, make them relatable to this background. The stories don't have to be exact matches, but should be in domains/industries/contexts the learner would understand and relate to based on their experience.
+
+Resume/Background:
+{resume_summary}
+
+Use this context to create stories that feel authentic and relatable to the learner's background. The examples should align with domains, technologies, or work contexts similar to what's in their resume."""
+        
+        # Now generate the best answer script
+        best_answer_response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": f"""{BACKGROUND_CONTEXT}
+
+{WEEKLY_PROMPT_BEST_ANSWER_SYSTEM_PROMPT}"""
+                },
+                {
+                    "role": "user",
+                    "content": f"""{WEEKLY_PROMPT_BEST_ANSWER_USER_PROMPT}
+
+The PM interview question is:
+{prompt}
+{resume_context_section}
+
+Generate the best answer script now. Remember: 375-625 words, pure speech text only, no labels or markers. Include specific PM details (features, campaigns, MVP composition, prioritization decisions) and make the story relatable to the learner's background."""
+                }
+            ],
+            temperature=0.7,
+            max_tokens=1000
+        )
+        
+        best_answer_script = best_answer_response.choices[0].message.content.strip()
+        
+        # Finally, generate explanatory hints
+        hints_response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": f"""{BACKGROUND_CONTEXT}
+
+{WEEKLY_PROMPT_BEST_ANSWER_SYSTEM_PROMPT}"""
+                },
+                {
+                    "role": "user",
+                    "content": f"""{WEEKLY_PROMPT_BEST_ANSWER_HINTS_PROMPT}
+
+The PM interview question is:
+{prompt}
+
+The best answer script is:
+{best_answer_script[:500]}...
+
+Generate explanatory hints for this best answer now."""
+                }
+            ],
+            temperature=0.7,
+            max_tokens=500
+        )
+        
+        best_answer_hints = hints_response.choices[0].message.content.strip()
+        
+        return {
+            'prompt': prompt,
+            'best_answer_script': best_answer_script,
+            'best_answer_hints': best_answer_hints
+        }
+        
+    except Exception as e:
+        print(f"Error generating weekly prompt best answer: {e}")
+        import traceback
+        traceback.print_exc()
+        # Return fallback
+        fallback_prompt = "How would you prioritize features when resources are limited?"
+        fallback_answer = """When prioritizing features with limited resources, I would use a structured framework to ensure we're making data-driven decisions. First, I'd gather input from key stakeholders including product, engineering, design, and business teams to understand all potential features and their requirements. Then I'd evaluate each feature against multiple criteria: user impact, business value, technical complexity, and strategic alignment. I'd use a framework like RICE scoring which considers reach, impact, confidence, and effort. Features with high user impact and business value that align with our strategic goals would rank highest. I'd also consider dependencies between features and potential risks. After scoring, I'd present the prioritized list to stakeholders for discussion and alignment, ensuring everyone understands the rationale. This approach ensures we're investing resources in features that deliver the most value while maintaining transparency and buy-in from the team."""
+        fallback_hints = """1. Framework Introduction: This opening establishes a structured approach, showing systematic thinking which is valued in PM interviews.\n\n2. Stakeholder Input: This section demonstrates understanding of cross-functional collaboration, a key PM skill.\n\n3. Evaluation Criteria: Shows knowledge of prioritization frameworks (RICE) and multi-dimensional thinking.\n\n4. Strategic Alignment: Demonstrates ability to connect features to business goals.\n\n5. Communication and Buy-in: Shows understanding of stakeholder management and transparency."""
+        return {
+            'prompt': fallback_prompt,
+            'best_answer_script': fallback_answer,
+            'best_answer_hints': fallback_hints
+        }
 
 
 def generate_shadowing_audio_openai(script_text, output_path=None, speed=1.0, voice="onyx", return_timestamps=False):

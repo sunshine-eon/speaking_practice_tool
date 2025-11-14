@@ -1,0 +1,67 @@
+Chapter 6: Why PMs must understand category consumers
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 19:59 - 22:30
+============================================================
+
+[00:00] So a couple of things I'm hearing here.
+[00:02] One is the importance of focusing on not people
+[00:06] currently using your product,
+[00:07] but this idea of maybe the marginal user
+[00:09] or the adjacent user,
+[00:11] like the next state of users is who you should be
+[00:13] thinking about when you're trying to optimize
+[00:16] onboarding the user experience.
+[00:18] And then two is something it sounds like
+[00:20] you've had a lot of success with is
+[00:21] picking one value prop, maybe one positioning statement,
+[00:25] and then following that through their entire journey
+[00:28] versus like here's all the things we do.
+[00:30] Is that right?
+[00:31] That's absolutely right.
+[00:32] Let me give an example of this one.
+[00:34] Like, and one of the reasons why I really feel
+[00:37] product managers must, if not better,
+[00:40] but equally understand category consumers,
+[00:44] which are not in market or which are not really looking
+[00:47] or which are not buying your products just yet,
+[00:49] as good as the marketer or the brand expert
+[00:53] in your team does, because they really are tasked with
+[00:57] what is that one message that I can say
+[00:59] that will make the user take attention
+[01:02] or get to like all this interesting
+[01:05] and direct attention towards your product.
+[01:08] And if the product managers are able to do that,
+[01:10] then they will choose that positioning
+[01:12] and essentially understand what is my hope product
+[01:14] and what is the hope that will at least get them
+[01:17] to try my app or any of those things, right?
+[01:22] So if they understand it as well as a marketer
+[01:25] and then understand over a period of time,
+[01:29] what is the right time when I introduce them
+[01:31] to this other one rather than being very greedy
+[01:34] about like letting the user try everything.
+[01:37] So that's one.
+[01:38] The other thing that I feel is a lot of product managers
+[01:40] don't do right is forget about everything.
+[01:43] Here's my app go figure is how most of the products
+[01:48] are designed, unfortunately.
+[01:49] That automatically these things will happen
+[01:52] without any intervention.
+[01:53] I have created something which is so beautiful.
+[01:55] And once you tap that icon,
+[01:57] everything inside that is my product
+[01:58] that is so working perfectly.
+[02:01] But they don't really think about at what moment
+[02:03] do I actually get this user here and why will they use it?
+[02:07] Well, this user is lazy, vain and selfish.
+[02:10] That phrase reminds me of something I always think about
+[02:12] with Mark Andreessen had this great quote
+[02:14] that your user's time is already allocated.
+[02:16] They're not like looking for more apps to download.
+[02:19] They already have a plan for the day basically.
+[02:21] They have things to do.
+[02:22] They're not like, oh, it's another iPhone app.
+[02:24] I'm gonna check out right now.
+[02:26] And so somehow you have to convince them
+[02:27] this is worth your time.
+[02:28] And I like this framework.

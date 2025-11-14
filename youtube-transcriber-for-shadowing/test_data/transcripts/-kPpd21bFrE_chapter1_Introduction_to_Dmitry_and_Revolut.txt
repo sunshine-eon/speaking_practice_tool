@@ -1,0 +1,57 @@
+Chapter 1: Introduction to Dmitry and Revolut
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 00:00 - 03:41
+============================================================
+
+[00:00] Everyone is striving for talented, skillful, smart people.
+[00:04] Revolute values way more raw intellect and this unquenched hunger to build things rather than experience.
+[00:12] I hear one of the ways you approach early products differently is you guys invest a lot in actually making it good.
+[00:18] It's not getting traction.
+[00:19] Is it because the underlying idea is wrong or maybe your product just sucks?
+[00:24] By forcing everyone to build a product that people will love.
+[00:29] We kind of cut out this part of uncertainty.
+[00:32] We can cut down the product in terms of functionality to just most critical features,
+[00:38] but we will never compromise on the quality and UX and aesthetics.
+[00:42] Is there anything that you figured out about just how to set up new products for success?
+[00:47] If something is 99% done, it's closer to 0% rather than 100%.
+[00:53] Today my guest is Dmitri Slakazov.
+[00:56] Dmitri is global head of product at Revolute,
+[00:59] which is a finance supra offering customer savings and checking accounts,
+[01:03] crypto, investing, joint accounts, even mortgages.
+[01:06] Not only was it last valued at over $60 billion,
+[01:10] but in the research that I've been doing to which companies hire and incubate the best product managers,
+[01:14] Revolute was right at the top alongside Palantir and Intercom.
+[01:19] And so in our conversation, we dig into what Revolute has learned about producing and hiring great product leaders,
+[01:25] including a focus on ownership, having people solve really painful and complex problems,
+[01:30] while making the experience wow and lovable by users,
+[01:34] also indexing towards hiring really smart and driven people early in their career,
+[01:38] versus people with a ton of experience in the space.
+[01:40] And so much more if you're looking for a job that will accelerate your product career,
+[01:45] or want to help your product team level up.
+[01:47] This episode is for you.
+[01:48] If you enjoy this podcast, don't forget to subscribe and follow it in your favorite podcasting app or YouTube.
+[01:53] Also, if you become an annual subscriber of my newsletter,
+[01:56] you get a year free of linear superhuman notion perplexity and granola.
+[02:01] Check it out at LennysNewsletter.com and click bundle.
+[02:04] With that, I bring you Dimitri Zlocáza.
+[02:08] This entire episode is brought to you by Stripe.
+[02:11] There's a reason that I've had more guests on this podcast from Stripe than any other company.
+[02:16] It's because they hire the best people and they build incredible products.
+[02:20] You probably know them for their payments platform, which powers my newsletter,
+[02:24] and also companies like NVIDIA and Salesforce and Zoom and DoorDash.
+[02:29] What you may not know is that they have several other products that can help accelerate your revenue,
+[02:33] such as Stripe billing, which powers billing for companies that you may have heard of,
+[02:38] OpenAI, Anthropic, Figma, Atlassian, and over 300,000 other companies.
+[02:45] Stripe billing lets you bill and manage customers however you want,
+[02:48] from simple recurring billing to usage-based billing to sales-negotiated contracts.
+[02:53] There's also Stripe's Optimized Checkout Suite, which is a plug-and-play,
+[02:57] super-optimized payment flow that natively supports over 100 global dynamic payment methods.
+[03:03] There's also a product called LINK, which is an accelerated checkout experience built
+[03:07] specifically to increase your checkout conversion.
+[03:10] Every single one of the Forbes top 50 AI companies that have a product in the market today
+[03:15] use Stripe to monetize it.
+[03:17] Half of Fortune 100 companies use Stripe.
+[03:21] $1.4 trillion flows through Stripe annually, which is equivalent to over 1% of global GDP.
+[03:27] Use Stripe to handle all of your payment-related needs,
+[03:30] billing, manage revenue operations, and launch or invent new business models.
+[03:35] Learn more at stripe.com.

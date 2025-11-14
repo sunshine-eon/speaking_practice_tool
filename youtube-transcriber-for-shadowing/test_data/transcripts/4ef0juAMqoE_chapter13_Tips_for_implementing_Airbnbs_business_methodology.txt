@@ -1,0 +1,85 @@
+Chapter 13: Tips for implementing Airbnb’s business methodology
+Video: Brian Chesky’s new playbook
+Time: 34:15 - 38:48
+============================================================
+
+[00:00] You guys found such a unique way of working.
+[00:02] I've never heard of a company working in these ways in so many contrarian ways.
+[00:07] I think it's going to be a really interesting case study as things progress.
+[00:11] Essentially what you've done is shut down traditional growth channels or at least limited
+[00:15] them.
+[00:16] Paggrowth, and maybe SEO, maybe referrals, at least for a while.
+[00:19] And you've kind of shifted to, let's just make an awesome product and tell people about
+[00:22] it.
+[00:23] And our bet is that what's going to grow.
+[00:25] Do you feel like this can work for most other products or is there like a consumer specific
+[00:31] opportunity?
+[00:33] What advice would you give to founders that are thinking about, man, we should try something
+[00:36] like this?
+[00:37] I think that this methodology can work for everyone, but I don't think you have to be
+[00:41] as ideological or have to go all the way to 100.
+[00:45] I still think growth channels matter.
+[00:47] To be clear, we still spend money on performance marketing.
+[00:50] We still do measure conversion and we will do some experiments.
+[00:56] Think of conversion and growth optimization as like running a football down a field and
+[00:59] think of these big leaps as passive.
+[01:03] You should probably be doing 80% passes, 20% running the ball down the field.
+[01:07] And a lot of companies, they do 80% running down the ball down the field versus 20% passes.
+[01:13] So I think that this methodology will work for everyone.
+[01:17] I mean, sure of the things I believe, I'll give you a checklist.
+[01:20] Number one, I think that the CEO, unless they're not a product person, should think in themselves
+[01:25] as the chief product officer and they should be involved in the product.
+[01:28] Number two, if you're not functional, I would at least think about everyone being really
+[01:32] close together.
+[01:33] So here's no way of saying it, Lenny.
+[01:35] Every product manager should be interconnected and know what everyone else is doing.
+[01:40] They shouldn't be independently siloed unless they're really are running like separate companies
+[01:45] or separate orgs and they have no dependencies.
+[01:47] I think that every leader should be an expert in what they're leading.
+[01:50] There should be no people managers in the entire company.
+[01:54] And when I say people managers, meaning your only responsibility is people, not the work
+[01:58] or not the domain, because you can't manage people to avoid of their work.
+[02:02] Yeah, imagine like a fire chief, they don't know anything about like putting out fires.
+[02:06] Like, that's crazy.
+[02:07] Like you have to know the subject matter.
+[02:10] People should aim to have as few people as possible on their team.
+[02:13] I'm not saying eliminate people.
+[02:14] I mean, grow slowly and do not be reckless.
+[02:18] Five teams should do one thing rather than one team do five things.
+[02:22] So that's just a metaphor.
+[02:24] People should work together.
+[02:25] I think that people should consider doing launches.
+[02:28] You can by the way, ship every hour of every day, but then package it and tell a story
+[02:33] if you want to hold the product back.
+[02:35] I think that teams should use data, but they should also use research and intuition.
+[02:40] There's a designer called Charles Ames that said you can't delegate understanding.
+[02:45] If you're going to do AB experiments or measure data, you have to understand what it means.
+[02:49] I think that you have to have an intuition.
+[02:51] Institution comes not from arbitrariness.
+[02:54] It comes from understanding.
+[02:56] I would make sure that you have engineering and design, ideally report to the founder,
+[03:03] product led person.
+[03:04] I would not have design under product unless you have an extremely good reason the product
+[03:08] person kind of is a designer.
+[03:10] I would try to think about product management, expanding the responsibility and including
+[03:17] distribution, understanding the customer and teaching people how to tell a story.
+[03:21] I would try to make sure that the product managers are a combination of art and science.
+[03:25] I do not think you want purely technical product managers doing things if they're going to
+[03:31] work with non-technical functions.
+[03:34] If they're only working with technical functions, that's fine, but they don't work in non-technical
+[03:37] functions.
+[03:38] I think that's a problem.
+[03:39] I should make sure that marketing and engineering are interconnected.
+[03:43] I would make sure that you have as few layers between a CEO and other people.
+[03:48] If you're a CEO, every direct to your direct should be an implicit dotted line to you.
+[03:54] I treat every direct to my direct as if they're a direct report, a dotted line.
+[03:57] I don't try to conflict with the direction of my team, but I always want to know what
+[04:01] another layer below me is doing.
+[04:03] I think you should think of each release as a chapter of a story or like an episode of
+[04:07] TV series.
+[04:08] You should think of your company in a five or 10-year story.
+[04:12] You may not know where you are in 10 years, but you're telling this ongoing story.
+[04:17] First of all, I would say that everyone should row in the same direction.
+[04:21] If there's only one thing I said in this interview today, I'm not sure what it would be, but
+[04:25] I think a good candidate is try to get everyone to row together in the same direction.
+[04:30] Otherwise, why the hell are you all in the same company?

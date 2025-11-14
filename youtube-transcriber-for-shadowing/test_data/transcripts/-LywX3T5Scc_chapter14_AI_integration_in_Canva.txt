@@ -1,0 +1,28 @@
+Chapter 14: AI integration in Canva
+Video: The woman behind Canva shares how she built a $42B company from nothing | Melanie Perkins
+Time: 52:37 - 53:56
+============================================================
+
+[00:00] not very well at all.
+[00:01] Something I can't not ask about is just how you think about AI in your product.
+[00:05] You mentioned how you integrated or all through the product.
+[00:07] Just, you know, you guys are doing really good stuff with AI.
+[00:10] A lot of companies are struggling to find something really that works great.
+[00:13] Jeff, do you have just like a philosophy of here's how we integrate AI into Canva,
+[00:17] where it ends up being really helpful and people love it?
+[00:20] Your question is actually the answer at the same time.
+[00:23] I think being able to integrate it into the product where it actually helps people
+[00:26] to get their work done, where it genuinely helps them to achieve their goals.
+[00:30] And then being really open to listening to your community and hearing what they're loving,
+[00:35] what they're struggling with and refining from there, I think is really, really important.
+[00:40] Just because AI is all the rage and investors really like AI doesn't necessarily mean it
+[00:44] should be front and center in.
+[00:48] But if it can genuinely help your customers to achieve their goals.
+[00:51] So you know, the thing that I was mentioning before enabling people to communicate their
+[00:55] ideas and have a little friction between those two points, AI is just kind of like, yeah,
+[01:00] naturally a very critical part of that equation for us.
+[01:04] In fact, it was funny looking back from really old decks.
+[01:06] We were trying to do AI before AI was actually a thing because it really was critical to
+[01:11] what we were trying to do.
+[01:12] Even now, 2012 deck, you can kind of imagine how AI very much fit into the equation because
+[01:18] of these.

@@ -1,0 +1,74 @@
+Chapter 8: How Anuj applies the working-backwards framework
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 23:59 - 28:36
+============================================================
+
+[00:00] Okay, let's shift to a different topic.
+[00:04] You have a really concrete way of actually implementing the working backwards process.
+[00:09] We had one of the authors of the book, Working Backwards on recently,
+[00:12] and I'm excited to just hear what you've learned about how to actually put this into practice.
+[00:16] It's easy to hear about, let's work backwards, but doing it as a different beast.
+[00:20] And so I'd love to hear what you've learned there.
+[00:22] So I think the people who invented working backwards is clearly Amazon.
+[00:26] They started this entire process, which is like, hey, why don't you write a press release?
+[00:30] And with that press release, we'll work backwards from that one.
+[00:34] And I thought that was a very cool idea.
+[00:36] And I was trying to dig down into like, hey, why does it work?
+[00:40] My insight, or at least the way that I thought about this one,
+[00:44] is it's not working backwards only from a customer value proposition.
+[00:48] Will our customers love it and will they pay for it?
+[00:51] And is it noteworthy and is it something that we should even be working?
+[00:54] Well, that is one of the most important things that the Working Backwards framework teaches us.
+[01:00] But essentially what you're working backwards from is an entire machinery at a particular day
+[01:07] that is working for that date of GTM.
+[01:11] What do we need to do from here till that particular day so that that GTM is successful,
+[01:16] but also what will be the machinery we would have created so that this product is successful.
+[01:21] Now, because you're already talking about GTM, you're already thinking about how will users love it?
+[01:26] What is the money that we'll spend?
+[01:28] What are the alternatives that we will, routes that we have explored that finally we have zeroed in on and all of those.
+[01:33] So they are all going to be a part of a PRF review.
+[01:36] If I take a slightly open stance on this one, what is a press release?
+[01:40] A press release is you have a one pager which talks about what are we building?
+[01:45] What is a particular date?
+[01:47] Why what is exact value proposition?
+[01:49] What will consumers say?
+[01:50] What will the business manager say?
+[01:52] How will they respond?
+[01:53] How will they use it?
+[01:55] But the one thing that comes out from this framework is that you can use it for a whole bunch of other things.
+[02:01] You can use it for negotiation, for example.
+[02:03] Because you start with a date and then you say, this is the one pager that I need to ship
+[02:08] and I want consumers to say that and you can use it to now go to VP Engineering and say,
+[02:12] buy this date, can we build all of this?
+[02:14] Now they do not have all the PRDs and everything.
+[02:16] They can give you a sense that this is too aggressive or this is not and so on.
+[02:20] You can also use the quotes here to actually find alliances or find people who are going to actually derail this.
+[02:28] So you actually use the customer quote.
+[02:30] I want my customers to say this from marketing and from my pricing team.
+[02:35] Can we actually ship this so that consumers will say that?
+[02:38] And then from the business owner's quote, you actually say, this is what we are shipping.
+[02:42] But what are your goals?
+[02:43] Can you say that within three months we would have achieved this much?
+[02:46] And so using that to kind of build one entire picture is one way that I found it really powerful.
+[02:52] Because if you find disagreements here, then say, I can ship it, then you change the date and then you change the goals.
+[02:57] Because all of these things are changing together.
+[02:59] So instead of one, you find the other set of all the things that need to come together for the press release to go live is the real value.
+[03:07] The other part that I found interesting here is that I really fully believe in the power of three.
+[03:13] So I actually asked my teams to write three plus releases, alternative and divergent.
+[03:20] Like what if we, so suppose you're launching a membership program.
+[03:24] So instead of two tiers, let's do three tiers.
+[03:26] Or for example, let's see another one which is instead of, you know, building a membership, let's build a tiering pricing program with membership points.
+[03:35] And instead of this segment, we'll let's use another segment.
+[03:38] Let's say within these three, and they all need to be fully thought through.
+[03:43] And that kind of helps the leadership choose.
+[03:45] So the two things that help that work here, when you are in the product discovery phase, you would have heard from a lot of folks.
+[03:54] And finally, if you show them just one roadmap, it feels like, hey, this person didn't, they listened to my interesting point, which was valuable, but they didn't include it.
+[04:04] But when you're doing this three PR FAQs, you're seeing them, I considered this and this added up to a story that eventually is valuable.
+[04:12] This alternative route, I considered your point of view.
+[04:15] And I created a story, but unfortunately it is not adding up so we rejected it.
+[04:20] So now people can compare and contrast.
+[04:22] And that's a very powerful leadership tool.
+[04:24] And that actually is a very powerful tool, even for CXOs.
+[04:28] When they say, let's build this.
+[04:30] They say, here are three ways we can build this.
+[04:32] And here's the reason why I'm not building what you said, because you will like these two more.

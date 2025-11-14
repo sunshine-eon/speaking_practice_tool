@@ -1,0 +1,216 @@
+{
+  "video_id": "dLku0AiGPVA",
+  "title": "Mastering onboarding | Lauryn Isford (Head of Growth at Airtable)",
+  "url": "https://www.youtube.com/watch?v=dLku0AiGPVA",
+  "duration": 3861,
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "title": "Lauryn’s background",
+      "start_time": 0.0,
+      "end_time": 228.0,
+      "start_time_formatted": "00:00",
+      "end_time_formatted": "03:48"
+    },
+    {
+      "chapter_index": 2,
+      "title": "Lauryn’s spicy take on experimentation",
+      "start_time": 228.0,
+      "end_time": 404.0,
+      "start_time_formatted": "03:48",
+      "end_time_formatted": "06:44"
+    },
+    {
+      "chapter_index": 3,
+      "title": "Why doing the right thing for customers should be the ultimate goal",
+      "start_time": 404.0,
+      "end_time": 534.0,
+      "start_time_formatted": "06:44",
+      "end_time_formatted": "08:54"
+    },
+    {
+      "chapter_index": 4,
+      "title": "How Airtable rolled out Airtable Forms with A/B testing",
+      "start_time": 534.0,
+      "end_time": 698.0,
+      "start_time_formatted": "08:54",
+      "end_time_formatted": "11:38"
+    },
+    {
+      "chapter_index": 5,
+      "title": "The importance of onboarding",
+      "start_time": 698.0,
+      "end_time": 795.0,
+      "start_time_formatted": "11:38",
+      "end_time_formatted": "13:15"
+    },
+    {
+      "chapter_index": 6,
+      "title": "Airtable’s onboarding revamp and how it increased activation by 20",
+      "start_time": 795.0,
+      "end_time": 1017.0,
+      "start_time_formatted": "13:15",
+      "end_time_formatted": "16:57"
+    },
+    {
+      "chapter_index": 7,
+      "title": "How Airtable’s guided onboarding wizard improved the user experience",
+      "start_time": 1017.0,
+      "end_time": 1080.0,
+      "start_time_formatted": "16:57",
+      "end_time_formatted": "18:00"
+    },
+    {
+      "chapter_index": 8,
+      "title": "Why reducing reliance on tooltips can be a good idea for complicated products",
+      "start_time": 1080.0,
+      "end_time": 1206.0,
+      "start_time_formatted": "18:00",
+      "end_time_formatted": "20:06"
+    },
+    {
+      "chapter_index": 9,
+      "title": "The importance of meeting users where they are",
+      "start_time": 1206.0,
+      "end_time": 1372.0,
+      "start_time_formatted": "20:06",
+      "end_time_formatted": "22:52"
+    },
+    {
+      "chapter_index": 10,
+      "title": "How Airtable segmented users by learning styles",
+      "start_time": 1372.0,
+      "end_time": 1450.0,
+      "start_time_formatted": "22:52",
+      "end_time_formatted": "24:10"
+    },
+    {
+      "chapter_index": 11,
+      "title": "Airtable’s activation metrics",
+      "start_time": 1450.0,
+      "end_time": 1642.0,
+      "start_time_formatted": "24:10",
+      "end_time_formatted": "27:22"
+    },
+    {
+      "chapter_index": 12,
+      "title": "How the week-four multi-user collaboration metric was operationalized",
+      "start_time": 1642.0,
+      "end_time": 1845.0,
+      "start_time_formatted": "27:22",
+      "end_time_formatted": "30:45"
+    },
+    {
+      "chapter_index": 13,
+      "title": "Other metrics Airtable used",
+      "start_time": 1845.0,
+      "end_time": 2074.0,
+      "start_time_formatted": "30:45",
+      "end_time_formatted": "34:34"
+    },
+    {
+      "chapter_index": 14,
+      "title": "When Airtable changed their North Star metric",
+      "start_time": 2074.0,
+      "end_time": 2186.0,
+      "start_time_formatted": "34:34",
+      "end_time_formatted": "36:26"
+    },
+    {
+      "chapter_index": 15,
+      "title": "How much time to give a North Star metric before pivoting",
+      "start_time": 2186.0,
+      "end_time": 2285.0,
+      "start_time_formatted": "36:26",
+      "end_time_formatted": "38:05"
+    },
+    {
+      "chapter_index": 16,
+      "title": "Trials vs. freemium and what a reverse trial is",
+      "start_time": 2285.0,
+      "end_time": 2571.0,
+      "start_time_formatted": "38:05",
+      "end_time_formatted": "42:51"
+    },
+    {
+      "chapter_index": 17,
+      "title": "How to have self-serve options when you’re not fully self-serve",
+      "start_time": 2571.0,
+      "end_time": 2764.0,
+      "start_time_formatted": "42:51",
+      "end_time_formatted": "46:04"
+    },
+    {
+      "chapter_index": 18,
+      "title": "Onboarding experiences that aren’t very helpful",
+      "start_time": 2764.0,
+      "end_time": 2851.0,
+      "start_time_formatted": "46:04",
+      "end_time_formatted": "47:31"
+    },
+    {
+      "chapter_index": 19,
+      "title": "How to help users understand features",
+      "start_time": 2851.0,
+      "end_time": 2922.0,
+      "start_time_formatted": "47:31",
+      "end_time_formatted": "48:42"
+    },
+    {
+      "chapter_index": 20,
+      "title": "Why user education is more important than pushing premium features",
+      "start_time": 2922.0,
+      "end_time": 3003.0,
+      "start_time_formatted": "48:42",
+      "end_time_formatted": "50:03"
+    },
+    {
+      "chapter_index": 21,
+      "title": "The role of guardrail metrics",
+      "start_time": 3003.0,
+      "end_time": 3100.0,
+      "start_time_formatted": "50:03",
+      "end_time_formatted": "51:40"
+    },
+    {
+      "chapter_index": 22,
+      "title": "Lauryn’s PLG growth funnel framework",
+      "start_time": 3100.0,
+      "end_time": 3266.0,
+      "start_time_formatted": "51:40",
+      "end_time_formatted": "54:26"
+    },
+    {
+      "chapter_index": 23,
+      "title": "How Lauryn’s framework helps teams communicate more clearly",
+      "start_time": 3266.0,
+      "end_time": 3357.0,
+      "start_time_formatted": "54:26",
+      "end_time_formatted": "55:57"
+    },
+    {
+      "chapter_index": 24,
+      "title": "How Lauryn structured the growth team",
+      "start_time": 3357.0,
+      "end_time": 3473.0,
+      "start_time_formatted": "55:57",
+      "end_time_formatted": "57:53"
+    },
+    {
+      "chapter_index": 25,
+      "title": "B2B growth as an emerging space",
+      "start_time": 3473.0,
+      "end_time": 3618.0,
+      "start_time_formatted": "57:53",
+      "end_time_formatted": "60:18"
+    },
+    {
+      "chapter_index": 26,
+      "title": "Lightning round",
+      "start_time": 3618.0,
+      "end_time": 3860,
+      "start_time_formatted": "60:18",
+      "end_time_formatted": "64:20"
+    }
+  ]
+}

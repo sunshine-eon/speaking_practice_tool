@@ -1,0 +1,101 @@
+Chapter 18: Lightning round
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 67:40 - 73:44
+============================================================
+
+[00:00] Well, with that, we reached our very exciting lightning round.
+[00:03] First question, what are two or three books that you recommended most to other people?
+[00:09] It's probably a little recency bias, but I've been recommending what I talk about when I
+[00:14] talk about running by Murakami, which is talk about introspection, about the similarities
+[00:22] between running and writing as sort of flow states and very meditative things.
+[00:29] So I had read some of his fiction books and the autobiographical reflection on these types
+[00:37] of either professions or hobbies, I think is very insightful.
+[00:41] So that's one.
+[00:42] And then one of my longtime favorite books is A Fine Balance by Mistreet.
+[00:48] And that is just a great story of human complexity and challenge and relationships.
+[00:56] So I'm drawn to both books and TV and film that are about humans.
+[01:03] Speaking of TV and film, this is maybe a high stakes question for someone that works in
+[01:08] Netflix.
+[01:09] Do you have a favorite recent movie or TV show?
+[01:12] I'm not going to name all Netflix.
+[01:14] That feels like an advertisement.
+[01:19] Film Triangle of Sadness is phenomenal.
+[01:23] If you haven't seen it.
+[01:25] And then I'll go Netflix for TV beef was I thought hysterical.
+[01:33] I'm an Ali Wong fan, but also just a pretty unique storyline.
+[01:38] And I think they just want a bunch of Emmys.
+[01:40] It did.
+[01:41] Amazing.
+[01:42] Good picks.
+[01:43] Next question.
+[01:44] Do you have a favorite interview question that you like to ask candidates that you are
+[01:48] interviewing?
+[01:49] High talent density.
+[01:51] I'm usually looking for the person who would be better in my role than I am in my role.
+[01:58] So I often ask people what would their priorities be?
+[02:02] What would they do differently if they had my job?
+[02:06] Next question.
+[02:07] Do you have a favorite product that you recently discovered that you really like?
+[02:12] So while I carry the CTO title, I live a pretty analog life.
+[02:18] So my most recent product is a fellow pour over coffee maker, which is actually part of
+[02:26] my morning ritual, which I'll now call puttering around where I take great lengths in my coffee
+[02:32] making process because I find it calming.
+[02:35] And then it's not a recent find, but I have to shout out that my Peloton is probably the
+[02:40] favorite product I own.
+[02:42] The bike or the treadmill?
+[02:43] Bike.
+[02:45] I'm a recovering outdoor cyclist.
+[02:47] So it's also kind of questionable if I can even admit to this, but that's why I would
+[02:52] admit to I love the Peloton despite being ideally an outdoor cyclist.
+[02:59] I have questions about your cycling, but before that question, do you have a favorite life
+[03:03] motto that you often come back to or share with friends or family that you find useful
+[03:08] either in work or in life?
+[03:10] My mom said something to me that has stuck with me.
+[03:13] I don't know if I live it very well, but the phrase was something good happens every day.
+[03:20] And the reason she said it was because she was encouraging me to be more mindful about
+[03:27] enjoying the small things in the day to day rather than letting myself get caught up in
+[03:31] the busyness.
+[03:33] Beautiful.
+[03:35] Final question.
+[03:36] You're a big biker and triathlete.
+[03:38] I am curious what that sport and time has given you in your career or in life.
+[03:46] What benefits have you found from spending so much time and energy running, biking, being
+[03:50] an athlete?
+[03:52] Certainly by mental resilience.
+[03:55] So while those sound like physical strength, I've found especially endurance sports are
+[04:03] much more mental in how you go through the highs and lows and sustain and then coming
+[04:11] back from challenge.
+[04:12] So those sports have had their highs and lows and from the lows I've really learned how
+[04:17] to kind of recover and bounce back.
+[04:19] So those feel like universally applicable skills.
+[04:24] If such an interesting mix of athleticism and the Netflix, what a good balance for
+[04:29] life.
+[04:30] This is going to give me permission to go watch Netflix recording this on Friday afternoon.
+[04:35] Elizabeth, you're awesome.
+[04:36] Thank you so much for being here.
+[04:37] Two final questions.
+[04:38] Where can folks find you online if they want to reach out and maybe follow up on things?
+[04:42] And how can listeners be useful to you?
+[04:44] You can always find me on LinkedIn.
+[04:47] So definitely reach out or ping me if you have questions or comments.
+[04:54] And I think the way the listeners can be useful to me is being maybe curious about how they
+[05:06] can show up even better in their lives now that we've done this reflection on Netflix
+[05:12] culture and how we show up for other people.
+[05:15] And I would like to ask listeners to pay that forward to people that they're working with
+[05:20] and how they show up for them.
+[05:22] Amazing.
+[05:23] I love that.
+[05:24] If you end up doing this and you're listening, maybe leave a comment on YouTube or in the
+[05:28] sub stack with something that you'll cover it about yourself.
+[05:32] Elizabeth, thank you so much for being here.
+[05:36] Thank you, Lenny.
+[05:37] I hope you have a great weekend.
+[05:38] Same.
+[05:39] Bye, everyone.
+[05:41] Thank you so much for listening.
+[05:42] If you found this valuable, you can subscribe to the show on Apple Podcasts, Spotify or
+[05:47] your favorite podcast app.
+[05:49] Also, please consider giving us a rating or leaving a review, as that really helps other
+[05:53] listeners find the podcast.
+[05:55] You can find all past episodes or learn more about the show at Lenny'sPodcast.com.
+[06:00] See you in the next episode.

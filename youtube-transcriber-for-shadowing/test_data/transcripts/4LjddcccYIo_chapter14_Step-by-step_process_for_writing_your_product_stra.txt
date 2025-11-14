@@ -1,0 +1,71 @@
+Chapter 14: Step-by-step process for writing your product strategy
+Video: Mastering product strategy and growing as a PM | Maggie Crowley (Toast, Drift, TripAdvisor)
+Time: 34:36 - 39:55
+============================================================
+
+[00:00] Let's shift topics and talk about product strategy.
+[00:04] Many people are told you need to get better about our strategy. You're not great at strategy.
+[00:11] A lot of people are also just confused. What is strategy?
+[00:14] How do I get better at strategy? How do we describe a strategy? And you have a really
+[00:19] great explanation and overview of how to think about this stuff. So I'd love to hear
+[00:24] your take on just how do you actually write out and describe a strategy?
+[00:28] Sure. Yeah. Another thing that happens, and I'll give that outline, but another thing I hear,
+[00:34] especially as you get further in your career. And unfortunately, if you're maybe an underrepresented
+[00:40] person in tech is that you need to be more strategic. And so that's feedback that almost
+[00:44] always happens, especially if you're a woman in product in tech who's knocking at the door of
+[00:49] a leadership role, you've probably gotten that feedback. And so I made it my mission to
+[00:53] figure out what the heck is this thing? How do I do it? How can I do it in a way that is
+[00:59] demonstrable so that I'm never getting that feedback that's like, oh, she's not strategic?
+[01:04] And so what I did was something that I kind of did in the background because I had an engineer
+[01:11] who I worked with who really wanted to understand why we were doing what we were doing. And he
+[01:17] was not satisfied with sort of a surface level answer. And he was just pushing and pushing
+[01:22] and pushing. And so what I did was I just wrote out a Google doc and I started with like, okay,
+[01:27] and not fancy. These are just bullets. What is the mission? What is the point of the company?
+[01:33] What are our goals? Maybe we have some sort of high level framing of what we're working on.
+[01:37] And then I had this big section that was just like the landscape. And in that section,
+[01:42] I put in what's going on with our business, what's happening with our products,
+[01:46] what's our point of view on the market, who are competitors, a SWOT analysis, key risks
+[01:51] that we might be facing. Just dump that all on paper. Then what are the current quarters,
+[01:58] business goals or whatever, however you do planning, like what are the current things
+[02:01] that your company is working on? Then I put in, all right, that's sort of the context
+[02:07] that we're operating in. Then I wanted to understand where are, so what is an honest
+[02:12] accounting of the current state of your products, you know, the business overall,
+[02:15] and then the specific area that you're working in, what works, what doesn't work, what are
+[02:20] your customers saying, bottoms up feedback, users, customers, teams, what are your support
+[02:26] tickets? Get that all out on paper. And then really importantly, where are your technical
+[02:32] hurdles? Like what are the big pieces of tech debt? What are your engineering and
+[02:37] technical teams always harping on that they want to invest in? Are there some big things
+[02:42] coming down the pipe that you need to think about? Just get everything on paper.
+[02:46] And then usually in the process of writing all that down, you'll start to see,
+[02:52] okay, I kind of get where we are. I kind of get what the challenge is. And then you write a
+[02:57] section that's like, what's the opportunity from all of that? What's going to bubble up as the
+[03:01] top one or two opportunities for your team? Where do you want to play? Where can you win?
+[03:05] You know, where's the unique based on like your unique competitive advantage?
+[03:10] Where do you think you all should be and why? And then based on that opportunity,
+[03:17] what are the challenges, right? So like, what's going to be the hardest about taking advantage
+[03:20] of that? What has to be another way to frame it is, you know, what has to be true about the
+[03:24] world for that to work. That's a one that's been helpful. And then what would you do?
+[03:31] Like take a swing at writing down your solution, what you would need to build,
+[03:36] how might it work, anything that you have, this is where I would say,
+[03:40] three bullets maybe what you might want to do. And then a plan, like if no one else had an opinion,
+[03:49] how would you go about it? How would you sequence it? What would you do?
+[03:53] How might you get the team to work on it? What would your team have to look like? How much
+[03:57] would it cost to do it? All that you can start to layer and all that kind of stuff.
+[04:00] And then I share the doc, like share it with everybody. There's no, there should
+[04:04] not be any secret. And you should be able to walk all the way from your company's mission
+[04:09] down to the individual priority on your team and see the logic chain and why you got there.
+[04:14] And if anyone doesn't agree with it, they can call out where they're,
+[04:17] where their disagreement lands like in that landscape. But at least then you've put
+[04:22] everything on paper, you understand how you got to where you're going. And then you can
+[04:26] have an argument about the different pieces and points of data and feedback that you're
+[04:33] getting, but at least people understand how you got where you got. And then it doesn't become like,
+[04:38] I don't agree with you. It becomes, I don't agree with this point.
+[04:41] This is such a cool way of doing it. By the way, is there a template that we can point people
+[04:46] to that has this sort of? There's not. It's just, I've only ever done it in like a loose
+[04:50] Google doc and then, you know, it just grows and changes. I can, I can maybe try to write
+[04:55] up those bullets. Okay. It's just like, I just make headers. And then I just start jumping
+[04:59] constant. That's all people need. If you end up creating that before this comes out,
+[05:03] we'll throw in the show notes. And if not, people can just bother you on Twitter and
+[05:06] ask Maggie, where's that template that we talked about? Yeah, I'm happy to like write it on a
+[05:10] piece of paper and take a photo of it and send it around. There we go. Just make it really
+[05:14] grainy and like an artifact. We found Maggie's template.

@@ -1,0 +1,26 @@
+Chapter 7: Best practices for A/B testing
+Video: Brian Chesky’s new playbook
+Time: 18:34 - 20:30
+============================================================
+
+[00:00] hitting down. So I think that things were getting worse and slower and slower and slower.
+[00:06] 2015, 2016, 2017, 2018, 2019. And by 2019, we're spending a billion dollars on AdWords.
+[00:16] We weren't really like investing in the brand. We're doing a huge amount of AB testing. I
+[00:21] think AB testing is important in times. But like, let me actually let me let me let me
+[00:27] clarify AB testing. We don't test blue versus green. We have a control and a treatment like I
+[00:34] think we did with yours here. So we have a design. We might do a hold back occasionally to see how
+[00:39] the thing is working. But if we do an AB test, there has to be a hypothesis. If we don't have a
+[00:46] hypothesis, and a is better than B, then we're stuck with B. And that's like a really, really big
+[00:51] problem. Whenever you can never change it. And imagine 10 teams doing AB testing. And like,
+[00:56] imagine if you designed software, the way designed a house or designed house, we've done
+[01:01] software. And we AB test a sofa. And we said like, well, how does a sofa work? And it seems like
+[01:08] with this sofa that we've AB tested, people spend more time in the living room. So therefore, like
+[01:13] people are like this room better. But actually, the sofa has a relationship to the endstands,
+[01:18] whichever relationship to the lamps, which have a late ship to the carpet or the rug, which have
+[01:22] a late ship to the television, whichever relationship to the house and everything else. So
+[01:26] you have to think about the whole cohesive system. And I started realizing that I remember working
+[01:32] with ask I asked one person on your team, somebody you know, well, and I asked him, I said, Why is
+[01:38] our I feel like I open our app, and the product hasn't changed in like four years, I remember
+[01:43] saying this like 2018 2019. And he this person described that you know, well, as just the way
+[01:49] we're doing things, the initial way we're doing things to move fast had made us move slow. So we
+[01:55] end up doing

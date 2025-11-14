@@ -1,0 +1,69 @@
+Chapter 5: Challenges and setbacks in Canva’s journey
+Video: The woman behind Canva shares how she built a $42B company from nothing | Melanie Perkins
+Time: 22:00 - 26:30
+============================================================
+
+[00:00] all feels very easy kind of on the flip side of that. This is a segue.
+[00:04] People hear these stories. They hear your story. They see Canva over the years and it's just this like up into the right huge success story.
+[00:10] One of the most successful companies in history. I imagine there have been many periods where things weren't going so great.
+[00:16] And when maybe things didn't look like they would work out.
+[00:20] So let me just ask you this over the course of building Canva.
+[00:23] Once it started to click and started to feel like it was going to be a thing.
+[00:26] Was there a point where it started to again feel like, wow, maybe this may not work out.
+[00:31] Maybe there's a huge setback that we may not get over.
+[00:34] I think it's just a constant evolution. Like every time the company doubles in size, pretty much all your systems break.
+[00:40] All the things that we're working don't work.
+[00:43] A little example, in the early days we'd stand up and everyone would present their goals, what they're working on every day, every week.
+[00:51] And then it kind of moved every month. And then it was just like, it was just taking too long because we've got so many people.
+[00:57] And then it was sort of like, we decided that doing these things called season openers.
+[01:01] And season openers were really fun where we got the entire company together.
+[01:03] We talked about the goals that we'd achieved.
+[01:05] And it was so funny because ahead of season openers, everyone would launch everything because they wanted to do it ahead of the season opener.
+[01:11] And then we'd also set the goals for the coming cycle.
+[01:14] For the coming season at that point in time.
+[01:17] But then they started to become like six hours long because we had so many people and so many teams.
+[01:23] And so like trying to find that right to with the same philosophies of deep context for everyone,
+[01:31] with the same philosophies of the celebrations and the goals.
+[01:34] And like trying to find that right flavor at every stage of scale is definitely hard.
+[01:39] And so I think it's just like a constant work in progress.
+[01:42] Or back to your earlier point about timing of things.
+[01:45] We were doing a front end rewrite and we thought it would take about six months.
+[01:50] It was really important because it was critical for cross-platform.
+[01:53] It was critical for right to left.
+[01:54] It was critical because we could only have five people working in our editor at any point in time because of the way the code base was structured.
+[02:01] And we thought it was going to take six months.
+[02:03] And then it took two years.
+[02:06] And it was two years of not shipping any product to years of a product company not being able to ship product.
+[02:14] And like that is such a core motivation for our team.
+[02:16] He's like shipping something, seeing great customer feedback.
+[02:19] And then that kind of makes everyone feel happy and like we've got momentum.
+[02:24] And it just felt like we're in a dark, dark tunnel that we could hardly see the end of the tunnel.
+[02:31] And we didn't really know how long it was going to take because it had to take as long as the tunnel was going to take.
+[02:36] And it was a very hard time because other people would be launching this and that.
+[02:44] And it was, we weren't.
+[02:47] Eventually we got out of that tunnel and it was extremely important that we did that work.
+[02:53] We've now got 2,500 engineers and we're able to deliver amazing things that would have just like being completely infeasible.
+[03:03] And simultaneous collaboration was like so many things were baked into this.
+[03:08] But yeah, it was not a fun period of time.
+[03:11] A product company not shipping product is not really a recipe for fun.
+[03:16] For two years.
+[03:17] I feel like every builder listening to this knows exactly what you've been through and maybe not on that scale in those stakes.
+[03:23] But you start on something, it'll be take a few weeks and then a year later you're still working on it.
+[03:27] Totally.
+[03:28] How did it just was the mood really?
+[03:31] I don't know.
+[03:32] Sad internally?
+[03:33] Just that must have been like two years.
+[03:35] That's a long time not to ship anything.
+[03:37] Just what was it like internally during that period?
+[03:39] I think it was kind of everything internally.
+[03:41] Like we made it into a bit of a game.
+[03:45] We had this game board and I bought these little like rubber ducky sort of bath toys.
+[03:50] And we had this, so we had all the little, the components represented as a bath toy on this board.
+[03:57] And there was like all these stages of like home that kind of went launched in product.
+[04:02] There was an emergency lane at the end of it was home and host.
+[04:05] And we like did these weekly stand-ups where everyone would come in and talk where their bath toy was at.
+[04:11] And kind of just like we tried to make it fun and for the team.
+[04:15] So it was partly fun and it was partly distressing as all around investors were like, hey, you know that thing.
+[04:25] So I think it was, it was, it was both things at the same time.
+[04:28] It was bonding, let's say.

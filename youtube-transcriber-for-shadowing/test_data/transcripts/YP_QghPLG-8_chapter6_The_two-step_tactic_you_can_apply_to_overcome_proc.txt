@@ -1,0 +1,46 @@
+Chapter 6: The two-step tactic you can apply to overcome procrastination on important tasks
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 48:06 - 53:19
+============================================================
+
+[00:00] Question, what are some classic examples of high leverage tasks that PMs should try to do more often and think about what kind of what's in that bucket generally, even though you pointed out a lot of times they could be in any of the buckets depending on how you execute them.
+[00:14] Other things that are just like you should probably spend a lot of your time doing XYZ.
+[00:18] Yeah, so it turns out that the L tasks PMs implicitly just deep down they know what their L tasks are because those are the tasks that are bothering them the most because they are not doing them or because they're not doing them as well as they know they should.
+[00:40] So the classic classic example of this is the case where a PM will say, I know I need to work on getting our strategy right, but I don't have time because I'm busy firefighting.
+[00:58] I'm busy, you know, just dealing with all these execution issues and I just don't have time to work on the strategy piece.
+[01:07] And sometimes we console ourselves by saying, yeah, yeah, yeah, that's because we have all these things going on this month.
+[01:14] But trust me, next month, we're going to have ample time and I'm going to just spend a whole week working on strategy.
+[01:21] Well, the next month rolls around and it's the same thing. You've got other issues.
+[01:27] The reason we procrastinate on these tasks are one because we know that they are L tasks.
+[01:36] We know the impact they'll have and we are a little scared.
+[01:41] That's one.
+[01:42] The second is they require dedicated attention.
+[01:46] And again, we are afraid about whether we'll have anything interesting to say.
+[01:57] Right. Like that's the that's the deep fear why many people procrastinate on strategy because deep down they just they don't know if they can formulate a good strategy.
+[02:08] So so time becomes a convenient excuse for us where we say, well, it's not me. It's just I don't have time to work on it.
+[02:17] So and by the way, everything I say here, like I have been that person.
+[02:22] So I have been that person who's procrastinated on an L task, whether it's the strategy or whether it's writing the PRD for this really difficult feature,
+[02:31] or it is working on aligning two teams where, you know, that alignment would create a lot of impact.
+[02:43] But it's hard. It's an L task, but I don't do it because I don't want to deal with this other person, this manager I love to collaborate with to make it happen.
+[02:56] And perhaps, you know, I don't know if we'll get along.
+[02:59] I don't know if I can have that tough conversation.
+[03:03] Right. And so again, it's an L task, but I'll try to apply bandits instead of like just tackling it head on.
+[03:12] And so so yeah, this is stuff stuff, right? Like and what I found useful there is two things, two tactics make a huge difference in helping us target L tasks better.
+[03:24] One is the idea of placebo productivity.
+[03:29] So what I do is before I have to tackle an L task that couple of days leading up to it.
+[03:36] I do all these placebo productivity tasks.
+[03:38] Basically, I intentionally do n tasks and O tasks.
+[03:42] Right. Just I fill up my day with N and O tasks and I keep reminding myself, yeah, you're just doing neutral and overhead tasks.
+[03:48] Because then that kind of just like tricks me into thinking, okay, if I've been doing this placebo productivity tasks for the last two days, now it's the right time for me to do this L tasks.
+[04:00] So that's one tactic. The other is change of location.
+[04:05] Nothing for me at least fights my procrastination for L tasks better than changing the place from which I'm working.
+[04:12] So if I normally work from this desk, the day, the appointed day, I did my couple of days of placebo productivity tasks.
+[04:19] And on that appointed day, when I'm slated to do an L task, I will actually go out and work from somewhere else, whether it's a coffee shop or a co-working space or some other space.
+[04:29] And I find that like that change of place just forces a kind of focus and a shift in mindset that helps me bang out that L task very quickly and do it really well.
+[04:39] That is some great advice. There's so many layers of advice in that in that answer.
+[04:43] You're pointing about the leverage, high leverage tasks being the tasks that you know you kind of should do but don't want to do.
+[04:50] It makes me think of a quote that I always come back to that the cave you fear contains the treasure that you seek.
+[04:57] And I often find that to be true. And it's kind of this reminder to just wherever the compass is pointing where it's most difficult, it's probably where the biggest opportunity lies.
+[05:06] And so that's a really good reminder of all that.
+[05:08] That's so wise. Yeah.
+[05:09] Pay attention to your fears because they're telling you.

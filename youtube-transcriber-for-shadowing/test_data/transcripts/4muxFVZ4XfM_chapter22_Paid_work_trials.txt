@@ -1,0 +1,24 @@
+Chapter 22: Paid work trials
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 62:10 - 64:31
+============================================================
+
+[00:00] Awesome. So one thing you didn't mention is you have a really unique way of interviewing, which is a paid work trial.
+[00:06] Can you just talk about what that is and also just while you're in that area, you talked about testing for product sensibility.
+[00:13] So whatever you can share or how you actually do that would be awesome.
+[00:16] Yeah, so we do with all of the employees, we've done like a paid work trial and depends on the role, what it looks like, how long it is, and depends on the person.
+[00:26] But basically, like we do fairly like standard like interview loops where we test like we have some hiring manager interviews and then like skill interviews and more tests.
+[00:39] And then the last step of the process is the work trial.
+[00:43] And basically, yeah, we basically come as like a mini contractor to the company and we give them a very like usually fairly vague problem statements.
+[00:54] Like, if you're engineers, like, hey, there's this feature that needs to be built, like how would you build it and like go build it.
+[01:01] And so basically they need to first like understand the problem, then they need to scope it down to something that they can do in the time frame that they have.
+[01:10] And then they actually like go, they get the access to a code base, they can actually go and go and like build a version of it.
+[01:16] And then like at the end, they can present the work they did.
+[01:19] And why we do this is that like we just seen that like it's a very good way to see like for both of us, like both for the company and the candidates to see like how we work together.
+[01:31] And like for I think for the candidate, what they can see is that like what kind of company are joining like what is it like to work here.
+[01:40] And how are the what is the my ownership or like, how do I approach this?
+[01:45] Like, I think a lot of engineers also like that they see the code base and they're like, oh, wow, this is like really clean.
+[01:50] And like it's not like some kind of spaghetti code type of thing situation.
+[01:55] So I think like it helps the candidates as well understand like what what are they signing up for, which I think can be like very risky sometimes with, especially with startups.
+[02:06] Like it's really hard to tell like how the startup is operating just from the interviews and in a large companies, I think things are more standardized.
+[02:14] So it's like, I think they're more similar and it's easier to make that choice, but with startups, it can be like very like different how companies operate.

@@ -1,0 +1,24 @@
+Chapter 7: Anuj’s philosophy on the PM job
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 22:30 - 23:59
+============================================================
+
+[00:00] There's really an example of a phrase you found really effective in either Swiggy or Jupiter or
+[00:05] Flipkart or anything. Here's a really quick example of something that had a big impact on
+[00:09] either simplifying the value prop or if you don't have an example top of mind,
+[00:14] what was the impact you saw from implementing some of these ideas?
+[00:17] I'm talking about a phrase that I'm now used with with product managers a lot to
+[00:22] kind of simplify how they should be thinking. I think one thing is, and that's not only for
+[00:26] the consumers but even like how we operate. We are product managers and we're in the business of
+[00:31] influence. Users are doing something and now we want them to do something else. Our engineers
+[00:37] are doing something and now we want to influence them into building something fast. Our leadership
+[00:42] has some plans where to influence them to essentially look at a plan and like basically
+[00:48] sign off and do something else. We are in the business of influence and you are doing
+[00:53] this all the time internally, otherwise you are anyway not successful even in shipping.
+[00:58] Now we have to extend this to our users and really think about it from that point of view.
+[01:03] So you are a full stack influencer and not only an external influencer,
+[01:07] so you've got to think more like sales, more like marketing, more like influencers.
+[01:12] One of the most important skills are product managers influencing people on their team
+[01:15] and I like the point that you're also trying to influence your user and that's interesting.
+[01:19] Just more reason to get really good at influence. So I actually have a newsletter about how to get
+[01:24] better influence based on Frodo Baggins and Lord of the Rings. We'll link to that in the show notes.

@@ -1,0 +1,90 @@
+Chapter 3: How pre-mortem meetings impacted the culture at Stripe
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 27:12 - 33:23
+============================================================
+
+[00:00] So it's a good segue to kind of shifting to talk about the five big ideas.
+[00:05] The first is around this concept of pre-mortems.
+[00:10] There's something that stuck with me when you tweeted it.
+[00:12] I think it was a couple of years ago at this point, and I see it come up
+[00:15] occasionally in your tweets and amongst people chatting your super follower threads.
+[00:19] I also like that there's something you can actually implement and act on
+[00:22] pretty quickly and see impact.
+[00:23] And so I'm curious to kind of hear your thoughts on this idea of pre-mortems,
+[00:28] just unpack this idea for folks.
+[00:30] Yeah, we're all familiar with a post-mortem or as they call it in the military,
+[00:36] I think, after action reviews, right?
+[00:38] So every company I've worked at, we've had some form of post-mortem.
+[00:43] When a launch had problems or an initiative did not go as planned,
+[00:47] or we suffered an unacceptable system downtime,
+[00:51] somebody would say, oh, we need to post-mortem that.
+[00:54] And over the years, I really saw the effectiveness of a post-mortem.
+[00:59] Right, some really great insights came out of a post-mortem about what went wrong
+[01:03] and what we could have done better.
+[01:06] And as I saw the effectiveness of a post-mortem, that's what made me wonder,
+[01:10] why do we need to wait until after things go wrong?
+[01:15] Because like, why can't we extract these some of these insights before they go wrong?
+[01:21] So it was around that time that I discovered the idea of a pre-mortem.
+[01:25] I learned about it from an Harvard Business Review article written by Gary Klein.
+[01:30] And the idea is simple, which is when you are working on an important project or initiative,
+[01:36] you get together with your team early on in the products or the project's life.
+[01:44] To see in advance what could go wrong.
+[01:47] And the way I describe a pre-mortem is that if you do a pre-mortem right,
+[01:52] you will not have to do an ugly post-mortem.
+[01:55] You might still do a post-mortem to learn, but odds are very high that it is not going to be a bad post-mortem.
+[02:03] And the genius of the pre-mortem ritual is the initial prompt.
+[02:07] So it's not just about like, well, what could go wrong, right?
+[02:11] Like the initial prompt is the genius, which is.
+[02:14] The prompt starts with, imagine this project that we are working on has failed six months from now.
+[02:25] Or this launch we are doing has miserably failed.
+[02:29] Let's just all imagine that.
+[02:31] Now let's work backwards from there and ask ourselves what went wrong?
+[02:38] What could have contributed to this utter failure?
+[02:41] And that's how a pre-mortem meeting will start.
+[02:45] The leader will start with this prompt.
+[02:49] And then the way the meeting goes is you ask your team members to share what could have caused this utter failure.
+[02:59] And the magic of this type of approach where you kind of like work backwards from a failed outcome,
+[03:06] a hypothetical failed outcome is that it just somehow enables two things.
+[03:13] One is much greater psychological safety for team members to talk about things they're concerned about,
+[03:20] but that they were just hesitant to bring up because nobody likes to be negative in modern organizations.
+[03:28] Everybody wants to be optimistic and positive.
+[03:31] So a pre-mortem setting gives everybody the license to actually think about what can go wrong.
+[03:38] So that psychological safety is a big, big factor in why a pre-mortem works.
+[03:46] And what I found is, at Stripe, I did this regularly with launches that my team was involved in.
+[03:53] Sometimes some teams or some people were just surprised or skeptical.
+[03:57] Like, is it really going to work?
+[03:59] And then we go through the pre-mortem meeting and there's a whole process that we can talk about.
+[04:04] But as we complete the meeting, I ask everybody, so how did that go?
+[04:10] And just everybody's smiling, even though we've spent, say, 30 minutes or an hour just talking about terrible scenarios of things that could go wrong.
+[04:20] But everybody's feeling a little lighter because it's great catharsis.
+[04:25] So that becomes really important.
+[04:27] And the last thing I found with pre-mortems, now that I've done them with various other companies as well that I advise and whatnot,
+[04:35] is the shared vocabulary.
+[04:38] And the shared vocabulary that you get about being able to talk about things that will fail.
+[04:43] So I have a specific approach, which is I asked the team to talk about three things.
+[04:48] Each member on the team should bring up three things.
+[04:50] One is a tiger.
+[04:52] So you can bring up tigers in the shared dock that we create.
+[04:55] And a tiger is a threat that will actually kill us, just like a tiger would.
+[05:00] So these are actual problematic things that could be really harmful to the product or the project.
+[05:06] So that's a tiger.
+[05:08] The other is paper tiger.
+[05:10] So this is a seeming threat that others might be worried about, but you're not worried about.
+[05:15] So that's the paper tiger.
+[05:17] And then the last one is a tiger.
+[05:20] So that's the paper tiger.
+[05:21] And then the last one, and I think this one was also used at Airbnb in other ways, is elephant.
+[05:27] And the elephant is the elephant in the room that nobody's talking about.
+[05:31] So it might not be a tiger.
+[05:32] It won't kill us.
+[05:33] But you're still worried that we are not kind of like seeing reality as it is.
+[05:38] And so an elephant could be like, well, we are assuming that just because we launch this and do a bunch of PR that we'll get users.
+[05:44] But are we sure we're going to get users?
+[05:45] Right?
+[05:45] Like that's kind of like the elephant in the room that nobody's talking about that.
+[05:49] Like again, this gives you that psychological safety to bring it up.
+[05:52] And then what I noticed as I ran pre mortems is that in future meetings that the team had where I wasn't even present,
+[05:59] people started talking about, oh, I have this tiger.
+[06:02] Can I bring up this tiger?
+[06:03] And all of a sudden it became okay for people to bring those things up,
+[06:06] which I think is perhaps the best part about a pre mortem is that shared vocabulary.

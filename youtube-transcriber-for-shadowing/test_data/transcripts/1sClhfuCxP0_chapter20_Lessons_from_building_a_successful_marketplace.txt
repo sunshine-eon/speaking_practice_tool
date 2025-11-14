@@ -1,0 +1,85 @@
+Chapter 20: Lessons from building a successful marketplace
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 57:51 - 62:19
+============================================================
+
+[00:00] You've helped build some of the most successful marketplaces in India and in the world.
+[00:06] I'm curious just what may be a lesson or two about building a successful marketplace.
+[00:11] One thing that I would definitely want to talk about is when you're thinking marketplaces,
+[00:16] it's not as a one plus one equals two, it multiplies.
+[00:19] When you're thinking about three way marketplaces, you almost not need to think like,
+[00:23] it's a two dimensional thing going into three dimension.
+[00:26] Like it becomes that amount of complexity and your regular product management
+[00:31] and leadership principles that will start failing.
+[00:34] So a bunch of usual suspects will not work.
+[00:38] Let me give an example. OKRs will not work.
+[00:41] Why not?
+[00:43] So fundamentally, OKRs are a way to think about objectives and key results.
+[00:49] But the fundamental assumption here is that it is solving for a kind of user.
+[00:54] And that kind of user, you can divide and conquer.
+[00:56] And of course, there will be like a little bit of hustle between different teams,
+[00:59] but you can get them to work with each other.
+[01:01] But if it is working for three different kind of users,
+[01:04] then all the goals will all the time be in conflict with each other.
+[01:09] And what are examples of the three users?
+[01:11] There's like the delivery person, the restaurant and user.
+[01:14] So if you have, if you're an example of on the consumer side,
+[01:18] we need to collect more delivery delivery fee.
+[01:20] Or what does that really mean for those other two?
+[01:25] And on the restaurant side, hey, we need to get more commissions,
+[01:28] because profitability is the goal.
+[01:30] And the delivery partner side, it means pay them less
+[01:33] or optimize a little bit more.
+[01:35] So once you start moving one lever,
+[01:37] those two are already stretched towards the other direction.
+[01:40] So they are not independent levers in the first place.
+[01:42] And the way to even model them out,
+[01:45] how will it work out if we choose X versus what Ys will change, Y on Z.
+[01:49] Z will change. It's almost impossible to do that.
+[01:52] So I've seen, okay, as we'll multiple times when you're running this kind of a marketplace,
+[01:58] big bits work much better.
+[02:00] That's when you say, hey, we want to take this bit,
+[02:02] but it's all going to be, it's all going to come together as if we pull this lever,
+[02:07] then something else will change.
+[02:08] So here's the entire story of let's go make this profitable by making delivery fee higher,
+[02:16] but maybe not touching earnings per hour,
+[02:18] maybe not touching restaurant commissions, things like that.
+[02:21] So I have at least found that's a better way to, you know,
+[02:25] choose strategically which direction we have to go.
+[02:27] The other thing is managing multiple empathies together.
+[02:31] That's not straightforward.
+[02:33] So again, Swiggy being like a real-time hyperlocal marketplace.
+[02:37] And we've discussed about that, right?
+[02:39] As soon as the order comes, what happens between when user does this
+[02:43] and when delivery executor is doing something else
+[02:45] and they have absolute different kind of scenarios
+[02:47] that are going to be faced by the delivery executive.
+[02:50] And at the same time, how will I really, you know,
+[02:54] work with the user to manage their emotions?
+[02:57] So you need to manage a whole bunch of these things together.
+[03:01] And product management here, you cannot have the delivery executive product manager
+[03:06] only care about that side.
+[03:08] They also need to be a champion on the consumer side and vice versa.
+[03:12] Yeah, I find with marketplaces Uber went through this lift,
+[03:14] went through this for the, like the supply often just gets squeezed
+[03:17] because they need to deliver for the customer.
+[03:20] So like drivers end up getting hosed, you know,
+[03:22] Airbnb hosts kind of get pushed to do things they may not want to do.
+[03:25] Imagine delivery people, same thing.
+[03:27] Now that you mentioned Uber, for example,
+[03:29] one of the things that companies which were running taxi businesses,
+[03:34] if you have just one limited pool of money, for example,
+[03:38] and you want to get the marketplace humming with respect to number of orders per day.
+[03:43] How do you decide should I incentivize my users,
+[03:47] for example, for the first ride, first ten rides and so on,
+[03:50] or put zero money in there but incentivize my drivers
+[03:55] that you need to come here.
+[03:58] So you have to think about liquidity also in very different ways.
+[04:02] And sometimes you need to pull the lever completely towards the other side.
+[04:06] So the experiments, so AB experiments also don't work.
+[04:09] And that's a very unique thing about marketplaces.
+[04:12] Not work, I mean, not work the way that you would expect them to work
+[04:15] because there are network effects all over.
+[04:18] So if you have to run AB experiments on your driver side,
+[04:21] if you put half drivers on A versus half on B,
+[04:24] but there is a network effect between the both of them.

@@ -1,0 +1,87 @@
+Chapter 5: The LNO framework: What is it and how did it change the way Shreyas went about his day?
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 39:27 - 48:06
+============================================================
+
+[00:00] of this episode. I want to move to our second big idea, which is about something you've called
+[00:05] the LNO framework, which is all around prioritizing your finite time as a PM and as a team. And so
+[00:13] I'll just kind of turn it over to you to share what that's all about. Yes. And so I'm going to share
+[00:18] a short kind of personal anecdote related to the LNO framework, which is that when I just
+[00:24] joined Google as a relatively new PM, this is back in 2008. For the first three years,
+[00:31] I was overwhelmed and stressed. And that was because one, I was a new PM in this like really
+[00:37] high performance environment. I was working on some important products and launches. And I just
+[00:45] had too much to do. And I looked back at that time and it was perhaps the most stressful
+[00:51] time of my career. I would work long hours, etc. But even at the end of the day, I'd feel
+[00:59] highly dissatisfied because my to-do list was endless. And I wasn't able to make a dent on it.
+[01:06] I was also a little bit of a perfectionist. So I was like, no, no, no, I need to do this well.
+[01:13] And yeah, I was just constantly I would come home and talk to my wife and kind of basically
+[01:19] just complain to her about how I'm not able to make progress or as much progress as I want.
+[01:25] You know, that was accompanied with like, you know, not being able to sleep very well because
+[01:30] I was concerned about how much output I was producing and whatnot. And so again, very stressful
+[01:36] time in my career. And then things changed when I discovered the ideas related to this LNO framework
+[01:44] in a blog post. And I can't unfortunately, I can't even find that blog post somewhere. But it
+[01:49] had some ideas that I took and then kind of created this LNO framework on myself, which is
+[01:56] essentially that like, as a product manager, or as anybody in a creative, high impact,
+[02:04] high leverage role, all your tasks are not created equal. There are actually three types of tasks
+[02:11] that you end up doing in such a role. So there are L tasks, which are leverage tasks. And the L
+[02:19] tasks are such that when you put in a certain amount of effort, you get 10x or 100x in return
+[02:27] in terms of impact. So those are L tasks, leverage tasks, then there are neutral tasks. So that's
+[02:33] N. And those are tasks where you basically get what you put in, or just a little more than that.
+[02:42] So you put in 1x and you get 1.1x. Those are neutral tasks. And then there are overhead tasks,
+[02:49] where you get back in again, in terms of impact, you get back a lot less than you actually put in.
+[02:55] And it turns out that many people, many people who are ambitious or are perfectionists, like myself,
+[03:02] they, by default, treat each of these types of tasks the same way. And therein lies the problem.
+[03:09] So this was the epiphany for me back at Google when I kind of discovered some of these ideas.
+[03:15] And what I realized is that among the things in my to-do list, there are actually only very few
+[03:23] L tasks. And so it made sense for me to focus a lot on those L tasks, to take on those L tasks
+[03:32] when I was feeling most productive, most energetic during a certain time of the day. And for the L
+[03:40] tasks, let my inner perfectionist shine. Because I'm going to get so much more in return, right?
+[03:47] It makes sense for me to spend that time on that PRD, for instance, related to an important feature
+[03:55] that will meaningfully impact our revenue, right? I'm going to spend more time on that
+[04:01] than I ordinarily would. So now where does that more time come from? Because it cannot come from
+[04:05] just working more hours. Well, it comes from spending less time on N tasks and O tasks.
+[04:11] And so there are some tasks that you do. A classic example of an O task is, say, an expense report.
+[04:20] Right? Like, it sounds silly, but I used to try to make my expense reports really good.
+[04:27] And sometimes, like, you know, that made no sense, right? Like, but I was like, no, no, no,
+[04:31] I need to do that. And again, this is the silliest example. But there are many examples. And something
+[04:36] I realized is that the same type of activity can actually be either an L task or an N task
+[04:43] or an O task. So what's an example? So say like a classic PM activity of filing a bug report.
+[04:52] Right? And so many companies have these bug templates, etc., etc., right? Like that you
+[04:57] use to file a bug report. Well, it turns out that filing a bug report, depending on the situation,
+[05:04] depending on what type of bug it is, can actually be an L task, high leverage task. And over there,
+[05:11] you want to file a very detailed, explicit bug report. And in other cases, might actually be an
+[05:18] O task where you don't fill out the template that diligently, and you don't add 15 screenshots
+[05:26] with annotations, right? Instead, you just have one screenshot and you hit submit on the bug report.
+[05:32] So that shift, we're usually for the same type of activity, we provide the same type of engagement.
+[05:39] And the last example I'll use to illustrate this is taking notes. It turns out even taking notes,
+[05:45] taking notes, synthesizing them and then sharing them can actually be an L task and N task or an
+[05:52] O task, depending on what type of notes they are. So if it's like, you know, after I understood
+[05:57] this, previously, I would just send all notes, like I tried to make them really good, which took a lot
+[06:02] of time. But then I realized, well, this is a meeting where, yes, I need to send notes. But,
+[06:08] you know, again, it's like, it's just standard stuff. I just need to like quickly list out people,
+[06:13] all people need to really know is the three action items that came out of the meetings,
+[06:18] who owns them. That's it. And it is not about something highly strategic or controversial.
+[06:24] Well, in that case, I'm just going to send the notes out the moment the meeting is over. I'm
+[06:29] just going to hit send because I've already taken the action items, right? I'm not going to try to
+[06:33] make my notes look great so that others can appreciate, oh, Shreyas always sends great notes.
+[06:38] On the other hand, if it was a product review with the CEO about a very contentious topic that
+[06:45] you have gone back and forth multiple times, and now you made a decision about something,
+[06:52] you want to perfect those notes before you send them out, right? Like you want to get the language
+[06:56] right. You want to be very clear on what the decision is. So there's no room for misinterpretation.
+[07:01] So you don't backtrack afterwards or people say, well, but I thought we said this or so that's
+[07:07] an that's a case where it's an L task. And yeah, I would say just spend an hour or even two hours
+[07:15] perfecting those notes because it's an L task. So hopefully that helps illustrate the some of the
+[07:20] ideas behind the LNO framework. Yeah. And that's the last piece is a really good segue to the next
+[07:25] big idea around optics and the important optics. This episode is brought to you by Sprig. If you've
+[07:32] been a member of my community for a while, you know my user, fan and investor in Sprig. Sprig is a
+[07:38] user research platform that makes getting user insights from your product as easy and fast as
+[07:43] getting analytics. The best product and research teams and companies like Lume, Open Door and Dropbox
+[07:50] use Sprig's in product surveys to target specific users, start collecting insights and identify
+[07:56] issues and opportunities related to activation, onboarding, engagement and more. Talk about a
+[08:01] platform that pays for itself. But I'm perhaps most excited about Sprig's newest launch, which
+[08:08] extends the power of the platform pre launch and makes it possible to test mockups and prototypes
+[08:14] with your own users in minutes. The testing interface is super slick and doesn't require any of the
+[08:19] typical plugins that make testing with your own users unappealing. And with unlimited seats,
+[08:25] you're able to invite anyone from your company to view and use insights generated by Sprig. If
+[08:30] you want to get started, head over to sprig.com slash Lenny and mention that I sent you. But before
+[08:36] we get to that, I wanted to have one follow up.

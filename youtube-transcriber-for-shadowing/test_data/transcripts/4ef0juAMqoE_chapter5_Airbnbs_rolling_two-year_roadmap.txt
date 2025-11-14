@@ -1,0 +1,45 @@
+Chapter 5: Airbnb’s rolling two-year roadmap
+Video: Brian Chesky’s new playbook
+Time: 13:50 - 15:30
+============================================================
+
+[00:00] Now what we do is we do, we have a rolling two year roadmap.
+[00:04] We don't even really do an annual plan.
+[00:06] I mean, as you remember, Lanny, near ad Airbnb,
+[00:09] we would have like three month planning cycles.
+[00:12] Now planning cycle is just a budgeting cycle.
+[00:15] And it's like most people only spend a week or two on it.
+[00:18] Some don't spell any time on it.
+[00:20] And we have a rolling two year product plan,
+[00:23] the strategy, product strategy roadmap
+[00:26] that gets updated every six months with releases.
+[00:29] We release products every May and every November or October.
+[00:33] Obviously we did one today we can talk about.
+[00:36] The entire company works together.
+[00:38] They row in the same direction.
+[00:39] And the product management also does a product marketing.
+[00:43] So they're figuring out how people are gonna learn about it.
+[00:45] They're doing the demos.
+[00:46] They're understanding the story, the videos.
+[00:49] They're figuring out all the customer touch points,
+[00:52] making sure everyone understands it.
+[00:54] Our product marketing works with communications.
+[00:57] We like work months ahead of time on all the different assets.
+[01:00] And when we're working on a launch,
+[01:02] one of the first things we'll do
+[01:04] is start figuring out what the story is.
+[01:06] And the story will often dictate the product
+[01:08] because ultimately you have to tell the story to people.
+[01:12] But a story also is a really helpful way
+[01:15] to develop a cohesive product.
+[01:17] We wanted a company where 1,000 people could work
+[01:19] but it looked like 10 people did it.
+[01:21] And so, sorry, that was a bit of a brain dumb,
+[01:23] but that is a little bit of a universal theory
+[01:28] for how we develop products now.
+[01:30] I mean, I could go into a lot more detail,
+[01:32] but I probably will stop there.
+[01:34] That was amazing. You touched on all of the things
+[01:36] I want to talk about, so I'm gonna...
+[01:37] Oh, gee, so we can go deeper and deeper
+[01:38] because the rabbit hole goes deeper. Yeah, exactly.

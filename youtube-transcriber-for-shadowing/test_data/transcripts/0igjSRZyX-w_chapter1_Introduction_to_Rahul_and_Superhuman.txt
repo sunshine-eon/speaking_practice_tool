@@ -1,0 +1,75 @@
+Chapter 1: Introduction to Rahul and Superhuman
+Video: Superhuman's secret to success | Rahul Vohra (CEO and founder)
+Time: 00:00 - 05:00
+============================================================
+
+[00:00] Let's talk about product market fit.
+[00:01] You have to deliberately not act on the feedback of many of your early users.
+[00:07] And this is at the same time as listening to people intensely and building what people want.
+[00:13] That's what we're here to do is to make something that people want.
+[00:16] But it can't be all people.
+[00:17] And the question becomes, how do you listen to them?
+[00:20] And then even of what they say, what do you pay attention to and what don't you?
+[00:24] And the trick here is you're not doing what a lot of CEOs think they need to be doing with their time.
+[00:29] A lot of CEOs think they need to spend time on hiring or work building.
+[00:33] And you intentionally, I will spend time on product and marketing design.
+[00:36] So this is a technique that I call the switch lock.
+[00:39] And it's born out of the observation that your calendar says what you thought you were going to do.
+[00:45] But it's really only your trail of work that describes what you actually did.
+[00:50] How can we capture that?
+[00:51] I came up with the following idea.
+[00:53] What if I just did whatever the heck I wanted with the most pivotal moment in your career in your life?
+[00:58] I learned the real secret behind morality.
+[01:01] There is no such thing as a truly viral product.
+[01:06] What then is the true secret?
+[01:07] It is.
+[01:11] Today, my guest is Rahul Vora.
+[01:13] Rahul is the founder and CEO of Superhuman and one of the most thoughtful and insightful and articulate founders that I've met.
+[01:22] As you'll see in our conversation, it's hard not to be captivated by Rahul's storytelling skills.
+[01:27] And also his really insightful takes on how to build great products and teams.
+[01:32] This episode is for anyone who's looking to build their product taste, help their teams move faster, learn how to think better from first principles,
+[01:39] and also learn about Superhuman's very unique approach to building their company,
+[01:43] including why they manually onboarded every single new user for years and why they decided to stop,
+[01:48] why they ignored most of their customer feedback on their way to finding product market fit,
+[01:52] and also how you can use his approach to finding product market fit for your own company.
+[01:56] Also the power of game design in building great products, a very contrarian take on pricing strategy,
+[02:02] what Rahul has learned about building scale products on top of AI and LLMs,
+[02:06] and so much more.
+[02:07] A huge thank you to Ed Sims, Conrad Irwin, Bill Trencher, and Garavora for suggesting questions and topics for this conversation.
+[02:15] If you enjoy this podcast, don't forget to subscribe and follow it in your favorite podcasting app or YouTube.
+[02:19] Also, if you become a yearly subscriber of my newsletter,
+[02:22] you get a year free of Superhuman that you can start using immediately.
+[02:27] You also get a year free of Notion, Proplexity Pro, Granola, and Linear.
+[02:31] Check it out at LennysNewsletter.com.
+[02:33] With that, I bring you Rahul Vora.
+[02:38] This episode is brought to you by Epo.
+[02:41] Epo is a next generation AB testing and feature management platform
+[02:45] built by alums of Airbnb and Snowflake for modern growth teams.
+[02:49] Companies like Twitch, Muro, ClickUp, and DraftKings rely on Epo to power their experiments.
+[02:55] Experimentation is increasingly essential for driving growth and for understanding the performance of new features.
+[03:01] And Epo helps you increase experimentation velocity while unlocking rigorous, deep analysis in a way that no other commercial tool does.
+[03:08] When I was at Airbnb, one of the things that I left most was our experimentation platform,
+[03:13] where I could set up experiments easily, troubleshoot issues, and analyze performance all on my own.
+[03:18] Epo does all that and more with advanced statistical methods that can help you shape weeks off experiment time
+[03:24] and accessible UI for diving deeper into performance and out of the box reporting
+[03:28] that helps you avoid annoying, prolonged, analytic cycles.
+[03:31] Epo also makes it easy for you to share experiment insights with your team,
+[03:35] sparking new ideas for the AB testing flywheel.
+[03:38] Epo powers experimentation across every use case, including product, growth, machine learning, monetization, and email marketing.
+[03:46] Check out Epo at getepo.com slash Lenny and 10X your experiment velocity.
+[03:51] That's geteppo.com slash Lenny.
+[03:56] This episode is brought to you by the Fundrise Flagship Fund.
+[03:59] Full disclosure, real estate investing is boring.
+[04:03] Prediction markets are exciting, meme coins are a thrill ride, even the stock market can swing wildly on a headline.
+[04:10] Hello, DeepSeek.
+[04:11] But with real estate investing, there's no drama or adrenaline or excuses to refresh your portfolio every few minutes.
+[04:17] Just bland and boring stuff like diversification and dividends.
+[04:22] So you won't be surprised to learn that the Fundrise Flagship Real Estate Fund is a complete snooze fest.
+[04:27] The fund holds $1.1 billion worth of institutional caliber real estate managed by team of pros
+[04:33] focused on steadily growing your net worth for decades to come.
+[04:37] See, boring.
+[04:38] That's the point.
+[04:39] You can start investing in minutes and with as little as $10 by visiting fundrise.com slash Lenny.
+[04:46] Carefully consider the investment objectives, risks, charges, and expenses of the Fundrise Flagship Fund before investing.
+[04:53] Find this information and more in the Fund's Perspective at fundrise.com slash flagship.
+[04:59] This is a paid ad.

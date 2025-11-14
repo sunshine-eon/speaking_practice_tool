@@ -1,0 +1,26 @@
+Chapter 11: Failure corner
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 58:43 - 62:49
+============================================================
+
+[00:00] Okay, great. I'm going to take us to a recurring segment of the podcast. I'm going to take us to fail corner. So in fail corner, the idea here is people come on this podcast, they share all these stories of success, everything's always going great. But in reality, things don't often go great. And there's a lot of things that don't go right.
+[00:19] Is there a story you could share where things went wrong in your career, where you failed with a product you're building or a moment in your career where things were looking really bad?
+[00:27] I think the most spectacular failures probably were on the earlier stage of my career, which I started back at university and maybe in my second year of university, I started building some things, different startups.
+[00:46] And one of them was actually a product that makes me proud even now because it was like what 15 years ago. So 2010, still no one really had even iPhones back then.
+[01:06] And me and my friends, we started building a website that allows people to buy tickets to the cinema so that they can skip the line so that they don't need to come in advance to select best seats.
+[01:21] And they can just buy a ticket online and go to the seats directly. Something that today seems as a commodity back then, like no one had it, like people were using pieces of paper.
+[01:34] And we built an end-to-end system because not only we needed to build a website, but we also needed to build hardware to scan those tickets, for example.
+[01:47] And to have these tickets in digital format, we needed to hack SMS standard because again, people didn't have smartphones, they had these Nokia's.
+[01:58] And we were sending images, QR codes inside an SMS, which is like a hack of the standards in a way.
+[02:08] And then we were scanning those things with our own devices. And we built our own devices with scanners. And we actually created these beautiful devices made from stainless steel, which looked really nice inside the cinema halls.
+[02:29] And I remember how I was excited about it with my friends. We were like, what an amazing thing. It's like, look, we're bringing the future here.
+[02:41] But we actually, we spent all our investment on this hardware. And we were expecting that, you know, like everyone will just rush into using our system.
+[02:55] But it was a very low share of customers who started buying tickets online because people were not ready for it, which was growing quite slowly.
+[03:04] And eventually we had to close it because we simply ran out of money because we spent all of it on this hardware without any proven business model.
+[03:13] So something that currently looks like an obvious mistake. Back then, we were just, you know, enjoying building a product that we would love to use ourselves.
+[03:21] Which I think is the right principle. But it also was a very painful lesson. You need to stay lean. You need to validate things before you scale them.
+[03:33] You need to think way more about the run rate of your business. So there were a lot of painful lessons for me. Since then, I also try to avoid working with hardware.
+[03:44] I'm just going to say that's a common, common challenge for startups trying to get right into hardware.
+[03:50] Although I wouldn't be surprised now if Revolut launched something, another product, and this is a new product line of Revolut. Now that you've had that experience.
+[04:00] Yeah, it launched the POS terminals for Aquarid.
+[04:05] All right, there we go.

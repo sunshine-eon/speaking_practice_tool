@@ -10,6 +10,13 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+// Helper function to normalize script text (remove leading whitespace from each line)
+function normalizeScriptText(text) {
+    if (!text) return '';
+    // Split by lines, remove leading whitespace from each line, then rejoin
+    return text.split('\n').map(line => line.trimStart()).join('\n').trim();
+}
+
 let roadmap = null;
 let progress = null;
 let currentWeek = null;
@@ -216,12 +223,29 @@ function createActivityElement(activity) {
         } else if (activity.id === 'voice_journaling') {
             toggleFunction = 'toggleVoiceJournalingDay';
         }
+        
+        // Helper function to check if a day is completed and get MP3 file (for weekly_expressions)
+        const getCompletedDayInfo = (dateStr) => {
+            for (const entry of daysCompleted) {
+                if (typeof entry === 'string' && entry === dateStr) {
+                    return { completed: true, mp3_file: null };
+                } else if (typeof entry === 'object' && entry.day === dateStr) {
+                    return { completed: true, mp3_file: entry.mp3_file || null };
+                }
+            }
+            return { completed: false, mp3_file: null };
+        };
+        
         checkboxHtml = `
             <div class="shadowing-days">
                 ${daysOfWeek.map((day, index) => {
                     const dateStr = day.date;
                     const dayId = dateStr.replace(/-/g, '_');
-                    const isChecked = daysCompleted.includes(dateStr);
+                    const dayInfo = activity.id === 'weekly_expressions' 
+                        ? getCompletedDayInfo(dateStr)
+                        : { completed: daysCompleted.includes(dateStr), mp3_file: null };
+                    const isChecked = dayInfo.completed;
+                    const mp3File = dayInfo.mp3_file;
                     return `
                         <div class="day-container">
                             <div class="day-box ${isChecked ? 'completed' : ''}" 
@@ -229,7 +253,7 @@ function createActivityElement(activity) {
                                  onclick="toggleRecordingUI('${activity.id}', '${dateStr}', event)">
                                 <span class="day-label">${day.label}</span>
                                 <div class="day-actions">
-                                    ${isChecked ? '<span class="completed-mark">✓</span>' : ''}
+                                    ${isChecked ? `<span class="completed-mark">✓</span>` : ''}
                                 </div>
                             </div>
                             <div id="${activity.id}_recording_ui_${dayId}" class="recording-ui" style="display: none;" data-activity="${activity.id}" data-day="${dateStr}" data-day-index="${index}">
@@ -251,10 +275,15 @@ function createActivityElement(activity) {
                                     <textarea 
                                         id="${activity.id}_notes_${dayId}" 
                                         class="prompt-notes" 
-                                        placeholder="Add your notes here... (Saved when you mark as completed)"
+                                        placeholder="Add your notes here..."
                                         style="min-height: 100px;"
                                     ></textarea>
                                 </div>
+                                ${isChecked && mp3File ? `
+                                <div class="completed-mp3-info" style="margin-top: 10px; padding: 8px; background-color: #f0f0f0; border-radius: 4px; font-size: 0.85rem; color: #666;">
+                                    <strong>Completed with:</strong> ${escapeHtml(mp3File)}
+                                </div>
+                                ` : ''}
                                 ` : ''}
                                 <div class="recording-controls-secondary">
                                     <button id="${activity.id}_complete_${dayId}" 
@@ -277,7 +306,7 @@ function createActivityElement(activity) {
     if (activity.id === 'weekly_expressions') {
         // Weekly Expressions: Show audio player (MP3 is automatically assigned based on week)
         const selectedMp3 = (activityProgress && activityProgress.mp3_file) ? activityProgress.mp3_file : '';
-        console.log('Weekly expressions rendering - currentWeek:', currentWeek, 'selectedMp3:', selectedMp3, 'activityProgress:', activityProgress, 'progress:', progress);
+        
         activityContent = `
             <div class="weekly-expressions-content">
                 <div class="audio-player-section" id="weekly-expressions-audio-section-${currentWeek}">
@@ -293,13 +322,13 @@ function createActivityElement(activity) {
                                     <div class="custom-audio-controls" id="controls-weekly-expressions-${currentWeek}">
                                         <button class="play-pause-btn" onclick="toggleWeeklyExpressionsPlayPause('${currentWeek}')">▶</button>
                                         <button class="skip-btn" onclick="skipWeeklyExpressionsAudio('${currentWeek}', -5)" title="Rewind 5 seconds">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                 <path d="M11 3L5 8l6 5V3z"/>
                                                 <path d="M3 3h2v10H3V3z"/>
                                             </svg>
                                         </button>
                                         <button class="skip-btn" onclick="skipWeeklyExpressionsAudio('${currentWeek}', 5)" title="Forward 5 seconds">
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                 <path d="M5 3l6 5-6 5V3z"/>
                                                 <path d="M11 3h2v10h-2V3z"/>
                                             </svg>
@@ -421,13 +450,13 @@ function createActivityElement(activity) {
                                             <div class="custom-audio-controls" id="controls-typecast-${currentWeek}-1">
                                                 <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 1)">▶</button>
                                                 <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 1, -5)" title="Rewind 5 seconds">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                         <path d="M11 3L5 8l6 5V3z"/>
                                                         <path d="M3 3h2v10H3V3z"/>
                                                     </svg>
                                                 </button>
                                                 <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 1, 5)" title="Forward 5 seconds">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                         <path d="M5 3l6 5-6 5V3z"/>
                                                         <path d="M11 3h2v10h-2V3z"/>
                                                     </svg>
@@ -490,13 +519,13 @@ function createActivityElement(activity) {
                                             <div class="custom-audio-controls" id="controls-openai-${currentWeek}-1">
                                                 <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 1)">▶</button>
                                                 <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 1, -5)" title="Rewind 5 seconds">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                         <path d="M11 3L5 8l6 5V3z"/>
                                                         <path d="M3 3h2v10H3V3z"/>
                                                     </svg>
                                                 </button>
                                                 <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 1, 5)" title="Forward 5 seconds">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                         <path d="M5 3l6 5-6 5V3z"/>
                                                         <path d="M11 3h2v10h-2V3z"/>
                                                     </svg>
@@ -638,13 +667,13 @@ function createActivityElement(activity) {
                                                 <div class="custom-audio-controls" id="controls-typecast-${currentWeek}-2">
                                                     <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 2)">▶</button>
                                                     <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 2, -5)" title="Rewind 5 seconds">
-                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                             <path d="M11 3L5 8l6 5V3z"/>
                                                             <path d="M3 3h2v10H3V3z"/>
                                                         </svg>
                                                     </button>
                                                     <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 2, 5)" title="Forward 5 seconds">
-                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                             <path d="M5 3l6 5-6 5V3z"/>
                                                             <path d="M11 3h2v10h-2V3z"/>
                                                         </svg>
@@ -707,13 +736,13 @@ function createActivityElement(activity) {
                                                 <div class="custom-audio-controls" id="controls-openai-${currentWeek}-2">
                                                     <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 2)">▶</button>
                                                     <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 2, -5)" title="Rewind 5 seconds">
-                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                             <path d="M11 3L5 8l6 5V3z"/>
                                                             <path d="M3 3h2v10H3V3z"/>
                                                         </svg>
                                                     </button>
                                                     <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 2, 5)" title="Forward 5 seconds">
-                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                                                             <path d="M5 3l6 5-6 5V3z"/>
                                                             <path d="M11 3h2v10h-2V3z"/>
                                                         </svg>
@@ -840,57 +869,236 @@ function createActivityElement(activity) {
             </div>
         `;
     } else if (activity.id === 'weekly_speaking_prompt') {
-        // Weekly Speaking Prompt: Show prompt with hints and notes
-        const prompt = activityProgress?.prompt || '';
+        // Check if shadowing mode is active
+        const shadowingActive = isShadowingMode(currentWeek);
         
-        // Parse prompt to separate main question from hints
-        let mainPrompt = prompt || 'No prompt generated yet';
-        let hints = '';
-        
-        if (prompt && prompt.includes('Consider the following')) {
-            const parts = prompt.split('Consider the following');
-            mainPrompt = parts[0].trim();
-            if (parts.length > 1) {
-                hints = 'Consider the following' + parts[1];
+        if (shadowingActive) {
+            // Shadowing mode: Show prompt, best answer script, hints, and audio player
+            const prompt = activityProgress?.prompt || '';
+            const bestAnswerScript = activityProgress?.best_answer_script || '';
+            let bestAnswerHints = activityProgress?.best_answer_hints || '';
+            
+            // If best_answer_hints is empty, try to parse hints from the prompt
+            let mainPrompt = prompt || 'No prompt generated yet';
+            if (!bestAnswerHints && prompt) {
+                // Check for various hint indicators
+                const hintIndicators = [
+                    'Consider the following hints',
+                    'Consider the following',
+                    'Hints for structuring',
+                    'The following hints'
+                ];
+                
+                let hintSplitIndex = -1;
+                for (const indicator of hintIndicators) {
+                    const index = prompt.indexOf(indicator);
+                    if (index !== -1) {
+                        hintSplitIndex = index;
+                        break;
+                    }
+                }
+                
+                if (hintSplitIndex !== -1) {
+                    mainPrompt = prompt.substring(0, hintSplitIndex).trim();
+                    bestAnswerHints = prompt.substring(hintSplitIndex).trim();
+                }
             }
-        }
-        
-        const hintsId = `hints-${activity.id}`;
-        
-        const notes = activityProgress?.notes || '';
-        const notesId = `notes-${activity.id}-${currentWeek}`;
-        
-        activityContent = `
-            <div class="prompt-section">
-                <div class="prompt-text"><span class="prompt-indicator">"</span>${escapeHtml(mainPrompt)}</div>
-                ${hints ? `
-                    <div class="hints-section">
-                        <div class="hints-header" onclick="toggleScript('${hintsId}')">
-                            <span class="hints-label">Hints</span>
-                            <span class="script-toggle" id="toggle-${hintsId}">▶</span>
+            
+            // Audio URLs and timestamps
+            const typecastUrl = activityProgress?.best_answer_typecast_url || '';
+            const openaiUrl = activityProgress?.best_answer_openai_url || '';
+            const timestamps = activityProgress?.best_answer_timestamps || [];
+            
+            const hasScript = bestAnswerScript && bestAnswerScript.trim() !== '';
+            const hasTypecastAudio = typecastUrl && typecastUrl.trim() !== '';
+            const hasOpenaiAudio = openaiUrl && openaiUrl.trim() !== '';
+            const hasAudio = hasTypecastAudio || hasOpenaiAudio;
+            
+            const scriptId = `best-answer-script-${currentWeek}`;
+            const hintsId = `best-answer-hints-${currentWeek}`;
+            
+            activityContent = `
+                <div class="prompt-section">
+                    <div class="prompt-text"><span class="prompt-indicator">"</span>${escapeHtml(mainPrompt)}</div>
+                    
+                    <div class="script-and-hints-container">
+                        <div class="script-section">
+                            <div class="script-header">
+                                <span class="script-label">Script</span>
+                            </div>
+                            <div class="script-content active" id="${scriptId}">
+                                ${hasScript ? `
+                                    <div class="script-display">${escapeHtml(normalizeScriptText(bestAnswerScript))}</div>
+                                ` : `
+                                    <div class="script-display" style="color: #6c757d; font-style: italic;">
+                                        No script generated yet. Click "Re-generate Weekly Speaking Prompt" to generate the script.
+                                    </div>
+                                `}
+                            </div>
                         </div>
-                        <div class="hints-content" id="${hintsId}" style="display: none;">
-                            <pre class="hints-text">${escapeHtml(hints)}</pre>
-                        </div>
+                        
+                        ${bestAnswerHints ? `
+                            <div class="hints-section">
+                                <div class="hints-header">
+                                    <span class="hints-label">Answer Explanation</span>
+                                </div>
+                                <div class="hints-content" id="${hintsId}">
+                                    <div class="hints-text">${escapeHtml(bestAnswerHints)}</div>
+                                </div>
+                            </div>
+                        ` : ''}
                     </div>
-                ` : ''}
-                <div class="notes-section">
-                    <label for="${notesId}"><strong>Your notes / brainstorming</strong></label>
-                    <textarea 
-                        id="${notesId}" 
-                        class="prompt-notes" 
-                        placeholder="Write your thoughts, brainstorm ideas, or draft your response here... (Auto-saved)"
-                        onblur="savePromptNotes('${currentWeek}')"
-                    >${escapeHtml(notes)}</textarea>
+                    
+                    ${hasAudio ? `
+                        <div class="audio-player-section">
+                            ${hasTypecastAudio ? `
+                                <div class="audio-player-container">
+                                    <div class="audio-player-label">Typecast</div>
+                                    <div class="audio-player-with-options">
+                                        <div class="audio-player-wrapper-custom">
+                                            <audio id="audio-player-typecast-best-answer-${currentWeek}" data-week="${currentWeek}" data-source="typecast" data-type="best-answer">
+                                                <source src="/static/${typecastUrl}?v=${Date.now()}" type="audio/wav">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <div class="custom-audio-controls" id="controls-typecast-best-answer-${currentWeek}">
+                                                <button class="play-pause-btn" onclick="toggleBestAnswerPlayPause('typecast', '${currentWeek}')">▶</button>
+                                                <button class="skip-btn" onclick="skipBestAnswerAudio('typecast', '${currentWeek}', -5)" title="Rewind 5 seconds">
+                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M11 3L5 8l6 5V3z"/>
+                                                        <path d="M3 3h2v10H3V3z"/>
+                                                    </svg>
+                                                </button>
+                                                <button class="skip-btn" onclick="skipBestAnswerAudio('typecast', '${currentWeek}', 5)" title="Forward 5 seconds">
+                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M5 3l6 5-6 5V3z"/>
+                                                        <path d="M11 3h2v10h-2V3z"/>
+                                                    </svg>
+                                                </button>
+                                                <div class="progress-bar-container" onclick="seekBestAnswerAudio('typecast', '${currentWeek}', event)">
+                                                    <div class="progress-bar" id="progress-typecast-best-answer-${currentWeek}"></div>
+                                                    <div class="progress-playhead" id="playhead-typecast-best-answer-${currentWeek}"></div>
+                                                </div>
+                                                <span class="time-display" id="time-typecast-best-answer-${currentWeek}">0:00 / 0:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ` : ''}
+                            
+                            ${hasOpenaiAudio ? `
+                                <div class="audio-player-container">
+                                    <div class="audio-player-label">OpenAI</div>
+                                    <div class="audio-player-with-options">
+                                        <div class="audio-player-wrapper-custom">
+                                            <audio id="audio-player-openai-best-answer-${currentWeek}" data-week="${currentWeek}" data-source="openai" data-type="best-answer">
+                                                <source src="/static/${openaiUrl}?v=${Date.now()}" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <div class="custom-audio-controls" id="controls-openai-best-answer-${currentWeek}">
+                                                <button class="play-pause-btn" onclick="toggleBestAnswerPlayPause('openai', '${currentWeek}')">▶</button>
+                                                <button class="skip-btn" onclick="skipBestAnswerAudio('openai', '${currentWeek}', -5)" title="Rewind 5 seconds">
+                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M11 3L5 8l6 5V3z"/>
+                                                        <path d="M3 3h2v10H3V3z"/>
+                                                    </svg>
+                                                </button>
+                                                <button class="skip-btn" onclick="skipBestAnswerAudio('openai', '${currentWeek}', 5)" title="Forward 5 seconds">
+                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                                                        <path d="M5 3l6 5-6 5V3z"/>
+                                                        <path d="M11 3h2v10h-2V3z"/>
+                                                    </svg>
+                                                </button>
+                                                <div class="progress-bar-container" onclick="seekBestAnswerAudio('openai', '${currentWeek}', event)">
+                                                    <div class="progress-bar" id="progress-openai-best-answer-${currentWeek}"></div>
+                                                    <div class="progress-playhead" id="playhead-openai-best-answer-${currentWeek}"></div>
+                                                </div>
+                                                <span class="time-display" id="time-openai-best-answer-${currentWeek}">0:00 / 0:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    ` : hasScript ? `
+                        <div class="audio-generation-actions">
+                            <button class="generate-audio-btn" onclick="generateBestAnswerAudio('${currentWeek}', this)">
+                                Generate Audio
+                            </button>
+                        </div>
+                    ` : ''}
                 </div>
-            </div>
-        `;
+            `;
+        } else {
+            // Original mode: Show prompt with hints and notes
+            const prompt = activityProgress?.prompt || '';
+            
+            // Parse prompt to separate main question from hints
+            let mainPrompt = prompt || 'No prompt generated yet';
+            let hints = '';
+            
+            // Check for various hint indicators
+            const hintIndicators = [
+                'Consider the following hints',
+                'Consider the following',
+                'Hints for structuring',
+                'The following hints'
+            ];
+            
+            let hintSplitIndex = -1;
+            let hintIndicator = '';
+            
+            for (const indicator of hintIndicators) {
+                const index = prompt.indexOf(indicator);
+                if (index !== -1) {
+                    hintSplitIndex = index;
+                    hintIndicator = indicator;
+                    break;
+                }
+            }
+            
+            if (hintSplitIndex !== -1) {
+                mainPrompt = prompt.substring(0, hintSplitIndex).trim();
+                hints = prompt.substring(hintSplitIndex).trim();
+            }
+            
+            const hintsId = `hints-${activity.id}`;
+            
+            const notes = activityProgress?.notes || '';
+            const notesId = `notes-${activity.id}-${currentWeek}`;
+            
+            activityContent = `
+                <div class="prompt-section">
+                    <div class="prompt-text"><span class="prompt-indicator">"</span>${escapeHtml(mainPrompt)}</div>
+                    ${hints ? `
+                        <div class="hints-section">
+                            <div class="hints-header" onclick="toggleScript('${hintsId}')">
+                                <span class="hints-label">Hints</span>
+                                <span class="script-toggle" id="toggle-${hintsId}">▶</span>
+                            </div>
+                            <div class="hints-content" id="${hintsId}" style="display: none;">
+                                <div class="hints-text">${escapeHtml(hints)}</div>
+                            </div>
+                        </div>
+                    ` : ''}
+                    <div class="notes-section">
+                        <label for="${notesId}"><strong>Your notes / brainstorming</strong></label>
+                        <textarea 
+                            id="${notesId}" 
+                            class="prompt-notes" 
+                            placeholder="Write your thoughts, brainstorm ideas, or draft your response here... (Auto-saved)"
+                            onblur="savePromptNotes('${currentWeek}')"
+                        >${escapeHtml(notes)}</textarea>
+                    </div>
+                </div>
+            `;
+        }
     }
     
-    // Add kebab menu button for re-generate (weekly_expressions doesn't need regeneration)
+    // Add kebab menu button for re-generate
     const hasContent = (activity.id === 'voice_journaling' && activityProgress?.topics?.length > 0) ||
                        (activity.id === 'shadowing_practice' && (activityProgress?.script1 || activityProgress?.script)) ||
-                       (activity.id === 'weekly_speaking_prompt' && activityProgress?.prompt);
+                       (activity.id === 'weekly_speaking_prompt' && (activityProgress?.prompt || (isShadowingMode(currentWeek) && activityProgress?.best_answer_script))) ||
+                       (activity.id === 'weekly_expressions' && activityProgress?.mp3_file);
     
     div.innerHTML = `
         <div class="activity-header">
@@ -898,9 +1106,15 @@ function createActivityElement(activity) {
             ${hasContent ? `
                 <button class="activity-kebab-btn" onclick="toggleActivityOptions('${activity.id}', '${currentWeek}', event); event.stopPropagation();" title="Options">⋮</button>
                 <div class="activity-options-dropdown" id="activity-options-${activity.id}-${currentWeek}" style="display: none;">
-                    <button class="activity-option-btn" onclick="regenerateActivity('${activity.id}', '${currentWeek}', this); event.stopPropagation();">
-                        Re-generate ${activity.title}
-                    </button>
+                    ${activity.id === 'weekly_expressions' ? `
+                        <button class="activity-option-btn" onclick="changeWeeklyExpressionsMP3('${currentWeek}', this); event.stopPropagation();">
+                            Change MP3
+                        </button>
+                    ` : `
+                        <button class="activity-option-btn" onclick="regenerateActivity('${activity.id}', '${currentWeek}', this); event.stopPropagation();">
+                            Re-generate ${activity.title}
+                        </button>
+                    `}
                 </div>
             ` : ''}
         </div>
@@ -1185,21 +1399,11 @@ async function toggleShadowingDay(dateStr, element) {
 async function toggleWeeklyExpressionsDay(dateStr, element) {
     const newCompletedState = !element.classList.contains('completed');
     
-    // If marking as completed, save the notes first
+    // Get current MP3 file from UI when marking as completed
+    let currentMp3File = null;
     if (newCompletedState) {
-        const dayId = dateStr.replace(/-/g, '_');
-        const notesTextarea = document.getElementById(`weekly_expressions_notes_${dayId}`);
-        if (notesTextarea) {
-            const notes = notesTextarea.value || '';
-            // Save notes synchronously before marking as completed
-            try {
-                await saveWeeklyExpressionsNotes(dateStr, notes);
-            } catch (error) {
-                console.error('Error saving notes:', error);
-                showError('Failed to save notes. Please try again.');
-                return; // Don't mark as completed if notes save fails
-            }
-        }
+        const activityProgress = getActivityProgress('weekly_expressions');
+        currentMp3File = activityProgress?.mp3_file || null;
     }
     
     try {
@@ -1211,7 +1415,8 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
             body: JSON.stringify({
                 activity_id: 'weekly_expressions',
                 day: dateStr,
-                completed: newCompletedState
+                completed: newCompletedState,
+                mp3_file: currentMp3File  // Include current MP3 file when marking as completed
             })
         });
         
@@ -1237,6 +1442,9 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
             const activityContainer = document.querySelector('[data-activity-id="weekly_expressions"]');
             const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
             if (dayBox) {
+                const dayId = dateStr.replace(/-/g, '_');
+                const recordingUI = document.getElementById(`weekly_expressions_recording_ui_${dayId}`);
+                
                 if (newCompletedState) {
                     dayBox.classList.add('completed');
                     const dayActions = dayBox.querySelector('.day-actions');
@@ -1246,16 +1454,30 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
                         mark.textContent = '✓';
                         dayActions.insertBefore(mark, dayActions.firstChild);
                     }
+                    
+                    // Add MP3 file info inside the recording UI (date toggle)
+                    if (recordingUI && currentMp3File) {
+                        // Remove existing MP3 info if any
+                        const existingMp3Info = recordingUI.querySelector('.completed-mp3-info');
+                        if (existingMp3Info) existingMp3Info.remove();
+                        
+                        // Add new MP3 info
+                        const mp3Info = document.createElement('div');
+                        mp3Info.className = 'completed-mp3-info';
+                        mp3Info.style.cssText = 'margin-top: 10px; padding: 8px; background-color: #f0f0f0; border-radius: 4px; font-size: 0.85rem; color: #666;';
+                        mp3Info.innerHTML = `<strong>Completed with:</strong> ${escapeHtml(currentMp3File)}`;
+                        
+                        // Insert before the recording-controls-secondary
+                        const controlsSecondary = recordingUI.querySelector('.recording-controls-secondary');
+                        if (controlsSecondary) {
+                            controlsSecondary.insertAdjacentElement('beforebegin', mp3Info);
+                        } else {
+                            recordingUI.appendChild(mp3Info);
+                        }
+                    }
+                    
                     element.textContent = '✓ Completed';
                     element.classList.add('completed');
-                    
-                    // Close the recording UI if it's open
-                    const dayId = dateStr.replace(/-/g, '_');
-                    const recordingUI = document.getElementById(`weekly_expressions_recording_ui_${dayId}`);
-                    if (recordingUI && recordingUI.style.display !== 'none') {
-                        recordingUI.style.display = 'none';
-                        dayBox.classList.remove('active');
-                    }
                 } else {
                     dayBox.classList.remove('completed');
                     const dayActions = dayBox.querySelector('.day-actions');
@@ -1263,6 +1485,13 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
                         const mark = dayActions.querySelector('.completed-mark');
                         if (mark) mark.remove();
                     }
+                    
+                    // Remove MP3 info from recording UI
+                    if (recordingUI) {
+                        const mp3Info = recordingUI.querySelector('.completed-mp3-info');
+                        if (mp3Info) mp3Info.remove();
+                    }
+                    
                     element.textContent = 'Mark as completed';
                     element.classList.remove('completed');
                 }
@@ -1505,12 +1734,25 @@ function toggleScript(scriptId) {
     const toggleIcon = document.getElementById('toggle-' + scriptId);
     
     if (scriptDiv) {
-        if (scriptDiv.style.display === 'none') {
-            scriptDiv.style.display = 'flex';
-            if (toggleIcon) toggleIcon.textContent = '▼';
-        } else {
-            scriptDiv.style.display = 'none';
-            if (toggleIcon) toggleIcon.textContent = '▶';
+        // Check if it's a script-content (uses active class) or hints-content (uses display style)
+        if (scriptDiv.classList.contains('script-content')) {
+            // Toggle active class for script-content
+            if (scriptDiv.classList.contains('active')) {
+                scriptDiv.classList.remove('active');
+                if (toggleIcon) toggleIcon.textContent = '▶';
+            } else {
+                scriptDiv.classList.add('active');
+                if (toggleIcon) toggleIcon.textContent = '▼';
+            }
+        } else if (scriptDiv.classList.contains('hints-content')) {
+            // Use display style for hints-content
+            if (scriptDiv.style.display === 'none' || !scriptDiv.style.display) {
+                scriptDiv.style.display = 'block';
+                if (toggleIcon) toggleIcon.textContent = '▼';
+            } else {
+                scriptDiv.style.display = 'none';
+                if (toggleIcon) toggleIcon.textContent = '▶';
+            }
         }
     }
 }
@@ -1658,6 +1900,62 @@ async function regenerateActivity(activityId, weekKey, buttonElement) {
     }
 }
 
+// Change weekly expressions MP3 file
+async function changeWeeklyExpressionsMP3(weekKey, buttonElement) {
+    const button = buttonElement || document.querySelector(`#activity-options-weekly_expressions-${weekKey} .activity-option-btn`);
+    const originalText = button ? button.textContent : '';
+    
+    // Update button to show loading state
+    if (button) {
+        button.disabled = true;
+        button.textContent = '⏳ Changing...';
+    }
+    
+    try {
+        const response = await fetch('/api/weekly-expressions/regenerate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                week_key: weekKey
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            // Reload the current week to show new MP3 file
+            await loadWeek(weekKey);
+            showSuccess('MP3 file changed successfully!');
+        } else {
+            throw new Error(data.error || 'Failed to change MP3');
+        }
+    } catch (error) {
+        console.error('Error changing weekly expressions MP3:', error);
+        showError(`Failed to change MP3: ${error.message}`);
+    } finally {
+        // Restore button state
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    }
+}
+
 // Download audio file
 function downloadAudio(audioUrl, sourceType, weekKey, scriptNum) {
     if (!audioUrl) {
@@ -1796,7 +2094,7 @@ async function generateAudioForScript(weekKey, scriptNum, buttonElement, sourceT
     }
     
     const typecastVoiceId = typecastVoiceSelect ? typecastVoiceSelect.value : null;
-    const typecastModel = typecastModelSelect ? typecastModelSelect.value : 'ssfm-v21';
+    const typecastModel = typecastModelSelect ? typecastModelSelect.value : 'ssfm-v30';
     const openaiVoice = openaiVoiceSelect ? openaiVoiceSelect.value : null;
     
     // Always use 1.0x speed for audio generation
@@ -2266,6 +2564,28 @@ function formatWeekKey(year, week) {
     return `${year}-W${week.toString().padStart(2, '0')}`;
 }
 
+// Check if shadowing mode is active for weekly_speaking_prompt
+function isShadowingMode(weekKey) {
+    if (!weekKey) return false;
+    try {
+        const [yearStr, weekStr] = weekKey.split('-W');
+        const year = parseInt(yearStr);
+        const week = parseInt(weekStr);
+        
+        // Shadowing mode is active for weeks <= 2025-W52
+        if (year < 2025) {
+            return true;
+        } else if (year === 2025) {
+            return week <= 52;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
+
+
 // Get next or previous week key
 function getAdjacentWeek(weekKey, direction) {
     const parsed = parseWeekKey(weekKey);
@@ -2584,6 +2904,37 @@ async function deleteRecording(activityId, day, filename) {
                 showSuccess('Recording deleted successfully');
                 // Reload recordings for this day
                 await loadRecordings(activityId, day);
+                
+                // If no recordings left, unmark as completed
+                const recordingsResponse = await fetch('/api/get-recordings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        activity_id: activityId,
+                        week_key: currentWeek,
+                        day: day
+                    })
+                });
+                
+                if (recordingsResponse.ok) {
+                    const recordingsData = await recordingsResponse.json();
+                    if (recordingsData.success && (!recordingsData.recordings || recordingsData.recordings.length === 0)) {
+                        // No recordings left, unmark as completed
+                        const completeBtn = document.querySelector(`#${activityId}_complete_${day.replace(/-/g, '_')}`);
+                        if (completeBtn && completeBtn.classList.contains('completed')) {
+                            // Trigger the toggle function to unmark as completed
+                            if (activityId === 'voice_journaling') {
+                                await toggleVoiceJournalingDay(day, completeBtn);
+                            } else if (activityId === 'shadowing_practice') {
+                                await toggleShadowingDay(day, completeBtn);
+                            } else if (activityId === 'weekly_speaking_prompt') {
+                                await togglePromptDay(day, completeBtn);
+                            }
+                        }
+                    }
+                }
             } else {
                 showError('Failed to delete recording: ' + (data.error || 'Unknown error'));
             }
@@ -3097,12 +3448,29 @@ function toggleWeeklyExpressionsPlayPause(weekKey) {
     } else {
         audioElement.pause();
     }
+    
+    // Update play/pause button
+    updateWeeklyExpressionsPlayPauseButton(weekKey);
+}
+
+// Update play/pause button for weekly expressions
+function updateWeeklyExpressionsPlayPauseButton(weekKey) {
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
+    if (!audioElement) return;
+    
+    const controls = document.getElementById(`controls-weekly-expressions-${weekKey}`);
+    if (controls) {
+        const playPauseBtn = controls.querySelector('.play-pause-btn');
+        if (playPauseBtn) {
+            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
+        }
+    }
 }
 
 // Seek audio for weekly expressions
 function seekWeeklyExpressionsAudio(weekKey, event) {
     const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
-    const container = event.currentTarget;
+    const container = event.currentTarget || event.target.closest('.progress-bar-container');
     if (!audioElement || !container || !audioElement.duration) return;
     
     const rect = container.getBoundingClientRect();
@@ -3516,6 +3884,257 @@ function formatTime(seconds) {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
 
+// Best Answer Audio Player Functions (for shadowing mode)
+function toggleBestAnswerPlayPause(sourceType, weekKey) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    if (!audioElement) return;
+    
+    if (audioElement.paused) {
+        // Pause other audio sources
+        const otherSource = sourceType === 'typecast' ? 'openai' : 'typecast';
+        const otherAudio = document.getElementById(`audio-player-${otherSource}-best-answer-${weekKey}`);
+        if (otherAudio && !otherAudio.paused) {
+            otherAudio.pause();
+            updateBestAnswerPlayPauseButton(otherSource, weekKey);
+        }
+        audioElement.play();
+    } else {
+        audioElement.pause();
+    }
+    updateBestAnswerPlayPauseButton(sourceType, weekKey);
+}
+
+function updateBestAnswerPlayPauseButton(sourceType, weekKey) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    const playPauseBtn = document.querySelector(`#controls-${sourceType}-best-answer-${weekKey} .play-pause-btn`);
+    if (playPauseBtn && audioElement) {
+        playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
+    }
+}
+
+function skipBestAnswerAudio(sourceType, weekKey, seconds) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    if (!audioElement || !audioElement.duration) return;
+    
+    const newTime = Math.max(0, Math.min(audioElement.duration, audioElement.currentTime + seconds));
+    audioElement.currentTime = newTime;
+    
+    // Update progress bar
+    const progressBar = document.getElementById(`progress-${sourceType}-best-answer-${weekKey}`);
+    const playhead = document.getElementById(`playhead-${sourceType}-best-answer-${weekKey}`);
+    if (progressBar && audioElement.duration) {
+        const percent = newTime / audioElement.duration;
+        progressBar.style.width = (percent * 100) + '%';
+        if (playhead) {
+            playhead.style.left = (percent * 100) + '%';
+        }
+    }
+    
+    // Update time display
+    const timeDisplay = document.getElementById(`time-${sourceType}-best-answer-${weekKey}`);
+    if (timeDisplay) {
+        updateTimeDisplay(audioElement, timeDisplay);
+    }
+}
+
+function seekBestAnswerAudio(sourceType, weekKey, event) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    const container = event.currentTarget;
+    if (!audioElement || !audioElement.duration || !container) return;
+    
+    const rect = container.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const percent = Math.max(0, Math.min(1, x / rect.width));
+    audioElement.currentTime = percent * audioElement.duration;
+    
+    // Update progress bar
+    const progressBar = document.getElementById(`progress-${sourceType}-best-answer-${weekKey}`);
+    const playhead = document.getElementById(`playhead-${sourceType}-best-answer-${weekKey}`);
+    if (progressBar) {
+        progressBar.style.width = (percent * 100) + '%';
+    }
+    if (playhead) {
+        playhead.style.left = (percent * 100) + '%';
+    }
+    
+    // Update time display
+    const timeDisplay = document.getElementById(`time-${sourceType}-best-answer-${weekKey}`);
+    if (timeDisplay) {
+        updateTimeDisplay(audioElement, timeDisplay);
+    }
+}
+
+async function generateBestAnswerAudio(weekKey, buttonElement) {
+    if (!weekKey) weekKey = currentWeek;
+    
+    const button = buttonElement;
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Generating...';
+    
+    try {
+        const response = await fetch('/api/generate-weekly-prompt-audio', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                week_key: weekKey
+            })
+        });
+        
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({ error: 'Failed to generate audio' }));
+            throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Reload progress and refresh UI
+            await loadData();
+            showSuccess('Audio generated successfully!');
+        } else {
+            showError(data.error || 'Failed to generate audio');
+        }
+    } catch (error) {
+        console.error('Error generating audio:', error);
+        showError('Failed to generate audio: ' + error.message);
+    } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+    }
+}
+
+// Set up audio controls for best answer audio player
+function setupBestAnswerAudioControls(sourceType, weekKey) {
+    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    const playPauseBtn = document.querySelector(`#controls-${sourceType}-best-answer-${weekKey} .play-pause-btn`);
+    const progressBar = document.getElementById(`progress-${sourceType}-best-answer-${weekKey}`);
+    const timeDisplay = document.getElementById(`time-${sourceType}-best-answer-${weekKey}`);
+    
+    if (!audioElement) return;
+    
+    // Set up drag functionality
+    setupBestAnswerAudioDrag(sourceType, weekKey);
+    
+    // Update play/pause button
+    function updatePlayPauseButton() {
+        if (playPauseBtn) {
+            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
+        }
+    }
+    
+    // Update progress bar
+    function updateProgressBar() {
+        if (progressBar && audioElement.duration) {
+            const percent = (audioElement.currentTime / audioElement.duration) * 100;
+            progressBar.style.width = percent + '%';
+            
+            // Update playhead position
+            const playheadId = progressBar.id.replace('progress-', 'playhead-');
+            const playhead = document.getElementById(playheadId);
+            if (playhead) {
+                playhead.style.left = percent + '%';
+            }
+        }
+    }
+    
+    // Update time display
+    function updateTimeDisplayFunc() {
+        if (timeDisplay && audioElement.duration) {
+            updateTimeDisplay(audioElement, timeDisplay);
+        }
+    }
+    
+    // Event listeners
+    audioElement.addEventListener('timeupdate', () => {
+        updateProgressBar();
+        updateTimeDisplayFunc();
+    });
+    
+    audioElement.addEventListener('loadedmetadata', () => {
+        updateTimeDisplayFunc();
+    });
+    
+    audioElement.addEventListener('play', updatePlayPauseButton);
+    audioElement.addEventListener('pause', updatePlayPauseButton);
+    
+    // Initial update
+    updatePlayPauseButton();
+    updateTimeDisplayFunc();
+}
+
+// Set up drag functionality for best answer audio
+function setupBestAnswerAudioDrag(sourceType, weekKey) {
+    const container = document.querySelector(`#controls-${sourceType}-best-answer-${weekKey} .progress-bar-container`);
+    const playhead = document.getElementById(`playhead-${sourceType}-best-answer-${weekKey}`);
+    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    
+    if (!container || !audioElement) return;
+    
+    let isDragging = false;
+    
+    const handleMove = (clientX) => {
+        if (!audioElement.duration) return;
+        const rect = container.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const percent = Math.max(0, Math.min(1, x / rect.width));
+        audioElement.currentTime = percent * audioElement.duration;
+        updateBestAnswerProgressBar(sourceType, weekKey, percent);
+    };
+    
+    const startDrag = (e) => {
+        isDragging = true;
+        if (playhead) {
+            playhead.style.transition = 'none';
+        }
+        handleMove(e.clientX);
+        e.preventDefault();
+        e.stopPropagation();
+    };
+    
+    // Make playhead draggable
+    if (playhead) {
+        playhead.addEventListener('mousedown', (e) => {
+            startDrag(e);
+        });
+    }
+    
+    // Make container draggable
+    container.addEventListener('mousedown', (e) => {
+        startDrag(e);
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            handleMove(e.clientX);
+        }
+    });
+    
+    document.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            if (playhead) {
+                playhead.style.transition = 'left 0.1s linear';
+            }
+        }
+    });
+}
+
+// Update progress bar for best answer audio
+function updateBestAnswerProgressBar(sourceType, weekKey, percent) {
+    const progressBar = document.getElementById(`progress-${sourceType}-best-answer-${weekKey}`);
+    const playhead = document.getElementById(`playhead-${sourceType}-best-answer-${weekKey}`);
+    
+    if (progressBar) {
+        progressBar.style.width = (percent * 100) + '%';
+    }
+    if (playhead) {
+        playhead.style.left = (percent * 100) + '%';
+    }
+}
+
 // Set up audio controls event listeners for shadowing practice
 function setupShadowingAudioControls(sourceType, weekKey, scriptNum) {
     const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
@@ -3599,6 +4218,16 @@ function setupAllShadowingAudioControls() {
             }
         });
     });
+    
+    // Set up best answer audio controls (for weekly_speaking_prompt in shadowing mode)
+    if (isShadowingMode(currentWeek)) {
+        ['typecast', 'openai'].forEach(sourceType => {
+            const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${currentWeek}`);
+            if (audioElement) {
+                setupBestAnswerAudioControls(sourceType, currentWeek);
+            }
+        });
+    }
 }
 
 // Initialize on page load

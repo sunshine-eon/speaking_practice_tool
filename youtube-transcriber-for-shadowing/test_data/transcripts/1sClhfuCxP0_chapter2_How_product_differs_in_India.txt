@@ -1,0 +1,72 @@
+Chapter 2: How product differs in India
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 04:28 - 08:34
+============================================================
+
+[00:00] Anuj, thank you so much for being here and welcome to the podcast.
+[00:05] Thank you so much, Lenny.
+[00:07] Thank you for having me.
+[00:09] It's my pleasure.
+[00:10] I haven't told you this, but when I put a call out on Twitter and LinkedIn for people's
+[00:15] favorite India-based product leaders, you were the single most recommended person.
+[00:21] And so I just wanted to start with, how does it feel to be the most loved India-based product
+[00:26] leader, at least according to my Twitter followers and LinkedIn followers?
+[00:30] It feels really good.
+[00:32] And I really feel it's come together because I've been doing product management for the
+[00:36] longest time.
+[00:37] In 2010, when I started the product management journey with Flipkart, I think that that was
+[00:42] a time when there were not a lot of products being built for India.
+[00:45] So I think one part is just the tenure.
+[00:48] And B is, I think it's just a lot of people have known that work.
+[00:52] Awesome.
+[00:53] You're very modest.
+[00:54] I wanted to start with a question about product in India.
+[00:58] And I'm just curious just how is product management and product building in general, just most
+[01:03] different in India?
+[01:05] Yeah, I think that's a very interesting question.
+[01:07] And I think about this all the time.
+[01:09] When I look at product management in India, and I do have a lot of friends comparing product
+[01:14] management versus in the US or even in Europe, versus even in China, Southeast Asia, et cetera.
+[01:19] I think India has had a very interesting journey of products in general.
+[01:23] And hence product management also.
+[01:25] I think till about 2010-ish, there were not really many products built for the Indian
+[01:30] consumers in the first place.
+[01:31] There were a lot of products being built, a lot of technology being built, but largely
+[01:36] because it was a back office.
+[01:38] So you had a lot of great engineers working in companies which would build products for
+[01:44] the American customer or even for the European customer and so on.
+[01:48] So once these startups started coming in, which were thinking about building for the
+[01:52] Indian consumers, I think we did not really have that talent which you could directly
+[01:57] tap into, were trained into product building, forget product management as a field in the
+[02:03] first place.
+[02:04] There were no colleges which were teaching anything about this.
+[02:06] There was no playbooks and so on and so forth.
+[02:09] We would go to the internet and look at YouTube and look at SVPG and all of that.
+[02:14] But what we would understand would not, you could not port directly to the Indian startups.
+[02:20] And the way that they shaped up, I think also shaped up the way product management field
+[02:25] would evolve in India.
+[02:26] So it's taken like a bunch of iterations and I think there are like two or three different
+[02:30] waves that have come in.
+[02:31] And we are way closer to how good product management should be done in India.
+[02:34] We still have a little bit way to go compared to, to say, US.
+[02:39] And I also think of it along, like for example, in US, the product building culture problem
+[02:44] probably started in 1970s, modern software product building culture.
+[02:50] And you didn't only have product manager to the entire ecosystem.
+[02:53] If you think about a company, like who is the VP of business and who is the VP of supply
+[02:57] and sales and ops and technology and all of that.
+[03:02] That group knew how to work with each other to build software products.
+[03:06] They understood how that would be built and what to expect.
+[03:09] I think in India, when, when we were in 2010, et cetera, even those different people who
+[03:14] needed to come together to build, they say e-commerce, they would come from say FMCG
+[03:19] or they would come from manufacturing and so on.
+[03:21] And what they would have seen in their journeys in terms of what we expect is, is a very request
+[03:26] response kind of, of understanding, which is here's machinery.
+[03:30] If I give this X resources, I expect with a little bit of variability, why predictable
+[03:35] output to come.
+[03:37] And that mentality also kind of moved on to what I expect from product managers or product
+[03:43] building journeys and so on.
+[03:45] So I think over a period of time, a lot of those cycles have happened and a lot more
+[03:49] other leaders in companies have, have now seen those cycles and kind of understood and
+[03:54] he, all right, now I understand software is not machinery.
+[03:59] Consumers are not predictable as much as we thought.
+[04:02] And that has led to now finally, I think product management coming up age.

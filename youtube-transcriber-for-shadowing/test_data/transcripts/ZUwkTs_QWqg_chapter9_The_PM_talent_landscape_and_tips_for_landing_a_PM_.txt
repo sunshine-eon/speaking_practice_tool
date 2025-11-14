@@ -1,0 +1,86 @@
+Chapter 9: The PM talent landscape, and tips for landing a PM role
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 22:13 - 24:55
+============================================================
+
+[22:10] I hope that let's see how this goes.
+[22:13] You're talking about how hiring is changing.
+[22:14] I'm curious how PM hiring specifically is changing.
+[22:18] A lot of people listening to this podcast
+[22:19] or product managers, is there anything unique
+[22:21] you're noticing there?
+[22:22] Maybe a couple of stats that could be very helpful.
+[22:24] If you're having a hard time finding a PM role,
+[22:26] let's start with this, you're probably not alone.
+[22:28] We publish it, you can go to our economic graph data.
+[22:30] This is all public, we publish this.
+[22:32] But if you look at tech, it's down about 50%
+[22:34] year over year and we look at kind of hires
+[22:36] over total population on LinkedIn.
+[22:38] You can go to our economic graphs and you can see
+[22:40] that how it compares to the trends industry.
+[22:42] And we don't look at the functional data as much,
+[22:44] but as you can, the PM data seems to be trending
+[22:46] just slightly even maybe below software engineers
+[22:48] and that as well, which is maybe a cop for this.
+[22:50] I know not everything is perfect industry
+[22:53] to function kind of cuts.
+[22:54] So it is a difficult place, but I'll give you a couple tips
+[22:59] because I imagine that may be helpful
+[23:00] for a couple of the listeners.
+[23:02] And I'm certainly one of the larger inbound
+[23:04] of things I get.
+[23:05] The first is in those kind of markets,
+[23:07] you do wanna make sure that the more you can do
+[23:10] to kind of form relationships and kind of say
+[23:13] that this is, you know, we can, which is always helpful.
+[23:15] Now, I know that not everyone has relationships,
+[23:17] but you can always try to develop those
+[23:18] at different places in across LinkedIn as well.
+[23:21] But that's one thing I would really, really start to look for.
+[23:24] The second thing I would really do
+[23:25] is we have launched the way now to come in
+[23:27] and kind of signal obviously that you're interested in a role.
+[23:31] We have those open to work capabilities,
+[23:32] but then each of job has a set of skills
+[23:35] that they're looking for under it.
+[23:36] Like we talked about in skills first hiring.
+[23:38] And against each skill,
+[23:39] you can actually add different kinds of credentials.
+[23:41] And I would really encourage people to add work products
+[23:44] if that's something that are actually building,
+[23:45] if they add different kinds of recommendations
+[23:47] or other things that can associate with that skill.
+[23:49] And those credentials against it,
+[23:51] I think are becoming much more interesting for people
+[23:53] to say, oh, this is someone I'm actually looking for.
+[23:55] And then the third thing I would really encourage
+[23:57] kind of PMs to start looking through is,
+[24:00] I think in every, this is probably more personal
+[24:02] than anything in kind of data,
+[24:05] but every PM job is different.
+[24:06] And if you have experience in that industry
+[24:08] and you're able to kind of show
+[24:09] that you have experience in industry
+[24:10] or some kind of understanding of it,
+[24:12] I think that's a way to separate.
+[24:13] And so I'd really start zoning in on roles
+[24:16] where you might see that kind of the,
+[24:18] if you don't know the functional experience,
+[24:19] kind of the industry experience.
+[24:21] And I think that that would kind of go a long way
+[24:23] is how to help you differentiate from, yes,
+[24:26] what's probably more candidates
+[24:27] or more applications going into each role.
+[24:29] And when you say industry experience,
+[24:31] what's the example of that?
+[24:32] Imagine that you were applying for a PM role,
+[24:36] but that particular software is in,
+[24:39] I don't know, automotive tech.
+[24:40] If you happen to have worked in automotive before,
+[24:42] have a knowledge about cars,
+[24:44] it's a very helpful way to get in.
+[24:46] And I think if you're able to show that,
+[24:48] you can show an industry knowledge and understanding of it.
+[24:50] I think it's a real nice way to think about
+[24:52] how to position yourself against some of the other candidates.

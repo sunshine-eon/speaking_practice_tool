@@ -1,0 +1,149 @@
+Chapter 8: How might these product work levels cause conflict or influence your company culture?
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 56:46 - 63:43
+============================================================
+
+[00:00] and often like CEOs are the ones,
+[00:02] the founders are the ones that are thinking about
+[00:04] what is the impact to our brand?
+[00:07] Right?
+[00:07] And so the CEO is thinking at the impact level,
+[00:11] you're thinking at the execution level,
+[00:13] there is that mismatch.
+[00:16] We litigate the minutiae of whatever issue we're discussing,
+[00:22] but we never really recognize
+[00:24] that it's because we are kind of default thinking
+[00:27] at different levels.
+[00:28] And so this realization helped me better understand
+[00:33] why there were conflicts between two very smart
+[00:38] and well-intentioned people or groups within a company.
+[00:42] And time and again, I noticed that,
+[00:45] and I was myself guilty of this as well earlier on
+[00:48] in my career, like time and again,
+[00:49] I noticed that we kind of again keep litigating
+[00:53] the specific issue without understanding that,
+[00:56] there's actually just like a fundamental mismatch.
+[00:59] And it's not like people are stuck at one level
+[01:01] and can never think at a different level,
+[01:03] it's just that we tend to default to certain levels.
+[01:06] And that's like sometimes our preferred level,
+[01:08] we can switch levels, but that requires a nudge sometimes.
+[01:13] And so that observation helped explain a lot of things,
+[01:17] including what kind of people an organization will promote.
+[01:20] Like does it promote people who default operate
+[01:24] at the impact level?
+[01:26] Does it promote people who more,
+[01:28] who default operate at the execution level
+[01:31] or at the optics level?
+[01:33] So it has like very wide-ranging impacts
+[01:35] on just like overall how an organization functions.
+[01:40] What's an example of optics and when optics matters,
+[01:44] when you might not be thinking about the importance of that,
+[01:46] just unpacking that one a little bit?
+[01:48] Yes, so optics is about creating awareness
+[01:54] of the impact and the execution that you're doing
+[01:59] or your team is doing.
+[02:01] That is the most compact definition
+[02:02] I can come up with for optics.
+[02:04] And optics is a good thing, right?
+[02:07] So like I'm not saying don't think about optics whatsoever.
+[02:12] I think it's actually important to think about optics.
+[02:16] And now I'm talking about just internal optics.
+[02:18] External optics is an entirely different thing
+[02:20] and that's like marketing PR
+[02:22] and that's definitely highly important.
+[02:24] But even when we talk about simply,
+[02:26] we limit scope to internal optics,
+[02:28] I'll make the observation that you should be spending
+[02:31] some time on internal optics
+[02:34] because it creates energy, it creates awareness,
+[02:37] it creates excitement, it creates opportunities for feedback.
+[02:40] Those are all really great things
+[02:42] and they will enable greater impact
+[02:44] and better execution for you.
+[02:46] The challenges, the challenge with optics is
+[02:49] that in certain organizations, that balance gets thrown off.
+[02:55] Where optics sometimes becomes the goal.
+[03:00] Where somehow implicitly the organization
+[03:03] or its culture has indicated to its people
+[03:07] that as long as you do the optics well,
+[03:09] you are going to be fine.
+[03:12] You're going to be appreciated here.
+[03:13] You're going to be rewarded here
+[03:15] as long as you do the optics fine.
+[03:17] And it's not like the organization woke up in the morning
+[03:20] and said this is the culture we want to create.
+[03:23] It just happens again through little actions
+[03:26] that occur every day.
+[03:28] It happens through who you hire,
+[03:30] who you fire, who you promote.
+[03:32] And what kinds of things do you appreciate at all hands
+[03:35] as the CEO or the founder, right?
+[03:38] Do you appreciate a launch?
+[03:41] Do you appreciate results?
+[03:43] Do you appreciate an, I don't know,
+[03:45] an awesome status update that somebody sent?
+[03:47] So a status update doesn't on its own accomplish anything.
+[03:51] I mean, they are important,
+[03:53] but a status update is an optics activity.
+[03:55] Now it is a necessary optics activity,
+[03:58] but if you start appreciating
+[04:02] the necessary optics activities constantly,
+[04:07] the signal you are sending to people is,
+[04:10] oh, you got to focus on this optics activity, right?
+[04:12] So then that becomes the goal.
+[04:15] And that can be really harmful.
+[04:17] So there's these three levels of product work.
+[04:21] Do you have advice for, should I just like default
+[04:23] to one of these normally based on just like as a PM,
+[04:26] I should always be thinking about impact.
+[04:28] Or is it more, just make sure you're aligned
+[04:30] with your leader, with your team.
+[04:32] Is that the more important takeaway?
+[04:34] Yes, I think that's the more important takeaway
+[04:36] is again, it's about now we have a vocabulary
+[04:40] that we can talk about in an objective manner
+[04:46] without kind of pointing fingers.
+[04:48] It's like, oh, you tend to be, you know,
+[04:50] fixated on all these execution details
+[04:53] and like that's not the right thing.
+[04:54] That's the type of feedback sometimes that gets shared.
+[04:57] So now you have vocabulary to talk about this.
+[05:00] And once you have that, you sort of can as a team decide
+[05:04] what is most important given your context.
+[05:08] I'll give you an example like for early stage teams.
+[05:12] Yeah, of course they need to be thinking
+[05:13] about the eventual impact, right?
+[05:16] But what they should actually, I think,
+[05:19] most early stage teams should actually optimize
+[05:23] for execution, right?
+[05:25] Assuming that they have come up with a reasonable hypothesis
+[05:29] about what's going to win,
+[05:31] their main emphasis, net, needs to be on execution
+[05:36] because you will not see impact readily
+[05:39] on a one week horizon or a one month horizon
+[05:42] or perhaps even on a quarterly horizon.
+[05:45] So that's an example of a situation
+[05:46] where let's be explicit, right?
+[05:48] Like we need to get great at execution.
+[05:51] We have a set of core insights
+[05:54] that were informed by our desire to make an impact.
+[05:58] But now that we are like responsible
+[06:00] for converting these insights into a product,
+[06:03] let's be largely operating at the execution level.
+[06:09] As an example, say there is a platform team
+[06:12] and that platform team has had some issues lately
+[06:15] with availability that has disrupted some other teams
+[06:18] within the company and their products.
+[06:21] Perhaps that platform team should have a conversation
+[06:23] that, you know what, yes, we need to focus on impact,
+[06:26] obviously to kind of avoid this negative impact.
+[06:30] But also let's pay some more attention to optics
+[06:35] because we haven't been communicating with teams as much,
+[06:39] teams that rely on us, right?
+[06:40] So let's create a better communication channel with them.
+[06:44] Let's create better status updates for them or whatnot.
+[06:47] So again, the point is not so much like,
+[06:50] oh, you should just, this is the right level
+[06:51] and all other levels are wrong.
+[06:53] It's about being sensitive to what's right in this situation.

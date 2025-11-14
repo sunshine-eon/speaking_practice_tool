@@ -1,0 +1,65 @@
+Chapter 11: Anuj’s “show don’t tell” framework
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 33:06 - 36:19
+============================================================
+
+[00:00] parallels. I know you also have a lot of interesting ways of
+[00:03] thinking about coming up with roadmap ideas and ideating and
+[00:07] building a roadmap backlog. So you already talked about this
+[00:09] idea of going in very divergent directions and seeing if that
+[00:12] leads anywhere. There's a couple more I someone shared. One is
+[00:16] you have this idea of show don't tell what is does that
+[00:21] actually show don't tell is is an idea which is an extension
+[00:23] of what we're talking about is from working backwards. And
+[00:27] yeah, when we're talking about working backwards, one is a PR
+[00:30] FAQ, which is like a written documentation of what we're
+[00:32] trying to achieve. Show don't tell is essentially a way in which
+[00:36] the product manager starts ideating with the entire
+[00:40] experience. And they actually create all the collateral
+[00:44] collateral together of a user you need to begin with if
+[00:47] you're working on a single player product, which is a
+[00:49] single user product. And then you actually start bringing
+[00:54] together your marketers and others in terms of what is
+[00:58] literally the first screen. And how is my user getting here?
+[01:03] And it's not as simple as the imagine somebody who will be
+[01:06] doing this and reaching here. We try to recreate an exact
+[01:09] situation. There's a concept of person not personas. So when
+[01:13] we talk about personas, but we try to go to all right, no,
+[01:17] don't think about a generic user. Let's say Lenny, 30 years
+[01:20] old, doing ABCD things earning this much, etc, etc. His
+[01:24] relationship with this category of food delivery is X. These
+[01:27] are the things that he has done in the last month. In the last
+[01:30] three days, they were the needs as aspirations, fears,
+[01:33] frustrations, etc, etc. Okay, it's 11 o'clock. What's
+[01:36] happened? Why is this user open? Or what triggered this
+[01:39] particular app? And then what happened? So you literally
+[01:42] start from there. And I think 50% of my product reviews
+[01:46] are are on that part. And then when we say key, all
+[01:49] right, then this app got open, do we have the right
+[01:52] kind of way forwards for Lenny to actually achieve what he
+[01:56] came here for? Literally, each pixel and each copy and each
+[01:59] word is is going to be in service of that part. So that's
+[02:03] kind of showing the entire journey rather than just
+[02:05] saying and assuming. So that is something that I found
+[02:09] really powerful with respect to even designing products or
+[02:11] even thinking about why we're building something. What it
+[02:15] also helps is when we are building complex products,
+[02:18] especially in marketplaces, because once you're building
+[02:20] this for the user, simultaneously, something is
+[02:23] happening on the other part. If it is simultaneously, if it's
+[02:26] a real time marketplace or something like that. So you're
+[02:28] building something for the user and saying, all right, this
+[02:31] guy ordered. Now there's a 30 minutes time when a delivery
+[02:35] executors will will will come to come to the user with
+[02:38] food. What is happening? What's the emotional state of
+[02:41] the user? And let's plot out the 30 minutes time and
+[02:43] let's create like various scenarios. He's like, Hey,
+[02:46] maybe he went to the restaurant and the food
+[02:48] is delayed or the dude on a bike, his bike got punctured,
+[02:52] etc. What is a consumer thinking at this time? So you show
+[02:55] all of those things in real time, and that cuts out a
+[02:59] whole bunch of of, you know, random ways in which the
+[03:02] product could have looked like if you're creating even a
+[03:04] chatbot. So just having that showcase of all journeys
+[03:09] coming together helps a lot in building your products
+[03:12] in the lightweight.

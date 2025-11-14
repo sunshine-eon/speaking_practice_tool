@@ -1,0 +1,79 @@
+Chapter 10: The power of manual onboarding
+Video: Superhuman's secret to success | Rahul Vohra (CEO and founder)
+Time: 47:32 - 52:37
+============================================================
+
+[00:00] The next area I want to spend time on and I imagine we'll have much insight is some
+[00:06] of the contrarian ways you approach building superhuman that a lot of companies never thought
+[00:12] about doing that you did that worked out for you.
+[00:14] So the first is manually onboarding every single new user.
+[00:20] Sure startups have done this like, you know, founders bring on some folks and then like
+[00:23] cool show it show it to them and then they stop doing that and then it's like self service
+[00:27] or sales teams.
+[00:29] How far did you scale this manual onboarding phase of your of your company?
+[00:36] Like how many people did you have onboarding people?
+[00:37] How many people did you man any on board?
+[00:40] Yeah, so for folks that don't know in those early days, we insisted on one to one concierge
+[00:45] onboarding and it was absolutely the right thing to do.
+[00:48] You couldn't use superhuman unless you went through the onboarding experience.
+[00:52] And now it's almost the reverse almost every new superhuman customer goes through self
+[00:56] service.
+[00:57] The onboarding experience is still there.
+[00:59] But again, it is absolutely the right thing to do.
+[01:02] To answer your question at peak, we had about 20 people doing manual onboarding.
+[01:08] OK, so it's not that many people.
+[01:09] That's really interesting because I always imagine it was like a massive team, but 20
+[01:14] people can do can handle a lot is the takeaway there.
+[01:17] What was the scale, I guess, where you stopped manual onboarding just for folks that are
+[01:21] like thinking about doing this and then went to stop.
+[01:23] So I think the reason to stop is that there will always be certain personality types who
+[01:28] do not want to go through a one on one onboarding.
+[01:31] And at a certain point, those people will become very important and you will need to
+[01:35] be ready with a world class self service option.
+[01:39] When we started building self service, it seemed nearly impossible.
+[01:44] In fact, it was terrifying because.
+[01:48] It's difficult to overstate how much the entire DNA of the company was built around
+[01:56] this idea that we would.
+[02:00] Onboard users manually.
+[02:03] And after all, we did so much in our one to one onboardings and there's only so much
+[02:07] that software can do that we did after a lot of grind and persistence eventually figure
+[02:11] it out and we have a world class self service experience today, but we did not at the time.
+[02:17] So the flip side is why would you even do this to begin with?
+[02:21] Well, we found two things.
+[02:23] Number one, the user metrics are excellent for things like engagement, retention, product
+[02:28] market, Fittscore, MPS, Boralicy.
+[02:30] For all of those metrics, I think you will significantly beat your industry benchmarks
+[02:35] if you go to the effort of one on one onboarding your early customers and it becomes so powerful
+[02:42] to have that early cohort of super fans when it comes to things like building a brand.
+[02:48] And if folks remember that conversation from way up at the top, what is it that creates
+[02:52] true virality?
+[02:53] It's not viral mechanics.
+[02:56] It's word of mouth.
+[02:57] It is brand.
+[02:58] This is how you can kickstart a brand.
+[03:00] And number two, in a world where you can easily and quickly raise funding, like for example,
+[03:05] the zero interest rate phenomenon era, you can actually use dollars to avoid building
+[03:10] a first time user experience and all of the normal growth loops that you would then have
+[03:14] to build.
+[03:15] You would then instead focus all of your engineers on finding product market fit or in solution
+[03:20] deepening or in market widening.
+[03:23] But not for example, on a first time user experience.
+[03:28] Not for example, on activation because you have humans doing activation for you.
+[03:33] And by contrast, I saw other companies often competing spend almost half their engineering
+[03:37] dollars on those things.
+[03:40] Uh, and probably cornering Naam and their
+[03:46] marketing management forces bomb
+[03:58] S Vanguard.
+[03:59] AI companies have that again today. So if you can weave this into your strategy, I think
+[04:04] you should, but you should also know when to stop.
+[04:08] Super interesting. So I guess some factors to think about, because I wanted to ask you,
+[04:12] when should people consider doing this if they're hearing this and like, this is awesome.
+[04:16] So many problems solved if I just have somebody onboarding every new user, everyone's activated.
+[04:20] Amazing. So some of the variables you're sharing is, do you have like cheap cash to invest in,
+[04:26] say like it doesn't have to be 20 people, it could be a few people to start. And then if there's
+[04:32] like an LTV kind of ACV element of just like, are you going to make enough for a new customer?
+[04:37] Imagine that's a variable. Is there anything else you think founders should think about?
+[04:42] Absolutely. You don't want to lose money doing this. And we always made money doing onboarding
+[04:46] to be clear. It's just that at a certain point that the mass market, whether it for us as enterprise
+[04:53] or all of the prosumers in the world, you hit a top of funnel with it needs to be wide enough
+[05:01] where manually onboarding no longer makes sense.

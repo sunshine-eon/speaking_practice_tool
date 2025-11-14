@@ -1,0 +1,114 @@
+Chapter 3: LinkedIn’s positive evolution, and what they did right
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 06:32 - 10:14
+============================================================
+
+[06:31] It's very kind of you.
+[06:32] Yeah, okay, so let's roll into some stuff.
+[06:34] I actually wanna start with LinkedIn as a platform broadly.
+[06:38] I know you don't work on all parts of LinkedIn
+[06:40] and don't necessarily know everything
+[06:41] that's going on there, but something I've noticed
+[06:43] that's pretty major is it feels like LinkedIn's
+[06:46] really made this move from being a very cringy place
+[06:50] to post and spend time till it's actually now interesting
+[06:55] and the feed that I see on LinkedIn is interesting.
+[06:58] Oftentimes, even more interesting than Twitter,
+[07:00] which is crazy to say.
+[07:02] Also, it's become the biggest source of traffic
+[07:05] for my newsletter, more so than Twitter,
+[07:07] which I never expected.
+[07:09] So my question is, as far as you know,
+[07:12] what is it that y'all did right in the past couple of years
+[07:15] that has allowed for this shift to happen?
+[07:17] Because this was very rare.
+[07:18] Well, first, I'm glad you're having a good experience with it,
+[07:21] and that's really, really kind of here.
+[07:23] So first of all, it's very interesting.
+[07:25] You kind of hit on it.
+[07:26] Everything at LinkedIn is a very connected ecosystem.
+[07:29] And so one of the things that we always think about
+[07:32] is how the whole system fits together.
+[07:34] And I'm sure we'll get into it more and more
+[07:35] about how we build at LinkedIn,
+[07:37] but how you make decisions based on that very complicated
+[07:40] ecosystem is actually not very difficult
+[07:42] because we're all here to help people connect
+[07:44] to economic opportunity.
+[07:45] Like every time there's a discussion,
+[07:47] something I'm really, really proud about working here
+[07:49] is everyone knows how that decision is gonna be made.
+[07:52] And it's all about how we connect
+[07:53] to people with economic opportunity.
+[07:55] Now, it was funny, just the other day I was driving,
+[07:58] I was in an Uber with the person who runs the feed,
+[08:00] who's this guy, Kim Rush, who's just phenomenal.
+[08:02] And we were just talking about this.
+[08:04] And one of the things he mentioned to me was,
+[08:07] if you think about what a feed is
+[08:08] when it connects someone to opportunity,
+[08:10] it's gotta do a couple of things really, really well.
+[08:12] And we've done a ton of member surveys on this,
+[08:15] a ton of thought behind it.
+[08:16] The first is, as you make relationship connections
+[08:19] across the way, that is a real way
+[08:20] by which people get opportunity.
+[08:22] They keep in touch with those people, they learn.
+[08:23] They might follow someone in hopes
+[08:25] and getting known to them and getting that knowledge.
+[08:26] And we gotta make sure that that content is getting to them.
+[08:29] Then when you think outside the network,
+[08:32] we have to make sure that the things that people really want,
+[08:35] which they keep saying or knowledge and advice
+[08:37] and the ability to get the real perspectives
+[08:40] they need to get there,
+[08:41] those are the things out of network they want.
+[08:43] And we've really, really been focused
+[08:45] on driving those two systems, right?
+[08:47] How does someone connect opportunity
+[08:48] both through the people and through the content
+[08:50] that they actually want?
+[08:51] And as you know, when you do a feed,
+[08:53] there's so many decisions to go into that complex system,
+[08:56] there's so many decisions.
+[08:57] But we've been really, really trying to make sure
+[08:59] that we don't lose sight of that
+[09:00] and start tuning all those knobs into that direction.
+[09:04] So if we're trying to get even more specific
+[09:06] with what has changed,
+[09:08] clearly there's been like a focus internally.
+[09:11] Is that true?
+[09:12] There's just like, hey, let's make this feed
+[09:13] a lot more interesting, or is this just like a never ending?
+[09:16] And then it's actually started to work kind of investment
+[09:18] as far as you know.
+[09:19] Well, there's always been a focus
+[09:20] on connecting people opportunity, right?
+[09:22] There's always been a focus on that.
+[09:24] And I think what's happened over time
+[09:26] is we've gotten more and more clear
+[09:28] with what our members really want,
+[09:29] which is this ability to feel close to those relationships
+[09:32] and the ability to really get that knowledge that they need.
+[09:35] And as we've gotten better and kind of clearer
+[09:37] in that understanding,
+[09:38] and we've been able to dial the knobs in the right way,
+[09:39] I hope it's landing in the right place.
+[09:41] I'm always kind of, I don't think it's any place
+[09:43] near declaring victory in any of our,
+[09:45] any part of this product.
+[09:46] I think one of the beauty of working with that vision
+[09:48] of connecting people opportunity,
+[09:50] there is always some piece of friction.
+[09:51] There is always something we could be doing better.
+[09:53] And so I'm always hesitant to say,
+[09:54] you know, we've ever hit that bar.
+[09:56] And I know there's probably people who listen to you
+[09:58] who probably maybe have not had that experience.
+[10:00] And I always encourage you to kind of reach out
+[10:02] and let us know ways we can do better.
+[10:03] But I'm glad you're having experience with it.
+[10:05] And to your point, I always feel that like,
+[10:08] as long as we stay focused on that
+[10:09] and each of our decisions start moving in that direction,
+[10:12] hopefully the product will continue to deliver.
