@@ -1,0 +1,39 @@
+Chapter 14: Ramp’s strategy documents
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 37:54 - 40:55
+============================================================
+
+[00:00] what's part of this contract and is there like a document you put together to leave us out?
+[00:04] Strategy means a lot of different things. In my mind, strategy is about how do we get to our
+[00:10] goals? And it's not a roadmap and it's not a vision. It's something right in between that.
+[00:15] So the first thing you need to do is align on what are the goals? What do you want to see
+[00:18] in the world? Then the hypothesis is why do you think this will work? Figure out why
+[00:25] we're uniquely positioned as a company to get after that goal, figure out the metrics by which
+[00:31] you would measure whether we reach that goal, and then talk about the initiatives,
+[00:35] talk about the risks, and talk about the long-term outcomes.
+[00:37] So these are kind of the bullet points of the contract essentially of a strategy document?
+[00:41] Correct. And now every pod basically spends time writing that doc for themselves. So the
+[00:48] pods are basically organized against outcomes. So they should be very clear on their goals.
+[00:54] And they publish these things out. And then what I typically do is take all these documents
+[01:00] and make sure that they're aligned with our high-level product strategy,
+[01:04] which is a bit more long-term thinking than the individual pods, and that they are also
+[01:10] aligned with our financial strategy we can get into. But that's a little bit how you also
+[01:15] create a culture of empowerment where each team is thinking about these things,
+[01:20] thinking like you. And the more that as a leader, you make teams think like you,
+[01:24] the more leverage you get over time, and the more you can start thinking ahead on
+[01:29] other ways of operating. How long does planning roughly take? And how often do you do this
+[01:34] strategy kind of rethink? We've gone through iterations good and bad. I think
+[01:40] for a period of time at Ramp, we created OKRs with financial goals and quotas to some extent
+[01:47] for different teams. And that led to just taking a long time to plan because people were
+[01:53] trying to make sure there was the right metric, trying to make sure that it was achievable.
+[01:58] And it became very political, very annoying. And largely, our entire R&D team was like,
+[02:05] we're just going to execute on the roadmap, screw the OKRs. And so we moved from quarterly,
+[02:12] very expensive quarterly planning, which took one month every three months. So basically,
+[02:17] 33% of the time was planning to a biannual one pager on these other company priorities.
+[02:26] And it's much more smooth and much faster. Related to that, though, we have a strong financial
+[02:32] plan that we execute on. And each row or lever of that financial plan has an owner.
+[02:40] Oftentimes, it's marketing and sales for anything that's product led, it's product.
+[02:45] So that's one contract. And then we have our roadmap. That's the second contract.
+[02:49] One of the bullet points you mentioned is this idea of being, what are we uniquely positioned
+[02:53] to do? Can you talk a bit more about that? And maybe what's an example of something you
+[02:56] worked on? How do you describe why you're uniquely positioned to win at that?

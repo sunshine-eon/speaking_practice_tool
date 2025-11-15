@@ -1,0 +1,24 @@
+Chapter 9: Shopify’s growth team structure
+Video: Breaking the rules of growth: Why Shopify bans KPIs, optimizes for churn, and prioritizes intuition
+Time: 29:47 - 33:03
+============================================================
+
+This is a good segue to, I want to hear how you structure your growth team at Shopify. Like essentially, what's the raw structure, what are the different teams, and what do they focus on, and then what are the functions within each team?
+
+We have two big groups within growth. So one is, we call growth R&D. This might be traditionally considered like product design, engineering, data, your traditional product teams. Then we have growth marketing, which in Shopify's case includes paid acquisition, media buying, affiliate marketing, email, content, and SEO. So that's kind of like growth R&D and growth marketing.
+
+Within growth R&D, there are three pillars. One is what we call growth products. This encompasses everything from landing pages, sign up, onboarding, monetization, and trial incentives, all the way through to what we call our home feed and engagement strategies. The goal here is to get more merchants to retain and continue giving entrepreneurship a try, helping them grow into bigger businesses.
+
+The second pillar is what we call our enable pillar. This pillar focuses on building tools for both growth and the rest of Shopify. It includes things like our experimentation platform, communication platform, and business intelligence tooling that powers a lot of what we're doing, as well as more technical work to support our growth marketing team.
+
+The third bucket, which is maybe a little different from most growth teams, is our customer support groups within growth. We want to think about customer support as part of the merchant journey, from coming on board and giving entrepreneurship a try to providing the support they need as they become multi-billion dollar businesses on Shopify.
+
+So those are the three big growth product buckets. Within growth marketing, we have the more traditional channel setup, including paid channels, online and offline marketing, SEO, email, and affiliates.
+
+Super cool. Okay. So within growth, our idea just notes, I'm going to summarize, but you just shared which is awesome. There are kind of three big buckets. One is growth product, which essentially focuses on onboarding. It feels like it's at the top of the funnel, getting people in. 
+
+Well, okay. So growth marketing feels like that's super top funnel, bringing people in. Got it. So growth marketing drives people to Shopify.com. Then within our need team, growth product takes that user and tries to get them activated. The enable team helps with internal tooling and ways to make the teams more efficient.
+
+Correct. Old growth and outside growth. Awesome. Okay. And then the customer support team is really interesting. So there's a customer support product team that helps new merchants be successful. Does that include actual customer support agents within that team?
+
+That's not the case. We build tooling to make those support advisors kind of superheroes. We also focus on the help center and all of our AI initiatives to create a great customer experience for people engaging in a self-serve manner. It's all about enhancing the tooling and experience for them.

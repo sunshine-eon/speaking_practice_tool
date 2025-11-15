@@ -1,0 +1,10 @@
+Chapter 4: Specific changes that made LinkedIn’s feed more interesting
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 10:14 - 11:12
+============================================================
+
+Hopefully, the product will continue to deliver. Do you know if there are any product changes that have most contributed to that feed becoming much more interesting? 
+
+Well, there are a couple of things that I think are very special that we're working on. It's hard to say which is most significant because a lot of these things obviously accumulate and compound over time. But certainly, there's a lot of machine learning and algorithms that go behind these systems. As we've started understanding these elements, we've realized that they provide value to people. It's about how we ensure that we're giving people that interesting knowledge. As we've gotten clearer on what that means, I think we've been better able to build towards it. 
+
+The other aspect, which is new and particularly exciting, is that we're starting to implement a lot of Gen AI-assisted features. Users can come in and receive prompts, allowing them to share their perspectives. This combination is still in its early stages, but it's very exciting to consider how we might help people unlock knowledge from the billion users on the platform. This knowledge can be accessed and utilized in ways that people can find and see.

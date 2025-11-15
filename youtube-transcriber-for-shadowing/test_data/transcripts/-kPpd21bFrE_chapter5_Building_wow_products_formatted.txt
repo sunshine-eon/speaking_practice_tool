@@ -1,0 +1,40 @@
+Chapter 5: Building “wow” products
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 15:50 - 25:00
+============================================================
+
+So is there anything else just kind of along those lines as I say that that you think is important? I would probably add an obsession with building Wow product. Wow, W-O-W. W-O-W. And, you know, I think in Fintech overall, this is probably the most neglected part, usually. But it's also a part that we at Revolute pay enormous attention to. 
+
+It's not only, you know, when you do a trade in the app or when you send money, it's very important for it to be a fast and cheap process for you so that you don't pay a lot of fees. But we also pay a lot of attention to the look and feel of the app, how smooth it is, and how frictionless the process is. Not only do we invest in reducing clicks and optimizing finals, but we also want people to feel that we really care about them. We want people to feel that we love our customers and that we applied extra effort for the product to look great and feel great. 
+
+I hear this a lot from our customers; they really love the app, and it helps them solve their problems. It's at least one of the ingredients of the company's success. I think people that work at Revolute have built a habit of paying attention to these small nuances and details that make the product lovable. 
+
+The second aspect is handling these contexts because, you know, there are a lot of details where you need to dive in, but there are also many dimensions where you need to consider different details. I think this ability to keep a large context in your mind, consider second-order effects, and view subjects from multiple angles is also a very important skill that people usually train at Revolute.
+
+Okay, cool. So if I were to summarize three bullet points on the ingredients of great product managers or owners that you guys incubate, how do you operationalize this Wow piece, which I love? I imagine a big part of it is hiring people who are really good at this and value building lovable products. Is there any way you have a process around ensuring that the things you ship are Wow and lovable?
+
+Two things that you need to understand about how Revolute operates are that we work in small, lean teams tasked with building products. As I mentioned, these teams have an inherent responsibility for the products, and usually, they are the ones who built it from zero and then grow and develop this product. Another thing is that the company has a very flat hierarchy. We still have our founders, Nick and Vlad, very hands-on, going down to details for every product and every part of the business.
+
+Every week, they have product reviews with every team, giving every product owner the opportunity to present directly to the CEO and CTO and show what increment the team has achieved in the last week. They also receive steering from the founders, which is super valuable. Essentially, the founders of the company review 100% of the screens that have been shipped. Everything you see in the app has passed this review, and there are many eyeballs scrutinizing it, considering all possible edge cases and nuances to ensure that every single customer will be happy with this product and flow.
+
+That seems to be a consistent theme in incredible products: the founders are deeply involved in the experience and review everything. How many product owners are there at Revolute, just to give people a sense, by the way? 
+
+Oh, I'm afraid to say it's already more than 150 people, maybe 170. Cool, that's what I would expect. You mentioned that there are kind of these three types: the edge type, the PM traditional type, and the data product owner. When you hire the UX type of product owner, is their previous role usually a product manager at another company? 
+
+Yes, but I would say that not necessarily. It’s not always a very experienced product manager. It may even be more important to have this hunger for building things and having the raw intellect. We always try to find people with these intrinsic traits rather than hiring people who are very experienced but may not be super excited about building things.
+
+What percentage of your product owners come from internal transfers from other functions? It's quite a substantial part of product owners who eventually become very successful, by the way. It’s like a positive self-select. It means that someone already succeeded in another role, ensuring a guaranteed culture mesh and domain knowledge. They simply grow; usually, it could be operations managers or engineers who grow into someone who now manages the team. That’s why it’s a very successful path.
+
+The other company on the list of top three companies that produced and hired the best PMs, according to the research I've done, is Palantir. I just had someone who was at Palantir for a long time, and we talked about exactly all the same questions. Interestingly, so far, we have kind of these three bullet points in terms of what product owners within Revolute get to do: there's a lot of ownership, a lot of depth and complexity, and a lot of focus on lovable products.
+
+At Palantir, they also have tons of ownership and depth and complexity. The other ingredient that I want to ask you about is their concept of a forward-deployed engineer, where they put an engineer in the office of the company they're building the product for. They sit there building it with them, which builds a lot of skills in terms of understanding customer problems, talking to customers, and getting empathy. 
+
+Is there anything you guys do or focus on around just talking to customers, a way you approach having your product owners work with customers, understand problems, or anything that might be helpful for people to hear? 
+
+For us, it's a bit easier to reach out to customers simply because our customer base is so big—more than 50 million people. Usually, we ourselves are power users of the product. We receive our salary into Revolute and then spend with Revolute. Our friends do the same, so it's a no-brainer to talk to people continuously. Even if you're not practicing in an ad hoc manner, they will reach out. If you have a problem in the product, I guarantee that we know about it very, very soon.
+
+We've also built tools for product owners and designers to have easy access to a panel of users through different tools, allowing them to start an interview, process, survey, or test different designs in just a few clicks. For me, it was very important to build this direct connection to customers because when you delegate such an important thing as customer research and collecting their feedback back to someone, you will get a refined, filtered version. You won't get the nuances of how people describe things, the emotions they feel, and where they think. 
+
+It's very easy to lose all those important bytes of information in this process. So I'm a strong believer that it's very important to have a direct communication channel to customers. As you describe this, it's funny how you guys are the extreme opposite end of the spectrum from Palantir in terms of how easy it is for you to get feedback. They build stuff for the government and for Airbus, where employees would never use a product like that or need a product like that. You guys are getting paid in Revolute, using Revolute to pay for things, and constantly in the product. So I could see why there's less of a need for something like a forward-deployed engineer. 
+
+Okay, amazing.

@@ -1,0 +1,436 @@
+Chapter 7: Designing for clarity and adaptability
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 33:07 - 46:59
+============================================================
+
+[00:00] Okay, so I took us on a long tangent away from lessons and
+[00:04] experiments you ran along the journey of iterating on the
+[00:07] streak. So a few things you've shared so far is just like it
+[00:09] started being like started with this XP idea and then went to
+[00:12] like a lesson, then you iterate it on ways to make it
+[00:16] simpler, maybe harder, edit street goals, where you commit
+[00:18] to like, I'm going to hit a certain goal of streak. What
+[00:22] else? What else have you found that has worked didn't work
+[00:24] lessons learns?
+[00:25] You know, again, sticking with this one to seven days
+[00:28] streak, you know, it is the idea of a streak, particularly
+[00:31] probably to this audience is like, obvious, like, oh, it's a
+[00:35] streak, it, you know, goes it just counts so many days. We've
+[00:38] realized over time that a lot of users do not understand how a
+[00:41] streak works. And and it can be as big, you know, as small as
+[00:45] why I don't understand how streak freezes work, or I
+[00:48] don't like my mom the other day was talking to you about
+[00:50] she's like, Oh, my, I like didn't use Duolingo. And I
+[00:52] come back, my, you know, streak still there. So like
+[00:54] there's like certain elements of the feature that, you know,
+[00:57] we can do better at explaining. But even like, what a streak is,
+[01:03] it's, it's tracking how many days that I've used the app. Yeah,
+[01:06] the more that we can make the feature easily comprehensible to
+[01:10] users, the more retentive it is. And it and and we've run a
+[01:13] number of experiments to this, you know, as simple, you talked
+[01:16] about, you asked about early easy copy changes that we
+[01:18] made. So this is my first win, experiment when when I joined
+[01:22] Duolingo was, when you start a streak, we use we have
+[01:27] little copy at the bottom of the screen that just, I don't
+[01:29] know, it's kind of like flavor copy, we use it to celebrate you
+[01:33] or give you context. And I ran some tests that just like tried
+[01:37] to and eight words explain what a streak was. That was it. And it
+[01:41] was a massive win because it really required like it really
+[01:44] dumbed down here is exactly how the streak worked. And it
+[01:48] really helped users just understand what they needed to
+[01:51] do. And I think this is something that's like, you
+[01:53] kind of constantly got to remind yourself, particularly if you
+[01:56] work in tech in your building cool tech features, but your
+[01:59] user base is not a bunch of tech workers. To like think about
+[02:04] alright, who is my audience? And for us, it's not just like
+[02:07] tech workers, I people in America, people all over the
+[02:09] world of all ages of all cultures. And so making sure
+[02:15] that your your your feature is even something as simple as
+[02:18] the streak is understandable as critical.
+[02:20] What was the actual copy? Do you remember?
+[02:22] It was it's still I think it's still on the app on like,
+[02:26] started a day to extend your streak, but miss a day and it
+[02:30] resets something like that. Makes sense. Very clear. Yeah,
+[02:34] words. I love that. Okay, and then when you say massive
+[02:37] win, by the way, just to give people reference point, what
+[02:39] do you think what does that look like? What is a massive
+[02:41] win in this skill?
+[02:42] Well, and it's in it's funny. I mean, this was and this
+[02:44] was four years ago, but I think it was like in the
+[02:46] order of magnitude of over 10,000 da us for us. And
+[02:50] actually, maybe this small bit of context. So Duolingo
+[02:53] really cares about the metric current user retention
+[02:57] rate. Actually, our first ever Duolingo post with Lenny was
+[03:01] the newsletter that our former head of product wrote
+[03:03] Jorge,
+[03:04] the still the single most popular newsletter post of
+[03:06] all time in my newsletter across 300, I would
+[03:08] highly recommend that if you are interested in this,
+[03:10] give it a read. You know, to summarize, basically
+[03:14] what we found is that if we wanted to drive da us and
+[03:17] Duolingo cares, you know, our growth north star is da
+[03:20] use the metric that is most effective, you know, where a
+[03:24] percentage change that metric is as most effective at
+[03:27] driving da use is current user retention rate. And this
+[03:29] is just users who are not new or resurrected, getting
+[03:32] them to come back tomorrow. And so most of the work
+[03:35] that our teams do our retention based teams do is
+[03:39] focused on Kerr. And so the retention team that I
+[03:41] lead, focused on Kerr, just so happens to streak is
+[03:45] the best feature at driving Kerr. And so this was
+[03:48] this experiment was the biggest Kerr when that we
+[03:51] had had. I was like a top three Kerr when anyway, for
+[03:55] us, just this little copy, right? And as I say, like
+[03:58] death copy a thousand different ways. Sometimes
+[04:00] it's not the big beautiful feature, you know, that's
+[04:03] going to drive the huge gains, huge gains. Sometimes
+[04:05] it's just something simple as a few words.
+[04:08] I love this. Okay, so when you said 10,000 days, I
+[04:13] think that references you guys measure in incremental
+[04:15] impact and absolute numbers of new daily users, you're
+[04:18] going to drive with attributed to that experiment.
+[04:20] So yeah, and we do both. I mean, we'll also look at
+[04:24] like a lot of times I'll look at, you know, for
+[04:26] retention, day one versus day seven versus day 14. A
+[04:30] lot of what I'm looking for is for us to have a
+[04:33] better day 14, excuse me, better day 14 impact and
+[04:36] better day day one impact, because it means that
+[04:38] users are retaining better over time. This is
+[04:40] particularly for users that would see a feature
+[04:42] multiple times. I just like absolute DAU numbers
+[04:45] because as long as you're controlling for, you
+[04:49] know, different biases like a recency bias or a
+[04:52] novelty bias, it's a really easy way to just
+[04:55] have an absolute comparison. You know, you start to
+[04:58] look at percentage changes and then it's
+[04:59] influenced by your treatment, you know, how
+[05:01] many users saw the experiment, but at least,
+[05:04] you know, an absolute number is easier in my
+[05:08] mind to start compare. Again, there are
+[05:09] doubt, you know, there are pitfalls with it, but
+[05:11] we find that that's a pretty useful way.
+[05:13] That lesson comes up a lot on this podcast than
+[05:15] that approach to experiment. So yeah, you're in
+[05:19] good company. Quick tangent. If there's not an
+[05:23] answer to this, no problem. Coming back to the
+[05:25] idea of just like experimenting like crazy
+[05:27] and not creating a product that nobody wants to
+[05:30] use anymore long term. Is there an example of
+[05:32] an experiment that was positive that you all
+[05:34] decided no, we don't actually think this is what
+[05:37] we want in the product that ended up not
+[05:38] chipping. You know, retention doesn't only work
+[05:41] on the streak, although, you know, you would
+[05:44] think we do most of our work is the streak.
+[05:46] We've touched a lot of different surfaces
+[05:47] over the years and there was one experiment
+[05:48] that we launched that, you know, we talked
+[05:50] about XP earlier in the lesson. The only UI
+[05:53] elements are a progress bar at the top and
+[05:55] then how many hearts you have, right? So we
+[05:57] keep it really simple and this very much
+[05:59] speaks to the design, you know, philosophy
+[06:02] of Duolingo, which is simpler UI is
+[06:04] better. And we decided, hey, let's add XP
+[06:08] in there and so let's show your XP ticking
+[06:10] up as you're going, you know, through a
+[06:12] lesson and that's going to make the user
+[06:13] feel good. It's going to give, you know,
+[06:15] show you what you've earned, you're going
+[06:16] to be less likely to quit all of these
+[06:17] good reasons to do it. And then you
+[06:19] finish the lesson and then we'll show
+[06:20] you've collected all this XP. And it
+[06:22] won, I mean, the hypothesis was a good
+[06:24] one. But we realized and I remember
+[06:27] having this conversation with Louise is
+[06:29] like, cool, this is our most important
+[06:31] screen in the app. It is our lesson is
+[06:33] where users learn and the focus here
+[06:35] is on learning. And now you've added
+[06:37] this other thing up there
+[06:40] to distract, you know, that could be
+[06:42] distracting for users. And I think the
+[06:43] question, you know, we talked about
+[06:44] road maps and strategy here, the
+[06:45] question that he had for me and I
+[06:47] didn't have a good answer for at the
+[06:48] time was like, so what else are you
+[06:49] going to do with us? Like, what's
+[06:52] your iteration ideas? Where is this
+[06:53] going to go? Is this going to make
+[06:55] the, you know, lesson experience
+[06:56] more gamified or and what we
+[06:59] realized is that like, honestly, it
+[07:01] was kind of just a, you know, an easy
+[07:03] engagement when idea, but we had
+[07:05] touched our most, you know, sacred
+[07:07] space in the app to do that.
+[07:09] And so that was the case where it's
+[07:11] like, yeah, it was a nice win, but we
+[07:13] added that UI element. And, you
+[07:16] know, at least at the time, it was
+[07:18] less clear what we would do with
+[07:20] them. We realized that like long
+[07:21] term, it was just going to get in
+[07:22] the way. And we'd rather for a
+[07:24] simplicity sake, pause that, you
+[07:27] know, shut it down and keep the
+[07:29] lesson, you know, to be the a
+[07:31] little bit of learning sink sanctuary
+[07:32] was now it's funny. Nowadays, I
+[07:34] think we actually have enough XP
+[07:36] based mechanics and fun things that
+[07:37] we can do that, like, I think
+[07:39] actually a lot of our, you know, the
+[07:42] beliefs about the lesson experience
+[07:43] have changed, something like that
+[07:45] could work. But at the time, you
+[07:46] know, didn't feel good to keep that
+[07:48] around. That was an awesome
+[07:49] example. Hopefully we have time to
+[07:52] talk about how the team operates
+[07:54] where my mind goes is like, Oh, but
+[07:56] you have all these PMs and teams
+[07:57] don't want to show impact and
+[07:58] the performance reviews and all that
+[07:59] stuff and you're shipping, you're
+[08:00] not shipping something. They're like,
+[08:01] Oh, look, we did a win. So I
+[08:03] want to chat about that later. But
+[08:05] let's keep going on things you've
+[08:06] learned and things that didn't work
+[08:07] on the journey. The other thing
+[08:09] that I'll call out with the
+[08:12] streak, you know, it's like we
+[08:13] have the the image of the streak
+[08:16] is this flame, right? And, you
+[08:18] know, we have the streak flame
+[08:19] and it's very much corridor
+[08:20] iconography. It's important to
+[08:22] acknowledge that that's a
+[08:23] metaphor for a retention mechanic,
+[08:25] like the idea of keeping a flame
+[08:27] lit. And again, if you think
+[08:29] we've we've established the
+[08:30] flame as, you know, for a lot of
+[08:31] users as sort of their
+[08:32] understanding of a streak, which
+[08:33] is great. But there's a lot of
+[08:35] people, you know, in different
+[08:37] cultural context and different,
+[08:38] you know, stages of life where
+[08:40] the idea of like keeping a flame
+[08:42] lit to show your commitment to
+[08:43] something makes less sense. We
+[08:47] did some UXR in India many
+[08:48] years ago. And this was
+[08:49] something that just like did
+[08:50] not resonate at all there,
+[08:52] which was, which was a
+[08:53] really interesting learning. And
+[08:54] that's something that's like
+[08:54] again, depending upon what your
+[08:55] user base is, like the more
+[08:57] global UXR you can do to
+[08:59] understand how users are
+[09:00] actually understanding and
+[09:01] experience your feature, the
+[09:02] better, because you just again,
+[09:03] encounter insights like this.
+[09:05] And so even our screen design,
+[09:07] you know, we used to have a
+[09:08] flame. It was just it was
+[09:10] mostly this flame that would
+[09:11] like light up every day. But
+[09:12] again, it was like an
+[09:13] indication of a metaphor for a
+[09:14] mechanic. And when we
+[09:16] redesigned it, we did this
+[09:18] Kurt or one of our animators
+[09:20] did this awesome odometer
+[09:22] animation where it's like
+[09:22] your number would tick every
+[09:24] day. It kind of like looked
+[09:26] good. But from a product
+[09:27] perspective, it was cool is we
+[09:29] actually focused the design on
+[09:30] the screen to show your
+[09:32] number going up. And then it
+[09:34] would say, you know, like seven
+[09:35] day streak, eight day streak.
+[09:38] And I think that as you're
+[09:38] thinking about designing around
+[09:40] a streak, don't get too bought
+[09:41] up, you know, or caught up
+[09:43] into like, what is this, you
+[09:45] know, like the beautiful story
+[09:47] that you're trying to tell at
+[09:48] the expense of it being a
+[09:50] really comprehensible feature.
+[09:51] And so as you're thinking
+[09:52] about product design, making
+[09:54] that product design a clear
+[09:55] distillation of this is what
+[09:57] we're actually tracking, you
+[09:59] know, form should follow a
+[10:00] function here, you know, was a
+[10:02] was it was a learning for us.
+[10:03] And you'll see that now in a
+[10:04] lot of places where we're
+[10:05] showing streak, we're really
+[10:07] leading with the number, not
+[10:08] necessarily the flame.
+[10:10] That's all that's a theme
+[10:12] that I'm hearing again and
+[10:13] again is clarity. Don't
+[10:15] obsess with making it too
+[10:17] thought like clever and don't
+[10:19] ever think it just like
+[10:20] clarity has a big impact.
+[10:22] Clarity also doesn't have to
+[10:23] come at the expense of
+[10:24] delight. And this is
+[10:25] something where, you know,
+[10:27] you hit a milestone and
+[10:28] duo gets that, you know, it
+[10:30] becomes we call him a Phoenix
+[10:31] duo, and he becomes awesome
+[10:33] and, you know, lights on fire.
+[10:34] And I think there are things
+[10:36] that you can do to still make
+[10:37] the experience really exciting
+[10:39] and delightful and
+[10:40] celebratory. And I would I
+[10:42] would not lose that, but just
+[10:43] don't do it at the expense.
+[10:45] And I think it's also about
+[10:46] figuring out for what, you
+[10:47] know, you can get away with
+[10:48] doing more of this for users
+[10:50] who are deeper into their
+[10:51] streak experience than users
+[10:53] who are starting where it's
+[10:53] like your goal for the one
+[10:55] day streak users just to
+[10:56] make sure do they understand
+[10:58] how this feature works.
+[10:59] I mean, even something again,
+[11:00] just like another random
+[11:01] experiment at the bottom of
+[11:03] the streak screen, we have a
+[11:04] calendar. And over the
+[11:06] years, it just looks more and
+[11:08] more calendar like. And that
+[11:09] is simply because we find
+[11:10] that the more we make it look
+[11:12] like a calendar, days on top,
+[11:14] you know, little circles,
+[11:15] the check, like the more we
+[11:16] make it look like calendar,
+[11:17] the more that people realize,
+[11:18] hey, this is a day, a
+[11:19] daily mechanic. And so think
+[11:21] about the screen
+[11:22] holistically, but every
+[11:23] single thing that you're
+[11:24] doing on the screen, how
+[11:25] can you use it to communicate?
+[11:27] What is the point of this
+[11:28] feature? How does it work?
+[11:30] This episode is brought to
+[11:31] you by Kota. I use Kota every
+[11:34] day to coordinate my
+[11:35] podcasting and newsletter
+[11:36] workflows from collecting
+[11:38] questions for guests to
+[11:39] storing all my research to
+[11:41] managing my newsletter content
+[11:42] calendar. Kota is my go to
+[11:44] app and has been for years.
+[11:46] Kota combines the best of
+[11:47] documents, spreadsheets and
+[11:49] apps to help me get more
+[11:50] done. And Kota can help
+[11:52] your team to stay aligned
+[11:53] and ship faster by managing
+[11:55] your planning cycle in just
+[11:56] one location, set and measure
+[11:58] OKRs with full visibility
+[11:59] across teams and
+[12:00] stakeholders, map
+[12:01] dependencies, create
+[12:02] progress visualizations and
+[12:04] identify risk areas. You can
+[12:05] also access hundreds of
+[12:07] pressure tested templates for
+[12:09] everything from roadmap
+[12:10] strategy to final decision
+[12:11] making frameworks. See for
+[12:13] yourself why companies like
+[12:14] DoorDash, Figma and
+[12:15] Qualtrics run on Kota.
+[12:17] Take advantage of this
+[12:18] special limited time offer
+[12:20] just for startups. Head over
+[12:22] to Kota.io slash Lenny and
+[12:25] sign up to get six free months
+[12:26] of the team plan. That's Kota.io
+[12:29] slash Lenny to sign up and
+[12:31] get six months of the team
+[12:32] plan Kota.io slash Lenny.
+[12:36] I imagine one of the biggest
+[12:37] wins was just giving people
+[12:39] flexibility, flexibility
+[12:40] along the journey like streak
+[12:42] freezes and all these things
+[12:43] is that is that a big vein
+[12:44] of opportunity discovery?
+[12:45] It is it is great.
+[12:46] Actually, I'm going to show
+[12:48] you the one of the most
+[12:49] thoughtful gifts that
+[12:50] anybody has ever given to
+[12:50] me. This is our duolingo
+[12:52] serenity or streak serenity
+[12:54] prayer, my colleague Antonia.
+[12:56] It's like knitted, right?
+[12:57] It's like for me. It's amazing.
+[12:59] And so it says, Louise, grant
+[13:01] me the serenity to accept
+[13:02] the flexibility I need the
+[13:03] courage to reach perfection
+[13:05] when I can and the wisdom
+[13:06] to celebrate regardless.
+[13:07] And that actually is like
+[13:10] kind of our strategy with
+[13:11] the streak. So the show
+[13:12] and tell by the way, that was
+[13:13] great. Yeah, I will.
+[13:14] I guess for, you know,
+[13:15] podcast listeners will have
+[13:16] to, you know, get an image
+[13:17] somewhere. The this idea
+[13:20] of like flexibility versus
+[13:22] perfection and then
+[13:23] regardless celebration is
+[13:25] core to how we think about
+[13:26] the street. Because, you know,
+[13:27] I think for the streak for us,
+[13:28] it's very much a bend not
+[13:29] break. You know, I if you're
+[13:31] going to miss a day, I'd
+[13:33] rather you come back, you
+[13:35] know, having not, you know,
+[13:36] having missed that day to
+[13:37] an intact streak. But if
+[13:39] you don't have to miss a
+[13:40] day, much rather you don't
+[13:42] and much rather you come
+[13:42] back and use the app every
+[13:44] day. So that that thing
+[13:47] on flexibility, though,
+[13:48] that's almost certainly been
+[13:49] the biggest, you know,
+[13:50] from a mechanic perspective,
+[13:51] the biggest.

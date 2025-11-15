@@ -1,0 +1,47 @@
+Chapter 21: Why other roles share the PM load at Ramp
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 57:15 - 60:30
+============================================================
+
+[00:00] You're about 13 p.m. A ramp is probably over 100 engineers.
+[00:08] So I try to keep miss the one to one day to one to 15, depending on the team.
+[00:13] Obviously, B2B is slightly more complex because you're dealing with pretty strong
+[00:16] marketing team and pretty strong sales team and pretty demanding customers
+[00:20] that you have relationships with.
+[00:22] So I've seen ratios be a bit lower than the B2C space.
+[00:25] But yeah, that's a little bit of a team today.
+[00:27] And they're organized by those teams, by those customer pain points.
+[00:32] And I have this note from before you said that you reached 100 million error
+[00:36] and that's a run rate. I'm not recurring revenue at that point.
+[00:38] I imagine rate with 50 people, which is incredible.
+[00:43] And so just kind of on that point, how do you do so much with so few p.m.s.
+[00:47] especially? Do you have anything that you figured out that ends up being really important there?
+[00:51] I think that by eliminating or reducing the size of the team,
+[00:56] we've forced other people in the company to think like p.m.s.
+[01:00] And I think it's been a huge value add to our culture.
+[01:04] You know, when I say product, that people think about like product management,
+[01:07] but I actually think product is anyone that actually reports into our CTO and that's
+[01:13] product engineering, product design, product managers, product data scientists.
+[01:19] So making everyone feel like a p.m. is a great way to get leveraged as a p.m.
+[01:23] And that means basically empowering the designer to think about the actual specs
+[01:27] and priorities and scopes more than you or empower the engineer to take something that's
+[01:32] fairly lightweight in terms of a spec or direction and actually think through it deeply
+[01:37] and come back with some great questions that the p.m. hasn't thought through.
+[01:41] So that's one thing. The second is that we invested early on in product operations,
+[01:47] which was a team that also reports to me that basically focuses on the operational functions
+[01:54] of product that's everything around, whether it's project management or issue management
+[02:00] or release management or enablement and content, beta and customer research,
+[02:06] they basically are tasked with a lot of the work that needs to get done to
+[02:10] continue shipping products and scaling product development.
+[02:14] And then lastly, just cutting as much of the low leverage work that p.m. often gets
+[02:19] sucked into. So for example, we never write a ticket. We don't spend much time in linear,
+[02:28] which is our ticket management system. We basically, our contract is the vision and the
+[02:33] priority in a very high level spec and everything else is kind of pushed on the engineering teams.
+[02:38] And I think that's when engineers actually are also able to move even faster because
+[02:42] they can create whatever tickets they want. They can break down the work that they want.
+[02:46] They are accountable for the projects that they're driving and that increases trust and moves things
+[02:52] faster as well. That makes a ton of sense. Basically, you distribute the p.m. job that other
+[02:59] companies put on the p.m. across other team members. So if you had to think about just
+[03:04] what is the core product manager job at Ramp at this point, I imagine from what I've been
+[03:09] hearing, it's strategy, vision, aligning the team. What else kind of plays into that just
+[03:14] bullet point-wise?

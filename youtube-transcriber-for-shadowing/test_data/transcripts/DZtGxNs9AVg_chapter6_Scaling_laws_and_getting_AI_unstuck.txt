@@ -1,0 +1,158 @@
+Chapter 6: Scaling laws and getting AI unstuck
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 26:50 - 33:20
+============================================================
+
+[00:00] You said that you did a lot of work on the back end.
+[00:02] I saw you tweet about this,
+[00:03] that you guys figured out some kind of unlock
+[00:06] on scalability like a new scaling law
+[00:08] that allowed you to build something like this.
+[00:11] What can you talk about there
+[00:12] that kind of on the technical element
+[00:14] allowed you to build something new and the successful?
+[00:18] There are many scaling laws, I would say,
+[00:19] when you build AI systems.
+[00:21] And this one in particular is about
+[00:23] when you put in more work,
+[00:25] the product reliably gets better and better.
+[00:29] And what you've seen generally
+[00:33] when you have AI building something
+[00:35] is that it kind of gets stuck in some place.
+[00:37] It starts, it's super good in the beginning
+[00:40] and then it gets stuck.
+[00:42] What we did was to painstakingly identify places
+[00:45] where it goes stuck and there's different approaches
+[00:50] but address like different ways how we do it
+[00:53] but address the places where it gets stuck.
+[00:55] Tune the entire system quantitatively
+[00:59] and having a very fast feedback loop
+[01:01] to improve it in the areas where it got stuck.
+[01:04] The most important areas.
+[01:05] It still does get stuck sometimes
+[01:06] but that's the scaling law
+[01:08] and we're still early in that scaling law, I would say.
+[01:14] And so when you talk about things getting stuck
+[01:16] it's like the AI agent just saying
+[01:18] like I don't know what to do from this point
+[01:20] and or like they introduce some kind of bug
+[01:21] is that an example of getting stuck?
+[01:23] It introduces some kind of bug
+[01:25] and then it's not smart enough to figure out
+[01:28] how to get out of that bug.
+[01:30] I see and this is a common problem people have
+[01:34] with tools like this is they like get to a certain point
+[01:36] and then it's like, well, I don't know what to do
+[01:38] I'm not an engineer.
+[01:39] Like here's a bug it's running into
+[01:41] where the infrastructure is built the wrong way.
+[01:43] And so it sounds like one of the paths
+[01:46] to solving that is what you're describing
+[01:47] is you make the AI smarter to get,
+[01:51] to void more and more of these places they get stuck.
+[01:54] Another is people just learning how to get AI unstuck.
+[02:00] This is something when we had Amjad on the podcast
+[02:02] from Replete he said that this is like the main skill
+[02:04] that he thinks people need to learn is how to unstuck AI
+[02:08] when it runs into a problem.
+[02:10] Just thoughts there.
+[02:10] I don't know anything along those lines come up
+[02:12] as they say that.
+[02:13] This is something that is a problem today
+[02:17] and the frontier of where this is a problem
+[02:22] is very rapidly like receding back.
+[02:25] So what we did was we identified the most important areas
+[02:30] like, oh, so specifically adding login,
+[02:33] creating data persistence, adding payment with Stripe.
+[02:38] Like those are the things that we make sure
+[02:40] it doesn't get stuck on, for example.
+[02:43] And the places where it gets stuck today is currently
+[02:47] something that where you can use being very good
+[02:51] at understanding and getting unstuck,
+[02:53] but in the future it won't be so important.
+[02:55] This is just going to not get stuck.
+[02:58] And I know you're not talking super in depth about this
+[03:01] because this is one of your unfair advantages,
+[03:02] this kind of stuff you figured out,
+[03:03] so I'm not gonna push too far.
+[03:05] I know you want not everyone to do exactly the same stuff.
+[03:08] So I wanna zoom back to the pace of growth
+[03:12] that you guys have seen.
+[03:14] One of the big stories everyone's always looking at you
+[03:15] guys have like 15 people, 10 million ARR in two months.
+[03:20] It's absurd, I don't know if it's ever been done in history.
+[03:24] If so, it's maybe a couple other AI startups recently.
+[03:27] How have you been able to do this?
+[03:29] What have you done that has allowed you
+[03:31] to grow this fast with so few people?
+[03:34] I'd like to take credit of having done everything
+[03:38] end-to-end in the product,
+[03:41] but what we're building on top of taking the oil here,
+[03:46] which we have discovered oil,
+[03:48] which are the foundation models, right?
+[03:50] And then what we've done is that we obsessed about
+[03:53] what's the right way to present this to a user,
+[03:56] what's the interface for the human
+[03:58] to get as much out of this as possible.
+[04:00] Packaging together, I showed you in the demo
+[04:04] that how you can add authentication
+[04:06] and making this work seamlessly together as a whole.
+[04:10] That's what we've done.
+[04:11] And then people love the product.
+[04:14] That's the driver of the growth.
+[04:17] For getting awareness,
+[04:21] we mainly been posting what we've shipped on social media.
+[04:25] That's how people know about us.
+[04:27] So building in public is how people usually describe that.
+[04:30] So it's like, I think it's like,
+[04:32] you guys have the advantage of the demos
+[04:34] or just like, holy shit, you can do that.
+[04:36] And then you guys share the numbers
+[04:37] that you guys are growing at.
+[04:38] So it's innately interesting and shareable.
+[04:42] But I imagine most people have something interesting
+[04:44] to share.
+[04:45] I guess, is there anything that you think you did
+[04:47] that other companies maybe haven't done
+[04:49] that make the product so lovable?
+[04:53] I mean, the team is everything in building a great product.
+[04:57] So I just give a big shout out to D-Nut has written the code.
+[05:03] I haven't written much of the code recently, I would say.
+[05:08] And I mean, you want people who ship really fast
+[05:13] and ship really fast and have good taste
+[05:16] for like what is simple, what's the right abstractions.
+[05:20] And I think that's what we've done differently.
+[05:22] And I have this obsession
+[05:24] for just making it better and better and better.
+[05:27] This episode is brought to you
+[05:28] by the Fundrise Flagship Fund.
+[05:30] Full disclosure, real estate investing is boring.
+[05:34] Prediction markets are exciting.
+[05:36] Meme coins are a thrill ride.
+[05:37] Even the stock market can swing wildly on a headline.
+[05:40] Hello, deep seek.
+[05:41] But with real estate investing,
+[05:43] there's no drama or adrenaline
+[05:45] or excuses to refresh your portfolio every few minutes.
+[05:48] Just bland and boring stuff
+[05:50] like diversification and dividends.
+[05:53] So you won't be surprised to learn
+[05:54] that the Fundrise Flagship Real Estate Fund
+[05:56] is a complete snooze fest.
+[05:58] The fund holds $1.1 billion
+[06:00] worth of institutional caliber real estate
+[06:02] managed by team of pros
+[06:04] focused on steadily growing your net worth
+[06:06] for decades to come.
+[06:07] See, boring.
+[06:09] That's the point.
+[06:10] You can start investing in minutes
+[06:12] and with as little as $10
+[06:14] by visiting fundrise.com slash Lenny.
+[06:17] Carefully consider the investment objectives,
+[06:19] risks, charges and expenses
+[06:21] of the Fundrise Flagship Fund before investing.
+[06:23] Find this information and more
+[06:25] in the Fund's perspective
+[06:26] at fundrise.com slash flagship.
+[06:29] This...

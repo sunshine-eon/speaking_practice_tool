@@ -1,0 +1,59 @@
+Chapter 3: When raising money makes sense
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 06:46 - 09:58
+============================================================
+
+[00:00] business.
+[00:01] So the bet, just kind of following the same thread, the bet that companies are making obviously
+[00:04] going down the venture route is they are going to lose money for a long time so that they
+[00:07] can make much, much more money in the future.
+[00:11] And so the idea there is grow as fast as possible, as big as possible, and then we'll
+[00:15] make money.
+[00:16] You're a big advocate of not raising venture and bootstrapping.
+[00:20] So just like, what's your advice to founders for when raising money makes sense?
+[00:25] I actually wrote this article, one's called Your Startup is Probably Not Venture Scale.
+[00:29] Just trying to convince people, like you may have a really good idea, but it doesn't mean
+[00:32] it's a venture scale business.
+[00:34] And I feel like we're aligned on this.
+[00:37] What's your advice to founders there?
+[00:38] I think, you know, obviously if you're, I think if you're building cars or you need
+[00:43] a factory or you're opening a restaurant and there's actual like things you need to buy
+[00:46] like ovens and you need to hire people around the bat and you need to pay rent, you
+[00:51] need capital.
+[00:52] And it could come from you, come from friends and family, it could come from an investor,
+[00:55] it can come from a bank loan.
+[00:56] There's lots of places to get it, but you'd need it.
+[00:59] You know, software businesses though, and you know, businesses like ours, we just make software
+[01:06] and a lot of people in our industry are like us in that respect.
+[01:11] They need a couple laptops and a couple people and like it's pretty cheap.
+[01:15] It's really pretty cheap to keep going and the margins are incredibly healthy in software
+[01:19] or they should be.
+[01:20] What's interesting is that Silicon Valley has found a way to make the most profitable
+[01:25] style of business, the least profitable.
+[01:27] Like software has, there's like no physical costs, it should, the margin should be close
+[01:32] to 80 or 90% and it turns out that they're barely even, you know, most of them are positive
+[01:37] in the end or they're just slicing or sliding by basically.
+[01:41] I don't understand how that, why do I mean they have too many people and they spend
+[01:45] too much money on customer acquisition and all that stuff, but it blows me away.
+[01:50] Like most businesses in the world would die, would love, I should say love, to have Silicon
+[01:57] Valley style economics, like make something that doesn't cost much to make and then sell
+[02:02] it for high prices, but everyone, the corner store, you know, the pizza shop, they wish
+[02:07] they could do this and they can't because they have physical products that they have
+[02:10] to sell and they have to buy, you know, goods and they have to get raw materials
+[02:13] and convert that into a pizza and there's just costs involved with that and they
+[02:17] can't sell for too much because the other place down the street sells it for less
+[02:19] and, you know, so, again, I'm kind of getting off track, but if you're going to
+[02:24] make, if you're going to start a business that really truly requires cash, typically
+[02:28] capital expenditures, expensive things, hardware, whatever, of course, you need
+[02:32] that, but I don't think you do otherwise.
+[02:34] And I think it actually hurts you if you go out and think that you do because
+[02:38] there really is only kind of one outcome for venture backed companies,
+[02:42] which is go huge.
+[02:45] And if you think about all of the space between kind of a small business and
+[02:50] a massive huge unicorny business, there's so much room there that you could
+[02:54] normally find your own way and slide into a slot or a place that makes
+[02:58] sense for you.
+[03:00] But if you're venture backed, you just don't even have the opportunity.
+[03:03] You blow right past those or they want you to blow right past those.
+[03:07] And if you don't, you kind of wither on the vine and die essentially.
+[03:10] And it's just too bad.

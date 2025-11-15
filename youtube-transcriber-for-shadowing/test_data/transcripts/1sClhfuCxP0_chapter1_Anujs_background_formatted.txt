@@ -1,0 +1,26 @@
+Chapter 1: Anuj’s background
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 00:00 - 04:28
+============================================================
+
+There are only three reasons why things do not happen the way you want them to happen as a leader. You can look at a person and say either that person can't do, which is a capability issue, or they won't do, which is a motivation or alignment issue, or they were not set up to do, which is really your problem for not setting up the ways of working and organizational design properly. 
+
+As a leader, do you have the right people in terms of capability? If not, is the right answer for us to coach them, mentor them, or move them to another place because maybe their capability is suited elsewhere? If they won't do, why won't they? Are they not aligned to you? Do they not agree with your vision? Do they not have enough time? You need to really go deeper there. Why won't they do?
+
+Today, my guest is Anuj Rati. I've been looking to get more India-based product leaders on the podcast because this podcast has a large audience in India. When I put out a call on Twitter and LinkedIn asking who I should have on, Anuj was the single most requested person. Anuj is the Chief Product and Marketing Officer at Jupiter Money. Previously, he was the Senior Vice President of Revenue and Growth at Swiggy, where he spent seven years. He was also the VP of Product at Snapdeal, a senior PM at Walmart Labs, and the very first Product Manager at Flipkart, where he led the buyer experience team.
+
+In our conversation, we dig into how product management is different in India, Anuj's lessons about building product experiences for new users, how he operationalized the working backwards process at the companies he's worked at, and why he pushes his teams to explore three divergent directions before settling on a plan. We also discuss why he thinks product managers and companies should be much more full stack than they are, along with a bunch of frameworks and contrarian takes about building product and your career in product.
+
+A big thank you to Sayan Maiti and Nikhil Khulkarni for helping me navigate the product scene in India. Look for more amazing India-based product leaders to come. With that, I bring you Anuj Rati after a short word from our sponsors.
+
+This episode is brought to you by Sanity. Your website is the heart of your growth engine. For that engine to drive big results, you need to be able to move super fast, ship new content, experiment, learn, and iterate. But most content management systems just aren't built for this. Your content teams wrestle with rigid interfaces as they build new pages. You spend endless time copying and pasting across pages and recreating content for other channels and applications. Their ideas for new experiments are squashed when developers can't build them within the constraints of outdated tech.
+
+Forward-thinking companies like Figma, Amplitude, Loom, Riot Games, Linear, and more use Sanity to build content growth engines that scale, drive innovation, and accelerate customer acquisition. With Sanity, your team can dream bigger and move faster. As the most powerful headless CMS on the market, you can tailor editorial workflows to match your business, reuse content seamlessly across any page or channel, and bring your ideas to market without developer friction. Sanity makes life better for your whole team. It's fast for developers to build with, intuitive for content managers, and it integrates seamlessly with the rest of your tech stack.
+
+Get started with Sanity's generous free plan, and as a Lenny's podcast listener, you can get a boosted plan with double the monthly usage. Head over to Sanity.io slash Lenny to get started for free. That's Sanity.io slash Lenny.
+
+This episode is brought to you by Vanta, helping you streamline your security compliance to accelerate your growth. Thousands of fast-growing companies like Gusto, Com, Quora, and Modern Treasury trust Vanta to help build, scale, manage, and demonstrate their security compliance programs and get ready for audits in weeks, not months. 
+
+By offering the most in-demand security and privacy frameworks such as SOC2, ISO 27001, GDPR, HIPAA, and many more, Vanta helps companies obtain the reports they need to accelerate growth, build efficient compliance processes, mitigate risks to their businesses, and build trust with external stakeholders. Over 5,000 fast-growing companies use Vanta to automate up to 90% of the work involved with SOC2 and these other frameworks.
+
+For a limited time, Lenny's podcast listeners get $1,000 off Vanta. Go to Vanta.com slash Lenny. That's V-A-N-T-A dot com slash Lenny to learn more and to claim your discounts. Get started today.

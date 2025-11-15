@@ -1,0 +1,140 @@
+Chapter 2: The Delta 4 framework
+Video: Kunal Shah on winning in India, second-order thinking, the philosophy of startups, and more
+Time: 04:22 - 11:00
+============================================================
+
+[00:00] Kunal, thank you so much for being here and welcome to the podcast.
+[00:07] Lenny, thank you so much for having me and a huge fan of everything that you do.
+[00:13] And like I said before, India is a huge beneficiary of what stuff you do.
+[00:18] We are all people who have learned the art of product by just figuring it out and watching
+[00:24] some content here and there and reading some stuff.
+[00:27] So kudos to everything that you do.
+[00:29] And like I said earlier that you do the fabulous job of taking the information asymmetry of the
+[00:34] art of product and kind of make it accessible to many of us across the world.
+[00:40] So thank you.
+[00:41] Wow.
+[00:42] I really appreciate that.
+[00:43] This is already feeling great to me.
+[00:44] I have a huge, so it turns out this podcast has a huge audience in India as do you.
+[00:50] And so I feel like this conversation is going to be really special and really meaningful
+[00:54] to a lot of people.
+[00:56] I wanted to start with something very tactical.
+[00:59] There's a product framework that you came up with that I absolutely love and I've shared
+[01:02] it with at least 30 founders over the last couple of years.
+[01:06] And this is actually how I discovered you.
+[01:08] Initially is I heard about this thing and I'm like, who's this guy Kunal Shah?
+[01:12] And look at us now chatting.
+[01:14] Could you explain this framework briefly and then just how you've used it or how
+[01:18] you recommend people apply it?
+[01:20] Oh, and it's by the way, it's called Delta 4.
+[01:23] I don't know if I even said the name.
+[01:25] It's called the Delta 4 framework.
+[01:26] But I think it's actually quite simple if you think about it.
+[01:29] A lot of people say that your product has to be 10x better and it's not very measurable.
+[01:35] You don't know if you're 10x better or not unless you're delusional.
+[01:39] And the trigger for me was actually I'm the unusual tech founder in India.
+[01:43] I'm a philosophy.
+[01:44] I'm the only humanities philosophy major founder in India who's got into tech.
+[01:49] And I often wondered that most people who were my peers or people who were
+[01:54] ahead of me were significantly smarter, academically or otherwise.
+[01:58] And why did I become successful with my first startup recharge, which I exited
+[02:03] in 2015 for nearly like $450 million.
+[02:06] And I was like, what would make this happen?
+[02:09] Because I would not qualify into this super league of really top IIT
+[02:14] rankers that exist in India.
+[02:16] And that got me onto this philosophical quest to find out what makes things successful.
+[02:21] So the simple framework is like an example that I give often is that
+[02:25] imagine the old way of taking a cab ride and an Uber, right?
+[02:29] And if I asked you, give me the score of efficiency on Uber and
+[02:34] let's say getting the old cab, what would you say, Lani?
+[02:36] I'm curious, like out of 10.
+[02:38] Yeah, give a cab like three and then Uber like a nine.
+[02:42] Yeah, so every time you see that the product efficiency Delta is greater
+[02:48] than equal to four, three things happen.
+[02:51] It is irreversible.
+[02:54] Second is that you have very high tolerance for it to fail.
+[02:59] I think if Uber fails a little bit, you would you say, oh my God,
+[03:04] that I'm going to like really stop using it?
+[03:07] No.
+[03:09] And the third thing is that I call it the UBP, unique,
+[03:13] brag worthy proposition.
+[03:15] So every time humans unlock a Delta for product or service,
+[03:19] they cannot stop talking or sharing about it.
+[03:23] And therefore, all Delta for products will naturally have lower
+[03:26] tax or sometimes zero tax because people humans and think about
+[03:31] how you discovered Uber, definitely not through an ad.
+[03:33] Definitely not through some performance marketing here and
+[03:35] there. Somebody showed you the demo and you were like, my God,
+[03:39] this is crazy.
+[03:39] And that's what I'm seeing right now.
+[03:41] What's happening with everything on open AI and everything
+[03:43] that is happening around LLM feels like magic and it's kind
+[03:46] of Delta four because the efficiency of doing things
+[03:48] before and after is now showing that.
+[03:50] But the failure is the real problem, right?
+[03:53] And making everything tech does not make things more efficient.
+[03:57] Let's take about an example.
+[03:59] Buying a suit for you online versus offline.
+[04:05] All tech, cool stuff, all these features built in.
+[04:08] What would you say the efficiency of buying a suit
+[04:10] online is versus, let's say, buying a suit offline?
+[04:13] I've actually done that.
+[04:14] It was a terrible, it did not fit at all.
+[04:17] And so like it's efficient, but the end result is not,
+[04:21] it's probably often not great.
+[04:23] So it's probably.
+[04:23] Overall efficiency score, what would you give?
+[04:26] Of buying a suit online.
+[04:28] Yeah, versus offline.
+[04:30] Like I'd probably give it five and five.
+[04:33] Like on offline is actually probably better experience.
+[04:36] Yeah, that's crazy because you've broken the principle
+[04:39] this is a tech product, but the efficiency is better offline.
+[04:44] And therefore, when the delta is less than four,
+[04:49] what you will discover is that it is reversible.
+[04:53] You will not see people bragging about it, right?
+[04:58] And you have zero tolerance for it.
+[04:59] So you are never going to buy suit online.
+[05:01] I can tell you that right now.
+[05:03] So I think it's a simple framework.
+[05:06] I believe that if many companies apply it.
+[05:08] So I know now many VCs in the US
+[05:11] use this as part of the training program for the analysts.
+[05:14] I know about it that somebody in Sequoia mentioned this to me
+[05:17] that they have this part of the thing.
+[05:19] But in India, we are like not still applying many of these things.
+[05:24] I think it's a simple framework to at least know.
+[05:27] And you can apply this to features.
+[05:29] You can apply this to products.
+[05:30] You can apply that to business.
+[05:32] And oftentimes, this is a longer concept.
+[05:35] We can talk about it in many ways because it's derived out
+[05:37] of some study around entropy and something
+[05:40] about evolutionary biology, which is the root of how I discovered
+[05:44] and thought about Delta 4, that when
+[05:46] does the species get disrupted and what is entropy
+[05:49] and why does low entropy require growth of high entropy?
+[05:54] And it's a day-long podcast on its own.
+[05:57] So some other time.
+[05:58] OK, we'll save that for a future follow-up,
+[06:00] just diving in on the psychology of Delta 4
+[06:03] just to summarize this.
+[06:04] Because I think it's such a powerful framework.
+[06:06] And I find it useful to convince founders
+[06:08] why their product isn't taking off.
+[06:10] They may feel like this is better than,
+[06:12] like the classic example is a better Excel.
+[06:14] Look, there's so much better than Excel.
+[06:16] I can do all these things.
+[06:17] You don't have to learn all these formulas.
+[06:19] But the trick here that I love is just,
+[06:22] what would people rate the existing solution 1 to 10?
+[06:25] What would they rate your solution 1 to 10?
+[06:26] And that's to be four-point higher.
+[06:28] Otherwise, no one's going to pay attention.
+[06:30] And I think it's pretty simple.
+[06:31] People are busy.
+[06:32] They have enough things to do.
+[06:33] They have enough products and apps.
+[06:34] They're not going to take the time
+[06:35] to really dig into something if it's not that much better.

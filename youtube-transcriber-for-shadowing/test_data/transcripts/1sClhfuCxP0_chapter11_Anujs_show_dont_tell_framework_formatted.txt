@@ -1,0 +1,20 @@
+Chapter 11: Anuj’s “show don’t tell” framework
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 33:06 - 36:19
+============================================================
+
+Parallels. I know you also have a lot of interesting ways of thinking about coming up with roadmap ideas and ideating and building a roadmap backlog. You already talked about this idea of going in very divergent directions and seeing if that leads anywhere. There's a couple more I want to share. One is the idea of "show, don't tell." 
+
+What does "show, don't tell" actually mean? It's an idea that extends from what we're discussing about working backwards. When we talk about working backwards, one of the tools we use is a PR FAQ, which is a written documentation of what we're trying to achieve. "Show, don't tell" is essentially a way in which the product manager starts ideating with the entire experience. They create all the collateral needed for a user to begin with if they're working on a single-player product, which is a single-user product. 
+
+Then, you actually start bringing together your marketers and others to consider what is literally the first screen and how the user is getting there. It's not as simple as imagining someone who will be doing this and reaching here. We try to recreate an exact situation. There's a concept of "person, not personas." When we talk about personas, we try to avoid thinking about a generic user. Instead, we focus on a specific individual, like Lenny, a 30-year-old doing ABCD things, earning a certain amount, and having a particular relationship with this category of food delivery. 
+
+We look at what Lenny has done in the last month and the last three days, including his needs, aspirations, fears, and frustrations. For instance, it's 11 o'clock. What has happened? Why is this user opening the app? What triggered this particular action? You literally start from there. I think 50% of my product reviews focus on that part. 
+
+Then, when we say, "Alright, this app got opened," we ask if we have the right kind of way forward for Lenny to actually achieve what he came here for. Literally, each pixel, each copy, and each word is going to be in service of that part. This approach shows the entire journey rather than just stating assumptions. I have found this really powerful when it comes to designing products or even thinking about why we're building something. 
+
+What it also helps with is when we are building complex products, especially in marketplaces. Once you're building something for the user, something is happening on the other side simultaneously. If it's a real-time marketplace, for example, you're building something for the user while also considering that this person ordered food, and now there's a 30-minute wait for the delivery executor to arrive. 
+
+What is happening during that time? What's the emotional state of the user? Let's plot out that 30-minute timeline and create various scenarios. Maybe he went to the restaurant and the food is delayed, or the delivery person on a bike has a punctured tire. What is the consumer thinking at this time? By showing all of those things in real time, you can eliminate a lot of random ways in which the product could have looked. 
+
+Having that showcase of all journeys coming together helps significantly in building your products in a lightweight manner.

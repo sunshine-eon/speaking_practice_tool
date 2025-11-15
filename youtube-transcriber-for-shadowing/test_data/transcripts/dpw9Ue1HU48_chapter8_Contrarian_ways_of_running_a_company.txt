@@ -1,0 +1,197 @@
+Chapter 8: Contrarian ways of running a company
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 23:43 - 37:26
+============================================================
+
+[00:00] What about from the perspective of just staying excited and motivated and finding things to take on?
+[00:06] Is there any lessons there for founders that are I don't know at a larger company and just okay
+[00:11] This is gonna help me stay excited about what I'm doing. Yeah, I think this is in Bezos exemplifies this
+[00:17] I think the best which is
+[00:20] Just because you're a public company does not mandate that you do certain things all you all that's necessary is
+[00:27] The kind of transparency that says here is what the company is doing. Here's what we're about
+[00:31] Here's what we're solving and he had this with his very first annual shareholders letter
+[00:34] Which you know, you obviously writes every year, which is this is what Amazon is about
+[00:38] We're solving for the long term or whatever and and he didn't say this in a starky way if you could reread the letter
+[00:43] It's like but but if you read between the lines, it's like if you don't agree with this approach
+[00:48] You should not buy Amazon shares, right? It's like it's a completely
+[00:52] Optional thing you don't have to buy it
+[00:54] But this is the way we're going to run the business and he stayed true to that
+[00:57] And you can continue to do that. I'll tell you one quick story. This is what's again the
+[01:01] To anti dissuade founders that might be reluctant to go public
+[01:05] So one of the core values that HubSpot that's been part of the culture from the early early early early days
+[01:11] literally days is transparency
+[01:13] And so one of our kind of mechanisms by which we implement transparency is as we've had this thing that does all
+[01:19] information within HubSpot is
+[01:21] Equally shared with every one of the company
+[01:24] Period
+[01:27] Right like everything so our balance sheet with the we raise capital at
+[01:31] You know whether you know we're gonna be able to me payroll in six weeks all those things everything was transparent all the time
+[01:38] And with two exceptions one is if it was illegal for us to share
+[01:41] Let's say if we were looking at some acquisition or whatever that we had
+[01:44] non-disclosure or
+[01:46] The information was ours not completely ours to share and one example of that was salaries
+[01:51] So we feel that salaries are co-owned
+[01:54] Both by the company and by that individual and it's not up to us to share someone's salary if they don't want to do that
+[02:00] Alright, so so we had that transparency and then as we go public
+[02:05] We have this meeting with our investment bankers and our lawyers. This is like in the IPO prep process
+[02:11] And they sit down and it's part of this all-day meeting one of the questions is like, okay
+[02:16] So so who are your designated insiders?
+[02:19] Brian nor I had ever taken a company public before we're like, we don't know what that is
+[02:24] It's like, oh, it's this kind of group of people that will have access to kind of all the financials and we'll know
+[02:28] You know, it's like and we're like, oh, okay, so how long is that list and they're like, you know five or six
+[02:34] And so then you know Brian says seven
+[02:37] Seven and they're like, yeah, you could you could do seven and that I say eight
+[02:41] Like could you do eight and so what we're and so we discovered through that mathematical induction process
+[02:47] Is like if it's a true for N is a true friend plus one is that there's no actual legal limit to how many insiders a company can have
+[02:54] And so we ended up doing literally the day we went public as we designated every single employee to be a designated insider
+[03:02] So that allowed us to maintain the transparency thing because there was no rule that said you could only have five six ten
+[03:08] And it was hundreds of people and we did not make it optional. We didn't say oh because our downsides to being an insider
+[03:14] There's windows within which you can't trade. There's there's stuff
+[03:17] but we're like, okay, well, we believe in transparency everyone's going to have access to it and
+[03:22] And it's not an opt-in kind of thing. You're like, you're this is it
+[03:25] We're all in together and and it's been all and we still do this to this day, right?
+[03:28] Even at 7,000 people
+[03:30] Everybody's inside so so we can still share all the financials with everyone all the time
+[03:34] You have many contrarian opinions is what I'm getting from this conversation already and the way you're pushing the envelope on
+[03:40] Can we have 10? Can we have a thousand?
+[03:43] Curious if there's anything else there just
+[03:47] Contrarian ways of running a company. I know there's probably many but what comes to mind?
+[03:52] So one of the phrases we like to use in our industry overall is this kind of notion of first principles
+[03:58] I know who popularized it, but it's used a lot
+[04:02] I'm not usually a snarky, but I'm not gonna say something starty
+[04:05] But I think most of the time first principles is used
+[04:09] It's actually used incorrectly
+[04:11] Because the way first principles are supposed to work as Elon would probably describe it is that it's not first principles like the first principles of
+[04:18] What we believe these are a core kind of first principles in the company. It's the first principles of the universe
+[04:22] It's not what you believe is true is what do we all collectively know to be true to the best of our knowledge?
+[04:27] It's science right that's like physics like the first and second law of thermal dynamics
+[04:31] Those are first principles
+[04:32] All the layers on top of that are things that you think are true are your assumptions or the things that decisions you made
+[04:37] And that's fine like you may have made some decisions like for instance transparency is not a first principle
+[04:42] It's a founding principle, right? It's not like everyone should do this. It's like a completely core thing. And so yes, I
+[04:50] can be
+[04:51] Contrarian, but you have to kind of limit the dimensions
+[04:55] So the number of things that you're contrarian on
+[04:57] Have to be greater than zero, but not too high, right? So you want what I think of is like
+[05:03] high conviction
+[05:05] Low consensus bets, right? So high conviction is we really really believe this and low
+[05:11] Consensus is that most other people don't and the other people have kind of phrased this differently
+[05:15] I think Peter Teal actually says it more simply and elegantly, which is you need to be right about something that other people think you're wrong
+[05:20] About for a very long time, right? Like okay, this is the thing that and you just happen to be right
+[05:25] So one of the early kind of high conviction decisions we made
+[05:29] At HubSpot was that we were gonna focus on SMB as our target market
+[05:34] And I'll make a case both for SMB and for having high conviction better
+[05:38] It doesn't have to be a target market, but something once you make that bet
+[05:43] Because it's low consensus
+[05:44] it's going to be hard and necessary for you to have the conviction because everyone disagrees including your board including your investors including potential investors
+[05:51] So we have that for all literally all 18 years of HubSpot's history
+[05:55] We have always had the quick all during the IPO road shows like yes, we get that you've kind of on SMB
+[06:01] But so what's the path to the enterprise?
+[06:04] No, you don't understand. This is not a go-to-market strategy. This is not like oh, we're gonna conquer SMB first
+[06:08] This is not bowling pin. This is not Jeffrey Moore. This is a we are here for SMB. This is that's what we're doing
+[06:14] And so we maintain that conviction for a very long time and that kind of helps you
+[06:20] make other bets that are secondary but
+[06:23] But you don't want to reinvent everything
+[06:25] So I'll give an example of something that we had in the early years of HubSpot that the only kind of forwent
+[06:29] So in the early years of HubSpot, we're like, okay, we believe in a flat organization
+[06:35] One of the manifestations of that flat organization is we had no titles in the company. Nobody had a title
+[06:40] Right. So even though we like you have business cards, whatever we have no titles
+[06:43] If you introduce yourself, you know in a meeting and we had this up to like hundreds of people
+[06:49] When you introduce yourself like oh, I work in product. I work in engineering or whatever
+[06:53] It's not like I'm director of X or VP of Y because that as a thing didn't exist
+[06:57] Then as we scaled we came to the realization that there's actual
+[07:04] Value that people ascribe to titles and the reason they ascribe value to titles is because
+[07:09] There were rumors that there was life beyond HubSpot
+[07:12] Like that. I couldn't believe it. What there's there's a life out there outside of HubSpot
+[07:16] It's like, yeah, but look and then when we go to the Thanksgiving dinner or whatever and I talked to my aunt I
+[07:21] Need some shorthands like oh, yeah, like I got promoted to director
+[07:24] I got probably like, you know, just show some progression because it's a signaling device and in this life beyond HubSpot and outside of HubSpot
+[07:31] It's like other people are also didn't want to know sort of where I was and it's like, okay
+[07:36] And this was the winning argument
+[07:37] I love this argument because we had a day-long meeting on talking about this one topic and the winning argument was
+[07:43] Dermation brought I recognize why you why we don't have titles
+[07:46] I recognize this and so they made the case of yeah
+[07:49] There's you know value and it's like and by virtue of you not giving us titles
+[07:54] That means you're having to compensate us and you know kind of economic sense in other ways, right?
+[08:00] So you're you're losing out because it's like is that value high enough to not do that?
+[08:05] That's a strong case. It's like and so and then we headed down to three choices
+[08:10] We're like, okay
+[08:10] Well, we could have chosen to just stay firm. It's like still no titles. We could have said, okay
+[08:14] We're gonna have classic titles
+[08:16] Then I had the option on the table of make up your own title
+[08:20] like you could be Grand Puba of X and that can be your like and
+[08:24] Then we ended up making a decision to go with classic titles because that actually served the need of there's a benchmark
+[08:29] It was a standard otherwise
+[08:30] It doesn't mean anything so having made up titles is pretty much the equivalent of having no titles because they lack any any meat
+[08:36] Anyway, but that's one of those things that okay, you sort of iterate you change things as they go
+[08:42] Yeah, I think there's so much to this. Let's just try things differently. Okay, that didn't work. Let's okay
+[08:47] We're fine
+[08:47] We're just gonna do whatever else is doing here and then often you discover a thing that okay
+[08:51] This is actually better
+[08:53] Just to understand when people have no titles so someone say as a product manager, what do you call them a product manager?
+[08:59] You're just like, I'm an employee HubSpot. I have no literally no title
+[09:02] At the time we was a no title and now we have classic title. Yeah, we have levels of things and but back then it's like you're just here
+[09:08] No title. We don't know exactly. I
+[09:11] Saw somewhere that you paid everyone
+[09:14] $5,000 monthly as their salary at the beginning HubSpot including yourselves for a long time. Yes, sorry
+[09:19] Another fun fact. How long did that last by the way?
+[09:22] Try to think back. It's you know, it's a long time ago. I want to say probably like the first year a year and a half
+[09:27] amazing and
+[09:29] and one of the things that and this is one of the kind of core and it
+[09:33] Not everything that you know, we obviously not everything was right
+[09:36] But not everything is kind of applicable to other companies, but there are some things that I think are
+[09:41] And one of the things that I think are applicable is just this need to solve for like simplicity, right?
+[09:47] It's like the simpler you can make things in the early years the better off you generally are so part of
+[09:52] This is it's gonna sound weird. So
+[09:55] How we wound up with transparency is not because of like some moral is like oh everyone deserved to have this and this is
+[10:02] The truth so it's not some moral position
+[10:05] It was a when we hired the first employee in this post of both writer and geeky
+[10:12] When we had the first employee we had to make the decision. It's like oh
+[10:16] So what files do we give them access to what what and so Brian is like
+[10:21] Well, like why well
+[10:22] There's nothing I like why would we why would we do that and so then we kind of the the output of that was like, okay
+[10:29] Well a like binary decisions are much easier than non-binary decisions
+[10:33] It's like okay
+[10:34] Like everything or nothing is like much much simpler and then it's like okay
+[10:38] Well if it works for employee, you know employee number three in the company, why wouldn't it work at four?
+[10:43] Why wouldn't it work at five? Why wouldn't it work at 50 and we just kept doing it because it's like okay?
+[10:48] Well until it breaks. We'll just keep doing that right and so this is the and this applies to so many different aspects of HubSpot
+[10:55] But is we try to start with the simplest possible thing that might work and then if necessary
+[11:02] Add the you know add the complexity add the things or whatever like even our original
+[11:06] This is actually the tactical thing that everyone should take away especially early-stage startups
+[11:10] Very first HubSpot office has exactly four tables because aspirations for growth, right?
+[11:15] We were in a co-working space so we work back in the day here in Cambridge, Massachusetts
+[11:20] And so we had four tiers and the only distinguishing characteristic of the four chairs
+[11:25] There were two chairs that were by the window two chairs not by the window. Okay, great
+[11:29] hire that first employee other decision we have to make is like, okay
+[11:31] Well, where do people sit and it felt this one is like well feels unfair to us
+[11:36] That we would just get the window seats or whatever it's like, okay
+[11:39] We believe in a flat organization like why and so what we did is we said, oh, we'll just do a lottery
+[11:45] Okay, and it's not like oh whoever pulls the thing gets the window seat
+[11:49] Whoever pulls gets to choose from the remaining seats because different people ascribe different utility to different seats, right?
+[11:55] It's like maybe you don't want a window seat
+[11:56] Maybe you like the dark darker corner whatever it is and so we did that with employee number one
+[12:01] Then it did that with employee number two and we did it every time we hired a new employee
+[12:05] We would do a seat shuffle. We're gonna do the lottery
+[12:08] We're gonna go down the sequence and of all the seats were that that was the algorithm, right?
+[12:12] And our investors are like, oh, that's cute and that's funny
+[12:16] It's not gonna work at 15 20 people. It's not good working 50
+[12:20] Worked at 25 worked at 50 worked at 100 worked at 200. We updated the algorithm
+[12:25] We did some local optimizations which we said, oh
+[12:28] There are some groups that should not be next to other groups because engineers like quiet time and sales people don't
+[12:33] And so we're gonna try to kind of
+[12:36] Optimize a little bit so it's not completely random anymore. Now it's like within this product
+[12:39] Well, we still would do it then we said, okay, we're not gonna do it for every hire
+[12:43] We're gonna do it every quarter and that's stood by the way for
+[12:47] Hundreds of people that mechanism still worked, right? It's like it's yeah, oh my god
+[12:55] So the moral the story is
+[12:57] That one decision of simplifying can you imagine the amount of politics we avoided like in
+[13:03] Corporate America the amount of calories spent is like well your office is bigger than my office
+[13:08] Your desk is one inch higher or one would it like no
+[13:11] it's like all of that just went away by virtue of that one decision and we don't even know it's incalculable honestly like
+[13:17] How much grief that like saved us and then there's all other kind of side benefits to it in terms of
+[13:22] People getting to know each other better better chemistry. There was like lots of good upside
+[13:26] But just the simplicity is almost always a better answer
+[13:29] I love that everything often comes back to some algorithm you've developed or this n plus one approach of like
+[13:34] Let's just keep going until something goes wrong. This is amazing
+[13:37] I'm I'm excited for many more of these hilarious amazing examples of how you do things differently

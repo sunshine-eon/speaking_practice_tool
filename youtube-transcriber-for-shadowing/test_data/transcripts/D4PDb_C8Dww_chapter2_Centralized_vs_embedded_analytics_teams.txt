@@ -1,0 +1,70 @@
+Chapter 2: Centralized vs. embedded analytics teams
+Video: Building a world-class data org | Jessica Lachs (VP of Analytics and Data Science at DoorDash)
+Time: 04:59 - 10:52
+============================================================
+
+[00:00] There's two main things that I think are important when you're structuring a team.
+[00:04] The first is I believe that analytics should have a seat at the table,
+[00:09] just like engineering and product and sort of the business folks, the operators.
+[00:14] For me, analytics is a business impact driving function
+[00:18] and not purely a service function. I think there are analytics teams at other companies
+[00:23] where they are answering people's questions, maybe even through like jura tickets.
+[00:30] We're building dashboards. That was never really of interest to me.
+[00:33] That wasn't the team that I wanted to build. For me, it's about finding opportunities,
+[00:39] about having a point of view on the decisions that we should make.
+[00:44] Not just answering the why, but answering the so what.
+[00:47] So what do we do now that we know this?
+[00:50] And so that's definitely one thing as far as my point of view on building a data team.
+[00:56] I think the second thing, which may be a little more contrarian, is I think there are people out
+[01:02] there who think that analytics should be embedded into business units. I strongly disagree.
+[01:09] I believe a central model, a center of excellence is superior and I'm happy to
+[01:15] talk about why, but that's something that I feel quite strongly about.
+[01:19] We've tried it. We've experimented in the past with the alternative,
+[01:25] so putting it into a business unit and it's just much more problematic.
+[01:29] And I think the value you get from a central model is far greater than some of the things
+[01:35] that you might lose. Yeah, let's definitely talk about it.
+[01:38] And just to make sure people understand when you say central versus embedded,
+[01:42] is that in terms of reporting lines, is terms of their goals?
+[01:45] It's a great question. So mostly it's in terms of reporting lines,
+[01:50] because I think on the goal side, that is something where we have the same goals that our
+[01:55] partner teams have. And I think that that's actually an important part of a successful
+[02:00] central model. So when I say central model, it just means that instead of for marketing
+[02:05] analytics, marketing analytics is part of the broader analytics team. It does not
+[02:10] sit and report in through marketing. That just to clarify.
+[02:14] Got it. So the reporting functions at some companies, there's like the head of marketing
+[02:18] or some partner to the head of marketing, where the data, say analysts or biz-offs people or data
+[02:23] scientists would report potentially to them and that's it. And they're not as connected to the
+[02:27] core, to like the rest of the data team, the rest of the analytics team versus...
+[02:31] Exactly. Yeah. So you'd have a bunch of sort of smaller, of course,
+[02:36] data teams that sit embedded within the functions. And I understand why
+[02:41] business leaders like that, you're embedded within the function. So you're a part of the team,
+[02:46] that ownership, that camaraderie that comes with that. I think you can solve for that, but I do
+[02:52] understand that that is benefit. I think the other benefit, of course, is the business leaders
+[02:57] control the road maps. So they get to dictate the work, they know that they have
+[03:02] help and resources in that area when they need them. So that certainty, that control,
+[03:08] I totally understand the value there. But I think that those are two things that you can solve for
+[03:15] if you know that those are the kind of biggest issues with a central team. So for us,
+[03:21] we have a central analytics team, but we're divided up into pods that map perfectly with
+[03:29] how product engineering, operations, marketing are structured as well. And so our team,
+[03:36] de facto, has these folks embedded with our partner teams, even though the reporting structure
+[03:43] is up through a central org, through me. And that helps the team to feel like they are one team,
+[03:52] both in terms of the analytics team feeling like it's one team, but also to use the marketing
+[03:56] example, the marketing folks are one team. And because the analytics shares the same goals
+[04:02] as the marketing leaders, your incentives are aligned to work on the most important things,
+[04:08] and your success is their success and vice versa. So I think that that's been really a good way to,
+[04:16] a happy medium, but still preserves all the benefits of a central org. And there are,
+[04:22] there are a lot of them. I want to hear about them. But I think something that some people
+[04:27] think when you say a central org is like a silo data team that sits there and they're like this,
+[04:33] they're like a service org a little bit within the company. It's like, hey, I need some data
+[04:37] help. And you try to convince that you, hey, I need some help on this thing. And that's not
+[04:41] what you're saying. Oh, no, no, no, no. That job seems terrible. I don't want that job. No,
+[04:47] we are very much, you know, to the earlier point, we have a seat at the table. We are
+[04:52] business partners. We are thought partners with our product counterparts, with our engineering
+[04:58] counterparts, with our ops counterparts. And we, again, share the same goals and have the same,
+[05:08] you know, initiatives that they do. And it's just our job to come at it from a data driven
+[05:14] place. We bring to the table insights on things that we've noticed, deep dives that we do to
+[05:20] understand the problems that we're trying to solve better. If we need to grow, what are the most
+[05:26] efficient ways to grow? What are the tradeoffs that we have to make? Where are there pockets of
+[05:32] opportunity? That is what I expect my team to be able to bring to that table, the proverbial
+[05:39] table that we want to see that. And so in order to earn their spot, that's the deal. We get
+[05:45] the seat at the table and we need to earn it by bringing opportunities that we all can go and go out.

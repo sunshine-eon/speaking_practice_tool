@@ -1,0 +1,57 @@
+Chapter 10: Notification strategies
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 54:08 - 58:15
+============================================================
+
+[00:00] So to protect and push notifications I think are another example this in general for companies like how much is too much because everyone's just like
+[00:06] Let's just send another push. It's fine. Just one more
+[00:08] And I saw that your solution to that is a person is like the keeper and the gate
+[00:14] Almost the gatekeeper plus the founder of how far it's too far that it's it's good if you can if you can have that
+[00:20] I think push notifications are also easier because you know, there's a lot of things you can do around
+[00:24] All right, we'll set a budget cap for how many notifications will send, you know
+[00:28] You can you can create a policy. Yeah policies, but I think with a lot of things. It's it's hard at least for the streak
+[00:33] It's harder to create policies for in the same way a lot of it has to be done based on feel
+[00:38] And so you kind of just got to use your best judgment at times
+[00:41] Sweet. Okay. Any other maybe like one or two more lessons from this journey of what streaks has become today
+[00:47] I mean, I can you mentioned notifications. I've mentioned this a few times what it's funny
+[00:51] You tend to think of knowing like exactly as we say you can just always send another notification
+[00:56] It's gonna be some win and at some point, you know, it'll it'll be a bad experience, but it's tough to see that
+[01:00] There's actually a notification that we so we send two notifications relating to your core streak each day
+[01:05] The first is a practice reminder. We send it. This is actually an interesting insight
+[01:09] 23 and a half hours after you practice the day before whoa, that is the way three and a half
+[01:14] Okay, so basically if you practice at noon today, we'll send to you in 11 30
+[01:20] A.m. Tomorrow and we have done it because it's like assuming they are free in that time the day before maybe they'll be free the same time
+[01:27] And we actually moved we used to let users set this practice reminder time and you know, our thinking was cool
+[01:34] You're gonna say
+[01:35] 7 p.m. That's when I really want to extend my streak each day
+[01:38] And then you know what I said this is somebody with two kids life gets in the way life always gets in the way
+[01:43] And when you think you're gonna practice will change your life will change whatever and what we realize is the best
+[01:49] Indicator of when you should practice was when did you practice today before we could almost certainly get more detailed
+[01:54] We have tried a bunch of ways to have much more complex logic and what always wins is 23 and a half hours
+[01:59] So reveal behavior versus yeah, exactly
+[02:02] So so we again we send this practice reminder 23 and a half hours later
+[02:06] The other thing that we'll do though is we'll send it
+[02:08] We call a streak saver and this is at 10 o'clock at night if you have not extended your streak
+[02:13] We'll send you a message saying
+[02:15] Hey, you know like it's it's your last chance
+[02:18] This is this is it if you don't extend your streak and you would think that like that's kind of spammy
+[02:24] That's that's kind of annoying to get a notification from an app at 10 p.m
+[02:28] But what we found is because people care about their streak their streak is this good thing that they attach positive emotions
+[02:34] They don't really want to lose that notification reminding them. Hey come back and like people see this
+[02:41] By and large as a positive notification and on a negative notification
+[02:45] Obviously it serves our purpose as well of getting users to come back and I'll use their streaks
+[02:49] But again, I think if you can think about your notification strategy related to what is the feature that it's tied to how do users perceive that you can
+[02:56] Almost certainly get a not get away with more
+[02:58] But you know you could be thoughtful about notification load
+[03:02] And when to send notifications and again for us this like late-night message. It's also highly impactful super good
+[03:09] You know is actually something that
+[03:11] Could be perceived as spammy, but a lot of our users really do I get somebody who it's often late at night
+[03:18] I'm and I work here and I'm like, oh forgot to do my do you know anything about dueling all day?
+[03:23] You know, here it is 1115 and I saw it done at that message is really powerful. Yeah, it has saved me many times
+[03:29] I totally know that message and I love that. It's like at late-night message
+[03:36] From an app very rarely do you actually are happy about that and I love that this actually is a good example
+[03:41] We're like, it's it's really it's really funny all of the stories that you hear about people extending their streak
+[03:46] You know, if you look around a duelingo party, you know, where it's like 10 11 30 11 45 all the duelingo employees
+[03:53] They're like doing a lesson at the last minute
+[03:55] You always see these like pictures of people in the club doing or like at a concert doing duelingo and yeah
+[04:00] It's like otherwise that you're gonna use a streak freezer. God forbid you will lose your streak. It's so funny

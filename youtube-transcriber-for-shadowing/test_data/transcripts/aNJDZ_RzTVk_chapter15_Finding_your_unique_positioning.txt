@@ -1,0 +1,36 @@
+Chapter 15: Finding your unique positioning
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 40:55 - 42:46
+============================================================
+
+[00:00] One of the biggest values, I think, of software is how do you reuse the components that you've
+[00:07] built to increase, again, velocity and impact.
+[00:12] Why we were interested in bill payments as an expansion of our corporate card platform
+[00:18] was we saw a bill as just an invoice to the company, and an expense was an invoice
+[00:24] to the employee.
+[00:25] So there was a lot of parallels between these two things.
+[00:28] It was all about having a liability.
+[00:30] It was all about processing that liability in terms of the financial event and moving
+[00:37] the money.
+[00:38] Moving the money either between the company, between the company and the employee, or between
+[00:42] two companies.
+[00:44] So we believed that we were uniquely positioned to get after that space because we already
+[00:50] had money movement.
+[00:51] We already had some type of liability.
+[00:53] We already integrated with accounting systems, and we had a pretty strong risk process that
+[00:58] can govern all that.
+[00:59] And the employees that were requesting to pay these bills were already on the platform.
+[01:04] So that's an example of a right to win.
+[01:08] And I think that if you continue to focus on where you're uniquely positioned to win,
+[01:13] you'll increase velocity because you already have a lot of the components of the expertise.
+[01:17] I love that.
+[01:18] It's not something you really see in teams, docs of just why we have the right to
+[01:23] win this.
+[01:24] So I think that's a really interesting element.
+[01:25] By the way, I should mention we'll link to a template of your planning approach in the
+[01:30] show notes, which we also had in the post that we worked on.
+[01:33] So folks are trying to write down notes of all these little bull points.
+[01:36] We'll link to a doc that has all these things.
+[01:39] What do you think of OKRs, and how do you approach OKRs as a part of this planning?
+[01:44] I largely stay away from OKRs from a product perspective.
+[01:49] I think that, I guess,

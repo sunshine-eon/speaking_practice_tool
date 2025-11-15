@@ -1,0 +1,14 @@
+Chapter 13: The impact of using this framework
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 39:14 - 41:27
+============================================================
+
+What kind of impact have you seen from implementing something like this? Or is there an example of something that came out of this that was a big unlock? It's probably a lot of work for someone to put together a whole board, keep it updated, and include screenshots and marketing funnels of where people are coming from. What sort of impact do you see from doing this, either on growth or what people think?
+
+I think the largest impact that happens here is on alignment. How CXOs are thinking may not be very clear, and while that can be documented, for many people, it's still not very clear. They might see one part of the funnel and understand why the marketing team is acquiring those users, but they don’t fully grasp the bigger picture. For instance, if I attract a certain type of user, why will some of these users become loyal? What does that entire journey look like? Or, for another team building a part of the product, where do I fit in? 
+
+So, I think the largest impact that the "show, don't tell" approach has is on getting the entire company on the same page. It helps everyone understand what they are doing, which part of the overall picture they are working on, and why others are working on their respective parts. This understanding enables collaboration to solve specific challenges together.
+
+The other thing that this approach helps with is choosing directions. As I mentioned, we are not just doing one thing, but three, and it’s important to understand why I might choose one alternative over another. Strategic discussions can often veer off in various directions, and sometimes it’s easy to get caught up in one unique point, diving deeper into that instead of looking at the entire picture. 
+
+This is why it’s beneficial to present all the points clearly, comparing them side by side. One of the advantages of working backwards, like Amazon's written memo approach, is that it forces you to crystallize ideas and avoid superficiality. There are many good ideas in theory, but when you have to get concrete, you might realize that an idea is actually terrible. This process helps you identify what will truly work and what might not be feasible at all.

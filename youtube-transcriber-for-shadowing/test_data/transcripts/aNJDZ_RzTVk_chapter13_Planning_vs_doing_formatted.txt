@@ -1,0 +1,28 @@
+Chapter 13: Planning vs. doing
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 32:33 - 37:54
+============================================================
+
+Do the more things happen, the more you get done. Everything's happening, but on the other end, it also feels a bit chaotic. I'm curious how you find that balance between not spending all this time planning and just going, going, going. How do you think about that balance, and how does it actually work out at Ramp? It sounds like you don't spend a ton of time planning.
+
+When new joiners come to Ramp, I introduce myself and talk about our product strategy. I end the meeting with an apology. I say, "You've signed an implicit contract joining Ramp. It's one where we prioritize velocity over almost everything else." What that means is it will be somewhat chaotic. We'll ship things that don't work, change our products without necessarily fully enabling you, and you'll have to constantly be on your toes whenever you load up a demo instance. 
+
+I think there's an expectation, and people are welcoming of that because they understand the trade-off. If we don't embrace this chaos, we won't move forward, innovate, or continue to provide value for our customers. There are certain things we plan for, and the question really is: because accuracy has a cost, we need to ensure that we're only increasing the accuracy of planning for things that have a high value of that accuracy. 
+
+For us, those are large market moments where products, marketing, and sales all coordinate these big events. These typically happen maybe once a quarter or once every six months, basically aligning with our marketing calendar. We need a plan for that, for sure. However, it's often a low percentage of our total R&D focus. Each team can be somewhat autonomous and chaotic within their pod. While it may appear chaotic from the outside, they are extremely clear on what matters. 
+
+You don't need a lot of accuracy and confidence on when specific features will go live. It's much better to spend the time you would use to create accuracy on creating velocity. I love that you mentioned setting expectations very clearly upfront. That seems really important for success in a company like this. 
+
+It also reminds me that every successful startup is extremely chaotic. As much as it may not feel like that on the outside, it's incredibly chaotic. Things are constantly changing. I remember attending a fireside chat with Cheryl Sandberg at Airbnb, where someone asked her how she deals with change. She mentioned that they reorganize every six months, with people coming and going, teams shifting, and priorities adjusting. She said, "This is the problem you want. You want to be going through this because that means you're growing and experiencing hypergrowth." The alternative, where you're not growing, is much worse and more painful. 
+
+If you're working at a place that's chaotic, it's often a good thing. I would say so. Oftentimes, people use that chaos as an excuse not to have a strong strategy. From the start, we've always been the spam management platform that helps you spend less. I share an annual newsletter about what we've accomplished and what we plan to do next year, and it's often pretty spot on in terms of our goals. 
+
+The goals, the value, the problem, and the vision remain consistent. The specifics, the timing, and the quarterly scopes may change, but you want to avoid the thrash of people waking up feeling like they work at a different company or that leaders are constantly changing their minds. We've been extremely consistent from the start. Most of the products we build and the code we write are in the customers' hands and haven't been ripped away, which speaks volumes about our velocity.
+
+If your workplace is chaotic, it's not a problem. It's a side effect of growth and hypergrowth, and things are going to be pretty chaotic. 
+
+This episode is brought to you by Atio, a new type of CRM that's powerful, flexible, and built around your data. Traditional CRMs were built for a different era with totally different speed, scale, and data demands. Atio is different. It allows you to quickly build a CRM that matches your unique workflows and data structures. 
+
+Within minutes of connecting your email and calendar, you'll have a CRM that's already set up, complete with customer profiles and automatic data enrichment. You'll also have real-time dynamic reporting at your fingertips. No more slow deployments, outdated user experiences, or tedious manual data input. With Atio, you can build and adapt your CRM on the fly, no matter your business model or company stage. Atio is the CRM for fast-growing startups. Get started today and get 15% off your first year at atio.com slash Lenny. That's A-T-T-I-O.com slash Lenny.
+
+You've talked about strategy a couple of times, and I want to dig into that a little bit. There are a couple of directions we can go. One is the contract you create with teams around strategy. So, let's explore that. What does that actually look like?

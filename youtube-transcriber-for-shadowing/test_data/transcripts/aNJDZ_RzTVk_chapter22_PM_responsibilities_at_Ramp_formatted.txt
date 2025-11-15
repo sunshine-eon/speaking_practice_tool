@@ -1,0 +1,10 @@
+Chapter 22: PM responsibilities at Ramp
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 60:30 - 61:46
+============================================================
+
+There are a few things that come to mind regarding team building. Building a culture within the pod is essential because, oftentimes, your managers are no longer part of your team. Engineers might report to different people, designers might report to different people, and PMs might report to different people. Therefore, actually fostering a team culture within the pod is really important. It often falls on the PM to create offsites or ideation sessions to find ways to have fun as a team.
+
+The second aspect is ensuring that the team is focused on its core areas. This involves protecting the team from stakeholders who might want to have an opinion, request updates, or schedule certain meetings. It's crucial to shield the core team from that chaos and to serve as the central point of contact for any questions or needs that arise. The PM should be able to bring in the right person at the right time to address those queries.
+
+Additionally, it's important to revisit a point I made earlier. The advice being shared about the approach to product at Ramp assumes that the team is composed of A-plus members, particularly the engineers. This foundational quality is key to the effectiveness of the strategies being discussed.

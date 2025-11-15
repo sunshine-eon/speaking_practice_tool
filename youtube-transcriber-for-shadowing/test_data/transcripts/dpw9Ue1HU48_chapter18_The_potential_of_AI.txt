@@ -1,0 +1,177 @@
+Chapter 18: The potential of AI
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 90:46 - 97:03
+============================================================
+
+[00:00] Okay. So what I'm going to do,
+[00:02] I have one more question about AI.
+[00:04] To make this work timing-wise,
+[00:06] I'm going to cut the lightning round.
+[00:07] So I hope that's okay.
+[00:09] Totally fine.
+[00:09] Okay. I know AI is very top of my head.
+[00:12] By the way, this is my diabolical plan
+[00:14] to have to skip the lightning round
+[00:15] because that's the thing I'm not good at.
+[00:17] The guy just not.
+[00:18] I'm not going to lose.
+[00:19] Anyway, that's the thing I was dreading the most,
+[00:21] playing 4D chess here.
+[00:23] You knew exactly the timing and you're like,
+[00:26] I will take this long,
+[00:27] all these answers that will perfectly play out.
+[00:30] So now you're spending a lot of time on AI.
+[00:32] It's on many people's minds these days.
+[00:34] You built this product called ChatSpot.
+[00:36] Is it still called ChatSpot or did you?
+[00:38] Is that the product you changed the name for?
+[00:39] That's still ChatSpot.
+[00:40] It's still ChatSpot.
+[00:41] Still ChatSpot.
+[00:42] And I know that you've handed that off now
+[00:43] to like a team actually that's working on this.
+[00:45] It's not like just our mesh project anymore.
+[00:48] So I don't know exactly where to go with this,
+[00:50] but just why is AI so top of mind?
+[00:53] And where do you think people should be spending time?
+[00:56] Where do you think things are heading?
+[00:58] What comes to mind around AI?
+[01:00] Yeah, it's obviously I'm not alone in my excitement,
+[01:04] but I will say this.
+[01:05] So I've been,
+[01:06] so I'm about to hit the 30 year anniversary of my working
+[01:10] in like commercial software, right?
+[01:12] Like that's so I've been at this for a long, long time
+[01:14] and that's all I've ever known.
+[01:15] That's all I've ever done.
+[01:17] And the last time I was this both excited,
+[01:23] I'll just excited because that was when the web first
+[01:26] came along in the mid to late 90s.
+[01:29] And I'm like, oh, like this literally like
+[01:32] changed everything, right?
+[01:32] It's like relevant to everything.
+[01:33] It's like literally everything is going to be impacted
+[01:36] by this thing called the internet.
+[01:37] And I was in my early 20s, right?
+[01:39] And I've been here for mobile.
+[01:43] I've been here for social.
+[01:44] I've seen lots of things that people got really excited
+[01:47] about, but nothing to me has kind of hit the Richter scale
+[01:52] to agree that AI does.
+[01:53] And the reason is, okay,
+[01:55] so if you think about early computers or PCs
+[02:01] that kind of gave us compute at scale, which was awesome.
+[02:05] The internet effectively gave us kind of distribution
+[02:08] at scale, allowed us to take information,
+[02:10] products, whatever and get them out at scale
+[02:11] because everything was now connected where before it was not.
+[02:15] What AI gives us now is cognition at scale,
+[02:19] the ability to kind of literally amplify
+[02:22] the human brain, right?
+[02:23] Like that's never been done before.
+[02:25] Not that we haven't been trying,
+[02:26] but now we have demonstrable evidence
+[02:29] and products that actually work.
+[02:30] We've used chat to PT and products like it.
+[02:34] And so it's life changing, right?
+[02:36] And so for the product people out there,
+[02:38] which is a lot of you, AI, so by the way,
+[02:42] the internet unlocked a massive opportunity
+[02:44] because especially for startups, right?
+[02:47] It's like, oh, we can just reimagine the world
+[02:49] with this new thing called the internet
+[02:50] that was not possible a year ago
+[02:52] and now is what can we kind of now unlock
+[02:54] and lots of great companies that were created?
+[02:57] I think something similar will happen here.
+[02:59] And there's a couple of things that I think
+[03:00] that are just tactically that I think are possible vectors
+[03:04] that kind of satisfy my spreadsheet of
+[03:06] if I were gonna choose ideas
+[03:07] and the supplies across industries is that,
+[03:11] so as software companies and product builders,
+[03:13] most of us have always called our products
+[03:17] like, oh, we build intuitive products.
+[03:18] Where's that good?
+[03:20] And we say that, right?
+[03:23] And it turns out, it's just not true
+[03:25] because as a user of X product, whatever happens to be,
+[03:29] it's like, okay, I've got this mental model,
+[03:31] the thing I'm trying to accomplish.
+[03:33] And then I have to translate that
+[03:34] into a series of clicks and drags and touches and swipes
+[03:38] in order to accomplish the thing that I want
+[03:40] in the software product that I'm using.
+[03:41] And what varies is the degree
+[03:43] to which that translation needs to occur.
+[03:45] But there is this impedance mismatch, right?
+[03:46] There's a translation that has to happen
+[03:48] from the what's in my head,
+[03:49] like, I wanna remove this background in Photoshop.
+[03:51] I wanna create this report in HubSpot.
+[03:54] And so the opportunity now is that
+[03:57] we're going from what was an imperative model.
+[04:00] This is what engineers would call like a step-by-step.
+[04:02] You give instructions to the computer,
+[04:04] like do this, do this, do this, do this.
+[04:06] And then hopefully you get the outcome
+[04:08] you're looking forward to
+[04:09] what engineers would call a declarative model.
+[04:11] A declarative model is you describe the outcome you want,
+[04:14] not the steps to get there.
+[04:15] And the closest analogy that most people are familiar with
+[04:19] is SQL, the Korean language, right?
+[04:21] So before SQL, if you wanted to get data out of a system,
+[04:25] you wrote code that says, okay,
+[04:26] loop over all my customer records
+[04:27] and then filter out the ones
+[04:28] that have less than a million dollars of revenue
+[04:30] and then give me the result.
+[04:32] And SQL said, no, just put a where clause
+[04:35] on the describe the data you want
+[04:36] and what columns you want
+[04:38] and how do you wanna order it
+[04:39] and what filters you wanna apply
+[04:40] and it figures out, if the database figures out
+[04:42] how to get you the thing that you're looking for.
+[04:45] Now we have the ability to do that
+[04:46] for interfaces, for software, right?
+[04:48] So instead of saying click here, drag here,
+[04:50] it's like, I want you to generate a report
+[04:52] that's all my customers in Europe
+[04:54] that we signed up last quarter
+[04:55] that were more than 100K in ARR.
+[04:58] And you just literally take the thing that's in your head
+[05:00] and express it in whatever medium you choose,
+[05:04] text, voice, doesn't matter.
+[05:06] And the software now can actually,
+[05:09] so now the technology exists to pull that off.
+[05:11] Did not exist before and now it exists.
+[05:13] I know it didn't exist before
+[05:14] because six and a half years ago
+[05:17] I built this product called GrowthBot.
+[05:19] That was a chatbot for HubSpot software
+[05:22] and business software,
+[05:22] generally for marketing and sales people.
+[05:23] It's essentially what ChatSpot is now.
+[05:26] Amazing product, GrowthBot,
+[05:28] and it had just one teeny tiny small problem
+[05:32] which is it didn't work.
+[05:35] Really well conceived, really like brilliant idea.
+[05:38] It just didn't work
+[05:39] and the technologies wasn't there, right?
+[05:41] The use couldn't do it with any degree of fidelity
+[05:43] because AI had, and now you can.
+[05:46] And that's what kind of caused me to go,
+[05:49] kind of prove out my theories
+[05:50] like I had a chip on my shoulder,
+[05:51] particularly with that idea, right?
+[05:53] But I think, I'm not suggesting that,
+[05:56] web and mobile interfaces are gonna go away
+[05:59] but there are a class of use cases across
+[06:01] pretty much all software
+[06:03] where we can make things easier for the human
+[06:06] by not forcing that translation layer
+[06:08] and just make it truly intuitive.
+[06:11] Yeah, so thank you for coming to my TED talk.
+[06:14] I'm gonna have to get out of here.

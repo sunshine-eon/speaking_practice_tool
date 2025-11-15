@@ -1,0 +1,10 @@
+Chapter 9: Common types of problems hiding behind the execution label
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 63:43 - 65:14
+============================================================
+
+So you talked about execution and how maybe for early stage startups that might be default, the most important type of work to be focused on. That's actually a really good lead way to our fourth big idea, which is kind of a provocative tweet that you put out a while ago. You mentioned that most execution problems are actually strategy problems or culture problems. I'm excited to hear a little bit more about how you discovered that, what it means, and maybe how to address those problems.
+
+I realized this somewhat late in my career as a leader. Most execution problems that I encounter in a high performing environment, where everybody has the right intentions, are actually not execution problems. They are either strategy problems, interpersonal problems, or cultural problems. 
+
+To illustrate this, I'll make the observation that many leaders are extremely busy in such environments, whether it's a fast growth startup or a fast growth larger company. They're usually overwhelmed. Like I said earlier, I was one of those people. When you take a deeper look at what they're engaged in, I had the chance to observe it with my peers that I was mentoring or coaching, as well as people on my team, PMs or PM leaders who are also extremely busy and usually overwhelmed.

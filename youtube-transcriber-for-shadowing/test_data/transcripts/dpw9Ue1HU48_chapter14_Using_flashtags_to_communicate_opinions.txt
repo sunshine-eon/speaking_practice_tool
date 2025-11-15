@@ -1,0 +1,81 @@
+Chapter 14: Using flashtags to communicate opinions
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 57:33 - 62:44
+============================================================
+
+[00:00] Okay, I'm going to go in a totally different direction for now and see where this takes us.
+[00:03] I want to talk about flash tags, so this is something that you came up with that came
+[00:08] from a problem of your founder, people come to you for feedback, you give them some random
+[00:12] thought and they treat that as gospel and they go do it and spend months fixing something
+[00:16] that you're like, oh, it's just a thought. Talk about flash tags. Yeah, and this is
+[00:22] exactly the problem, right? It's not just, once again, most things exist at every
+[00:26] level of abstraction. So anyone that manages people, anyone that leads has this exact same
+[00:30] issue. It's the megaphone issue, right? Like someone will pass you in the hall when we had
+[00:34] offices in halls. They'll ask you a question and as it turns out, this is a particular
+[00:40] true of founders, like I have an opinion on everything, like literally everything.
+[00:45] So if you ask me a question, I will have it, it won't be thought out, it won't be
+[00:48] right, but I will have one, right? And so the challenge is people will kind of take
+[00:52] that an over index on what was an opinion and because it's inefficient to qualify
+[00:58] every time someone asks you something, every time you put an email out there and say,
+[01:02] oh, by the way, this is just my opinion. You can put like, you know, IMA show or
+[01:06] something like that every now and then, but then people say, oh, that's just like
+[01:08] politeness or something like that, right? Okay. So here's what flash tags are,
+[01:12] literally. And I live most of my life through email. I probably do this in other
+[01:17] media as well. It's like the hashtag that we all know,
+[01:21] but it's a discrete set of them, an escalating set of what I call the kind
+[01:26] of dying on the hill spectrum. Okay. So here's how it goes.
+[01:31] The bottom hashtag is hashtag FYI. And the definition of the FYI is,
+[01:36] I came across this interesting blog post or I found this news or whatever,
+[01:39] just letting you know. No response expected. Fine. Go on with your life.
+[01:44] Next level up is hashtag suggestion. I have this thought that came into my
+[01:49] head because I listened to the episode on Lenny's podcast with Sam from
+[01:53] Microsoft or whatever. And this feels like it could be a good
+[01:57] thing to kind of explore. But hashtag suggestion means I still
+[02:02] don't expect a response. You don't have to do the thing I'm asking,
+[02:05] but it is something that I would do if I were you, or at least I would
+[02:08] consider if I were you. Okay. Next level up is hashtag recommendation.
+[02:12] Hashtag recommendation is I've thought about this a lot.
+[02:17] I've done some research. I've done some digging. I've done some soul searching.
+[02:21] I would do this. It's still not a, you have to do this.
+[02:26] But if you decide not to do this, I would appreciate a response in terms of
+[02:33] why you don't want to do this, what you learned in the process of exploring
+[02:36] this particular thing, other altered is or something.
+[02:38] So it's like a response expected, but still not a mandate.
+[02:42] And the last one is hashtag plea. I beg of you, we don't have mandates at HubSpot.
+[02:49] I have thought about this so much. Like to my core in my soul, I believe
+[02:55] this is the thing we should be doing. I'm going to plea with you
+[02:58] to please just do this. Still not a mandate, by the way.
+[03:02] But that's, and so now it's commonly accepted, like it's on the wiki,
+[03:07] like people, it's like, and I use this multiple times every day.
+[03:10] Other people at HubSpot use it. It is remarkably effective
+[03:17] because they're self descriptive. Hashtags are searchable, right? You can go back
+[03:20] and say, oh, I want to know the last five hashtag recommendations that I made.
+[03:25] How those turn out, like it's, there's just so much goodness
+[03:28] that comes out of it. It's not hard to understand or describe.
+[03:31] It's really interesting that none of them are just, just do it.
+[03:34] You say that there's no concept of, there's no mandates, essentially.
+[03:38] Why is that? And do you feel like people, do people just treat plea as,
+[03:41] okay, I actually just really have to do this? So we've always had as part of
+[03:44] kind of early manifestation of HubSpot culture, we kind of believe in autonomy,
+[03:48] lots of companies believe in autonomy, and we tried to carry that idea
+[03:52] as far as we can. And for the most part, we do that.
+[03:55] And that's, and the hashtag plea is part of that, right?
+[03:59] This is like, we trust our people, we try to hire the best,
+[04:01] we expect them to learn, and we still want them to
+[04:06] have the kind of discretion to be able to make hard decisions.
+[04:09] And we have the, we call them DRIs, we didn't invent that term,
+[04:14] a directly responsible individual. And we'll talk more about,
+[04:16] we should talk about more about decisions and how decisions get made.
+[04:18] But the reason I do hashtag plea is that it's a soft way of a mandate
+[04:26] without being a mandate, right? It's like, okay, lucky.
+[04:30] And by the way, like the number of times that happens is like,
+[04:32] I can count on the fingers of like one hand and still have fingers left over,
+[04:36] right? That almost never gets to that. Because either I talk myself out of it,
+[04:40] it's like, okay, and this goes to the, is this a hill I'm willing to die on,
+[04:43] right? It's like, okay, I get it, I may disagree.
+[04:47] Is it the end of the world? Is it really going to do that much harm?
+[04:51] And is the cost of kind of imposing that kind of founder card,
+[04:56] go do this? It does happen just not that often.
+[04:59] So, yeah, awesome. And we'll link to that. There's a post here about how to use these.
+[05:04] It's flash tags.org. If you want a quick way just to get to that blog post.
+[05:07] I believe in domain names and shortcuts. I believe in some cool cities there.

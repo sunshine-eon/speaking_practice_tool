@@ -1,0 +1,16 @@
+Chapter 4: Building a craft-oriented company
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 12:25 - 16:41
+============================================================
+
+A lot of founders, product leaders, and designers want to create space for craft and make products they can be proud of. However, in practice, this is often very challenging. Very few teams and companies manage to achieve this. Is there anything else you've learned about creating space for this kind of work and prioritizing it for founders who are trying to instill more of this? Or do you have to be a designer CEO like Kari to make it happen? 
+
+I don't think it's purely about being a designer. All of us founders, like Jory and Thomas, contribute to this effort. Their background is in engineering, and I would say they often spend even more time on the details than I do. Early on, when it was just the three of us, I focused on broad strokes designs—how the UI works and how certain features function—while they were the ones suggesting animations and other details. This attention to craft is part of our collective DNA. 
+
+Craft starts with people caring about it. If quality isn't valued within the company, it's hard for anyone to prioritize it. I once advised a founder whose team came from different companies, like one from a European startup and others from Facebook and Amazon. These companies have very different cultures regarding quality and craft. I told them they needed to align on this issue; you can't run a company with conflicting cultures. I emphasized the importance of quality for certain products and how everyone should believe in that principle, instilling it in every new hire.
+
+Another aspect of our approach is that we don't have many business managers in the company—only one. This is significant because when you create very specific roles within a team, it can lead to a disconnect. The business manager might be responsible for decision-making and guiding the team, but they aren't the ones building the features. They don't spend all day examining the details, like where a button should go or how it should function. 
+
+We find that creativity and quality improve when we give project teams ownership. Our project teams consist of engineering and design, and as they build features, they begin to see opportunities for improvement. A good example of this is when one of our engineers, Andreas, worked on a right-click menu for the app. He noticed that many software implementations require users to hover exactly over a menu to access submenus, which can lead to frustration when users miss by just a few pixels. 
+
+Andreas took the initiative to enhance this feature without being prompted. He created dynamic "safe areas" around the submenus, allowing users to hover diagonally to access them more easily. This kind of innovation happens when you empower people with ownership of their projects and create a company culture that values quality and craft.

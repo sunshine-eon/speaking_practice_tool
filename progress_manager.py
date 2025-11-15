@@ -18,36 +18,58 @@ def get_phase1_roadmap() -> Dict[str, Any]:
     """
     Returns the Phase 1 roadmap structure.
     Focuses on Daily Speaking Habits (0-6 months).
+    Weekly Speaking Prompt is hidden until 2026-W01.
     """
+    activities = [
+        {
+            "id": "weekly_expressions",
+            "title": "Weekly expressions",
+            "type": "daily"
+        },
+        {
+            "id": "voice_journaling",
+            "title": "Voice Journaling",
+            "target_length": "2-3 mins",
+            "type": "daily"
+        },
+        {
+            "id": "shadowing_practice",
+            "title": "Shadowing Practice",
+            "type": "daily"
+        },
+        {
+            "id": "podcast_shadowing",
+            "title": "Podcast Shadowing",
+            "type": "daily"
+        },
+        {
+            "id": "weekly_speaking_prompt",
+            "title": "Weekly Speaking Prompt",
+            "target_length": "3-5 mins",
+            "type": "daily"
+        }
+    ]
+    
+    # Hide weekly_speaking_prompt until 2026-W01
+    current_week_key = get_current_week_key()
+    try:
+        year_str, week_str = current_week_key.split('-W')
+        year = int(year_str)
+        week_num = int(week_str)
+        
+        # Show weekly_speaking_prompt only if current week is 2026-W01 or later
+        if year < 2026 or (year == 2026 and week_num < 1):
+            activities = [a for a in activities if a["id"] != "weekly_speaking_prompt"]
+    except (ValueError, AttributeError):
+        # If week_key format is invalid, hide weekly_speaking_prompt by default
+        activities = [a for a in activities if a["id"] != "weekly_speaking_prompt"]
+    
     return {
         "phase": 1,
         "title": "Daily Speaking Habits",
         "duration": "0-6 months",
         "objective": "Build consistency, real-time speaking flow, and natural delivery.",
-        "activities": [
-            {
-                "id": "weekly_expressions",
-                "title": "Weekly expressions",
-                "type": "daily"
-            },
-            {
-                "id": "voice_journaling",
-                "title": "Voice Journaling",
-                "target_length": "2-3 mins",
-                "type": "daily"
-            },
-            {
-                "id": "shadowing_practice",
-                "title": "Shadowing Practice",
-                "type": "daily"
-            },
-            {
-                "id": "weekly_speaking_prompt",
-                "title": "Weekly Speaking Prompt",
-                "target_length": "3-5 mins",
-                "type": "daily"
-            }
-        ]
+        "activities": activities
     }
 
 
@@ -396,6 +418,111 @@ def get_random_mp3_file(week_key: str, progress: Dict[str, Any] = None, exclude_
         return get_mp3_file_for_week(week_key)
 
 
+def get_random_podcast_clip(week_key: str, progress: Dict[str, Any] = None, exclude_current: str = None) -> Optional[Dict[str, Any]]:
+    """
+    Get a random complete podcast clip for podcast_shadowing, preferring unused clips.
+    
+    Args:
+        week_key: Week key in format 'YYYY-WW' (e.g., '2024-45')
+        progress: Progress dictionary (optional, for checking used files)
+        exclude_current: Current MP3 file to exclude from selection
+    
+    Returns:
+        Dictionary with clip information:
+        {
+            'audio_filename': str,
+            'video_title': str,
+            'title': str,
+            'transcript_path': str (optional)
+        }
+        or None if no clips available
+    """
+    import json
+    import random
+    from pathlib import Path
+    
+    clips_dir = Path('youtube-transcriber-for-shadowing/test_data/clips')
+    transcripts_dir = Path('youtube-transcriber-for-shadowing/test_data/transcripts')
+    
+    if not clips_dir.exists() or not transcripts_dir.exists():
+        return None
+    
+    # Get all available clips by scanning metadata files
+    all_clips = []
+    
+    # Find all metadata files
+    metadata_files = list(transcripts_dir.glob('*_metadata.json'))
+    
+    for metadata_file in metadata_files:
+        try:
+            with open(metadata_file, 'r', encoding='utf-8') as f:
+                video_metadata = json.load(f)
+            
+            video_id = video_metadata.get('video_id', '')
+            video_title = video_metadata.get('title', 'Unknown')
+            chapters = video_metadata.get('chapters', [])
+            
+            for chapter in chapters:
+                start_time = int(chapter.get('start_time', 0))
+                end_time = int(chapter.get('end_time', 0))
+                chapter_title = chapter.get('title', '')
+                
+                # Check if clip file exists
+                clip_filename = f"{video_id}_{start_time}_{end_time}.mp3"
+                clip_path = clips_dir / clip_filename
+                
+                if clip_path.exists():
+                    # Find transcript file
+                    chapter_idx = chapter.get('chapter_index', 0)
+                    safe_title = "".join(c for c in chapter_title if c.isalnum() or c in (' ', '-', '_')).strip()
+                    safe_title = safe_title.replace(' ', '_')[:50]
+                    transcript_filename = f"{video_id}_chapter{chapter_idx}_{safe_title}.txt"
+                    transcript_path = transcripts_dir / transcript_filename
+                    
+                    # Also check for formatted transcript
+                    formatted_transcript_filename = f"{video_id}_chapter{chapter_idx}_{safe_title}_formatted.txt"
+                    formatted_transcript_path = transcripts_dir / formatted_transcript_filename
+                    
+                    # Prefer formatted transcript if available
+                    final_transcript_path = formatted_transcript_path if formatted_transcript_path.exists() else transcript_path
+                    
+                    clip_info = {
+                        'audio_filename': clip_filename,
+                        'video_title': video_title,
+                        'title': chapter_title,
+                        'transcript_path': str(final_transcript_path) if final_transcript_path.exists() else None
+                    }
+                    all_clips.append(clip_info)
+        except (json.JSONDecodeError, IOError, KeyError) as e:
+            # Skip invalid metadata files
+            continue
+    
+    if not all_clips:
+        return None
+    
+    # Get list of MP3 files that have been used
+    used_files = set()
+    if progress:
+        # Check all weeks for used podcast shadowing MP3 files
+        for week_data in progress.get("weeks", {}).values():
+            podcast_shadowing = week_data.get("podcast_shadowing", {})
+            mp3_file = podcast_shadowing.get("mp3_file")
+            if mp3_file:
+                used_files.add(mp3_file)
+    
+    # Exclude current file if specified
+    if exclude_current:
+        used_files.add(exclude_current)
+    
+    # Prefer unused files
+    unused_clips = [clip for clip in all_clips if clip['audio_filename'] not in used_files]
+    
+    if unused_clips:
+        # Randomly select from unused clips
+        return random.choice(unused_clips)
+    else:
+        # All files have been used, randomly select from all clips
+        return random.choice(all_clips)
 
 
 def ensure_week_exists(progress: Dict[str, Any], week_key: str) -> None:
@@ -430,6 +557,17 @@ def ensure_week_exists(progress: Dict[str, Any], week_key: str) -> None:
                 "best_answer_typecast_url": "",  # Typecast audio URL
                 "best_answer_openai_url": "",  # OpenAI audio URL
                 "best_answer_timestamps": []  # Paragraph timestamps
+            },
+            "podcast_shadowing": {
+                "completed_days": [],
+                "mp3_file": "",  # Podcast clip MP3 filename
+                "episode_name": "",  # Episode title
+                "chapter_name": "",  # Chapter title
+                "transcript_path": "",  # Path to transcript file
+                "typecast_audio_url": "",  # Typecast audio URL
+                "typecast_voice": "",  # Typecast voice ID
+                "typecast_speed": 1.0,  # Typecast speed
+                "typecast_model": "ssfm-v30"  # Typecast model
             }
         }
     else:
@@ -464,6 +602,41 @@ def ensure_week_exists(progress: Dict[str, Any], week_key: str) -> None:
                 progress["weeks"][week_key]["weekly_speaking_prompt"]["best_answer_openai_url"] = ""
             if "best_answer_timestamps" not in progress["weeks"][week_key]["weekly_speaking_prompt"]:
                 progress["weeks"][week_key]["weekly_speaking_prompt"]["best_answer_timestamps"] = []
+        
+        # Migrate to include podcast_shadowing if missing
+        if "podcast_shadowing" not in progress["weeks"][week_key]:
+            progress["weeks"][week_key]["podcast_shadowing"] = {
+                "completed_days": [],
+                "mp3_file": "",
+                "episode_name": "",
+                "chapter_name": "",
+                "transcript_path": "",
+                "typecast_audio_url": "",
+                "typecast_voice": "",
+                "typecast_speed": 1.0,
+                "typecast_model": "ssfm-v30"
+            }
+        else:
+            # Ensure all podcast_shadowing fields exist
+            podcast_shadowing = progress["weeks"][week_key]["podcast_shadowing"]
+            if "completed_days" not in podcast_shadowing:
+                podcast_shadowing["completed_days"] = []
+            if "mp3_file" not in podcast_shadowing:
+                podcast_shadowing["mp3_file"] = ""
+            if "episode_name" not in podcast_shadowing:
+                podcast_shadowing["episode_name"] = ""
+            if "chapter_name" not in podcast_shadowing:
+                podcast_shadowing["chapter_name"] = ""
+            if "transcript_path" not in podcast_shadowing:
+                podcast_shadowing["transcript_path"] = ""
+            if "typecast_audio_url" not in podcast_shadowing:
+                podcast_shadowing["typecast_audio_url"] = ""
+            if "typecast_voice" not in podcast_shadowing:
+                podcast_shadowing["typecast_voice"] = ""
+            if "typecast_speed" not in podcast_shadowing:
+                podcast_shadowing["typecast_speed"] = 1.0
+            if "typecast_model" not in podcast_shadowing:
+                podcast_shadowing["typecast_model"] = "ssfm-v30"
 
 
 def update_progress(progress: Dict[str, Any], activity_id: str, week_key: str = None, 

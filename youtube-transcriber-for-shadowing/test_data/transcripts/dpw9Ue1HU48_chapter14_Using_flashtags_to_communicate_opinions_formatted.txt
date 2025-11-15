@@ -1,0 +1,30 @@
+Chapter 14: Using flashtags to communicate opinions
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 57:33 - 62:44
+============================================================
+
+Okay, I'm going to go in a totally different direction for now and see where this takes us. I want to talk about flash tags. This is something that you came up with that originated from a problem faced by your founder. People come to you for feedback, you give them some random thought, and they treat that as gospel. They go do it and spend months fixing something that you were like, "Oh, it's just a thought." 
+
+Talk about flash tags. Yeah, and this is exactly the problem, right? It's not just that most things exist at every level of abstraction. Anyone that manages people or leads has this exact same issue. It’s the megaphone issue. Someone will pass you in the hall when we had offices in halls, and they'll ask you a question. As it turns out, this is particularly true of founders; I have an opinion on everything—literally everything. So if you ask me a question, I will have an opinion. It won't be thought out, it won't be right, but I will have one. 
+
+The challenge is that people will take that and over-index on what was just an opinion. Because it's inefficient to qualify every time someone asks you something, every time you send an email, you can't say, "Oh, by the way, this is just my opinion." You can put something like "IMA show" every now and then, but then people say, "Oh, that's just politeness or something like that."
+
+So here's what flash tags are, literally. I live most of my life through email, and I probably do this in other media as well. It's like the hashtag that we all know, but it's a discrete set of them—an escalating set of what I call the "dying on the hill" spectrum. 
+
+Here's how it goes. The bottom hashtag is #FYI. The definition of FYI is: I came across this interesting blog post or I found this news or whatever, just letting you know. No response expected. Fine, go on with your life. The next level up is #suggestion. This means I have a thought that came into my head because I listened to the episode on Lenny's podcast with Sam from Microsoft or whatever. This feels like it could be a good thing to explore, but I still don't expect a response. You don't have to do the thing I'm suggesting, but it is something I would consider if I were you.
+
+Next level up is #recommendation. This means I've thought about this a lot. I've done some research, some digging, and some soul searching. I would do this. It's still not a mandate, but if you decide not to do this, I would appreciate a response in terms of why you don't want to do this or what you learned in the process of exploring this particular thing. 
+
+The last one is #plea. I beg of you, we don't have mandates at HubSpot. I have thought about this so much; to my core, in my soul, I believe this is the thing we should be doing. I'm going to plead with you to please just do this. Still not a mandate, by the way. 
+
+Now it's commonly accepted; it's on the wiki, and people use it. I use this multiple times every day. Other people at HubSpot use it. It is remarkably effective because they're self-descriptive. Hashtags are searchable, right? You can go back and say, "Oh, I want to know the last five #recommendations that I made. How did those turn out?" There's just so much goodness that comes out of it. It's not hard to understand or describe.
+
+It's really interesting that none of them are just "just do it." You say that there's no concept of mandates, essentially. Why is that? Do people just treat #plea as, "Okay, I actually just really have to do this?" 
+
+We've always had, as part of the early manifestation of HubSpot culture, a belief in autonomy. Lots of companies believe in autonomy, and we tried to carry that idea as far as we can. For the most part, we do that. The #plea is part of that. We trust our people, we try to hire the best, we expect them to learn, and we still want them to have the discretion to make hard decisions. 
+
+We have what we call DRIs, or directly responsible individuals. We should talk more about how decisions get made. The reason I use #plea is that it's a soft way of issuing a mandate without being a mandate. The number of times that happens is something I can count on one hand and still have fingers left over. It almost never gets to that point. 
+
+Either I talk myself out of it, or I ask myself, "Is this a hill I'm willing to die on?" I may disagree, but is it the end of the world? Is it really going to do that much harm? And is the cost of imposing that kind of founder card worth it? It does happen, just not that often. 
+
+Awesome. We'll link to that. There's a post here about how to use these; it's flash tags.org. If you want a quick way just to get to that blog post, I believe in domain names and shortcuts. I believe in some cool cities there.

@@ -1,0 +1,16 @@
+Chapter 14: Building and maintaining complex systems
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 35:32 - 38:09
+============================================================
+
+You've kind of touched on this idea of a complex system, and I want to spend a little bit more time there. So, LinkedIn is, as you said, very, very complicated. There's all these marketplaces within marketplaces. There are so many customers you have to make happy, and they all have to work together. I'm just curious what you've learned about building and maintaining a complex ecosystem like that.
+
+It's a fantastic question, and first of all, I just openly think, career-wise, I've always been drawn to that. We often talk about product as a whole, right? We always discuss it as a whole, but there are many different things you can build, many different types of products. We might categorize them into hardware, software, and consumer goods. I actually try to think about products by their complexity curve a lot. The skills you need to manage a complicated ecosystem versus those needed to design something that's less interconnected are quite different. I do think LinkedIn is a particularly complicated place, and the skill sets you need to think through and manage in such an ecosystem are quite distinct.
+
+Maybe some tactics that can help if it's something that's really important—let's do it. One of the things I often think about is this concept of cause and effect. If you have non-interconnected things, it's actually quite easy not to have to think about that. For example, I wrote a children's book not too long ago. It was fun and awesome to write. Once it was done, it was kind of finished, and it was out there to go. That's a little bit different than here, right? If you make a change, like introducing an "open to work" feature, all of a sudden you're considering the perception of someone on the other side. What is that going to do? Are they going to use the platform less or more? 
+
+You have to think about customers and how they will use that data. Will they receive someone in a different way or not? You need to consider second, third, and maybe even fourth-order effects, and manage that as you go through. I think that is something we really pride ourselves on—how do we start thinking through these different things, and how do we start measuring them as we go?
+
+The second thing I think is that it leads to your point a lot. You need a different kind of decision-making mechanism because there are a lot more ties in the ecosystem and many people who need a way to break it. We've implemented systems like "Rapid," which is a really easy way to identify who the decision-maker is. You line up who your recommender is, who has to agree, and who the decision-maker is. We also have something called a five-day escalation rule, which ensures that those items are addressed promptly. 
+
+I think you need a lot more of those systems in place to manage that complexity so that things get done. Those processes are actually really, really important to ensure that the ecosystem can run smoothly.

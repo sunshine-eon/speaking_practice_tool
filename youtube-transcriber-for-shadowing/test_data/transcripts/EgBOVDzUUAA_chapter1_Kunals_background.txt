@@ -1,0 +1,90 @@
+Chapter 1: Kunal’s background
+Video: Kunal Shah on winning in India, second-order thinking, the philosophy of startups, and more
+Time: 00:00 - 04:22
+============================================================
+
+[00:00] Microsoft, Adobe, Alphabet, IBM, Palo Alto Networks, even Starbucks.
+[00:04] The CEOs of these companies were all born in India and emigrated to the US.
+[00:08] A lot of CEOs are done well because they follow the
+[00:11] Dharma of the founders quite well. These are the principles were given to me,
+[00:14] and I'm going to sustain this and make it even bigger.
+[00:16] I want to keep talking about India and how it's different,
+[00:18] and how to build products that are successful in India.
+[00:21] No Indian has ever been paid an hourly salary in their entire life.
+[00:24] The concept of time is not the same.
+[00:27] What do you see as the biggest opportunity for Indian startups?
+[00:30] India is changing because now, for the first time,
+[00:32] we're seeing founders being respected and unicorns being celebrated.
+[00:36] We have a national startup day and probably the first generation
+[00:39] that will have to prove ourselves to be very large profitable companies.
+[00:42] I wouldn't want to be anywhere else in building.
+[00:48] Today, my guest is Kunal Shah.
+[00:51] Kunal is one of the most well-known and respected entrepreneurs
+[00:55] and product leaders in India and around the world.
+[00:58] He shares endless wisdom on Twitter and LinkedIn,
+[01:01] where he's got over 1 million followers.
+[01:03] He's the CEO and founder of CRED, a fintech startup based in India,
+[01:08] which was last valued at over $6 billion,
+[01:11] and is of a couple years ago processed over 20%
+[01:13] of all credit card bill payments in India.
+[01:16] Prior to CRED, he founded three other startups,
+[01:18] including FreeCharge, which he sold for over $400 million to Snapdeal.
+[01:23] Kunal is a deep thinker, both about product and about life.
+[01:27] His background is actually in philosophy,
+[01:30] which comes across very clearly when you hear him share his advice.
+[01:34] In our conversation, we get deep into what makes working
+[01:37] and building in India different from the US markets and other markets,
+[01:41] including why trust is so essential
+[01:43] and why so many people are so much more risk-averse in India.
+[01:46] We talk about the biggest challenges and opportunities within the India market,
+[01:50] why there are so many successful Indian immigrants in CEO roles across tech,
+[01:55] and what we can learn from that.
+[01:56] Also, why companies in India can quickly grow DAOs, but not ARPUs,
+[02:01] and what that means for building products in India.
+[02:03] We also talk about how to stay curious and open-minded
+[02:06] in the power of second-order thinking,
+[02:07] also stories of failure and lots of contrarian takes,
+[02:11] and so much more.
+[02:12] If you enjoy this podcast, don't forget to subscribe
+[02:15] and follow this podcast in your favorite podcasting app or YouTube.
+[02:18] It's the best way to avoid missing future episodes,
+[02:21] and it helps the podcast tremendously.
+[02:23] A big thank you to Sian Maiti for making the connection to Kunal.
+[02:27] With that, I bring you Kunal Shah after a short word from our sponsors.
+[02:33] This episode is brought to you by WorkOS.
+[02:36] If you're building a SaaS app, at some point,
+[02:38] your customers will start asking for enterprise features,
+[02:41] like SAML authentication and skim provisioning.
+[02:45] That's where WorkOS comes in,
+[02:47] making it fast and painless to add enterprise features to your app.
+[02:51] Their APIs are easy to understand so that you can ship quickly
+[02:54] and get back to building other features,
+[02:56] and hundreds of other companies are already powered by WorkOS,
+[02:59] including ones you probably know,
+[03:00] like Vercel, Webflow, and Loom.
+[03:03] WorkOS also recently launched AuthKit,
+[03:06] a complete authentication and user management service.
+[03:09] It's essentially a modern alternative to Auth0,
+[03:12] but with better pricing and more flexible APIs.
+[03:15] AuthKit's design is stunning out of the box,
+[03:17] and you can also fully customize it to fit your app's brand.
+[03:21] It's an effortless experience from your first user all the way
+[03:24] to your largest enterprise customer.
+[03:26] Best of all, AuthKit is free for any developer up to 1 million users.
+[03:31] Check it out at workos.com slash Lenny to learn more.
+[03:35] That's workos.com slash Lenny.
+[03:39] This episode is brought to you by Orb.
+[03:42] As a business, you care about revenue,
+[03:44] but as a product team, the last thing you want to do
+[03:46] is delay product launch or pricing change
+[03:49] because your team has to rebuild billing from scratch.
+[03:51] Orb is a flexible, usage-based billing engine
+[03:55] that lets you evolve your pricing with ease.
+[03:57] The fastest growing product teams at companies like Vercel
+[04:00] and Replit trust Orb to power their pricing changes and launches.
+[04:04] Use Orb to ship product faster,
+[04:07] stop worrying about billing,
+[04:08] and evolve pricing with ease and control.
+[04:11] Check it out at withorb.com slash Lenny
+[04:14] and skip the line for a demo or sandbox by using promo code Lenny.
+[04:19] That's withorb.com slash Lenny.

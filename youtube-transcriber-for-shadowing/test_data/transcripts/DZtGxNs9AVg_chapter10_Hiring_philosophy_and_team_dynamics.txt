@@ -1,0 +1,81 @@
+Chapter 10: Hiring philosophy and team dynamics
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 40:30 - 46:21
+============================================================
+
+[00:00] Is there like a, like is it almost like you want to be, learn the Eng Manager skill of
+[00:05] overseeing engineers versus like the actual engineering skill, or do you think it's still
+[00:10] going to be really important to learn how to code and be really good at that?
+[00:14] I mean, doing a bit of everything being in general is I think much more important than
+[00:19] it used to be.
+[00:20] And the, if I'm putting it together a product team today, I would re-obsess about getting
+[00:26] as much of as many skill sets as possible for each person I hire.
+[00:33] They should know how architecting a system works preferably.
+[00:38] They should know the sign, they should know, they should have product taste, they should
+[00:41] know how to talk to users.
+[00:43] I think everyone should be able to know, should know a bit of that, what are that preferably.
+[00:48] Easier said than done.
+[00:49] It's hard to find people that know all these things.
+[00:51] So let's segue to hiring and how you hire.
+[00:54] How many people do you have at this point?
+[00:56] Is that something you share?
+[00:57] Yeah, now we're at 18.
+[00:59] 18, okay, wow, so I love that you, it sounded like you're about to say, oh, we have 100
+[01:05] people now.
+[01:06] 18, okay, so you went from 15 to 18, okay, great.
+[01:10] So what do you look for when you're hiring people?
+[01:12] The way I saw you describe it on Twitter is you look for cracked engineers, the
+[01:16] best crack team in Europe, things like that.
+[01:18] I guess just specifically what are you looking for when you're hiring?
+[01:21] I think the most important thing is that people care a lot and they're not just like,
+[01:28] oh, I'm here for a job, I'm here for being a passenger on this journey, but everyone
+[01:33] should really care about the product, the users and care a ton about the team, how the
+[01:39] team works together and that you're always contributing to making the team work more
+[01:45] productively together and that care or preferably obsession gets you very long ways.
+[01:54] And then you do often want to have absolute superpower in some dimension to be able to
+[02:03] understand and do as many things as possible, like have this generalist brain that quickly
+[02:08] learns any skill, but be super, super good in one dimension.
+[02:13] For us, that's mostly cramming as much out of AI, out of the large language models and
+[02:19] understanding the entire parameter space of what you can change to make our product perform
+[02:27] better.
+[02:28] So how do you actually test for these things?
+[02:31] Some of these things describe everything everyone's looking for, like they care about the user,
+[02:34] they want to collaborate well, just like when you're, because you have 18 people
+[02:39] building in a company that's growing more than a million a hour every week, like that's
+[02:42] an absurd scale and the people you've found are clearly world class and I think a lot
+[02:50] of people are going to like want to hire the type of people you're hiring.
+[02:53] So when you're actually interviewing, how do you suss out some of these things like
+[02:57] their AI cramming skills, their team building collaboration, what do you actually do?
+[03:02] I ask people what they've done before and these people that I'm describing,
+[03:08] they have often done something where they care a lot about what they've done before and
+[03:14] they dig into details about the technical things that they did and then we do the normal
+[03:21] thing of showing a very hard problem that is a bit unorthodox that someone hasn't
+[03:26] seen before preferably and see how they think and reason through that.
+[03:32] Something that I think is more uncommon is that we do, I pretty much always have people
+[03:38] join the work simulation for at least a day, often over four weeks.
+[03:43] Awesome. Okay, so work trial, that's awesome. So basically they work with the team for at
+[03:48] least a day, you said like sometimes a week. Yeah. And I love this point you made about
+[03:54] they show, they cared deeply about something they previously worked on and you look for
+[04:00] just like obsession with the thing that they built last or something they worked on.
+[04:05] Like what percentage are engineers of these 18?
+[04:09] So 12 at least, write code at least four times.
+[04:15] 12 out of 18, okay, cool. When we were setting up, you're like, oh, our engineers creating
+[04:20] content now. I think that's a cool example of how people do a lot of different things.
+[04:26] Yeah. Also, okay, so I have your job posting that you shared once of like
+[04:31] the actual job description. I'm going to read a few lines from it. It's very inspired by
+[04:35] Shackleton, right? Would you agree? Cool. I love it. By the way, did you write this or did
+[04:40] you have AI write this job description where you like create an engineering job description?
+[04:44] In fact, let me read it to you. I don't even know, you may not know whatever you're
+[04:47] referring to. I'll read a few lines here. Long hours, high pace,
+[04:51] candidates must thrive under a high urgency under AGI timelines approaching.
+[04:57] Difficult mission ahead, honor and recognition in case of success, those seeking comfortable work
+[05:02] need not apply. And then there's a few other things, collaboration with other exceptional
+[05:06] minds, purpose larger than any normal engineering role, generous share in the venture success.
+[05:12] Amazing. Thank you. Thoughts? Yeah, so I did get some help with the formatting of this,
+[05:19] but then I was mostly me doing the exact tracing of the different sentences.
+[05:25] So good. And I love that, you know, to some people, it's going to be like,
+[05:29] holy shit, I'm not signing up for this. But to a lot of people, the people you want is like,
+[05:33] yes, this is exactly what I want to be doing.
+[05:36] Correct. Amazing. There.
+[05:38] Okay, cool. So it feels like one of the elements of hiring here is create a really good filter
+[05:44] to be clear about just how intense this is so that the people that want that are the ones drawn to you.

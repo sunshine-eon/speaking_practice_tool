@@ -1,0 +1,205 @@
+Chapter 13: The power of good UX
+Video: Tobi Lütke's leadership playbook: First principles, infinite games, and maximizing human potential
+Time: 79:34 - 88:42
+============================================================
+
+[00:00] moment, which is that because I really, really, really
+[00:06] prioritize good UX, legible interfaces.
+[00:10] You can tame enormous complexity with great UX
+[00:14] in a way that makes sense to people.
+[00:17] I think this is actually almost a moral obligation
+[00:22] to do for software, because when software goes bad,
+[00:27] it makes people feel dumb, and machines
+[00:29] do not get to negatively inference people in my mind.
+[00:31] That is an inversion of the property of the hierarchy
+[00:36] of how machines are tools wielded by people
+[00:41] to be more powerful at the things that they are already
+[00:43] great at than they might imagine.
+[00:45] That's when this all needs to fit together.
+[00:48] But beyond the moral point, which is 10 years,
+[00:51] and you could definitely take the other side of,
+[00:54] what we have determined is that every single time we
+[00:58] make a complex thing simpler, it is actually
+[01:01] that more businesses will exist on the platform.
+[01:05] I think this is intuitive, or at least directional.
+[01:09] But sometimes people are not like, well,
+[01:12] don't you just need to have all these features?
+[01:14] This is the RFP view of the world of software, right?
+[01:17] Don't you need to just have all the features
+[01:18] when people can implement their plan?
+[01:20] Well, no.
+[01:21] It's like, think about the mental state
+[01:23] and entrepreneurship that they are.
+[01:26] I mean, especially if they're first-term entrepreneurs,
+[01:28] they're unsophisticated, they don't know what to do.
+[01:30] They're kind of scared by a way.
+[01:34] Engaging in building something, again,
+[01:37] is an act of pure courage, and usually someone which
+[01:40] is very hard to hide from others.
+[01:42] Like, the people around you will know
+[01:44] that you're doing this thing.
+[01:45] Ask any entrepreneur.
+[01:47] Like, the amount of people who tell you to not do this
+[01:49] is actually stunning.
+[01:50] Like, people do not want people to just step out
+[01:53] of a box that exists, that they explain to themselves
+[01:58] around them and have a chance of reaching higher,
+[02:01] because that would invalidate their own life story
+[02:03] in some meaningful way.
+[02:04] So there's actually a whole lot of naysaying
+[02:08] that discourages people already, which is not super helpful.
+[02:12] So now you have a situation where people are telling you
+[02:15] to quit, potentially.
+[02:19] You don't have a lot of money, presumably.
+[02:23] You're asking yourself, are you even doing the right thing?
+[02:29] Hopefully, there are some elements of encouragement.
+[02:31] Hopefully, there's a passion.
+[02:32] Hopefully, you're trying to create a thing.
+[02:35] Then comes the situation that just stuns you in some way.
+[02:41] Like, somewhere where suddenly the software starts
+[02:44] talking about APIs, where this is something you've never
+[02:47] encountered in your life before,
+[02:50] or that just the option that you think
+[02:53] it should have on the text configuration screen doesn't
+[03:00] make sense given what we know about local taxes and so on.
+[03:04] Here's the thing that happens.
+[03:06] So the beautiful thing, Shopify, is
+[03:08] there's basically no text configuration screen.
+[03:10] It's just correct.
+[03:12] Like, the amazing thing about software
+[03:14] is we can actually just overtake this piece of complexity.
+[03:18] We know what the taxes are everywhere,
+[03:20] and we are just doing it for you.
+[03:24] You don't have to think about taxes.
+[03:26] In this case, where someone encountered something
+[03:30] that they, that stunned them, that stopped them
+[03:34] in their tracks, on the wrong day, what that means
+[03:37] is they are going to close the browser
+[03:40] and they say, you know what, fuck it.
+[03:42] This is just like, I'm not cut out for this,
+[03:46] or this piece of software I use sucks,
+[03:49] and it's too dumb for understanding the thing
+[03:53] I have in my head, or something else.
+[03:55] Like, everyone has a different rendering of the same thing,
+[03:58] which is like, focus stops.
+[04:03] It's not just the businesses that shouldn't exist anyway
+[04:06] that stop in this way.
+[04:07] In fact, it's actually, and this is again what the data says,
+[04:11] so many businesses get very close to this point
+[04:14] many, many times.
+[04:15] I can tell you Shopify did many times.
+[04:18] And I have more tools on the entrepreneur journey
+[04:19] than most.
+[04:20] I'm a computer programmer, and I love those things.
+[04:22] You tell me I can spend 14 hours
+[04:24] programming for the next couple of years,
+[04:26] I'm like, holy shit, let's go.
+[04:27] Most people aren't like that.
+[04:29] So I've had unfair advantages that
+[04:33] allowed me to overcome the technical climes
+[04:36] on this learning curve, but I know that's like,
+[04:39] most people can't have these advantages
+[04:42] and therefore will churn out of the test.
+[04:45] And so in other words, lowering complexity,
+[04:49] making good UX, creating software that just autopilots,
+[04:52] taxes, or payments, or any of these kind of things, fraud,
+[04:56] like actually causes more entrepreneurship.
+[04:59] That is the best thing that I, like,
+[05:04] that's the best answer to the most important question
+[05:08] of my life that I've encountered.
+[05:11] Because it's like, up to this point,
+[05:13] it was an intuition that doing the Shopify thing
+[05:16] would be valuable in an absolute sense,
+[05:18] in a sense that, in a hundred year sense.
+[05:20] Afterwards, I knew, right?
+[05:22] And so that also just means now seeing things
+[05:26] that are overly complex, like, or shouldn't even be there.
+[05:29] It's just physically painful, because I know, like,
+[05:34] it's like all these businesses that are,
+[05:36] like that trying to get some, like somewhere
+[05:39] and could exist and could now employ people
+[05:41] and delight customers just died along the way
+[05:44] because of something we did wrong or poorly and so on.
+[05:46] And so like, this is a great source of energy
+[05:50] for me to keep going.
+[05:51] I feel that, I feel that pain of the idea of,
+[05:55] like any time a button's broken
+[05:57] or it's not as the button's the wrong color
+[05:59] and more people would be converting means
+[06:01] that you're not creating as many businesses
+[06:03] and many entrepreneurs.
+[06:05] The feeling you described of being scared
+[06:07] to launch something, I exactly felt that
+[06:10] when I started the newsletter
+[06:12] and my solution to that as I launched it is,
+[06:14] I'm just launching this as an experiment.
+[06:16] We'll see where it goes.
+[06:17] Just don't worry about it.
+[06:18] I might blog once in a while
+[06:20] and that really helped just lowering the stakes
+[06:21] and I could see how just things like that
+[06:23] and advice like that can help someone get over that hump.
+[06:27] Yes.
+[06:27] And I think this is an underexplored thing
+[06:31] in the world of UX.
+[06:32] For an example, I was absolutely delighted
+[06:35] by maybe TikTok has the same thing I don't know
+[06:39] but like I was posting a video to Instagram
+[06:44] and it allowed me to run a trial run of the real.
+[06:47] Like it just seems like a new feature.
+[06:50] And just sort of saying like it shows it
+[06:53] to like a couple hundred people out of network
+[06:54] and if they like it,
+[06:55] then it's gonna post it my profile.
+[06:57] I'm like, I don't need that.
+[06:59] But I thought that was like one of the more,
+[07:02] like I honestly just like closed Instagram
+[07:04] was like, holy shit.
+[07:05] This is probably one of the most profound
+[07:07] insightful pieces of software I've encountered
+[07:10] and as a connoisseur of good ideas.
+[07:13] I've never had this as a valuable thing.
+[07:15] It feels like a step function upgrade
+[07:18] to the traditional AB test as a concept
+[07:20] because it's like so understandable.
+[07:23] And I'm like, what else in the world
+[07:25] should have trial runs that run out of network?
+[07:27] Basically everything like, isn't it?
+[07:29] Like it's just like this is an amazing thing.
+[07:30] Like, like I said, like the rarest thing in the world
+[07:34] is not even creative, creativity or genius, it's courage.
+[07:38] So that's lower the net amount of courage needed.
+[07:41] That honestly, that's one of those things
+[07:44] you can probably run like an entire career on
+[07:47] or like reinventing industry on.
+[07:48] Like these things unfurl into incredible amounts of value
+[07:52] if you really pursue them and come at them
+[07:55] from a first principles rather than
+[07:57] what, how can I do the things I wanna do anyway
+[08:00] slightly better because of the insight?
+[08:01] That's good and people should always do it.
+[08:04] But not usually where most of a value ends up
+[08:06] becoming like manifests when a new idea comes around.
+[08:10] So I talk like vertically about an Instagram feature
+[08:12] that's a weird thing to do, but like it's,
+[08:14] I was actually just like really delighted
+[08:16] because this again, just came up a few days ago.
+[08:21] I love this thread of courage.
+[08:23] The example you gave reminds me also of a,
+[08:25] I feel like going on a dating app at a different city
+[08:28] for the first time is another example of this
+[08:30] where it's a dry run, nobody knows you.
+[08:32] But like even then it's like, isn't it like,
+[08:34] shouldn't there be like,
+[08:35] hey, post my profile to a different city
+[08:38] for telling me if it's any good?
+[08:40] Like it's just, I mean, I've never dated basically.
+[08:42] So like, I mean, at least not in the last 25 years.
+[08:45] So I'm pre swipe left and right dating.
+[08:52] So my conception is very low of this.
+[08:55] Maybe I should look more at dating apps.
+[08:56] I'm pretty sure there's some amazing UX in most things.
+[08:59] I imagine, I feel like dating is going offline
+[09:02] more and more and feeling like that's what people are trying
+[09:04] to do, they're tired of this swipe.
+[09:05] But anyway, gonna go in that direction.

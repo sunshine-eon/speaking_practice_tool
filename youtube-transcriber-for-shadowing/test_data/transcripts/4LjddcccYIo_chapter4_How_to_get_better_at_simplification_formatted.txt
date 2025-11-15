@@ -1,0 +1,20 @@
+Chapter 4: How to get better at simplification
+Video: Mastering product strategy and growing as a PM | Maggie Crowley (Toast, Drift, TripAdvisor)
+Time: 11:14 - 15:13
+============================================================
+
+I love it. Okay, so let's go back to these three. I'm curious about what you found helps you become better at these things, and if you can share an example. 
+
+When it comes to simplifying, how does one build that muscle? This is a tough one because, in general, when you're interviewing PMs for a job, you might ask if they are a simplifier or a complexifier. Do they make things complicated? Some of it is just who you are and how you think. However, there's one tool that I use, which I actually learned from my dad when I was in grade school. When you write something— and a lot of what we do as PMs is written— read it out loud. Literally, just read the thing you wrote out loud. Half the time, you'll realize it's way too complicated or doesn't make sense.
+
+When someone comes to me and says, "I'm working on this thing, can you check it out?" I read it, put it down, and ask, "What are you trying to say?" Ninety-nine percent of the time, they say something like, "Oh, users are really struggling with this problem. We found this in research, and we think the way to solve it is to do X." But that's not what the document says. My reaction is always to say, "Just say that." The thing you said to me in conversation is what you should write. There's no reason why your prose in a document has to be a certain way. We're not in school; our goal is to get things done.
+
+As for how to boil things down and find the most important thing to do, which is another part of simplification, I think the best thing you can do is get as many reps in as you can. Have people review your work and listen to them. There's a phenomenon with PMs where you join a company and suddenly think, "My boss doesn't know what they're doing," or "The highest paid person's opinion is overrated." But those people had insights on the market that made the company worth founding, and they probably know more than you. So, find people who can review your work, listen to them, and ask them to help you simplify.
+
+I'll share a couple of other things that came to mind as you were talking because this is a very hard thing to teach, and you kind of have to do it again and again. I had one manager who taught me to simplify my writing and strategy docs, one-pagers, and things like that. I think this had a big impact on my newsletter success—learning to strip down as much as you can and eliminate anything that isn't necessary.
+
+One resource I found impactful is a book called "On Writing Well." It has about 20 chapters, and each chapter discusses things you should cut from your writing. They provide examples of "before" and "after," showing how many words were cut without changing the meaning. This book can help you identify what's unnecessary. You might think all those adjectives are important, but often they're not.
+
+Another helpful concept is the rule of three. I try to keep things under three when discussing strategy bets or priorities. It's a very business school, ex-consultant perspective, but I agree with it. There should always be three things or fewer—never more than three. If you have a fourth, you need to figure out how to squish it in because it just doesn't look right if there are four. I've been guilty of exceeding three, but I try hard to avoid it. 
+
+When using Notion, I keep my three bullets expanding into sub-bullets, but at least I have a clear structure.

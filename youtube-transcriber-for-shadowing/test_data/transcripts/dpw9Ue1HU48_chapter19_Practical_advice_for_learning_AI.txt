@@ -1,0 +1,48 @@
+Chapter 19: Practical advice for learning AI
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 97:03 - 100:07
+============================================================
+
+[00:00] So it's great about watching you because you kind of build in public with this AI stuff that you're just you're doing it.
+[00:05] Like your approach to learning about this is building and doing when you launch chatbot or chat spot.
+[00:10] You tweeted that it took you many, many late nights of work for people that want to understand what's going on, get ahead of where things are going, build the skills to be relevant in the future.
+[00:23] Do you have any advice?
+[00:23] Is it just build stuff and do it?
+[00:25] Or is there anything else you'd recommend for people that want to understand what the hell is going on?
+[00:30] Yeah.
+[00:31] So and this is very simple practical advice.
+[00:35] And this is the same thing for like engineers and software as well is don't try to go learn something because you think it's like worth learning.
+[00:46] Find an actual problem that you care about and go try to solve it with that new thing, right?
+[00:51] Like you have something tangible that you're trying to do.
+[00:53] So for instance, going back to my book, back to the talk around public speaking, it's like, OK, if I had said, oh, I want to learn about humor and stand up comedy, I don't think I would have accomplished the thing.
+[01:04] But I had a goal in mind, right?
+[01:06] Which is like, hey, I need to be able to get up on a stage and hold the thing and I have this measurable thing.
+[01:10] So whatever is whatever line of business you're in, whatever you do as a professional, I guarantee you there are ways AI can help you even with the tools that we have out there right now.
+[01:20] So either use the tools, build tools on top of the APIs that exist, very easily accessible right now, very cheap to just kind of start.
+[01:29] Yeah, just just do it and iterate.
+[01:31] And I have a big believer also in kind of learning in public as well.
+[01:35] That's why I do it.
+[01:35] Like that's why the culture code is out there.
+[01:37] It's like, OK, well, if you accept the fact that culture is a product, we're going to learn about things much better.
+[01:43] Like instead of just getting feedback from the employees at HubSpot, why don't we put it out to the world?
+[01:47] And because the internet is exactly good at telling you why you're an idiot, right?
+[01:50] It's like it's one of its core, core strengths.
+[01:54] So I would recommend it's like, have a goal in mind, write about it.
+[02:00] I'm a big believer in writing generally, but yeah, do it in public.
+[02:04] And I love that advice.
+[02:06] Is there anything else that you wanted to share or touch on or leave listeners with before we wrap up?
+[02:14] We cover a lot of territory.
+[02:16] Yeah, we did.
+[02:17] I might do the quit while I'm ahead thing.
+[02:20] I'm going to I'll leave it with this.
+[02:23] So I have my definition of success that came up with years ago that I kind of still stand by
+[02:29] and that HubSpot actually stands by is success is making the people who believed in you look brilliant.
+[02:36] That's it.
+[02:37] What I like about that is it's not like an inward facing thing.
+[02:40] It's this is the kind of customer folks like, oh, all the employees that join your company
+[02:44] when you're a founder that were kind of silly enough to kind of join you on this thing or whatever.
+[02:48] It's like you respond to customers that believed in the early product that completely sucked.
+[02:52] Investors that believe like all of that, like do what you can to like,
+[02:56] no, maybe they reflect back on it.
+[02:58] It's like, oh, boy was I smart to having having believed in Lenny and what he's doing.
+[03:02] So yeah.

@@ -1,0 +1,20 @@
+Chapter 13: When it makes sense to go “wide and deep”
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 54:17 - 57:33
+============================================================
+
+We're just racking up all these very contrarian approaches to company building. I imagine people listening to this might feel like, okay, cool. I'm just going to build a bunch of stuff. This is great. I work for HubSpot. Do you have any heuristics for when it makes sense to go wide and not deep that you share with founders? When do you think it makes sense versus now you should actually follow the common advice here?
+
+Yeah. So it comes down to what problem you're solving. One of the mistakes I think founders make, especially product-oriented founders, is that we kind of fall in love with the solution instead of falling in love with the actual problem. You need to fall in love with the problem. Putting that constraint on yourself forces you to kind of understand and at least label and define what problem you're solving. Oftentimes we can describe our product or whatever, but we struggle sometimes as founders to describe the actual problem.
+
+If you can make the case, which HubSpot did, it's like, okay, it's not like we immediately jump to that like, oh, we have this epiphany, we're going to build the all-in-one, do all the things kind of thing. We were like, oh, in actually talking to customers, we considered doing it like, oh, we'll just do this marketing piece. We'll just do this or whatever. It's like, no, that's not their issue. Their issue is like, it's not that these things don't exist.
+
+So if you, as a result of talking to customers and understanding the problem deeply, come to the conclusion that you need to do more than just one thing, then you should force yourself to have the discipline that we did, which is here's why we're going to go a little bit broad. And here's why we're going to make sure that that broadness doesn't kill us, right? You have to have the kind of self-imposed constraint. You can't have the best of both worlds. You can't say, we're going to be all-in-one and, oh, by the way, we're going to be the best. No, you can't be the best. You can say, we'll be, we solve this particular problem the best, but we're not going to have the best product along any of those dimensions.
+
+Amazing. I love this advice. Imagine a place where you can find all your potential customers and get your message in front of them in a cost-efficient way. If you're a B2B business, that place exists. And it's called LinkedIn. LinkedIn ads allow you to build the right relationships, drive results, and reach your customers in a respectful environment.
+
+Two of my portfolio companies, Webflow and Census, are LinkedIn success stories. Census had a 10x increase in pipeline with a LinkedIn startup team. For Webflow, after ramping up on LinkedIn in Q4, they had the highest marketing source revenue quarter to date. With LinkedIn ads, you'll have direct access to and can build relationships with decision-makers, including 950 million members, 180 million senior execs, and over 10 million C-level executives.
+
+You'll be able to drive results with targeting and measurement tools built specifically for B2B. In tech, LinkedIn generates a 2-5x higher return on ad spend than any other social media platforms. Audiences on LinkedIn have two times the buying power of the average web audience, and you'll work with a partner who respects the B2B world you operate in. 
+
+Make B2B marketing everything it can be, and get $100 credit on your next campaign. Just go to LinkedIn.com slash pod Lenny to claim your credit. That's LinkedIn.com slash pod Lenny. Terms and conditions apply.

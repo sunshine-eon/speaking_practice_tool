@@ -1,0 +1,12 @@
+Chapter 12: Shipping neutral experiments
+Video: Breaking the rules of growth: Why Shopify bans KPIs, optimizes for churn, and prioritizes intuition
+Time: 41:36 - 42:05
+============================================================
+
+This is so fascinating. I didn't realize that you ship neutral experiments. That's an interesting insight. 
+
+And so it's like if you feel good about it, and it's neutral, you ship it. In our culture of the kind of aim heavy, if the intuition is right that this probably is helping merchants, why do we start with that? 
+
+The original control is better if it's neutral. Let's start with like what would we have shipped if we were a blank slate. If it's neutral, actually neither is better. So let's just pick the one we feel better about and ship that. 
+
+Makes so much sense. Oh, man.

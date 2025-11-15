@@ -1,0 +1,28 @@
+Chapter 18: Growth and sales integration
+Video: Breaking the rules of growth: Why Shopify bans KPIs, optimizes for churn, and prioritizes intuition
+Time: 61:12 - 66:42
+============================================================
+
+Okay, there are a few other random things I want to touch on, one of which is sales. Historically, Shopify has experienced very product-like growth that has been quite organic. You know, people go check it out, sign up, and start a store. However, you guys have layered on sales and a sales motion, which is becoming an increasing part of your business. What have you learned about your team, the growth team, working with sales and fostering a successful relationship?
+
+It has been great over the last couple of years as we built out the sales order. This has added a whole new kind of motion to Shopify. The product has improved significantly; it can now serve the biggest companies in the world. This is a natural evolution. We want to help people grow on Shopify to become the biggest companies, but we also want to bring folks from other platforms over for growth and sales.
+
+One of the biggest learnings from the R&D side has been that the scale is very different with sales. It’s really hard to use as much quantitative data to make decisions about growth. A lot of it has been about building much more qualitative insights, working with merchant success and sales to understand the challenges they face when onboarding large customers. We need to figure out how to build tools that work for them and ensure they have the right guidance in the product for a very different set of use cases. 
+
+A lot of this has involved building empathy with sales about what the merchant journey looks like and, quite frankly, challenging ourselves to think differently. We initially built two very distinct funnels. There was a sales funnel where you come in, contact us, and that’s it—no mention of self-service. Then there was the self-service funnel, which had no mention of sales. One of the last things we’ve been focusing on is how to create these hybrid journeys, where we shouldn’t force the merchant to choose between talking to sales or using self-service. We should give them options for whatever path they want to take.
+
+This approach has broken a lot of metrics in the business and has changed the way people think about their jobs. There has been a lot of cultural resetting, and we are getting smarter from a metric standpoint about how to measure this hybrid journey. For instance, if someone comes in via self-service and then goes over to sales, how do we value each of those components in the process? We’re still getting better at this, but it’s really important to progress.
+
+Can you provide an example of something that illustrates what you’re describing? 
+
+Sure! One example is when we drive someone from an ad over to self-service. We typically look only at the self-service lifetime value (LTV) of that person. However, if they sign up via self-service and then talk to sales, they become a sales-driven merchant. This means that the value of that merchant, which is usually quite large, does not get associated back to that ad campaign. As a result, you might reduce investment in that ad campaign because you weren’t valuing it correctly. Our system had two different models for calculating LTV—one for sales-driven and one for self-service. This could lead to sub-optimal investment decisions, even though we were doing the right thing.
+
+A lot of our work has involved rebuilding how we do LTV modeling, attribution, and incrementality testing across these different types of outcomes. Originally, this wasn’t an intuitive process for us because we had built all of these systems separately. 
+
+Attribution gets a lot more complicated in this context. Are you moving towards a multi-touch attribution direction, or is there something even more clever in mind? 
+
+My stance is that multi-touch attribution has its place. However, what we really care about is incrementality. Incrementality is the gold standard. Attribution measures how to assign value to a given touchpoint—like a click or a view—but it doesn’t tell you causally what drove an outcome. That’s where incrementality comes in. An incrementality test involves not showing ads on a platform like Meta for a certain group of people while showing them to another group and then measuring the lift in outcomes.
+
+A lot of what we’re doing is trying to become even more sophisticated in incrementality measurement, not just for self-serve outcomes but also for those that drive to sales. Once we have incrementality at the channel level, we can get much more sophisticated in our bidding, budgeting, and all of that. That’s really the key thing we want to achieve.
+
+There are certain topics that could be their own podcast conversations, and I could dive deep into this stuff, but I’ll stop myself here and not go further down that track.

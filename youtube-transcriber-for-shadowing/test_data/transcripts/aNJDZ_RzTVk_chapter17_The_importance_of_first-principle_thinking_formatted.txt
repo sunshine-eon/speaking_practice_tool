@@ -1,0 +1,26 @@
+Chapter 17: The importance of first-principle thinking
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 44:53 - 48:53
+============================================================
+
+Culture to think from first principles is essential, and it feels like you guys actually do it. I'm curious about where that mindset emerged for you and for Ramp. Is there an example of something that emerged within Ramp, a new product or an idea that was clearly developed from first principles?
+
+The most important thing to discuss here is that Ramp is a very unique business. We're a credit card company focused on risk management and underwriting. We're also a payments company because we facilitate money movement between businesses. Additionally, we're a software company dealing with defense management, expense management, and accounting, specifically building for SMEs. We have a product-led growth approach, but we're also building for enterprise, so we are sales-driven. Essentially, we encompass everything. 
+
+When dealing with something that hasn't been done before, it's crucial to think from first principles. This means not pattern matching from past experiences but rather going back to the fundamentals of what we're trying to achieve and thinking through them deeply. To do this effectively, you need to hire people who can think from first principles and be willing to set aside their previous experiences. This can be a tough pill to swallow for some individuals who come in claiming to be the subject matter experts and insisting they know what's best. They often receive a reality check regarding the complexity of our business and how you can't influence teams by saying, "I've seen this before." That approach is an anti-pattern; no one wants to hear that.
+
+When I joined Ramp, I thought I would apply the best product development process I had learned, but I had to completely shift that process. My previous approach was based on a B-plus engineering team, while I was now faced with an A-plus engineering team. I had to return to first principles regarding how products should be developed and built. Therefore, all the advice I’m sharing here should not just be copied and pasted; it should start from the first principles we’re discussing.
+
+An example of this is our support team. The support team reports to me, and our first principle was that every support ticket is a failure of our product. We literally have that quote posted in all our channels. If the product works perfectly, no one should ever need to contact our support team. What better way to hold the product team accountable for support than having support report into product?
+
+Additionally, we believe that a lot of our value to our customers comes from deeply understanding them, listening to them, and acting on their feedback. Instead of hiring people focused solely on resolving tickets, we incentivized our team to decrease the number of tickets over time and increase deflection. This required hiring a different breed of people who then became leaders in various parts of the organization. 
+
+We could have easily pattern matched, looked at comparables, and hired people who scaled large support teams using industry benchmarks. However, we started from first principles, and the outcome has been remarkable. We have an extremely low contact rate, with over 400,000 users on our platform and a team of agents that's under 30. That’s a pretty crazy ratio to consider.
+
+I missed this nuance earlier: the support team reports to you and the product team? 
+
+Yes, that’s correct. 
+
+Wow, I’ve never heard of that before. That’s cool. 
+
+Okay, I’m going to change course a little bit and talk about writing. We worked on this post together about how Ramp operates, and I was incredibly impressed with your attention to detail.

@@ -1,0 +1,14 @@
+Chapter 3: The importance of velocity at Ramp
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 06:20 - 08:50
+============================================================
+
+You glossed over that stat of Ramp being essentially known as the fastest growing SaaS business in history, as well as in the fintech category. It holds the record for the fastest ramp to a $200 million run rate. For that reason, and many others, there's a lot of interest in how Ramp operates and how you approach product development. We previously collaborated on a newsletter post about how Ramp built its product, and that post is now the eighth most popular in my newsletter, surpassing even those about how Figma and Snowflake build their products. Clearly, there’s significant interest in your operations, and I’m excited to delve into how you all work.
+
+If anyone has read that post, one word immediately comes to mind when thinking about how Ramp operates: velocity. I want to start there. Can you talk about how important velocity is to your work, where that concept originated, and what it looks like day-to-day at Ramp?
+
+Absolutely. As you mentioned, velocity is everything at Ramp. It shapes our product development process, influences how we incentivize teams, guides our hiring and promotion decisions, and informs our overall decision-making and organizational structure. This emphasis on velocity emerged during the pandemic when we started with a small team and faced a significant market opportunity. It wasn’t so much about which path to choose, but rather how quickly we could execute on our chosen path. 
+
+Velocity has been ingrained in our culture from the early days, focusing on building, shipping, and iterating. It serves as a decent metric for team performance. While one might question the impact of velocity, teams with high velocity can achieve meaningful results over time through iteration. Additionally, it attracts talent; people want to join companies that ship quickly. When I ask new hires why they chose Ramp, many say it’s because they want to experience the thrill of building and shipping products.
+
+Moreover, velocity simplifies decision-making. If the cost of a decision is low, it allows us to streamline our choices and build upon them. There are many companies that claim to move fast, but the reality often differs.

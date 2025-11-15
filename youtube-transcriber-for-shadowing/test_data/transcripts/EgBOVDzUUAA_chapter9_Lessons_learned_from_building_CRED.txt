@@ -1,0 +1,42 @@
+Chapter 9: Lessons learned from building CRED
+Video: Kunal Shah on winning in India, second-order thinking, the philosophy of startups, and more
+Time: 33:23 - 36:40
+============================================================
+
+[00:00] Okay, so let me talk. Let's talk about cred for a bit. So you had, I think, three startups before
+[00:07] cred. Okay. And then you've been building cred for about six years now. I'm curious just on this
+[00:13] journey of cred, what you've learned or changed your mind about during this phase of your career
+[00:19] versus previous phases. I think cred's insight was actually quite simple to realize that
+[00:26] unfortunately the value of time and per capita income is concentrated in 25 million families
+[00:31] and therefore focusing on them is important. And they are a lot more global in their approach
+[00:36] versus the rest of India. So you have to build them very differently. And I realize that ability
+[00:44] to focus on a customer set, which is not historically possible to do because everybody,
+[00:50] every investor expected us to be the next China. And the only similarity of India and China
+[00:54] was the population and nothing else was similar. So I think having that conviction that I'm
+[00:59] going to build only for this folks and this large enough market, thankfully, I had a one
+[01:05] success for somebody to bet. So like our series A was 25 million dollars, I would have
+[01:10] not had that luxury if I had no success in the past, because I had no product with
+[01:13] any monetization to prove that I'm doing the right thing. It turned out okay, but
+[01:17] I think I could get a lot of people to take risk behind my insight or my thesis is
+[01:23] because I focused on the right customer category and built on it. But I think the few things
+[01:29] I have learned differently is that companies that are very, very good at zero to one will
+[01:34] not naturally become great 10 to 100. There are lots of different lessons to learn.
+[01:38] The founder has to evolve. The biggest thing that has to happen. Most people that credit
+[01:43] are people who have not seen a bigger business than credit, which comes at its benefits
+[01:48] and costs. So you have to gentrify the org every now and then to make people understand
+[01:53] the value of many of these reliable things. And I often tell people that entrepreneurs
+[01:58] are uncertainty absorbers for everybody, for employees, for investors, for customers.
+[02:07] And therefore, they get rewarded for being those people to remove uncertainty from people's
+[02:13] lives. But the kind of expectations keeps changing at the company of scale. For example,
+[02:19] if you have a, let's say, a seed state investor, they are very used to very high
+[02:24] uncertainty and they're happy with some absorption. But as you get a growth investor
+[02:29] and let's say you get sovereigns on your cap table, the amount of stability you need to
+[02:33] provide is significantly more. And therefore, you need to evolve very, very differently.
+[02:37] So I think those are the few lessons I have learned. Talent, you start realizing that
+[02:41] not everybody can scale into everything. And you cannot expect that you can give up to zero to
+[02:47] one DNA just because you're building 10 to 100. So how do you kind of coexist with those things?
+[02:52] How do you react to big changes in the market and not become this slow company?
+[02:57] And every company goes through that. I mean, if you look at what Zuck went through in the
+[03:01] last three or years was that he had to, I offered that he had to play the shiver,
+[03:07] come and do a lot of destruction to become big again. So I think that's what founders can do.
+[03:13] And it's not easy to do.

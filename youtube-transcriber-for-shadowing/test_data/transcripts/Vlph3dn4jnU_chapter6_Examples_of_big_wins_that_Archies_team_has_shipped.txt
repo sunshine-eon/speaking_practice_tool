@@ -1,0 +1,49 @@
+Chapter 6: Examples of big wins that Archie’s team has shipped
+Video: Breaking the rules of growth: Why Shopify bans KPIs, optimizes for churn, and prioritizes intuition
+Time: 23:00 - 26:42
+============================================================
+
+[00:00] and on. While we're in the topic of just experiments and what you've done, I'm curious
+[00:05] if there's just any examples of big wins that your team has shipped that might inspire people
+[00:11] as they're thinking about launching experiments. I know there's probably some trade secret stuff
+[00:15] you don't want competitors to know. And I know this is particular to Shopify and
+[00:19] a platform in e-commerce, but I guess is there anything that would be worth sharing of like,
+[00:22] oh, here's a huge win that maybe we didn't expect?
+[00:25] Going back, there's always a lot of value in thinking through
+[00:29] kind of monetary friction. As I mentioned, that's always going to be something to
+[00:33] explore trial dynamics, different types of incentives. All of those things are very
+[00:38] kind of impactful. I would say on things that are maybe more like practical and for everyone,
+[00:45] there's an enormous amount. And we do see these with long-term effects,
+[00:48] but just the nuts and bolts of sign-up, collecting the right information, and you usually
+[00:56] want to collect more information than most people think you do in your sign-up flow.
+[01:01] If you can leverage that to personalize the guidance, and this is the first to ask product,
+[01:06] the guidance that someone can get when they onboard into Shopify. So whether you're
+[01:10] coming on, Shopify is a very diverse product in person selling, online selling,
+[01:15] different channels. There's the nuts and bolts of get more information from folks,
+[01:20] build trust in there, give them the right amount of guidance when they come on in a
+[01:24] personalized way. And that may sound like, okay, that's kind of obvious, but the amount of
+[01:29] impact by just nailing those flows has never ceased to amaze me in setting up
+[01:38] that person for long-term success. So kind of monetary friction, and then just really
+[01:43] good onboarding, personalization, a well of opportunities there.
+[01:49] I love that onboarding comes up every time I ask anyone where they've seen
+[01:54] ongoing success and opportunities, particularly in actually surprisingly driving retention,
+[01:59] like it's interesting that that's not what you look at, but turns out that's one of the
+[02:02] biggest levers for increasing retention. Interesting that even for a company that
+[02:06] doesn't look at retention, that's a big opportunity.
+[02:07] Yes. Yeah, it's really because it's setting people up for, in the Shopify's case,
+[02:11] I think the big thing about all of our metrics is what we get very nervous about is the easiest
+[02:19] way to increase retention is always to constrict the funnel stage one above the retention metric
+[02:25] you're trying to optimize for. The simplest way to increase my sign up to activate a thing is
+[02:31] just make it harder to sign up, right? Like nuts and bolts, that will always happen
+[02:37] is when you have teams on that local conversion rates, you kind of get all these weird team
+[02:42] incentives, because they're optimizing to basically implicitly make it harder to do the step before
+[02:48] them. And because we focus on that long-term GMV number of merchants who are successful,
+[02:55] orienting every team to think about the total number of people, not the rate,
+[03:01] but the total number of people who got to the end of their kind of part of the journey
+[03:07] is a very powerful way to incentivize people to do the right thing in terms of getting people set up
+[03:14] versus do the... I'm going to constrict the funnel step right before me to make my local
+[03:20] conversion rate look better, which is the bane of my existence, but something I see a lot of
+[03:25] teams implicitly or explicitly do when they get too focused on rates as a way to think about the
+[03:32] world. Incentives, what a power, what a lover. I definitely want to chat a little bit more about
+[03:37] metrics. Now, you have a really interesting take that's kind of built on what you're just
+[03:40] talking about, but first of all...

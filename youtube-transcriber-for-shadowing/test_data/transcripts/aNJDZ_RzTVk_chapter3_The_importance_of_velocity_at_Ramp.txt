@@ -1,0 +1,55 @@
+Chapter 3: The importance of velocity at Ramp
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 06:20 - 08:50
+============================================================
+
+[00:00] You glossed over that stat of just ramp is essentially known as the fastest growing
+[00:04] SaaS business in history and also fintech business, like in two categories,
+[00:08] the fastest ramp to 200 million dollars, right?
+[00:12] And run rate.
+[00:14] Yeah.
+[00:14] Okay.
+[00:15] So for that reason, and many other reasons, there's a lot of interest in just
+[00:18] how ramp operates and how you all approach product.
+[00:21] And we actually previously collaborated on a newsletter post on how ramp built
+[00:26] product and that newsletter post is now the eighth most popular post on
+[00:29] my newsletter across hundreds of posts that I've written and even more than how
+[00:34] Figma builds product and how snowflake builds product and all these other
+[00:37] incredible companies.
+[00:38] And so clearly there's a lot of interest in how you operate.
+[00:41] So I'm really excited to get into the meat of how you all work.
+[00:45] And if anyone read this post and has any sense of just how you all operate,
+[00:49] there's this one word that immediately comes to mind when people think
+[00:53] of how ramp operates and that word is velocity.
+[00:56] So I want to start there.
+[00:58] Can you just talk about how important velocity is to how you work and where
+[01:03] that came from and how that actually looks day to day at working at ramp?
+[01:07] Absolutely.
+[01:07] So you mentioned it.
+[01:09] I mean, you know that velocity is everything at ramp.
+[01:11] It's how we design our product development process.
+[01:14] It's how we incentivize teams.
+[01:16] It's who we want to hire.
+[01:18] It's who we want to promote and it's everything around how we make
+[01:20] decisions and how we organize the organization.
+[01:23] And I think, you know, it came from the fact that during the pandemic,
+[01:28] we started with a very small team and there was a huge market
+[01:32] opportunity ahead of us and it wasn't so much, you know, which path we wanted
+[01:35] to pick, but rather how fast we were able to execute on that path.
+[01:39] And so velocity was kind of in grade from the early days on just building,
+[01:42] shipping and iterating.
+[01:43] And I think it's a decent metric for how companies and teams perform.
+[01:48] You know, you might say, well, you know, what's the impact of that
+[01:51] velocity, but realistically, teams that have high velocity are able to
+[01:55] actually get to that impact over time by iterating.
+[01:58] It's also a great way to have positive selection in terms of like talent,
+[02:02] because talent wants to join companies that ship fast.
+[02:05] A lot of people who join ramp, I asked them, you know, why
+[02:07] you're interested in joining the company.
+[02:08] And they often say, well, it's because you guys are actually
+[02:11] building things and shipping things.
+[02:12] And I want to know what that feels like.
+[02:15] And it's also a great way to just de-risk decisions and decision
+[02:17] making, if the cost of that decision is really low, then you're
+[02:21] able to essentially simplify a lot of decisions to build on that.
+[02:25] There's a lot of companies that say they move fast, that talk about moving.

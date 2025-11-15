@@ -1,0 +1,16 @@
+Chapter 7: How Geoff’s management style has evolved at Ramp
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 17:37 - 19:55
+============================================================
+
+It feels like to move fast, you need to do what you're talking about, which is empower your teams to just move. Otherwise, it's not scalable. I'm curious just to make it even more real. Is there a version of something you did at your previous work versus at Ramp that shows what that looks like when you're empowering your team and not in the weeds? 
+
+What's most different there is that in product reviews, you're not as involved in design iterations. Where do you come in to actually give feedback? How does it actually look like working at Ramp versus another company? I think that the contract between me and the team is really their strategy and their roadmap. As long as we are aligned on the strategy and we can get into that and align on the roadmap and the timing, that's their contract. 
+
+At that point, my goal is to continue to give them context to execute on that and to coach them through it by getting first-hand data on how things are going that they might be missing. Their role is to highlight risks and highlight one-way decisions that they need my input on. It didn't used to start that way. When we first started, it was just me and another PM. I was fairly micromanaging in some areas. 
+
+I think you build trust over time and you start having these contracts. As I suppose, get more senior, they're basically polishing out the API by which they interact with me. We align on what's most important in each one-on-one. I have teams, all my directs post their goals every week, first thing Monday. The goal there is to also have them review each other's goals. 
+
+I have a one-on-one template that I basically use to keep track of how progress is being made. However, I certainly don't spend the time in the one-on-one going into that. I focus the one-on-one on what they need from me. Then, on a bi-weekly basis, I have a team-wide meeting where I share context that everyone is missing, and we go deep on the most important topics of the day. 
+
+What about the product experience itself? Is there a design review that happens? How do you stay on top of just being proud of this product that we're shipping as a team? I'd say we're iterating. I think when the first couple of years...

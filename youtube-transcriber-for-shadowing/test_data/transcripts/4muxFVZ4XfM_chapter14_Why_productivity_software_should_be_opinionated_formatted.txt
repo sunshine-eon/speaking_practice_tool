@@ -1,0 +1,12 @@
+Chapter 14: Why productivity software should be opinionated
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 40:07 - 41:23
+============================================================
+
+I think there are these ideas or notions in the world that flexible software is great. While I believe it can be beneficial at times, the issue arises when people start spending a lot of time figuring things out. For instance, how does this feature work? It can be used in ten different ways, and then every team or individual ends up figuring out a different way of doing it. 
+
+Our approach is to provide good defaults or strong opinions on how features work and how workflows should be structured. This way, as a user or a team, you don’t have to think too much about it, allowing you to focus on the work you do. 
+
+Another aspect of my design philosophy is that I always aim to design something for someone. It’s very challenging to create a solution that works for everyone, as this often leads to overly generalized solutions. What we strive for with our opinionated approach is to present what we believe is the best or most optimized solution. 
+
+When you use it, I hope you agree and can feel that it is indeed the most optimized option. By being opinionated, the value we provide is that you don’t have to overthink or spend more time on the tool than you do on your actual work.

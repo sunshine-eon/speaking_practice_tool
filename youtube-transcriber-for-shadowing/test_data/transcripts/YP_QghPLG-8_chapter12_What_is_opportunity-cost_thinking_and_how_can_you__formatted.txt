@@ -1,0 +1,56 @@
+Chapter 12: What is opportunity-cost thinking and how can you apply it?
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 81:03 - 91:21
+============================================================
+
+Just one more question along this line tactically. Every PM ends up with like a spreadsheet of their ideas and ROI and cost and benefit and all that stuff. Do you recommend folks create kind of a column for opportunity cost? Or is this more of a broad thought process you go through when you're looking through your list of ideas? 
+
+Yeah, it's more of the latter. I do not recommend trying to quantify opportunity costs because it's a lost cause. Instead, what teams need is just the sometimes the freedom and sometimes just permission to explore and attack these things that minimize opportunity cost. And so as leaders, that's the best thing we can do is to give the teams that freedom or the permission to pursue these things. 
+
+The way it manifests is, and the way I've kind of tried to do it is when we are planning, I often give guidance to the team around what percentage of our time we want to spend on what type of activity. Right. I learned this from Google's classic 70-20-10, where during its fast growth years, Google had the 70% on search and ads, 20% on apps, which was like things like Gmail and whatnot, and 10% on other big bets. 
+
+I have found that approach very useful during planning, where what I will say is like, look, yeah, we need to spend—and again, it depends on the context. But when the team is starting to plan the next quarter or the next half or the next year, my role as a leader is hopefully I've already clarified the strategy. So they have that as an input. 
+
+The other thing that I see in my role as a leader is to clarify the rough allocation. Right. So what I'll share as guidance with the team is given our situation and given our strategy and given what's going on in the market, I would like us to target about 60% of our time on incrementals. By that, I mean incremental features that improve users' lives on a day-to-day basis. So these are like actually high ROI things that we do. 
+
+So 60%, and again, these numbers are whatever they are, if you pick whatever is right for you, but 60% I want to go towards incrementals. 30% I want to allocate towards big new initiatives. And because it's 30%, it can't be five big new initiatives. It's probably one or two. Right. And then 10%, I'd like us to allocate towards stability and infrastructure. 
+
+So this is the guidance I'll share with the team. Then I will ask the team to create their plans and proposals based on this rough guidance. Right. So this kind of gives people the space to say, okay, we do need, we do have this 30%. So there's no sense putting in more high ROI tasks in there or quick wins in there. I think just the simple guidance enables the team to kind of just do the right thing. I often get surprised with all the awesome stuff they come back with. 
+
+Really like that rule of thumb, but an excellent nugget to include along with this big idea. I'm realizing we've been going for an hour and a half now and I don't want to suck up all your time. So there's this idea that I think it might be a really good one to end on. It'll be a bonus sixth big idea around high agency and the importance of PMs being high agency. 
+
+The reason that it stuck out to me is this: I found it to be really important in my career. I think it lets a lot of the success that I saw along the way is just always feeling like I have agency and feeling ownership of what I was doing and where I was going. So I'm curious to hear your take on this and to kind of dive into this trait of high agency and how important that is for PMs. 
+
+Yeah, and I think Eric Weinstein coined this term high agency, which like once I discovered it kind of resonated a lot and kind of aligned with some of my ideas. The way I had defined this concept in my head for many years was that high agency is about finding a way to get what you want without waiting for conditions to be perfect or otherwise blaming the circumstances. 
+
+High agency people will, and we've all seen such people, they just either push through in the face of adverse conditions or often they manage to reverse the adverse conditions to achieve their goals. While this is an important trait for many areas and endeavors, I think this is particularly important for product managers because as product managers, we are constantly fighting adverse conditions. 
+
+You know, not enough resources, challenges with legacy infrastructure, staffing issues, customer problems, and on and on. Right. Like there is no dearth of problems to solve as a product manager. I noticed consistently over the years that it wasn't the— as I started thinking about sort of like what differentiates the PMs who had just a large impact and even more important than just impact to the company or to the team. 
+
+PMs who've surprised me in a positive way. PMs who really exceeded expectations, exceeded perhaps like their own, you know, capabilities on paper. Right. Like you see somebody's credentials on paper and then you see their work and their impact. There's like a big difference between what you might assume on paper and the impact they're achieving. 
+
+The reverse of that is sometimes you have PMs who just have tremendous potential. They look great on paper, and you know, when you're working with them or you're managing them, that they're not achieving that potential. They're nowhere close to achieving that potential. As I look at both of those situations, it became clear to me that high agency was a big contributor. 
+
+The PMs in this first category were like, despite all the disadvantages and other things, they just took strong ownership. So ownership is one component. Ownership mindset is one component of high agency. They took strong ownership. Then they creatively executed through the challenges. So creative execution is another aspect of high agency. They did that with a high degree of resilience, which is a third aspect of high agency. 
+
+As I realized that, it became very clear as to why this was happening. Once you see it, you kind of like, you start seeing it in people much more clearly. When I wrote about the PM version of high agency, I think that's why it resonated with a lot of people because it kind of gave, again, it gave vocabulary to people for what they already kind of understood and they had seen it but did not have the words for. 
+
+I think that's a really good way to wrap this up. Just leaving people with that point of just the power of empowerment, basically taking responsibility, feeling high agency, resiliency. Shreyas, this has been incredibly illuminating. I suspect this is going to be helpful to a lot of product managers and even non-product managers. 
+
+Just two last questions: where can folks find you online if they want to reach out or learn more? And then how can listeners be useful to you? 
+
+Yeah. So follow me on Twitter. I'm just at Shreyas. If you don't have a Twitter account, follow me on LinkedIn. You can just find me there, Shreyas Doshi. If you really enjoy the tweets and want to see more, then you can super follow me on Twitter. This is a smaller community that I'm really enjoying of product managers, founders, product people, designers, engineers, et cetera, where we go much deeper into these types of topics and more. 
+
+If you'd like to learn more about my views on various things related to product, super following me perhaps is a great way to do that. In terms of other things I'm working on, I am going to be launching a course on product sense and product management later this year. So be on the lookout for that if that's of interest. 
+
+Lastly, I think the best help I can ask for from listeners is just if any of these ideas resonated with you, share them with others. Of course, if there are questions, feel free to ask. I think my mission here is to really help perhaps bring greater clarity on what is going on around us when we're working in teams and working on projects and products. 
+
+I really like it when people share the ideas, whether it's on Twitter or publicly or even with others privately. So that is perhaps the best thing you can do to help me in my mission. 
+
+Amazing. What a beautiful way to end it, Shreyas. Thank you so much for this conversation. 
+
+Thanks, Lenny. This was a blast. Thanks for having me. It's really a privilege. I am looking forward to another conversation sometime in the future. Ten big ideas by Shreyas Doshi coming up. I'm really excited about that too. Thank you again. 
+
+Great. Bye. Thank you so much for listening. If you found this valuable, you can subscribe to the show on Apple Podcasts, Spotify, or your favorite podcast app. Also, please consider giving us a rating or leaving a review, as that really helps other listeners find the podcast. 
+
+You can find all past episodes or learn more about the show at Lenny's podcast.com. See you in the next episode.

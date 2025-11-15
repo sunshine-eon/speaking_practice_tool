@@ -1,0 +1,14 @@
+Chapter 4: Using economics to understand incentives
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 08:32 - 10:07
+============================================================
+
+Just to pull on a thread a little bit more, is there something very tactical or concrete that you can share that you find helpful with that background that you found helpful in your career? Other than the dismal, dry science of it all. 
+
+So one example would probably be in understanding incentives and thinking about unintended consequences. I think that this is true both in terms of internal leadership, being part of a management team that's thinking about how to clarify priorities, motivate a company, or define the problems we want to solve. 
+
+Part of it is more externally oriented as well. How do we want to think about what Netflix is to consumers and how we want to think about competition? There can be a rational way of thought, which is one version of economics, suggesting that rational, intelligent people should behave in a certain way. 
+
+However, we must also consider that given certain incentives, we might observe outcomes that we didn't think were optimal or weren't expecting to happen. These could be consequences or repercussions that arise in unexpected ways. 
+
+I think that this type of framing, while it may not be unique to economics, incorporates elements of psychology and planning ahead. It has become really useful for thinking through cause and effect. This approach has come up in many different spaces at Netflix and in other roles I've been in.

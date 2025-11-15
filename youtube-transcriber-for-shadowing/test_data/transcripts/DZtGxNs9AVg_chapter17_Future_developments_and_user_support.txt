@@ -1,0 +1,39 @@
+Chapter 17: Future developments and user support
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 58:31 - 61:23
+============================================================
+
+[00:00] in the world. What's what's next for lovable? What's kind of like the next few things they might
+[00:04] launch as this episode comes out? As I mentioned this, agentic behavior. And when I say agentic,
+[00:11] what it means is that you give more freedom to the system to decide what happens next.
+[00:17] It might want to write a test, run those tests, and say like, oh, the test failed,
+[00:21] like let's fix those. So that's one of the big unlocks for getting further faster.
+[00:28] And then there's some more like obvious things that you want to do to go all the way to
+[00:38] easily go all the way to making money with lovable. And that's like how do you set up
+[00:44] so that it's hosted on your specific domain? How do you collaborate seamlessly with your team?
+[00:51] I'm making that that is here so that are just obvious things. And something we're thinking about
+[00:59] is to help just founders succeed after they built their first version. And like,
+[01:04] how do they get more users? How do they get feedback? How do they get the word out if
+[01:08] they build something useful? I was just going to say that that's that's exactly where my
+[01:14] mind went is like, everyone's going to be building all these things, no one's ever going to
+[01:17] get any traction with these tools because no one knows how to find users get anyone to
+[01:22] basically go to market and growth is like a whole different skill.
+[01:26] So that is so cool that you're thinking about that. How do we run some paid ads for you?
+[01:30] How do we think about SEO? How do we think about word of mouth,
+[01:33] morality referrals? That is very cool. Okay.
+[01:36] If we already have some free books that we that we help the people building with,
+[01:40] how do you do those things that you can find up on a blog?
+[01:44] Interestingly, this makes me want to buy some Metastock because all these apps that everyone's
+[01:48] building, they're going to be running paid ads on Facebook and Google. Oh my God, what a good
+[01:52] business those other guys get. I want to come back to, you said that you can work on your
+[01:58] existing code base. This is actually a big question for a lot of people. They see all these
+[02:01] tools. They're all like amazing for prototypes and concepting. You talked about how you can
+[02:06] actually do this within your existing code base, use lovable.
+[02:10] Let me correct you there. You cannot use it on any existing code base. We kind of have a
+[02:17] research free of importing your code base. But what you can do is if you start in lovable,
+[02:23] then you can have engineers editing it in whatever tool they want to use for editing it.
+[02:28] Okay, cool. That's great clarification. So I guess just for people because a lot of,
+[02:32] like most listeners here are not building something brand new. They're working within
+[02:35] an existing product. So you're saying that that is coming. You can use lovable in the future
+[02:41] in some form with your existing app and product. Great. Wow. That's huge. Okay. Because that's
+[02:48] basically the most people. So that's going to be a big deal. Okay.

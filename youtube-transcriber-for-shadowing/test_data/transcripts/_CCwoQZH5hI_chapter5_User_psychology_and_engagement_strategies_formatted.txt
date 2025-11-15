@@ -1,0 +1,20 @@
+Chapter 5: User psychology and engagement strategies
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 24:38 - 28:36
+============================================================
+
+Much of the engagement from this feature stems from a deep understanding of human psychology. Through various experiments, you all have learned how to motivate people and what factors can demotivate them. Honestly, I feel like an amateur armchair psychologist when it comes to understanding those who want to learn languages on their phones. 
+
+One theme that stands out is that you all are essentially mining for gold, searching for a vein in a mine. Once you hit that vein, you go all out, testing various ideas to see how far you can take that one thread. This approach partially originated from a monetization win that you experienced. Given that Duolingo runs a high number of experiments relative to its size, there’s a constant flow of learning. 
+
+There's a great cross-sharing of insights regarding monetization. If something works for one team, it can often be adapted for another. It’s rare for you to enter a project without some prior insight. Typically, you approach new ideas with a strong hypothesis based on previous experiments, which helps drive user engagement.
+
+A lot of the apps you analyze are actually games. For example, while playing Royal Match or the new Pokémon trading card game, you observe what these games are doing. This analysis provides valuable insights for your own projects. You usually start with a strong hypothesis based on what you’ve seen work elsewhere.
+
+To emphasize this point, your experiments are not random; they are based on hypotheses that you believe have a good chance of being true. The strength of your conviction in a hypothesis often correlates with the complexity of the experiment. For instance, you’ve established a solid infrastructure for copy testing and believe that companies should continuously run these tests, provided they have a sufficient user base.
+
+The number of successful copy tests you’ve conducted is impressive. Small changes can lead to significant impacts. For example, you once changed the standard call-to-action from "Continue" to "Commit to my goal," which resulted in a massive increase in user engagement. This simple copy change encouraged users to commit rather than churn.
+
+Copy changes are relatively inexpensive to implement. With a diverse user base, you can generate multiple ideas and translate them into various languages. All changes at Duolingo undergo a product review process, which includes scrutiny from Louisa. She reviews every proposed change or experiment, and her feedback is invaluable. 
+
+Louisa often encourages testing even when she has doubts about a particular change. There have been instances where her intuition was correct, but there have also been times when your intuition proved right. The beauty of these experiments is that they are cost-effective, and even when the potential lift is smaller, having a hypothesis is still beneficial without needing to overanalyze it.

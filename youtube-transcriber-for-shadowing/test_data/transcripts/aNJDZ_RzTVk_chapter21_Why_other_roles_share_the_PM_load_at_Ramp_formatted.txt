@@ -1,0 +1,16 @@
+Chapter 21: Why other roles share the PM load at Ramp
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 57:15 - 60:30
+============================================================
+
+You're about 1:30 p.m. A ramp is probably over 100 engineers. I try to keep the ratio of product managers to engineers at about one to one day to one to 15, depending on the team. Obviously, B2B is slightly more complex because you're dealing with a strong marketing team, a strong sales team, and demanding customers with whom you have established relationships. I've seen ratios be a bit lower in the B2C space. But yeah, that's a little bit about the team today, and they're organized by those customer pain points.
+
+I have this note from before that you reached a $100 million run rate, which is incredible, especially with just 50 people. So, on that point, how do you accomplish so much with so few product managers? Have you figured out anything that ends up being really important in that regard? I think that by reducing the size of the team, we've forced other people in the company to think like product managers. This has added huge value to our culture.
+
+When I say "product," people often think about product management, but I actually believe that product encompasses anyone who reports to our CTO—product engineering, product design, product managers, and product data scientists. Making everyone feel like a product manager is a great way to leverage the role of a product manager. This means empowering designers to think about specs, priorities, and scopes more than the product manager does, or empowering engineers to take a lightweight spec or direction and think through it deeply, coming back with insightful questions that the product manager may not have considered.
+
+The second key point is that we invested early on in product operations. This team, which also reports to me, focuses on the operational functions of product management—everything from project management to issue management, release management, enablement, content, beta testing, and customer research. They are tasked with a lot of the work that needs to be done to continue shipping products and scaling product development.
+
+Lastly, we cut as much of the low-leverage work that product managers often get sucked into. For example, we never write tickets, and we don't spend much time in Linear, which is our ticket management system. Our contract is to provide the vision and priority in a very high-level spec, and everything else is pushed onto the engineering teams. This approach allows engineers to move faster because they can create whatever tickets they want and break down the work as they see fit. They are accountable for the projects they drive, which increases trust and accelerates progress.
+
+That makes a ton of sense. Essentially, you distribute the product management responsibilities that other companies assign solely to product managers across other team members. If you had to think about what the core product manager job at Ramp entails at this point, based on what I've been hearing, it seems to revolve around strategy, vision, and aligning the team. What else would you include in that, just bullet point-wise?

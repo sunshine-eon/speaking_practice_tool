@@ -1,0 +1,18 @@
+Chapter 6: Why PMs must understand category consumers
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 19:59 - 22:30
+============================================================
+
+So a couple of things I'm hearing here. One is the importance of focusing on not people currently using your product, but this idea of maybe the marginal user or the adjacent user. The next state of users is who you should be thinking about when you're trying to optimize onboarding and the user experience. 
+
+Then two is something it sounds like you've had a lot of success with: picking one value proposition, maybe one positioning statement, and then following that through their entire journey versus presenting all the things you do. Is that right? That's absolutely right. 
+
+Let me give an example of this. One of the reasons why I really feel product managers must, if not better, equally understand category consumers—those who are not in the market or who are not really looking or buying your products—is as good as the marketer or the brand expert in your team. They are tasked with determining what is that one message that can capture the user's attention and direct it towards your product. 
+
+If product managers are able to do that, then they will choose that positioning and essentially understand what their hope product is and what will at least get users to try their app. If they understand it as well as a marketer, they can also determine the right time to introduce additional features rather than being greedy about letting the user try everything at once. 
+
+The other thing I feel is that a lot of product managers don't do right is to forget about everything and just say, "Here's my app, go figure." Unfortunately, that's how most products are designed. They assume that everything will happen automatically without any intervention. They create something beautiful and think that once you tap that icon, everything inside will work perfectly. 
+
+But they don't really consider at what moment they actually get the user there and why the user will use it. This user is often lazy, vain, and selfish. That phrase reminds me of something I always think about: Mark Andreessen had this great quote that your user's time is already allocated. They're not looking for more apps to download; they already have a plan for the day. They have things to do. They're not thinking, "Oh, it's another iPhone app; I'm going to check it out right now." 
+
+Somehow, you have to convince them that this is worth their time. I like this framework.

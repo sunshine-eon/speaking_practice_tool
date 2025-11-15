@@ -1,0 +1,28 @@
+Chapter 11: The “Shape Up” framework
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 33:19 - 37:59
+============================================================
+
+I want to start chatting about your ways of working, how you operate at 37 Signals. There's a lot of really unique approaches. One is you mentioned that every project is, I didn't know this, is two people, a designer and engineer, and then two to six weeks of work. Can you just expand on how you actually do that, how product development works there?
+
+Yeah. So we have a framework, development framework we invented called ShapeUp. If you go to basecamp.com slash ShapeUp, you can read the book. It's free. You can also get a print version if you want. ShapeUp is our methodology for actually building products. Part of this is this idea, at the root of it is this idea of the six-week cycle that whatever we choose to do can take no longer than six weeks. 
+
+So this is not an estimate of time. It's an appetite, which is a radically different approach. It doesn't sound like it's that much of a different word, but it really is. An estimate is like, how long do we think it's going to take and how long it takes is how long it takes. Most human beings are terrible estimators. We all are pretty much terrible estimators. So that's why things keep going and going and going. Instead, we have appetites. Our appetite for any individual feature is no more than six weeks. Essentially, that's our budget we're willing to spend. I'm only willing to spend six weeks on any feature. 
+
+So we have to figure out the simplest, most effective version of that to get that done within six weeks and get it done by two people. Now, not everything gets the full six weeks. Some things we're like, we have a one-week appetite for this. This is not that big of a deal. If we have it great, if we don't have it, that's fine. We're willing to spend a week on it. Not that it could take a week because it could also take 12 weeks if we give it 12 and it could take 24 if we give it 24. Work expands to fill the time available. 
+
+So for us, it's about appetite. The idea of appetites, maxing things out at six weeks, two people max. There are a lot of other details, and I could go on for an hour about ShapeUp. People can read about it. But it's those fundamental principles: appetites, six-week max, small teams. This idea of shaping the work ahead of time, then giving the team a lot of latitude to figure out how to get that thing done. 
+
+We don't have like a spec. We don't create to-dos or tasks or tickets for people. They create the work that needs to get done to fulfill the idea that we've written up and designed, essentially. They figure out how to do it. Then we trade. They might get into something that we've said. We have about six weeks, well, willing to give us six weeks. Two weeks in, they go, we actually stumbled into something we didn't realize. This is probably not going to be able to be done the way we thought. So can we do it this way? 
+
+Then we have a discussion and there's a conversation. There's a lot of molding and changing that happens along that period of time. We call it trading concessions. There are all the trade-offs we're always thinking about. So all these things come to bear. People often ask, well, what if you don't get it done in the six weeks you gave it? Well, it depends. In most cases, it should die, meaning like it just doesn't happen. 
+
+If we say we're going to give it six weeks and we give it seven or eight or nine or ten, then we're not really giving it six weeks or giving it ten, then we don't really have a system. There are times though when there's like a couple days left, when we're on what we're calling the downslope. We have these things in Basecamp called Hillcharts. A project's more like a hill. It's not like a linear line, right? If you're on the left side of the hill, you're still pushing this thing up the hill. 
+
+But once work gets to the top, it's downhill from there. It's like just pure execution and we know how to nail it. So if we're almost at the bottom of the hill on something and it needs two more days, fine. If there's any work that's left over that's still on the left side of the hill, meaning like we're still pushing it up, we don't know how we're going to do it, and we're at our time limit, it almost certainly dies. 
+
+So there are some contextual decisions to make at that point. But fundamentally, that's how we approach work. This prevents long-running projects that never end, which by the way, are the most demoralizing kinds of projects. Things that you're stuck on that you don't want to do that never end suck. If people get stuck on a couple of those, they want to leave their job. 
+
+The implications here are significant. We want to keep people out of that zone of like, I hate this work and it goes on forever because sometimes you're going to hate the work. Not all projects are that exciting. Sometimes it's maintenance stuff, sometimes it's like updating an internal billing system that's boring and no customers are going to see but needs to be done. 
+
+But you'll know that, hey, at maximum, we've got four weeks on this. I can already see the end from the beginning. No big deal. But if it's like this is going to take nine months and you're on week four and you're like, I hate this. Bad. So we want to stay away from that.

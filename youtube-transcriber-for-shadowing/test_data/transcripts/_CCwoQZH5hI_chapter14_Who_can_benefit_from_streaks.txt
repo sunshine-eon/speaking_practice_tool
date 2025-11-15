@@ -1,0 +1,58 @@
+Chapter 14: Who can benefit from streaks
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 78:57 - 81:00
+============================================================
+
+[00:00] Say someone's listening and they're like,
+[00:01] should we do Streak?
+[00:02] Cause it's worth doing.
+[00:04] What's your take on just like the chances
+[00:06] that a Streak feature would be helpful to another consumer?
+[00:09] I am well known for saying in the company
+[00:12] that I think every Streak, every team,
+[00:14] every app could benefit from a Streak.
+[00:17] Now, how you implement it is very different.
+[00:19] And I think you gotta like,
+[00:20] what is your user's use case?
+[00:22] Like if they're gonna come use,
+[00:24] I don't know, tax software.
+[00:27] Okay, you know, not that I say this,
+[00:28] the tax software to be a hard one,
+[00:30] but maybe it's all about, you know,
+[00:31] you need users to come back every day during the tax season
+[00:35] or how many times, I don't know,
+[00:37] now that I say this out loud.
+[00:38] Times you upload your big forms.
+[00:40] Yeah, that is a hard use case.
+[00:41] But the vast majority of companies,
+[00:45] I think have a good idea of like,
+[00:47] all right, here is my ideal use case.
+[00:49] I want users to come here three times a month.
+[00:52] That would be ideal, you know, or four times a month.
+[00:54] You can build a Streak to work.
+[00:55] I mean, Peloton has weekly Streaks
+[00:58] is the idea of doing a Peloton, you know,
+[01:01] workout every single day is hard for a lot of,
+[01:04] was hard for this user during COVID.
+[01:05] You know, it's just like every now
+[01:07] and then you get on the Peloton, that was great.
+[01:09] But the idea of a weekly streak
+[01:10] was something that I could keep up.
+[01:11] And so I think figure out what your usage pattern is,
+[01:14] is a user and then build your streak around it.
+[01:17] But, you know, as long as you're not,
+[01:19] you know, the like a really,
+[01:21] again, the tax example was probably a good counterfactual.
+[01:25] But as long as you have some degree of frequency
+[01:28] in your use, I think almost anything can have a streak.
+[01:32] So Duolingo, it's again, a $14 billion company.
+[01:35] This feature possibly the most contributing factor
+[01:40] other than the core, you know, product
+[01:42] to that level of success and market cap.
+[01:45] And it's hard to imagine another just feature
+[01:48] of a product that has had this much impact
+[01:50] on growth and revenue and building this sort of business.
+[01:55] So I love that we spent this much time on it.
+[01:57] The mother load, the mother load of advice and insights.
+[02:00] So thank you again for putting it in.
+[02:02] Very fun.

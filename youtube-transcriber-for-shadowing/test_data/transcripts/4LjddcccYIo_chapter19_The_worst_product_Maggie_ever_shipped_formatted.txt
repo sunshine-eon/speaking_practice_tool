@@ -1,0 +1,16 @@
+Chapter 19: The worst product Maggie ever shipped
+Video: Mastering product strategy and growing as a PM | Maggie Crowley (Toast, Drift, TripAdvisor)
+Time: 55:44 - 58:33
+============================================================
+
+So I love that you mentioned that, and let's see what we can get into. But I guess maybe before I get there, is there an example of something that didn't go right, just along the lines of some sort of failure or mistake? I might be foreshadowing, but a question I ask in every product interview is, "What's the worst product you ever shipped?" That's because I don't think you're a good PM if you haven't shipped something that's really shitty. You just haven't had enough reps; you haven't done it enough times. And it's not only that you've done it, but that you can admit it and you know which one it is. That's so important.
+
+I remember what was so dumb; I'm still so mad about this that we did this. I won't name which team or which company. I'm not going to call that out, but we decided we needed to do a rewrite—red flag number one—of existing products. An engineer who I had worked with many times and had a really good relationship with said, "Yeah, it's going to take six months. No problem." This was a core part of the product that had been around forever, one of those things where the code was still written by the founders. 
+
+It didn't take six months; it took two and a half years, and it still wasn't done. It went on for so much longer than it should have. It took us forever to get to feature parity. It was the worst project. So many people rotated in and out of it, and everyone thought it was dumb. It was just the worst. And it's because, A, we got arrogant and thought we could do it, and B, we skipped discovery. We didn't really write a one-pager; we just went for it. We didn't do enough technical and design research into what the requirements would actually have to be.
+
+And there you have it. Did that work out? Was it a huge success in the end? Did it change the trajectory of the business? Absolutely not. But you know what? I didn't get fired, so it's fine. I feel like I've gone through those experiences, and then like three or four years later, it's like, "Maybe this rewrite and redesign may work," because we haven't updated this thing in a long time. Just don't do it. Don't rewrite. If anyone ever tells you to do a rewrite, don't do it. A side-by-side rewrite? Nope.
+
+I've never had a situation where that worked out. What I run into is that once you get too far down a redesign or rewrite, everything's building in that new world. Then you launch it, and the experiment's negative. It's just like, "Oh, we just got to launch it. We're going to claw back. We're going to figure out how to get back to neutral someday." 
+
+Good times. Okay, well, maybe we'll start a failure corner. That could be a new segment. You may have a little sound and theme music. But this time we have a contrarian corner, and you have a couple of contrarian opinions about a couple of topics. The first is product management.

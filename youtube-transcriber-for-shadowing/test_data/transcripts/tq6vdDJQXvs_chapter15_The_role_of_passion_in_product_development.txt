@@ -1,0 +1,36 @@
+Chapter 15: The role of passion in product development
+Video: Tobi Lütke's leadership playbook: First principles, infinite games, and maximizing human potential
+Time: 94:30 - 96:39
+============================================================
+
+[00:00] So, I think that works for your career too because, by the way, we are all entrepreneurs.
+[00:04] So we're ready to think about any career, if you actually ask me for career advice, is
+[00:09] we are products.
+[00:10] We are engaged in entrepreneurship.
+[00:12] We are basically software as a service, if you want, like talent as a service.
+[00:18] We are selling a subscription in the form of our, you know, employment we call it.
+[00:23] But like it's actually just like rebranded subscription because, frankly, because it
+[00:27] comes with some extra protection, which is very good.
+[00:29] But it's still the same thing.
+[00:31] It's a double opt-in company, like you would say, I can do these things and I will be of
+[00:38] significantly more value to the company than you will have to spend on me.
+[00:42] There's like very positive ROI ideally for a company.
+[00:46] And the company ever says, I agree or I don't agree with you.
+[00:51] And that's actually what employment is.
+[00:53] So I think people should think about themselves as a like product.
+[00:58] Your career is not based on mentors you find or getting the promotion or not.
+[01:04] It's about what are you like, what are you too good to ignore in like, what are you like,
+[01:11] how good can you be?
+[01:12] Can you be absolutely work?
+[01:13] Can you be excellent?
+[01:14] I mean, you don't have to be work class and stuff, but you have to ideally you find
+[01:17] a thing where like you are just like in this sort of tiny space of five intersections
+[01:25] or so versus like, like you just know more than everyone else and then everyone calls
+[01:28] you like we, like I said, we use Ruby Ruby was not that fast Shopify would rather have
+[01:36] it very fast.
+[01:37] We found the people who are like, got PhDs in dynamic language, garbage collection,
+[01:46] academic language, just in time compilation, and to make Ruby fast and they're having
+[01:52] a delightful time at Shopify and like Shopify is now very fast and it's very good.
+[01:56] And we, everyone gets to profit from us needing this because we merge back into Ruby core and
+[02:04] now everyone can have a JIT compiler.
+[02:06] So it's like, it's great.

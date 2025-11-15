@@ -1,0 +1,14 @@
+Chapter 24: You must be at peace with the worst that can happen
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 74:33 - 75:42
+============================================================
+
+Just to say it's going to work. I mean, you could follow all those things and it could just completely fall apart, and it probably will. It's just the reality. 
+
+I think something we use at 37 Signals, David kind of taught me this. It's really a stoic thing, which is just the idea of negative visualization. Like, what's the worst that can happen? You got to be at peace with the worst that can happen. Just role play that and go, what's the worst? 
+
+For example, we're doing these new once products. What's the worst that can happen? Well, the once model is totally different. It's not SaaS; you pay once, you download the software, you install it on your own server. We're putting a lot of effort into this. This could be like the wrong time to do it. It could be a total flop. This could not find any traction in the market. 
+
+So, what's the worst that can happen? Well, we spent six months exploring something and having a really good time doing it. Our margins are there, so we can do it. I wouldn't suggest someone does this if they can't afford to do it. 
+
+But we know this might not work, and we're already at peace with the fact that this might not work. That's, I think, how you ultimately are able to move forward: to be at peace with knowing what's gonna happen if it doesn't work out.

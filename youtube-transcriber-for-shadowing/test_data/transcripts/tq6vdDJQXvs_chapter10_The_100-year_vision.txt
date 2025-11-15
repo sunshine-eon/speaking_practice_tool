@@ -1,0 +1,79 @@
+Chapter 10: The 100-year vision
+Video: Tobi Lütke's leadership playbook: First principles, infinite games, and maximizing human potential
+Time: 61:27 - 69:29
+============================================================
+
+[00:00] This idea that you shared about building one product, building towards one vision,
+[00:04] this actually reminds me of something that came up basically every time I had someone from Shopify
+[00:08] on, which is this idea of a 100-year vision that you keep. I don't know of any other company that
+[00:15] operates in this way, where the founder has this 100-year vision of where the product needs to go
+[00:19] and working backwards from that. Can you just speak to that of that way of operating,
+[00:22] why you find that helpful, how that actually works?
+[00:24] I use it as a way of, I talk about look in the future and then think backwards a lot. It's like,
+[00:32] what would we want to have done 20 years ago on this, 10-5 years ago. What's the decision
+[00:40] our future says would want us to make, like it's useful. I find sort of future casting to be
+[00:45] generally extremely valuable. I also think that I definitely did not build Shopify to flip,
+[00:51] buy lots of things to sell Shopify to various people. It's just not even, I didn't consider it
+[00:59] because it's just too interesting of a journey and I think there's two, if the endpoint forms
+[01:06] or companies is to convergence on a set of four or five people who can afford them,
+[01:11] it's like that just creates too much of a mono culture I think in thinking. I like that
+[01:17] Shopify is different. I think this is good. I think it's a terrible place to work for many,
+[01:22] many, many people. It's the best place in the world to work for some people and I think that's
+[01:28] actually the good, like that's so good. That's what we want, I think. We want more of this.
+[01:34] We want people to be able to window shop for a place where they can be enormously successful
+[01:40] because the place's set of beliefs just fits you like a glove. 100 years, we have very long-term
+[01:52] plans. At 100 years, you can't talk about this software product, but you can talk about the
+[02:02] mission itself, whatever things that will survive for 80 years that are left on this
+[02:07] particular time frame. Entrepreneurship is just precious. Shopify exists, basically you
+[02:15] make entrepreneurship more common. That is the thing we want to cause in the world. We have
+[02:20] had I think success doing this already, but again, there's no speed limit and no stopping
+[02:27] point for this. As I keep saying, the world is unbelievably path dependent and therefore
+[02:35] if we are part of a path, we can cause it to be more in adherence to the things that we value and
+[02:40] would like to see. This is the wonderful thing about company building. They can have lasting
+[02:45] impact. We are making decisions based on the things of all the things that we can do,
+[02:55] whatever things that will be most long-term valuable for the long-term pursuits we are on.
+[03:05] How can we make normalised entrepreneurship? It's a thing that's really important to me just
+[03:11] because people don't spend enough time on it. It's all economics, our son-of-living entirely
+[03:17] depends on businesses. We are all part and tag of an environment that is extremely
+[03:27] entrepreneurial and actually celebrates entrepreneurship as a courageous act and a
+[03:33] glorious act. That's not true in most of the world. In fact, most people never encounter anyone
+[03:40] who engages in doing that. It's not something people see as one of their options. I want us
+[03:48] to make these choices. I think the long-term focus matters. It's also really powerful for
+[03:55] decision-making. I know this is potentially intuitive to most, but also rarely practised.
+[04:03] It comes up that you've had a lot of people from Stripe on here and Stripe and Shopify have
+[04:12] had a very long-term partnership. Stripe and Shopify had potentially the most valuable partnership
+[04:20] or at least one of the top ones in history of technology because we were both very small
+[04:27] companies and we decided, let's work on an assumption that both of us are going to win
+[04:31] our markets and work together. Stripe's powering Shopify payments and be a lot part of Stripe and so
+[04:36] on. At a million points along the way, in a partnership like this, you play basically
+[04:45] the iterated prisoner's dilemma. Every instance, every turn, you can make a choice, coordinate or
+[04:50] defect. Defecting if our person collaborates, collaborator effect. It's like if both
+[04:57] collaborate, everyone gets a point. If one defects and the other one collaborates, you get a lot of
+[05:03] points, all at one moment. Being a good partner in business is like the corporate marshmallow test
+[05:12] that everyone, companies tend to fail in a very funny way. If you see the videos of the kids
+[05:19] doing the actual marshmallow test, the smart ones actually turn the chair around,
+[05:23] look away from the marshmallow and sit on their hands and just go vibrating because they know
+[05:29] it's the right thing to wait for getting two marshmallows in the future. If they just look
+[05:34] at the marshmallow, they'll just eat it. Most CEOs, most companies can't even successfully do
+[05:39] that and just engage in this sort of pulling future profits forward at a discount or even
+[05:46] defecting on a partnership that would be much more long-term valuable. If you're talking
+[05:50] about a long time frame, like 100 years, it's like, look, there is no question. Clearly the
+[05:54] correct way to play with the prisoners of dilemma is coordinate for both sides. It's like way more
+[05:59] valuable to be created doing that over long periods of time than any momentary defection
+[06:03] could possibly be convenient at the moment. And it's a huge amount of product decisions
+[06:16] when we are deciding roadmap end up being very influenced by this because I get pitches for things
+[06:22] we should do and why don't we do this kind of change to the system and we have so much money in
+[06:30] it and all these kind of things. I'm cool, but almost always they come in the form of
+[06:37] putting future profits forward at a discount. But we have a long time horizon. Let's not
+[06:42] take the discount. Also, you often compromise the entire business after a while because you end up
+[06:54] customers notice if you're going into value extraction. The best companies, I believe,
+[06:59] are virtually resembling, at least from the perspective of the leader,
+[07:04] resemble some kind of cockpit or maybe like a room full of dials where like full of dials or
+[07:08] levers for monetization. My job is like adding as many of these levers as possible to the room
+[07:14] and then not pulling any of them because I think we do best if you're on the same side of a table
+[07:23] of our customers and we had them become entrepreneurs, which is mission and we want to support them
+[07:27] to be more successful, which is the business model we are in. We get a very, very small
+[07:32] stake of the sales in our monetization system. Therefore, we are incentivized to make everyone
+[07:39] as successful as possible. When I get a PowerPoint from investment bankers, they tell me I have
+[07:49] enormous pricing power and I could massively change the prices. I'm like, yeah, but I
+[07:55] leave Shopify if that happens to me. So how is that good for you? Why?

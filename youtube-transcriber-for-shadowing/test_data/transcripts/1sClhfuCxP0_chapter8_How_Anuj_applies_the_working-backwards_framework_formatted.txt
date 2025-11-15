@@ -1,0 +1,26 @@
+Chapter 8: How Anuj applies the working-backwards framework
+Video: The full-stack PM | Anuj Rathi (Swiggy, Jupiter Money, Flipkart)
+Time: 23:59 - 28:36
+============================================================
+
+Okay, let's shift to a different topic. You have a really concrete way of actually implementing the working backwards process. We had one of the authors of the book, *Working Backwards*, on recently, and I'm excited to just hear what you've learned about how to actually put this into practice. It's easy to hear about, "let's work backwards," but doing it is a different beast. So I'd love to hear what you've learned there.
+
+I think the people who invented working backwards is clearly Amazon. They started this entire process, which is like, "Hey, why don't you write a press release?" And with that press release, we'll work backwards from that one. I thought that was a very cool idea. I was trying to dig down into, like, "Hey, why does it work?" My insight, or at least the way that I thought about this one, is that it's not just working backwards from a customer value proposition. Will our customers love it? Will they pay for it? Is it noteworthy? Is it something that we should even be working on? 
+
+Well, that is one of the most important things that the Working Backwards framework teaches us. Essentially, what you're working backwards from is an entire machinery at a particular day that is working for that date of go-to-market (GTM). What do we need to do from here until that particular day so that that GTM is successful? Also, what will be the machinery we would have created so that this product is successful? 
+
+Now, because you're already talking about GTM, you're already thinking about how users will love it, what money we'll spend, and what alternatives or routes we have explored that we have finally zeroed in on. All of those will be part of a PRF review. If I take a slightly open stance on this one, what is a press release? A press release is a one-pager that talks about what we are building, what the particular date is, what the exact value proposition is, what consumers will say, what the business manager will say, how they will respond, and how they will use it.
+
+But the one thing that comes out from this framework is that you can use it for a whole bunch of other things. You can use it for negotiation, for example. Because you start with a date and then you say, "This is the one-pager that I need to ship, and I want consumers to say that." You can use it to go to the VP of Engineering and say, "By this date, can we build all of this?" They may not have all the PRDs and everything, but they can give you a sense of whether this is too aggressive or not.
+
+You can also use the quotes here to actually find alliances or identify people who might derail this. You can use the customer quote, "I want my customers to say this," from marketing and from my pricing team. Can we actually ship this so that consumers will say that? Then, from the business owner's quote, you can say, "This is what we are shipping. But what are your goals? Can you say that within three months we would have achieved this much?" Using that to build one entire picture is one way that I found really powerful. 
+
+If you find disagreements here, then you can say, "I can ship it," and then you change the date and the goals. All of these things are changing together. Instead of just one, you find the other set of all the things that need to come together for the press release to go live, which is the real value.
+
+The other part that I found interesting is that I really fully believe in the power of three. So I actually asked my teams to write three plus releases, alternative and divergent. For example, suppose you're launching a membership program. Instead of two tiers, let's do three tiers. Or, instead of building a membership, let's build a tiered pricing program with membership points. 
+
+I encourage my teams to consider different segments as well. Within these three, they all need to be fully thought through, and that helps the leadership choose. When you are in the product discovery phase, you would have heard from a lot of folks. If you show them just one roadmap, it feels like, "Hey, this person didn't listen to my interesting point, which was valuable, but they didn't include it." 
+
+However, when you're doing these three PR FAQs, you can show them, "I considered this and this added up to a story that eventually is valuable." This alternative route considered their point of view, and I created a story, but unfortunately, it is not adding up, so we rejected it. Now, people can compare and contrast, and that's a very powerful leadership tool. 
+
+This approach is also very powerful for CXOs. When they say, "Let's build this," they can respond with, "Here are three ways we can build this, and here's the reason why I'm not building what you said, because you will like these two more."

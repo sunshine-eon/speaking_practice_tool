@@ -1,0 +1,26 @@
+Chapter 4: The power of small teams
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 09:58 - 13:55
+============================================================
+
+Coming back to something we touched on a bit is this idea of smaller teams. You tweeted some similar stats about your competitors. Asana has 1,600 employees, ClickUp has 1,000 employees, Slack has 2,500 employees, Smartsheets has 3,000 employees, and Monday has 1,500 employees. In contrast, you have, I think you said, 70-something employees. You also have a similar number of customers, about 100 to 150,000, and you make a lot of profit while they generally don't. How is this possible?
+
+We run a very different kind of business. We are focused on efficiency, not growth. These larger companies are focused on growth. Typically, when you have a lot of people, you think you can do more things at once, and you probably can. You can offer different kinds of offerings to different people, with various tiers and sales teams, and all the things that build up an organization. We don’t have any salespeople. We don’t have 15 different versions of Basecamp. We’re not after enterprise clients, so we don’t have the enormous support costs and infrastructure required to service customers like that and customize things to keep a whale happy who’s paying you $300,000 a year. We don’t have any of those complexities. 
+
+We have one price, basically. Well, we have two prices on Basecamp and two on Hay. But fundamentally, we have one code base and one product we offer to everybody. For example, with Basecamp, nobody can pay us more than $300. I don’t care how big your company is; the most you can pay us is $290 to get unlimited users. This pricing model allows us to build one product, do a really nice job, keep it tight, simple, and clear, and avoid the complexity that comes with trying to service and satisfy so many different kinds of companies at various price levels and expectations.
+
+These larger companies tend to get bigger and bigger because they build products differently. We build products with two people at a time. Every feature we work on in Basecamp or Hay is developed by one programmer and one designer, and they have a maximum of six weeks to deliver the feature they’re working on. Most of the time, it’s usually a couple of weeks, but we set that six-week maximum to avoid getting stuck in big, complex projects with meetings involving 18 people, slow decision-making, and all the indecision that comes with trying to do too many things for too many people.
+
+That said, we could still make the mistake of hiring hundreds of people because we could afford to do so. However, spending money on things we don’t need is something that Silicon Valley has gotten quite good at, but we intentionally avoid it. I don’t want to spend money on unnecessary things. We believe that constraints, simplicity, and small teams are where it’s at. They keep us honest and allow us to do great work for our customer base, which consists of small businesses and very tight-knit companies like ours, instead of trying to cater to big companies that require salespeople and long sales cycles.
+
+Honestly, if you gave me a thousand people, I wouldn’t know what to do with them. We would fall apart. We would be a worse-off company with 500 people; I’d be completely lost. I don’t even understand how those larger companies operate, the layers they must need, and the complexity they have to build up to support all that weight. It’s just remarkable and foreign to us.
+
+Okay, so I definitely want to talk about how you operate and your way of working because it’s really interesting, and there’s a lot that companies can learn from that. But I want to follow on this thread of small teams. I have a few quotes that you’ve shared that I love. 
+
+Oh, no. 
+
+Oh, no? 
+
+No good. 
+
+That’s good. Hey, if I said it, I said it. Let’s go.

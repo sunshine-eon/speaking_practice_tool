@@ -1,0 +1,20 @@
+Chapter 2: Life as CTO vs. VP of Data
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 04:36 - 05:57
+============================================================
+
+Elizabeth, thank you so much for being here and welcome to the podcast.
+
+Thank you. Thank you for having me. 
+
+So when we booked this conversation, you were VP of data at Netflix, and since then you've received a promotion; you're now the CTO of Netflix, which feels significantly more fancy. 
+
+Question for you: What is life like now that you are CTO versus VP of data? How is it most different? 
+
+I'm imagining more meetings. I would say the biggest thing that changed is probably the amount of context switching and the degree to which I feel behind or that I have a lot to learn. I felt like I had a lot to learn in the VP of data and insights role that I was in before, in part because we cover a lot of different areas of the business and there are always people to learn from. 
+
+But the engineering organization just takes that to 100, basically. So, there are more people to get to know, more problem spaces, and aspects of technical expertise that I'm just not as deeply familiar with. 
+
+And then, yeah, a lot more meetings. I imagine many higher stakes meetings as well. 
+
+Yes, so thankfully not a lot of meetings at Netflix feel like you're really in this scary room, but it does feel like the role has more consequence, which is actually an exciting thing.

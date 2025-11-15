@@ -1,0 +1,60 @@
+Chapter 4: Education and personal growth
+Video: Tobi Lütke's leadership playbook: First principles, infinite games, and maximizing human potential
+Time: 11:05 - 16:47
+============================================================
+
+[00:00] committed to following your curiosity as to the next step and optimize for the maximum amount of
+[00:06] learning when you choose these steps. It takes you from one place to another and we actually realize
+[00:12] the world's full of lies about human potential and progress and maybe they're not...
+[00:19] Maybe they're not malicious about it, but they're definitely confused about it. Like school
+[00:23] teaches you that you have to learn this particular piece of math in this 12th month
+[00:29] period and it doesn't matter how much you understand it. It's like the outcome can be variable and
+[00:34] will grade you on a variable outcome for a fixed amount of time, which has nothing to do with anything
+[00:41] I've ever seen or learned or witnessed about how to actually learn things. You follow that thread
+[00:49] and you just find that there is no speed limit for personal growth. I find that in a way Shopify
+[01:00] has been a wonderful experimental lab for this sort of conviction. I've just seen this to come
+[01:11] to be true and of course hearing from someone that you respect that, hey, I think
+[01:18] you had it in you to do this thing significantly better because I think you probably saw fairly
+[01:26] early in the project this sort of path A, path B and you chose path B potentially out of convenience
+[01:36] even though you knew that wasn't the right thing. I actually expected better of you and I expected,
+[01:44] I think the next time this happens in your career, you should go path A
+[01:48] because based on your conviction and therefore that's hard to hear because it's right
+[01:55] but it's also extremely valuable. What I love is the environment of people who are
+[02:02] hoarding each other accountable to the actual potential rather than sort of their current
+[02:08] level plus some, I don't know, a little bit extra. There's so many threads I want to follow here.
+[02:16] The example of the school is such a pertinent one to me right now. We're looking at preschools for
+[02:21] our son and they're describing their education philosophy. I'm like, I don't know why I should
+[02:26] believe this is the right approach and it makes me just want to spend all this time researching
+[02:29] what education approach works. I know it's just preschool and maybe not as critical yet.
+[02:33] Do you have a bet yet? Obviously, I have three kids too and this is sort of a kind
+[02:40] of decision that faces every parent faces. The interesting business analogy here is
+[02:49] so many of you listeners are probably park managers of machine learning projects that maybe
+[02:54] this resonates. There's a funny thing about machine learning which you train on a lot of
+[03:00] data and hopefully you get something that predicts the thing you want it to predict
+[03:05] correctly out of it. The biggest problem of this is overfitting. You end up defining what
+[03:12] does good look like, a loss function, which is a heuristic because it's not the actual task
+[03:17] that the thing will do in the future. It's something that proxies to the task that you
+[03:23] want the thing to do in the future, predict fraud, predict the next word, whatever. Overfitting
+[03:29] is basically model learning how to cheat on the benchmark or on the fitness function.
+[03:35] There's a business analogy of this which is that, not actually analogy, it's called
+[03:40] Guthard's law. It's literally the same thing as overfitting just for businesses.
+[03:43] Guthard's law just says any metric that becomes a goal ceases to be a good metric.
+[03:51] Same exact thing, universal truths are things that almost any competitive field
+[03:59] will invent for itself by different terminology often. I think this is also by the way so
+[04:03] interesting to focus on personal growth and learning a lot about a lot because you end up
+[04:09] finding these hidden harmonies behind things, the things that are clearly enduring
+[04:14] correct insights. Overfitting Guthard's law is the same thing.
+[04:19] Like school optimizes for what?
+[04:26] Marks supposedly, right? In fact, overfitting in school is literally the kids cheating
+[04:35] to get marks, right? So there's yet another analogy. What is however the right
+[04:42] loss function for children? Have you made a decision yet?
+[04:48] No, I have not. We just started this pathway. It's the kind of thing you were to say.
+[04:53] You have to actually go fairly deep in philosophy to figure this out. And then again, afterwards,
+[04:57] you can find the schools that you like. Just supplying it was for us, it was just
+[05:04] maintaining curiosity. This is a completely different goal from being good at Marks,
+[05:11] but I just think everyone's born extremely curious and school has a habit of
+[05:19] getting it out of kids. There's a foundation model of a child and you fine tune it on school
+[05:25] and just lose the neurons of curiosity because it's actually discouraged
+[05:29] to meander into other topics and then explore them just because they're interesting.
+[05:35] This is not the beat of a podcast, but I just think about this a lot. It's funny how these
+[05:40] kind of things just recur.

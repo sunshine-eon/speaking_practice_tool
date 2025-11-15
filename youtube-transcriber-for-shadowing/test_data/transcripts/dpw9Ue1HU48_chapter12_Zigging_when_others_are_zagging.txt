@@ -1,0 +1,62 @@
+Chapter 12: Zigging when others are zagging
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 50:29 - 54:17
+============================================================
+
+[00:00] Okay, so this theme has come up a bunch already in our conversation asked Chris Miller previous podcast guest
+[00:06] What you're amazing at and what I should talk you about and he said that you're very good at
+[00:10] Zigging when other people are zagging and zagging when other people are zigging and I think that's already come across in our conversation
+[00:16] I guess is there anything else along those lines that you think might be helpful to people in
+[00:20] Terms of how you think about that or examples of that in action
+[00:23] So this comes down to kind of kind of high conviction low consensus pets
+[00:26] and so we had
+[00:29] Like three things that we were zigging and by the way, it's not just me my co-founder
+[00:32] I have both have that kind of zig versus zag and we can ask ourselves and we ask ourselves this to this day, right?
+[00:38] It's like, okay
+[00:39] Well, we understand that this is the way because the world moves the way it's normally done
+[00:44] But have we considered this completely and I think we should do it
+[00:47] But have we considered this alternate kind of alternate path?
+[00:50] So I would encourage you any state of the company
+[00:53] You don't necessarily have to do the zig versus zag
+[00:55] We should at least know what the zig would have been and I have talked it through so that's kind of thing number one
+[01:00] Some of the best startup advice I've heard and I've ever given is startups should focus on
+[01:05] One thing and be really really exceptionally world-class better than anyone else at that one thing and
+[01:11] One of our early zigs is we are going to do exactly the opposite of that
+[01:15] So from year one HubSpot decided to build an SEO tool, web analytics, blogging tool,
+[01:21] For content management all it and every one of those categories that we were building a product in literally
+[01:27] This is year one had great products with great companies behind them. And so it's like, okay
+[01:32] Well, why would you do that?
+[01:34] and and the reason is
+[01:36] That the one thing we wanted to be good at
+[01:39] was
+[01:40] Solving for the actual customer problem that existed and the customer problem that existed was not a drift of tools
+[01:46] Lots of great SEO blogging everything all the tools existed
+[01:49] But SMB specifically did not have the wherewithal put all those pieces together, right?
+[01:54] So you and I it's like oh, I can throw a website up. I can put Google analytics on it
+[01:58] I can put a woofoo warm type form form on I can do all these things I can wire it all no big deal
+[02:03] Like why is this so hard?
+[02:04] But for most people most SMBs that's a science project, right?
+[02:09] And so we said okay in order for us to solve the actual customer problem
+[02:12] We have to solve the actual customer problem
+[02:15] Even if it's uncomfortable even though it's contrary and then every kind of instinct every advice
+[02:20] We've heard or given says we should not do this. We should not go that broad
+[02:23] But once you make that decision so that the other kind of lesson learned second and we said this in the early years
+[02:29] It's gotten better since those let's say you do this and this is kind of the all-in-one approach
+[02:32] We're going to have this broad-based product
+[02:34] It's like, okay, we're gonna be you know many miles wide and only so inches deep
+[02:39] One of the and this goes back to our very systematic thinking is like, okay
+[02:44] We're going to measure each of those individual product categories that we're now playing in
+[02:48] Are we in the top three in the market in that category if the answer is yes
+[02:54] That means we invested too much in that category
+[02:56] We should not be in the top three because our value proposition is not that we want the top three blogging tools
+[03:01] And we're the top three web analytics tool that we have the top three whatever our value proposition
+[03:05] Is that everything works so well together at that being in the top three and having those right features or whatever?
+[03:11] Doesn't matter doesn't matter as much as the all-in-one and that means we over-indexed on one individual category by virtue
+[03:17] That was one of our kind of heuristics for being able to tell
+[03:20] That we were over-indexed on one particular aspect of it. That is hilarious
+[03:24] Rarely do I hear we we're in the top three and we're doing to we're doing the wrong thing
+[03:29] We are we're to get by the way and we change that over time right like in the startup world and now I
+[03:34] Would argue that most the categories we play and we are as you know surveys
+[03:38] Tell you that we're in the top three in each of those categories now, right?
+[03:41] But at the time when we were very very resource constrained
+[03:44] You know, we were trying to be disciplined and focused and yeah

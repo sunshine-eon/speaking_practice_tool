@@ -1,0 +1,40 @@
+Chapter 3: Shopify’s unique approach to churn and retention
+Video: Breaking the rules of growth: Why Shopify bans KPIs, optimizes for churn, and prioritizes intuition
+Time: 06:17 - 08:43
+============================================================
+
+[00:00] I want to start with something that I think is most unique from what I've heard and I think
+[00:04] there's going to be a lot of really unique approaches to how you all think about growth.
+[00:09] One of the most interesting things I've heard is that how you think about churn and retention.
+[00:14] To most companies, the most important thing is to increase retention, reduce churn.
+[00:21] My sense or my understanding is you guys are kind of the opposite.
+[00:24] You one don't think tons about churn, you almost optimize for churn.
+[00:29] Talk about that.
+[00:30] How does that work?
+[00:31] The way we think about churn is really going back to Shopify as our mission and what we want
+[00:35] to do, which is to increase the amount of entrepreneurship on the Internet.
+[00:41] As a business, we want to make it as easy as possible to get started with your online
+[00:47] store, with your business, but most businesses do ultimately fail.
+[00:52] The way we look at it is, can we lower the barriers to getting started and get
+[00:59] as many people in the door trying their hand at entrepreneurship?
+[01:04] If we do that, again, many of those businesses, many of those folks will maybe on their first
+[01:08] attempt not be as successful, but we're going to have a set of merchants who go on to become
+[01:14] extremely big businesses, the alberts of the world, figs, et cetera.
+[01:19] The way the Shopify business model works is we do charge a subscription, but most
+[01:24] of our revenue comes from payments, which is tied directly to a merchant's success.
+[01:29] In a given cohort of merchants, a lot of people will start.
+[01:33] Some of those people on their first attempt, it's entrepreneurship, might not succeed,
+[01:37] but the folks who do go on to be successful will make that entire cohort of merchants
+[01:43] who started something that makes Shopify as a business extremely successful.
+[01:47] That's why we lower the barriers to get started and help folks grow, and those
+[01:51] winners make the whole thing work.
+[01:55] I love that.
+[01:56] What I'm hearing is it's not that you don't want people to stick around.
+[02:00] It's not that you don't want people to succeed.
+[02:03] It's that you're not optimizing every new shop for sticking around long term.
+[02:09] It's basically make it as easy as possible for people to try it, and all you need
+[02:13] is a few big wins for it to all work out.
+[02:16] Correct.
+[02:17] That's really a different insight than most SaaS companies, that they get a comfort
+[02:21] or a customer, they really never want that person to leave, and we want to lower
+[02:24] that barriers to get started in.

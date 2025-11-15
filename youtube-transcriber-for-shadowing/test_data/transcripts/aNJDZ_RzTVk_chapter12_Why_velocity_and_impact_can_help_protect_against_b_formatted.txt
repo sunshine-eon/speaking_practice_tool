@@ -1,0 +1,18 @@
+Chapter 12: Why velocity and impact can help protect against burnout
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 29:29 - 32:33
+============================================================
+
+Doing their work, how are they sustainably gonna last at Ramp? I'm curious just what that's like and how you think about avoiding burnout for folks that are just constantly shipping, shipping, shipping. 
+
+I think that the debate around working hard and burnout kind of misses a key point, which is all about how much impact and how good you feel about the work that you're doing. For me, when I felt burnout, it was actually at the time where I had the lowest amount of velocity. It was when I felt like I was putting a lot of effort into things that weren't actually moving. I actually think velocity is a way to potentially avoid burnout. I'm not asking people to work, you know, endless hours a week. I'm asking people to get out of their own way and to focus on what truly matters, which is building great products for our customers. 
+
+You achieve that if you get into a flow state, if you get into a cadence where everything becomes easier, where work can really become thrilling. Sometimes organizations, especially as they grow, make that really hard. They create a ton of distractions, a ton of meetings, and a ton of cross-functional teams that are all asking for your attention and grabbing for attention. 
+
+Another parallel of this is running. The best runners are the ones that love running and feel like running is enjoyable. Work should be the same way. As a runner, I try to evaluate that whenever we're doing something hard, challenging, or exhausting. If you love what you do, you feel much better about the amount of effort you're putting into it, and work doesn't feel like work. 
+
+I find the same thing. When I think back to the times that had the best experiences, the most fulfilling work I've done, it often involved working insane hours. It was just a very long, stressful project, but looking back, I always think, "Wow, that was so cool. I learned so much, we shipped so much interesting stuff, and made so much impact." The key is what you said: you have to actually be proud of it, and it has to be something that's meaningful to you. You could work long hours on something that you have no interest in, and that does not help and does lead to burnout. 
+
+So that's the key. You mentioned something important: meaningful to you, right? Not meaningful to your boss or your boss's boss or your boss's brother, but meaningful to you. I think that’s the role of management—to make everyone on your team feel like it's their goal. The way to do that is to align on that goal and give them problems to solve. If everyone feels like it's their team, their company, their mini company, then they will radically avoid burnout. But if they feel like the work is being pushed onto them, if they feel like they're not aligned on the goal, or if they don't feel empowered with the solution, then burnout will absolutely happen. 
+
+One of my favorite quotes that you have shared is, "Any second you spend planning is a second you don't spend doing." On the one hand, I love that because the more you...

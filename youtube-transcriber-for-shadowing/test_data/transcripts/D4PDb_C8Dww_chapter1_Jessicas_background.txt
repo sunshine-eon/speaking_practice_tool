@@ -1,0 +1,59 @@
+Chapter 1: Jessica’s background
+Video: Building a world-class data org | Jessica Lachs (VP of Analytics and Data Science at DoorDash)
+Time: 00:00 - 04:59
+============================================================
+
+[00:00] So you've built one of the largest and most respected data teams in all of tech.
+[00:04] For me, analytics is a business impact driving function and not purely a service function.
+[00:10] Not just answering the why but answering the what do we do now that we know this.
+[00:15] One of your colleagues told me that you're incredibly good at defining metrics.
+[00:19] Retention is a terrible thing to goal on. It's almost impossible to drive
+[00:23] in a meaningful way in a short term. Ultimately you want to find a short term metric you
+[00:28] can measure that drives a long term output. You mentioned the early team I felt extreme ownership.
+[00:34] Yes you are a data scientist but your goal is to figure out what's happening and if that means
+[00:40] that you're gonna pick up the phone and call customers then that is what you're gonna do
+[00:44] to roll up your sleeves. Today my guest is Jessica Lax. Jessica is Vice President of
+[00:52] Analytics and Data Science at DoorDash which has built one of the biggest and most impactful
+[00:57] data teams in tech. She's been at DoorDash for over 10 years and was the first GM at DoorDash
+[01:02] responsible for launching new markets. Previously Jessica founded Get Simple a social
+[01:07] gifting startup and began her career in investment banking at Lehman Brothers.
+[01:11] In her conversation we go deep on how to build and scale your data org including why a centralized
+[01:17] org model is so effective what to look for when hiring data people how to pick the right
+[01:22] metrics for teams to align incentives and drive the right sorts of outcomes examples of how the
+[01:28] data team at DoorDash has helped the business make better decisions a bunch of great stories about
+[01:33] the early days of DoorDash and a ton more. If you enjoy this podcast don't forget to subscribe
+[01:38] and follow it in your favorite podcasting app or YouTube it's the best way to avoid
+[01:41] missing future episodes then helps the podcast tremendously. With that I bring you Jessica Lax.
+[01:47] Jessica thank you so much for being here and welcome to the podcast. Thank you so much for
+[01:55] having me I'm very excited to be here. So you've built one of the largest and most respected data
+[02:02] teams in all of tech. I've heard from a number of people that look to you for advice when they're
+[02:07] trying to build and scale their data teams and then DoorDash in particular is an incredibly
+[02:13] complex business there's three or maybe even four sites that the market plays there's this
+[02:19] operational elements from the outside it just feels extremely complicated and wild I imagine from the
+[02:24] inside it's even more wild. Let's talk about some of the things you've learned about building and
+[02:28] scaling the team. You have a fairly contrarian perspective on how to structure data teams
+[02:33] this is referenced this was referenced when we had Elizabeth Stone on the podcast too she
+[02:37] approaches data the same way so I'd love to hear just your take on how to structure
+[02:41] data teams within companies. This episode is brought to you by Webflow. We're all friends here so
+[02:48] let's be real for a second we all know that your website shouldn't be a static asset
+[02:52] it should be a dynamic part of your strategy that drives conversions that's business 101 but
+[02:59] here's a number for you 54 percent of leaders say web updates take too long that's over half of
+[03:05] you listening right now that's where Webflow comes in their visual first platform allows you to
+[03:11] build launch and optimize web pages fast that means you can set ambitious business goals and your
+[03:16] site can rise to the challenge learn how teams like Dropbox, Ideo and Orange Theory trust Webflow
+[03:23] to achieve their most ambitious goals today at Webflow.com. This episode is brought to you by
+[03:31] Anvil their document SDK helps product teams build and launch software for documents fast
+[03:38] companies like Carta and Vouch Insurance use Anvil to accelerate the development of their
+[03:43] document workflows getting to market fast is a top priority for product teams and the last thing
+[03:48] that you or your developers want is to build document workflows from scratch it's time consuming
+[03:54] expensive and distracts from core work you could stitch together multiple tools and manage
+[03:59] those integrations or you can use an all-in-one document SDK most product managers will tell you
+[04:06] paperwork sucks Anvil's document SDK helps teams get to market fast
+[04:11] incorporate your brand style and give you back time to focus on your company's core differentiated
+[04:16] features for your users paperwork often starts with an AI powered web form styled and embedded
+[04:22] in your application from there you can route data to your backend systems and to the correct
+[04:27] fields in your PDFs via API complete the process with a white labeled e-signature the best part
+[04:34] about Anvil is the level of customization their SDK provides non-technical folks love Anvil's
+[04:39] Dragon Drop Builder and developers love their flexible APIs and easy to understand documentation
+[04:46] build documents software fast with Anvil that's use Anvil.com slash Lenny to learn more or start
+[04:53] a free trial that's use Anvil.com slash Lenny

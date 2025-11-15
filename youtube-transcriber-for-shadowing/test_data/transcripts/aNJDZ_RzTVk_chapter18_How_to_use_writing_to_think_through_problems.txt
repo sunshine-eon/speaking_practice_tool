@@ -1,0 +1,36 @@
+Chapter 18: How to use writing to think through problems
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 48:53 - 51:46
+============================================================
+
+[00:00] to detail your ability to articulate your approach to product. And as we were working on this, you
+[00:05] mentioned that writing is really important to you as a way of figuring out what you think
+[00:11] and to solve and crystallize problems, which is exactly how it works for me. And that's how
+[00:14] this whole newsletter started. I was just trying to crystallize what I remembered and did
+[00:18] so that I can remember it and share with people. So I'd love to just hear your insights
+[00:23] and take on just what writing does for you and maybe what you'd recommend listeners do with
+[00:29] this kind of approach of writing, helping them think. Throughout the years at Ramp,
+[00:34] I was often faced with a problem or question that that I couldn't answer off the bat. And I had to
+[00:41] go back to first principles. And the best way of doing that is to shut down your laptop,
+[00:48] you know, take out a piece of paper, write the question as simply as possible at the top
+[00:53] of the paper, and just spend time just thinking about how to answer that question.
+[00:57] And there were there were a ton of questions over time. For example,
+[01:01] you know, how do we and it was all scalability problems that few companies have actually
+[01:06] done successfully. And so you have to start with your own thinking. How do we scale decision
+[01:12] making? How do we incentivize teams to work together? How do we do headcount planning?
+[01:17] How do we allocate headcount in a fair way? How do we avoid politics as firsthand data
+[01:25] goes away? How do we make decisions on on doubling down versus pivoting? All these things are
+[01:32] really tough. And and I found myself, you know, you could you could you could read
+[01:37] things and that's helpful. But I don't think that reading makes you necessarily think better.
+[01:44] It makes you more wise. But the best way to to increase your capacity to think is to
+[01:50] actually do the thinking. And so that's where I see I see writing, if you're able to write things
+[01:55] clearly, you're able to think through things clearly. It was also a way for me to effectively
+[01:59] communicate, especially during like a COVID where like, we largely grew up during COVID,
+[02:04] where everything was written. And it was also a way for me to get content out there to
+[02:10] increase, you know, my my brand and ramps brand and in terms of the space that then
+[02:15] led us to hire, you know, better people over time. So all these things kind of worked out,
+[02:20] but it does require you to block out time and to again, focus on how you think about problems
+[02:29] rather than try to Google the answer, you know, after you thought through it, then then go out and
+[02:34] read and you'll you'll fine tune your thinking and you'll identify new new questions to ask
+[02:39] yourself afterwards. I love this advice. You mentioned earlier that PMs can't really do much
+[02:46] on their own. But I think this is the thing PMs can do is PMs have the time to think and to

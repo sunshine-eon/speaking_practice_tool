@@ -1,0 +1,16 @@
+Chapter 25: Advice for people wanting to break into product management
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 67:33 - 70:37
+============================================================
+
+From college to consulting to tech, I was really into more like solutions analysts. I think that was my title. I was basically trying to implement a large B2B software in national banks. How I got into product management was really around understanding deeply the customer and understanding deeply the product, and being able to show impact on the combination of these two things.
+
+Typically, the folks that joined product teams are the highest performers outside of product. They either understand the customer really well and can advise product, or they understand the product very well and can serve customers. My advice for folks that want to break into that is to find a role that is adjacent to product, enabling you to have those experiences and prove yourself. For example, product operations is a good one, business operations is a good one, and more consulting, sales engineering, or solution engineering are good options as well. 
+
+There are designers and engineers that can become PMs too. Typically, it's folks that can do the job as well as the PM. What we typically do is give those PMs a shot or those folks a shot. We give them like six months to go into a new area and try it out. Then we have the engineers they work with and the designers they work with actually make the call as to whether or not they would want this PM versus another PM on the team.
+
+Is there anything else you want to share before we get to our very exciting lightning round? Yes, first thing from first principles: don't take everything I'm saying at face value. Second, back to talent— a huge part of our success was the early team that Karim built on the tech side. I can write blogs all day on how we increase velocity, but if there's one thing to take away from this, it's that empowered and talented engineers and designers are the biggest reason why Ramp was so successful. 
+
+This focus requires a ton of attention. Early on, for the first year at Ramp, Karim, our CTO, was only focused on that. He was hiring the best talent and was a lot less interested or focused on our product strategy, product market fit, or even our revenue. It was all about bringing in the best engineers and the best designers. This has had compounding effects on the company and the team. An important element is that the initial people you hire end up impacting the next batch because they see, "Wow, this person is working at Ramp. That's incredible. I got to look at that." So there's an early compounding effect that happens.
+
+Exactly. Well, with that, we reached our very exciting lightning round. I've got six questions for you. Are you ready? Yes. What are two or three books you've recommended most to other people?

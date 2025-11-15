@@ -1,0 +1,12 @@
+Chapter 9: Ramp’s system for sharing feedback
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 21:19 - 23:07
+============================================================
+
+The speed of engineering and the engineering team plays a crucial role in product development. Interestingly, many find that quality actually improves as product velocity increases. You might expect that moving faster would lead to lower quality, but the opposite is often true. This is because teams can address issues quickly, allowing them to release products without the long delays typically associated with reviews and approvals. As a result, the overall quality tends to be higher, which aligns with the experiences of many teams.
+
+To achieve this balance, it's essential to create a system that facilitates feedback. We have focused on establishing control mechanisms that ensure high velocity does not negatively impact the business. For instance, we implement a voice of customer process where every negative review of our products is shared with the tech lead, the product manager, and the designer on a monthly basis. Additionally, we report metrics such as Net Promoter Score (NPS) and Customer Satisfaction (CSAT), along with operational overhead, which reflects the percentage of tickets originating from a specific product area normalized by the number of users.
+
+This reporting forms a core contract that the team must uphold, aiming to maintain a lower operational burden. Moreover, bugs and issues are directly assigned to the engineer on call, allowing them to experience the pain points firsthand. This approach enables them to leverage their velocity to address and resolve these problems effectively.
+
+When it comes to balancing the influx of bugs and quality issues with the team's goals and key performance indicators (KPIs), it’s important to recognize that velocity is merely a magnitude and not a specific direction. Teams must find a way to manage these competing priorities without compromising their objectives.

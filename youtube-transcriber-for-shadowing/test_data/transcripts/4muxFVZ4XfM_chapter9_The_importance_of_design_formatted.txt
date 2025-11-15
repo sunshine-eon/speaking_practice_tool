@@ -1,0 +1,20 @@
+Chapter 9: The importance of design
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 24:58 - 29:08
+============================================================
+
+Okay, that was a tangent because I couldn't not go in that direction. But I want to come back to design again and craft. It feels like linear. One of the reasons you guys have been successful is that design and experience are basically huge differentiators from other products. There's always this question: can design be enough of a differentiator in specific markets? Is there always an opportunity to build a significantly better product experience and have a real shot at disrupting an incumbent? 
+
+Do you have any sense of when design can be enough of a differentiator? This is coming from a founder trend aside. Should we go big on design and experience, or should we invest in distribution or new technology or something along those lines? Any thoughts there? 
+
+My belief is that in any domain or industry, the more it matters, the more design matters. It's fairly easy to see this in different areas. If you look at software or other industries, what happens is that whenever there's a new paradigm—like mobile or the web—the first iterations of those products don’t have to be super well designed necessarily because they are the first. But as you build hundreds or thousands of different email clients, any email client now has to be pretty good to even be considered a reasonable option. The bar is so high.
+
+Today, if you look at the web pages Google or YouTube launched with, they were very basic. If you launched that kind of website today, no one would really pay attention. Design is almost like a very basic requirement now. From the very beginning, you need pretty high-level design for people to even pay attention or consider you seriously. 
+
+It’s not necessarily fair, though, because sometimes a product might be really good, but if they didn’t have a designer or the time to do it, people might dismiss it simply because it doesn’t seem interesting. So, I think that’s the first thing: design is important and will continue to be more so. 
+
+However, I would also say that design is never going to be the sole reason why a company is successful. The company still has to have other elements; the product needs to be better or different in some ways. A designer is just enabling some of these aspects. Similar to technology, if you have good technology, it’s easier to do certain things. If the product works better in some ways than if you have bad technology or infrastructure, it’s the same with design.
+
+If you have good design, or even a good brand, people are drawn into it. This makes user acquisition, user retention, and even the perception of the product better. An example is packaging; companies like Apple spend a lot of time and effort on packaging because it sets expectations for the user receiving the product. Even before using the product, users start thinking it’s a high-quality item they will love. 
+
+When they actually have it, they might feel that way unless the product is really bad. Similarly, with startups or SaaS, your landing page and other elements communicate something to the user and set expectations. This can be a very useful thing, especially early on when no one really knows you or cares about your product. I think design can be a very good leverage point in the beginning.

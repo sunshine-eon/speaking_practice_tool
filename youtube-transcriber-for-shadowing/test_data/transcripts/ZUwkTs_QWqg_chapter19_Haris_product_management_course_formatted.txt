@@ -1,0 +1,26 @@
+Chapter 19: Hari’s product management course
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 45:00 - 48:19
+============================================================
+
+Makes a lot of sense. OK. And so within this, you have your own course on product management. 
+
+Well, it's funny. I mean, I've been thinking about a course for a while, but largely it was this concept of wanting to make sure I tried our own product and understood the instructor pain point. It's a very scary experience. First, I don't know if I have anything to teach, and I have concerns about that. 
+
+About four or five years ago, one of the things we started at PM internally was Product University. We had our own internal university, which was basically based on some surveys we sent out. I think everyone told us, well, the most negative feedback was that people said they didn't have the skills to do their job. I remember looking around and realizing it was pretty obvious. We hired a bunch of people, but there’s no PM degree, and we had done nothing to address that. 
+
+So what we started doing was internally creating a Product University. It was a boot camp where we tried different models. One of the things we really learned was that you can't teach this just through frameworks. You needed a series of case studies and real examples. Luckily, we had a bunch of things we'd done at LinkedIn, so we started putting a curriculum together. Recently, a few of us got together and filmed the actual course for it. It’s basically taking our Product University boot camp and opening it up to the world. 
+
+And you opened up some of your internal use cases as part of this course? 
+
+We do, yes. That's awesome. I always say that one of the things you don't realize you have as an advantage working at a bigger company is access to tons of strategy documents, vision documents, and stories. Once you're out, no one is going to be able to share those with you because they're so private. I don’t have access to any of these anymore, so that’s a really cool perk of working at a company like LinkedIn. 
+
+Thanks. Now, about your course, what are some of your biggest lessons that you teach? Can you give a preview of some of the tidbits that you might learn in this course of yours? 
+
+Well, again, a lot of it is case studies and use cases in the same way we teach it here. A couple of things we talk through include some big pain points that people hit when we started doing our own Product University. The first was that it's actually really hard to know how to validate and what the bar is for a new idea in any organization. I think it's really challenging to define that. 
+
+So we provide a lot of frameworks. Simple things, like proving to the world why there's duct tape in here, and having someone actually physically go out and try to do it. We discuss how to prioritize a list of ideas against a pain point, how to make a simple expression, and how to differentiate between what's an acute pain point and what's a wide range of people using it. We also cover how we expect data to be used in order to validate ideas. These are tools you can use to determine if an idea is good or bad, and more importantly, tools to ensure you've gone through the process and how to communicate it. That's one framework set we talk through. 
+
+The other is a lot about Damien, who discusses growth income, and he talks about thinking in loops. We explore how to ensure that when you're building something, you have the fuel to cascade and grow. The framework for doing that, how to measure it, and how to monitor it is something I wish I had access to when I was starting my own startup. 
+
+So those are maybe two good examples of frameworks and tools we cover. And of course, we try to overlay that with real cases, not always successful ones, of course. We discuss many of the failures we've had and where we probably went wrong if we had to diagnose them and conduct a post-mortem.

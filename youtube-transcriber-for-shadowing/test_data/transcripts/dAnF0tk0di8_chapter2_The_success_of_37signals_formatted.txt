@@ -1,0 +1,24 @@
+Chapter 2: The success of 37signals
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 03:49 - 06:46
+============================================================
+
+Is to create a personal board of directors, a trusted peer group where you can discuss challenges you're having, get career advice, and just kind of gut-check how you're thinking about your work, your career, and your life. This has been a big trajectory changer for me, but it's hard to build this trusted group. 
+
+With Sidebar, senior leaders are matched with highly vetted, private, supportive peer groups to lean on for unbiased opinions, diverse perspectives, and raw feedback. Sidebar has their own zone of genius, so together we're better prepared to navigate professional pitfalls, leading to more responsibility, faster promotions, and bigger impact. Guided by world-class programming and facilitation, Sidebar enables you to get focused tactical feedback at every step of your journey. 
+
+If you're a listener of this podcast, you're likely already driven and committed to growth. A Sidebar personal board of directors is the missing piece to catalyze that journey. I spent a decade finding your people when you could meet them at Sidebar today. Jump the growing waitlist of thousands of leaders from top tech companies by visiting Sidebar.com slash Lenny to learn more. That's Sidebar.com slash Lenny. 
+
+Jason, thank you so much for being here and welcome to the podcast. 
+
+Thanks, Lenny, it's good to be here. 
+
+It's really good to have you on. I have this new segment on the podcast that I call Contrarian Corner, and I have this feeling like this entire episode is going to be Contrarian Corner. So I'm excited to dig into all kinds of stuff. I have so many questions I want to ask you. 
+
+I thought it'd be good to just start with giving people who aren't that familiar with your story and 37 Signals a sense of just how successful the business has been. I think people don't quite get the business you've built and the scale you've built. So whatever you can share in terms of customers, profits, anything you are comfortable sharing, you'd love to give people, especially things that might surprise people, just a sense of like, wow, this business is not what I imagined. 
+
+We don't talk about things that don't really matter so much like revenues don't really matter because you can go broke generating a lot of money. But we talk about profits. So we've historically, let's say over the past 10 years or so, we've been profitable every year for 24 years, but let's say over the last 10 years, we've been doing double-digit million dollar profits on an annual basis, which is really nice. 
+
+We've about 100,000 plus paying customers. That's a rough number. And we've about currently like 75 or so employees. So relatively small business in terms of the number of people who work here, big customer base, big profits. And that's sort of how we like to keep it. And that's sort of something that we've always focused on versus a lot of these other metrics that I hear a lot and there are usually acronyms attached to them and I kind of don't even know what they are and I don't really care about them so much. 
+
+We also want to make more money than we spend, have good healthy margins, which allow us to sort of experiment and play and not be afraid to do things that may not work and just enjoy ourselves. So that's what we've been doing for about almost 25 years. Next year, we are 25th year.

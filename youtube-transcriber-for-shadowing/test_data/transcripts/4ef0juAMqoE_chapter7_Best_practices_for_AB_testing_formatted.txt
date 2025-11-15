@@ -1,0 +1,12 @@
+Chapter 7: Best practices for A/B testing
+Video: Brian Chesky’s new playbook
+Time: 18:34 - 20:30
+============================================================
+
+Hitting down. So I think that things were getting worse and slower and slower and slower. From 2015 to 2019, we were spending a billion dollars on AdWords. We weren't really investing in the brand. Instead, we were doing a huge amount of A/B testing. I think A/B testing is important at times, but let me clarify what I mean by A/B testing. 
+
+We don't test blue versus green. We have a control and a treatment, like I think we did with yours here. So we have a design, and we might do a holdback occasionally to see how the thing is working. But if we do an A/B test, there has to be a hypothesis. If we don't have a hypothesis and A is better than B, then we're stuck with B. That's a really, really big problem. Whenever you can never change it, imagine ten teams doing A/B testing. 
+
+Now, imagine if you designed software the way you design a house. We A/B test a sofa and say, "How does this sofa work?" It seems like with this sofa that we've A/B tested, people spend more time in the living room. Therefore, people like this room better. But actually, the sofa has a relationship to the end tables, which have a relationship to the lamps, which have a relationship to the carpet or the rug, which have a relationship to the television, and so on. You have to think about the whole cohesive system. 
+
+I started realizing this when I worked with someone on your team, someone you know well. I asked him, "Why does it feel like I open our app and the product hasn't changed in like four years?" I remember saying this back in 2018 or 2019. This person described that the initial way we were doing things to move fast had actually made us move slow. So we ended up doing...

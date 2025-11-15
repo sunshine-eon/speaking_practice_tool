@@ -1,0 +1,20 @@
+Chapter 8: The product design process at Ramp
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 19:55 - 21:19
+============================================================
+
+[00:00] It was more asynchronous and ad hoc process and once you hit, you know, 10, 15 p.m. and 20 or 30 different mini pods
+[00:10] shipping constantly, I think you need a bit more of a process by which you have high-risk decisions that are being surfaced.
+[00:17] So we're iterating. I think we're relating now is any large rock that we have on the roadmap needs to be brought into the product review process
+[00:27] where myself and the head of design are present and giving feedback.
+[00:31] But it needs to be structured in a way where you're asking specifically for what type of feedback you need,
+[00:37] and you're highlighting the key risks and tradeoffs that you're making implicitly in that review.
+[00:43] So that's one way we're able to scale, but I would say largely people ship.
+[00:47] And it's the difference between a beta and the GA that's where we really get plugged in when we make the decision to go live
+[00:55] to the rest of the customer base and asking sales to start selling.
+[00:59] That's where I'll really come in and stress test the hypotheses and the decisions.
+[01:05] It's further downstream, so it's more risky.
+[01:09] But because we move so fast, you don't waste that much time if you have to pull it back.
+[01:13] Yeah, that came up actually. I just had a chat with Nicole Forsgren,
+[01:16] who's world expert on developer productivity and developer experience.
+[01:20] They've done all this research on quality and...

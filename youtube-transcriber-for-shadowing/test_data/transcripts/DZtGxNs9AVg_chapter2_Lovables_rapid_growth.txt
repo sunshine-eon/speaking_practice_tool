@@ -1,0 +1,81 @@
+Chapter 2: Lovable’s rapid growth
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 05:12 - 09:39
+============================================================
+
+[00:00] Anton, thank you so much for being here and welcome to the podcast.
+[00:08] It's a pleasure to talk to you, Lani, great to be here.
+[00:10] I don't know how you have time to do this podcast.
+[00:12] Your life must be insane these days with the pace at which you guys are scaling, just
+[00:17] how much is changing in AI every day, so I just extra appreciate you making time for
+[00:22] this.
+[00:23] I think you said it's a 10-30 year time is when we're doing this.
+[00:26] I'm a bit tired, yes.
+[00:29] The crazy pace of everything, but yes.
+[00:32] We're going to, this is going to be an invigorating conversation, and you're not
+[00:35] going to be able to sleep.
+[00:37] I'm sure.
+[00:39] So for folks that are maybe a little bit familiar with Lovable or not at all
+[00:43] familiar, what is Lovable?
+[00:45] What's the simplest way to understand it?
+[00:48] I'd say Lovable is your personal AI software engineer.
+[00:51] You describe an idea and then you get a fully working product from the
+[00:57] AI.
+[00:58] And what this means is that entrepreneurs actually today they turn their ideas into
+[01:03] real businesses.
+[01:05] We have a lot of designers and product managers that create the first version of
+[01:10] their product ideas to show to their teams and some of them become founders
+[01:15] because of the empowerment from this, but also developers themselves, they
+[01:21] actually writing code or creating products much faster.
+[01:27] I mean the reason, it's pretty obvious for me, but I'll spell it out.
+[01:32] The reason why we're doing Lovable is that I don't know about your mom, but my
+[01:38] mom doesn't write code and my friends, almost all my friends throughout my
+[01:44] life reached out for help like Anton, I need to build something.
+[01:48] How do I find a great software engineer?
+[01:50] And we're building for this 99% of the population
+[01:55] who don't write code.
+[01:58] Currently, if you're technically inclined, you get much further, but over
+[02:01] time, naturally, the way to build software is by just talking to an AI.
+[02:07] That's how we see it.
+[02:09] I love the way that you guys describe it and you didn't mention it, but I
+[02:12] think it's like building the last piece of software ever.
+[02:14] How do you phrase that?
+[02:16] Yeah, we say we're building the last piece of software.
+[02:19] The last piece of software.
+[02:21] Okay, we're going to do a live demo, but first of all, can you just
+[02:24] share some stats on the scale of this business at this point, because it's
+[02:28] quite absurd.
+[02:30] Yeah, so we launched Lovable less than three months ago, and now we have
+[02:35] 300,000 monthly active users and 30,000 of those are actually paying.
+[02:43] And it is growing at the same rates, almost only through organic
+[02:49] word of mouth.
+[02:50] Okay.
+[02:51] And I'll share a couple of stats in terms of revenue, just so folks know this.
+[02:55] And we'll have this in the intro too.
+[02:56] I think you guys hit 4 million ARR in the first four weeks.
+[03:00] You hit 10 million ARR in the first two months with just 15 people.
+[03:05] You're the fastest growing startup in all of Europe.
+[03:08] And you guys had to rewrite your entire code base recently, and you
+[03:12] couldn't ship any new features for a while, is that right?
+[03:14] That's right, yeah.
+[03:15] People were saying, oh, you're shipping so fast, and we were all
+[03:18] quite frustrated because we wrote our service in this kind of scripting
+[03:24] language, and then as we started scaling, we just know we have to throw
+[03:28] everything away and rewrite it in a more performant way.
+[03:31] Okay.
+[03:32] Before we get to the demo, last question you shared.
+[03:34] There's some companies that have started based on Lovable.
+[03:36] I didn't even know that.
+[03:37] So what are some examples of companies slash businesses that have
+[03:42] launched off of Lovable now are actually companies?
+[03:44] I mentioned designers using Lovable, and one or
+[03:47] other early users, Harry, he started shipping real web apps to his clients.
+[03:53] He started just shipping designs.
+[03:55] And then he went on to say, okay, wait, I'm going to start an AI startup.
+[03:59] And his company, he launched on Product Hunt and everything and
+[04:03] making money, just lets anyone upload their photo library.
+[04:09] And then his AI parses and categorizes it.
+[04:13] And if you go to launched.lovable.app,
+[04:17] this is an app built with Lovable, which is a product hunt version where
+[04:21] you can see a lot of businesses or small sales that are featured there.
+[04:26] Okay, cool.

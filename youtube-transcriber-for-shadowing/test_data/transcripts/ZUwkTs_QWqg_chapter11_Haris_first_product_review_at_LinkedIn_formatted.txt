@@ -1,0 +1,14 @@
+Chapter 11: Hari’s first product review at LinkedIn
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 28:38 - 30:38
+============================================================
+
+Let's talk about LinkedIn as a company to work in, particularly its culture. You mentioned that you have a story about your first product review when you joined LinkedIn and how wild that experience was. Can you share that story? I haven't heard it yet.
+
+So, I came to LinkedIn through a small acquisition of our company. I thought it was a telling moment during my first product review. As you can imagine, when you join a new company, there's a lot of advice on how to make the product work. I had never been a Product Manager before, so I took a lot of that advice and put together a presentation. Unfortunately, I got destroyed during that review. I think Jeff was the head of product at that point, and in a very kind way, he pointed out that my presentation didn't make any sense.
+
+I remember driving home that day and calling my wife, feeling like I might be fired. I wasn't sure if I was actually going to be fired, but Jeff was very understanding. He told me to come back in four or five weeks. At that moment, I realized that if I was going to go in for another shot, I needed to do something I truly believed in and ensure it worked. We started from that point and worked backwards, focusing on the idea that connecting opportunity is the most important thing. We aimed to understand how to do that and began from there.
+
+The second attempt went very well. To me, it highlighted how, in large systems and companies, having a clear North Star is crucial. LinkedIn is special in that regard because it has a very good North Star. That experience reinforced for me that as long as you keep that North Star in front of you, you'll be just fine. I had never worked at a place like that before.
+
+People often wonder about the complexity of decision-making at LinkedIn, given our engagement ecosystem, hiring business, marketing solutions, and premium business. It can get very complicated when trying to make decisions across those areas. When people ask me to describe LinkedIn, I often start with that story because it helps clarify how decisions are made and what is seen as success within the company.

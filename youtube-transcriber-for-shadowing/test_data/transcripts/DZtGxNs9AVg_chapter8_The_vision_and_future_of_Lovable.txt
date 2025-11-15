@@ -1,0 +1,28 @@
+Chapter 8: The vision and future of Lovable
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 36:25 - 38:14
+============================================================
+
+[00:00] And then what's kind of like the vision for a lovable, like what's the end state of this?
+[00:06] Is this everybody can build anything they want sort of thing?
+[00:09] What's the simplest way to understand where you're going in the next ten years?
+[00:12] I mean, I have to say, so we're building the last piece of software
+[00:16] and it is inherently very hard to predict how the world looks like in five years these days.
+[00:21] It's very hard.
+[00:22] But the last piece of software, how I see that is that it's almost instant
+[00:28] to go from what you want to change in a product or what product you want to build
+[00:32] to having it fully working end to end integrated with any of your existing systems
+[00:37] or integrated with the kind of very powerful third party providers.
+[00:42] Already today, you can just ask, add a chat with OpenAI
+[00:46] and then you get a chat with OpenAI in your product.
+[00:49] But that's like just working perfectly is something that's coming in the coming two years out.
+[00:57] And then after that, there's a lot of things in building a product
+[01:04] that is not just the engineering side, right?
+[01:07] And I think an AI can be very useful in aggregating and understanding your users.
+[01:16] So if you use the analytics tools, you know that there's something quite common
+[01:22] which is to see how users have interacted with the product.
+[01:26] AI's can do that on an absolutely massive scale and propose changes to a human to say like,
+[01:32] oh yeah, that sounds like a good change to make it a bit more intuitive.
+[01:36] And it can also automatically run spin out AB tests
+[01:40] so that you can see the data or these improvements to the product.
+[01:44] So I think that's on the horizon as well quite soon.

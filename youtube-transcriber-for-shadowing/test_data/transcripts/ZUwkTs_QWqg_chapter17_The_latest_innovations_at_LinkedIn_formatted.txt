@@ -1,0 +1,14 @@
+Chapter 17: The latest innovations at LinkedIn
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 40:51 - 43:16
+============================================================
+
+In driving that kind of complex system as well, one more question along these lines. You've been at LinkedIn for a long time. It feels like historically LinkedIn, like as a product team, the external impression was it's very optimization-oriented, and everyone there is just micro-optimizing all the little features of LinkedIn. Everyone I've worked with from LinkedIn is just really good at optimizing things. It feels like a lot of new stuff is happening with LinkedIn these days, and I'm curious if that's been a real intentional shift—like, let's not focus so much on making emails work better and the click-through rates of everything, but rather, let's innovate more and do some bigger bets.
+
+I do think there are two things to kind of acknowledge. First, it's an incredible growth team. A lot of people who move on from LinkedIn into incredible roles are growth-oriented. So, I think there's an influence or change that many people you meet might be growth-oriented. The second thing is, especially when LinkedIn started, I've been here a little bit of time, but growing the network is probably a very important thing to get the scale out. A lot of things people interacted with at first were maybe more growth mechanisms than other systems.
+
+I do think there's always been, at least for the last several years, an underlying line that values what's going to carry this ecosystem and ultimately what makes the day. To your point, I like to think that they may not be the most glittery items, but I'm really proud of what we've done with skills. I think that's one of those invisible systems that no one really knows about—oh my gosh, that's a huge disruption that people can now get. That's a huge language that people have created, and it's a huge way that people have changed.
+
+We're really proud of what we've done with kind of values, even open to work and commitments. These are major social systems that we've kind of wired through. I'm really proud of what we've done with LinkedIn Learning. I would argue it's one of the bigger creator systems in the world. It features incredible instructors and the ability to take someone who teaches, maybe isn't great on camera, and move them to the studio, giving them that capability and amplifying their voice.
+
+I think there are a lot of different things we've done that may be more invisible or hidden in a marketplace that necessarily a lot of the influencer voices may not access every day. I don't know if they get as much visibility, but I like to think that's been part of the DNA for a while, and we've been really thinking through it.

@@ -1,0 +1,24 @@
+Chapter 11: Advice for PMs who want to move faster
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 24:15 - 29:29
+============================================================
+
+Posts are often filled with questions about how to prioritize velocity and move faster. People look at the culture of velocity that companies like Ramp have and wonder why they can't replicate it. This creates additional pressure on product managers, who already have a challenging job. It feels like there's an expectation that everyone must operate at the same pace as one successful company, which can be overwhelming. My question is, what advice do you have for product managers facing this push from leaders to accelerate their processes?
+
+First and foremost, I want to acknowledge that product managers can't do everything on their own. We are not the sole drivers; we are a force multiplier. The culture of velocity at Ramp is less about the culture itself and more about the quality of the engineering and design talent we have. My advice is to ensure that there is a top-down investment in R&D as a first-class citizen. This means hiring the best talent, focusing on your engineering and tech brand, and creating an environment where people feel empowered. 
+
+A key aspect of this empowerment is that the CEO should have less say in the specifics of product development. While the CEO sets the vision, they should trust the tech organization to figure out the best path to achieve that vision. This has been effectively implemented at Ramp, where the leadership empowers the engineering team to make decisions.
+
+Another significant point is the issue of meetings and status updates. Often, leaders think that increasing velocity means adding more meetings and processes for accountability. However, this approach can demotivate teams. Personally, I've never scheduled a status meeting. Instead, statuses should be communicated asynchronously, in real-time, through the systems teams already use. Meetings should focus on collaboration, ideation, and decision-making rather than just status updates. I recommend reviewing your calendar and eliminating unnecessary meetings and processes.
+
+Lastly, leaders often express a desire to move quickly while simultaneously wanting to pursue numerous goals. For example, at Ramp, there's a constant debate about whether to add more products to one segment or to explore different segments altogether. When asked for direction, leaders might say they want to pursue all options, thinking that more goals will lead to faster execution. However, it's crucial to clarify the trade-offs involved and present these options to your leadership team. By doing so, you can execute more effectively on a few priorities rather than spreading your resources too thin across many.
+
+Your role as a product manager is to communicate these trade-offs, which are often not well articulated to executives due to fear of appearing resistant. In reality, you're not pushing back; you're enhancing velocity. 
+
+What I'm gathering from your insights is that you can leverage the demand for velocity to initiate changes in how things operate. Is that correct?
+
+Absolutely. You can't demand velocity without also fostering empowerment, trust, and a reduction in unnecessary processes. This requires making significant trade-offs that leaders, especially those from traditional industries, may find uncomfortable. When I joined Ramp, I was struck by the team's commitment to these principles. 
+
+Finally, there's nothing more motivating for a team than when a leader acknowledges their work, like commenting positively on a project in a random channel or during a design critique. Our founders are genuinely engaged with the projects they care about, and the engineers feel that support. This creates a culture of excitement around building innovative products. Encouraging engineers to present their work to leadership during all-hands meetings is another effective way to amplify this culture.
+
+This leads us to the topic of burnout. When a team operates at such a high velocity, it raises concerns about whether people are burning out.

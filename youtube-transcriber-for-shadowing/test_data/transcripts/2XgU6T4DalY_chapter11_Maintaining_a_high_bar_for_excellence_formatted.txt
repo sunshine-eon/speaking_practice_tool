@@ -1,0 +1,26 @@
+Chapter 11: Maintaining a high bar for excellence
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 39:01 - 43:54
+============================================================
+
+I'm curious. I know this could be its own podcast and book, but just in terms of hiring people that are amazing and keeping this bar of excellence, is there anything you can point out that might be helpful to other companies hiring to help identify amazing people and make sure that bar stays high? One thing I know is you guys pay a top market for salary. I think that's one unique thing about Netflix is we just pay people. So maybe that's part of this answer, but just what advice do you have for people to keep a really high bar in their talent?
+
+Yeah, I mean, on the compensation point, we pay what we call personal top of market, meaning we want to be highly competitive in the pay, but we don't want pay to be like the golden handcuffs of Netflix. Rather than paying people a strongly competitive compensation, we hope we don't have to rely on that to want people to be at Netflix or for us to be able to assess whether people are going to thrive at Netflix. 
+
+The way that I've thought about hiring with that context is that we know we're going to offer you very highly competitive compensation, but are you going to come to Netflix and help us identify the right problems to solve or new ways to solve existing problems? That's a different way of hiring than you might think about, especially at scale, where you're saying, does this person have this skill, this skill, this skill? Check, they're going to fit in this box and they're going to deliver this work that I need them to do. 
+
+I'm being intentionally simplistic. I recognize a lot of people don't hire actually that way. But at Netflix, we try really hard to say we're looking for the new perspective or the person who's actually going to make us stronger as a team. So thinking about additive skills, additive perspectives, people who are going to push our thinking on something. That tends to help us with thinking about talent density because you're constantly introducing people to the team who up-level.
+
+So then the questions you have to ask in an interview might be different because yes, we're trying to assess, do you have the baseline skills to be successful here? But we're also looking for the things that make people exceptional or even stronger than the team we've got. Then you think about making the magical teams comprised of all those amazing minds and what can you get out of that? That feels like more the talent density in practice.
+
+Got it. So the advice there essentially is don't look for someone just simply great. Look for someone that raises the bar for the whole team and brings in a whole new perspective.
+
+Yeah. I think what's great about this idea of just maintaining excellence consistently is that the best people want to work with the best people. As soon as there's one person that sucks and the company allows for that, it just brings everyone down because they know, hey, we can be okay. We'll stick around. No one's going to do anything about it. When you make it clear, we only want the best and only hire the best and we keep the best, it keeps the best there. Right? I imagine that's part of the strategy.
+
+It's definitely the goal. I think understanding that having gaps in the team and people's skill sets or their behavior can be really toxic for other people on the team. So it's a cost.
+
+This episode is brought to you by Xplo, a game changer for customer-facing analytics and data reporting. Are your users craving more dashboards, reports, and analytics within your products? Are you tired of trying to build it yourself? As a product leader, you probably have these requests in your roadmap, but the struggle to prioritize them is real. Building analytics from scratch can be time-consuming, expensive, and a really challenging process. 
+
+Enter Xplo. Xplo is a fully white-labeled, embedded analytics solution designed entirely with your user in mind. Getting started is easy. Xplo connects to any relational database or warehouse, and with its low code functionality, you can build and style dashboards in minutes. Once you're ready, simply embed the dashboard or report into your application with a tiny code snippet. 
+
+The best part? Your end users can use Xplo's AI features for their own report and dashboard generation, creating customer data requests for your support. Build and embed a fully white-labeled analytics experience in days. Try it for free at Xplo.co/lennie. That's EX-PLO.CO-LENNIE.

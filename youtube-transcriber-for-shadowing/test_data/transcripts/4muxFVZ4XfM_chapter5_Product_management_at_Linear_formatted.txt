@@ -1,0 +1,16 @@
+Chapter 5: Product management at Linear
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 16:41 - 18:37
+============================================================
+
+All right. Well, I got to follow this thread. There's a couple of questions I'm going to ask. So you have one product manager, would you call him the head of product? 
+
+Yeah. Non-U, who is the head of product. Awesome. So what made you decide to hire him and even have any PMs? We started to see that, okay, we have enough features and areas of the product, and also the team is bigger, that it's hard to keep aligned on all of these things, or even keep track of things. 
+
+Initially, we actually hired Non as a contractor to help us with this insights data tool. We have this data tool feature built in linear, so you can get data on what's happening in the workspace. For us, founders, we realized none of us are super experienced in data tools, so we needed someone to help out. Luckily, Non was someone we knew, and he actually worked at Mode, which is a data tool. 
+
+So we initially hired him to help us figure out what exactly this data tool should be and how it should work. I think there's different ways of doing that, and I think the easiest way is to just copy what some other company is doing, but we didn't want to do that. We wanted to figure out what is actually a useful way to use this data or get this data. 
+
+He helped us with that, and then we saw this could be useful in other larger areas or overall with the whole product. We might have questions like, what should we exactly be thinking around here, why, and how would we define this direction? We also needed someone to help the teams align on it. 
+
+To us, it's more like he's the one who figures out the direction of the product and steers some of the efforts. He's not there in every meeting, making every decision, or writing every spec or something.

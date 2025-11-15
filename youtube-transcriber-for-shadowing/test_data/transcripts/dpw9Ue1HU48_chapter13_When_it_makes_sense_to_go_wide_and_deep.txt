@@ -1,0 +1,46 @@
+Chapter 13: When it makes sense to go “wide and deep”
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 54:17 - 57:33
+============================================================
+
+[00:00] We're just racking up all these very contrarian approaches to company building.
+[00:05] I imagine people listening to this might feel like, okay, cool. I'm just going to build a bunch
+[00:09] of stuff. This is great. I work for HubSpot. Do you have any heuristics for when it makes
+[00:13] sense to go wide and not deep that you share with founders? When do you think it makes sense
+[00:17] versus now you should actually follow the common advice here?
+[00:20] Yeah. So it comes down to what problem you're solving. So I think one of the mistakes
+[00:28] I think founders make is that especially product oriented founders is that we kind of fall in
+[00:33] love with the solution instead of falling in love with the actual problem. And you need to fall in
+[00:38] love with the problem. And putting that constraint on yourself forces you to kind of understand and
+[00:45] at least label and define what problem you're solving. Because oftentimes we can
+[00:49] describe our product or whatever, but we struggle sometimes as founders to describe the actual
+[00:53] problem. So if you can make the case which HubSpot did, it's like, okay, it's not like we immediately
+[00:59] jump to that like, oh, we have this epiphany, we're going to build the all in one, do all the
+[01:03] things kind of thing. We're like, oh, in actually talking to customers, because we consider doing
+[01:08] it like, oh, we'll just do this marketing piece. We'll just do this or whatever. It's like,
+[01:12] no, that's not their issue. Their issue is like, it's not that these things don't exist.
+[01:16] So if you as a result of talking to customers and understanding the problem deeply come to
+[01:21] the conclusion that you need to do more than just one thing, but then you should force yourself to
+[01:28] have the discipline that we did, which is here's why we're going to go a little bit broad. And
+[01:35] here's why we're going to make sure that that broadness doesn't kill us, right? You have to
+[01:39] have the kind of self-imposed constraint. You can't have the best of both worlds. You can't say,
+[01:43] we're going to be all in one. And oh, by the way, we're going to be the best. No, you
+[01:46] can't be the best. You can say, we'll be, we solve this particular problem the best,
+[01:50] but we're not going to have the best product along those, any of those dimensions.
+[01:54] Amazing. I love this advice.
+[01:56] Imagine a place where you can find all your potential customers and get your message in
+[02:00] front of them in a cost efficient way. If you're a B2B business, that place exists. And it's
+[02:06] called LinkedIn. LinkedIn ads allows you to build the right relationships, drive results,
+[02:12] and reach your customers in a respectful environment.
+[02:16] Two of my portfolio companies, Webflow and Census, are LinkedIn success stories.
+[02:20] Census had a 10x increase in pipeline with a LinkedIn startup team. For Webflow,
+[02:24] after ramping up on LinkedIn and Q4, they had the highest marketing source revenue quarter to date.
+[02:30] With LinkedIn ads, you'll have direct access to and can build relationships with decision makers,
+[02:35] including 950 million members, 180 million senior execs, and over 10 million C-level executives.
+[02:42] You'll be able to drive results with targeting and measurement tools built specifically for B2B.
+[02:47] In tech, LinkedIn generate a 2-5x higher return on ad spend than any other social media platforms.
+[02:53] Audiences on LinkedIn have two times the buying power of the average Web audience,
+[02:57] and you'll work with a partner who respects the B2B world you operate in.
+[03:01] Make B2B marketing everything it can be, and get $100 credit on your next campaign.
+[03:07] Just go to LinkedIn.com slash pod Lenny to claim your credit.
+[03:11] That's LinkedIn.com slash pod Lenny. Terms and conditions apply.

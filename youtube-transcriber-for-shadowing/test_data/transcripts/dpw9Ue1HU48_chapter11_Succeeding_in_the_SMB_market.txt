@@ -1,0 +1,69 @@
+Chapter 11: Succeeding in the SMB market
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 45:22 - 50:29
+============================================================
+
+[00:00] I can't help but talk about this SMB piece because I do a lot of angel investing and
+[00:03] classically companies that focus on small businesses are very challenging because getting
+[00:09] to small businesses at scale is very hard.
+[00:13] They're often kind of more old school, not early adopters.
+[00:16] You sell one and you that's just like one small customer and they're not going to
+[00:20] upgrade and roll it out to this large group and they're not going to increase spend
+[00:24] very quickly for founders that are exploring SMB or trying to win something SMB any advice
+[00:31] other than just maybe the advice is probably don't do it. It's very hard.
+[00:35] No, my advice is absolutely do it. Amazing.
+[00:39] A, because it's hard and we'll talk about that.
+[00:42] But B, okay, so I'll tell you this quick story in terms of how we chose SMB.
+[00:49] And so my co-founder, I met in grad school and he had done software. He's on the kind of sales
+[00:55] and marketing side. I was on the product engineering side. Didn't know each other before grad school
+[00:59] and we met there. But one of the things we kind of, as we were kind of noodling on
+[01:04] and possible ideas of working together on the startup, we said, oh, we had done both
+[01:09] an enterprise software before, right? The kind of opposite of SMB. And there are definitely
+[01:15] challenges with enterprise software, right? While document, one of the biggest one is that
+[01:21] life as an enterprise software company sucks as a startup. Sales cycles are super long.
+[01:25] Feedback loops are super long. You have to have sale. If there's all this kind of,
+[01:30] you have revenue concentration, which means you don't completely own your product road map
+[01:34] anymore because whoever is writing the biggest check will ask for these three things. It's
+[01:37] really hard to say no, especially as a startup. All these things that go along with that.
+[01:41] It's like, okay, we sort of know that game. At the other end of the spectrum,
+[01:45] you have consumer startups, right? It's like, okay. The problem with consumer startups is
+[01:49] they have very bimodal outcomes, right? It's like, either he can be super successful,
+[01:53] the next meta, the next Google, the next whatever, or it's going to be zero, right?
+[01:56] Like it's very rare that you have like, oh, you made a few million bucks or whatever.
+[02:00] I think either it worked because it's a massive market. The case for SMB is you have
+[02:08] almost the best of both worlds, okay? You have the nicety of enterprise, which is, oh,
+[02:13] I can solve a product and people pay me money for it. I don't have to be advertising subsidized.
+[02:16] I don't have this bimodal outcome. I can build an incrementally more valuable business that's
+[02:20] measurable. So, oh, we went from 100K in ARR to a million AR. It's a two million AR
+[02:25] because we're a business software company. But it has the benefit of consumer because
+[02:30] there's millions of them out there to sell to. And there is no revenue concentration.
+[02:33] You do control your roadmap. You have very short feedback loops. You can try pretty much
+[02:37] anything that you want because there's, you know, like, oh, we have 50 customers,
+[02:41] what if we do this and screw it up? It's like, there's 5 million more. And that
+[02:45] doesn't intentionally screw it up, but you can experiment, right? You can take on risks.
+[02:49] And so, by the way, like when HubSpot started SMB, it was literally like 100 times harder
+[02:55] to succeed at SMB, right? And we could not raise capital. Like it was so hard
+[02:59] because I mean, the common argument was like, there literally is exactly one company in the
+[03:05] history of software that's made a like global brand and billions of dollars of market that
+[03:10] was into it. No one else had ever created SMB focused software company before. And we're like,
+[03:15] yeah, it's like, we know. But the nice thing about it is once you figure the physics of it
+[03:21] out because it's so hard to do, you end up, and this is as played out, now there's
+[03:26] lots more proof points in Shopify. There's a bunch of companies that have succeeded in SMB, but
+[03:31] one of the things about SMB is that in the software market, this, by the way, all I know
+[03:38] is software, that's the scope of my experience, is that in software, there's what I call reverse
+[03:45] gravity that over time, the market will always pull you up, right? Because what ends up
+[03:50] happening is that smart founders and smart management teams will look at the numbers and say, oh,
+[03:56] well, as it turns out, our bigger customers stay with us longer, pay us more, often have higher NP,
+[04:03] like all these things. And so if you allow yourself to come be led by that, which is
+[04:10] seemed like a reasonable smart thing to do, you will get pulled up in the market.
+[04:14] And because of this reverse gravity, almost every company winds up being every successful
+[04:20] software company ends up being an enterprise software company over the full list of time,
+[04:23] right? That's what you see. The kind of byproduct of that reverse gravity is that
+[04:29] every software company ends up being an enterprise software company, so you end up competing with
+[04:33] literally everyone. In the SMB world, you're only competing with the people stupid enough
+[04:38] to stay focused on SMB or try to do that, right? It's a much, it's a harder thing to
+[04:43] accomplish, but once you figure out the physics of it and make it work, it's a much more
+[04:48] sustainable, much more fun model. So I encourage particularly startups and maybe you fight reverse
+[04:54] gravity for some period of time and maybe, but at least start their try to make it work until it
+[05:01] gets really, really, really painful and then try some more, right? It's like, there's just so much
+[05:04] value in SMB.

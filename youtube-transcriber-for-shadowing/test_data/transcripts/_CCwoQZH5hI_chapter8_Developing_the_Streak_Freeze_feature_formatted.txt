@@ -1,0 +1,18 @@
+Chapter 8: Developing the Streak Freeze feature
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 46:59 - 50:47
+============================================================
+
+Driver, you know, one of the earliest experiments we ran was going from having only one streak freeze to allowing either two or three. We tested two different arms, and it was again, another huge DAUN. This is actually funny because it ties back to that growth model post from Jorge. It turned out to be really bad for Kerr because we were essentially saying, "Hey, you can take a day off. That’s okay." However, it was really good for our IWAR, or active weekly active user return rate. Basically, users who had taken a day off were coming back at higher rates, which made up for our losses with Kerr.
+
+What this meant is that two streak freezes worked better than one. Sometimes, people just need a little more flexibility than just one day. However, one of the really interesting insights from this experiment was that three streak freezes were actually no better than two. There were two competing factors at play here, and I think this is important if you're going to build a streak and figure out what your flexibility mechanic is. We were getting more users to return after longer times away to an intact streak, but if you start taking three days off from any habit, it becomes less likely that you will return even four days later.
+
+So, we had these competing factors where more users might be returning to a streak, but a lot of users were also just not coming back. We were training them to take more time off. This raises the question of what the right amount of flexibility is. We’ve run hundreds of experiments in this area, and we are constantly surprised. I still don’t have the answer for how much flexibility you need at every point in your streak journey. 
+
+One thing I can say with certainty, though, is to give more flexibility when a user is starting their streak. One of our biggest streak freeze experiments—again, I feel like I’m constantly saying this—was when you start a new streak, we give you two streak freezes. It’s funny to think back and wonder how we weren’t doing this from the beginning. At the time, the streak freeze was kind of an overly gamified mechanic; you had to buy them with gems, our in-app currency, because we wanted it to feel like something you earned, with a little bit of pain involved in getting that streak freeze.
+
+We tested the idea of just giving users two streak freezes when they start off their streak, and the results were astonishing. In retrospect, it seems obvious. If you have a one, two, or three-day streak, it’s really easy to let it die and restart. We’ve seen in the data that you need to get to seven days for it to really lock in. So, giving users more flexibility makes it harder to lose their streak initially.
+
+Conversely, as we keep learning, once people get on long streaks, you don’t want to give them as much flexibility. There are many times when users don’t add, and I can relate—I have a 400-day streak. Note that this is a lot less time than I’ve been at Duolingo; I have lost and restarted streaks many times during my time here. But as you accumulate streaks, you really start to care about this feature. Most people, as long as they’re not backpacking through the backcountry of Utah, will be in a place where they can get service.
+
+So, figuring out who the user is and where they are, and understanding when they could use Duolingo without conditioning them to take unnecessary days off, is crucial. This is a fascinating area to explore.

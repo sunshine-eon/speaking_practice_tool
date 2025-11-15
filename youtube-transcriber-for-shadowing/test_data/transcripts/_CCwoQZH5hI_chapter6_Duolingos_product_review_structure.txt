@@ -1,0 +1,63 @@
+Chapter 6: Duolingo’s product review structure
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 28:36 - 33:07
+============================================================
+
+[00:00] So on this thread, I didn't realize Luis reviews everything you're planning to change and this
+[00:04] may be the answer to the question I was going to ask, which is one of the criticisms of running a
+[00:08] product and company this way of just experimenting constantly with all these micro improvements
+[00:14] and changes as it can lead to something like a monstrosity of a product and experience that isn't
+[00:18] consistent and cohesive and just like that often happens. Is the solution to that having
+[00:23] the founder basically review all the changes? Is there anything else you all do to avoid it
+[00:27] moving into becoming farm bill or whatever? It's a good example.
+[00:30] Yeah, our product review structure where we've got our head of product design, one of the lead,
+[00:36] you know, the product management leaders and then Luis NPR. And because they see everything,
+[00:43] they have a really high product bar. And so that helps. I think over time, we just as PMs have
+[00:50] to look at, okay, where is our feature headed? And so, you know, we do this with the streak,
+[00:55] at least on a quarterly basis to look at, okay, well, what have we learned? You know,
+[01:00] how has our streak developed? And how do we imagine this going in your future? I don't think, you
+[01:04] know, it's easy to do, you know, and end in some sort of awful local maxima. If you're not
+[01:10] constantly looking at your roadmap and thinking, you know, you don't have a clear strategy.
+[01:14] You know, for me, it's like, if you have a clear strategy for where your feature is going,
+[01:18] hopefully all of those AB tests are not just done, you know, to get some cheap gain,
+[01:23] they're done with a long-term goal in mind. I do think though, and we do this every now and then
+[01:28] with the streak, eventually you just hit a local maxima. And you say, like you talked about launching
+[01:33] neutral experiments, this is a great example where it's like, all right, cool. Now we need to throw
+[01:37] a bunch of this stuff out based on all the learnings, can we reset this real estate,
+[01:41] can we reset this UI reset this feature in such a way that is just as good as what we have now,
+[01:46] but is way more plain or simple, that we can again, start to layer on it. Those are hard,
+[01:52] those are really hard experiments to get win, you know, to win obviously, because they are so
+[01:56] optimized, but they're really important to do. Otherwise, yeah, you just end up with a kitchen
+[02:01] sink of a feature. One other tidbit I just want to mention, something that the advantage you
+[02:08] all have that other companies don't have is people want to learn, like they want to learn
+[02:13] the language. And so getting pushed to come back to an app for something that they want to do
+[02:19] is not an advantage a lot of products have. So anything you want to add there of just like,
+[02:23] this is why Duolingo might be a little different from what you're working on.
+[02:25] I mean, that is definitely a benefit. If I had an app that, this is actually why I think a lot of
+[02:32] mobile games do streaks differently, because, you know, to say that you played a mobile game,
+[02:38] and as somebody who plays a lot of mobile games, you know, that you've done it for
+[02:42] 3,000 days in a row, like, I don't know, maybe that hits a little bit different than
+[02:46] you've learned in Spanish for 3,000 days in a row. I think the comparison set is much larger,
+[02:52] though, than a lot of companies give them credit for, you know, themselves credit for. And I think
+[02:55] that there's, I mean, there's a lot of ways that companies think about their,
+[02:58] there are very few companies, I imagine, out there in the world saying, oh, we don't do
+[03:01] some degree of good for our users. Even if it's like a game, it's like, I don't know,
+[03:06] you're like making your given somebody a moment away from the craziness of their lives.
+[03:11] And so I do think, though, that is contingent on companies who are going to figure out if
+[03:15] a streak works for them to figure out how can you frame the streak in such a way that a user
+[03:19] does feel good about it. And it's easier for, you know, a Duolingo, but, you know, I think
+[03:24] there's creative ways to phrase this for users. You know, the other thing, maybe just on that,
+[03:28] that I'll say is the streak works really well for Duolingo, because with language learning,
+[03:34] it's really hard to see day-to-day progress and becoming more fluent. Like,
+[03:39] becoming, and fluency is not even the right word. It's like becoming better at Spanish
+[03:43] or whatever. It is a years-long process for someone to get better at a language. I mean,
+[03:49] Duolingo makes it easier, but you still got to put in thousands of hours if you're going to
+[03:53] reach, you know, C1 or C2 fluency. And that is really hard to track on a day-to-day.
+[03:58] And so the streak works really well for us, because we might not be able to tell you,
+[04:03] hey, you now know 0.0, you know, 1% more Spanish, but we can show you, hey, like,
+[04:10] you've gotten your streak a little bit higher. And so I think this works particularly well when
+[04:13] you're an app that is doing something that's going to be sensed or felt over a longer term
+[04:19] to help contextualize that progress in a way that makes more sense, or at least feels more tangible
+[04:25] to a user.
+[04:26] Great. That was a great context. Empowering to a lot of companies that aren't necessarily doing
+[04:29] language learning.

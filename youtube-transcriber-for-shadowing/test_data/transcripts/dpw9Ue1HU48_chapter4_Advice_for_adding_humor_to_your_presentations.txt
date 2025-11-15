@@ -1,0 +1,55 @@
+Chapter 4: Advice for adding humor to your presentations
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 11:45 - 15:28
+============================================================
+
+[00:00] Wow, I feel like I've just learned so much about you and how you think just from that question and how you approach this problem on
+[00:06] This humor piece. I'm curious any lessons to share on how to be funny
+[00:10] so one of the kind of tricks of the trade in humor and you learn this
+[00:14] Particularly a stand-up comedy, but just any comedy and I just hadn't thought of it this way
+[00:18] Is that and this is very tactical, but it works and it's a very easy thing to apply
+[00:23] So let's say you're looking at and most of us in it in the
+[00:26] You know, we're not stand-up comedians
+[00:27] We're not gonna tell jokes in the classic sense, right? And even stand-up comedians don't tell jokes, right?
+[00:31] They they actually have stories and they happen to have a punchliner punchliner to the two tactical pieces of advice
+[00:38] One is when you're telling the story, whatever the funny bit is
+[00:43] Those have to literally be the last words of that particular segment, right? So once you deliver it
+[00:49] Then you have to stop talking and the reason you have to stop talking is the audience that needs about a half
+[00:54] a second to react and then they want the permission to laugh and if you're continuing to say words
+[01:00] It's gonna make them feel awkward and it's gonna be less funny
+[01:03] So even if like moving a phrase in the sense that you're about to say it's like well
+[01:08] That sounds kind of weird to put those set of words at the end of the thing
+[01:11] Do it anyway, even though it's awkward because it will actually work better
+[01:15] That's kind of tip number one tip number two on LPM generally is that
+[01:20] Have a story such that you can kind of spend the time setting up the story
+[01:24] But then have multiple funny bits multiple punchlines because you've already made the investment
+[01:28] I've said 75 words in order to kind of set up this context
+[01:32] Say something funny that's amusing that's so whatever say some more things you already have the content
+[01:36] You'll see the stand-up comedians do this all the time and then say something else
+[01:38] That's funny because you just because a laugh is a laugh doesn't really matter that it was still the same story
+[01:43] So kind of leveraged the investment you've already made in establishing context and scene and then just squeeze more humor into the end of it
+[01:51] Kind of punctuated fashion. I feel like the entire podcast could just be this one thread
+[01:54] But I need to move on to other topics one quick question
+[01:57] So you said ideal laughs for a minute is two to three ish. Is that what you said?
+[02:01] Yeah, two plus is hard for a business talk, right? Because they have comedians the reason they can do it is
+[02:08] That's all they're really kind of solving for is LPM
+[02:11] In business talks you actually have another agenda other than just being entertaining, right?
+[02:15] You actually have a message you're trying to promote something promote an idea promote a product
+[02:18] So anyway, anything in my mind for
+[02:22] For like most normal circumstances even if you can get above like a one one point two to five
+[02:28] You're in the top-decile in terms of top generally given by non-professionals. Wow, this is incredible
+[02:35] So after every talk you will listen you run this transcript and audio through your program to see how you did yet
+[02:40] Yes, and are you ever going to publish and release this program because that sounds really cool
+[02:44] I have this notion of what I call solo wear and solo wear is exactly what it sounds like it's software built for exactly one person
+[02:51] In my case that one person is me and so I've been doing this
+[02:55] Thing for like 30 years right now
+[02:57] I just build things that I would myself find useful
+[03:00] And the nice thing about so one of the many nice things about it is that you have the UI is only for one person
+[03:06] You don't have to do a whole lot of testing because only needs to work for one person
+[03:09] And the most important thing is that because it's only for one person if it stops bringing utility you can just turn it off
+[03:15] You should stop using it versus if you have users even 10 users and you put it out there
+[03:20] And then people would be disappointed if you took it down for whatever reason
+[03:24] That's kind of hard. So anyway, so that's the capital that I go through is like is this
+[03:29] Useful enough to enough people where it's worth the calories of kind of making it non-solo wear making it even
+[03:34] Microware I just made that up. But yeah, so wow, okay
+[03:37] Let's see how the YouTube comments react and how many people would want this and pay for it

@@ -1,0 +1,26 @@
+Chapter 5: Challenges and setbacks in Canva’s journey
+Video: The woman behind Canva shares how she built a $42B company from nothing | Melanie Perkins
+Time: 22:00 - 26:30
+============================================================
+
+All feels very easy, kind of on the flip side of that. This is a segue. People hear these stories. They hear your story. They see Canva over the years, and it's just this like up into the right huge success story. One of the most successful companies in history. I imagine there have been many periods where things weren't going so great, and when maybe things didn't look like they would work out. 
+
+So let me just ask you this: over the course of building Canva, once it started to click and started to feel like it was going to be a thing, was there a point where it started to again feel like, wow, maybe this may not work out? Maybe there's a huge setback that we may not get over? I think it's just a constant evolution. Like every time the company doubles in size, pretty much all your systems break. All the things that were working don't work. 
+
+A little example: in the early days, we'd stand up and everyone would present their goals, what they're working on every day, every week. And then it kind of moved to every month. And then it was just like, it was just taking too long because we've got so many people. And then it was sort of like, we decided that doing these things called season openers. Season openers were really fun where we got the entire company together. We talked about the goals that we'd achieved. 
+
+It was so funny because ahead of season openers, everyone would launch everything because they wanted to do it ahead of the season opener. And then we'd also set the goals for the coming cycle, for the coming season at that point in time. But then they started to become like six hours long because we had so many people and so many teams. So trying to find that right balance with the same philosophies of deep context for everyone, with the same philosophies of the celebrations and the goals, and trying to find that right flavor at every stage of scale is definitely hard. 
+
+I think it's just like a constant work in progress. Or back to your earlier point about timing of things. We were doing a front-end rewrite, and we thought it would take about six months. It was really important because it was critical for cross-platform. It was critical for right to left. It was critical because we could only have five people working in our editor at any point in time because of the way the code base was structured. 
+
+And we thought it was going to take six months. And then it took two years. It was two years of not shipping any product—two years of a product company not being able to ship product. And like that is such a core motivation for our team. Shipping something, seeing great customer feedback, makes everyone feel happy and like we've got momentum. It just felt like we were in a dark, dark tunnel that we could hardly see the end of. 
+
+We didn't really know how long it was going to take because it had to take as long as the tunnel was going to take. It was a very hard time because other people would be launching this and that, and we weren't. Eventually, we got out of that tunnel, and it was extremely important that we did that work. We've now got 2,500 engineers, and we're able to deliver amazing things that would have just been completely infeasible. 
+
+Simultaneous collaboration was like so many things were baked into this. But yeah, it was not a fun period of time. A product company not shipping product is not really a recipe for fun for two years. I feel like every builder listening to this knows exactly what you've been through, and maybe not on that scale or those stakes. But you start on something, and it will take a few weeks, and then a year later, you're still working on it. 
+
+How did it feel? Was the mood really, I don't know, sad internally? Just that must have been like two years. That's a long time not to ship anything. Just what was it like internally during that period? I think it was kind of everything internally. We made it into a bit of a game. We had this game board, and I bought these little rubber ducky sort of bath toys. 
+
+So we had all the little components represented as a bath toy on this board. There were all these stages of like home that kind of went launched in product. There was an emergency lane at the end of it, which was home and host. We did these weekly stand-ups where everyone would come in and talk about where their bath toy was at. We tried to make it fun for the team. 
+
+So it was partly fun, and it was partly distressing as all around investors were like, “Hey, you know that thing.” So I think it was both things at the same time. It was bonding, let's say.

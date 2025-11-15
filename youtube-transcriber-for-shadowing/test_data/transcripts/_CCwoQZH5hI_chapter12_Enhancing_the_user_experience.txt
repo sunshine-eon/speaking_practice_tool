@@ -1,0 +1,130 @@
+Chapter 12: Enhancing the user experience
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 60:40 - 64:47
+============================================================
+
+[00:00] you know, have lost it, particularly if it was, you know.
+[00:02] But it also can feel that easy.
+[00:04] I love this.
+[00:05] I also love this point about just the power of the
+[00:08] animation and user experience having impact.
+[00:10] That's really interesting.
+[00:12] Is that something you find often just like make,
+[00:13] like celebrating and making it feel really amazing
+[00:17] without like copy or, you know,
+[00:19] or like any feature is just like, holy, you're awesome.
+[00:22] This is another thing where it's like
+[00:23] when users care about the feature using
+[00:26] not only animation, haptics, sound effects,
+[00:31] using, and it's funny, we don't have sound effects
+[00:32] on the streak.
+[00:33] There's probably something we'll look at
+[00:34] in the not too distant future,
+[00:35] but like haptics are like something we have done
+[00:37] a lot of testing on.
+[00:38] Like the phone vibrating in various ways.
+[00:39] Yeah, exactly.
+[00:40] Your phone, you know, like there being a really cool
+[00:43] haptic pattern as you extend your streak,
+[00:46] all of this stuff wins.
+[00:47] And it's cool because I think it wins.
+[00:49] There's a few reasons.
+[00:50] One is it just makes you feel good, right?
+[00:52] You know, you get some cool moment in your streak
+[00:55] and we celebrate you and we celebrate you
+[00:57] in this visual way and your phone's buzzing.
+[00:58] It just like feels awesome.
+[01:00] The other thing it does is it like
+[01:01] causes you to pause on that screen.
+[01:03] And I think there's this desire as you think
+[01:05] through a lot of, you know, as PMs think,
+[01:07] through like, oh, how can I get users
+[01:09] to do this funnel as painlessly as possible?
+[01:10] You know, I talked about good and friction early.
+[01:12] There's a lot of times where I don't,
+[01:13] I want you to stop.
+[01:14] I want you to stop and like land on this screen.
+[01:16] You gotta be careful not to do this
+[01:17] for too many screens, right?
+[01:19] But like for the one big ones,
+[01:21] sometimes I just want you to pause there
+[01:23] and enjoy the moment.
+[01:24] Because if I can get you to enjoy the moment more,
+[01:26] you're gonna care more about your streak
+[01:27] and you're gonna be coming back tomorrow.
+[01:29] And so animations that are cool
+[01:31] and that cause you to like really soak it in,
+[01:32] haptics, you know, that feel good,
+[01:35] all of that comes together
+[01:36] to make you really focus on that moment.
+[01:40] All of that just gets users more connected to their streak.
+[01:42] So animation in the right times works well
+[01:46] and it's something we've had win quite a lot.
+[01:49] Who designs the haptic stuff?
+[01:51] Is there like a haptic designer?
+[01:53] For the longest time, it would be a product designer
+[01:56] or it initially started as like the engineer would be like,
+[01:59] all right, you know,
+[02:00] would cobble together haptics based on what they felt good.
+[02:03] Then it became a product design role
+[02:06] where they would kind of use their best judgment.
+[02:08] We actually just recently required
+[02:10] an animation studio, Hobbs in Detroit.
+[02:13] And now they are the sort of keepers of, you know,
+[02:16] they do a lot of motion design work haptics
+[02:19] very close to that.
+[02:20] And so they do a lot of that.
+[02:21] I do remember trying to hire for a while
+[02:23] a haptics like contractor, like haptics design.
+[02:28] And it was the saddest hiring I've ever done
+[02:30] because it was just like, I don't know,
+[02:31] like it was such a specific,
+[02:33] like I just went through a lot of people who, you know,
+[02:37] it's just a really tricky space
+[02:39] of like kind of sound effects,
+[02:40] kind of motion design, sort of technical.
+[02:42] Yeah, such a unique role.
+[02:45] Very unique specific skill set.
+[02:47] Right. And there's very few apps
+[02:48] that really need this deeply.
+[02:50] So you're almost creating this person.
+[02:52] Yeah, that is fascinating.
+[02:54] I don't want, I'm gonna,
+[02:55] that's like a whole podcast on its own.
+[02:57] By the way, I was gonna say,
+[02:58] as you're talking about this,
+[02:59] I love that it's a win to celebrate people
+[03:02] that don't lose their streak.
+[03:03] Like you introduce this way to make it flexible
+[03:05] and that's a big win.
+[03:06] And then you go the opposite direction
+[03:08] of if you don't use this feature,
+[03:09] you also feel even better.
+[03:11] Well, and it's funny you,
+[03:13] like you talked about the danger of feature bloat
+[03:15] or we sort of talked about the danger of feature bloat.
+[03:17] This is actually something
+[03:18] I'm constantly thinking about with this.
+[03:19] Like we have the streak,
+[03:20] then we also have the perfect streak.
+[03:22] And we can count how many,
+[03:23] we count how many weeks you've had a perfect streak.
+[03:25] Well, all of a sudden we have two streak numbers
+[03:27] that are kind of competing with each other.
+[03:29] It's funny, we actually don't introduce the concept
+[03:31] of a perfect streak until after you've hit seven days.
+[03:35] And some of this is just because
+[03:37] the cognitive load of additional streak features,
+[03:40] a lot of our like coolest streak features,
+[03:42] you got to get on a long enough streak.
+[03:44] And not to say we haven't tested it
+[03:46] because we haven't tested everything,
+[03:47] introducing these features earlier,
+[03:49] but what we've found is that pretty universally
+[03:52] they lose when we introduce too many things,
+[03:55] too many concepts to users too early in the experience.
+[03:57] It's just hard for them to manage.
+[03:59] Okay, sweet.
+[04:01] I know that we can go down this track
+[04:03] for hours and hours.
+[04:04] There's endless learnings about all the things y'all

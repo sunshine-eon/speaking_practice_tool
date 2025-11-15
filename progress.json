@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-13T21:07:29.087973",
+  "last_updated": "2025-11-14T17:58:36.282710",
   "weeks": {
     "2025-W44": {
       "voice_journaling": {
@@ -227,7 +227,8 @@
         "completed_days": [
           "2025-11-10",
           "2025-11-11",
-          "2025-11-12"
+          "2025-11-12",
+          "2025-11-14"
         ],
         "video_name": "",
         "script": "Picture this: a tiny hummingbird flitting from flower to flower in a vast garden. It hovers mid-air, wings a blur, drinking nectar and pollinating as it goes. This small creature, seemingly insignificant, plays a vital role in the ecosystem around it. And yet, most of us pay little attention to these everyday miracles. Today, I want to explore the concept of interconnectedness in nature and how these small acts have a profound impact on the world. \n\nHummingbirds are an excellent example of nature's complex web. They are vital pollinators for many plant species. Without them, these plants couldn't reproduce. This symbiotic relationship highlights the delicate balance in our environment. When a hummingbird takes nectar, it inadvertently picks up pollen on its feathers, transferring it to the next flower it visits. This not only ensures the plant's survival but also supports the broader ecosystem by maintaining biodiversity. \n\nNow consider another example: the coral reefs. Often described as the rainforests of the sea, these vibrant ecosystems teem with life. They provide shelter and food for a quarter of all marine species, despite covering less than one percent of the ocean floor. Just like the hummingbird's role with plants, tiny coral polyps support entire underwater communities. They create calcium carbonate exoskeletons, forming the complex structures we know as reefs. These reefs protect coastlines from erosion and serve as essential breeding grounds for fish and other marine creatures. Their existence ensures the survival of countless species, including those humans rely on for food. \n\nInterconnectedness in nature extends beyond the animals and plants to us as human beings. Our lives are intricately linked to the natural world. The air we breathe is purified by forests; the water we drink is filtered by wetlands. However, the actions we take, often without realizing, can disrupt these systems. Consider the impact of deforestation. It's not just the trees that disappear. The entire ecosystem suffers. Species lose their habitat, carbon storage is reduced, and the climate is affected. \n\nIn the face of these challenges, we must reevaluate our relationship with nature. We need to recognize our place in this vast web of life and understand that even small actions can lead to significant change. Protecting a single tree can sustain a community of organisms. Supporting conservation efforts can preserve entire ecosystems. We hold the power to protect these natural networks that, in turn, support us. \n\nReflecting on these connections, let's imagine a world where we prioritize harmony with nature. A world where conservation is at the forefront of our actions. By doing so, we ensure not only the survival of species like the hummingbird and coral reefs but also the well-being of our planet and ourselves. Next time you see a hummingbird, remember that its tiny wings carry the weight of an entire ecosystem. And with that, I hope we all realize the significance of our role in nurturing the delicate balance of life.",
@@ -398,6 +399,14 @@
               "timestamp": "20251112_215653",
               "date": "2025-11-12"
             }
+          ],
+          "2025-11-14": [
+            {
+              "filename": "fri_1_20251114_175107.webm",
+              "url": "/recordings/2025-W45/shadowing_practice/fri_1_20251114_175107.webm",
+              "timestamp": "20251114_175107",
+              "date": "2025-11-14"
+            }
           ]
         }
       },
@@ -493,6 +502,27 @@
           "2025-11-13": "",
           "2025-11-14": ""
         }
+      },
+      "podcast_shadowing": {
+        "recordings": {
+          "2025-11-14": [
+            {
+              "filename": "fri_1_20251114_175835.webm",
+              "url": "/recordings/2025-W45/podcast_shadowing/fri_1_20251114_175835.webm",
+              "timestamp": "20251114_175835",
+              "date": "2025-11-14"
+            }
+          ]
+        },
+        "completed_days": [],
+        "mp3_file": "D4PDb_C8Dww_2679_2790.mp3",
+        "episode_name": "Building a world-class data org | Jessica Lachs (VP of Analytics and Data Science at DoorDash)",
+        "chapter_name": "Defining effective metrics",
+        "transcript_path": "youtube-transcriber-for-shadowing/test_data/transcripts/D4PDb_C8Dww_chapter10_Defining_effective_metrics_formatted.txt",
+        "typecast_audio_url": "audio/week_2025-W45_podcast_typecast.wav",
+        "typecast_voice": "tc_67b6985d4d5d632d97478263",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2025-W46": {
@@ -520,6 +550,17 @@
         "completed_days": [],
         "mp3_file": "네영사046_ch05_n61_69.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "EgBOVDzUUAA_2604_2681.mp3",
+        "episode_name": "Kunal Shah on winning in India, second-order thinking, the philosophy of startups, and more",
+        "chapter_name": "Advice for staying positive amid criticism",
+        "transcript_path": "youtube-transcriber-for-shadowing/test_data/transcripts/EgBOVDzUUAA_chapter13_Advice_for_staying_positive_amid_criticism_formatted.txt",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2025-W47": {
@@ -547,6 +588,17 @@
         "completed_days": [],
         "mp3_file": "네영사047_ch05_n70_80.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2025-W48": {
@@ -574,6 +626,17 @@
         "completed_days": [],
         "mp3_file": "네영사048_ch05_n81_90.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2025-W49": {
@@ -601,6 +664,17 @@
         "completed_days": [],
         "mp3_file": "네영사049_ch05_n91_100.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2025-W50": {
@@ -628,6 +702,17 @@
         "completed_days": [],
         "mp3_file": "네영사050_ch06_n01_10.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2025-W51": {
@@ -655,6 +740,17 @@
         "completed_days": [],
         "mp3_file": "네영사051_ch06_n11_22.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2025-W52": {
@@ -682,6 +778,17 @@
         "completed_days": [],
         "mp3_file": "네영사052_ch06_n23_32.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W01": {
@@ -709,6 +816,17 @@
         "completed_days": [],
         "mp3_file": "네영사001_ch01_n01_12.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W02": {
@@ -736,6 +854,17 @@
         "completed_days": [],
         "mp3_file": "네영사002_ch01_n13_25.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W03": {
@@ -763,6 +892,17 @@
         "completed_days": [],
         "mp3_file": "네영사003_ch01_n26_37.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W04": {
@@ -790,6 +930,17 @@
         "completed_days": [],
         "mp3_file": "네영사004_ch01_n38_50.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W05": {
@@ -817,6 +968,17 @@
         "completed_days": [],
         "mp3_file": "네영사005_ch01_n51_63.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W06": {
@@ -844,6 +1006,17 @@
         "completed_days": [],
         "mp3_file": "네영사006_ch01_n64_69.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W07": {
@@ -871,6 +1044,17 @@
         "completed_days": [],
         "mp3_file": "네영사007_ch01_n70_79.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W08": {
@@ -898,6 +1082,17 @@
         "completed_days": [],
         "mp3_file": "네영사008_ch01_n80_85.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W09": {
@@ -925,6 +1120,17 @@
         "completed_days": [],
         "mp3_file": "네영사009_ch01_n86_99.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W10": {
@@ -952,6 +1158,17 @@
         "completed_days": [],
         "mp3_file": "네영사010_ch01_n100_112.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W11": {
@@ -979,6 +1196,17 @@
         "completed_days": [],
         "mp3_file": "네영사011_ch02_n01_13.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W12": {
@@ -1006,6 +1234,17 @@
         "completed_days": [],
         "mp3_file": "네영사012_ch02_n14_22.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W13": {
@@ -1033,6 +1272,17 @@
         "completed_days": [],
         "mp3_file": "네영사013_ch02_n23_32.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W14": {
@@ -1060,6 +1310,17 @@
         "completed_days": [],
         "mp3_file": "네영사014_ch02_n33_49.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W15": {
@@ -1087,6 +1348,17 @@
         "completed_days": [],
         "mp3_file": "네영사015_ch02_n50_66.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W16": {
@@ -1114,6 +1386,17 @@
         "completed_days": [],
         "mp3_file": "네영사016_ch02_n67_79.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W17": {
@@ -1141,6 +1424,17 @@
         "completed_days": [],
         "mp3_file": "네영사017_ch02_n80_96.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2026-W18": {
@@ -1168,6 +1462,17 @@
         "completed_days": [],
         "mp3_file": "네영사018_ch02_n97_109.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     },
     "2025-W43": {
@@ -1222,6 +1527,17 @@
         "completed_days": [],
         "mp3_file": "네영사019_ch02_n110_121.mp3",
         "notes": {}
+      },
+      "podcast_shadowing": {
+        "completed_days": [],
+        "mp3_file": "",
+        "episode_name": "",
+        "chapter_name": "",
+        "transcript_path": "",
+        "typecast_audio_url": "",
+        "typecast_voice": "",
+        "typecast_speed": 1.0,
+        "typecast_model": "ssfm-v30"
       }
     }
   }

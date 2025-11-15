@@ -1,0 +1,28 @@
+Chapter 10: How to optimize your LinkedIn profile to get noticed by recruiters
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 24:55 - 28:38
+============================================================
+
+How to position yourself against some of the other candidates? What else can a person looking for a job do to improve their chances of a recruiter finding them? I feel like that's probably the best tactical thing they can do because a lot of LinkedIn is recruiters reaching out and finding you. 
+
+There are two things that anyone who's hiring is always going to look for: your skills and capabilities, and your intent and interest in the role. A lot of our products and pathways aim to make those things simpler. So maybe we'll start with interest and then move back to skills in a minute. 
+
+A couple of things we've launched recently, which I think are symbolic of other ways you can connect, involve company pages. If you go to a company page and express interest in that company, even when they don't have roles available, it signals to them that you're genuinely interested. When the next role comes up, they will have a record of your interest, making it easier for them to consider you. 
+
+Certainly, you can also go into the "open to work" feature and indicate that you are actively looking for a job. This is a strong signal of intent. I would encourage both of these actions. If you're looking for a role, be open about it and communicate your interest to the companies you're targeting. These are high signals of intent. 
+
+On LinkedIn, you can specify the types of jobs you're looking for when you indicate that you're open to work. This detailed intent helps ensure that your profile is shown to the right people. 
+
+Now, on the skills side, we touched on this a bit, but I think there's a significant change happening. When you were only looking at job titles, you had one way to prove your skills: you had to hold that title, which can be quite challenging. In a world focused on skills, you can demonstrate what you can do and provide evidence to back it up. I encourage people to do this. 
+
+If you look at any job post, you can see the required skills and add evidence of your own skills. When recruiters are searching for candidates, profiles pop up, and they can scroll over a skill to see the evidence you've provided. This allows recruiters to understand why they should recommend you to a hiring manager, which I hope proves to be a useful approach. 
+
+Now, I'm going to lob this question like a fishing line to see if it catches anything. If not, we'll move on. Are there any statistics you've seen that indicate if you do XYZ, your chances of getting hired or getting outreach significantly increase? 
+
+The "open to work" feature certainly has a high signal-to-noise ratio. When someone is looking to fill a role, they want candidates who are actively seeking opportunities. We are early in assessing company commitments, but we are seeing some positive signals there. Skills also carry a high signal; when you can demonstrate your skills, we see a correlation with people securing roles. 
+
+The final aspect is harder for us to analyze, but it's important. We often show hiring managers profiles of candidates, but tracing the outcomes can be complex due to the nature of the hiring process. I encourage people to explore ways to get in front of those hiring managers. 
+
+Is there a maximum seniority level that you find works effectively on LinkedIn for job searching? For instance, I imagine CPOs aren't typically finding jobs on LinkedIn. Do you have a rule of thumb regarding seniority levels and job searching success? 
+
+We do have CPO jobs posted, but the distinction often lies between job postings and recruiting. More senior roles are typically filled through recruiting. We find that people use LinkedIn to connect with CPOs, and many senior professionals report receiving messages on LinkedIn that led to job opportunities or long-term recruiting contacts. However, it may not happen through the traditional method of finding a job and hitting the application button.

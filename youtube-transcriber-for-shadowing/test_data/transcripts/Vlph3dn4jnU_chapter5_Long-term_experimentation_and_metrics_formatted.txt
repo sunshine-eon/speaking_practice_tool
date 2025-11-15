@@ -1,0 +1,90 @@
+Chapter 5: Long-term experimentation and metrics
+Video: Breaking the rules of growth: Why Shopify bans KPIs, optimizes for churn, and prioritizes intuition
+Time: 11:08 - 23:00
+============================================================
+
+Accessible outliers. So this begs the question: that sounds like a very long feedback loop, and I don't know what I do with that information if five years from now, oh, okay, that was a really good idea we did five years ago. Correct. Comment on that because it touches on something you said about how metrics aren't actually a driver of how you all think at Shopify. So take that wherever you want to go.
+
+Yeah. So it's interesting. I think at Shopify, we kind of very purposely set up different parts of the org to think on very different time horizons and with very different ways of thinking about how to build product and the like. It's very different than a lot of companies that typically have maybe one kind of unified North Star that the entire company is rallying around. 
+
+There are three major product groups at Shopify. There's core product, which is basically building the right things for commerce a hundred years from now. There's merchant services, which is building things like payments and shipping—kind of the tools that entrepreneurs need to be successful with a more short- or medium-term horizon. And then growth is really thinking about that end-to-end customer journey. How can we bring folks on and make sure that it's successful?
+
+From a metric standpoint, we do have some leading indicators in growth that we're looking at on a given experiment or what have you. But the key, and what we try to instrument in our experimentation, is the ability to really look at long-term effects of experiments. We constantly relook at an experiment a year later to see that the way the GMV curve for the distribution was different than we might have originally thought. Now we actually change what we do with that previous experiment. 
+
+There's a lot of long-term monitoring of experiments over these very long time horizons to both inform what those input metrics are and, more importantly, hold ourselves accountable to whether we actually moved what we cared about, which is that long-term GMV in the right way.
+
+Wow. Okay. I want to spend more time here. So the way you're describing it is that the way the business operates is you think, what is our hundred-year plan? How do we think? Where does this need to be in a hundred years? And with that, it allows you to run these long holdout experiments to see if something we're doing is impacting the business broadly. Because you think so long-term, you can take a year or two or three to see if there's an impact and then make adjustments versus having to drive a certain metric every quarter of a year.
+
+Correct. And on growth, we're definitely in the mindset of wanting to drive metrics on a short-term basis, so we can do that, obviously. But we have the luxury, just the way Toby thinks about the world and the way we operate, to really consider these long-term effects and make sure that we're holding ourselves accountable with these long-term holdouts. 
+
+We are constantly refining the input metrics that we're using and getting a lot smarter about that. Because we take that long horizon, it allows us to be better in the short term and just get a lot smarter about a lot of counterintuitive things. I would encourage everyone, if you can, look at some of the experiments that you thought were your biggest winners. Look at the downstream metrics for a year or two on that experiment. I bet you'd be surprised how many times the metric is different than what you thought it would be after a year.
+
+Because where people just make a call at a certain point in time, here's the last image, here's the last experience. I love this. Very few people have experiences running a long-term experiment. This is a really interesting insight that you're sharing. How often do you find this to be true in your long-term holdouts where things end up being very different downstream?
+
+I think there are probably two things that have been very common. In quite a few cases, you get a lift on a metric upfront—a more short-term metric, like the number of people who become paying Shopify users or the number of people who make their first sale on Shopify. Then you look a year later, and there's actually no incremental lift on GMV from that cohort. 
+
+I think it actually trains a lot of us in growth or looking at these short-term metrics. A lot of the time, it's actually more of a pull-forward effect than you fully realize, or an incremental user that's just really not worth that much. So that's one. Then, there are cases where the experiment has flipped the other way. The most interesting ones are where you realize that you uncovered a pocket of merchants who are actually extremely valuable entrepreneurs who go on to be successful, that you missed in your normal short-term measurement techniques.
+
+So kind of all across the board, we see that, but actually the most common is that it isn't a long-term lift from a lot of things that you might think of as short-term.
+
+Is there an example in that second bucket of what you mean when you say there's like a pocket of valuable merchants? 
+
+Yeah, I think a lot of this has to do with what we call monetary friction, right? One of the hardest things to do when you're getting started is that you might not have any revenue coming in, right? You're kind of bootstrapping, which in Shopify's case might be $39 a month, but it's still a real expense. 
+
+Typically, when you can lower the barriers to monetary friction in some form, that could be all sorts of monetary friction early. The common belief is that we'll usually get lower-quality folks coming in the door because usually discounts are associated with lower quality. If you think about it in a business case, if I give you a little monetary boost and reduce that monetary friction, I can actually causally change your ability to become successful because I've given you a little bit more time to try that idea a little bit longer. 
+
+I've given you that opportunity to move your business over to Shopify. Often in those types of experiments, you see that you've basically unlocked a class of people who might have given up without that monetary reduction in friction.
+
+Interesting. And giving them time to actually make it work.
+
+To make it work. So just roughly, do you have a sense of how often you find no effect after a year that you saw early impact, just to ballpark?
+
+Yeah, it's in the 30 to 40 percent range.
+
+Okay. I think you're tearing the heart out of so many growth people right now, and nobody wants to hear this that works on growth, where you're saying potentially a third of the experiments they're running today that are showing lift probably don't have any impact down the road.
+
+Yes. Unfortunately, I think that's brutal. It's probably more common than we like to believe.
+
+Yes, and that's going to—nobody wants to hear this—except people that, you know, you should want to hear this because if you want to build a business that grows and continues to grow, it's better to learn that now.
+
+Okay. So for people that can't run long holdout experiments, is there anything that you find is a good early indicator that that might be the case? Because most people don't have time to sit around and wait a year or two or three. They're not thinking 100 years.
+
+I mean, at the end of the day, that is going to be the most effective, and you actually learn the most. I think it is, though, even in shorter-term horizons, really being as specific as you can be about what are the early signs of success in your product and making sure you instrument those. Then, particularly for kind of up-funnel experiments, you are actually looking at those further downstream metrics to make sure you have some understanding of what's moving down.
+
+So as deep as you can go in the funnel for as long as you can wait, do that. If you can't, I would say still you should just bet on if something is showing lift up funnel, still ship it. It's probably not going to hurt you, but don't overestimate the amount of impact that this is having.
+
+So it's funny—two things here: don't think, oh my goodness, I have to wait all this time. Because if you didn't move the upper short-term impact, you're not going to have the long-term lift. So still ship if there's short-term lift. Just be reasonable that if you can measure it longer-term, you'll get better at identifying what things are really impactful.
+
+Got it. So it may be positive initially, but often neutral. Rarely is it neutral initially and then positive down the road.
+
+We've seen some cases of that, but it's rare. I haven't seen neutral be positive, but I haven't seen negative.
+
+Got it. Okay, so the old result is positive. Got it. Okay, that's reassuring. You're not harming the business. But you're probably getting a lot more credit than you deserve as a growth team shipping things that are likely.
+
+Yes, likely. And there are also just tradeoffs to moving on. On balance, you’re probably doing good things if you continue to ship things that are showing positive rates.
+
+100 percent. Okay, this is awesome. For people that want to run long-term holdout experiments, I imagine you've built your own experimentation system internally.
+
+Yeah, we have.
+
+Is it basically you hold out 10 percent, say, or some percentage of users from seeing the new change? Is that how you approach it, or is there a different way to approach it?
+
+Two things. We have two layers of holdouts. One is the more typical holdouts of like every change in a quarter, hold out 5 percent across the board. The second is for changes that only affect new merchants. What we'll do is take that group of folks, do a 50/50 split, and then run that for a few weeks. 
+
+What we're doing with the long-term effects is we'll actually ship the winner to 100 percent, but we're looking at the cohort of folks who were assigned to the experiment. We're going back and looking at those people who were assigned a year later. This allows us to still ship and get stuff out, but we've kind of held the experiment in a way that allows us to see those long-term effects just for the cohort that was exposed. That only works if you're doing it on new users; for existing users, it's a little more complicated.
+
+That's okay. In our experimentation tools, all experimenters are paying attention to the three-month, six-month, nine-month, and twelve-month results. So you can't really hide from what this really results in over a longer-term horizon.
+
+So your tool emails everyone involved in the experiment, like, "Here's what this cohort is doing now"?
+
+Correct.
+
+I love that. Okay, that's awesome. It's interesting to use kind of these cohort curves for GMV. Is that the core metric you look at to see?
+
+There are a few metrics: GMV, obviously gross profit, but GMV is kind of the key determinant of long-term success.
+
+So it's interesting. Most people use cohort retention curves. You're using cohort GMV over time, which correlates better. 
+
+Yes, and there's retention in profit, and then really the absolute number of merchants who are on the platform and then reaching certain GMV.
+
+Got it. Okay. I'm going to not keep falling as bad because we can go.

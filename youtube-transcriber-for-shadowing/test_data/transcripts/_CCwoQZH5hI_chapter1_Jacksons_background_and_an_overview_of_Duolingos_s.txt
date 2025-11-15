@@ -1,0 +1,88 @@
+Chapter 1: Jackson’s background and an overview of Duolingo’s streak feature
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 00:00 - 06:00
+============================================================
+
+[00:00] Duolingo is a $14 billion company that's hitting all-time highs, too.
+[00:03] It just keeps going up.
+[00:03] I think it doubled in value in the past six months.
+[00:06] Streaks is the most impactful feature.
+[00:08] We have right now over 9 million users with a year-plus streak.
+[00:13] If you look at the numbers, I think has been our biggest growth lover.
+[00:16] What Duolingo really focuses on is, you know, how do we help users build
+[00:19] habits around language learning?
+[00:22] Getting user come back the next day is the biggest problem to solve.
+[00:24] Let's get into the mother load of learnings from the journey of Streaks.
+[00:27] Talk about the key lessons, insights, and also wrong turns along the way.
+[00:30] I'd say, like, test everything.
+[00:32] We've run in the last four years over 600 experiments on the street.
+[00:36] So every other day, we've actually set up really good infrastructure for copy testing.
+[00:41] We used to say continue, our, like, standard CTAs continue.
+[00:44] And we changed that to commit to my goal, and it was, like, a massive win.
+[00:48] There's so much human psychology that you all learn through all these experiments
+[00:52] of just, like, how to motivate people, what motivates, what demotivates.
+[00:55] Say that you played a mobile game, that you've done it for 3,000 days in a row.
+[00:59] I don't know.
+[01:00] Maybe that hits a little bit different than you've learned Spanish for 3,000 days in a row.
+[01:07] Today, my guest is Jackson Shettleworth.
+[01:10] Jackson is a group product manager at Duolingo, leading the retention team.
+[01:14] This is a different kind of episode that I'm experimenting with,
+[01:18] where we spent the entire conversation focused on the journey and lessons of a single feature.
+[01:24] In this case, Duolingo Streaks.
+[01:26] Duolingo is a $14 billion business.
+[01:30] Just over the past six months, they doubled in value.
+[01:32] They're hitting all-time highs in usage and market cap.
+[01:36] They're also one of the very few successful and also the single biggest consumer app business in the world.
+[01:42] And as you'll hear from Jackson, the Streaks feature is the single most impactful feature
+[01:47] that most contributed to this growth and success.
+[01:50] In other words, you could argue this one feature created billions of dollars of value,
+[01:55] which to me means it is worth studying in depth.
+[01:59] In our conversation, Jackson shares the history of the Streaks feature,
+[02:02] all of the biggest wins and wrong turns they've taken along the way,
+[02:05] what he and his team have learned about what works and doesn't work with a Streaks mechanic,
+[02:10] and also how they set up their teams to operate in a way that allows them to run over 600 experiments on this product
+[02:16] and continue to find big wins.
+[02:18] I hope to do more episodes like this on features and products that you'd love to hear more about,
+[02:23] so leave a comment either on YouTube or on Substack and tell me which product or feature you'd love to see me cover.
+[02:29] And if you enjoy this podcast, don't forget to subscribe and follow it in your favorite podcasting app or YouTube.
+[02:34] It's the best way to avoid missing future episodes, and it helps the podcast tremendously.
+[02:38] With that, I bring you Jackson Shettleworth.
+[02:44] Jackson, thank you so much for being here and welcome to the podcast.
+[02:48] Yeah, thank you. Long time listener, first-time caller.
+[02:50] I appreciate it.
+[02:53] So this is going to be a really interesting conversation.
+[02:56] I've never done an episode like this before where we basically spent like an hour and a half going into one feature of one product.
+[03:05] But this is a very special feature.
+[03:07] It's a very special product.
+[03:09] Have you ever spent like an hour and a half just talking about this one feature with anyone?
+[03:13] Well, internally, so when we onboard new folks to the team, I actually just did this with somebody that joined the team recently where we spent,
+[03:21] and I was like, hey, let's spend an hour just talking about the streak.
+[03:24] We got through an hour, and I got through about 30% of what I wanted to share.
+[03:29] There's just so much.
+[03:30] We'll talk about this, but there's so much that we've learned over the years.
+[03:33] But never anything externally like this.
+[03:35] I think we've shared bits and pieces of learnings, but this will be like the mother load of learnings, hopefully, of how Dueling goes both the street.
+[03:42] We should title this the mother load of learnings of Dueling of Streaks.
+[03:46] This episode is brought to you by Pendo, the only all-in-one product experience platform for any type of application.
+[03:54] Tired of bouncing around multiple tools to uncover what's really happening inside your product.
+[03:59] With all the tools you need in one simple to use platform, Pendo makes it easy to answer critical questions about how users are engaging with your product,
+[04:07] and then turn those insights into action.
+[04:09] Also, you can get your users to do what you actually want them to do.
+[04:13] First, Pendo is built around product analytics, seeing what your users are actually doing in your apps so that you can optimize their experience.
+[04:20] Next, Pendo lets you deploy in-app guides that lead users through the actions that matter most.
+[04:26] Then, Pendo integrates user feedback so that you can capture and analyze what people actually want.
+[04:32] And the new thing in Pendo, Session Replace, a very cool way to visualize user sessions.
+[04:37] I am not surprised at all that over 10,000 companies use it today.
+[04:41] Visit Pendo.io slash Lenny to create your free Pendo account today and start building better experiences across every corner of your product.
+[04:50] Yes, you want to take your product lead know-how a step further?
+[04:53] Check out Pendo's lineup of free certification courses led by talk product experts and designed to help you grow in advance in your career.
+[05:00] Learn more and experience the power of the Pendo platform today at Pendo.io slash Lenny.
+[05:08] This episode is brought to you by Vantah.
+[05:12] When it comes to ensuring your company has top-notch security practices, things get complicated fast.
+[05:19] Now, you can assess risk, secure the trust of your customers, and automate compliance for SOC2, ISO 27001, HIPAA, and more with a single platform, Vantah.
+[05:31] Vantah's market-leading trust management platform helps you continuously monitor compliance alongside reporting and tracking risk.
+[05:39] Plus, you can save hours by completing security questionnaires with Vantah AI.
+[05:44] Join thousands of global companies that use Vantah to automate evidence collection,
+[05:50] and streamline security reviews.
+[05:53] Get $1,000 off Vantah when you go to vantah.com slash Lenny.
+[05:58] That's V-A-M-T-A dot com.

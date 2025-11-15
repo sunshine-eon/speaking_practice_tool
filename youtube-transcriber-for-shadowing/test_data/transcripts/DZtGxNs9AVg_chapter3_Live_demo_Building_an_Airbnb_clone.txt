@@ -1,0 +1,100 @@
+Chapter 3: Live demo: Building an Airbnb clone
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 09:39 - 18:34
+============================================================
+
+[00:00] So we're going to come back to some of this stuff, but let's get into a let's get into demo.
+[00:03] I rarely do demos on this podcast, but I'm finding that I think it's really important
+[00:08] for people to see these products in action because in a large part, this is the future of
+[00:14] product building. And a lot of people hear about, oh yeah, it's coming. And I don't think a lot of
+[00:18] people actually see what the latest tools are capable of. And so I love showing these sorts
+[00:24] of things on this podcast. So Lenny, I was thinking, did you ever consider
+[00:29] making a copy and build your own Airbnb? I haven't. But go on. How about you do that?
+[00:39] Let's do it. Let's do it. Okay, so we're going to make our own Airbnb.
+[00:42] Okay. So I just put in the first prompt for an Airbnb clone.
+[00:48] Okay. And what was the prompt just for folks that aren't watching?
+[00:52] Two words, Airbnb clones. That's the problem. I like, she starts info. And then what you get
+[00:58] is that the AI says, okay, I'm going to go through what doesn't beautiful Airbnb clone look like.
+[01:05] And it goes through a bit of like decision design decisions. And then I'll zoom out to see more
+[01:10] of it. We have this just UI that is, I mean, it has all the nice things you would expect
+[01:18] from Airbnb clone where you see different categories. And you can see two listings
+[01:26] with login buttons and everything. So far, it doesn't have the functionality of Airbnb,
+[01:32] it just has the UI. I would now ask for an improvement on some of the functionality.
+[01:38] Like if I'm switching category, I want to see different listings, let's say.
+[01:42] But if you have any thoughts on what we should build next, let me know.
+[01:46] Okay. And so you have this preloaded so you don't see how long it would take,
+[01:49] but how long would this normally take for it to just write all this code and have it for you?
+[01:53] The first prompt takes 30 seconds.
+[01:55] 30 seconds. Okay. Yeah.
+[01:56] And it's like a very good copy of Airbnb. I love that you didn't have to show it a design,
+[02:01] you just tell it Airbnb and it knows. Okay, so your question is what I want to add to
+[02:07] my own version of Airbnb. I've always wanted to explore buying the place that I look at,
+[02:13] just like, is this for sale? So what if we see what that would feel like if you're just like
+[02:18] a way to buy a listing. Okay. So let's, how about we add, I mean, prompting is important here.
+[02:26] So let's be specific. But we would ask creating an added button on the listing, which has purchased
+[02:34] this Airbnb home. Is that it? Perfect.
+[02:38] I've got a list. And I'll be even more specific. It will pop up a model to purchase the listing.
+[02:53] Perfect. And I love, so I think something as you're typing, I'm just going to share thoughts
+[02:57] as you're doing this. So the site that you asked this AI engineer to build, like it's actually
+[03:03] a functioning website that you can browse around. It's not just a design. The, say, obviously there's
+[03:09] no like actual listings here. Like there's no actual houses here. Say you were trying to like
+[03:13] actually build Airbnb and you wanted to start adding like actual homes that plug into this.
+[03:20] How does that sort of step work? So as you say, this is just kind of the mock up UI,
+[03:28] but it's also interactive. If I want to add login and listing management,
+[03:36] then we will connect something called the backend. So where data is stored, where users log
+[03:42] information is stored. And I can show you how to do that. First, let's just try out
+[03:48] where we got with this short prompt of adding the purchase listing. And it didn't do exactly
+[03:56] what I wanted. I said add a button, or I didn't say what a button should say, but it says book now.
+[04:03] And if I click book now, I get a booking confirmation. So the AI was like, okay,
+[04:12] it didn't really, it was probably surprised by you wanting to buy the listing since it's
+[04:17] Airbnb, right? So it still says book the listing, but it shows a pretty model where I can click
+[04:22] confirm and pay. And then it says yeah, booking confirmed.
+[04:26] I'll just say real quick, I love that this is actually a really good example of why
+[04:30] being a good product manager is important. A lot of wasted time happens when you're not
+[04:36] clear about the problem you're trying to solve and why you're trying to solve it and all that
+[04:39] kind of stuff. So it's really cool that this is a use case where you have to be
+[04:43] really good at explaining what it is you want. And it's interesting, you don't have to tell
+[04:47] this AI why, you know, humans want to understand why is this important?
+[04:52] Mostly need to be very clear about what it is you're doing. And I love that's a really strong
+[04:56] PM skill. PM's really good at that. So we have to explain exactly what you expect and what
+[05:03] you're not getting. It's even more important with AI than with humans. But so I go into
+[05:11] hooking up more of the factual functionality. But first, I'll actually show you something
+[05:17] that was the fastest way to change what went wrong. It's created buttons that say book now.
+[05:24] And I want them to say buy now. And what I could do is to select this item and say
+[05:31] change it to buy now. But what we just released is that you can actually edit this. This is
+[05:39] a fully functioning product, but you can edit it visually, like you're doing Squarespace and
+[05:45] Wix and so on. So I'll just change the text to buy now. And then it instantly changes.
+[05:51] It actually changes like deep down in the code base, but it's very fast to do that.
+[05:56] So I think people listening to this and seeing this, if you're not aware,
+[06:00] like this is the cutting edge of tools like this. No other tool out there lets you
+[06:06] generate code from an AI engineer and then actually just like change a small
+[06:11] element of it, of every other tool that I'm aware of, you have to like ask the agent,
+[06:16] do this for me, and then you hope that it does the right thing. So this is a huge deal,
+[06:19] which you just showed, right? Yeah. Now it says buy now. Okay. And that's something you just
+[06:25] launched. Correct. You just launched this a few days ago. But I want to go into
+[06:30] fulfilling the full functionality. But what it looks like is that you connect
+[06:35] an open source backend as a service. And that's called Superbase.
+[06:40] And I have this instance to connect to that's completely empty, just like one click to set that
+[06:46] up. And now it's connected to the backend. It's just like automatically generating and explaining,
+[06:53] generating some code and explaining what I can do next. And what I would do now is say,
+[06:59] let's add login, let's say, let's add login. And where is it actually hosted
+[07:04] on the backend in general? Yeah, so everything can be one click deployed. And then it's running,
+[07:12] it's hosted by a cloud vendor, which is hosting, I think a huge chunk of the internet. It's called
+[07:18] Cloudflare. And the backend is hosted by the also a good cloud provider, which is called
+[07:26] Superbase. Amazing. Okay. Let's wrap up the demo. That was unless there's anything else.
+[07:32] Was there anything else really important you wanted to show?
+[07:34] Don't. I mean, I would explain what I would do next. I would say, okay, let's add login.
+[07:40] Let's make the listings editable by the users so users can upload listings. And
+[07:46] then this is going to take a bit more time. But with patience and
+[07:51] good prompting skills, you're going to get to a full working Airbnb.
+[07:55] That was a really good piece to add. So basically, like this is getting to a place
+[08:00] where it actually is not so different from actual Airbnb. People can log in, they can add their
+[08:05] home. You can add internal tools to add listings for your say sales team, ops team. Basically,
+[08:12] it just will allow you to build a marketplace. Great. That looks a lot like Airbnb. Amazing.
+[08:18] Okay. Thank you for the demo. I think for a lot of people, they're like, yeah,
+[08:21] I've seen this kind of stuff for most people. Like, holy shit. It's unreal.
+[08:26] Like it's almost like we're taking for granted now. You can ask an app to build you a whole
+[08:32] website. And that cost probably like a few pennies. It took like five minutes versus like,
+[08:39] it would have been tens of thousands and like weeks and weeks and months even build just a
+[08:43] prototype. I mean, these tools, as we see here, they're already very good. It looks really
+[08:48] good as well. But mainly, I would say they're getting better very, very fast.

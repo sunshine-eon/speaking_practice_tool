@@ -525,20 +525,13 @@ def generate_weekly_prompt(previous_prompts=None, regenerate=False, week_key=Non
     Args:
         previous_prompts: List of previous prompts from past weeks to avoid repetition
         regenerate: If True, indicates this is a regeneration and should generate different content
-        week_key: Week key (e.g., '2025-W45') to determine if shadowing mode is active
+        week_key: Week key (e.g., '2025-W45') - optional, for future use
     
     Returns:
         A prompt that encourages 3-5 minutes of speaking.
         Focused on product management topics for professional communication practice.
-        In shadowing mode (weeks <= 2025-W52), returns a dictionary with 'prompt', 'best_answer_script', and 'best_answer_hints'.
-        Otherwise, returns a string prompt.
+        Returns a string prompt.
     """
-    # Check if shadowing mode is active
-    if week_key:
-        from progress_manager import is_shadowing_mode
-        if is_shadowing_mode(week_key):
-            # Generate best answer script instead of prompt
-            return generate_weekly_prompt_best_answer(previous_prompts, regenerate, week_key)
     try:
         client = get_openai_client()
         

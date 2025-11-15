@@ -1,0 +1,18 @@
+Chapter 28: Once, 37signals’s new line of software products
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 83:19 - 86:33
+============================================================
+
+Final question before we get to our very exciting lightning round. Let's talk about Once. This is a new product, or rather an umbrella of products, that you're developing. Can you share your thinking behind this initiative? I believe you are also announcing the first product within this umbrella.
+
+So, the idea behind Once is that David and I feel like we might be a bit early here, but we sense a potential turn back towards the way things used to be. The pendulum always swings, and for the last decade or so, SaaS has been pretty much the only way to run business software. Essentially, you rent it. There aren't many alternatives; you just rent software. We think there’s subscription fatigue, and while there are certainly benefits to that model, there are also significant downsides to subscription software. 
+
+You keep paying the same amount every month for the same thing you had last month. It's not like a magazine where every month you get a new issue. In software, while there are updates, let's face it: the core of what you're using 90% of the time is the same thing you've been paying for over the years. That just seems a bit lackluster.
+
+We were going to launch this thing called Once, which is essentially a brand and an umbrella product line of non-SaaS products—business software products that people will download, pay for once, and then install on their own server, or a shared server, or in the cloud. They will run it, manage it, and there are no subscription fees or recurring costs. They will receive updates and support, but that’s it. We’re planning to launch the first product shortly, and we hope to release maybe three more next year.
+
+The beauty of these products is that we’re going out into the market and looking for commodities. There are a lot of commodities in business software, and while there are 50 alternatives, they all seem quite similar yet still charge luxury prices. In my opinion, if you’re paying tens or hundreds of dollars a month, or even thousands, for something when there are hundreds of alternatives with no real price differentiation, that’s an opportunity.
+
+In every other industry, there are generic options—generic peanut butter, generic pencils—essentially generic everything. We’re out there looking for these commodities that are still charging luxury prices, and we aim to create beautifully simple, essential generics of very high quality. These products won’t do everything that the other products do, but they will get the core of it right—the 80/20 rule. We can build these in typically three months with just two people, and the maintenance cost is essentially zero for us. 
+
+There are no marginal costs here because we create the software and sell it without the need for ongoing hosting, which is the expensive part of SaaS. So, that’s the idea behind Once. We don’t know what the market will think; I have no idea, but we’re really excited about trying this and seeing what happens.

@@ -1,0 +1,109 @@
+Chapter 11: The “Shape Up” framework
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 33:19 - 37:59
+============================================================
+
+[00:00] I want to start chatting about your ways of working, how you operate at 37 signals.
+[00:05] There's a lot of really unique approaches.
+[00:08] One is you mentioned that every project is, I didn't know this, is two people, a designer
+[00:11] and engineer, and then two to six weeks of work.
+[00:14] Can you just expand on how you actually do that, how product development works there?
+[00:17] Yeah.
+[00:18] So we have a framework, development framework we invented called ShapeUp.
+[00:22] And if you go to basecamp.com slash ShapeUp, you can read the book.
+[00:26] It's free.
+[00:27] You can also get a print version if you want.
+[00:29] ShapeUp is our methodology for actually building products.
+[00:32] And part of this is this idea, at the root of it is this idea of the six-week cycle that
+[00:37] whatever we choose to do can take no longer than six weeks.
+[00:41] So this is not an estimate of time.
+[00:43] It's an appetite, which is a radically different approach.
+[00:46] It doesn't sound like it's that much of a different word, but it really is.
+[00:49] An estimate is like, how long do we think it's going to take and how long it takes
+[00:53] is how long it takes.
+[00:55] And most human beings are terrible estimators.
+[00:57] We all are pretty much terrible estimators.
+[00:59] So that's why things keep going and going and going and going.
+[01:02] We instead have appetites.
+[01:04] And our appetite for any individual feature is no more than six weeks.
+[01:08] Essentially, that's our budget we're willing to spend.
+[01:11] I'm only willing to spend six weeks on any feature.
+[01:14] So we have to figure out the simplest, most effective version of that to get that done
+[01:18] within six weeks and get it done by two people.
+[01:21] Now not everything gets the full six weeks.
+[01:23] Some things were like, we have a one-week appetite for this.
+[01:25] This is not that big of a deal.
+[01:26] If we have it great, if we don't have it, that's fine.
+[01:28] We're willing to spend a week on it.
+[01:31] Not that it could take a week because it could also take 12 weeks if we give it 12
+[01:35] and it could take 24 if we give it 24.
+[01:37] Work expands to fill the time available.
+[01:39] So for us, it's about appetite.
+[01:41] So the idea of appetites, maxing things out at six weeks, two people max.
+[01:47] And then there's a lot of other details.
+[01:49] And I could go on for an hour about shape up.
+[01:51] People can read about it.
+[01:52] But it's those fundamental principles, appetites, six-week max, small teams.
+[02:00] And this idea of shaping the work ahead of time, then giving the team a lot of latitude
+[02:04] to figure out how to get that thing done.
+[02:06] We don't have like a spec.
+[02:09] We don't create to-dos or tasks or tickets for people.
+[02:14] They create the work that needs to get done to fulfill the idea that we've
+[02:17] written up and designed, essentially.
+[02:20] And they figure out how to do it.
+[02:21] And then we trade.
+[02:22] So they might get into something that we've said.
+[02:24] We have about six weeks, well, willing to give us six weeks.
+[02:27] And two weeks in, they go, we actually stumbled into something we didn't realize.
+[02:30] Like this is probably not going to be able to be done the way we thought.
+[02:33] So can we do it this way?
+[02:35] And then we have a discussion and there's a conversation.
+[02:37] There's a lot of molding and changing that happens along that period of time.
+[02:40] We call it trading concessions.
+[02:42] There's all the trade-offs we're always thinking about.
+[02:45] So all these things that come to bear.
+[02:47] And then people often ask, well, what if you don't get it done in the six weeks you gave it?
+[02:52] Well, so it depends.
+[02:54] So in most cases, it should die, meaning like it just doesn't happen.
+[03:00] Because if we say we're going to give it six weeks and we give it seven or eight
+[03:03] or nine or 10, then we're not really giving it six weeks or giving it 10,
+[03:06] then we don't really have a system.
+[03:08] There are times though when there's like a couple days left,
+[03:10] when we're on what we're calling the downslope.
+[03:12] So there's the, we have these things in Basecamp called Hillcharts.
+[03:16] And things that are on, that's actually work, work actually,
+[03:18] a project's more like a hill.
+[03:19] It's not like a linear line, right?
+[03:21] If you're in the left side of the hill, I mean,
+[03:23] you're still pushing this thing up the hill.
+[03:24] They're still trying to figure out how to do this.
+[03:27] But once work gets to the top, it's downhill from there.
+[03:29] It's like just pure execution and we know how to nail it.
+[03:32] So if we're like almost at the bottom of the hill on something
+[03:34] and it needs two more days, fine.
+[03:36] If there's any work that's left over that's still on the left side of the hill,
+[03:40] meaning like we're still pushing it up.
+[03:41] We don't know how we're going to do it.
+[03:42] And we're at our time limit.
+[03:44] It almost certainly dies.
+[03:45] So there are some contextual decisions to make at that point.
+[03:49] But fundamentally, that's how we approach work.
+[03:51] And this prevents long running projects that never end,
+[03:54] which by the way, are the most demoralizing kinds of projects.
+[03:57] Things that you're stuck on that you don't want to do that never end sucks.
+[04:03] And if people get stuck on a couple of those,
+[04:05] they want to leave their job.
+[04:07] So the implications here are significant.
+[04:10] And so we want to keep people out of that zone of like,
+[04:13] I hate this work and it goes on forever because sometimes you're going to hate the work.
+[04:17] Not all projects are like that exciting.
+[04:18] Sometimes it's maintenance stuff.
+[04:19] Sometimes it's like updating an internal billing system that's like boring
+[04:23] and no customers are going to see but needs to be done.
+[04:25] But you'll know that, hey, at maximum, we've got four weeks on this.
+[04:29] I can already see the end from the beginning.
+[04:31] No big deal.
+[04:32] But if it's like this is going to take nine months and you're on week four
+[04:36] and you're like, I hate this.
+[04:38] Bad.
+[04:38] So we want to stay away from that.

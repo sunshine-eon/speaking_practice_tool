@@ -1,0 +1,20 @@
+Chapter 8: Revolut’s diverse product offerings
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 41:07 - 44:40
+============================================================
+
+I'm going to give people a list of the things you guys do. We didn't do this at the beginning because it would take too long, but you talk about all the products you're building and all the things that's going on. So I have like a list here that may be incomplete, but just to give people a sense. 
+
+You guys have credit cards, debit cards, savings accounts, multi-currency accounts, domestic and international transfers, joint accounts, and accounts for minors, for people less than 18 years old. You also offer stock trading, cryptocurrency purchasing, and loans. Is there anything big I missed? I mean, some of those things are huge by themselves. Let's say stock trading, right? It's not just stocks; it's also ETFs, bonds, and we're working on tax-efficient accounts in different countries. 
+
+In crypto, we also allow staking, for example. We have on-ramp and off-ramp products. We have acquiring products. On the credit side, we offer loans and a buy now, pay later product. We even launched mortgages, including the first mortgages in Lithuania recently. And all of these are available across 50 different currencies and countries, each with its own regulations and requirements. 
+
+This is a good example of Paul Graham's concept of schlepp blindness, where people want to avoid hard problems. But that's where the big opportunities are—solving really gnarly, painful problems. And that's basically what you guys did. 
+
+That's one of the things that excites me the most about Revolut. The market is so big, and there are still a lot of very inefficient players. As a result, customers have many unsolved problems. While we grow insanely, I think we will soon be at 100 million customers. When I joined, we had just slightly over 20 million customers, and now we are at 50 million. 
+
+The degree of surrounding each customer with our ecosystem of products is expanding. More and more people start using Revolut as their main bank account. They begin receiving their salaries into Revolut and holding their savings there because they love the product more. We can easily achieve another two or three times growth in customer base, and we can also see another tenfold growth in how actively these people are using the product. 
+
+So, let's say, what, 30 to 40 times the current $45 billion valuation, right? It’s like a trillion-dollar company easily. On that note, what I'm hearing is that it's still a great time to join. There's a massive upside. I know you guys are hiring, so we'll just note that real quick. You're hiring product owners and a bunch of other roles, I imagine. 
+
+Yes, we are. As someone who owns the product function, I'm especially interested in product owners, obviously. But we hire for a lot of roles. I think we have maybe three or four hundred open positions currently.

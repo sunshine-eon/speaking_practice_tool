@@ -1,0 +1,99 @@
+Chapter 9: Balancing monetization and retention
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 50:47 - 54:08
+============================================================
+
+[00:00] You can also buy a streak, right?
+[00:02] Like with money, is that, that's a feature, right?
+[00:04] Yeah, you can buy, and it's funny,
+[00:05] this is also something that we buy at all the,
+[00:07] yeah, you can buy, or freeze, sorry, not a streak.
+[00:09] Yeah, so you can buy a streak freeze,
+[00:11] and the way it works is you can buy gems,
+[00:13] and then you can use those gems to buy a streak.
+[00:17] And this is something we wrestle with,
+[00:18] we're actively working on an experiment right now
+[00:21] that's having a small hit revenue,
+[00:23] but it's a really nice one for retention.
+[00:25] And I think it's actually worth thinking about
+[00:27] from day one as you're building a streak,
+[00:29] do you see this more as a monetization feature,
+[00:31] or do you see this more as a retention feature?
+[00:33] What's the role of monetization in this?
+[00:34] What's the role of retention?
+[00:36] And I think for us, it started out much more organically,
+[00:38] and so we have a lot of like monetization hooks
+[00:40] that again, as the retention PM,
+[00:42] I would love to get rid of.
+[00:44] But again, it's sort of part of how the streak works
+[00:46] right now, and so we always have this tension of,
+[00:49] hey, if we start to make it harder to buy streak freezes,
+[00:53] then fewer people buy them, buy gems to buy them,
+[00:56] and so there's this more convoluted series
+[00:59] of impacts that happen.
+[01:01] Yeah, I love that.
+[01:03] People wanting to buy streak freezes
+[01:05] like the ultimate sign of how much streaks matter.
+[01:09] Yeah, streak freezes is the other big one
+[01:12] that we've recently demonetized
+[01:15] or introduced a free option for
+[01:17] is getting back a lost streak.
+[01:20] So used to losing streak,
+[01:22] we had a feature in the day,
+[01:24] back in the day called streak repair,
+[01:26] we'd give you your streak back, you had to pay gems.
+[01:28] But we found out worked way better
+[01:30] was a feature called earn back.
+[01:32] And this is basically where you would have
+[01:35] to do a certain number of lessons
+[01:36] as long as you came back within a window
+[01:39] soon after losing your streak,
+[01:41] do a few lessons and we just give you your streak back.
+[01:43] And it was such a retention winner.
+[01:45] And again, what we thought about was
+[01:48] it feels like you've earned it so much more
+[01:50] when you've done, like you deserve
+[01:52] to have your streak back.
+[01:53] We haven't cheapen the streak
+[01:56] because you've done something.
+[01:57] And in this sense, this idea of cheapening the streak
+[02:00] is something like from a philosophical philosophy
+[02:02] of the streak, from a philosophical level,
+[02:04] we wrestle with all the time of,
+[02:08] cool, we're giving out more streak freezes.
+[02:09] At what point do we cross the line
+[02:11] and users start to realize their streak means nothing.
+[02:14] Now, everything that we've seen,
+[02:15] users are totally cool with using streak freezes
+[02:18] and still thinking about their streak
+[02:19] is this meaningful thing.
+[02:20] But my colleague, Antonia,
+[02:22] who made that awesome cross stitch for me,
+[02:25] she is sort of the keeper for us
+[02:26] of the sanctity of the streak.
+[02:28] And a lot of times as we,
+[02:29] and I think this is really important to have
+[02:31] as you're thinking about building your streak,
+[02:32] you can almost always get engagement wins
+[02:34] up to a certain point by just cheapening the streak,
+[02:36] making it easier to extend,
+[02:38] letting users have more flexibility.
+[02:41] But you kind of got to hold the line at some point.
+[02:43] It's not clear where that line is.
+[02:45] And once you talk about one-way doors or two-way doors,
+[02:49] there's a point where you go too far
+[02:51] and it's a one-way door.
+[02:52] And all of a sudden, those users,
+[02:54] those nine million users on one-year streaks
+[02:56] don't care about their streak anymore.
+[02:57] And that is, I don't know, again, retention, PM perspective.
+[03:01] That'd be an extinction level event for us.
+[03:02] I don't want all of these users
+[03:04] just not caring about their streak.
+[03:06] And so to have somebody who is invested
+[03:08] in the sanctity of the streak,
+[03:11] and you know, for us, it's Antonia and Luis,
+[03:14] he's very good about this,
+[03:16] is really important just so you make sure
+[03:17] you don't go too far.
+[03:19] That's an awesome insight.

@@ -1,0 +1,47 @@
+Chapter 18: Failure corner
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 61:23 - 65:20
+============================================================
+
+[00:00] Final question, we have the segment on this podcast called Failure Corner, where most
+[00:08] people come as podcasts, they show all these stories of success and everything's going great
+[00:11] and here's all the things always winning.
+[00:13] You guys, this is a good example, just up into the right, the fastest growing product
+[00:18] ever.
+[00:19] What's an example of something totally failed in the course of your career and what did
+[00:24] you learn from that?
+[00:26] I'm a bit hard pressed to find something that totally failed, but I think there's a
+[00:30] bit of a product lesson where I was the first employee at an AI startup here in Stockholm
+[00:36] called Sonalabs and the premise was just, okay, so humans learn in different ways.
+[00:44] If you personalize, then you get two standard deviations, more effective learning.
+[00:51] So there are a lot of products and education software that helps you learn that is not personalized
+[01:00] and we were building an API to personalize learning and the AI and so on was pretty good,
+[01:11] but the thing that we were doing in the end was to say like, okay, here's this product.
+[01:18] One has built a product or some way to learn or be it like English and think Duolingo and
+[01:26] then the people that have that product have to use this advanced AI API to start to making
+[01:33] it personalized and it's very hard like retrofitting like, oh, you have to switch
+[01:39] out the engine and put in this AI and the big learning here, it didn't work very well
+[01:49] for the company. I mean, the company wasn't super successful in this.
+[01:52] The big learning is that you have to start with like, how is this product working end
+[01:56] to end and then add AI or think, where should we add AI? So that was a big learning for me
+[02:03] that you really want to see what is the big picture of the user, what's the big picture
+[02:14] of how do you think the user experience should be and then add something with AI to solve specific
+[02:19] problems. And now some of the labs is doing great, but it's not on top of that product specifically.
+[02:25] I think it's a lot of people hear this now, like, of course, but I think it's so hard to
+[02:31] actually remember this point when you have some cool tech and you're like, holy shit,
+[02:34] everyone needs to try this, they're gonna love it. And then you don't realize like,
+[02:37] no one actually cares if it's not solving a problem for them. You know,
+[02:41] there's like a lot of novelty products that like everyone want to use for a little bit and
+[02:45] then like forget, I'm not, I don't actually need this often. And so like what this makes me think
+[02:50] about is there's all these product lessons for what is likely to help your product be
+[02:56] successful. And an app like like a tool like lovable can help you do this. Because if
+[03:03] someone is building something, you can guide them. Okay, what's the problem you're
+[03:07] solving for somebody? How many people have this problem? How much does this matter to them?
+[03:13] Maybe we should add like the Lenny mode so it activates in lovable, it activates like this
+[03:19] product, product coach. That would make any questions. Hold on. Absolutely. Why? Let's
+[03:27] take a step back. Everyone's gonna be like, get out of my way. Yeah, exactly. What's your
+[03:37] experiment plan? That's actually I think there's actually a big opportunity there to
+[03:40] say people because you know, there's like a play around with this thing and then
+[03:43] there's like, okay, but really is this anything people actually want? We call it
+[03:47] Lenny mode. Is that a fine with you? 100%. Awesome. Let's do it. I'll
+[03:52] license you no cost. Sure. Okay, okay, we made a deal here. Let's do it.

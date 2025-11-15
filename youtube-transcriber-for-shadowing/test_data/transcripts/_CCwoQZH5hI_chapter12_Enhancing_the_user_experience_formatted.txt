@@ -1,0 +1,28 @@
+Chapter 12: Enhancing the user experience
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 60:40 - 64:47
+============================================================
+
+You know, have lost it, particularly if it was, you know. But it also can feel that easy. I love this. I also love this point about just the power of the animation and user experience having impact. That's really interesting. Is that something you find often, just like celebrating and making it feel really amazing without like copy or, you know, or like any feature is just like, holy, you're awesome?
+
+This is another thing where it's like when users care about the feature using not only animation, haptics, sound effects, using, and it's funny, we don't have sound effects on the streak. There's probably something we'll look at in the not too distant future, but like haptics are like something we have done a lot of testing on. Like the phone vibrating in various ways. Yeah, exactly. Your phone, you know, like there being a really cool haptic pattern as you extend your streak, all of this stuff wins.
+
+And it's cool because I think it wins for a few reasons. One is it just makes you feel good, right? You know, you get some cool moment in your streak and we celebrate you in this visual way and your phone's buzzing. It just feels awesome. The other thing it does is it causes you to pause on that screen. And I think there's this desire as you think through a lot of, you know, as PMs think through like, oh, how can I get users to do this funnel as painlessly as possible? You know, I talked about good and friction early. 
+
+There's a lot of times where I don't want you to just move on. I want you to stop and like land on this screen. You gotta be careful not to do this for too many screens, right? But like for the one big ones, sometimes I just want you to pause there and enjoy the moment. Because if I can get you to enjoy the moment more, you're gonna care more about your streak and you're gonna be coming back tomorrow. 
+
+So animations that are cool and that cause you to really soak it in, haptics, you know, that feel good, all of that comes together to make you really focus on that moment. All of that just gets users more connected to their streak. So animation at the right times works well and it's something we've had win quite a lot.
+
+Who designs the haptic stuff? Is there like a haptic designer? For the longest time, it would be a product designer or it initially started as like the engineer would be like, all right, you know, would cobble together haptics based on what they felt good. Then it became a product design role where they would kind of use their best judgment. 
+
+We actually just recently acquired an animation studio, Hobbs in Detroit. And now they are the sort of keepers of, you know, they do a lot of motion design work haptics very close to that. And so they do a lot of that. I do remember trying to hire for a while a haptics contractor, like haptics design. And it was the saddest hiring I've ever done because it was just like, I don't know, like it was such a specific, like I just went through a lot of people who, you know, it's just a really tricky space of like kind of sound effects, kind of motion design, sort of technical.
+
+Yeah, such a unique role. Very unique specific skill set. Right. And there's very few apps that really need this deeply. So you're almost creating this person. Yeah, that is fascinating. I don't want, I'm gonna, that's like a whole podcast on its own. By the way, I was gonna say, as you're talking about this, I love that it's a win to celebrate people that don't lose their streak. 
+
+Like you introduce this way to make it flexible and that's a big win. And then you go the opposite direction of if you don't use this feature, you also feel even better. Well, and it's funny you, like you talked about the danger of feature bloat or we sort of talked about the danger of feature bloat. This is actually something I'm constantly thinking about with this. 
+
+Like we have the streak, then we also have the perfect streak. And we can count how many, we count how many weeks you've had a perfect streak. Well, all of a sudden we have two streak numbers that are kind of competing with each other. It's funny, we actually don't introduce the concept of a perfect streak until after you've hit seven days. 
+
+Some of this is just because the cognitive load of additional streak features, a lot of our like coolest streak features, you got to get on a long enough streak. And not to say we haven't tested it because we haven't tested everything, introducing these features earlier, but what we've found is that pretty universally they lose when we introduce too many things, too many concepts to users too early in the experience. It's just hard for them to manage.
+
+Okay, sweet. I know that we can go down this track for hours and hours. There's endless learnings about all the things y'all.

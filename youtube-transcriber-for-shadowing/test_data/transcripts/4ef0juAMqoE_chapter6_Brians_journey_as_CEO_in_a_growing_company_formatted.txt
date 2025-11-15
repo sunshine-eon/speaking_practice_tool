@@ -1,0 +1,20 @@
+Chapter 6: Brian’s journey as CEO in a growing company
+Video: Brian Chesky’s new playbook
+Time: 15:30 - 18:34
+============================================================
+
+Exactly. So I'm going to pull on a couple threads. The first is this idea of a single road map you talked about. And what this reminds me of is, I was talking to another very prominent CEO of a public company. He pointed out that there's this cycle that he sees a lot of founders go through where they initially run the show, they're in charge, they tell people what to build. 
+
+Over time, they're encouraged to delegate and to empower. This leads to a bunch of optimization work and small thinking, maybe. You talked about bureaucracy and politics. Eventually, they realize they need to take the reins again, drive the ship, and take back control of what's happening. It feels like you went on that journey. That's exactly how it went, and that's how it goes almost at every company I've heard of.
+
+By the way, I think that many years ago, I remember reading a blog post by Ben Horowitz saying that a lot of people tell product-led founders or engineering-led founders to step away and delegate their product to other people. But suddenly, they delegated away the thing they're best at—the thing that is hardest for them to replace. So we don't have a chief product officer title, but if we had one, it would be me. You know, they wouldn't have a chief product. 
+
+I think the CEO should be basically the chief product officer of a product or tech company. If the CEO is not the chief product officer, then I don't know if they're a product or tech-led company. Maybe that's okay if they're an ops company, or if they're a marketing company, or if they're not a tech company at all. But ultimately, I think the founder CEO should be that person.
+
+When we were starting Airbnb, it was probably the three of us. As you know, Airbnb was a unique situation where it was three of us. I don't think any of us was that dominant. I probably played the closest thing to the role of the people listening—the closest thing to the role of the product manager. But again, I did marketing, I did design, I did ops, I did a little bit of everything. So I was basically everything but engineering.
+
+As we grew, I started getting more and more hands-off the product. I always remember Lenny, when you write about this. There was this paradox where the less involved I was in a project, the more spin there was, the less clear the goals, the less advocacy the team had, and the fewer resources they had. Therefore, they moved slower. The slower they moved, the more they assumed it was because I was too involved, right? 
+
+People assume that our natural equilibrium is to move fast. If we are slow, it must be due to over-involvement in leadership. Therefore, I would get less involved, give teams more control, and empower them. Initially, they may have been happy with this, but the outcome was always assumed weirdly—they got less of what they wanted. They wanted to move faster, so I empowered them, and they moved slower. 
+
+How that happened is what I described: you end up in a situation where you're delegated.

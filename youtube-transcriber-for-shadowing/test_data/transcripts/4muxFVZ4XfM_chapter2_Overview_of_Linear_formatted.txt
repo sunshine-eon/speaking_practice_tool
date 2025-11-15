@@ -1,0 +1,16 @@
+Chapter 2: Overview of Linear
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 04:25 - 06:43
+============================================================
+
+Kari, thank you so much for being here. Welcome to the podcast.
+
+Thanks, Lenny. It's great to be here. 
+
+Maybe to start, set a little context. Can you just explain what does Linear do? And then share maybe a few stats of just the scale of Linear at this point. 
+
+So, Linear is the project and issue tracking system that software companies and technical teams love to use. We help software companies to build software. We started in 2019. Today, some of the top growth companies like Block, Versailles, Ramp, Retool, Mercury, and Substack are building with Linear. We also have lots of other companies, like thousands of other companies using Linear. These companies can be very early stage teams, like some that just graduated from YC, or even public companies. 
+
+Just briefly, why we created Linear is that I worked with you at Airbnb, and before that, I worked at Coinbase. Before that, I had my own startup. All of us founders—there are three of us—had a similar background where we worked in multiple different companies at different stages. What we often saw was that the tools available for managing software projects were lacking; they felt very clunky or complex, or they had this kind of legacy way of thinking about software development. We felt like we should do something about it. 
+
+So with Linear, we set out to build the most frictionless and streamlined system for modern software development. I'm also happy to share that we've been profitable for the last two years. We also have this thing where we actually have a net negative lifetime burn rate, which means that we have more cash in the bank today than we have raised. I think a lot of startups usually follow the normal path of raising money and then needing to spend it to build their business. However, since we were able to build the business pretty early on, we've been able to be in a position where we haven't spent any money on building the business.

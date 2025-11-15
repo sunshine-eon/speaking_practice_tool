@@ -1,0 +1,47 @@
+Chapter 9: Ramp’s system for sharing feedback
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 21:19 - 23:07
+============================================================
+
+[00:00] speed of engineering and the engineering team.
+[00:02] And they find that quality goes up
+[00:04] as your product velocity goes up.
+[00:07] You think it'd be the opposite.
+[00:08] The faster you move, the lower quality ends up being.
+[00:12] But exactly to your point,
+[00:13] because you can fix things really quickly
+[00:15] and you can get things out the door
+[00:16] and there's not this like huge chunk
+[00:18] you have to wait for people to review
+[00:20] and release and break things ends up being higher quality.
+[00:23] So very much aligned with their experience.
+[00:26] Yeah, and you have to create a system
+[00:28] by which those folks are getting that feedback, right?
+[00:30] And so we really focused on what are the control mechanisms
+[00:36] that ensure that your high velocity
+[00:38] doesn't tank the business.
+[00:40] And so examples of that is we have a voice
+[00:43] of customer processes where every single negative review
+[00:48] that is shared on to our products
+[00:51] is shared back to the tech lead,
+[00:53] the PM and the designer on a monthly basis.
+[00:57] We report back NPS and CSAP.
+[00:59] We report back operational overhead,
+[01:02] meaning the percentage of tickets
+[01:04] that come from your product area
+[01:06] normalized by the number of users
+[01:08] that are using that product.
+[01:09] And that's a core contract that the team has
+[01:13] to maintain a lower part of operational burden.
+[01:17] We also have bugs and issues
+[01:20] being directly assigned to the engineer that's on call.
+[01:24] So they feel that pain
+[01:26] and then they can continue to your point,
+[01:29] leveraging velocity to solve those problems.
+[01:31] Velocity is just a magnitude.
+[01:33] It's not necessarily a specific direction.
+[01:36] With these bugs that are coming in
+[01:37] in quality issues versus a team's goal
+[01:41] and their KPIs that they're trying to hit,
+[01:43] how do you recommend teams balance those two things?
+[01:47] We don't have a...

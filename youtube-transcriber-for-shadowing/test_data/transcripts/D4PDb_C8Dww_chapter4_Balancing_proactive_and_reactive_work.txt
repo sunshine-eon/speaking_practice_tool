@@ -1,0 +1,60 @@
+Chapter 4: Balancing proactive and reactive work
+Video: Building a world-class data org | Jessica Lachs (VP of Analytics and Data Science at DoorDash)
+Time: 15:10 - 20:45
+============================================================
+
+[00:00] team. There's like so many threads I want to follow here. One that's kind of a tangent, but
+[00:04] something that I think a lot of people struggle with is you talked about how you want your data
+[00:08] team, your analytics team to be proactive to find opportunities to give you ideas to help
+[00:14] you figure out what to build, not just answer questions. At the same time, there are many
+[00:17] questions that teams need to get answered. Do you have any advice for just how to set up
+[00:22] a team where they both find time to explore, dig, show opportunities and come up with big
+[00:29] ideas and also, hey, we just need to figure out the funnel conversion on this thing or,
+[00:33] hey, what do you think? What's happening in China right now? Thoughts there?
+[00:37] Yeah, I mean, such a good question. I think it's something that never gets easier. You have to
+[00:41] be very intentional to carve out time for exploratory work for deep dives because,
+[00:48] as you mentioned, there are always more questions and more work to be done than
+[00:52] hours in the day. I think being intentional about it and setting goals for your team around
+[01:00] finding these insights through self-directed work is an important mechanism for
+[01:07] holding ourselves accountable to that goal because it tends to be the first thing that goes when you
+[01:13] get a lot of inbound. You're like, all right, well, this deep dive on something that I don't
+[01:19] know if it's really something, the could be high ROI, could be low ROI, I don't know, so the expected
+[01:25] value is lower than this known thing that I can deliver and make someone happy. I think
+[01:33] to prevent that time from just slipping away, you really have to be intentional. We would do
+[01:40] hackathons for our team to carve out days to just go and look into these really interesting
+[01:46] things and find opportunities. I think we have the support of our business partners because so many
+[01:51] great insights have come from these deep dives. It really has been some of the work that drives
+[01:57] future roadmaps. They're always really great at allowing us to have this time and actually
+[02:04] encourage us often to have this time for some self-directed work to go find the next
+[02:09] big opportunity. If there's no answer that comes to mind, that's totally cool, but is there an
+[02:16] example of one of these insights that someone on the data team came up with that led to something
+[02:22] big for DoorDash that you're able to share? One interesting example was from a hackathon we
+[02:28] did a couple years ago where we were looking at referral as a channel for consumer acquisition.
+[02:36] When you compared that channel to others, it was below average in terms of the engagement you'd
+[02:44] see from consumers who came through that channel and the payback period. We, rather than just
+[02:51] lowering spend on referrals and moving right along, we really wanted to understand what was
+[02:57] happening. During the hackathon, we did a deep dive into referral. We actually tried referring
+[03:05] each other. We tried committing referral fraud, creating new accounts to get around rules. We
+[03:11] uncovered a lot of fraudulent behavior through this deep dive. We ordered so many cupcakes to
+[03:17] the office, I remember, using referral credits because you had to place an order to be able
+[03:23] to get the referral bonus, so we would create the account, place the orders, and so we just
+[03:27] kept ordering cupcakes. What we noticed was that referral as a channel was a bit misleading when
+[03:36] you would look at the average in terms of payback and that it was really a bimodal distribution.
+[03:42] You had one group of really great consumers who were referring, other really great consumers,
+[03:49] and the payback on those consumers was really strong. In fact, if that's all you saw, you would
+[03:56] spend a lot more on that channel. Then what was happening was you had this other group of consumers
+[04:04] that were not as good, people who were posting referral codes online and getting people who
+[04:11] were just in it to get free discounts and credits. We had, at that point in time,
+[04:17] pretty lax fraud rules and we didn't have caps on these things, all of which came about from
+[04:24] this deep dive where we found that this group of consumers was really a drag on the efficiency
+[04:32] of this marketing channel. That's an example of a few things that we like to do at DoorDash,
+[04:40] one being these deep dives and taking the time to really understand the problem and then
+[04:46] ultimately make a bunch of recommendations for what we should do, including better fraud checks,
+[04:51] caps on referrals, et cetera, et cetera, but also how the average can be incredibly misleading,
+[04:58] and so looking at distributions and trying to break down what you're seeing to find
+[05:06] ways that you can optimize and ways that you can gain an efficiencies.
+[05:10] That's an awesome story. Great memory to come up with that one.
+[05:15] So this is a really good example of a way to carve out time for the data team to think long-term,
+[05:21] think, look for opportunities, find big ideas. So the hackathon is one idea, imagine many data
+[05:27] people are struggling often to push back on asks that are just like, oh, we need to know, we
+[05:31] just need this one thing. Here's a question, just answer this one question first.

@@ -1,0 +1,16 @@
+Chapter 20: Three techniques Karri uses to maintain focus
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 53:05 - 56:47
+============================================================
+
+Something you're really good at personally is focus. I find that just trying to get you on this podcast was a lot of like, "Hey, Kari, have you thought about this yet?" I know that a lot of VCs are reaching out to you all the time, all these really fancy VCs trying to talk to you and get close to you. You're really good at avoiding shiny objects and staying focused and heads down. I've always wanted to ask you, how do you do that? Do you have any tricks, systems, processes, or approaches for staying focused other than just ignoring the inbox mostly?
+
+I don't think there's any complicated processes. One of the things I learned when I was in YC in 2012 is that the main focus when building a startup should be talking to customers, building the product, and exercising. If you find yourself doing something else besides those three things, it's probably the wrong thing to do. And yes, exercise is important for maintaining your health and avoiding burnout. So, I think it's about balancing those aspects.
+
+I love it. So, I'm doing those three things. The thinking here is that we often talk about this as a company, especially early on. I use the same approach personally. There are always things that sound like good ideas to do, like coming on this podcast. I often ask myself, "Is this important to do now, or is it something I can do later?" For example, I didn't feel it was important to do this podcast earlier because we weren't at the right stage or scale to make it interesting.
+
+Similarly, when we built the product initially, we focused on whether something was truly important. There are always requests, like getting a SOC2 security certificate. We know we need it eventually, but we don't need it today. So, we just say no to that. If a customer asks for it, we let them know we don't have it yet, but we will one day. Most of the time, people are fine with that.
+
+Internally, we also talk about this concept using RPG games as an analogy. In those games, you have main quest lines and side quest lines. We often remind ourselves to avoid the side quests. There are always ideas people have, which is great, but we ask if it helps the customers or the product. If it sounds like a side quest, we decide not to pursue it. It doesn't progress our main quest line, which is building an awesome product for our customers.
+
+Personally, I operate the same way. I think about whether something is important for the main quest line in building this company for me or if it's something I can ignore for now or do later. It makes more sense that way. What incredibly good advice! Basically, ask yourself, "How important is this to do now? Is this the main quest or is this a side quest?" Amazing.

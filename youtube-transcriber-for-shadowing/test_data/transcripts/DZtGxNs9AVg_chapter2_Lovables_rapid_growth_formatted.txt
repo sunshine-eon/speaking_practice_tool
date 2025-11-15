@@ -1,0 +1,32 @@
+Chapter 2: Lovable’s rapid growth
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 05:12 - 09:39
+============================================================
+
+Anton, thank you so much for being here and welcome to the podcast. It's a pleasure to talk to you.
+
+Lani, great to be here. I don't know how you have time to do this podcast. Your life must be insane these days with the pace at which you guys are scaling, just how much is changing in AI every day, so I just extra appreciate you making time for this. I think you said it's a 10-30 year time is when we're doing this. I'm a bit tired, yes. The crazy pace of everything, but yes. We're going to, this is going to be an invigorating conversation, and you're not going to be able to sleep. I'm sure.
+
+So for folks that are maybe a little bit familiar with Lovable or not at all familiar, what is Lovable? What's the simplest way to understand it? 
+
+I'd say Lovable is your personal AI software engineer. You describe an idea and then you get a fully working product from the AI. And what this means is that entrepreneurs actually today they turn their ideas into real businesses. We have a lot of designers and product managers that create the first version of their product ideas to show to their teams and some of them become founders because of the empowerment from this, but also developers themselves, they actually writing code or creating products much faster. 
+
+I mean the reason, it's pretty obvious for me, but I'll spell it out. The reason why we're doing Lovable is that I don't know about your mom, but my mom doesn't write code and my friends, almost all my friends throughout my life reached out for help like Anton, I need to build something. How do I find a great software engineer? And we're building for this 99% of the population who don't write code. Currently, if you're technically inclined, you get much further, but over time, naturally, the way to build software is by just talking to an AI. That's how we see it.
+
+I love the way that you guys describe it and you didn't mention it, but I think it's like building the last piece of software ever. How do you phrase that? 
+
+Yeah, we say we're building the last piece of software. The last piece of software. 
+
+Okay, we're going to do a live demo, but first of all, can you just share some stats on the scale of this business at this point, because it's quite absurd. 
+
+Yeah, so we launched Lovable less than three months ago, and now we have 300,000 monthly active users and 30,000 of those are actually paying. And it is growing at the same rates, almost only through organic word of mouth.
+
+Okay. And I'll share a couple of stats in terms of revenue, just so folks know this. And we'll have this in the intro too. I think you guys hit 4 million ARR in the first four weeks. You hit 10 million ARR in the first two months with just 15 people. You're the fastest growing startup in all of Europe. And you guys had to rewrite your entire code base recently, and you couldn't ship any new features for a while, is that right? 
+
+That's right, yeah. People were saying, oh, you're shipping so fast, and we were all quite frustrated because we wrote our service in this kind of scripting language, and then as we started scaling, we just know we have to throw everything away and rewrite it in a more performant way.
+
+Okay. Before we get to the demo, last question you shared. There's some companies that have started based on Lovable. I didn't even know that. So what are some examples of companies slash businesses that have launched off of Lovable now are actually companies? 
+
+I mentioned designers using Lovable, and one or other early users, Harry, he started shipping real web apps to his clients. He started just shipping designs. And then he went on to say, okay, wait, I'm going to start an AI startup. And his company, he launched on Product Hunt and everything and making money, just lets anyone upload their photo library. And then his AI parses and categorizes it. And if you go to launched.lovable.app, this is an app built with Lovable, which is a product hunt version where you can see a lot of businesses or small sales that are featured there. 
+
+Okay, cool.

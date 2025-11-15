@@ -1,0 +1,34 @@
+Chapter 4: Key experiments and insights
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 14:50 - 24:38
+============================================================
+
+Okay, so let's get into the mother load of learnings from the journey of streaks. The first version went from XP to one lesson, and I want to talk about the key lessons, insights, and also the wrong turns along the way to what we see today. Duolingo has a strong "test it" philosophy. We’d much rather test a lot of different ideas than debate them for days and days.
+
+We followed up this experiment with a question: what if we make it even easier to extend your streak? We tested the idea that if you do just one exercise in a lesson, we would extend your streak. The insight was clear; looking at the funnel, we saw a lot of users starting but not finishing lessons. They weren't extending their streaks, and loss aversion didn't kick in, so they didn't come back. 
+
+What we realized when we ran this experiment was that daily active users didn't move at all. By simplifying the unit of measure, we had created a situation where nobody thinks about doing just one question on Duolingo. We ended up capturing the least engaged users imaginable. This experience taught us to think about the type of user we were solving for—not just the habit we were building, but also the level of commitment. In this case, we over-indexed on a type of user we honestly just weren't going to keep. That was an easy shutdown decision.
+
+Just a quick comment on that: it’s interesting how you went to the extreme of making it just about streaks, thinking it would engage everyone. But it turned out that it didn’t attract the users we wanted and dumbed down the experience. It reminds me of games like Farmville, where you have to harvest crops every hour, and eventually, people wonder what they are doing with their lives.
+
+Absolutely. We test everything. Over the last four years, we've run over 600 experiments on streaks—effectively one every other day. These experiments range from big changes, like altering how the mechanic works, to small tweaks, like swapping one string for another to see if that copy resonates better with users. 
+
+I do think I’d be more cautious running that kind of experiment now. At some point, your streak gets big enough that you have to be careful. With 9 million users on the streak, those are our best retaining users. In the early days, though, I’d say test everything. Don’t get too caught up in making it perfect; just experiment and see what resonates with users. You’ll often be surprised by the insights you gain. 
+
+We shut down about half of our experiments. Even when they don’t yield positive results, we still learn a ton by running them. That’s actually a good success rate. Many companies only see 20 percent of their experiments yield positive outcomes. What’s your policy on neutral results? Do you ship them, or do you kill them?
+
+It really depends. If we’re adding something and it’s neutral, we tend to shut it down because it adds cognitive load. It’s something we have to build around, and it complicates our UI. If we do ship a neutral experiment, it’s usually because we have real conviction that it will provide a new platform for future positive experiments. In general, we prefer to shut down neutral experiments to avoid introducing unnecessary complexity into the app.
+
+What else have you learned along the journey?
+
+One key theme we focus on is the zero to seven-day user experience. We run more than the average number of experiments aimed at getting users to achieve a zero to seven-day streak. We’ve looked at our retention curves and found that once users reach seven days, loss aversion kicks in, and retention significantly improves. The jump from a one-day to a two-day streak is huge, and while the jump from two to three days is slightly less, it’s still significant. After day seven, the curve flattens out.
+
+One fun experiment we conducted was the introduction of a feature called "streak goal." This concept seemed obvious in retrospect, but it was novel at the time. We started with the simplest version of this feature, which is how Duolingo approaches testing. Instead of designing a complex feature for version one, we encapsulated the simplest form and tested its viability, iterating over time.
+
+We learned from our modernization teams that a particular piece of copy was very effective—users were 5.6 times more likely to finish the course if they subscribed to Plus. We applied a similar approach by telling users they were seven times more likely to finish the course if they achieved a 30-day streak. Just that message when users started their streak was a huge win, indicating an outcome that users cared about.
+
+We then followed up with experiments testing different streak lengths, like 14 days and 50 days. We discovered that while all lengths were effective, they appealed to different users. This led us to be more thoughtful about which options we presented to users. We started with a 30-day goal and allowed users to opt out if they felt they couldn’t commit. 
+
+Interestingly, adding that opt-out button was a significant win. Initially, I thought it might reduce engagement, but it turned out that giving users the option to say no was powerful. It created an intentional decision-making moment for them. This insight led us to build a goal-setting feature where users could choose between different goals, reinforcing the value of optionality.
+
+One final learning on this topic involves the friction associated with goal selection. We thought that recommending a harder goal would improve retention, so we pre-selected the harder option for users. However, we learned that while this could speed users through the selection process, the act of choosing their goal was crucial. Users were more engaged when they actively selected their goal rather than having it chosen for them.

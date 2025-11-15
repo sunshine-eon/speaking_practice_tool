@@ -1,0 +1,24 @@
+Chapter 10: The power of manual onboarding
+Video: Superhuman's secret to success | Rahul Vohra (CEO and founder)
+Time: 47:32 - 52:37
+============================================================
+
+The next area I want to spend time on, and I imagine we'll have much insight, is some of the contrarian ways you approach building Superhuman that a lot of companies never thought about doing, but you did, and it worked out for you. The first is manually onboarding every single new user. Sure, startups have done this—founders bring on some folks, show them the product, and then they stop doing that, transitioning to self-service or sales teams. How far did you scale this manual onboarding phase of your company? How many people did you have onboarding users?
+
+For folks that don't know, in those early days, we insisted on one-to-one concierge onboarding, and it was absolutely the right thing to do. You couldn't use Superhuman unless you went through the onboarding experience. Now, it's almost the reverse; almost every new Superhuman customer goes through self-service. The onboarding experience is still there, but again, it was absolutely the right thing to do. To answer your question, at peak, we had about 20 people doing manual onboarding.
+
+It's interesting to note that 20 people can handle a lot, which is a takeaway there. What was the scale, I guess, where you stopped manual onboarding? For folks who are thinking about doing this, when did you decide to stop?
+
+I think the reason to stop is that there will always be certain personality types who do not want to go through one-on-one onboarding. At a certain point, those people will become very important, and you will need to be ready with a world-class self-service option. When we started building self-service, it seemed nearly impossible. In fact, it was terrifying because it's difficult to overstate how much the entire DNA of the company was built around this idea that we would onboard users manually. After all, we did so much in our one-to-one onboardings, and there's only so much that software can do. 
+
+After a lot of grind and persistence, we eventually figured it out, and we have a world-class self-service experience today, but we did not at the time. So, the flip side is, why would you even do this to begin with? Well, we found two things. Number one, the user metrics are excellent for things like engagement, retention, product-market fit score, and NPS. For all of those metrics, I think you will significantly beat your industry benchmarks if you go to the effort of one-on-one onboarding your early customers. It becomes so powerful to have that early cohort of super fans when it comes to things like building a brand.
+
+If folks remember that conversation from way up at the top, what creates true virality? It's not viral mechanics; it's word of mouth. It is brand. This is how you can kickstart a brand. Number two, in a world where you can easily and quickly raise funding—like, for example, during the zero interest rate phenomenon—you can actually use dollars to avoid building a first-time user experience and all of the normal growth loops that you would then have to build. Instead, you would focus all of your engineers on finding product-market fit, solution deepening, or market widening, but not, for example, on a first-time user experience or activation, because you have humans doing activation for you.
+
+By contrast, I saw other companies often competing, spending almost half their engineering dollars on those things. AI companies have that again today. So, if you can weave this into your strategy, I think you should, but you should also know when to stop.
+
+Super interesting. I guess some factors to think about are important, and I wanted to ask you when people should consider doing this if they're hearing this and thinking, "This is awesome! So many problems solved if I just have somebody onboarding every new user; everyone's activated. Amazing!" Some of the variables you're sharing include whether you have cheap cash to invest. It doesn't have to be 20 people; it could be a few people to start. 
+
+Then there's the LTV and ACV element—are you going to make enough from a new customer? Imagine that's a variable. Is there anything else you think founders should consider? 
+
+Absolutely. You don't want to lose money doing this. We always made money doing onboarding, to be clear. It's just that at a certain point, the mass market—whether for us as enterprise or all of the prosumers in the world—hits a top of funnel that needs to be wide enough where manually onboarding no longer makes sense.

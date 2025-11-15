@@ -1,0 +1,18 @@
+Chapter 16: Brian’s thoughts on design trends
+Video: Brian Chesky’s new playbook
+Time: 42:38 - 45:36
+============================================================
+
+We have this incredible new tab called the listing tab that we designed. It's quite possibly one of the nicest things we've created. If you go to my Twitter account, you'll see a little sizzle reel showcasing some of the design we've done. By the way, the design represents a whole new aesthetic. 
+
+I'd like to announce that I think flat design is over or ending. If you remember, the 2000s were dominated by skeuomorphism, while the 2010s saw the rise of flat design with the launch of iOS 7. I believe we are moving back into a world that embraces color, texture, and dimensionality, along with more haptic feedback. However, I don't think it will revert to skeuomorphism, which pretends to mimic materials like woodgrain or leather. Instead, I envision a design that has a genuine sense of dimension.
+
+The reason behind this shift is that we are spending more and more time on screens, and we want these screens to replicate aspects of our natural environment, such as light and texture. This approach feels more intuitive and playful. Additionally, AI is enabling the development of more sophisticated interfaces. People in the AI field are gravitating towards image-generating art that possesses more dimension. I believe we are starting to push towards a more three-dimensional, colorful aesthetic that will shape the future of interface design.
+
+We built an AI-powered photo tour using our own AI computer visioning language, which we trained on a hundred million photos. This technology can scan all your photos and organize them by room. So that's what we accomplished today. To round it up, I would say that none of this would have been possible with the old way of working. We could have theoretically launched many of these features, but truly getting them to work together has been key.
+
+The guest favorites feature requires collaboration with guests and hosts. You have to figure out how to communicate effectively with the market, leading to a much more integrated approach. The designs you mentioned are incredibly cute. You tweeted a little video showcasing many of them, like the couch with its delightful textures, and it is really cool.
+
+Also, the listing tab is crucial for hosts, and I think people who aren't hosts don't fully understand how important the listing experience is. There are about seven million listings, which serve as the home base and small business platform for millions of people. I have a special place in my heart for host features, having worked on the host sites. I feel like travelers often don't appreciate the value of that part of the product.
+
+The big lesson we've learned, Lenny, is that to create a great guest experience, you need great hosts, and to have great hosts, you need to provide them with the right tools. Therefore, if you want to create an exceptional experience for guests, it often starts with building great tools for hosts to enable that experience.

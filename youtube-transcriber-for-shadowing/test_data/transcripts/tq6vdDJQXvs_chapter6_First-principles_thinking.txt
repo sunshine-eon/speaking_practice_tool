@@ -1,0 +1,350 @@
+Chapter 6: First-principles thinking
+Video: Tobi Lütke's leadership playbook: First principles, infinite games, and maximizing human potential
+Time: 25:00 - 40:04
+============================================================
+
+[00:00] I was just leading us astray.
+[00:02] This is an awesome segue to the other theme
+[00:04] that I wanted to spend some time on,
+[00:05] which is thinking from first principles.
+[00:07] Elon is the classic example that,
+[00:08] honestly, I think you're the other most classic example
+[00:12] of that these days.
+[00:13] And we'll keep talking about all the ways you operate
+[00:15] very differently from other companies,
+[00:16] which are examples of this.
+[00:18] But I want to read a quote from Glenn Coates.
+[00:20] He shared with me of how he sees you
+[00:23] that gives an interesting lens
+[00:24] into your first principles thinking.
+[00:26] So here's what he said about you.
+[00:28] Toby is, at his heart, a true futurist.
+[00:30] He's obsessed with the way things should be in the future.
+[00:34] Being data-driven is innately being anchored
+[00:36] in the way users and technology are behaving today.
+[00:39] He's never really said this to me explicitly,
+[00:40] but knowing him, I think any design
+[00:42] that is drawn primarily from the way things are or were
+[00:45] is one that he sees as inferior
+[00:47] to one that is skating to the puck
+[00:48] of the way things could or should be.
+[00:52] Does that resonate?
+[00:55] Yeah, I mean, I think that's correct.
+[00:56] That's actually really interesting.
+[00:58] Like, your podcast is a podcast by a builder
+[01:06] for other builders.
+[01:08] Here's the most interesting question,
+[01:10] I think people can ask builders.
+[01:13] It's like, what is your energy source?
+[01:17] Where, like, where are you getting energy from?
+[01:22] I think fundamentally the world exists
+[01:24] at room temperature, almost all companies
+[01:26] are sort of running at that, sort of humming along,
+[01:28] doesn't do anything.
+[01:29] There are certain individuals who can inject heat
+[01:32] into businesses, founders do this very well.
+[01:35] All the startups anyone's ever heard of
+[01:37] have people who are injecting heat
+[01:39] because if no one would inject heat into the business,
+[01:42] at room temperature, you cannot outperform anyone else.
+[01:45] You can't be hotter than everyone else
+[01:48] if no one's injecting heat into concern.
+[01:53] So fundamentally, there is a injection of energy
+[01:59] into companies that comes from founders and the best leaders,
+[02:04] like all the people you've had on the podcast
+[02:06] from Shopify are the perfect set of cast of characters
+[02:10] of people who are just like exothermic.
+[02:13] They are just like wellsprings of energy
+[02:16] that leads to other amazing results
+[02:19] that we get to enjoy.
+[02:20] So the question is where does the energy comes from?
+[02:24] And that's another one of those discussions
+[02:26] which very quickly goes into the emotions.
+[02:29] Actually, there's a really,
+[02:30] so I watched the last dance,
+[02:32] like the Netflix special of Michael Jordan,
+[02:38] while ago of course,
+[02:38] but there was like one scene where he just like,
+[02:41] I'm sure this is a super famous story
+[02:44] and he just sort of made up an insult
+[02:47] that someone told him
+[02:48] so that he would then go
+[02:49] and like just wants to destroy them afterwards,
+[02:52] which he then of course proceeded to do
+[02:54] because it's hard to imagine anyone more exothermic than him.
+[02:57] So we know what his energy source is, right?
+[02:59] It's like rivalry.
+[03:01] It's potentially it's insult or it's anger,
+[03:03] something like this.
+[03:05] My, I am not like my energy source
+[03:08] is dissatisfaction with status quo.
+[03:11] My fundamental belief is all this talk about technology,
+[03:16] there are like so many books
+[03:17] about this technology leading to dystopia.
+[03:20] You know what dystopia is today,
+[03:22] like compared to what it will be in 20 years ago or any,
+[03:25] like, and you can play this for any part of human history.
+[03:28] I'm not making a future statement.
+[03:29] I'm making a almost total legal statement
+[03:33] about for experience on planet Earth.
+[03:34] Like no one who really thinks about this
+[03:36] would want to be born into the world 20 years before today,
+[03:40] rather than today.
+[03:42] And so I think today is the dystopia of the future.
+[03:47] And I think it behooves us to try to, you know,
+[03:53] build the kinds of problems that lead towards progress
+[03:56] in a small way or a big way.
+[03:59] But yes, I think if someone comes to me and says,
+[04:02] hey, let's go do this thing.
+[04:04] And, you know, we've looked around
+[04:07] and here's how people solve this problem.
+[04:08] Let's make a good version of that.
+[04:10] I'm like, that was not the job.
+[04:13] Because everything that you encounter,
+[04:17] that like every solution, every product,
+[04:19] everything that exists is path dependent,
+[04:22] highly, highly, highly path dependent.
+[04:24] And often path dependent based on having to make compromises
+[04:29] based on things that were true at the time
+[04:32] and decision was made, but are no longer true, right?
+[04:37] You know, like the entire field of,
+[04:39] why was it like, I forgot the name of a field.
+[04:44] Kromsky's field, the linguistic research field.
+[04:47] It's like, cool, we now have auto-regressive models
+[04:49] that are just like, we don't actually need to set up a complete,
+[04:53] like we don't need to research the structure of grammar
+[04:56] to be able to make machines also like engage
+[04:59] in this spoken word.
+[05:00] We actually can just like train on the internet,
+[05:02] it turns out.
+[05:03] So that was not possible back then
+[05:05] because you didn't have the right architecture for this,
+[05:07] but now it is.
+[05:08] So I think what you have to do
+[05:11] is to actually have when you come up with a new product
+[05:14] or you discuss a new product,
+[05:15] you have to derive it from first principles.
+[05:17] You have to say, how would we solve this problem?
+[05:21] Given every fundamental like building block
+[05:23] that we have available right now for that to do that,
+[05:26] you actually have to understand the power
+[05:28] and the composability of all the building blocks
+[05:30] that exist right now, which is a tall order
+[05:33] and no one is perfect at this.
+[05:36] But so this way, you go ahead and say, okay, cool.
+[05:38] So this is how we are implementing this thing.
+[05:40] This is how it was to be implemented today.
+[05:42] And now we can talk ourselves in taking shortcuts.
+[05:46] Maybe we should actually start doing it
+[05:49] the way everyone else does.
+[05:50] Maybe we derived exactly what everyone else does
+[05:55] as the correct thing to do.
+[05:56] Sometimes there was a lot more wisdom encoded
+[05:59] in the status quo than you expect,
+[06:01] which I think is super delightful
+[06:02] when you figure that out.
+[06:04] And so when you act on it,
+[06:07] but what isn't okay is skipping the exercise
+[06:10] and doing the same thing everyone else does
+[06:12] because that is, again, a abjection of product leadership.
+[06:15] And so, yeah, I would say I become extremely suspicious
+[06:21] if I get a pitch to do a good version
+[06:23] of the same thing everyone else does
+[06:25] because I just find that in our space specifically,
+[06:29] very rarely to be the best solution.
+[06:33] There's a couple quotes along these lines I've seen
+[06:35] that describe the way you think about this stuff.
+[06:37] If most people are doing it a certain way,
+[06:38] I, by default, don't wanna do it that way.
+[06:41] And if you wanna do something world-class,
+[06:44] you can't do it like everyone else.
+[06:46] Yeah, yeah, I mean, it's sort of,
+[06:49] I mean, this is,
+[06:50] I don't even think that's an opinion that I hold.
+[06:52] I think that's actually like,
+[06:53] we're basically in Axiom territory here.
+[06:55] Like if you want to do something better than what exists,
+[06:59] you have to do it differently.
+[07:00] Like that does not make a statement
+[07:03] about if it will be better in the end
+[07:06] after you do it, it could also be worse.
+[07:09] But you can't get something better done
+[07:11] if you do the same thing.
+[07:12] It just, it's like axiomatically not possible to do.
+[07:15] It's like fails Archimedean logic.
+[07:18] Yet it's something,
+[07:19] it's a, you'd be amazed how many business plans
+[07:21] are actually failing Archimedean logic in this way.
+[07:25] Like let's do a good version of this thing
+[07:27] that we've already been doing
+[07:28] and we will capture 1% of a market
+[07:31] and you just like this kind of stuff.
+[07:32] It's like, trust me, I find kind of cute.
+[07:36] Is there an example that you can share
+[07:38] of you approaching the problem in this way?
+[07:40] I imagine it's constantly happening.
+[07:41] You also mentioned like you're born this way.
+[07:43] So I think it's hard for someone to just like sit down,
+[07:45] learn, think the way Toby thinks,
+[07:47] but I'm, I'd love to help people
+[07:49] start to approach problems this way.
+[07:51] So maybe an example might help.
+[07:53] So I think this is entirely learnable, I think.
+[07:56] And so I encourage people to just have a practice
+[08:00] of like thing step by step essentially
+[08:01] and just do it.
+[08:04] It'll become a habit pretty quickly
+[08:05] because it's also just outperforms.
+[08:09] Examples, I mean the very first example
+[08:11] is like Shopify itself, it's like cool.
+[08:13] So there was lots of e-commerce software
+[08:16] and it all, it was all the way it was
+[08:18] because of path dependence
+[08:20] because everyone who wanted in 2004, 2005 e-commerce
+[08:27] was an existing retailer
+[08:28] and therefore they had complex businesses
+[08:30] that needed to be ported online
+[08:31] including all of their somewhat Byzantine business logic.
+[08:36] I wanted to make e-commerce software
+[08:38] that would be, do very well on the internet of the future
+[08:44] and I believe that we can make it easier
+[08:47] to start new businesses online
+[08:49] than it is in the physical world
+[08:50] because the physical world is encumbered
+[08:52] by a lot of regulations
+[08:53] and also upfront costs and for leases and so on.
+[08:57] So that's optimized for that case
+[08:59] and build something that is so intuitive to use
+[09:06] that frustrated people in dead end careers
+[09:14] can spend their lunch breaks
+[09:17] making progress towards building their own business
+[09:20] which then eventually allows them to do it on their own way.
+[09:25] And so being fortunate was fires eventually
+[09:27] turns out to be a much better prep
+[09:29] for also solving all the enterprise cases
+[09:32] because no one had to like enterprise software
+[09:35] is overfit to the sales process
+[09:39] which is that it wins the RFPs
+[09:42] because it has every feature ever
+[09:44] or at least a way of putting a checkbox
+[09:45] next to every RFP line ever
+[09:48] but they don't, they're not good
+[09:49] but like it's a great,
+[09:51] an RFP is a great example of overfitting
+[09:54] in the world of procurement
+[09:57] because it tells you nothing
+[09:58] about the quality of software behind it.
+[10:00] But like honestly, this happens like all the time
+[10:04] like it's just like we are setting the stage
+[10:07] for much more, much higher quality retrieval
+[10:11] for like the products on Shopify and across Shopify.
+[10:16] Like I think we've been in a local maxima on search
+[10:19] and we think that especially with advances of
+[10:24] you know, the new models,
+[10:26] certain things are now possible to do
+[10:28] that could not have been done yet
+[10:31] because again of this sort of layers
+[10:34] and layers of path dependence
+[10:35] and no one coming and saying
+[10:36] is that's the best way to do
+[10:37] and maybe we should rebuild this component periodically
+[10:41] we can now do a better job with search
+[10:43] that will lead to like much more delightful experiences.
+[10:46] And so this is like a fun project
+[10:48] that this is happening right now in.
+[10:49] I think this is really interesting
+[10:50] because what I'm looking for is kind of like
+[10:53] the Toby algorithm of first principles thinking
+[10:56] Elon's kind of got these famous ways of thinking
+[10:59] he shared one is like a start with like the cost of metal
+[11:02] to help you understand how much a rocket should cost.
+[11:05] And then he's got this like five step
+[11:07] like first decide do we need this thing
+[11:09] then figure out how to optimize it and automate it.
+[11:13] What I'm hearing so far
+[11:14] and I'm curious if you've thought about this
+[11:15] and not or if not this feels like a really good block post
+[11:19] in the future is the Toby first principles algorithm
+[11:22] but I'll share a couple of things I've heard
+[11:23] so far as you've described it.
+[11:24] One is analyze kind of the path
+[11:27] that existing solutions relied on
+[11:29] almost like the assumptions that were true
+[11:32] for it to be built back when it was built.
+[11:34] And the other is this overfit.
+[11:35] Like what is it overfit for?
+[11:37] What is it over solving that maybe isn't necessary?
+[11:40] Is there anything along those lines
+[11:41] of just like how you approach problems?
+[11:43] This is probably too nerdy technical.
+[11:45] Like you're right
+[11:46] but I should figure myself out a little bit.
+[11:48] My brain runs on like a meter language
+[11:52] but isn't like directly something I can translate into words.
+[11:56] I suppose I think more about things like this
+[12:00] in terms of programming constructs, pure functions
+[12:03] overstate and I think in any moment
+[12:08] the best decision to do is like
+[12:12] I think the perfect product lead
+[12:15] is almost like a thermostat for high quality product.
+[12:19] It's like you're setting, saying like yeah
+[12:21] I would like to build something really, really great.
+[12:24] And I'm gonna go through a series
+[12:25] which is much, much more complex
+[12:27] than what a thermostat does
+[12:29] which basically checks the temperature
+[12:31] and then makes a decision of like air con or heating.
+[12:37] You make, you read arrive literally every decision
+[12:40] that is valuable.
+[12:42] Every foundational assumption,
+[12:44] every foundational ABC direction
+[12:49] and you want to see the observation you've made
+[12:54] in the meantime, since you last derived the next step
+[12:58] rerunning the entire function over the state
+[13:00] that is now updated with higher fidelity information
+[13:06] would you come to the very same thing?
+[13:08] Sometimes fairly early in the construct
+[13:11] in the tree of foundational assumptions
+[13:13] like a change is made.
+[13:15] An example we all had was beginning of COVID
+[13:18] and we suddenly had shelter in place.
+[13:20] Like so Shopify is like that incredibly good office spaces
+[13:23] and we were very in-person company
+[13:26] and we've open sourced our floor plans
+[13:30] because I think we really added something
+[13:32] to the understanding of how to put great,
+[13:35] like it got a lot of founder energy
+[13:36] from my co-founder Daniel
+[13:38] to build great collaborative spaces
+[13:40] for creative work with lots of sort of happy accidents
+[13:44] people running into each other and so on.
+[13:46] Anyway, we were very, very, very determined on doing that
+[13:52] but somewhere in this construct of nesting functions
+[13:57] you have to rerun and foundational assumptions
+[13:59] it's in the stack is the fairly basic Boolean
+[14:03] of are people allowed to leave the house?
+[14:06] Which was yes.
+[14:08] Like the moment that flips
+[14:11] it's not that just like, okay, over here
+[14:12] let's do the best that we can do.
+[14:14] It's actually that the entire tree now moves
+[14:16] into a different place
+[14:18] and it can be a very far place difference that you land
+[14:21] because you will make the same quality of decision
+[14:24] on every step, but you need to rerun something
+[14:26] that like takes you to a completely different
+[14:29] like landing zone.
+[14:30] And so then this is also easy for us to say, cool
+[14:32] we are gonna be remote only forever, like let's go.
+[14:35] And because we realized
+[14:38] that the temporal shelter in place
+[14:41] would cause a series of events
+[14:43] that would make that the optimal like best set of trade-offs
+[14:46] for the company.
+[14:47] And so I think this is
+[14:50] like, can I put this into a piffy five step algorithm?
+[14:53] No, but maybe it resonates with someone
+[14:57] who can help me like figure out the like
+[14:59] coded English language for this
+[15:00] because like it's been nerdy way
+[15:02] I explain it even to me.

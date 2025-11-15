@@ -87,7 +87,7 @@ def api_update_progress():
     if not activity_id:
         return jsonify({'error': 'activity_id is required'}), 400
     
-    if activity_id not in ['weekly_expressions', 'voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt']:
+    if activity_id not in ['weekly_expressions', 'voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt', 'podcast_shadowing']:
         return jsonify({'error': 'Invalid activity_id'}), 400
     
     # All activities are now daily - require day parameter
@@ -253,24 +253,12 @@ def api_generate_content(activity_id):
                 script_words = current_script.split()[:50]  # First 50 words as summary
                 previous_content['shadowing_scripts'].insert(0, ' '.join(script_words))
     elif activity_id == 'weekly_speaking_prompt':
-        # Check if shadowing mode is active
-        from progress_manager import is_shadowing_mode
-        shadowing_active = is_shadowing_mode(week_key)
-        
-        if shadowing_active:
-            has_existing_content = bool(current_week_data.get('weekly_speaking_prompt', {}).get('best_answer_script'))
-            # For regeneration, include current prompt to avoid repetition
-            if has_existing_content:
-                current_prompt = current_week_data.get('weekly_speaking_prompt', {}).get('prompt', '')
-                if current_prompt:
-                    previous_content['weekly_prompts'].insert(0, current_prompt)
-        else:
-            has_existing_content = bool(current_week_data.get('weekly_speaking_prompt', {}).get('prompt'))
-            # For regeneration, include current prompt to avoid repetition
-            if has_existing_content:
-                current_prompt = current_week_data.get('weekly_speaking_prompt', {}).get('prompt', '')
-                if current_prompt:
-                    previous_content['weekly_prompts'].insert(0, current_prompt)
+        has_existing_content = bool(current_week_data.get('weekly_speaking_prompt', {}).get('prompt'))
+        # For regeneration, include current prompt to avoid repetition
+        if has_existing_content:
+            current_prompt = current_week_data.get('weekly_speaking_prompt', {}).get('prompt', '')
+            if current_prompt:
+                previous_content['weekly_prompts'].insert(0, current_prompt)
     
     try:
         if activity_id == 'voice_journaling':
@@ -293,34 +281,14 @@ def api_generate_content(activity_id):
             result = {'script1': scripts['script1'], 'script2': scripts['script2']}
             
         elif activity_id == 'weekly_speaking_prompt':
-            from progress_manager import is_shadowing_mode
-            shadowing_active = is_shadowing_mode(week_key)
-            
-            if shadowing_active:
-                # Generate best answer script for shadowing mode
-                best_answer_data = generate_weekly_prompt(
-                    previous_content.get('weekly_prompts'),
-                    regenerate=has_existing_content,
-                    week_key=week_key
-                )
-                # best_answer_data is a dict with 'prompt', 'best_answer_script', 'best_answer_hints'
-                progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = best_answer_data['prompt']
-                progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_script'] = best_answer_data['best_answer_script']
-                progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_hints'] = best_answer_data['best_answer_hints']
-                result = {
-                    'prompt': best_answer_data['prompt'],
-                    'best_answer_script': best_answer_data['best_answer_script'],
-                    'best_answer_hints': best_answer_data['best_answer_hints']
-                }
-            else:
-                # Original mode: generate prompt only
-                prompt = generate_weekly_prompt(
-                    previous_content.get('weekly_prompts'),
-                    regenerate=has_existing_content,
-                    week_key=week_key
-                )
-                progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = prompt
-                result = {'prompt': prompt}
+            # Generate prompt only (original mode)
+            prompt = generate_weekly_prompt(
+                previous_content.get('weekly_prompts'),
+                regenerate=has_existing_content,
+                week_key=week_key
+            )
+            progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = prompt
+            result = {'prompt': prompt}
             
         else:
             return jsonify({'error': 'Invalid activity_id'}), 400
@@ -842,30 +810,12 @@ def api_generate_all():
             previous_content.get('shadowing_scripts'),
             regenerate=has_existing_content
         )
-        # Check if shadowing mode is active for weekly_speaking_prompt
-        from progress_manager import is_shadowing_mode
-        shadowing_active = is_shadowing_mode(week_key)
-        
-        if shadowing_active:
-            # Generate best answer script for shadowing mode
-            best_answer_data = generate_weekly_prompt(
-                previous_content.get('weekly_prompts'),
-                regenerate=has_existing_content,
-                week_key=week_key
-            )
-            # best_answer_data is a dict with 'prompt', 'best_answer_script', 'best_answer_hints'
-            prompt = best_answer_data['prompt']
-            best_answer_script = best_answer_data['best_answer_script']
-            best_answer_hints = best_answer_data['best_answer_hints']
-        else:
-            # Original mode: generate prompt only
-            prompt = generate_weekly_prompt(
-                previous_content.get('weekly_prompts'),
-                regenerate=has_existing_content,
-                week_key=week_key
-            )
-            best_answer_script = None
-            best_answer_hints = None
+        # Generate prompt only (original mode)
+        prompt = generate_weekly_prompt(
+            previous_content.get('weekly_prompts'),
+            regenerate=has_existing_content,
+            week_key=week_key
+        )
         
         weekly_prompt_words = generate_weekly_prompt_words(
             previous_content.get('weekly_prompt_words'),
@@ -906,8 +856,6 @@ def api_generate_all():
                     'audio_url': None,  # Audio is generated separately via "Generate audio" button
                     'prompt': prompt,
                     'weekly_prompt_words': weekly_prompt_words,
-                    'best_answer_script': best_answer_script if shadowing_active else None,
-                    'best_answer_hints': best_answer_hints if shadowing_active else None
                 }
             })
         else:
@@ -987,7 +935,7 @@ def api_save_recording():
     week_key = request.form.get('week_key')
     day = request.form.get('day')
     
-    if not activity_id or activity_id not in ['weekly_expressions', 'voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt']:
+    if not activity_id or activity_id not in ['weekly_expressions', 'voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt', 'podcast_shadowing']:
         return jsonify({'error': 'Invalid or missing activity_id'}), 400
     
     if not week_key:
@@ -1012,7 +960,7 @@ def api_save_recording():
     # Find which day number this is (sun=1, mon=2, ..., sat=7)
     week_data = progress['weeks'][week_key]
     day_num = 1
-    for activity in ['voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt']:
+    for activity in ['voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt', 'podcast_shadowing']:
         if activity in week_data and 'days' in week_data[activity]:
             for d in week_data[activity]['days']:
                 if d.get('date') == day:
@@ -1277,6 +1225,271 @@ def api_regenerate_weekly_expressions_mp3():
     
     # Update the MP3 file for this week
     progress['weeks'][week_key]['weekly_expressions']['mp3_file'] = new_mp3_file
+    progress['last_updated'] = datetime.now().isoformat()
+    
+    if save_progress(progress):
+        return jsonify({
+            'success': True,
+            'mp3_file': new_mp3_file,
+            'progress': progress
+        })
+    else:
+        return jsonify({'error': 'Failed to save MP3 selection'}), 500
+
+
+@app.route('/api/podcast-shadowing/mp3/<path:filename>', methods=['GET'])
+def api_serve_podcast_shadowing_mp3(filename):
+    """Serve MP3 files for podcast_shadowing (podcast clips)."""
+    clips_dir = 'youtube-transcriber-for-shadowing/test_data/clips'
+    
+    # Security: ensure filename doesn't contain path traversal
+    if '..' in filename or '/' in filename or '\\' in filename:
+        return jsonify({'error': 'Invalid filename'}), 400
+    
+    if not os.path.exists(clips_dir):
+        return jsonify({'error': 'Clips directory not found'}), 404
+    
+    filepath = os.path.join(clips_dir, filename)
+    
+    if not os.path.exists(filepath) or not filename.endswith('.mp3'):
+        return jsonify({'error': 'File not found'}), 404
+    
+    return send_from_directory(clips_dir, filename, mimetype='audio/mpeg')
+
+
+def remove_transcript_header(transcript_text: str) -> str:
+    """Remove metadata header (Chapter, Video, Time, separator) from transcript."""
+    lines = transcript_text.split('\n')
+    content_lines = []
+    skip_header = True
+    
+    for line in lines:
+        if skip_header:
+            # Skip header lines (Chapter, Video, Time, separator, empty lines after separator)
+            if line.startswith('Chapter') or line.startswith('Video') or line.startswith('Time'):
+                continue
+            if line.strip().startswith('=') or line.strip() == '':
+                continue
+            # First non-header line found, start collecting content
+            skip_header = False
+        
+        if not skip_header:
+            content_lines.append(line)
+    
+    # Join and clean up
+    result = '\n'.join(content_lines).strip()
+    return result
+
+
+@app.route('/api/podcast-shadowing/generate-typecast-audio', methods=['POST'])
+def api_generate_podcast_typecast_audio():
+    """Generate Typecast audio from podcast transcript."""
+    data = request.get_json()
+    week_key = data.get('week_key') if data else None
+    voice_id = data.get('voice_id') if data else None
+    speed = float(data.get('speed', 1.0)) if data else 1.0
+    model = data.get('model', 'ssfm-v30') if data else 'ssfm-v30'
+    
+    if week_key is None:
+        week_key = get_current_week_key()
+    
+    progress = load_progress()
+    ensure_week_exists(progress, week_key)
+    
+    # Get transcript path
+    transcript_path = progress['weeks'][week_key].get('podcast_shadowing', {}).get('transcript_path', '')
+    
+    if not transcript_path:
+        return jsonify({'error': 'No transcript available for this clip'}), 400
+    
+    # Read transcript file
+    try:
+        full_path = os.path.join(os.getcwd(), transcript_path)
+        if not os.path.exists(full_path):
+            return jsonify({'error': 'Transcript file not found'}), 404
+        
+        with open(full_path, 'r', encoding='utf-8') as f:
+            raw_transcript = f.read()
+        
+        # Get formatted transcript (remove header, get script text)
+        # Only use existing formatted file if it exists, never auto-format with ChatGPT
+        try:
+            formatted_path = full_path.replace('.txt', '_formatted.txt')
+            if os.path.exists(formatted_path):
+                # Use existing formatted file
+                with open(formatted_path, 'r', encoding='utf-8') as f:
+                    formatted_transcript = f.read()
+                script_text = remove_transcript_header(formatted_transcript)
+            else:
+                # If formatted file doesn't exist, use raw transcript (no auto-formatting)
+                script_text = remove_transcript_header(raw_transcript)
+        except Exception as e:
+            print(f"Warning: Failed to read transcript: {e}")
+            script_text = remove_transcript_header(raw_transcript)
+        
+        if not script_text or not script_text.strip():
+            return jsonify({'error': 'No transcript content found'}), 400
+        
+        # Generate Typecast audio
+        try:
+            typecast_result = generate_shadowing_audio_for_week(
+                script_text, 
+                f"{week_key}_podcast", 
+                voice_id=voice_id, 
+                speed=speed, 
+                model=model, 
+                return_timestamps=True
+            )
+            
+            if typecast_result:
+                audio_url, timestamps = typecast_result
+                
+                # Update progress
+                progress['weeks'][week_key]['podcast_shadowing']['typecast_audio_url'] = audio_url
+                progress['weeks'][week_key]['podcast_shadowing']['typecast_voice'] = voice_id or ""
+                progress['weeks'][week_key]['podcast_shadowing']['typecast_speed'] = speed
+                progress['weeks'][week_key]['podcast_shadowing']['typecast_model'] = model
+                progress['last_updated'] = datetime.now().isoformat()
+                
+                if save_progress(progress):
+                    return jsonify({
+                        'success': True,
+                        'audio_url': audio_url,
+                        'timestamps': timestamps,
+                        'voice': voice_id or "",
+                        'speed': speed,
+                        'model': model
+                    })
+                else:
+                    return jsonify({'error': 'Failed to save progress'}), 500
+            else:
+                return jsonify({'error': 'Failed to generate audio'}), 500
+                
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            return jsonify({'error': f'Failed to generate audio: {str(e)}'}), 500
+            
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': f'Failed to read transcript: {str(e)}'}), 500
+
+
+@app.route('/api/podcast-shadowing/transcript', methods=['POST'])
+def api_get_podcast_shadowing_transcript():
+    """Get transcript for podcast_shadowing."""
+    data = request.get_json()
+    week_key = data.get('week_key') if data else None
+    formatted = data.get('formatted', True) if data else True  # Default to formatted
+    
+    if week_key is None:
+        week_key = get_current_week_key()
+    
+    progress = load_progress()
+    ensure_week_exists(progress, week_key)
+    
+    transcript_path = progress['weeks'][week_key].get('podcast_shadowing', {}).get('transcript_path', '')
+    
+    if not transcript_path:
+        return jsonify({'error': 'No transcript available for this clip'}), 404
+    
+    # Read transcript file
+    try:
+        full_path = os.path.join(os.getcwd(), transcript_path)
+        if not os.path.exists(full_path):
+            return jsonify({'error': 'Transcript file not found'}), 404
+        
+        # If formatted is requested, try to find formatted version
+        if formatted:
+            formatted_path = full_path.replace('.txt', '_formatted.txt')
+            if os.path.exists(formatted_path):
+                with open(formatted_path, 'r', encoding='utf-8') as f:
+                    transcript_text = f.read()
+                # Remove metadata header (Chapter, Video, Time, separator)
+                transcript_text = remove_transcript_header(transcript_text)
+                return jsonify({
+                    'success': True,
+                    'transcript': transcript_text
+                })
+            else:
+                # Formatted version doesn't exist, return raw transcript (no auto-formatting)
+                with open(full_path, 'r', encoding='utf-8') as f:
+                    raw_transcript = f.read()
+                # Remove metadata header but don't auto-format
+                transcript_text = remove_transcript_header(raw_transcript)
+                
+                return jsonify({
+                    'success': True,
+                    'transcript': transcript_text
+                })
+        else:
+            # Return raw transcript
+            with open(full_path, 'r', encoding='utf-8') as f:
+                transcript_text = f.read()
+            
+            return jsonify({
+                'success': True,
+                'transcript': transcript_text
+            })
+    except Exception as e:
+        return jsonify({'error': f'Failed to read transcript: {str(e)}'}), 500
+
+
+@app.route('/api/podcast-shadowing/regenerate', methods=['POST'])
+def api_regenerate_podcast_shadowing_mp3():
+    """Get a random complete podcast clip for podcast_shadowing, preferring unused clips."""
+    from progress_manager import get_random_podcast_clip
+    
+    data = request.get_json()
+    week_key = data.get('week_key') if data else None
+    
+    if week_key is None:
+        week_key = get_current_week_key()
+    
+    progress = load_progress()
+    ensure_week_exists(progress, week_key)
+    
+    # Get current MP3 file to exclude it from selection
+    current_mp3 = progress['weeks'][week_key].get('podcast_shadowing', {}).get('mp3_file', '')
+    
+    # Get random complete podcast clip (preferring unused clips)
+    podcast_clip = get_random_podcast_clip(week_key, progress, exclude_current=current_mp3)
+    
+    if not podcast_clip:
+        return jsonify({'error': 'No complete podcast clips available'}), 404
+    
+    # Update the MP3 file for this week (store just the filename)
+    new_mp3_file = podcast_clip['audio_filename']
+    old_transcript_path = progress['weeks'][week_key]['podcast_shadowing'].get('transcript_path', '')
+    
+    progress['weeks'][week_key]['podcast_shadowing']['mp3_file'] = new_mp3_file
+    # Store episode name and chapter name for display
+    progress['weeks'][week_key]['podcast_shadowing']['episode_name'] = podcast_clip.get('video_title', '')
+    progress['weeks'][week_key]['podcast_shadowing']['chapter_name'] = podcast_clip.get('title', '')
+    # Store transcript path (relative to workspace root)
+    new_transcript_path = ''
+    if podcast_clip.get('transcript_path'):
+        from pathlib import Path
+        workspace_root = Path(__file__).parent
+        transcript_path = Path(podcast_clip['transcript_path'])
+        try:
+            # Make path relative to workspace root
+            relative_path = transcript_path.relative_to(workspace_root)
+            new_transcript_path = str(relative_path)
+            progress['weeks'][week_key]['podcast_shadowing']['transcript_path'] = new_transcript_path
+        except ValueError:
+            # If path is not under workspace root, store as is
+            new_transcript_path = podcast_clip['transcript_path']
+            progress['weeks'][week_key]['podcast_shadowing']['transcript_path'] = new_transcript_path
+    
+    # Clear Typecast audio if MP3 file changed or transcript path changed
+    if (current_mp3 != new_mp3_file) or (old_transcript_path != new_transcript_path):
+        progress['weeks'][week_key]['podcast_shadowing']['typecast_audio_url'] = ''
+        progress['weeks'][week_key]['podcast_shadowing']['typecast_voice'] = ''
+        progress['weeks'][week_key]['podcast_shadowing']['typecast_speed'] = 1.0
+        progress['weeks'][week_key]['podcast_shadowing']['typecast_model'] = 'ssfm-v30'
+    
     progress['last_updated'] = datetime.now().isoformat()
     
     if save_progress(progress):

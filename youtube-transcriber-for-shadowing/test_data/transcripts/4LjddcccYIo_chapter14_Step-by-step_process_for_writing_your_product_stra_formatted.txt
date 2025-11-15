@@ -1,0 +1,30 @@
+Chapter 14: Step-by-step process for writing your product strategy
+Video: Mastering product strategy and growing as a PM | Maggie Crowley (Toast, Drift, TripAdvisor)
+Time: 34:36 - 39:55
+============================================================
+
+Let's shift topics and talk about product strategy. Many people are told they need to get better at strategy, but a lot of them are just confused. What is strategy? How do I get better at it? How do we describe a strategy? You have a really great explanation and overview of how to think about this, so I’d love to hear your take on how to actually write out and describe a strategy.
+
+Sure. Another thing that happens, especially as you get further in your career, is that you often hear feedback that you need to be more strategic. Unfortunately, this is particularly common if you're an underrepresented person in tech. If you're a woman in product in tech who's knocking at the door of a leadership role, you've probably received that feedback. I made it my mission to figure out what this thing is, how to do it, and how to demonstrate it so that I would never get feedback saying, "Oh, she's not strategic."
+
+What I did was something I worked on in the background. I had an engineer who really wanted to understand why we were doing what we were doing. He wasn’t satisfied with surface-level answers and kept pushing. So, I started a Google Doc. I began with some basic bullets: What is the mission? What is the point of the company? What are our goals? I also included a high-level framing of what we were working on. 
+
+Then, I created a big section titled "The Landscape." In that section, I detailed what was happening with our business, our products, our point of view on the market, our competitors, a SWOT analysis, and key risks we might be facing. I just dumped all that information on paper. After that, I outlined the current quarter's business goals—whatever planning process your company uses—and noted the current things we were working on.
+
+Next, I wanted to understand the honest accounting of the current state of our products, the business overall, and the specific area I was working in. I noted what works, what doesn’t work, and what our customers were saying. I gathered bottoms-up feedback from users, customers, and teams, and looked at support tickets. It was important to get all that information on paper.
+
+I also focused on identifying technical hurdles: What are the big pieces of tech debt? What do our engineering and technical teams want to invest in? Are there significant developments on the horizon that we need to consider? I made sure to document everything. Usually, in the process of writing all that down, you start to see where you are and what the challenges are.
+
+Then, I wrote a section about the opportunities that emerged from all that information. What are the top one or two opportunities for your team? Where do you want to play? Where can you win based on your unique competitive advantage? It’s essential to articulate where you think your team should be and why.
+
+Based on those opportunities, I also outlined the challenges. What will be the hardest part of taking advantage of those opportunities? What needs to be true about the world for that to work? That’s a helpful framing. Then, I took a swing at writing down potential solutions: What would we need to build? How might it work? I would jot down three bullets of what we might want to do.
+
+Finally, I created a plan. If no one else had an opinion, how would I go about it? How would I sequence it? What would I do? How might I get the team to work on it? What would the team structure look like? How much would it cost? All of that can start to layer in.
+
+Once I had everything documented, I shared the doc with everyone. There should not be any secrets. You should be able to walk from your company's mission down to the individual priority on your team and see the logic chain of how you got there. If anyone disagrees, they can point out where their disagreement lies within that landscape. This way, you’ve put everything on paper, and you understand how you arrived at your conclusions. It shifts the conversation from "I don't agree with you" to "I don't agree with this point."
+
+By the way, is there a template that we can point people to that has this sort of structure? 
+
+There isn’t a formal template. I’ve only ever done it in a loose Google Doc, and it just grows and changes over time. I can try to write up those bullets. It’s just headers, and then I jump in with content. That’s all people need. If I create that before this comes out, we can include it in the show notes. If not, people can just reach out to me on Twitter and ask, "Maggie, where's that template we talked about?"
+
+I’m happy to write it on a piece of paper, take a photo of it, and send it around. Just make it really grainy, like an artifact. We found Maggie's template!

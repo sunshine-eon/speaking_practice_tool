@@ -1,0 +1,44 @@
+Chapter 12: Prioritization and product roadmap
+Video: Building Lovable: $10M ARR in 60 days with 15 people | Anton Osika (CEO and co-founder)
+Time: 48:02 - 51:38
+============================================================
+
+[00:00] I want to talk about prioritization. I imagine all these things that I just shared about just
+[00:05] like how ambitious this mission is, how much you're doing the last piece of software. You
+[00:10] must have a bazillion things that people ask you to build that you want to build. What's
+[00:15] your approach to deciding what to prioritize and actually build?
+[00:19] Just top line, I think, identifying what is the biggest bottleneck, what's the biggest
+[00:25] problem, and iterating fast on saying, okay, this is the biggest problem, let's really
+[00:30] resolve that problem and then picking in the next one and not overthinking, not like reaming
+[00:36] out the long road map. That's my side default. There's a very, very simple algorithm. Understanding
+[00:43] what is the biggest problem is not always a simple problem. I think, yeah, so we
+[00:50] spend time, as one should, on talking to users, the list, reading up on what people are writing.
+[00:57] We have a feature board for where people do a lot of requests, as you say, and then
+[01:05] when we pick one of the problems, we're quite engineering led. For a product like ours,
+[01:11] it's hard to have product managers that are not engineers say, oh, this is what
+[01:17] we should do now because the right solution to the problem might be entangled in things
+[01:26] that are like technical details, or they might be entangled in technical details, or like,
+[01:33] okay, yes, this is the biggest problem, but we should have this larger technical initiative
+[01:38] that's going to solve all of these problems. It's quite engineering led compared to many
+[01:44] other product companies.
+[01:45] As it should. I'd be worried if you guys had a product manager at this point. That wouldn't
+[01:51] make no sense right now. I imagine the answer is it's chaos and there's no actual defined
+[01:57] process, but what does it look like generally? What's the cadence you guys operate on?
+[02:02] How do you take an idea to build it, spec it, launch it? What does that look like if
+[02:07] you have something?
+[02:08] If you look back like three months, we mainly said, okay, let's do this weekly planning.
+[02:16] We have like a big jam board where we have all the main problems and then we have kind
+[02:22] of ranked them, which are, which has to be focused to one of our focus on next door
+[02:25] this week. And then we have a demo of where we say, okay, this are the things we
+[02:32] ship this week so to get everyone on the same page. And we do have a bit more of a
+[02:37] roadmap now. And where we say, like, here are we going to make so sure you can support
+[02:44] custom domains next, they're going to add collaboration after that. And like the biggest
+[02:52] problem now or the biggest initiative now that solves the biggest problem is making
+[02:56] the system more agentic. And that has a bit of a longer roadmap, but we still do
+[03:01] the cadence of weekly planning. These are the things we're focusing on this week.
+[03:07] It's mostly, there's a good word for this that I would want to help with, but Polish fixing
+[03:15] the bugs and Polish this week. And that was the planning on Monday.
+[03:19] That was actually this week was Polish, Polish week. I love that. How far is this roadmap
+[03:24] that you're now having?
+[03:26] I mean, it's clear over the coming month, but it stretches up three months and
+[03:32] then, but within one month, it's probably going to look

@@ -1,0 +1,20 @@
+Chapter 12: Pros and cons of the PM job
+Video: Mastering product strategy and growing as a PM | Maggie Crowley (Toast, Drift, TripAdvisor)
+Time: 28:56 - 31:42
+============================================================
+
+It reminds me of one of your lessons that you shared in one of your podcast episodes. It was one of your PM lessons of 2021, and the lesson was, when in doubt, it's your job as a PM, which I think relates very much to what you just shared. Can you speak to that? 
+
+It might actually make sense to put this in the context of the other roles that are part of the team. As an engineer, your job is to write the code to really reduce this doubt and build the thing and make it work to spec. As a designer, maybe your job is to design the thing, design the solution, design the user experience. Obviously, there's a lot more complexity in that role. 
+
+But as a PM, you don't have that thing, right? It's not like, oh, my job is just to write the one page or that's not true. Your job isn't just to pick the problem. Your job is to deliver a business result. And so you're uniquely positioned to have to fill in all the gaps because no one else is incentivized to do that. 
+
+As an engineer, you can finish your work and hand it off and say, I did it. The good ones care, but you don't have to care, right? As a PM, you're not going to do your job unless that problem gets solved for the customer or the user at the end of the day. Your job is to make sure everything happens for that product. 
+
+It reminds me of another interview you did where you talked about how a lot of the PM job sucks. It's not as glamorous as people often think, and most of the job is these really boring, annoying things. I guess, is there anything you want to add there? A lot of people want to get into PM or think, oh, I'm going to run the show. It's going to be so great. I'm going to be a product manager and tell people what to do. But that's not how it is. 
+
+When I joined products, it was just sort of becoming a cool job. It wasn't like the hot job on campus when I was in business school. That was more like private equity or venture capital. Now there's a sense of cachet around it. But again, it comes back to that earlier point: you do get to do cool stuff. You get to decide what gets built. That's cool. You have a lot of ownership, like we talked about. 
+
+You could see it as you have a lot of power. But at the same time, you're responsible. And so with that comes this responsibility to get it right, to make the right bets, ship the right products, and get them out the door. There’s a lot of bullshit work you have to do. Again, project management is what everyone hates on. QA is a really good one. 
+
+You should QA your products. That's great if you have a QA team. You should know how they work. You should implement with your customers. You should be able to sell them. You should be able to find users. All that stuff is stuff that you should be able to do, and none of it is above you.

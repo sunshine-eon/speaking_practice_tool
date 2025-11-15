@@ -1,0 +1,24 @@
+Chapter 15: HubSpot’s decision-making process
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 62:44 - 69:41
+============================================================
+
+You mentioned decision-making, and there's something interesting there. Let's talk about how decisions are made at HubSpot. Like most organizations, HubSpot historically has made decisions poorly. It's just a spectrum, right? I think decisions are one of the hardest things because it's tough to strike the right balance. We've evolved over time, and I believe we're much better now than we were in our earlier years. The things we get wrong are things that most people get wrong.
+
+One of the things we get right now is that we're very data-oriented. We like to make data-informed decisions, but it's important to remember that data doesn't make decisions—people do. That's the first key point. You often see geeky founding companies relying solely on charts and data, thinking, "Oh, we have a chart that says this, so we should go do that." That approach doesn't work. Data is valuable, but we also designate one person to make the decision. This person isn't necessarily the executive overseeing that team; it's someone who literally owns that decision. We didn't invent this idea; it existed long before HubSpot, but it works. You have to decide who's going to make the decision, and that is almost the number one decision to make. It's crucial to trust the person you choose to make that decision.
+
+The biggest mistake we used to make, and one that Amazon articulates well, is the concept of "disagree and commit." We have a slight twist on that. Ours is "debate, decide, unite." The core premise is that once a decision is made, it's essential to get alignment around that decision. There will always be people who disagreed with it because they were advocating for the other side. For example, if someone believed we should pick option A and we chose option B, it's important that even after the decision is made, we unite around it. It’s hard to do, but it's extremely valuable.
+
+We tweaked Amazon's phrase because "disagree and commit" sounds a bit harsher than we prefer. It's fine to disagree, but then you must commit. Our approach emphasizes open debate, getting all options on the table, making the decision, and then uniting around it. This feels more HubSpot-like and is a lot friendlier.
+
+Another aspect of our decision-making process is my personal inclination to think systematically. When faced with a decision, I ask myself, "If I could write a Python function to come up with an answer, what would the variables or coefficients be?" For example, if I were creating an Excel spreadsheet to make this decision, what would the columns be? Identifying the factors that matter is a crucial first step. This exercise helps clarify the decision-making process and can lead to an 80% understanding of the situation.
+
+Once we've identified the factors that should impact the decision, the next step is to stack rate them. We may not assign exact weights yet, but we can determine which factors are more important than others. This gives the decision-maker much better information than simply going through the process in their head.
+
+One common mistake people make around decisions, which Amazon has also noted, is that the effort spent on a decision should be proportional to its consequences. Amazon refers to this as "one-way doors versus two-way doors," a binary heuristic I appreciate for its simplicity. I take it a step further: the calories spent should be proportional to the outcomes and the value of the decision. If a decision is significant and costly to change, it's worth investing more effort into it.
+
+In my life, I try to apply this principle. My geeky nature often tempts me to dive deep into projects, but I remind myself to consider whether it's a first-order approximation. I need to identify the factors before committing extensive resources. My default position on most things is "no." When faced with a shiny new opportunity, I have to force myself to find reasons to say yes. 
+
+This mindset is encapsulated in a blog post I wrote titled "Sorry, But No," which has been life-changing for me. The idea is that time is a constant; every time you say yes to something, you're inherently saying no to something else. This principle ties back to the product curiosity we embraced in the early years at HubSpot. When you add something, you must take something else out to keep complexity manageable. 
+
+It's okay to say yes to new opportunities, but you must also consider what you're willing to remove from your schedule or life to make room for that new commitment. Despite my best efforts, I have yet to bend the laws of space and time, so I must be deliberate about how I allocate my time.

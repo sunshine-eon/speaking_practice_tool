@@ -1,0 +1,12 @@
+Chapter 10: How Ramp handles bug fixes
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 23:07 - 24:15
+============================================================
+
+We fix every bug once they're surfaced almost. It's part of the production engineer's job to address those issues. However, where we really delve into nuance is with user experience improvements. The metric I focus on is the number of support tickets that arise from customer confusion. We actively track that.
+
+If we notice that number is slightly elevated, we essentially put a hold on shipping any new features. The priority shifts to fixing the existing issues. There are various controls in place to standardize across teams. We monitor operational burden, customer satisfaction (CSAT), net promoter score (NPS), and the number of confused customers. As long as these metrics are maintained, teams have the freedom to operate as they wish.
+
+However, the moment any of these metrics dip into the red, the situation changes. New features cannot be shipped, and teams must revert their focus back to resolving the underlying issues. 
+
+Something amusing happened after our post about how Ramp built its product. A product manager on LinkedIn, half-jokingly, shared that her CEO approached her, and it seemed like every PM's CEO did the same after that.

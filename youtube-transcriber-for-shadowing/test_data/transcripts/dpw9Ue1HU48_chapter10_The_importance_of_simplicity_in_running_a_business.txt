@@ -1,0 +1,144 @@
+Chapter 10: The importance of simplicity in running a business
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 40:29 - 45:22
+============================================================
+
+[00:00] The algorithm for seeding is a good example of this.
+[00:02] Is there any other examples either in the product or strategy
+[00:05] where you pushed for simplicity
+[00:08] and then ended up being right?
+[00:10] Yeah, so on the product side in the early years,
+[00:13] and Brian gets credit for the actual implementation of this.
+[00:17] So we had a relatively broad product
+[00:18] and we can talk about that pros and cons of that
+[00:20] even in the early years,
+[00:22] but we were solving for simplicity
+[00:24] and we got this from Apple.
+[00:25] We'll talk a little bit more about genesis of this,
+[00:28] but we had a rule in the HubSpot product
+[00:32] as the product grew in those early years
+[00:34] that every time you added what we thought of
+[00:37] as a knob or dial called a feature,
+[00:41] you had to take one out somewhere else.
+[00:43] That's a net amount of,
+[00:46] and this is a very coarse measurement, right?
+[00:48] It's like, okay, well, not every radio button checkbox,
+[00:50] drop down whatever menu item that you put in your nav
+[00:52] is necessarily equivalent, but it's better than nothing.
+[00:55] It's better than having no constraints.
+[00:58] And so, and once again,
+[01:00] this goes to the kind of binary thing.
+[01:01] It's like it just, at least forces you to think about it, right?
+[01:04] It's like versus the,
+[01:05] because the other mistake I think people make
+[01:07] in product all the time,
+[01:08] but is that we measure the cost of a feature
+[01:13] based on the usually, or even a new product,
+[01:16] based on the cost of implementation, right?
+[01:19] That's the first order thinking is like,
+[01:20] oh, this is gonna take six months to develop.
+[01:21] It's gonna be Y engineers and Z designers or whatever.
+[01:24] Second order thinking is thinking through
+[01:27] the maintenance of that feature.
+[01:28] It's like, oh, it's not just the first version that goes ads.
+[01:30] Like now we have this code base
+[01:31] and we have to support and improve or whatever.
+[01:33] I get that.
+[01:34] The third order thinking,
+[01:35] which I think is the most nuanced
+[01:37] and it turns out to be the most important,
+[01:40] is the other costs that that complexity adds.
+[01:43] Okay, so let me, we'll come back to this.
+[01:46] So when you go from product number one
+[01:47] to product number two, right?
+[01:48] It's like, okay,
+[01:49] product number two is gonna cost us
+[01:50] this much to develop.
+[01:51] It's gonna have this risk associated with
+[01:54] whether it's successful or not, all these things.
+[01:55] So there's gonna be this kind of carrying costs
+[01:57] for product number two.
+[01:58] What companies don't think through
+[02:00] is that that is any of the maintenance of that.
+[02:03] It's like, oh, we're gonna need a team
+[02:04] to kind of maintain that new product.
+[02:06] Note what actually happens is that now
+[02:08] when you go from product one to two,
+[02:10] you have added dimensional complexity to your business.
+[02:13] What I mean by that is not an incremental increase.
+[02:15] Like, oh, we went from one to two.
+[02:16] It's like, now every decision you make
+[02:19] has to be made to the lens of now we have two products.
+[02:22] We just hired an engineer.
+[02:23] Do they work on product number one or product number two?
+[02:25] We're gonna launch a marketing campaign.
+[02:26] Do we spend five minutes talking about product number one
+[02:30] and two minutes talking about product number two?
+[02:31] How do we do anything?
+[02:33] Every chart you look at in terms of the growth,
+[02:36] revenue per whatever, look, it's all of it.
+[02:38] Now every chart that you've ever had
+[02:40] now has to be sliced by product one and product two
+[02:43] in order to really kind of capture that precision.
+[02:45] And so now you have this new dimensional complexity
+[02:47] that you just hadn't planned on.
+[02:49] And this applies once again, every level of abstraction.
+[02:51] So everything you do in your business
+[02:54] should factor in the long-term cost of that complexity.
+[02:58] And it should be worth it.
+[02:59] Of course you need, and that can make the case
+[03:01] that you need to build product number two
+[03:02] and product number N, N plus one over time.
+[03:05] But you should be mindful about the cost of that complexity.
+[03:10] Is there something you've done
+[03:11] to help operationalize that?
+[03:13] Because I imagine this, everyone's like, yes, this is great.
+[03:17] Don't do too many things, simplify.
+[03:19] Hard to do when you're like, oh, we got to drive growth.
+[03:22] We have this awesome idea.
+[03:23] We have this opportunity.
+[03:23] We have a competitor.
+[03:25] I know this is part of the culture,
+[03:26] so maybe that's the answer.
+[03:28] But how do you keep people to actually this principle?
+[03:32] So it's really hard.
+[03:33] I'll say that.
+[03:34] And things that have made it easier,
+[03:36] it's a little bit idiosyncratic to Hubsapot, right?
+[03:37] So part of what has made it easier
+[03:39] for us to keep things simple
+[03:42] is the early constraints we impose.
+[03:45] And we didn't know this at the time.
+[03:45] So because we're building for SMB,
+[03:47] we have a freemium product.
+[03:49] All right, well, when you're doing that,
+[03:52] there is literally a limit
+[03:53] to how much complexity you can add
+[03:55] because we don't have like an army of people
+[03:58] that are gonna spend in the 18 months implementing something.
+[04:00] We don't have like,
+[04:01] we have to be able to support a product that's free.
+[04:04] Like that's hard to do, right?
+[04:06] Like it has to be simple enough
+[04:07] that someone can get value from this thing.
+[04:10] And so there's these kind of self-imposing.
+[04:12] So the lesson I would kind of carry away
+[04:14] is come up with systematic ways and mechanisms,
+[04:19] as Amazon would call them,
+[04:20] of putting guardrails and constraints in
+[04:23] to the degree that you can,
+[04:24] because you can put words on a page
+[04:26] and try to infuse it in the culture.
+[04:27] It's like, oh, we believe in simplicity,
+[04:28] we fight for this and you can have meetings
+[04:30] and you can kind of get up in all hands meetings
+[04:32] and kind of reinforce that,
+[04:33] which I encourage you to do.
+[04:35] But like a really,
+[04:38] even a reasonably well done system will outbeat
+[04:42] any other mechanism
+[04:43] that you can kind of try to put in infuse, right?
+[04:45] Like those things kind of deteriorated over time.
+[04:47] It's hard to scale them.
+[04:48] So I'm a big believer in kind of systems
+[04:50] that impose constraints versus.

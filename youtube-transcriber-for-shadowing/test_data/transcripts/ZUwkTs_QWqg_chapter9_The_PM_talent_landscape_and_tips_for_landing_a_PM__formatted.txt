@@ -1,0 +1,16 @@
+Chapter 9: The PM talent landscape, and tips for landing a PM role
+Video: LinkedIn’s product evolution and the art of building complex systems | Hari Srinivasan (LinkedIn)
+Time: 22:13 - 24:55
+============================================================
+
+I hope that let's see how this goes. You're talking about how hiring is changing. I'm curious how PM hiring specifically is changing. A lot of people listening to this podcast are product managers. Is there anything unique you're noticing there? Maybe a couple of stats that could be very helpful.
+
+If you're having a hard time finding a PM role, let's start with this: you're probably not alone. We publish it, and you can go to our economic graph data. This is all public, and we publish this. But if you look at tech, it's down about 50% year over year. We look at hires over total population on LinkedIn. You can go to our economic graphs and see how it compares to the trends in the industry. We don't look at the functional data as much, but as you can see, the PM data seems to be trending just slightly, maybe even below software engineers. This is a difficult place, but I'll give you a couple of tips because I imagine that may be helpful for some of the listeners.
+
+The first tip is that in these kinds of markets, you want to make sure that the more you can do to form relationships, the better. It's always helpful to say, "This is who we can be." Now, I know that not everyone has relationships, but you can always try to develop those at different places across LinkedIn as well. That's one thing I would really start to look for.
+
+The second thing I would recommend is that we have launched a way to signal that you're interested in a role. We have those open-to-work capabilities, but each job has a set of skills that they're looking for. As we talked about in skills-first hiring, against each skill, you can actually add different kinds of credentials. I would really encourage people to add work products if they're building something, or to include different kinds of recommendations or other things that can be associated with that skill. Those credentials are becoming much more interesting for people to say, "Oh, this is someone I'm actually looking for."
+
+The third thing I would encourage PMs to consider is that every PM job is different. If you have experience in a specific industry and can show that you have that understanding, I think that's a way to differentiate yourself. I would really start zoning in on roles where you might see that kind of industry experience, especially if you don't have the functional experience. This could go a long way in helping you stand out among the many candidates or applications going into each role.
+
+When you say industry experience, what's an example of that? Imagine that you were applying for a PM role, but that particular software is in automotive tech. If you happen to have worked in automotive before or have knowledge about cars, that would be a very helpful way to get in. If you're able to show that, you can demonstrate industry knowledge and understanding. I think it's a great way to position yourself against some of the other candidates.

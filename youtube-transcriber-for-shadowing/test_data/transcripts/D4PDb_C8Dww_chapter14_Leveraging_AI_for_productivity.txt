@@ -1,0 +1,43 @@
+Chapter 14: Leveraging AI for productivity
+Video: Building a world-class data org | Jessica Lachs (VP of Analytics and Data Science at DoorDash)
+Time: 62:31 - 65:25
+============================================================
+
+[00:00] I'm going to take us to AI Corner, this little segment we have in the podcast, where I try
+[00:05] to understand how people are using AI in their day to day and in their business.
+[00:10] I'm curious if you've found some really interesting way of using AI, ideally in, like, you can
+[00:17] go in either one of these directions, in how you and your team work day to day using
+[00:21] AI tools to make you more efficient, or integrating AI into your product, making DoorDash
+[00:27] better.
+[00:28] Yeah, I mean, I think that there are opportunities in both.
+[00:32] I think one of the things I'm really excited about is actually, so the former, so in helping
+[00:38] to make the team more productive, we do something called office hours at DoorDash, the analytics
+[00:45] team.
+[00:46] And it's something that we started eight years ago, and it was a way to provide support
+[00:54] for teams that at the time, we just didn't have the bandwidth to support.
+[00:58] So we would go, we would, in the early days, we'd go sit in a room and we'd say, come on
+[01:03] in and we'll help you with anything you need help with, we'll help teach you SQL, we'll
+[01:08] help look at some of your work, we'll be a thought partner, you could just come
+[01:12] and learn what we're working on, whatever it was, we would do two hours every week
+[01:17] of office hours at different times to be friendly to different time zones.
+[01:22] I think one of the things I'm excited about is being able to really empower some of the
+[01:27] folks that are still coming to office hours for one thing or another to be able to use
+[01:32] AI to help edit queries on their own, for example, to be able to say, here's a
+[01:38] query, I want to make this, please adjust this to our grocery business so that I can
+[01:45] see, you know, the GOV for grocery.
+[01:49] And so working to build these tools that will help, not just our team in terms
+[01:55] of time saving, and also, to be honest, folks are going to use it on our team,
+[02:00] but really to be able to empower non-technical users to be able to do
+[02:05] things on their own and not have to take up bandwidth for the analytics team.
+[02:09] So essentially it's the chatbot that anyone in the company can talk to you
+[02:12] to get advice on how to write SQL queries, query data, and things like that.
+[02:16] Yeah.
+[02:16] Is there a clever name for this chatbot, perchance?
+[02:20] So it's not clever.
+[02:22] It's called Ask Data AI, and that's named for our internal Slack channel
+[02:28] that used to be the open kind of Q&A for people to ask data.
+[02:34] So it's not at all clever, but again, the theme of very, very specific
+[02:40] naming conventions that we have at DoorDash, never delivered in Ask Data AI.
+[02:47] I love it.
+[02:48] Just clarity above all else.
+[02:50] That's something I've learned from an editor that I work with.

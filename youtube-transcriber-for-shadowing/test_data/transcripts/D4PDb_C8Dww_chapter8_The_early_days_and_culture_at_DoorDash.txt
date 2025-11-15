@@ -1,0 +1,67 @@
+Chapter 8: The early days and culture at DoorDash
+Video: Building a world-class data org | Jessica Lachs (VP of Analytics and Data Science at DoorDash)
+Time: 34:40 - 40:39
+============================================================
+
+[00:00] Are there any other memories or stories of the early days of DoorDash that would be fun to
+[00:04] share something that sticks with you like, wow, I can't believe that's what it was like?
+[00:09] Oh man, there's so many, including so many mistakes that we've made, but I think
+[00:14] something that really stands out to me is before I moved to the analytics area,
+[00:21] I was actually a GM. I was the first GM at DoorDash and I was in Boston in 2014
+[00:30] launching the city of Boston when nobody knew who we were.
+[00:33] And we would wake up early in the morning at 5 a.m. and it was the winter of 2014.
+[00:44] We'd go out and we'd hand out promo codes to consumers outside of the tea in Boston.
+[00:51] And these promo cards would be attached to kind bars so people would take them.
+[00:56] And the whole team, it was a small team, there were four of us,
+[00:59] but the whole team would go out in the morning to do this. And I think back to our sales guy,
+[01:05] shout out to Joey G. So Joe Grasio is our sales guy in Boston.
+[01:11] And he was gold on signing merchants onto the platform. That was how it was gold,
+[01:16] his compensation was tied to that. And yet in the morning when we would go out,
+[01:20] he was with us handing out promo codes because he was part of the team,
+[01:24] because he wanted to win. We wanted to grow the business.
+[01:28] And I think that that is just a great example of kind of the culture that Tony and the early
+[01:36] employees and Stanley and Andy, other co-founders really instilled in all of us early in those days.
+[01:44] So I think that that ownership, that extreme ownership of the outcome is definitely one
+[01:51] of the things. I think the other is just being very customer first. And I say customer,
+[01:56] I mean consumers, dashers and merchants as all being our customers. And the first time I ever went
+[02:05] to the office headquarters in Palo Alto, which at the time was in an animal hospital,
+[02:10] the first time I went there, there was a huge site outage. And the whole company,
+[02:16] 20 people at the time, the whole company jumped online to do customer support,
+[02:22] to answer the phones, to make sure that folks were getting refunds for orders that weren't going
+[02:27] through, make sure the orders that were out there were getting delivered, just dropped everything
+[02:33] and hopped on to do support. And I was brand new, didn't really know how to use the tools.
+[02:39] And so it was like, how can I be useful? And so back in those days, we used to order
+[02:44] dinner to the office using DoorDash. And so in order to preserve
+[02:48] about three dashers who would have had to deliver food to us, I was like, I'm going to go out,
+[02:54] go out dashing, go get everyone pizza so that we could kind of feed the masses doing
+[02:59] credits and refunds and do what we had to to make sure that we were serving our customers well.
+[03:04] And I think that night was one of the largest refunds, like as a percent of our bank account
+[03:12] that we had ever given out. And I think Tony's talked about,
+[03:16] there were sort of two examples that he's talked about where we just gave a lot of money back to
+[03:21] customers because it was the right thing to do because our service failed and we wanted to do
+[03:26] right by them. So I think that those are sort of two stories that stick out in my mind and really
+[03:30] highlight culturally what makes DoorDash unique and what I think has been a really important
+[03:38] part of our success. Reminds me of the story that Tony and all the early employees,
+[03:43] and I imagine you did this just like we're dashers, like it's like a rotation
+[03:48] where you dash for a while, right? Is that part of the culture?
+[03:50] Yeah, so we have a program, a WeDash program, and Keith Yendell, who's our chief business
+[03:57] officer, did your podcast last year and he talked about this. But four times a year,
+[04:03] all the employees go out and go dashing or do customer support. And it's part of our
+[04:10] culture that I love. I actually go pair dashing. So I go together with one of my colleagues,
+[04:16] we've done it for years now. And it's sort of a fun thing that we do together four times a year,
+[04:23] actually usually more than that. And it's important because you get to use the product,
+[04:30] you build empathy with all the audiences. I mean, I think all of us order DoorDash a lot.
+[04:37] So we built empathy with consumers. But being able to go and understand what it's like to go
+[04:42] out dashing. And when you're in the restaurant, going and talking with merchants and seeing
+[04:48] the experience from their point of view, I think it's just incredibly important.
+[04:51] And of course, we find a lot of bugs. This doesn't work the way it should. Let me report
+[04:57] this. So I think it's also just great for catching bugs in the product.
+[05:02] This episode is brought to you by Atio, a radically new type of CRM. There's a world where your CRM
+[05:09] is powerful, easily configured and deeply intuitive. Atio makes that a reality. Atio is built specifically
+[05:17] for the next era of companies. It syncs with your data sources, easily configures to their
+[05:22] unique structures and works for any go-to-market motion from self-serve to sales lead. Atio
+[05:29] automatically enriches your contacts, syncs your email encounter, gives you powerful reports,
+[05:34] and lets you quickly build zap your style automations. The next era of companies deserves
+[05:39] more than an inflexible, one-size-fits-all CRM. Join modal, replicate 11 labs and more,
+[05:46] and scale your startup to the next level. Head to atio.com slash Lenny, and you'll get
+[05:52] 15% off your first year. That's attio.com slash Lenny.

@@ -1,0 +1,20 @@
+Chapter 11: Failure corner
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 58:43 - 62:49
+============================================================
+
+Okay, great. I'm going to take us to a recurring segment of the podcast: Fail Corner. The idea here is that people come on this podcast and share all these stories of success, where everything's always going great. But in reality, things don't often go great, and there are many instances where things go wrong. 
+
+Is there a story you could share where things went wrong in your career? Perhaps a failure with a product you were building, or a moment in your career where things were looking really bad? 
+
+I think the most spectacular failures probably occurred in the earlier stages of my career, which began back at university. In my second year, I started building various startups. One of them was a product that still makes me proud even now, despite it being about 15 years ago. Back in 2010, when not many people even had iPhones, my friends and I started building a website that allowed people to buy cinema tickets online. This way, they could skip the line and avoid having to arrive early to select the best seats. 
+
+At that time, this concept was revolutionary; people were still using pieces of paper for tickets. We built an end-to-end system, which meant we not only needed to create a website but also develop hardware to scan those tickets. To have these tickets in digital format, we had to hack the SMS standard since people were using basic Nokia phones. We sent QR codes inside SMS messages, which was a clever workaround for the limitations of that era. 
+
+We even created our own devices with scanners, crafting beautiful stainless steel machines that looked great inside cinema halls. I remember the excitement I felt with my friends, thinking we were bringing the future to life. However, we ended up spending all our investment on this hardware, expecting that everyone would rush to use our system. Unfortunately, only a small percentage of customers began buying tickets online because people just weren't ready for it, and the adoption rate grew very slowly. 
+
+Eventually, we had to close the project because we simply ran out of money. We had invested everything into hardware without a proven business model. Looking back, it seems like an obvious mistake, but at the time, we were just enjoying building a product we would love to use ourselves. 
+
+That experience taught me some painful lessons: you need to stay lean, validate your ideas before scaling them, and think critically about the run rate of your business. Since then, I've tried to avoid working with hardware. It's a common challenge for startups to get hardware right. 
+
+Although, I wouldn't be surprised if Revolut launched another product line now that I've had that experience. They recently launched POS terminals for Aquarid, so there we go.

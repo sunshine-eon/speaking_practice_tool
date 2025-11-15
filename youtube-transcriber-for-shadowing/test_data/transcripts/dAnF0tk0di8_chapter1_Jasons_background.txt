@@ -1,0 +1,71 @@
+Chapter 1: Jason’s background
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 00:00 - 03:49
+============================================================
+
+[00:00] The reason I think it's great for entrepreneurs to start bootstrapping is because they just
+[00:02] have more practice making money and they get better and better and better at the fundamental
+[00:06] skill you need to have ultimately to run a successful business, which is to make money.
+[00:11] Hopefully, I don't come off as encouraging everyone to be like me.
+[00:13] I'm not saying that at all.
+[00:15] What I am saying is this is a way to be.
+[00:17] It's an alternative to what you're often hearing in our industry, which is like
+[00:21] go big or go home, raise a bunch of money and get huge and unicorn status and the
+[00:25] whole thing.
+[00:27] Just know, though, that basically almost nobody makes it that way.
+[00:32] Like really almost nobody really makes it that way.
+[00:36] And there's a lot more room to make it and to build a successful business if you throw
+[00:41] out that outlier and look at all the other places you can land as a business.
+[00:48] Today, my guest is Jason Freed.
+[00:51] Jason is the co-founder and CEO of 37 Signals, which makes Base Camp and
+[00:55] Hay and soon a few more products, including a competitor to Slack.
+[01:00] 37 Signals is a very different type of company.
+[01:03] They have no investors, no board.
+[01:05] They have no plans to go public.
+[01:06] They never want to sell their business.
+[01:08] They've made a profit for 24 years in a row.
+[01:11] They have over 100,000 customers and make tens of millions of dollars in profit
+[01:16] each year, which most VC-backed companies never make a dollar of.
+[01:20] And all of this profit filters down to the founders and employees because they
+[01:24] have no investors.
+[01:25] Most founders, by default, will go down the venture route raising money from
+[01:29] BCs and angels.
+[01:30] And for many types of companies, that is necessary.
+[01:33] But it's also important to know that there is a different option available
+[01:36] and it can be much more fulfilling and fun and even much more lucrative by
+[01:41] bootstrapping your idea.
+[01:43] In my conversation with Jason, we get into why constraints like small
+[01:46] teams and less cash often lead to better outcomes.
+[01:49] Why gut and instinct is underappreciated as a decision-making tool.
+[01:53] Why planning long-term is often a mistake.
+[01:56] Why work doesn't have to feel like war.
+[01:58] Why we should focus on playing infinite games.
+[02:01] When it makes sense to consider raising venture capital versus bootstrapping,
+[02:05] how to actually bootstrap your startup.
+[02:07] So much more.
+[02:08] Jason is fascinating and he's got a lot of wisdom to share.
+[02:12] I'm excited to be able to bring you this conversation.
+[02:14] With that, I bring you Jason Freed after a short word from our sponsors.
+[02:20] This episode is brought to you by CodeUp.
+[02:23] You've heard me talk about how Coda is the doc that brings it all together
+[02:26] and how it can help your team run smoother and be more efficient.
+[02:30] I know this firsthand because Coda does that for me.
+[02:33] I use Coda every day to wrangle my newsletter content calendar,
+[02:36] my interview notes for podcasts, and to coordinate my sponsors.
+[02:40] More recently, I actually wrote a whole post on how Coda's product team operates
+[02:44] and within that post, they shared a dozen templates
+[02:47] that they use internally to run their product team,
+[02:50] including managing a roadmap, their OKR process, getting internal feedback,
+[02:54] and essentially their whole product development process is done within Coda.
+[02:58] If your team's work is spread out across different documents and spreadsheets
+[03:01] and a stack of workflow tools, that's why you need Coda.
+[03:05] Coda puts data in one centralized location regardless of format,
+[03:09] eliminating roadblocks that can slow your team down.
+[03:11] Coda allows your team to operate on the same information and collaborate in one place.
+[03:16] Take advantage of this special limited-time offer just for startups.
+[03:20] Sign up today at coda.io-slash-lenny and get a $1,000 startup credit on your first statement.
+[03:26] That's cod.io-slash-lenny to sign up and get a startup credit of $1,000, coda.io-slash-lenny.
+[03:37] This episode is brought to you by Sidebar.
+[03:39] Are you looking to land your next big career move or start your own thing?
+[03:43] One of the most effective ways to create a big leap in your career
+[03:46] and something that worked really well for me a few years ago.

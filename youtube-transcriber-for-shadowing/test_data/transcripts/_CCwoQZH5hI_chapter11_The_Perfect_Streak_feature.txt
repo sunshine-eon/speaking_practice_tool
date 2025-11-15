@@ -1,0 +1,54 @@
+Chapter 11: The Perfect Streak feature
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 58:15 - 60:40
+============================================================
+
+[00:00] Okay. Anything else? And if there's like more than one more, definitely share.
+[00:03] But any other really interesting lessons or wrong turns or insights?
+[00:07] You know, I talked about streak freezes and we've done a lot with streak
+[00:10] freezes, but I think if you're going to make flexibility a thing, it's
+[00:13] probably also useful thinking about how do you celebrate perfection.
+[00:17] Um, and so we have a feature that we have.
+[00:20] It is the simplest thing in the world.
+[00:21] It's called perfect streak.
+[00:22] And it's just, if you don't use a streak freeze for a few days, we
+[00:26] make your streak look gold and we make your little progress bar on the
+[00:29] calendar, um, just look a little bit nicer.
+[00:31] There's no reward for doing it.
+[00:33] You don't get anything other than this nice little indication and it is awesome.
+[00:38] It is, it is, it is a simple feature.
+[00:40] It is ultra not complex and it is really powerful, not only for getting
+[00:46] users to, you know, as, as a bit of a reward to be, Hey, you know, get to
+[00:50] seven days, you know, without using a streak freeze and, you know, your
+[00:53] streak becomes perfect, but it's also a really nice indication of users
+[00:57] who aren't using streak freezes.
+[00:59] Here is the thing that if you, uh, you know, if you don't use a streak
+[01:03] freeze, which again, candidly, I would love for you never to use a streak
+[01:06] freeze, if you don't use a streak freeze, your streak will stay, you know,
+[01:10] perfect.
+[01:10] It's funny, we actually just, you know, we're constantly, you know,
+[01:14] responding to bug reports, uh, about the streak, you know, it is, I
+[01:18] swear to God, we, we have that, we have the best infrastructure around
+[01:21] this feature because it is so important.
+[01:23] Um, we had an employee who lost her, like a four month perfect streak.
+[01:28] Uh, and, you know, it was a big deal for her because she, you know, and
+[01:32] because she like did her lesson as she was crossing international
+[01:34] deadline, there was like a bunch of stuff going on that was like, it was
+[01:36] just kind of weird in her back end, but like people start to care
+[01:39] about perfection as much as they do their streak.
+[01:42] And, you know, for that person, it was, it was, it was a big deal
+[01:45] when they lost their perfect streak.
+[01:46] And so, you know, this is just an example of, look, if you're
+[01:48] gonna, if you're gonna go after flexibility, um, which is good,
+[01:52] it's finding a way to pull users back into perfection is a really
+[01:57] important counterweight to have.
+[01:58] What I'm imagining is you guys need like an Amazon style chat
+[02:00] bot that just gives you the streak back.
+[02:02] It's just like, okay, here we go.
+[02:05] We have very much, so we have, if people lose their streak, you
+[02:08] know, there, there, there's ways to get in contact with us, but
+[02:10] we've actually thought about that where it's like, okay, we
+[02:12] should just like build a self-service feature.
+[02:15] And if you're, if we think that your excuse is good enough,
+[02:18] whatever, we'll just, yeah, yeah, because again, it's for us.
+[02:21] I'm much rather than you be on, you know, be on a streak than

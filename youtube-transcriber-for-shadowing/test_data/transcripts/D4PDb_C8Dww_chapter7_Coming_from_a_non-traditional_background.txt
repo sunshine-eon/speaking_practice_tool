@@ -1,0 +1,64 @@
+Chapter 7: Coming from a non-traditional background
+Video: Building a world-class data org | Jessica Lachs (VP of Analytics and Data Science at DoorDash)
+Time: 28:57 - 34:40
+============================================================
+
+[00:00] kind of along these lines, but sort of in a different direction. You don't actually have a
+[00:03] deep data science, data background before you got into this stuff. I know you had some kind of art
+[00:08] background. You had like art and art portfolio back in school. And I think a lot of people wouldn't
+[00:14] imagine that for someone being head of analytics for a company like DoorDash. I don't exactly know
+[00:21] the question, but I guess is there anything there that you think would be interesting for
+[00:25] people to know or hear? Yeah, it's funny. I sort of joke that I have a job I'd never be hired for
+[00:31] because I don't have a traditional data science background. And I know that Elizabeth Stone on
+[00:35] her podcast with you talked a lot about her sort of non-traditional background for a CTO. So,
+[00:41] hey, maybe there's something to it. But I became a data scientist out of necessity. I completely
+[00:48] self-taught in terms of SQL and Python. And I did it because there was a need at DoorDash for
+[00:56] someone to help figure out what the right goals were, how we set those goals, how we were performing
+[01:05] different markets kind of early in the DoorDash story, so 10 years ago at this point. And I just
+[01:13] had a... I think I just gravitated towards that type of work. And Tony recognized that superpower
+[01:23] in me, even though I don't have that formal training. So, yeah, I'm a bit of an artist for fun,
+[01:29] but I guess a data scientist in practice or for career. But I think that that
+[01:36] non-traditional background has been a great thing because I'm able to hire people who have
+[01:43] the technical skills that I don't have, the folks with PhDs and statistics and the
+[01:50] data scientists, machine learning and otherwise. I'm able to hire those folks and yet keep them
+[01:56] really focused on driving business impact because my background was on the finance side.
+[02:03] And so I've always been a pragmatist. And for me, the purpose of our team is to drive business
+[02:10] impact. And so the mix between the technical skills of the smarter people that I've hired,
+[02:16] the smarter than myself and my kind of grounding in driving business impact has been a really great,
+[02:22] great partnership. That's quite an inspiring story for someone that is just starting out
+[02:28] and doesn't necessarily have a lot of experience in data, but also just generally, like I think
+[02:33] this is a really cool example. You could be successful in a field that you don't have
+[02:38] a ton of background in. I'm curious what you think it was in you that allowed you to
+[02:45] succeed in this and get to where you are today? Like, what do you think you did right or what
+[02:49] are some habits or ways of thinking that you think helped you achieve that?
+[02:55] First off, I have imposter syndrome like everybody else. So it's not like I
+[03:00] have this crazy sense of confidence of like, I can do anything. I definitely have the same
+[03:06] doubts that others have. I think part of it was probably not even realizing what I was doing.
+[03:14] When you're at a startup and things are moving quickly and you see a problem and I've always
+[03:18] liked solving problems. So I was like, all right, how do I solve this problem? It was like, oh,
+[03:22] I need access to the data. I don't have access to the data. All right, I'll ask an engineer to
+[03:26] get me the data. Well, this isn't going to scale. I can't always bother an engineer. So
+[03:32] how do I figure out how to get the data myself? Right? Well, let's learn Python. So I think it
+[03:38] kind of came, it happened organically and I don't think I realized at the time what I was even doing.
+[03:44] And then I think if you think about things from first principles about what you need right now
+[03:50] in front of you to unblock yourself or solve a problem, and you just focus on that,
+[03:56] instead of thinking about like, you know, a global org that you're trying to build.
+[04:00] And, you know, I think that that helps. So for me, it was always about solving the problem in front
+[04:06] of me the best way I could. And if that meant I needed to hire an engineer to report into me
+[04:12] through the finance org, then that was what we were going to do. And nobody was going to tell
+[04:17] me I couldn't do it. So I think, you know, it's a belief in yourself. And ultimately it's
+[04:24] just my desire to solve problems and figure out what has to get done is I think ultimately
+[04:32] how it came about. I love that so much. There's so many elements there that I think a lot of
+[04:36] people can learn from. I feel like there's also this underlying current of you're just motivated
+[04:40] for this to work, like you would need, you wanted DoorDash to succeed and just like,
+[04:44] I will do what I need to do to make this happen. Like I need to solve these problems.
+[04:47] I'm not going to overthink, do I have the skills necessarily to do these things?
+[04:51] Yeah, I think I'm competitive. I think that's a trait that you find in a lot of
+[04:55] sort of early DoorDash folks and current DoorDash folks, to be honest, just being really
+[05:00] wanting to win and being willing to do, you know, whatever you need to win. So roll up your
+[05:07] sleeves, do something that's not your job. I think back to, you know, early days of taking
+[05:12] out the garbage on Saturday nights because it needed to get done, right? I think that
+[05:17] that was something that is ingrained in our culture from Tony Xu, from our founder and CEO.
+[05:25] And I think that really resonated with me and I feel like I've always sort of operated that way
+[05:33] as well. And I think that that helped to help me in my career to be able to do what I've done
+[05:40] without really thinking about it too much.

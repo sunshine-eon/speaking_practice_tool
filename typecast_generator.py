@@ -54,23 +54,38 @@ def get_available_voices(language='eng'):
             # API returns a list of voice objects directly
             voices = data if isinstance(data, list) else []
             
+            # Debug: Log all available voice names (uncomment to see what voices are actually available)
+            # if voices:
+            #     print("Available voices from API:")
+            #     for v in voices[:20]:  # Print first 20
+            #         print(f"  - {v.get('voice_name', 'N/A')}")
+            
             # Filter for English voices if requested
             if language == 'eng':
                 # Professional adult English voices (excluding kid, elderly, game/anime voices)
                 # Selected for clear pronunciation suitable for language learning
+                # Note: Filtering by first word of voice_name, case-insensitive
                 adult_professional_names = {
                     # Female voices - professional, clear, adult
-                    'Rachel', 'Sarah', 'Emily', 'Jessica', 'Michelle', 
-                    'Melissa', 'Sophia', 'Olivia', 'Charlotte', 'Elizabeth', 'Victoria',
-                    'Kate', 'Lucy', 'Anna', 'Maria',
+                    'rachel', 'sarah', 'emily', 'jessica', 'michelle', 
+                    'melissa', 'sophia', 'olivia', 'charlotte', 'elizabeth', 'victoria',
+                    'kate', 'lucy', 'anna', 'maria',
                     
                     # Male voices - professional, clear, adult
-                    'Michael', 'David', 'James', 'Robert', 'Matthew', 'Andrew', 
-                    'Kevin', 'Brian', 'George', 'Daniel', 
-                    'Ryan', 'Justin', 'Henry', 'Joshua', 'Jack', 'Dylan'
+                    'david', 'george', 
+                    'ryan', 'justin', 'henry', 'joshua', 'jack', 'dylan',
+                    'chad', 'aaron', 'jackson', 'logan', 'benny'
                 }
                 
-                voices = [v for v in voices if v.get('voice_name', '').split()[0] in adult_professional_names]
+                # Filter voices by first word of voice_name (case-insensitive)
+                filtered_voices = []
+                for v in voices:
+                    voice_name = v.get('voice_name', '')
+                    if voice_name:
+                        first_word = voice_name.split()[0].lower() if voice_name.split() else ''
+                        if first_word in adult_professional_names:
+                            filtered_voices.append(v)
+                voices = filtered_voices
             
             # Format voices with 'name' key for consistency with frontend
             formatted_voices = []

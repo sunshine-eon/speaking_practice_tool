@@ -1,0 +1,53 @@
+Chapter 5: Setting lofty goals
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 13:20 - 15:17
+============================================================
+
+[00:00] for lofty goals, Brian was famous for going into meetings
+[00:03] where people present their goals and their plans.
+[00:05] And he's like, how do we 10x that?
+[00:08] What do you need in order to 10x that goal?
+[00:10] And then that ends up being your goal.
+[00:12] And often worked shockingly,
+[00:14] sometimes burnt a lot of people out.
+[00:16] How do you think about just finding that balance?
+[00:18] And I don't know, is there an example
+[00:19] of just like, here's a really ambitious goal?
+[00:22] Or maybe the question is just how do you find
+[00:23] the balance of ambitious, but not just like impossible?
+[00:26] So the first thing is, we have market comparables,
+[00:32] which is very exciting for us.
+[00:33] So when you look at bill.com, right?
+[00:36] They're a publicly traded company,
+[00:38] expensified public and traded or concur or Koopa.
+[00:40] These are all like large players
+[00:42] that are actually very motivating
+[00:44] and largely de-risk some of the business decisions
+[00:47] you're making.
+[00:49] That's existing markets.
+[00:50] We've also been able to create markets.
+[00:52] Spend management was an actual market
+[00:54] before we and other competitors kind of jumped into it.
+[00:58] So that's what that's motivating.
+[00:59] Go attack that market and go drive that revenue
+[01:02] is very motivating.
+[01:04] We also use designs as a way to motivate teams.
+[01:09] So we spend a lot of time with designers
+[01:13] crafting out what the future of this thing could look like.
+[01:17] And that's also extremely motivating.
+[01:18] So we constantly go back to these cornerstone,
+[01:21] loom walkthroughs of Figma prototypes
+[01:25] that designers spend a lot of time talking through.
+[01:27] And I think that's a big part of the motivation.
+[01:30] And so both of those things combined,
+[01:31] I think helps us stay motivated.
+[01:33] I think there's a constant pushback to like,
+[01:36] okay, what can we actually achieve?
+[01:38] But you're able to move super, super fast
+[01:40] if you have those two things in mind,
+[01:41] the market and the revenue goal.
+[01:43] Cause we're very revenue driven as a company
+[01:45] and the designs that can really keep you anchored on
+[01:50] what this could look like.
+[01:51] I know another important ingredient to how you operate
+[01:54] is you really like to empower products.

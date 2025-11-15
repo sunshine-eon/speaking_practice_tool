@@ -1,0 +1,30 @@
+Chapter 10: Attracting top talent
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 52:10 - 58:43
+============================================================
+
+Okay, let me take this opportunity to try to summarize what I've learned from you so far in terms of what you guys have figured out about creating incredible product leaders that go on to do wonderful things. Basically, one of the top three most successful companies at this. There are kind of these two buckets, as I talked to you and the Palantir guy. There's the hiring piece and then there's what you do to help incubate this kind of forge for incredible product leaders.
+
+In the internal development aspect, I have four bullet points. First, give people a lot of ownership. They are essentially GMs of the product and its future. Second, there’s a strong focus on depth and complexity, getting really good at solving gnarly problems. Third, build a focus on creating amazing, lovable products that meet a very high bar. Lastly, there’s the subtle yet impactful point of working closely with detail-obsessed founders or product leaders like you, learning from you all, and recognizing the value of being super detail-oriented.
+
+Is there anything else you think is super core that I missed before we get to hiring? 
+
+I would just maybe highlight the aspect of going deep into details. There are two main streams: first, being technical and understanding how underlying systems work; second, building empathy towards customers to understand their context and ensuring that your product satisfies each one of them. 
+
+That’s a great point. It’s about understanding the bare metal of what is happening and how it’s possible, then making the experience as simple and wowable as possible. There is also a third aspect, albeit a boring one: compliance with all possible regulations and ensuring that your product satisfies the regulator. But it’s an important part of the job. 
+
+What I get from that is just building patience. It’s about being able to unblock your team, which sometimes requires product owners to steamroll changes. It also means you could easily get stuck with a lot of people looking at each other, wondering if they can approve it or not. We try to innovate on it and automate as many things as possible, even using AI models for that. But it also requires a product owner to get things done, getting people to consensus, understanding who your stakeholders are, and how to guide them to the necessary decisions, ultimately unblocking your team so that the value is shipped to customers.
+
+Awesome. So essentially, it’s just getting things done, plowing through blockers, and dealing with many stakeholders. That’s always the most important. 
+
+Okay, that’s a great addition. I could see why that would be really helpful for folks trying to get ahead in their career. Now, on the hiring piece, what you look for is raw intellect, drive, hunger, and passion. Those are the first two. Interestingly, you focus on non-senior candidates, not people with a ton of experience in the problem space, but rather on intellect and hunger. Is there anything else in that bucket that you think is important for people to be really successful?
+
+Most importantly, it’s again about getting things done and getting your hands dirty. Great product owners are very hands-on. They don’t see themselves as managers who just delegate tasks and wait for completion. They go and get things done, understanding that the most important tasks they will likely have to do themselves. There needs to be a relentless focus on execution, and if something is 99% done, it’s closer to 0% rather than 100%.
+
+Wow, say more there. The insight is that things can seem like they’re 99% done, but they’re actually very far from being finished. Sometimes the product is built, but then product owners also need to ensure that the customer care team or sales and marketing team are using it to its full extent. Without that, it could just be another useless feature that no one knows about.
+
+That is super cool. I like the mentality. Let me ask you something completely different. What’s the story of you landing at Revolut? I know you had to move your family, and it was a whole adventure.
+
+My journey into Revolut actually coincided with moving to the UK, so it was a completely new environment for me. It was a huge stress load for the brain as well. It’s not just about using the other side of the lane on the road in the UK; it’s also about the industry concepts I had never encountered before. I had never worked in FinTech, so it was a complete turnaround for me and my career. 
+
+But I was very determined and excited about it because everyone I talked to said Revolut had top talent, the best product people, and I really wanted to be part of this great team. Eventually, it turned out to be advantageous for me because I had this fresh perspective. Even in the Revolut app, which is way better than other bank products, I found some things that, due to my lack of context, were not intuitive. I worked hard with the team to change that.

@@ -1,0 +1,14 @@
+Chapter 3: The role of economists in tech companies
+Video: How Netflix builds a culture of excellence | Elizabeth Stone (CTO)
+Time: 05:57 - 08:32
+============================================================
+
+Kind of along the lines of what you just talked about being a CTO, your background is actually unusual. You're a trained economist. You got a PhD in economics. And from what I can tell, you're the first CTO of a Fortune 500 company that is an economist trained in economics. First of all, is that true? I don't know if that's that. I think that's true, but you tell me. I have not checked the list. That was one of the things I did not do after getting the title. I might be unusual. I've heard a lot of feedback on that. So I don't know if I'm the one and only, but I will definitely say it's probably unusual.
+
+Yeah. So I guess the question is just, do you think this is an anomaly and going to continue to be really rare? Do you think this is, some are going to see more at tech companies? And generally, do you think tech companies should hire more economists? Yes, to the last question. That's the easiest of it. But one of the things I observed even with the focus on data science, where I've been deeper for a period of time, is that economics is a flavor of data science. So it's a set of technical skills, for sure. It's a way of framing certain problems or solving challenges.
+
+And so when I was first switching from economics into tech, it was before there was a lot of sort of the frenzy around data science that we've seen more recently. It was harder to make that argument that economics is a flavor of data science and maybe complementary to other versions of data science. And I feel more strongly about that now that I've seen it up close. And so maybe by extension, I would say, just like I think data science can be helpful for a lot of different problems that you might not immediately think, oh, this is something that we should bring data to.
+
+I think that economics is generally valuable for a lot of different challenges. It's a useful perspective to add to things, especially in a business context, and especially in how we want to simplify problems in a way that makes them feel tractable. So I feel like that's been a benefit to me to have had that type of formal training and then bring that perspective or way of thinking to different roles. 
+
+And so I don't know that many people at Netflix think of me as an economist, but I find it comes out in the way I think about things. So to the extent that that's true, generally, I think it's useful in a lot of companies. And I feel like even since I made the switch towards tech, I've seen it become much, much more common to think about the value of having economists on teams.

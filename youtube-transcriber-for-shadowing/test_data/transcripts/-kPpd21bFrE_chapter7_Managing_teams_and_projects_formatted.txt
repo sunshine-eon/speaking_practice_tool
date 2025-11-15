@@ -1,0 +1,38 @@
+Chapter 7: Managing teams and projects
+Video: How Revolut trains world-class PMs: The “Local CEO” model, raw intellect & building wow products
+Time: 31:33 - 41:07
+============================================================
+
+Let me go in a different direction and see if there's more to learn here. When it comes to running your teams, is there something that is kind of fairly contrarian in how you approach running the product team that is maybe now not how other companies operate that you think is key to your success? 
+
+I've changed in how I operate after I joined Revolut. Probably because Revolut is a founder-led company and probably it's because of the structure. My role is quite spread across many things. My role in travel is leading the product function across the company, but also leading retail, which is a core part of Revolut's business. It's very easy to be spread thinly across all those domains and catching up with 50 or 70 projects that are being executed simultaneously. This would mean that you would just spend your entire week catching up on statuses, not really adding value to anyone. But it's also scary to not do it because what if there are some things going wrong, right? You won't be able to stop it or steer it in a better direction. 
+
+That's why a lot of managers, especially in senior positions, tend to stay high level and don't go very deep into details. However, what we do differently at Revolut is to go very deep into details. We take maybe seven or ten projects that are most impactful for customers right now, and we dive super deep into them—really, really deep—sitting with engineers, reading code at a granular level, and understanding how it's built exactly and what the underlying issues are. 
+
+You might think, what about the other 50 or 60 items that are being executed? The thing is, it's counter-intuitive, but it works really well. First of all, teams talk to each other. There are formal and informal ways of communicating through meetups or just meeting in the office. They know which areas are being scrutinized right now and which team is under review. It also provides information on the current priorities in the company. Additionally, it signals to other teams that if they are not proactively executing things at the expected level—paying attention to all the details and being meticulous in quality—they will be the ones reviewed to such a deep level in the next phase or cycle. 
+
+As a result, this approach builds great discipline. Since Revolut has a high concentration of very ambitious people who strive to be the best versions of themselves and grow, it’s important for them to prove they can deliver great results and build the next great company. Consequently, they do everything to operate autonomously. When you start diving deep into details, you can see that everything is fine. You can understand if a team is on the right track or not. If it's not, it means that it will probably be one of your next areas of focus.
+
+So, what I'm hearing is that there are about 50 to 60 projects being built at any time, maybe close to a hundred actually. You and the founders choose seven to ten to focus on, or is it just you? 
+
+No, it's just me. 
+
+Just you, okay. And by the way, do you have a leadership team that you're a part of with a design lead, or is it just you basically at the top? 
+
+The way it's structured, my responsibility is the product function. We also have a head of design function, which is part of my team. However, all the other functions, like engineering and data, report directly to the CEO. 
+
+Got it. So out of a hundred things, you choose seven to ten to go deep on—these are the things that matter most to the business, and if they don't go well, it will have the most downside. You sit next to the engineers and get really involved in every detail. 
+
+Yes, exactly. 
+
+That is definitely counterintuitive. We had Brian Chesky on the podcast, and his approach was to cut down how many things happen at Airbnb because he wants to be involved in everything. It’s interesting to hear a different approach where you can still do a lot of stuff, but you choose to go deep on the things that matter most. 
+
+We will never cut down on things. The appetite for growth and the entrepreneurial approach in the company is so high that we will never allow ourselves to give up on great opportunities. This approach is also more scalable. While leadership and the founders keep everyone accountable and go deep into details, it doesn't mean they micromanage everyone. That’s actually a very important distinction. 
+
+The ideal position for any product owner is to be fully autonomous. This doesn’t mean you will never be challenged, but when you are, you can show all the logic behind the decisions you've made regarding the roadmap. Even if metrics are not yet there, you will still have the trust to keep building things the way you want. Eventually, you will present the outputs of your activity in weekly product reviews, but again, it’s not micromanagement. It’s more like a last line of control to ensure that what we're building makes sense and adds value, and that it’s thoroughly thought out in all details.
+
+You mentioned that every screen that is shipped is reviewed by the founders at some point. So it’s not like someone is shipping stuff without the founders seeing it in some form. 
+
+Yes, exactly. They have full oversight over everything. This actually allows us to build so many things because there is little micromanagement. If the founders had to be involved in everything, they would have to cut things down. By giving people autonomy, they actually boost company growth. As a result, I think Revolut is a strong outlier in the industry in terms of how many products are being shipped and how fast they are shipped.
+
+Another thing I mentioned previously is that we invest heavily in the platform so that every solution is scalable from the get-go, avoiding any custom solutions. For example, our credit team ships new products like loans or credit cards in a country literally every month, and it’s just maybe 300 people. In contrast, a credit division in an incumbent bank might have two or three thousand people building just credit products for a single country. Our team is building for 50 countries, and this is enabled through our approach with platforms, which we build on top of small teams that are fully equipped with the necessary functions and have autonomy in defining what they are building. The flat hierarchy ensures everyone is accountable, and the founders have direct visibility of everyone, intervening if necessary.

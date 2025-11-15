@@ -1,0 +1,14 @@
+Chapter 19: What Jason has changed his mind about
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 60:06 - 62:33
+============================================================
+
+Awesome. A second question comes from Leo Polovitz, one of my favorite VCs. He works at Seuss Adventures. He asked a question that a lot of people actually ask: what does he think he got right and where does he change his mind, if anywhere? You share a lot of strong opinions, very contrarian opinions. So maybe just mostly on that second part is what I'm most curious about. What have you changed your mind about?
+
+A few years ago, we switched back to focusing on just one product. We used to make multiple products, but then we decided to concentrate solely on Basecamp. I thought I would be personally satisfied for the rest of my career working on one thing and just making that thing the best it could possibly be. Essentially, I envisioned working on one sculpture, constantly tweaking it, chiseling it, polishing it, and just making it better and better.
+
+I still thoroughly enjoy working on Basecamp. However, a few years ago, we built this new thing called Hey, h-e-y.com, an email service, because we felt like we had to make more things again. This idea that I thought we could be happy as a company just doing one thing really well was a major shift. We had multiple products and wound those down. We didn't close them; people can still use them if they were using them before, but we stopped selling them. We even changed the name of the business from 37signals to Basecamp, signaling that we were all in on this one thing.
+
+Then, a few years ago, we realized, you know what, we're makers. Let's be honest about ourselves. I was talking about me and David, and we just wanted to make more things again. We had more ideas, and we questioned why we were suppressing ourselves. So, we made Hey, and now we're committed to creating more products. We’re even considering doing another book, as I mentioned earlier.
+
+I think that's the biggest, most fundamental 180-degree change that I've made in my thinking. But I change my mind all the time. I disagree with myself constantly on small things, like product design decisions, the naming of something, how we roll something out, or how I'm going to write or present something. There’s probably an answer in this podcast that, if I listened back, I would probably answer differently. I might think, “Eh, I don’t even agree with the way I answered that.” There are a million things like that happening all the time. But in terms of big things, I think that's the best example I can come up with.

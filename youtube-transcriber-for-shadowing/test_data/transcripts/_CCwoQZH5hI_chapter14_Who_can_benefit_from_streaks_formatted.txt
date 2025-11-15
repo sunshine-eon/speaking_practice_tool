@@ -1,0 +1,14 @@
+Chapter 14: Who can benefit from streaks
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 78:57 - 81:00
+============================================================
+
+Say someone's listening and they're like, "Should we do Streak? Because it's worth doing." What's your take on just like the chances that a Streak feature would be helpful to another consumer? I am well known for saying in the company that I think every Streak, every team, every app could benefit from a Streak. 
+
+Now, how you implement it is very different. You have to consider what your user's use case is. For example, if they're going to use tax software, it might be challenging. You need users to come back every day during tax season or at least a certain number of times to upload their big forms. That is a hard use case. However, the vast majority of companies have a good idea of their ideal use case. They might want users to come back three or four times a month, and you can build a Streak to support that.
+
+Take Peloton, for instance. They have weekly Streaks, and the idea of doing a Peloton workout every single day can be daunting for many users, especially during COVID. But the concept of maintaining a weekly streak is something that I could keep up with. So, I think it's important to figure out what your usage pattern is as a user and then build your Streak around it.
+
+As long as you have some degree of frequency in your use, I believe almost anything can have a Streak. Look at Duolingo; it's a $14 billion company. This feature is possibly the most contributing factor to that level of success and market cap, aside from the core product itself. It's hard to imagine another feature of a product that has had such a significant impact on growth, revenue, and building a successful business.
+
+So, I love that we spent this much time on it. It's the mother load of advice and insights. Thank you again for putting it in. Very fun.

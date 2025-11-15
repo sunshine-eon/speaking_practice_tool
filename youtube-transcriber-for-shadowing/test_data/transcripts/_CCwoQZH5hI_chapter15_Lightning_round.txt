@@ -1,0 +1,169 @@
+Chapter 15: Lightning round
+Video: Behind the product: Duolingo streaks | Jackson Shuttleworth (Group PM, Retention Team)
+Time: 81:00 - 88:32
+============================================================
+
+[00:00] With that, we've reached our very exciting lightning round.
+[00:03] Are you ready?
+[00:04] I'm ready.
+[00:06] First question.
+[00:07] What are two or three books you've recommended most to other people?
+[00:10] All right.
+[00:11] I'll start with a guide to Midwest Conversation.
+[00:14] So I'm based in Kansas City.
+[00:15] I'm a proud Midwesterner.
+[00:17] And us Midwesterners talk in a certain way.
+[00:20] I think, you know, you hear about Minnesota nice, but we tend not to say what we
+[00:24] mean.
+[00:25] And it is a very funny primer into what Midwesterners actually mean when they say
+[00:30] what they say.
+[00:31] So I highly recommend reading that.
+[00:33] I like that they give that to people just like, here's what I might be telling you,
+[00:36] which you may not read.
+[00:39] My wife is German and I gave it to her.
+[00:40] I can see German being the opposite of that.
+[00:43] Very different.
+[00:46] Another book.
+[00:47] This is a good one.
+[00:48] Fate is the Hunters.
+[00:49] This is a really cool book.
+[00:50] It's a memoir of one of the early commercial airline pilots.
+[00:55] And it is wild to hear the stories about what flying was back in the day.
+[01:00] You know, I'm a former management consultant.
+[01:02] I flew every week for almost six years and I never once had to worry about, am I going
+[01:07] to make it to the other end of this flight alive?
+[01:10] That was not the case back then.
+[01:11] And so some of the stories about what it used to be like to be a pilot on some
+[01:15] of these planes before modern aviation technology is fascinating and makes you
+[01:19] really appreciate what we have.
+[01:22] It feels good to read a book like that being a software, PM, or engineer,
+[01:26] whatever, like how different that life is.
+[01:28] Hardware is hard.
+[01:31] It's not haptic design.
+[01:33] OK, next, unless there's any other books you're going to share.
+[01:36] OK, great.
+[01:36] What's a favorite recent movie or TV show you really enjoyed?
+[01:40] So I have two kids.
+[01:41] I watch a lot of Bluey.
+[01:43] It's really good.
+[01:44] I swear it brings me no shortage of joy.
+[01:47] But adult show that I heard show not meant for four year olds that I have watched.
+[01:52] I just finished the latest season of Emily in Paris.
+[01:55] Man, wonderful.
+[01:57] I realize it's not the highest brow of television, but just like beautiful
+[02:01] people in beautiful cities solving problems that are not, you know,
+[02:04] earth shattering.
+[02:05] Sometimes it is nice to just tune out.
+[02:07] Also, I'm learning French on Duolingo, a slight plug for the app.
+[02:12] I can understand a lot of the French that is being spoken.
+[02:15] And there is no better joy than having invested as much time as I have in French
+[02:19] and actually being able to use it.
+[02:21] So huge fan of Emily.
+[02:23] That is so funny.
+[02:23] What a fun of a diagram of interests.
+[02:26] My mother-in-law loves Emily in Paris.
+[02:29] I saw someone tweeting about like, what these are she on?
+[02:31] How is she still in Paris?
+[02:33] Yeah, you best just not ask questions.
+[02:35] There's a lot of questions for this show that are better left unasked.
+[02:39] Do you have a favorite product you recently discovered?
+[02:41] Did that you really like other than Duolingo?
+[02:43] Last week I went to Home Depot and I bought a new ladder and ladder innovations
+[02:48] you don't think, you know, of often, but you can make one of the legs go a little
+[02:53] bit further than the other leg.
+[02:55] And as somebody like myself who has a house that is built on a slight slope,
+[02:59] every time I go up on my ladder, I take my life in my hands.
+[03:02] But with this ladder, I'm always even I clean my gutters twice last week
+[03:06] just because of how awesome this ladder has how much this ladder has changed
+[03:11] my life. So ladder innovation.
+[03:13] I don't think it gets talked enough about.
+[03:15] And so I'm happy to give it the spotlight it deserves.
+[03:17] I appreciate you doing that.
+[03:18] And it's the first ladder recommendation we've had on the podcast.
+[03:21] Two more questions.
+[03:22] Do you have a favorite life motto that you really find useful in worker
+[03:24] and life that you share with folks?
+[03:26] This probably will not be much of a surprise based on how I've talked
+[03:29] about our willingness to test things, but you miss 100% of the shots
+[03:33] that you don't take of a big fan of just trying things.
+[03:36] Even if your possibility of success is not 100 because you learn a
+[03:41] lot along the way.
+[03:43] So final question.
+[03:46] Do you have any fun traditions at Duolingo amongst either the PM team
+[03:50] or the company in general that might be delightful to share?
+[03:52] We have way too many traditions to count.
+[03:57] I will share the weird tradition that we do at every retention stand up.
+[04:01] And this started during the pandemic.
+[04:04] You know, we obviously used to stand up in person.
+[04:06] And then when we went remote, we did this thing where whoever's
+[04:10] the last person to go would count down three, two, one.
+[04:14] And then we'd all try to clap at the same time, which was kind of fun
+[04:17] and dorky, but we fell in love with it.
+[04:19] And four years later, we're still doing it.
+[04:21] Recently we've added, we all say yee-haw in unison afterwards.
+[04:28] I can't tell you why, but trying to synchronize a clap via Zoom
+[04:33] and then all shouting yee-haw.
+[04:35] I did this in a phone booth the other day and after I came out,
+[04:38] someone told me, you know that those aren't as soundproof as you think,
+[04:42] but you know, when you get a good opportunity to give a yee-haw,
+[04:45] you kind of can't pass up on it.
+[04:46] So I love these little things like they're so, you know, they sound
+[04:49] so minor, but they're such important elements of team culture and tradition
+[04:53] and so important for PMs to find ways to just have fun and do something ridiculous.
+[04:58] I will say it took a while to get people behind shouting yee-haw.
+[05:03] But now that we have people doing it, you can't, you can't take it away from it.
+[05:08] We all love it.
+[05:08] Oh, man. I called our all hands for a while.
+[05:11] Y'all hands. Feel free to steal that.
+[05:13] You get it. You get it, Lenny. Yeah, I get it.
+[05:16] Jackson, this is incredible.
+[05:17] I feel like people are going to listen to this with notebooks
+[05:20] and just like, OK, here's a bunch of ideas we should try with whatever
+[05:23] we're working on, whether it's streaks or not.
+[05:25] Thank you so much for being here.
+[05:26] Two final questions.
+[05:28] Working folks find you online if they want to reach out, learn more,
+[05:30] learn more about Duolingo.
+[05:31] I know you're hiring product managers, so share more there.
+[05:34] And finally, how can listeners be useful to you?
+[05:37] Yes, you can find me on LinkedIn.
+[05:40] That is where most of my online social media is, so Jackson, Shuttleworth.
+[05:44] And then how people can be useful to me.
+[05:46] Yes, as you said, we are hiring.
+[05:48] We're actually hiring for my team.
+[05:50] Are you interested in thinking about streaks as much as we do?
+[05:54] You know, we might be the right home for you.
+[05:56] So please, you know, you can find our website.
+[05:59] We're also hiring for a number of other product management roles
+[06:02] and they are all as thrilling as this work is.
+[06:05] And then, you know, I'm always interested about how other companies
+[06:10] have implemented streaks and what they've learned.
+[06:12] And so what I'd say is if you're a company who's implemented a streak,
+[06:16] maybe in a different way than Duolingo has, or, you know,
+[06:19] you found a whole ton of success and, you know, another vector,
+[06:22] another element to the feature that we didn't talk about today.
+[06:25] I would love to know more.
+[06:27] I used to catalog basically every streak
+[06:28] I found out there, and as it's become more of a popular feature,
+[06:33] it's just been hard to keep up on.
+[06:34] So, you know, if you have interesting streak insights to send my way,
+[06:39] I would love to hear them.
+[06:41] I love that collection of all the best ways of doing streaks.
+[06:44] Jackson, I just want to say congrats to your team
+[06:46] and you for having so much impact.
+[06:49] This is like the dream of a lot of PMs and teams
+[06:51] is to see this much impact and continue to ship wins.
+[06:55] And so congrats. Nice work.
+[06:57] Thank you very much.
+[06:58] Keep your attention.
+[06:59] And with that, Jackson, thanks so much for being here.
+[07:01] Yeah, thank you, Lenny. This was a lot of fun.
+[07:04] Same. Bye, everyone.
+[07:07] Thank you so much for listening.
+[07:08] If you found this valuable, you can subscribe to the show
+[07:11] on Apple Podcasts, Spotify, or your favorite podcast app.
+[07:15] Also, please consider giving us a rating or leaving a review,
+[07:18] as that really helps other listeners find the podcast.
+[07:21] You can find all past episodes
+[07:23] or learn more about the show at Lennyspodcast.com.
+[07:26] See you in the next episode.

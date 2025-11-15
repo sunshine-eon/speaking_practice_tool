@@ -1,0 +1,128 @@
+Chapter 8: Why Tobi never stopped coding
+Video: Tobi Lütke's leadership playbook: First principles, infinite games, and maximizing human potential
+Time: 45:59 - 54:46
+============================================================
+
+[00:00] I want to talk about this talent stack concept that you've touched on a couple of times that
+[00:04] I think, but before we get there, I want to kind of go in a different direction, which
+[00:07] I think is an interesting foundational element to your ability to be successful in your first
+[00:13] principles thinking, which is you getting kind of to the metal to the, to the, to
+[00:18] the core of the problems you're solving by actually spending a lot of time coding.
+[00:22] And I actually heard a story about how you all had this huge all-hands summit flew
+[00:27] everyone in. You're all together. There was a three-day hackathon. And the way it was
+[00:31] described is you're just, you were sitting at a table with headphones in coding, just
+[00:36] like any IC engineer, no one would have known you're the CEO of this company, the
+[00:40] founder of this company. Why is coding and working in the code to you still so
+[00:45] important?
+[00:46] That's a, it's a funny, but that's the way the story goes. It's like, I mean,
+[00:50] it's right, but like, I don't know why that is surprising. That's like, I
+[00:55] mean, my happy place, like, like being able to like clear out three days of my
+[01:01] calendar and, you know, being there till midnight with all these remarkable
+[01:06] people who join us on journey, just like, like building stuff is like, I mean, I
+[01:11] do my job so that that is the jobs that exist for other people. That's the
+[01:17] job I actually want. That's the phone I couldn't find because no one
+[01:21] could kind of company it for me that, at least back in those days, I think
+[01:26] still not really. And so, so I mean, I just, I just love coding. It's one of
+[01:32] greatest things. It's one of the greatest sort of, I don't know, hobbies
+[01:36] and pursuits. I it's, I've done it for a very long time. I came across it
+[01:42] very, very early. It fits my brain like a glove. I, I, I appreciate so much
+[01:49] of the craft behind coding. I am a trained apprentice in, sorry, I've
+[01:55] apprenticed as a programmer in Germany, which is, which has a dual
+[01:58] education system where you can do such things. So I've been professionally in
+[02:04] companies, spending all day. And I really mean it or programming ever
+[02:11] since I'm, I just turned 16. I think first day was just like, just
+[02:16] before I turned 16, when I started my apprenticeship. And so I love it. I
+[02:21] have, I have like, I mean, I have a view on my screen, left of you is cursor
+[02:28] right now, which is opened to a Juniper notebook, where I'm working on
+[02:35] some projection stuff that I'm playing with. It's like, I try to
+[02:40] sanity check as much as I can of what I get. I try, I try to find it's a game
+[02:47] for me to find new insights in data. And I just like, I don't know. It was
+[02:53] cool. There is maybe this is the picture you talk about. There is a
+[02:57] picture of someone captured, which is really fun, where like, I'm on my
+[03:00] laptop with a bunch of engineers and then Harley, so president is on stage
+[03:09] DJing, like this was like taking it like 1am or something like this. And it's
+[03:12] like, it's a picture which actually really precious to the two of us, because
+[03:16] it actually perfectly summarizes like our relationship in a way, which is like
+[03:23] it's these happy accidents are wonderful and these like long journeys
+[03:26] I've been doing shop for 20 years now. It's like, so I appreciate these
+[03:29] artifacts. But yeah, so
+[03:33] To be clear, the reason this is unusual is and why someone told me the
+[03:37] story is most CEOs do not do this. Don't just sit there and code along
+[03:41] with the team. And the reason I thought the story was important is, and the
+[03:46] reason I think your first principle approach works is you're, you're
+[03:50] actually in the engineering details, similar to Elon, if you think
+[03:55] about it of just like in the weeds, doing the thing, understanding how
+[03:59] the thing works, not just coming up with ideas out of you know,
+[04:02] quantifications. And so I guess is there anything there just like
+[04:05] how important it is? If you want to approach thinking from first principles,
+[04:09] it is to be really close to the metal.
+[04:12] Yeah, like I mean, first principles thinking starts from, you know, I
+[04:17] think Elon puts it as physics, which I think is like, is a little bit
+[04:21] atoms coded. I think just like, like from from the atomic building blocks
+[04:25] really is a right starting point.
+[04:29] The like the atomic building blocks are the computers we are using.
+[04:34] Like computers are our instruments, right? Like we play, we use them to
+[04:39] create the music that when people appreciate to receive in the form of
+[04:43] software. So you got to understand how they work, at least to work the way
+[04:49] I do. No, is the way I work optimal? Of course not. This is my point
+[04:54] about the aesthetics of how to, you know, how to, you know, how to
+[04:57] behave, how to work like I probably don't conform to the sort of
+[05:02] traditional view of what CEOs of public companies should be like or even
+[05:05] should spend their time.
+[05:08] But I think I'm successful because I don't try to conform to anything
+[05:14] other than what I've learned works. And so what I learned works is be in
+[05:20] as many details as you can, like really, really, really just understand
+[05:24] the stuff that we are making decisions about and, you know, be
+[05:28] willing to, you know, like, don't, don't put too much stake into the
+[05:33] sunk cost fallacy, like try to inoculate your business or your, your
+[05:38] parts of the company from the sunk cost fallacy as much as possible
+[05:42] because that allows you to just see better solutions and so on.
+[05:45] And, you know, I think what we were doing, if I remember right, is
+[05:49] like at hack days is we, we were working through pros and cons of
+[05:54] just like merging all of Shopify into one huge mono repo and we are
+[05:58] sketching out like directory structures and like tooling that we
+[06:02] would need. And, you know, that's, that's one of those, again, like
+[06:06] mono repo now is like for companies is like a very much one of
+[06:09] those door eight or beef kind of things. It's a very consequential
+[06:13] choice that is incorrect to go say yes to at a certain size. And
+[06:21] then it becomes very correct in my mind to say yes to. But at
+[06:26] that point, it's an enormous amount of effort. So it's a kind of
+[06:28] thing that actually is like something I'm, I'm, I'm uniquely
+[06:34] positioned to be involved with, because it's actually a business
+[06:38] strategy thing as well. It's like, as an investment, a very real
+[06:41] investment to say, Hey, let's change our like the way via
+[06:44] building system. Let's figure out what the best way is. There's
+[06:48] going to be change management. Some people are like there's
+[06:50] going to be some people will have very strong opinions on
+[06:52] yes or no. And frankly, Toby said, so helps, like, it just
+[06:59] simply it also compresses a lot of time, right? Like, because
+[07:02] everyone knows the way I work, I am, I, everyone can come to me
+[07:10] with better ideas about anything. And if you're right, I will
+[07:14] change my mind. But I will hold my opinions very, very
+[07:17] strongly until the point of being convinced that they're
+[07:20] not the correct ideas, which again, is maybe that's another
+[07:24] aspect of this to be tonight. I think you talked about earlier,
+[07:26] like people do find like, I mean, there's again, there are
+[07:28] statics of our times, put a lot of stake into consistency, right?
+[07:33] I remember various politicians losing campaigns because
+[07:36] they were called flip floppers at times, which I like, although,
+[07:40] you know, I'm more of a main arcane school of, you know,
+[07:45] when the facts change, I change my opinion, what do you do,
+[07:47] so it's like, sounds like a better OS to go by. So it's awesome
+[07:54] because I'm extracting more of these of your algorithm of how
+[07:56] you think about stuff. And so a few things you just shared are
+[08:00] one, you need to be in the details. So this is thinking
+[08:03] about to be successful as a first principles thinker is be
+[08:06] you need to be in the details in your case code. In Elon's
+[08:09] case, it's like build the thing and be at the factory
+[08:11] sleeping on the floor. As you said, he's very atoms based,
+[08:14] you're more digitally native. And then also don't be so
+[08:18] reliant on some costs. Reeth, like, like you said in this Toby
+[08:22] tornado case, just like, I know you've been working on this
+[08:24] project, we're gonna kill it because it's not going to work.
+[08:26] Better we do that now versus just keep going because we've
+[08:29] been going. And then coming back to the stuff you've shared
+[08:32] previously is analyze kind of the path that you've been on
+[08:35] that the previous products and solutions have assumed the
+[08:38] path dependence of them. And then don't look at what
+[08:41] they've overfit potentially that isn't correct. Love it. Okay.

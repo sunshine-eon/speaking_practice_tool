@@ -1,0 +1,90 @@
+Chapter 14: Why Shopify doesn’t use KPIs
+Video: Breaking the rules of growth: Why Shopify bans KPIs, optimizes for churn, and prioritizes intuition
+Time: 48:04 - 51:30
+============================================================
+
+[00:00] Fascinating.
+[00:01] One more tidbit that I've heard
+[00:04] about how you all think about this is metrics.
+[00:07] And you mentioned before we started recording
+[00:09] that a lot of the company doesn't actually have metrics
+[00:12] that drive what they build,
+[00:13] especially within the core business,
+[00:15] which I think which surprise a lot of people.
+[00:17] Most people are like, every team needs a metric
+[00:19] and a KPI and this is how we measure progress.
+[00:21] And this is how we know if they're doing well.
+[00:23] Talk about just how that works,
+[00:24] how companies, most of the company
+[00:25] doesn't have a metric.
+[00:26] Yeah, it's funny, we've ran it against KPIs
+[00:29] or basically banned as an OKRs or banned and all that.
+[00:32] So it's certainly like in growth,
+[00:36] we have the metrics, but they take a different form.
+[00:39] And then in core, it truly is do we have conviction
+[00:46] that this is the right technical foundation
+[00:49] to build the future of commerce?
+[00:50] And that is built through certainly looking at data.
+[00:53] So it's not that teams are not looking at data
+[00:55] and using it as a piece of their puzzle,
+[00:58] but it's not the overriding.
+[01:00] And when we go to ship a feature in core,
+[01:02] it's not like a team is held accountable
+[01:04] for this metric over this six months.
+[01:08] It's much more, did we ship the right thing?
+[01:10] And we're gonna kind of get at that
+[01:12] through a variety of lenses.
+[01:14] Could be some of that could be data,
+[01:15] qualitative, just our own kind of product sense
+[01:19] of what's good or not.
+[01:20] And so that, I think the upside of that
+[01:24] is I think we tend to ship things in core
+[01:28] and that are incredibly
+[01:32] port facing and if we take more risks.
+[01:34] I think that to acknowledge some of the downside of it though
+[01:37] is sometimes conversations get extremely subjective
+[01:41] about what is the right thing to do.
+[01:42] And so that requires kind of a,
+[01:46] the right way of having kind of good discussions,
+[01:50] kind of openness from all leaders
+[01:51] and from teams to debate those things.
+[01:53] But it does result in some squishiness,
+[01:56] which again, as is pros and cons,
+[01:57] the kind of taste is kind of what drives a lot
+[01:59] of what we're shipping in core.
+[02:01] Yeah, I'm glad you're touching that.
+[02:03] I was gonna say, okay, everyone would love this idea
+[02:05] of just build things that we think are awesome.
+[02:07] It's gonna be great.
+[02:08] But then you build a whole org with teams
+[02:10] and people building stuff.
+[02:11] How does one know if they're building things
+[02:14] that are good and helping versus not?
+[02:17] And you're pointing out there are pros and cons to that.
+[02:20] The pros is we're not optimizing
+[02:22] for some short-term wins and driving some four metric.
+[02:25] The con is you might ship stuff that,
+[02:27] like there's a lot of subjectivity
+[02:29] and people may not agree
+[02:31] and it's a lot of kind of squishy stuff.
+[02:35] Yeah, totally.
+[02:36] Glenn, who's the head of core product.
+[02:38] I mean, one of the things that's so impressive about
+[02:40] Glenn and kind of that core team is
+[02:42] they go incredibly deep into every single release
+[02:48] that it shipped.
+[02:49] And so you do have a central kind of eye on
+[02:53] the quality and how it all fits together.
+[02:56] And so that I think helps make sure
+[02:59] there's a consistent kind of bar for taste.
+[03:02] That's Glenn, a bunch of folks, Toby obviously,
+[03:05] that kind of can enforce that.
+[03:06] So it creates, it's subjective,
+[03:08] but it's objective in the sense that it's kind of
+[03:10] a small number of people who really hold
+[03:12] what that bar is and needs to be.
+[03:15] I think if it's just subjective,
+[03:17] let's just ship what we want without kind of
+[03:20] a couple of people really holding that,
+[03:22] that quality and that taste bar,
+[03:24] that's where things go really.

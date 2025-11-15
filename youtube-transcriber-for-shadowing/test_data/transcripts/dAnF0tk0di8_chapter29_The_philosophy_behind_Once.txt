@@ -1,0 +1,212 @@
+Chapter 29: The philosophy behind Once
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 86:33 - 95:47
+============================================================
+
+[00:00] And then, could you talk about the first thing you're launching or is that not out?
+[00:04] Yeah, sure.
+[00:05] The first product we're going to be launching is basically an old product that we made way,
+[00:10] way, way back when.
+[00:11] So years and years and years ago, in 2006, we launched a product called Campfire, which
+[00:16] was a group chat tool.
+[00:18] How could you not remember Campfire?
+[00:20] Some people are 22 and they don't know, understandably so.
+[00:25] But if you've been around, maybe you remember Campfire, which was a group chat
+[00:28] tool, which is, I think, like, eight years before Slack came out or something like that.
+[00:33] So it was really, really, you know, it was really hard to get people to even understand
+[00:36] what this thing was.
+[00:37] And a lot of people kind of didn't get it.
+[00:39] And then Slack came out, of course, and sort of steamrolled it and like, you know, really,
+[00:42] really executed beautifully and did a great job.
+[00:46] But chat has become a commodity.
+[00:49] There are a million ways of chat with people now.
+[00:51] And in the business realm, they're all still quite expensive.
+[00:55] And they're all month to month to month.
+[00:58] You got Slack, you got Teams, and you got a few others.
+[00:59] And it's like, you know what?
+[01:02] And there are some open source alternatives, by the way, that are freer or cheap.
+[01:06] But we want to put something back out there.
+[01:08] So we're going to relaunch Campfire under the once brand.
+[01:11] You'll pay for it once.
+[01:12] You'll install in your own servers and you'll run it.
+[01:15] And it'll do 90 percent of the things that you want to do every day
+[01:21] and these other chat tools and do them very, very well and very, very
+[01:25] simply and very, very easily.
+[01:28] And we think it's going to be really interesting.
+[01:31] And by the way, the other thing we're thinking about with these
+[01:32] once products, which is interesting to get to this alternative point of view,
+[01:37] is that these don't necessarily need to replace things that can be in addition to
+[01:41] like, you might still run Slack at your company, but you want to backup
+[01:44] for when Slack goes down or you want a special air gapped chat for your
+[01:49] executive team that cannot be leaked by another company where you're
+[01:55] hosting data or having other people involved that might have access to it by accident.
+[02:00] Like, you can you can run things and you can have different tools doing similar
+[02:04] things, but for different groups in different contexts.
+[02:06] Now, you probably wouldn't want to pay month to month to month to month
+[02:09] to month for a backup system when something almost never goes down.
+[02:12] But if you only have to pay for it once, it might be really like,
+[02:15] that's a good thing to have.
+[02:16] That's an insurance policy to pay for once.
+[02:18] And we just have our back pocket, right?
+[02:20] The other thing we're doing with once products is that you get the code.
+[02:24] And so if you're a product team and you're curious to see how this product was built,
+[02:30] we've gone to great lengths to make it exceptionally well built for this purpose.
+[02:35] This is a book, essentially, of how to build this kind of thing really,
+[02:40] really, really well on the CSS on the HTML and the Ruby on Rails side, for example.
+[02:44] So you'll get all the code and you can look at it and you can modify it.
+[02:48] You can play with it and you can tweak it.
+[02:51] You can't resell it.
+[02:52] There's certain licensing, but it's yours.
+[02:54] And so if you want to change the layout, go ahead.
+[02:57] If you want to add some features, go ahead.
+[02:58] If you want to mess around, go ahead.
+[03:00] It's yours.
+[03:00] And that's another thing that's really novel.
+[03:02] You don't get that in subscription software.
+[03:04] So there's a lot of things going on that we're trying.
+[03:07] There's some other really cool stuff.
+[03:08] I'll tell you one more quick thing about it is that we're trying to make
+[03:11] this first prompt especially have as few words as possible, maybe like 30 words.
+[03:18] So we're picking tools that are picking categories that people already know how to use.
+[03:24] And so we're trying to keep as many words out of this as possible.
+[03:27] So it's instantly, essentially available for the entire world.
+[03:31] It's not doesn't have to be localized.
+[03:33] You know, it's just like it's universal software.
+[03:36] We're trying to think about it this way.
+[03:37] And when we do have a word, we're going to have a panel that shows
+[03:40] that translation a bunch of different languages.
+[03:42] So it's not like you install this pack or that pack.
+[03:44] It's like you can hit this because different people in the world work in different countries.
+[03:48] So we have people in different countries that work for us.
+[03:50] I don't want to just have the Indian version because people in India might also have
+[03:53] people that work in Brazil and they need the Portuguese version.
+[03:56] So you can see all the different languages for certain words when we use them,
+[03:59] which is a really novel thing.
+[04:01] We're kind of playing this whole thing like these kind of tools give us a chance
+[04:04] to play and explore new realms and new ideas that we couldn't do with SAS.
+[04:09] This is one of the things I'm getting back to the first question you asked me.
+[04:12] I think, or maybe it wasn't the first, but this is why I'm excited again.
+[04:15] Like there's some novelty again.
+[04:17] There's some new explorations again.
+[04:19] We're able to do things that we couldn't do in other places.
+[04:22] So there's an excitement that's building around this creative exploration again.
+[04:28] And that's really firing us up.
+[04:30] It's clear how you're excited about this.
+[04:31] Like you're saying how you thought you'd be happy just building Basecamp
+[04:34] for the rest of your life.
+[04:35] There's a poll here.
+[04:36] I'm going to try something totally new and different.
+[04:38] Also, the domain is awesome.
+[04:41] That was fun.
+[04:42] And we're still going to do Basecamp.
+[04:43] So we're still doing SAS.
+[04:45] I still believe in SAS.
+[04:46] This is not going to replace SAS, but there should be an alternative.
+[04:50] People should be able to buy what they need versus rent what they need.
+[04:54] I think this is going to be an interesting experiment
+[04:57] because this is how we started with software.
+[04:59] And then SAS came and everyone loved this idea.
+[05:02] I don't have to worry about anything.
+[05:03] I'm just going to pay you monthly and you take care of maintenance
+[05:06] and hosting all that stuff and keep updating me with better features.
+[05:09] So I think it'll be interesting to see if we miss something leaving that world.
+[05:13] One clarifying question for updates.
+[05:15] Do you buy yearly kind of like a new campfire every year?
+[05:19] Or how does that work?
+[05:20] Yeah.
+[05:21] So the plan is is that let's say you buy campfire 1.0.
+[05:24] This is kind of the way software used to work.
+[05:26] It's the same sort of approach, which is like you'll get all the 1.x
+[05:29] updates for free.
+[05:31] And you'll be able to decide if you want to update yours or not.
+[05:35] So we'll say, hey, there's a 1.1 is out and here are the new things.
+[05:38] And you get to decide if you want to download that and update yours or not.
+[05:41] So you can stick with 1.0 if you want, or you can skip a version or whatever you want to do.
+[05:45] If when we get to version 2.0, there'd probably be, you'd probably have to buy it again.
+[05:50] But we probably have a discounted upgrade rate.
+[05:52] But that's like you also totally optional.
+[05:56] I don't know if we'll ever even get there.
+[05:58] We might not need to have no clue.
+[06:00] But we're leaving that door open that, you know, if there's a radically new version
+[06:05] that we had to sync another six or eight months into or something, it feels right to say
+[06:10] you'll need to upgrade.
+[06:11] Maybe you get half off because you're a previous customer or something like that.
+[06:14] So we don't know, but that's the plan.
+[06:16] I think it's also important for people to remember your target is not like
+[06:20] to replace Slack at big tech companies.
+[06:23] Like your market is the Fortune 5 million, as you described.
+[06:26] It's not, first of all, we don't have a sales team.
+[06:28] So it's self-service.
+[06:30] It'll always be if some big, huge company says like
+[06:34] they look at their bill, their Slack bill and they're going,
+[06:36] we're paying 1.2 million a year for this.
+[06:38] Wait, wait a second.
+[06:39] I can pay like less than a thousand bucks once for this.
+[06:43] Maybe that's worth having.
+[06:45] Or maybe like, even if we don't use it, it's absolutely worth buying
+[06:48] because maybe we will use it or maybe we can experiment with it in this place.
+[06:52] One of the things we're trying to do here is find a price point.
+[06:55] It's going to be under a thousand bucks.
+[06:57] I won't tell you exactly where, but we're trying to find a price point
+[07:00] where it's kind of becomes a no-brainer.
+[07:02] Like you know what?
+[07:03] We should buy this.
+[07:04] We should have this.
+[07:05] This should be in our toolkit.
+[07:06] And we should use this in certain parts of our business,
+[07:08] even if we don't replace this other thing.
+[07:09] Although we still might because we might find that as this group
+[07:12] or these two groups or three groups that are using this
+[07:14] are making exactly the same kind of progress,
+[07:18] like why are we spending all this money elsewhere?
+[07:20] So it's a bit of a Trojan horse potentially.
+[07:22] I don't know what's going to happen.
+[07:24] No idea.
+[07:25] But it's going to be pretty interesting.
+[07:27] The other thing that's really cool about it,
+[07:29] this is the tiniest market in the world.
+[07:31] Because it doesn't go out to the internet,
+[07:34] you can run it in truly air-gapped research facilities.
+[07:38] There was a time way back in the day
+[07:40] where the White House got in touch with us.
+[07:42] This is when Obama was running and wanted to use Basecamp.
+[07:45] But they're like, we need to install it
+[07:48] because we can't obviously host this stuff on your server.
+[07:51] So I know I totally get it.
+[07:53] We can't do that, unfortunately.
+[07:55] Sorry.
+[07:56] But they have security needs that are just far beyond
+[07:58] what most things allow.
+[08:00] But this is the kind of thing where they can actually be
+[08:02] completely detached from the public internet
+[08:04] and run this kind of software,
+[08:06] which is really interesting.
+[08:07] Again, tini-market, not what we're building it for,
+[08:09] but it's a cool by-product or side effect,
+[08:12] I should say, of running things this way.
+[08:16] And then did you share when this might come out?
+[08:18] I know you don't promise.
+[08:20] Is there something you want to share there?
+[08:22] Well, unfortunately, you promised.
+[08:24] We said by the end of this year,
+[08:26] that's why I was getting into that,
+[08:28] but we're going to start with the first batch of customers.
+[08:31] It's probably not going to be available publicly
+[08:34] to everyone in the world yet,
+[08:37] but that'll come soon after.
+[08:38] But the first batch of customers are going to get it
+[08:40] and we'll kind of slow roll it out,
+[08:42] figure out what we missed,
+[08:43] what we need to tighten up and tweak.
+[08:45] It's not really a beta as much as it's just a limited release,
+[08:48] which is the smart way to do this.
+[08:50] And then we'll open the doors very, very soon after that.
+[08:53] Jason, you're breaking your record.
+[08:56] Jason, you're breaking your own rule
+[08:58] of not saying by end of the year.
+[09:00] Apparently, I learned earlier that that never works.
+[09:03] Yeah, it's funny.
+[09:05] We definitely said that,
+[09:07] and we said that like six months ago.
+[09:09] And here we are, end of the year.
+[09:11] It's happening, so maybe sometimes it works out.

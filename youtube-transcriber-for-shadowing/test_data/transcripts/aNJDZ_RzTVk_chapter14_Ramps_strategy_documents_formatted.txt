@@ -1,0 +1,16 @@
+Chapter 14: Ramp’s strategy documents
+Video: Velocity over everything: How Ramp became the fastest-growing SaaS startup ever | Geoff Charles
+Time: 37:54 - 40:55
+============================================================
+
+What's part of this contract, and is there like a document you put together to leave us out? Strategy means a lot of different things. In my mind, strategy is about how do we get to our goals? It's not a roadmap, and it's not a vision; it's something right in between that. 
+
+The first thing you need to do is align on what the goals are. What do you want to see in the world? Then the hypothesis is why you think this will work. Figure out why we're uniquely positioned as a company to get after that goal. Next, determine the metrics by which you would measure whether we reach that goal, and then talk about the initiatives, the risks, and the long-term outcomes. These are kind of the bullet points of the contract, essentially, of a strategy document. 
+
+Now, every pod basically spends time writing that document for themselves. The pods are organized against outcomes, so they should be very clear on their goals. They publish these documents, and then what I typically do is take all these documents and ensure that they're aligned with our high-level product strategy, which is a bit more long-term thinking than the individual pods. They also need to align with our financial strategy, but we can get into that later. This process helps create a culture of empowerment where each team is thinking about these things and thinking like you. The more that, as a leader, you make teams think like you, the more leverage you gain over time, allowing you to start thinking ahead on other ways of operating. 
+
+How long does planning roughly take, and how often do you do this strategy rethink? We've gone through iterations, both good and bad. For a period at Ramp, we created OKRs with financial goals and quotas for different teams. That led to a long planning process because people were trying to ensure there was the right metric and that it was achievable. It became very political and quite annoying. Largely, our entire R&D team decided to just execute on the roadmap and disregard the OKRs. 
+
+So, we moved from quarterly planning, which took one month every three months—essentially 33% of the time spent on planning—to a biannual one-pager on these other company priorities. This change has made the process much smoother and faster. Related to that, though, we have a strong financial plan that we execute on, and each row or lever of that financial plan has an owner. Oftentimes, it's marketing and sales for anything that's product-led, and for product-related items, it's the product team. 
+
+That's one contract, and then we have our roadmap, which is the second contract. One of the bullet points you mentioned is this idea of being uniquely positioned. Can you talk a bit more about that? Perhaps share an example of something you worked on? How do you describe why you're uniquely positioned to win at that?

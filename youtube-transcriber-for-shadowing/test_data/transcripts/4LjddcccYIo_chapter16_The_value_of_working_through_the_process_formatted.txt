@@ -1,0 +1,10 @@
+Chapter 16: The value of working through the process
+Video: Mastering product strategy and growing as a PM | Maggie Crowley (Toast, Drift, TripAdvisor)
+Time: 46:29 - 48:09
+============================================================
+
+Awesome. This reminds me a little bit of a chat I had with Bill Carr, who was an early Amazon exec. We discussed the narrative approach at Amazon, and one of the benefits of that method is that it helps you realize if an idea is bad before anyone even needs to give you feedback. That's why they require you to write six pages in depth about your idea. It then circulates through the company, allowing for critical evaluation, where people can point out reasons why it might not be a good idea. I think there are a lot of similarities in this approach.
+
+There are many times when combining this artifact and process with the point about simplification leads to cutting down on unnecessary elements. After going through this exercise, you might find clarity in identifying the three key things you want to focus on. However, there comes a moment when you compare your strategy with your roadmap, and they rarely align. The roadmap often ends up bloated with random tasks that seem necessary for various reasons, such as ongoing projects that are still six months away. 
+
+Suddenly, you find that 90% of your resources are committed to things that don’t actually align with your strategy. This creates an interesting dilemma as a leader. You might wonder, what do you do in that situation? Particularly if you're a Product Manager, you may not have the authority to scrap the entire roadmap and pivot to your new strategy. Nevertheless, this process allows you to critically assess whether you should continue with your current tasks and helps evaluate if those tasks are still the most important ones to focus on.

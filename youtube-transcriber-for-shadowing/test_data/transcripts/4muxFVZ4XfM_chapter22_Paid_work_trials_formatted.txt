@@ -1,0 +1,14 @@
+Chapter 22: Paid work trials
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 62:10 - 64:31
+============================================================
+
+Awesome. So one thing you didn't mention is you have a really unique way of interviewing, which is a paid work trial. Can you just talk about what that is? Also, while you're in that area, you talked about testing for product sensibility. Whatever you can share or how you actually do that would be awesome.
+
+Yeah, so we do with all of the employees, we've done a paid work trial. It depends on the role, what it looks like, how long it is, and depends on the person. Basically, we do fairly standard interview loops where we test with some hiring manager interviews, skill interviews, and more tests. The last step of the process is the work trial.
+
+During the work trial, candidates come in as like mini contractors to the company. We give them fairly vague problem statements. For example, if they're engineers, we might say, "Hey, there's this feature that needs to be built; how would you build it?" They then need to first understand the problem, scope it down to something they can accomplish in the time frame they have, and then actually go and build a version of it. At the end, they present the work they did.
+
+We do this because we've seen that it's a very good way for both the company and the candidates to see how we work together. For the candidate, it allows them to understand what kind of company they are joining, what it’s like to work here, and what their ownership will be. Many engineers appreciate seeing the code base and realizing, "Oh, wow, this is really clean," rather than encountering some kind of spaghetti code situation.
+
+This process helps candidates understand what they are signing up for, which can be risky, especially with startups. It's really hard to tell how a startup operates just from the interviews. In larger companies, things are more standardized, making it easier to make that choice. But with startups, the way companies operate can vary significantly.

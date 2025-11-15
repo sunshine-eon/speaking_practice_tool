@@ -1,0 +1,12 @@
+Chapter 13: The Linear method for modern software development
+Video: Inside Linear: Building with taste, craft, and focus | Karri Saarinen (co-founder, designer, CEO)
+Time: 38:34 - 40:07
+============================================================
+
+Awesome. So that's a good segue to another area I wanted to spend some time on, which is the linear method. You espouse this way of building product you call the linear method, which you publish online and will link to in the show notes. I just want to ask a few questions around this way of building product. 
+
+One is, you are big on this idea of building opinionated software. Can you talk about what that means? And then maybe give an example or two of how you have actually done that at Linear. 
+
+First, like with the linear method, why did we create it in the first place? We believe that there are more modern ways of building software and thinking about it. We wanted to share some of our thinking on it, and that relates to how we build Linear as well. You might understand why we make some choices because this is the way we think about making these choices. We’re trying to share our thinking behind the product, rather than just presenting the product and asking you to figure it out. 
+
+So, like the opinionated piece, I personally believe that productivity software—especially company software—should be opinionated. I think that what productivity software is trying to do is make people productive. What productive means is that you actually do something that matters for the company, whether that’s building a new feature, fixing something, or designing something. All of those things eventually provide some kind of value for the customer.

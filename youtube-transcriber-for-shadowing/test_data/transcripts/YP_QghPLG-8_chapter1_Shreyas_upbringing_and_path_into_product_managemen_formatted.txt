@@ -1,0 +1,62 @@
+Chapter 1: Shreyas’ upbringing and path into product management
+Video: The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)
+Time: 00:00 - 14:22
+============================================================
+
+You should be spending some time on internal optics because it creates energy, awareness, excitement, and opportunities for feedback. Those are all really great things, and they will enable greater impact and better execution for you. There's no one out there today who shares more wisdom, more consistently, on the art of product management than Shreyas Doshi. Shreyas kind of came out of nowhere a few years ago and started tweeting gems of insight about building product and the role of product management. Rightfully so, he has built a huge following on Twitter.
+
+What I love about Shreyas is that his insights are often framed in really memorable and interesting ways. They're often contrarian and not ideas that you've heard elsewhere. Shreyas has worked at some of today's most important tech companies, including Yahoo, Twitter, Google, and most recently Stripe, both as an individual contributor and a manager. His advice is always rooted in his real-life experiences at these companies.
+
+In our chat, we focus on five topics and go deep on them. We talk about the power of pre-mortems, how to best use your time as a product manager, the three levels of product work, and how getting them wrong often leads to tension on your team. We dig into why most execution problems are really strategy problems, and we discuss a common pitfall in prioritization. If you listen to the end, we actually throw in a bonus topic. I really appreciate that Shreyas made the time for our chat, and I cannot wait for you to hear it.
+
+This episode is brought to you by Kota. Kota is an all-in-one dock that combines the best of documents, spreadsheets, and apps in one place. I actually use Kota every single day. It's my home base for organizing my newsletter writing, planning my content calendar, capturing my research, and writing the first drafts of each and every post. It's also where I curate my private knowledge repository for paid newsletter subscribers, and it's how I manage the workflow for this very podcast.
+
+Over the years, I've seen Kota evolve from being a tool that makes teams more productive to one that helps bring the best practices across the tech industry to life. It has an incredibly rich collection of templates and guides in the Kota dock gallery, including resources from many guests on this podcast, including Shreyas, Gokul, and Shashir, the CEO of Kota. Some of the best teams out there, like Pinterest, Spotify, Square, and Uber, use Kota to run effectively and have published their templates for anyone to use. If you're ping-ponging between lots of documents and spreadsheets, make your life better and start using Kota. You can take advantage of a special limited-time offer just for startups. Head over to kota.io/lenny to sign up and get a thousand-dollar credit on your first statement. That's C-O-D-A dot I-O slash Lenny to sign up and get a thousand dollars in credit on your account.
+
+This episode is also brought to you by Product Board. Product leaders trust Product Board to help their teams build products that matter. From startups to industry titans, over 6,000 companies rely on Product Board to get the right products to market faster, including companies like Zoom, Volkswagen, UiPath, and Vanguard. Product Board can help you create a scalable, transparent, and standardized process so your PMs understand what their customers really need and then prioritize the right features to build next. Stakeholders feel the love too, with an easy-to-view roadmap that automatically updates so everyone knows what you're building and why.
+
+Make data-driven product decisions that result in higher revenue and user adoption, and empower your product teams to create delightful customer experiences. Visit ProductBoard.com to learn more.
+
+Shreyas, the man, the myth, the legend, thank you so much for joining me and for having this conversation. 
+
+It's great to be here, Lenny. 
+
+So we strategized about how to make this podcast as concretely useful and actionable for as many people as possible. Instead of a regular interview where we talk about a lot of stuff, we decided to go deep on five of your ideas, teachings, and lessons that you've shared on Twitter that have stuck with me and I know have resonated with a lot of other people. We're going to call it the five big ideas from Shreyas Doshi. Does that sound about right?
+
+Sounds great.
+
+Okay, cool. Before we get into that, I’d love to learn a little bit more about the human that is Shreyas. You share a lot of wisdom on Twitter, but you don't share a ton about yourself and your background. Where were you born, where did you grow up, what did your parents do for work, or what did you want to be when you grew up?
+
+I was born in Mumbai, Bombay, India, and I lived there for the first 21 years of my life. I actually did not really get to see many parts of India while I grew up in India; I basically just was in Mumbai the whole time. Then I moved here to the United States for graduate studies at age 21. My father was a businessman, and he started his own business. He manufactured spices and marketed them. Growing up, I saw him work on packaging and pricing, and when he was short on staff, I used to package the spices into the little box or create some marketing material for him—not the creative part, but the grunt work. 
+
+I kind of grew up in that environment where the lines between what was my dad's business and our personal lives were very blurred. My mother was a homemaker, so my dad was largely busy and all consumed in his business. I ended up spending a lot of time growing up with my mother, and both of them have had a pretty significant influence on who I am in different ways.
+
+What I wanted to be when I grew up changed a lot. When I was very young, one of my uncles is a doctor, so I kind of saw him and thought, "Oh, maybe I should be a doctor." At some point later in high school, I took French and ended up being really good at it—like surprisingly good—and I was very passionate about it. For a while, I thought, "Maybe I'll teach French after I graduate from college, maybe I'll go to France, learn the language a little more, and maybe I'll teach French." That lasted for a few years, and it turned out that I ended up not pursuing that and instead got a degree in computer engineering. Partly, I think because if you were in India back then and you were good at science and mathematics, you would usually take up engineering. I was also quite passionate about computers, so maybe that was part of it. But once I started on that path, it became much clearer what I wanted to do.
+
+How's your French these days?
+
+Very bad. Sad to say, my son is now taking French, and I am just embarrassed at my inability to assist him in any way other than to point out some conjugation errors.
+
+So you said you studied computer engineering, which is kind of what you moved to the US for. How did you move from that to product?
+
+Oh yeah, so I started my career as an engineer. Backtracking a bit, I completed my undergrad in India and came here to the United States to pursue a PhD in computer science. About one month in, I realized that a PhD in academia wasn't for me, so I decided to drop out of the program. This was around 2001-2002, so the climate was very different. There were basically no jobs for tech people, and certainly no jobs for people who required a visa, which I did. It was very difficult, but I ended up working as an engineer at a couple of startups, and that started my career in tech.
+
+I was an engineer for about four or five years, and when I moved to the San Francisco Bay Area, I got a little taste of product management. I was part of a team that used to be LoudCloud, which was acquired by a larger company, EDS at the time. It was a startup team within a larger organization, and I was an engineer there. I just started doing some product work, and I found that my managers would send me to customer meetings if we had an internal product. I thought it was a little surprising because I was fairly junior and an engineer, but I was like, "Okay, I'll just go to the customer meetings," and I really enjoyed that. 
+
+I enjoyed understanding what our customers were trying to do and helping them out. I also enjoyed thinking about creative ways to solve their needs. So that was my taste of product management. For about a year, I was doing the product job without having the title, and I was also the engineer, so I figured out what needed to be built and would just build it myself. At some point during that year, I realized that while I was a good engineer—perhaps a top 20% engineer—I would never be a great engineer. I saw those engineers at the fortune of working with them and could tell that I couldn't be that. I increasingly got interested in this product thing, so I said, "Okay, let's try out this product thing." 
+
+What I have to be really thankful for is the people who gave me a chance to do the product work. There were many people involved, and without their support, it would have been much harder for me to become a product manager.
+
+I didn't know that you moved from engineering to product. Your journey is very similar to mine, where I was also an engineer. Once I got to Airbnb, I was like, "Okay, I am not good and will not last as an engineer at a company like this," and I should think about what other options exist. It worked out great, and I wonder how often that happens—PMs moving into PM because they aren't going to make it as an engineer.
+
+Yeah, I think it might be a common occurrence because engineering is a really great job. Particularly on empowered teams, as an engineer, you can do a lot; you don't have to just write code. I also think it's a great place for people to start their careers if they have a technical background and enjoy building software. Sometimes people will ask me, "Hey, I'm doing this technical degree, whether it's computer science or something else, but I want my first job to be product management." I often respond with, "Well, try out engineering." In many companies these days, you can do a lot more than just the core engineering job, so you get exposure to many different things. Once you do that, you can decide what path to pick.
+
+It's such a bonus to have that background as a PM. I wanted to go back to something you mentioned about working at LoudCloud. I had no idea that was Mark Andreessen's second company, right?
+
+Yes, I joined that team. I was interviewing with them for about nine months or something like that. They had just been acquired by EDS, so they split into two companies: one got acquired by EDS, and the other became Opsware, which was the product company. I joined the LoudCloud part of that organization.
+
+Got it. Is there something that you took away from that company? Was Mark Andreessen still working there? I think Ben Horowitz also?
+
+Yeah, they were still there. They were working on the Opsware side. It turned out that even though I was hired as an engineer, the first non-engineering task I was given was to manage a relationship with Opsware. The way that split worked was that EDS would use Opsware's data center automation technology, and my team was responsible for deploying and supporting that technology for EDS. I was given this role of managing the vendor relationship, and I had no idea how to manage vendor relationships in my early 20s. But I ended up doing that, and as part of that, I got an opportunity to work with many folks over at Opsware, including people on the leadership team.
+
+I was most struck by that experience; it was my first experience of what a really highly talented and energetic team looks like. Both on the Opsware side, I worked with a number of people there, but also on the former LoudCloud side, who were my team members. That magic of having a very high-caliber team—people who were really great at their job and brought a high degree of energy and collaboration to their work—I was just lucky to have been part of that team early on.

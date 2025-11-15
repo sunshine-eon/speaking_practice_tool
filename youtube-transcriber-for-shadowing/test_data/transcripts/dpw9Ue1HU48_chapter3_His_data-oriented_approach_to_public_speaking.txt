@@ -1,0 +1,75 @@
+Chapter 3: His data-oriented approach to public speaking
+Video: Zigging vs. zagging: How HubSpot built a $30B company | Dharmesh Shah (co-founder/CTO)
+Time: 06:31 - 11:45
+============================================================
+
+[00:00] Okay, final fact. So Kip, is that how you pronounce the name Kip, your CMO?
+[00:05] Okay, great. So I asked him what to ask you, and he tells me something that's really unique
+[00:10] and interesting about you is you're obsessed with copywriting and comedy and keynote prep,
+[00:15] that you have a very unique approach to preparing for a talk and how you think about
+[00:18] humor and slide design and story art.
+[00:21] That's very true. Public speaking is not something that comes naturally to me. So
+[00:27] we're going to start there. We can talk a little bit about the copywriting of
+[00:29] other things that are sort of related. And I tried to not do things that I'm not good at
+[00:35] and don't enjoy. What are the rare exceptions that I snuck through is the need for me to
+[00:41] get on stages as founder when we have our annual pop spot event, our conference, which
+[00:47] at the time, when we did our first one, it was like 150 people at the Marriott, right?
+[00:52] And then it's like steadily grown since then. And so now it'll be like 10,000 people
+[00:56] in the live audience and hundreds of thousands online. But as I kind of came this realization
+[01:04] that I was not going to be able to kind of talk my way out of it, and I kind of saw how
+[01:09] where this was headed, I'm like, okay, this is something I'm going to have to actually
+[01:13] like learn because I can't delegate it. Can't talk my way out of it. And so I'm a big
+[01:18] believer in this talent versus skill, right? So we all understand talent. It's like
+[01:24] someone has a talent for music, someone has a talent for athletics, whatever it happens
+[01:27] to be. And that's true, but exists. But the way I think about it is talent basically controls
+[01:33] the slope of the curve, but most things are actually acquirable skills. So for instance,
+[01:37] if you have a talent for music, let's say, you might learn music faster than someone
+[01:42] else, and your ceiling may be higher, but does not mean that other people can't learn
+[01:46] music, right? It's like the acquirable skills. That's kind of lesson number one. And
+[01:50] lesson number two is that there is a process, and this is the engineer in me, of just kind
+[01:56] of functional decomposition of a problem to say, okay, in order for me to be a pretty
+[02:02] good public speaker, like what are the underlying sub skills required in order to
+[02:06] accomplish that? Okay, skill number one, you have to be able to stand up on stage
+[02:09] and not pass out. Like, that's kind of the bare minimum, right? And so what I did
+[02:14] over the years is to say, okay, I'm going to functionally decompose this skill of
+[02:18] public speaking in front of what I call high-stakes speaking. I've got to actually
+[02:23] hold the audience's attention. That's part of the success. It doesn't matter what the
+[02:26] message is. Nothing else will matter if I lose their attention, which is
+[02:30] increasingly easy to do now in a short attention span society. And every year,
+[02:35] I will pick a different part of the public speaking skill set and say, oh,
+[02:38] I want to learn about slide design and visual expression, not the actual
+[02:42] designer. But then the one thing that I came up that has had the most
+[02:46] impact is humor. But then you break that skill down just like the engineer would do.
+[02:50] It's like, okay, well, there's humor writing. There's humor execution, like on
+[02:54] stage, whatever. There's stand-up comedy. There's like, okay, so like how do you
+[02:57] put all these pieces together? And along that journey, I came up with this,
+[03:01] and I've always had this. I'm a very kind of data-driven,
+[03:05] quant-based person. I was like, okay, well, how will I know whether
+[03:10] something is like actually funny enough or not of whether I'm losing the
+[03:14] attention or not? And so in preparation for one of these kind of high-stakes
+[03:18] keynotes that I do every year, I will have my talk. I will do practice runs.
+[03:26] I will have increasingly larger actual live audiences that I will practice it in
+[03:31] front of. I will record those talks. Everything so far, nothing unusual yet.
+[03:37] I will have the talks transcribed. I have custom software that I've written
+[03:42] that will say, okay, here are the points at which the audience laughed.
+[03:47] Like actually audibly laugh. That's the only way it counts.
+[03:51] And this actually, and it comes down to this metric that stand-up comedians use,
+[03:55] called LPM, laughs per minute. And there's actually a benchmark that you can say, oh,
+[03:59] well, stand, you know, and stand-up comedians have a very, very high LPM.
+[04:03] Business talks have a very, very low LPM. Like the most popular TED talks,
+[04:07] there's a high strong correlation between the most popular TED talks and high LPMs.
+[04:10] So I have a goal. I'm going to have a minute where I want to improve.
+[04:13] And so I have software that will calculate for laughs per minute.
+[04:17] And so then you learn these little kind of tools of the tricks of the trade.
+[04:19] So it's like, okay, if you're solving literally for that ratio of laughs per minute,
+[04:24] there are two ways to improve it. One is to add more laughs.
+[04:30] Two is to decrease the number of words between laughs.
+[04:33] Right? So it's like, so one of the things of software measures, it gives me a visual map.
+[04:37] It's like, here's the entire talk broken down with a little square per minute of talk or 30 seconds.
+[04:42] And it's like, here's what they laughed. It's like, oh, here I went one minute and 17 seconds
+[04:45] and nobody laughed. So I have to do one of two things, shorten that segment if there's nothing
+[04:50] funny that can be said without being overt about it. Or I have to say, okay,
+[04:55] I'm going to find something funny to try to inject into this and kind of break it up.
+[04:58] Anyway, that's a long way of saying, if I can get up on a public stage and learn that
+[05:04] particular skill, anyone can learn just about anything. It just comes down to
+[05:08] practice and measurement and just getting incrementally better over time.

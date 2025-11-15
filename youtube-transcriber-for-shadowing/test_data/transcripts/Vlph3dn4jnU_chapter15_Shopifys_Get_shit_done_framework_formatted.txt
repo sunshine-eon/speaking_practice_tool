@@ -1,0 +1,22 @@
+Chapter 15: Shopify’s “Get shit done” framework
+Video: Breaking the rules of growth: Why Shopify bans KPIs, optimizes for churn, and prioritizes intuition
+Time: 51:30 - 54:30
+============================================================
+
+Awesome. That's exactly what I was going to ask: who is the ultimate decider of taste and what is good? It sounds like basically Toby is up above, and then he's kind of deputized Glenn and relies on him to make a lot of these final calls. 
+
+I imagine Glenn has some folks that he kind of deputizes to make smaller decisions along the way, or not? Yes, or he's very involved in everything. I think this is the fun thing about Shopify. We literally have our own internal project management system that's been crafted just for Shopify. 
+
+Every show is called GSD. Yeah, get it done. Every project has a core project, an emergency service, and a growth project. The expectation is that the group leaves every single project that goes out with a few-minute video, Figma designs, and everything. Everything that ships needs to be approved by the group. There’s nothing that can ship without that "okay to" approval. 
+
+The "okay to" approval has to come from Glenn, Karl, myself, and different groups. That’s how the entire review system works. Of course, there are great teams that do amazing work, but that’s the structure we operate within. So, "okay to" specifically means someone above reviews it, or does the whole team look at it? 
+
+No, just Glenn reviews the core stuff. Got it. Just Karl reviews the MS. It’s interesting; Glenn is in founder mode, but not as a founder, where he's involved in all the details and has the final say. This is a really cool example of founder mode, but not as a founder, and it reflects how you guys operate. 
+
+I imagine sometimes Toby disagrees with Glenn, and then they talk about it and things get ironed out? Totally. That’s why we come together every six weeks, with everyone in person to review every project. We hash out those disagreements, go through all the core projects, all the merge service products, and all the growth projects. It’s a great forum to say, "Hey, here’s where we disagree," and discuss the tactics of what’s happening. We can flag those things and have good debates about any potential misalignment. 
+
+What a unique way of working! I’m so fascinated by all this. So, what I’m hearing is that within the core team, Glenn and his team come up with what they’re going to build for the next quarter. You guys have twice-a-year releases, is that right? Or is it every season? 
+
+Yes, we have big additions twice a year, obviously continually shipping, but we package them twice a year for a big launch. I’ve seen those. So, Glenn is like, "Here’s what we’re going to do in the next release. We’re just going to build this because we think this is right." 
+
+And we’re not driving a specific goal, building for 100 years in the future; let’s just build it. Basically, you build it, and he’s like, "This is great, not great," and you iterate until it’s good enough to ship. Great! So then there’s that team, and then there’s your team, which is focused on driving some serious numbers.

@@ -1,0 +1,87 @@
+Chapter 18: Advice on making changes and adapting
+Video: Jason Fried challenges your thinking on fundraising, goals, growth, and more
+Time: 56:19 - 60:06
+============================================================
+
+[00:00] Okay, so we had some questions come in from the audience when we were preparing for this.
+[00:04] We both tweeted to see what people wanted to ask.
+[00:06] I have two that I picked out.
+[00:08] One is from Matt Mullenweg.
+[00:10] How cool is that?
+[00:11] Oh my God.
+[00:12] And I think you may have seen this question, but the question is, what is the spectacular
+[00:15] failure of someone trying to follow your advice and failing when it doesn't stick?
+[00:20] What is the reason?
+[00:22] People trying to make rapid, fundamentally like 180 degree changes quickly is a grave
+[00:28] way to fall flat on your face, basically.
+[00:31] So I have seen people who try to adopt, let's say, shape up and they come back six weeks
+[00:38] later and like, this sucks.
+[00:39] This doesn't work.
+[00:40] I'm like, I'm not surprised to hear that.
+[00:42] Like tell me, tell me how you did it.
+[00:44] And then they explain like, oh, the next project we did, we did this.
+[00:46] I'm like, yeah, I'm really not surprised to hear that now because you just,
+[00:52] you can't really do that.
+[00:54] You can't turn on a dime.
+[00:56] There's this thing called momentum.
+[00:57] I always try to think of things in terms of like the physical world, like the more
+[01:01] massive an object, the more energy it takes to change its direction.
+[01:05] This is why big companies move slowly.
+[01:07] This is also why momentum, which is like the way you've been working for four years
+[01:11] is going to power you forward in a certain way.
+[01:13] It's very hard to turn the corner immediately or turn around.
+[01:16] You just cannot do it physically.
+[01:17] If you can't do it physically, you can't do it this way.
+[01:20] So I think that's what I've seen is like these, these rap, like, all right,
+[01:24] starting tomorrow or starting shape up.
+[01:25] It's like, well, no.
+[01:26] You're not, it's not going to work unless you say we're going to do it on this
+[01:29] other thing that doesn't matter so much.
+[01:30] So that's one thing I would say.
+[01:32] The other thing is that pretty much every business is a spectacular failure.
+[01:37] It's just, it just, it's like business is really hard.
+[01:40] And the ones that make it are all outliers.
+[01:42] And, you know, this is why most businesses fail.
+[01:45] And, you know, it's, it's, there's a million reasons why.
+[01:49] And it's always hard to pin it down.
+[01:51] But so it's, so, and we can all look back.
+[01:54] This is why, by the way, I don't,
+[01:56] I don't like to look back on, on things.
+[01:58] I'm not much of a fan of looking back on failures and trying to figure out
+[02:02] what went wrong so we don't do it again, because I don't think we know what went wrong.
+[02:07] I think we can spend a long time trying to analyze it and we're going to find
+[02:10] something that we can agree on.
+[02:12] And it tends to be what you can agree on so you can move on.
+[02:15] But that doesn't mean that's what it was.
+[02:17] So just like we don't really know why you make decisions.
+[02:20] You don't really know why things didn't work.
+[02:22] I mean, sometimes there's some examples.
+[02:24] And I think it's true if you're talking about a mechanistic system,
+[02:28] your stamping metal, and they're supposed to have perfect circles and it's an oval.
+[02:31] You can go back to that machine and see how the thing worked and the line.
+[02:34] You can adjust that and fix that.
+[02:36] A lot of work, though, is not that way, especially software work.
+[02:39] There's a million different inputs and a million different people.
+[02:41] And it's not simple stamping machines.
+[02:43] It's a different thing.
+[02:45] So I don't know, but I do think that trying to make big changes too
+[02:50] quickly is a primary reason.
+[02:54] And you've seen this approach work at traditional companies.
+[02:57] I imagine it's not just companies that work in your way where there's no investors.
+[03:01] They're not obsessed with growth.
+[03:03] You've seen shape up implemented at traditional public type companies.
+[03:07] Yeah, it's usually smaller teams.
+[03:09] So it's not like Airbnb.
+[03:11] Brian's not going to go, OK, tomorrow we're following this thing
+[03:13] that these guys over 37 signals came up with.
+[03:16] But it's typically small teams inside larger companies that experiment
+[03:19] with this and sometimes it spreads and sometimes it doesn't.
+[03:22] And it doesn't always need to.
+[03:23] It could be this one division, this one group that works a different way.
+[03:26] And also, it doesn't have to be fully shape up.
+[03:28] It could be 30% of it.
+[03:30] Maybe it's just simply the six week cycle thing is the thing that really sort
+[03:33] of is the thing and the rest of it doesn't matter so much.
+[03:38] Or it could be this idea of of appetites versus estimates, and they can
+[03:42] work that into the way they work.
+[03:43] You know, take take whatever works is you don't have to go wholesale.

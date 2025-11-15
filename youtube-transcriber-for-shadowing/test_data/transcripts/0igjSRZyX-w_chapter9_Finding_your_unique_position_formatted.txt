@@ -1,0 +1,30 @@
+Chapter 9: Finding your unique position
+Video: Superhuman's secret to success | Rahul Vohra (CEO and founder)
+Time: 43:00 - 47:32
+============================================================
+
+Get that right, you need to spend all the time you need to get that right. This reminds me of something else that one of your early investors shared with me, Bill Trenchard from First Round Capital. He talked about how speed was the thing that you just dialed up as a lever to like 11. That's where you just make this the focus: speed, speed, speed. 
+
+I think the lesson there is to pick the thing that you believe will most differentiate you and make you significantly better than what's out there. So, I guess I'd like to hear your thoughts on how you decided that speed was the thing you were going to obsess over, and any advice for folks trying to decide where to dial things up to 11.
+
+Bill is right, and I agree with him. You have to pick something, but knowing what to pick is the trick. In the early days of Superhuman, I read a book on positioning that really influenced my thinking. I believe it’s called "Positioning: The Battle for Your Mind." It struck me how the most well-known brands have stood for one clear thing; they have a clear position. 
+
+In order for Superhuman to be memorable, I believed we needed to occupy a clear position that was unique, available, and reinforced our product strategy. In the first year of Superhuman, I interviewed hundreds of potential customers about their experiences with Gmail and Outlook. Predictably, almost everybody said that email takes way too much time. Interestingly, many people also said that Gmail and Outlook were way too slow. That’s how I first thought that speed could be an interesting position for us.
+
+I then asked myself if the position of speed was unique and available. The answer was overwhelmingly yes, because almost no software was being sold on the value proposition of speed. The last time I could remember anyone trying to do this was when Google launched Chrome, which obviously went incredibly well for them. You may remember they had slow-motion videos comparing Chrome rendering web pages and showing that it was faster than an actual strike of lightning. No one had done it since then.
+
+I then asked, does speed reinforce our product strategy? Again, the answer was overwhelmingly yes. I knew that our competition was not going to be startups; it was incumbents. I also knew that incumbents generally struggle with speed because, by definition, they have massive scale and usually entrenched architecture. Finally, I did what I call the cocktail party test, which is to look at cocktail parties and watch how people pitch your product to others. 
+
+In our case, the pitches were simple. People would say, “Dude, you have to use it. It's really fucking fast.” And that's it. That was the pitch. That’s how I knew that speed would be a really great position for us to start with.
+
+I'm excited to chat with Christina Gilbert, the founder of One Schema, one of our longtime podcast sponsors. Hi, Christina.
+
+Yes, thank you for having me on, Lenny. What is the latest with One Schema? I know you now work with some of my favorite companies like Ramp, Vanta, Scale, and Watershed. I heard that you just launched a new product to help product teams import CSVs from especially tricky systems like ERPs.
+
+Yes. We just launched One Schema file feeds, which allows you to build an integration with any system in 15 minutes, as long as you can export a CSV to an SFTP folder. We see our customers all the time getting stuck with hacks and workarounds. The product teams we work with don’t have to turn down prospects because their systems are too hard to integrate with. We allow our customers to offer thousands of integrations without involving their engineering team at all.
+
+I can tell you that if my team had to build integrations like this, how nice would it be to take this off my roadmap and instead use something like One Schema, not just to build it, but also to maintain it forever?
+
+Absolutely, Lenny. We've heard so many horror stories of multi-day outages from even just a handful of bad records. We have laser-focused on integration reliability to help teams end all of those distractions that come up with integrations. We have a built-in validation layer that stops any bad data from entering your system, and One Schema will notify your team immediately of any data that looks incorrect.
+
+I know that importing incorrect data can cause all kinds of pain for your customers and quickly lose their trust. Christina, thank you for joining us. If you want to learn more, head on over to oneschema.co. That's oneschema.co.
