@@ -21,16 +21,66 @@ let roadmap = null;
 let progress = null;
 let currentWeek = null;
 let weeklySummary = null;
+let availableVoices = []; // Initialize early to avoid undefined errors
+
+// Audio player instances registry
+const audioPlayers = new Map();
+
+// Recording variables (must be defined before functions that use them)
+let mediaRecorder = null;
+let audioChunks = [];
+let currentRecordingActivity = null;
+let currentRecordingDay = null;
+let recordingTimer = null;
+let recordingStartTime = null;
+let audioContext = null;
+let analyser = null;
+let animationId = null;
+
+// Podcast videos cache
+let podcastVideosCache = null;
+
+// Show error message
+function showError(message) {
+    // Simple error display - could be enhanced with a toast notification
+    alert(message);
+}
+
+// Show success message
+function showSuccess(message) {
+    // Create a temporary success notification
+    const notification = document.createElement('div');
+    notification.style.cssText = 'position: fixed; top: 20px; right: 20px; background-color: #4caf50; color: white; padding: 12px 20px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 10000; font-size: 0.9rem;';
+    notification.textContent = '✓ ' + message;
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transition = 'opacity 0.3s';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
 
 // Load initial data
 async function loadData() {
     try {
         // Load roadmap
         const roadmapResponse = await fetch('/api/roadmap');
+        if (!roadmapResponse.ok) {
+            throw new Error(`Roadmap API error: ${roadmapResponse.status} ${roadmapResponse.statusText}`);
+        }
         roadmap = await roadmapResponse.json();
         
         // Load progress
         const progressResponse = await fetch('/api/progress');
+        if (!progressResponse.ok) {
+            throw new Error(`Progress API error: ${progressResponse.status} ${progressResponse.statusText}`);
+        }
         const progressData = await progressResponse.json();
         progress = progressData.progress;
         currentWeek = progressData.current_week;
@@ -40,7 +90,2761 @@ async function loadData() {
         renderPage();
     } catch (error) {
         console.error('Error loading data:', error);
-        showError('Failed to load data. Please refresh the page.');
+        console.error('Error details:', {
+            message: error.message,
+            stack: error.stack,
+            roadmap: roadmap,
+            progress: progress,
+            currentWeek: currentWeek
+        });
+        showError(`Failed to load data: ${error.message}. Please refresh the page.`);
+    }
+}
+
+// Get all available weeks from progress
+function getAllWeeks() {
+    if (!progress || !progress.weeks) return [];
+    
+    // Return all weeks (including past, current, and future)
+    const allWeeks = Object.keys(progress.weeks);
+    
+    return allWeeks.sort(); // Oldest to newest
+}
+
+// Helper function to get Sunday-Saturday week number
+function getSundayWeek(date) {
+    // Convert to PST
+    const pstDate = new Date(date.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+    
+    // Find the first Sunday of the year
+    const jan1 = new Date(pstDate.getFullYear(), 0, 1);
+    const daysToSunday = (7 - jan1.getDay()) % 7;
+    const firstSunday = new Date(jan1);
+    firstSunday.setDate(jan1.getDate() + daysToSunday);
+    
+    // If date is before first Sunday, it belongs to last week of previous year
+    if (pstDate < firstSunday) {
+        const dec31 = new Date(pstDate.getFullYear() - 1, 11, 31);
+        return getSundayWeek(dec31);
+    }
+    
+    // Calculate weeks since first Sunday
+    const daysSince = Math.floor((pstDate - firstSunday) / (24 * 60 * 60 * 1000));
+    const weekNum = Math.floor(daysSince / 7) + 1;
+    
+    return weekNum;
+}
+
+// Format week key for display
+function formatWeekKeyForDisplay(weekKey) {
+    const [year, week] = weekKey.split('-W');
+    return `Week ${parseInt(week)}, ${year}`;
+}
+
+// Update week list in sidebar
+function updateWeekList() {
+    const weekList = document.getElementById('weekList');
+    if (!weekList) return;
+    
+    const weeks = getAllWeeks();
+    weekList.innerHTML = '';
+    
+    if (weeks.length === 0) {
+        weekList.innerHTML = '<p style="color: #7f8c8d; font-size: 0.85rem; text-align: center; padding: 1rem;">No weeks available</p>';
+        return;
+    }
+    
+    // Get current week from backend using Sunday-Saturday format
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentWeekNum = getSundayWeek(today);
+    const actualCurrentWeek = `${currentYear}-W${currentWeekNum.toString().padStart(2, '0')}`;
+    
+    weeks.forEach(weekKey => {
+        const weekItem = document.createElement('div');
+        weekItem.className = 'week-item';
+        weekItem.id = `week-item-${weekKey}`;
+        
+        if (weekKey === currentWeek) {
+            weekItem.classList.add('active');
+        }
+        
+        if (weekKey === actualCurrentWeek) {
+            weekItem.classList.add('current-week');
+        }
+        
+        const weekLabel = document.createElement('div');
+        weekLabel.className = 'week-label';
+        weekLabel.textContent = formatWeekKeyForDisplay(weekKey);
+        
+        const weekRange = document.createElement('div');
+        weekRange.className = 'week-range';
+        weekRange.textContent = getWeekDateRange(weekKey);
+        
+        weekItem.appendChild(weekLabel);
+        weekItem.appendChild(weekRange);
+        
+        weekItem.onclick = () => selectWeek(weekKey);
+        
+        weekList.appendChild(weekItem);
+    });
+}
+
+// Format time for display (MM:SS)
+function formatTime(seconds) {
+    if (isNaN(seconds) || seconds < 0) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Update time display for audio player
+function updateTimeDisplay(audioElement, timeDisplay) {
+    if (!timeDisplay || !audioElement.duration) return;
+    
+    const current = formatTime(audioElement.currentTime);
+    const total = formatTime(audioElement.duration);
+    // Explicitly style the colon to prevent blue dot rendering issue
+    const currentParts = current.split(':');
+    const totalParts = total.split(':');
+    timeDisplay.innerHTML = `<span>${currentParts[0]}</span><span style="color: #666;">:</span><span>${currentParts[1]}</span> <span style="color: #666;">/</span> <span>${totalParts[0]}</span><span style="color: #666;">:</span><span>${totalParts[1]}</span>`;
+}
+
+// Update voice dropdowns with available voices
+function updateVoiceDropdowns() {
+    // Only update Typecast voice dropdowns (exclude OpenAI ones and podcast dropdowns)
+    const voiceSelects = document.querySelectorAll('.voice-select, .voice-select-compact, select[id^="voice-select-regen-"]');
+    
+    voiceSelects.forEach(select => {
+        // Skip OpenAI voice dropdowns
+        if (select.id && select.id.includes('openai')) {
+            return;
+        }
+        
+        // Skip podcast video/chapter dropdowns
+        if (select.id && (select.id.includes('podcast-video-select') || select.id.includes('podcast-chapter-select'))) {
+            return;
+        }
+        
+        const currentValue = select.value;
+        
+        // Clear existing options
+        select.innerHTML = '';
+        
+        if (availableVoices.length === 0) {
+            select.innerHTML = '<option value="">No voices available</option>';
+            return;
+        }
+        
+        // Add voice options
+        availableVoices.forEach(voice => {
+            const option = document.createElement('option');
+            option.value = voice.voice_id;
+            option.textContent = voice.name || voice.voice_id;
+            select.appendChild(option);
+        });
+        
+        // Restore previous selection if it exists
+        if (currentValue && Array.from(select.options).some(opt => opt.value === currentValue)) {
+            select.value = currentValue;
+        } else {
+            // Default to Dylan if available
+            const dylanOption = Array.from(select.options).find(opt => 
+                opt.textContent === 'Dylan'
+            );
+            if (dylanOption) {
+                select.value = dylanOption.value;
+            } else {
+                // Fallback to first voice if Dylan not found
+                select.selectedIndex = 0;
+            }
+        }
+    });
+}
+
+// Update podcast voice info display with voice names
+function updatePodcastVoiceInfo() {
+    if (!availableVoices || availableVoices.length === 0) return;
+    if (!progress || !progress.weeks) return;
+    
+    // Helper function to get voice name from voice ID
+    const getPodcastVoiceNameFromId = (voiceId) => {
+        if (!voiceId) return '';
+        // Check if it's already a name (doesn't start with 'tc_')
+        if (!voiceId.startsWith('tc_')) {
+            return voiceId;
+        }
+        // Try to find voice name from availableVoices
+        const voice = availableVoices.find(v => v.voice_id === voiceId || v.id === voiceId);
+        if (voice) {
+            return voice.name || voice.voice_name || voiceId;
+        }
+        // Fallback: return ID if name not found
+        return voiceId;
+    };
+    
+    // Format voice and model label
+    const formatPodcastVoiceModelLabel = (voice, model) => {
+        if (!voice && !model) return '';
+        const parts = [];
+        if (voice) {
+            const voiceName = getPodcastVoiceNameFromId(voice);
+            parts.push(voiceName);
+        }
+        if (model) {
+            parts.push(model);
+        }
+        return parts.join(' / ');
+    };
+    
+    // Update all podcast shadowing activities
+    Object.keys(progress.weeks).forEach(weekKey => {
+        const weekData = progress.weeks[weekKey];
+        const podcastData = weekData?.podcast_shadowing;
+        if (!podcastData) return;
+        
+        const typecastVoice = podcastData.typecast_voice || '';
+        const typecastModel = podcastData.typecast_model || '';
+        
+        if (typecastVoice || typecastModel) {
+            const voiceInfoElement = document.getElementById(`podcast-voice-info-${weekKey}`);
+            if (voiceInfoElement) {
+                const label = formatPodcastVoiceModelLabel(typecastVoice, typecastModel);
+                voiceInfoElement.textContent = label || 'No voice selected';
+            }
+        }
+    });
+}
+
+// Switch audio source for podcast shadowing
+function switchPodcastAudioSource(weekKey, sourceNum) {
+    // Switch audio source for podcast shadowing using dropdown
+    const script1 = document.getElementById(`podcast-script-${weekKey}-1`);
+    const script2 = document.getElementById(`podcast-script-${weekKey}-2`);
+    
+    if (sourceNum === '1') {
+        if (script1) {
+            script1.style.display = '';
+        }
+        if (script2) {
+            script2.style.display = 'none';
+        }
+    } else {
+        if (script1) {
+            script1.style.display = 'none';
+        }
+        if (script2) {
+            script2.style.display = '';
+        }
+    }
+    
+    // Save selection to localStorage
+    localStorage.setItem(`podcast_audio_source_${weekKey}`, sourceNum);
+}
+
+/**
+ * Unified AudioPlayer class to handle all audio player functionality
+ * Eliminates code duplication across different audio player types
+ */
+class AudioPlayer {
+    constructor(config) {
+        // Required: IDs for audio element and controls container
+        this.audioId = config.audioId;
+        this.controlsId = config.controlsId;
+        
+        // Optional: IDs for progress bar, playhead, and time display
+        this.progressId = config.progressId || null;
+        this.playheadId = config.playheadId || null;
+        this.timeDisplayId = config.timeDisplayId || null;
+        
+        // Optional: initial playback speed
+        this.initialSpeed = config.initialSpeed || 1.0;
+        
+        // Optional: callback for when play state changes (for pausing other players)
+        this.onPlayStateChange = config.onPlayStateChange || null;
+        
+        // Internal state
+        this.isDragging = false;
+        this.audioElement = null;
+        this.playPauseBtn = null;
+        this.progressBar = null;
+        this.playhead = null;
+        this.timeDisplay = null;
+        this.container = null;
+        
+        this.init();
+    }
+    
+    init() {
+        this.audioElement = document.getElementById(this.audioId);
+        if (!this.audioElement) return;
+        
+        // Get DOM elements
+        const controls = document.getElementById(this.controlsId);
+        if (controls) {
+            this.playPauseBtn = controls.querySelector('.play-pause-btn');
+            this.container = controls.querySelector('.progress-bar-container');
+        }
+        
+        if (this.progressId) {
+            this.progressBar = document.getElementById(this.progressId);
+        }
+        if (this.playheadId) {
+            this.playhead = document.getElementById(this.playheadId);
+        }
+        if (this.timeDisplayId) {
+            this.timeDisplay = document.getElementById(this.timeDisplayId);
+        }
+        
+        // Set initial speed
+        if (this.initialSpeed) {
+            this.audioElement.playbackRate = this.initialSpeed;
+        }
+        
+        // Setup drag functionality
+        this.setupDrag();
+        
+        // Setup event listeners
+        this.setupEventListeners();
+        
+        // Initial UI update
+        this.updateUI();
+    }
+    
+    setupDrag() {
+        if (!this.container || !this.audioElement) return;
+        
+        const handleMove = (clientX) => {
+            if (!this.audioElement.duration) return;
+            const rect = this.container.getBoundingClientRect();
+            const x = clientX - rect.left;
+            const percent = Math.max(0, Math.min(1, x / rect.width));
+            this.audioElement.currentTime = percent * this.audioElement.duration;
+            this.updateProgressBar(percent);
+        };
+        
+        const startDrag = (e) => {
+            this.isDragging = true;
+            if (this.playhead) {
+                this.playhead.style.transition = 'none';
+            }
+            handleMove(e.clientX);
+            e.preventDefault();
+            e.stopPropagation();
+        };
+        
+        // Make playhead draggable
+        if (this.playhead) {
+            this.playhead.addEventListener('mousedown', startDrag);
+        }
+        
+        // Make container draggable
+        this.container.addEventListener('mousedown', startDrag);
+        
+        document.addEventListener('mousemove', (e) => {
+            if (this.isDragging) {
+                handleMove(e.clientX);
+            }
+        });
+        
+        document.addEventListener('mouseup', () => {
+            if (this.isDragging) {
+                this.isDragging = false;
+                if (this.playhead) {
+                    this.playhead.style.transition = 'left 0.1s linear';
+                }
+            }
+        });
+    }
+    
+    setupEventListeners() {
+        if (!this.audioElement) return;
+        
+        // Add click event listener to play/pause button
+        // Remove existing onclick handler to avoid conflicts
+        if (this.playPauseBtn) {
+            // Store the original onclick handler if it exists
+            const originalOnclick = this.playPauseBtn.getAttribute('onclick');
+            
+            // Remove onclick attribute to prevent it from executing
+            this.playPauseBtn.removeAttribute('onclick');
+            
+            // Remove any existing event listeners by cloning the button
+            const newBtn = this.playPauseBtn.cloneNode(true);
+            this.playPauseBtn.parentNode.replaceChild(newBtn, this.playPauseBtn);
+            this.playPauseBtn = newBtn;
+            
+            // Add new event listener
+            this.playPauseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                // Prevent the original onclick from executing
+                if (originalOnclick) {
+                    e.stopImmediatePropagation();
+                }
+                this.togglePlayPause();
+            }, true); // Use capture phase to execute before any other handlers
+        }
+        
+        this.audioElement.addEventListener('play', () => {
+            this.updatePlayPauseButton();
+            if (this.onPlayStateChange) {
+                this.onPlayStateChange(true);
+            }
+        });
+        
+        this.audioElement.addEventListener('pause', () => {
+            this.updatePlayPauseButton();
+            if (this.onPlayStateChange) {
+                this.onPlayStateChange(false);
+            }
+        });
+        
+        this.audioElement.addEventListener('timeupdate', () => {
+            if (!this.isDragging) {
+                this.updateProgressBar();
+                this.updateTimeDisplay();
+            }
+        });
+        
+        this.audioElement.addEventListener('loadedmetadata', () => {
+            this.updateTimeDisplay();
+        });
+    }
+    
+    togglePlayPause() {
+        if (!this.audioElement) return;
+        
+        if (this.audioElement.paused) {
+            this.audioElement.play();
+        } else {
+            this.audioElement.pause();
+        }
+    }
+    
+    seek(event) {
+        if (!this.audioElement || !this.container || !this.audioElement.duration) return;
+        
+        const rect = this.container.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const percent = Math.max(0, Math.min(1, x / rect.width));
+        this.audioElement.currentTime = percent * this.audioElement.duration;
+        this.updateProgressBar(percent);
+    }
+    
+    skip(seconds) {
+        if (!this.audioElement || !this.audioElement.duration) return;
+        
+        const newTime = Math.max(0, Math.min(this.audioElement.duration, this.audioElement.currentTime + seconds));
+        this.audioElement.currentTime = newTime;
+        
+        const percent = newTime / this.audioElement.duration;
+        this.updateProgressBar(percent);
+        this.updateTimeDisplay();
+    }
+    
+    setSpeed(speed) {
+        if (!this.audioElement) return;
+        const speedValue = parseFloat(speed) || 1.0;
+        this.audioElement.playbackRate = speedValue;
+    }
+    
+    updatePlayPauseButton() {
+        if (this.playPauseBtn && this.audioElement) {
+            this.playPauseBtn.textContent = this.audioElement.paused ? '▶' : '⏸';
+        }
+    }
+    
+    updateProgressBar(percent = null) {
+        if (!this.audioElement || !this.audioElement.duration) return;
+        
+        if (percent === null) {
+            percent = this.audioElement.currentTime / this.audioElement.duration;
+        }
+        
+        if (this.progressBar) {
+            this.progressBar.style.width = (percent * 100) + '%';
+        }
+        if (this.playhead) {
+            this.playhead.style.left = (percent * 100) + '%';
+        }
+    }
+    
+    updateTimeDisplay() {
+        if (this.timeDisplay && this.audioElement) {
+            updateTimeDisplay(this.audioElement, this.timeDisplay);
+        }
+    }
+    
+    updateUI() {
+        this.updatePlayPauseButton();
+        this.updateProgressBar();
+        this.updateTimeDisplay();
+    }
+}
+
+/**
+ * Create and register an audio player instance
+ */
+function createAudioPlayer(config) {
+    const key = config.audioId;
+    
+    // If player exists, check if audio element still exists and matches
+    if (audioPlayers.has(key)) {
+        const existingPlayer = audioPlayers.get(key);
+        const audioElement = document.getElementById(key);
+        
+        // If audio element doesn't exist or is different, remove old player
+        if (!audioElement || existingPlayer.audioElement !== audioElement) {
+            // Clean up old player
+            if (existingPlayer.audioElement) {
+                existingPlayer.audioElement.pause();
+                existingPlayer.audioElement.src = '';
+            }
+            audioPlayers.delete(key);
+        } else {
+            // Audio element matches, return existing player
+            return existingPlayer;
+        }
+    }
+    
+    // Create new player
+    const player = new AudioPlayer(config);
+    audioPlayers.set(key, player);
+    return player;
+}
+
+/**
+ * Get an audio player instance by audio element ID
+ */
+function getAudioPlayer(audioId) {
+    return audioPlayers.get(audioId);
+}
+
+// Toggle play/pause for weekly expressions audio
+// This function is kept for backward compatibility with HTML onclick attributes
+// but should not be called directly - AudioPlayer handles clicks via event listeners
+function toggleWeeklyExpressionsPlayPause(weekKey) {
+    try {
+        const player = getAudioPlayer(`audio-player-weekly-expressions-${weekKey}`);
+        if (player) {
+            player.togglePlayPause();
+        } else {
+            // If player doesn't exist yet, try to create it
+            const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
+            if (audioElement) {
+                setupWeeklyExpressionsAudioControls(weekKey, audioElement.playbackRate || 1.0);
+                // Try again after a short delay
+                setTimeout(() => {
+                    const newPlayer = getAudioPlayer(`audio-player-weekly-expressions-${weekKey}`);
+                    if (newPlayer) {
+                        newPlayer.togglePlayPause();
+                    }
+                }, 50);
+            }
+        }
+    } catch (error) {
+        console.error('Error in toggleWeeklyExpressionsPlayPause:', error);
+    }
+}
+
+// Seek weekly expressions audio
+function seekWeeklyExpressionsAudio(weekKey, event) {
+    const player = getAudioPlayer(`audio-player-weekly-expressions-${weekKey}`);
+    if (player) {
+        player.seek(event);
+    }
+}
+
+// Skip weekly expressions audio
+function skipWeeklyExpressionsAudio(weekKey, seconds) {
+    const player = getAudioPlayer(`audio-player-weekly-expressions-${weekKey}`);
+    if (player) {
+        player.skip(seconds);
+    }
+}
+
+// Update speed button styles to show which one is active
+function updateSpeedButtonStyles(weekKey, activeSpeed) {
+    const buttons = document.querySelectorAll(`[onclick*="setWeeklyExpressionsSpeed('${weekKey}'"]`);
+    buttons.forEach(btn => {
+        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
+        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
+            btn.style.background = '#4a90e2';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#4a90e2';
+        } else {
+            btn.style.background = '#fff';
+            btn.style.color = '#333';
+            btn.style.borderColor = '#ddd';
+        }
+    });
+}
+
+// Set playback speed for weekly expressions audio
+function setWeeklyExpressionsSpeed(weekKey, speed) {
+    const player = getAudioPlayer(`audio-player-weekly-expressions-${weekKey}`);
+    if (player) {
+        const speedValue = parseFloat(speed) || 1.0;
+        player.setSpeed(speedValue);
+        updateSpeedButtonStyles(weekKey, speedValue);
+        // Save to localStorage
+        localStorage.setItem(`weekly_expressions_speed_${weekKey}`, speedValue.toString());
+    }
+}
+
+// Set up weekly expressions audio controls for a specific week
+function setupWeeklyExpressionsAudioControls(weekKey, initialSpeed) {
+    const audioId = `audio-player-weekly-expressions-${weekKey}`;
+    const controlsId = `controls-weekly-expressions-${weekKey}`;
+    
+    // Create audio player instance
+    createAudioPlayer({
+        audioId: audioId,
+        controlsId: controlsId,
+        progressId: `progress-weekly-expressions-${weekKey}`,
+        playheadId: `playhead-weekly-expressions-${weekKey}`,
+        timeDisplayId: `time-weekly-expressions-${weekKey}`,
+        initialSpeed: initialSpeed || 1.0
+    });
+}
+
+// Set up all weekly expressions audio controls on page load
+function setupAllWeeklyExpressionsAudioControls() {
+    if (!currentWeek) return;
+    const audioElement = document.getElementById(`audio-player-weekly-expressions-${currentWeek}`);
+    if (audioElement) {
+        const currentSpeed = audioElement.playbackRate || 1.0;
+        setupWeeklyExpressionsAudioControls(currentWeek, currentSpeed);
+    }
+}
+
+// ============================================================================
+// Functions called from HTML onclick attributes - MUST be defined before use
+// ============================================================================
+
+// Navigation functions
+async function selectWeek(weekKey) {
+    if (!weekKey) return;
+    await loadWeek(weekKey);
+}
+
+async function goToCurrentWeek() {
+    try {
+        // Reload full progress structure first to get all weeks and actual current week
+        const progressResponse = await fetch('/api/progress');
+        const progressData = await progressResponse.json();
+        progress = progressData.progress;
+        
+        // Get the actual current week key from the backend
+        const actualCurrentWeek = progressData.current_week;
+        
+        // Load that specific week to ensure we're showing the correct week
+        await loadWeek(actualCurrentWeek);
+        
+        // Scroll to current week in the sidebar
+        setTimeout(() => {
+            scrollToCurrentWeek();
+        }, 100); // Small delay to ensure DOM is updated
+    } catch (error) {
+        console.error('Error loading current week:', error);
+        showError('Failed to load current week. Please try again.');
+    }
+}
+
+async function navigateWeek(direction) {
+    const weeks = getAllWeeks();
+    
+    // Calculate adjacent week
+    const adjacentWeek = getAdjacentWeek(currentWeek, direction);
+    if (!adjacentWeek) return;
+    
+    // Load the adjacent week (will be created if it doesn't exist)
+    await loadWeek(adjacentWeek);
+}
+
+// Clean up audio players for a specific week
+function cleanupAudioPlayersForWeek(weekKey) {
+    // List of all possible audio player IDs for this week
+    const audioPlayerIds = [
+        `audio-player-weekly-expressions-${weekKey}`,
+        `audio-player-podcast-shadowing-${weekKey}`,
+        `audio-player-typecast-podcast-${weekKey}`,
+        `audio-player-typecast-${weekKey}-1`,
+        `audio-player-typecast-${weekKey}-2`,
+        `audio-player-typecast-${weekKey}-3`,
+        `audio-player-shadowing-${weekKey}-1`,
+        `audio-player-shadowing-${weekKey}-2`,
+        `audio-player-shadowing-${weekKey}-3`,
+        `audio-player-openai-${weekKey}-1`,
+        `audio-player-openai-${weekKey}-2`,
+        `audio-player-openai-${weekKey}-3`
+    ];
+    
+    // Clean up each audio player
+    audioPlayerIds.forEach(audioId => {
+        const player = audioPlayers.get(audioId);
+        if (player) {
+            // Pause and clean up audio element
+            if (player.audioElement) {
+                player.audioElement.pause();
+                player.audioElement.src = '';
+                player.audioElement.load(); // Reset audio element
+            }
+            // Remove from registry
+            audioPlayers.delete(audioId);
+        }
+    });
+}
+
+async function loadWeek(weekKey) {
+    try {
+        // Remove cache-busting parameter if present
+        const cleanWeekKey = weekKey.split('?')[0];
+        
+        // Clean up existing audio players for this week before reloading
+        // This ensures old audio elements are properly disposed
+        cleanupAudioPlayersForWeek(cleanWeekKey);
+        
+        // Reload full progress structure first to get all weeks (with cache busting)
+        const progressResponse = await fetch('/api/progress?t=' + Date.now());
+        if (!progressResponse.ok) {
+            throw new Error(`Progress API error: ${progressResponse.status} ${progressResponse.statusText}`);
+        }
+        const progressData = await progressResponse.json();
+        if (!progressData || !progressData.progress) {
+            throw new Error('Invalid progress data received');
+        }
+        progress = progressData.progress;
+        
+        // Load the specific week (with cache busting)
+        const response = await fetch(`/api/week/${cleanWeekKey}?t=` + Date.now());
+        if (!response.ok) {
+            throw new Error(`Week API error: ${response.status} ${response.statusText}`);
+        }
+        const weekData = await response.json();
+        if (!weekData || !weekData.week_key) {
+            throw new Error('Invalid week data received');
+        }
+        
+        currentWeek = weekData.week_key;
+        progress.weeks = progress.weeks || {};
+        progress.weeks[cleanWeekKey] = weekData.progress;
+        weeklySummary = weekData.summary;
+        
+        // Force re-render
+        renderPage();
+        updateWeekList();
+        
+        // Update voice dropdowns after rendering
+        updateVoiceDropdowns();
+        
+        // Populate OpenAI voice dropdowns after rendering
+        setTimeout(() => {
+            document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
+                if (select.options.length <= 1 || (select.options.length > 0 && select.options[0].textContent === 'Loading voices...')) {
+                    populateOpenAIVoiceDropdown(select.id);
+                }
+            });
+        }, 150);
+    } catch (error) {
+        console.error('Error loading week:', error);
+        console.error('Error details:', {
+            message: error.message,
+            stack: error.stack,
+            weekKey: weekKey
+        });
+        showError(`Failed to load week: ${error.message}. Please try again.`);
+    }
+}
+
+// Toggle sidebar visibility
+function toggleSidebar() {
+    const sidebar = document.getElementById('weekSidebar');
+    
+    if (sidebar) {
+        if (sidebar.classList.contains('hidden')) {
+            // Show sidebar
+            sidebar.classList.remove('hidden');
+        } else {
+            // Collapse sidebar to narrow bar
+            sidebar.classList.add('hidden');
+        }
+    }
+}
+
+// Shadowing practice audio functions
+function togglePlayPause(sourceType, weekKey, scriptNum) {
+    const player = getAudioPlayer(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (player) {
+        player.togglePlayPause();
+    }
+}
+
+function seekAudio(sourceType, weekKey, scriptNum, event) {
+    const player = getAudioPlayer(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (player) {
+        player.seek(event);
+    }
+}
+
+function skipShadowingAudio(sourceType, weekKey, scriptNum, seconds) {
+    const player = getAudioPlayer(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (player) {
+        player.skip(seconds);
+    }
+}
+
+function setPlaybackSpeed(sourceType, weekKey, scriptNum, speed) {
+    const audioId = `audio-player-${sourceType}-${weekKey}-${scriptNum}`;
+    const player = getAudioPlayer(audioId);
+    if (player) {
+        player.setSpeed(speed);
+    } else {
+        const audioElement = document.getElementById(audioId);
+        if (audioElement) {
+            const speedValue = parseFloat(speed) || 1.0;
+            audioElement.playbackRate = speedValue;
+        }
+    }
+}
+
+function switchScript(weekKey, scriptNum) {
+    // Update tab buttons
+    const tab1 = document.getElementById(`tab-${weekKey}-1`);
+    const tab2 = document.getElementById(`tab-${weekKey}-2`);
+    const script1 = document.getElementById(`script-${weekKey}-1`);
+    const script2 = document.getElementById(`script-${weekKey}-2`);
+    
+    if (scriptNum === 1) {
+        if (tab1) tab1.classList.add('active');
+        if (tab2) tab2.classList.remove('active');
+        if (script1) script1.classList.add('active');
+        if (script2) script2.classList.remove('active');
+    } else {
+        if (tab1) tab1.classList.remove('active');
+        if (tab2) tab2.classList.add('active');
+        if (script1) script1.classList.remove('active');
+        if (script2) script2.classList.add('active');
+    }
+    
+    // Save selection to localStorage
+    localStorage.setItem(`shadowing_script_${weekKey}`, scriptNum.toString());
+}
+
+function toggleAudioRegenOptions(weekKey, scriptNum, sourceType, event) {
+    if (event) event.stopPropagation();
+    
+    // Handle both typecast and openai dropdowns
+    const menuId = sourceType === 'openai' ? `audio-regen-openai-${weekKey}-${scriptNum}` : `audio-regen-${weekKey}-${scriptNum}`;
+    const menu = document.getElementById(menuId);
+    if (!menu) return;
+    
+    // Close all other menus first
+    document.querySelectorAll('.audio-regen-menu, .audio-regen-openai-menu').forEach(m => {
+        if (m.id !== menuId) {
+            m.style.display = 'none';
+        }
+    });
+    
+    // Toggle current menu
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+}
+
+function setShadowingTypecastSpeed(weekKey, scriptNum, speed) {
+    const player = getAudioPlayer(`audio-player-typecast-${weekKey}-${scriptNum}`);
+    if (player) {
+        const speedValue = parseFloat(speed) || 1.0;
+        player.setSpeed(speedValue);
+        updateShadowingTypecastSpeedButtonStyles(weekKey, scriptNum, speedValue);
+    }
+}
+
+function updateShadowingTypecastSpeedButtonStyles(weekKey, scriptNum, activeSpeed) {
+    const buttons = document.querySelectorAll(`[onclick*="setShadowingTypecastSpeed('${weekKey}', ${scriptNum}"]`);
+    buttons.forEach(btn => {
+        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
+        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
+            btn.style.background = '#4a90e2';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#4a90e2';
+        } else {
+            btn.style.background = '#fff';
+            btn.style.color = '#333';
+            btn.style.borderColor = '#ddd';
+        }
+    });
+}
+
+// Podcast shadowing audio functions
+function togglePodcastShadowingPlayPause(weekKey) {
+    const player = getAudioPlayer(`audio-player-podcast-shadowing-${weekKey}`);
+    if (player) {
+        player.togglePlayPause();
+    }
+}
+
+function seekPodcastShadowingAudio(weekKey, event) {
+    const player = getAudioPlayer(`audio-player-podcast-shadowing-${weekKey}`);
+    if (player) {
+        player.seek(event);
+    }
+}
+
+function skipPodcastShadowingAudio(weekKey, seconds) {
+    const player = getAudioPlayer(`audio-player-podcast-shadowing-${weekKey}`);
+    if (player) {
+        player.skip(seconds);
+    }
+}
+
+function setPodcastShadowingSpeed(weekKey, speed) {
+    const player = getAudioPlayer(`audio-player-podcast-shadowing-${weekKey}`);
+    if (player) {
+        const speedValue = parseFloat(speed) || 1.0;
+        player.setSpeed(speedValue);
+        updatePodcastShadowingSpeedButtonStyles(weekKey, speedValue);
+    }
+}
+
+function updatePodcastShadowingSpeedButtonStyles(weekKey, activeSpeed) {
+    const buttons = document.querySelectorAll(`[onclick*="setPodcastShadowingSpeed('${weekKey}'"]`);
+    buttons.forEach(btn => {
+        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
+        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
+            btn.style.background = '#4a90e2';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#4a90e2';
+        } else {
+            btn.style.background = '#fff';
+            btn.style.color = '#333';
+            btn.style.borderColor = '#ddd';
+        }
+    });
+}
+
+function togglePodcastTypecastPlayPause(weekKey) {
+    const player = getAudioPlayer(`audio-player-typecast-podcast-${weekKey}`);
+    if (player) {
+        player.togglePlayPause();
+    }
+}
+
+function seekPodcastTypecastAudio(weekKey, event) {
+    const player = getAudioPlayer(`audio-player-typecast-podcast-${weekKey}`);
+    if (player) {
+        player.seek(event);
+    }
+}
+
+function skipPodcastTypecastAudio(weekKey, seconds) {
+    const player = getAudioPlayer(`audio-player-typecast-podcast-${weekKey}`);
+    if (player) {
+        player.skip(seconds);
+    }
+}
+
+function setPodcastTypecastSpeed(weekKey, speed) {
+    const player = getAudioPlayer(`audio-player-typecast-podcast-${weekKey}`);
+    if (player) {
+        const speedValue = parseFloat(speed) || 1.0;
+        player.setSpeed(speedValue);
+        updatePodcastTypecastSpeedButtonStyles(weekKey, speedValue);
+    }
+}
+
+function updatePodcastTypecastSpeedButtonStyles(weekKey, activeSpeed) {
+    const buttons = document.querySelectorAll(`[onclick*="setPodcastTypecastSpeed('${weekKey}'"]`);
+    buttons.forEach(btn => {
+        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
+        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
+            btn.style.background = '#4a90e2';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#4a90e2';
+        } else {
+            btn.style.background = '#fff';
+            btn.style.color = '#333';
+            btn.style.borderColor = '#ddd';
+        }
+    });
+}
+
+function togglePodcastTypecastRegenOptions(weekKey, event) {
+    if (event) event.stopPropagation();
+    
+    const menuId = `podcast-typecast-regen-${weekKey}`;
+    const menu = document.getElementById(menuId);
+    if (!menu) return;
+    
+    // Close all other menus first
+    document.querySelectorAll('.podcast-typecast-regen-menu').forEach(m => {
+        if (m.id !== menuId) {
+            m.style.display = 'none';
+        }
+    });
+    
+    // Toggle current menu
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+}
+
+function downloadAudio(audioUrl, sourceType, weekKey, scriptNum) {
+    if (!audioUrl) return;
+    
+    const link = document.createElement('a');
+    link.href = audioUrl;
+    link.download = `${sourceType}-${weekKey}-script${scriptNum}.mp3`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function updatePodcastChapterSelect(weekKey) {
+    const videoSelect = document.getElementById(`podcast-video-select-${weekKey}`);
+    const chapterSelect = document.getElementById(`podcast-chapter-select-${weekKey}`);
+    
+    if (!videoSelect || !chapterSelect) return;
+    
+    const selectedVideoId = videoSelect.value;
+    if (!selectedVideoId) {
+        // Clear chapter select if no video selected
+        chapterSelect.innerHTML = '<option value="">Select a video first</option>';
+        return;
+    }
+    
+    // Get the selected video option to find its index
+    const selectedOption = videoSelect.options[videoSelect.selectedIndex];
+    const videoIndex = selectedOption ? parseInt(selectedOption.dataset.index) : -1;
+    
+    if (videoIndex === -1) {
+        chapterSelect.innerHTML = '<option value="">Invalid video selection</option>';
+        return;
+    }
+    
+    // Use cached videos if available, otherwise try to get from progress
+    let videos = podcastVideosCache;
+    if (!videos) {
+        // Try to get from progress
+        const weekData = progress.weeks[weekKey];
+        if (weekData && weekData.podcast_shadowing && weekData.podcast_shadowing.videos) {
+            videos = weekData.podcast_shadowing.videos;
+        } else {
+            chapterSelect.innerHTML = '<option value="">Loading chapters...</option>';
+            // Try to reload videos
+            loadPodcastVideosAndChapters(weekKey).then(() => {
+                // Retry after loading
+                updatePodcastChapterSelect(weekKey);
+            });
+            return;
+        }
+    }
+    
+    if (!videos || !videos[videoIndex]) {
+        chapterSelect.innerHTML = '<option value="">Video not found</option>';
+        return;
+    }
+    
+    const selectedVideo = videos[videoIndex];
+    if (!selectedVideo || !selectedVideo.chapters) {
+        chapterSelect.innerHTML = '<option value="">No chapters available</option>';
+        return;
+    }
+    
+    updatePodcastChapterSelectSync(weekKey, selectedVideo.chapters, videoIndex + 1);
+}
+
+function updatePodcastChapterSelectSync(weekKey, chapters, videoNumber) {
+    const chapterSelect = document.getElementById(`podcast-chapter-select-${weekKey}`);
+    if (!chapterSelect) return;
+    
+    // Get current selection before clearing
+    const currentValue = chapterSelect.value;
+    
+    chapterSelect.innerHTML = '<option value="">Select chapter...</option>';
+    
+    // Get current activity progress to find selected chapter
+    const activityProgress = getActivityProgress('podcast_shadowing');
+    let selectedChapterIndex = null;
+    
+    if (activityProgress && activityProgress.chapter_name) {
+        const matchingChapter = chapters.find(ch => ch.title === activityProgress.chapter_name);
+        if (matchingChapter !== undefined) {
+            selectedChapterIndex = matchingChapter.chapter_index !== undefined 
+                ? matchingChapter.chapter_index 
+                : chapters.indexOf(matchingChapter);
+        }
+    }
+    
+    chapters.forEach((chapter, index) => {
+        const option = document.createElement('option');
+        // Use chapter.chapter_index instead of array index
+        const chapterIndex = chapter.chapter_index !== undefined ? chapter.chapter_index : index;
+        option.value = chapterIndex.toString();
+        // Format: "비디오넘버-챕터넘버. 챕터제목"
+        const chapterTitle = chapter.title || `Chapter ${index + 1}`;
+        option.textContent = `${videoNumber}-${index + 1}. ${chapterTitle}`;
+        
+        // Set selected if this is the current chapter
+        if (selectedChapterIndex !== null && chapterIndex === selectedChapterIndex) {
+            option.selected = true;
+        }
+        
+        chapterSelect.appendChild(option);
+    });
+    
+    // Ensure size is reset to 1 after updating
+    chapterSelect.size = 1;
+}
+
+// Recording functions
+function toggleRecordingUI(activityId, day, event) {
+    // Prevent event bubbling
+    if (event) event.stopPropagation();
+    
+    const dayId = day.replace(/-/g, '_');
+    const recordingUI = document.getElementById(`${activityId}_recording_ui_${dayId}`);
+    
+    // Find the day box within the current activity's container
+    const activityContainer = document.querySelector(`[data-activity-id="${activityId}"]`);
+    const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${day}"]`) : null;
+    
+    if (!recordingUI) return;
+    
+    // Close all other recording UIs for this activity and remove active state
+    const allRecordingUIs = document.querySelectorAll(`[id^="${activityId}_recording_ui_"]`);
+    // Only select day boxes within this activity's container
+    const allDayBoxes = activityContainer ? activityContainer.querySelectorAll(`[data-day]`) : [];
+    allRecordingUIs.forEach(ui => {
+        if (ui.id !== recordingUI.id && ui.style.display !== 'none') {
+            ui.style.display = 'none';
+        }
+    });
+    allDayBoxes.forEach(box => {
+        if (box.getAttribute('data-day') !== day) {
+            box.classList.remove('active');
+        }
+    });
+    
+    // Toggle current UI
+    if (recordingUI.style.display === 'none') {
+        recordingUI.style.display = 'block';
+        if (dayBox) dayBox.classList.add('active');
+        
+        // For voice journaling, show the daily topic
+        if (activityId === 'voice_journaling') {
+            const dayIndex = parseInt(recordingUI.getAttribute('data-day-index') || '0');
+            const topics = progress?.weeks?.[currentWeek]?.voice_journaling?.topics || [];
+            const topic = topics[dayIndex] || "No topic generated yet. Click 'Generate content' to create topics.";
+            
+            const topicElement = document.getElementById(`${activityId}_topic_${dayId}`);
+            if (topicElement) {
+                topicElement.innerHTML = `<strong>Today's Topic</strong> ${escapeHtml(topic)}`;
+            }
+        }
+        
+        // For weekly expressions, load notes
+        if (activityId === 'weekly_expressions') {
+            // Load notes for this day
+            const notesTextarea = document.getElementById(`${activityId}_notes_${dayId}`);
+            if (notesTextarea) {
+                const notes = progress?.weeks?.[currentWeek]?.weekly_expressions?.notes?.[day] || '';
+                notesTextarea.value = notes;
+            }
+        }
+        
+        // Load recordings when opening (skip for weekly_expressions)
+        if (activityId !== 'weekly_expressions') {
+            loadRecordings(activityId, day);
+        }
+    } else {
+        recordingUI.style.display = 'none';
+        if (dayBox) dayBox.classList.remove('active');
+    }
+}
+
+// Start recording timer
+function startRecordingTimer(activityId, day) {
+    // Stop any existing timer first to prevent multiple timers running
+    if (recordingTimer) {
+        clearInterval(recordingTimer);
+        recordingTimer = null;
+    }
+    
+    const dayId = day.replace(/-/g, '_');
+    const timerElement = document.getElementById(`${activityId}_timer_${dayId}`);
+    
+    if (!timerElement) return;
+    
+    timerElement.style.display = 'inline-block';
+    recordingStartTime = Date.now();
+    
+    recordingTimer = setInterval(() => {
+        const elapsed = Date.now() - recordingStartTime;
+        const minutes = Math.floor(elapsed / 60000);
+        const seconds = Math.floor((elapsed % 60000) / 1000);
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }, 100);
+}
+
+// Stop recording timer
+function stopRecordingTimer(activityId, day) {
+    if (recordingTimer) {
+        clearInterval(recordingTimer);
+        recordingTimer = null;
+    }
+    
+    // Hide timer element if activityId and day are provided
+    if (activityId && day) {
+        const dayId = day.replace(/-/g, '_');
+        const timerElement = document.getElementById(`${activityId}_timer_${dayId}`);
+        if (timerElement) {
+            timerElement.style.display = 'none';
+        }
+    }
+}
+
+// Start waveform visualization
+function startVisualization(activityId, day) {
+    const dayId = day.replace(/-/g, '_');
+    const visualizerDiv = document.getElementById(`${activityId}_visualizer_${dayId}`);
+    const canvas = document.getElementById(`${activityId}_canvas_${dayId}`);
+    
+    if (!canvas) return;
+    
+    // Initialize audio context if not already done
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    
+    // Get user media for visualization
+    navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+            analyser = audioContext.createAnalyser();
+            const source = audioContext.createMediaStreamSource(stream);
+            source.connect(analyser);
+            analyser.fftSize = 256;
+            
+            visualizerDiv.style.display = 'block';
+            const canvasContext = canvas.getContext('2d');
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            
+            function draw() {
+                animationId = requestAnimationFrame(draw);
+                
+                analyser.getByteTimeDomainData(dataArray);
+                
+                canvasContext.fillStyle = '#f8f9fa';
+                canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+                
+                canvasContext.lineWidth = 2;
+                canvasContext.strokeStyle = '#dc3545';
+                canvasContext.beginPath();
+                
+                const sliceWidth = canvas.width / bufferLength;
+                let x = 0;
+                
+                for (let i = 0; i < bufferLength; i++) {
+                    const v = dataArray[i] / 128.0;
+                    const y = v * canvas.height / 2;
+                    
+                    if (i === 0) {
+                        canvasContext.moveTo(x, y);
+                    } else {
+                        canvasContext.lineTo(x, y);
+                    }
+                    
+                    x += sliceWidth;
+                }
+                
+                canvasContext.lineTo(canvas.width, canvas.height / 2);
+                canvasContext.stroke();
+            }
+            
+            draw();
+        })
+        .catch(error => {
+            console.error('Error starting visualization:', error);
+        });
+}
+
+async function startRecording(activityId, day) {
+    // Always reset UI to idle state first for the target activity/day
+    // This ensures clean state even if previous recording was deleted or interrupted
+    updateRecordingUI(activityId, day, 'idle');
+    
+    // Clean up any previous recording state first
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        console.warn('Stopping previous recording');
+        try {
+            mediaRecorder.stop();
+        } catch (e) {
+            console.warn('Error stopping previous recorder:', e);
+        }
+    }
+    
+    // Stop any existing timer and visualization
+    if (currentRecordingActivity && currentRecordingDay) {
+        stopRecordingTimer(currentRecordingActivity, currentRecordingDay);
+    } else {
+        stopRecordingTimer();
+    }
+    // Also stop timer for the new recording target (in case it was left running)
+    stopRecordingTimer(activityId, day);
+    
+    if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+    }
+    
+    // Reset UI to idle state for previous recording if different
+    if (currentRecordingActivity && currentRecordingDay && 
+        (currentRecordingActivity !== activityId || currentRecordingDay !== day)) {
+        updateRecordingUI(currentRecordingActivity, currentRecordingDay, 'idle');
+    }
+    
+    // Clean up audio context if exists
+    if (audioContext) {
+        try {
+            await audioContext.close();
+        } catch (e) {
+            console.warn('Error closing audio context:', e);
+        }
+        audioContext = null;
+        analyser = null;
+    }
+    
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+        currentRecordingActivity = activityId;
+        currentRecordingDay = day;
+        recordingStartTime = Date.now();
+        
+        mediaRecorder.ondataavailable = (event) => {
+            if (event.data.size > 0) {
+                audioChunks.push(event.data);
+            }
+        };
+        
+        mediaRecorder.onstop = async () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            await saveRecording(audioBlob, activityId, day);
+            
+            // Stop all tracks
+            stream.getTracks().forEach(track => track.stop());
+            
+            // Stop timer and visualization
+            stopRecordingTimer(activityId, day);
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            
+            // Clean up
+            mediaRecorder = null;
+            audioChunks = [];
+            currentRecordingActivity = null;
+            currentRecordingDay = null;
+            
+            // Reload recordings
+            await loadRecordings(activityId, day);
+        };
+        
+        mediaRecorder.start();
+        startRecordingTimer(activityId, day);
+        startVisualization(activityId, day);
+        updateRecordingUI(activityId, day, 'recording');
+    } catch (error) {
+        console.error('Error starting recording:', error);
+        showError('Failed to start recording: ' + error.message);
+    }
+}
+
+function stopRecording() {
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        // Store activity and day before stopping (they might be cleared in onstop)
+        const activityId = currentRecordingActivity;
+        const day = currentRecordingDay;
+        
+        // Stop timer immediately when user clicks stop button
+        stopRecordingTimer(activityId, day);
+        
+        // Stop visualization immediately
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+        
+        // Update UI to processing state (this will hide timer and visualizer)
+        if (activityId && day) {
+            updateRecordingUI(activityId, day, 'processing');
+        }
+        
+        // Stop the recorder
+        try {
+            mediaRecorder.stop();
+        } catch (error) {
+            console.error('Error stopping recorder:', error);
+            // If stop fails, reset UI to idle
+            if (activityId && day) {
+                updateRecordingUI(activityId, day, 'idle');
+            }
+        }
+    }
+}
+
+// Format timestamp for display
+function formatTimestamp(timestamp) {
+    // timestamp format: YYYYMMDD_HHMMSS
+    const year = timestamp.substring(0, 4);
+    const month = timestamp.substring(4, 6);
+    const day = timestamp.substring(6, 8);
+    const hour = timestamp.substring(9, 11);
+    const minute = timestamp.substring(11, 13);
+    const second = timestamp.substring(13, 15);
+    
+    return `${month}/${day} ${hour}:${minute}:${second}`;
+}
+
+// Display recordings in the UI
+async function displayRecordings(activityId, day, recordings) {
+    const dayId = day.replace(/-/g, '_');
+    const recordingsList = document.querySelector(`#${activityId}_recordings_${dayId}`);
+    const recordBtn = document.querySelector(`#${activityId}_record_${dayId}`);
+    const completeBtn = document.querySelector(`#${activityId}_complete_${dayId}`);
+    const dayBox = document.querySelector(`[data-day="${day}"]`);
+    
+    if (!recordingsList) return;
+    
+    const hasRecordings = recordings && recordings.length > 0;
+    
+    // Update record button text
+    if (recordBtn) {
+        if (hasRecordings) {
+            recordBtn.innerHTML = '🔄 Re-record';
+        } else {
+            recordBtn.innerHTML = '🎤 Record';
+        }
+    }
+    
+    // Enable/disable complete button based on recordings
+    if (completeBtn) {
+        if (hasRecordings) {
+            completeBtn.disabled = false;
+            completeBtn.title = '';
+        } else {
+            completeBtn.disabled = true;
+            completeBtn.title = 'Record audio first to mark as completed';
+            // If user somehow marked it complete before, uncheck it and sync with backend
+            if (completeBtn.classList.contains('completed')) {
+                completeBtn.classList.remove('completed');
+                completeBtn.textContent = 'Mark as completed';
+                
+                // Also update the day box visual state
+                if (dayBox) {
+                    dayBox.classList.remove('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions) {
+                        const mark = dayActions.querySelector('.completed-mark');
+                        if (mark) mark.remove();
+                    }
+                }
+                
+                // Sync with backend - unmark as completed
+                try {
+                    let toggleFunction;
+                    if (activityId === 'voice_journaling') {
+                        toggleFunction = 'toggleVoiceJournalingDay';
+                    } else if (activityId === 'shadowing_practice') {
+                        toggleFunction = 'toggleShadowingDay';
+                    } else if (activityId === 'weekly_speaking_prompt') {
+                        toggleFunction = 'togglePromptDay';
+                    }
+                    
+                    if (toggleFunction) {
+                        const response = await fetch('/api/progress', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                activity_id: activityId,
+                                day: day,
+                                completed: false,
+                                week_key: currentWeek
+                            })
+                        });
+                        
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (data.success) {
+                                progress = data.progress;
+                                weeklySummary = data.weekly_summary;
+                                updateProgressSummary();
+                            }
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error syncing completion state:', error);
+                    // Don't show error to user - this is a background sync
+                }
+            }
+        }
+    }
+    
+    if (!hasRecordings) {
+        recordingsList.innerHTML = '<p class="no-recordings">No recording yet</p>';
+        return;
+    }
+    
+    // Show only the most recent recording
+    const recording = recordings[recordings.length - 1];
+    recordingsList.innerHTML = '';
+    
+    const recordingDiv = document.createElement('div');
+    recordingDiv.className = 'recording-item';
+    
+    const timestamp = formatTimestamp(recording.timestamp);
+    
+    // Build transcription HTML if available (only for voice_journaling)
+    let transcriptionHtml = '';
+    if (activityId === 'voice_journaling' && recording.transcription) {
+        transcriptionHtml = `
+            <div class="recording-transcription">
+                <div class="transcription-label">Transcription:</div>
+                <div class="transcription-text">${escapeHtml(recording.transcription)}</div>
+            </div>
+        `;
+    }
+    
+    recordingDiv.innerHTML = `
+        <div class="recording-info">
+            <span class="recording-time">Recorded: ${timestamp}</span>
+            <button class="delete-recording-btn" onclick="deleteRecording('${activityId}', '${day}', '${recording.filename}'); event.stopPropagation();">🗑️ Delete</button>
+        </div>
+        <audio controls class="recording-player">
+            <source src="${recording.url}" type="audio/webm">
+            Your browser does not support audio playback.
+        </audio>
+        ${transcriptionHtml}
+    `;
+    
+    recordingsList.appendChild(recordingDiv);
+}
+
+// Load recordings for a specific activity and day
+async function loadRecordings(activityId, day) {
+    try {
+        const response = await fetch('/api/get-recordings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: activityId,
+                week_key: currentWeek,
+                day: day
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            displayRecordings(activityId, day, data.recordings);
+        }
+    } catch (error) {
+        console.error('Error loading recordings:', error);
+    }
+}
+
+// Auto-mark day as completed when recording is saved
+async function autoMarkDayCompleted(activityId, day) {
+    try {
+        const response = await fetch('/api/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: activityId,
+                day: day,
+                completed: true,
+                week_key: currentWeek
+            })
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            if (data.success) {
+                progress = data.progress;
+                weeklySummary = data.weekly_summary;
+                updateProgressSummary();
+                
+                // Update visual state of the day box
+                const dayId = day.replace(/-/g, '_');
+                const dayBox = document.querySelector(`[data-day="${day}"]`);
+                if (dayBox && !dayBox.classList.contains('completed')) {
+                    dayBox.classList.add('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
+                        const mark = document.createElement('span');
+                        mark.className = 'completed-mark';
+                        mark.textContent = '✓';
+                        dayActions.insertBefore(mark, dayActions.firstChild);
+                    }
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error auto-marking day as completed:', error);
+        // Don't show error to user - completion is secondary to recording save
+    }
+}
+
+// Save recording to server
+async function saveRecording(audioBlob, activityId, day) {
+    // Ensure timer is stopped before saving (in case it wasn't stopped properly)
+    stopRecordingTimer(activityId, day);
+    
+    try {
+        const formData = new FormData();
+        formData.append('audio', audioBlob, 'recording.webm');
+        formData.append('activity_id', activityId);
+        formData.append('week_key', currentWeek);
+        formData.append('day', day);
+        
+        const response = await fetch('/api/save-recording', {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Server error: ${response.status} - ${errorText}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            showSuccess('Recording saved successfully!');
+            
+            // For voice_journaling, trigger transcription automatically
+            if (activityId === 'voice_journaling') {
+                // Transcription is handled on the backend automatically
+                // Just reload recordings to show the transcription when available
+            }
+            
+            // Reload recordings for this day
+            await loadRecordings(activityId, day);
+            
+            // Ensure timer is stopped and UI is reset to idle state after saving
+            stopRecordingTimer(activityId, day);
+            updateRecordingUI(activityId, day, 'idle');
+        } else {
+            showError('Failed to save recording: ' + (data.error || 'Unknown error'));
+            // Ensure timer is stopped and reset UI to idle state even on error
+            stopRecordingTimer(activityId, day);
+            updateRecordingUI(activityId, day, 'idle');
+        }
+    } catch (error) {
+        console.error('Error saving recording:', error);
+        showError('Failed to save recording: ' + error.message);
+        // Ensure timer is stopped and reset UI to idle state on error
+        stopRecordingTimer(activityId, day);
+        updateRecordingUI(activityId, day, 'idle');
+    }
+}
+
+async function deleteRecording(activityId, day, filename) {
+    if (!confirm('Are you sure you want to delete this recording?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/delete-recording', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: activityId,
+                week_key: currentWeek,
+                day: day,
+                filename: filename
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Stop any running timer and reset UI to idle state
+            stopRecordingTimer(activityId, day);
+            updateRecordingUI(activityId, day, 'idle');
+            
+            await loadRecordings(activityId, day);
+            showSuccess('Recording deleted successfully');
+        } else {
+            showError(data.error || 'Failed to delete recording');
+        }
+    } catch (error) {
+        console.error('Error deleting recording:', error);
+        showError('Failed to delete recording: ' + error.message);
+    }
+}
+
+// Weekly expressions functions
+async function selectMp3File(weekKey, mp3File) {
+    if (!mp3File) return;
+    
+    try {
+        const response = await fetch('/api/weekly-expressions/select-mp3', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                week_key: weekKey,
+                mp3_file: mp3File
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            updateWeeklyExpressionsAudioPlayer(mp3File);
+            showSuccess('MP3 file selected successfully');
+        } else {
+            showError(data.error || 'Failed to select MP3 file');
+        }
+    } catch (error) {
+        console.error('Error selecting MP3 file:', error);
+        showError('Failed to select MP3 file: ' + error.message);
+    }
+}
+
+async function saveWeeklyExpressionsNotes(weekKey, notes) {
+    try {
+        const response = await fetch('/api/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'weekly_expressions',
+                week_key: weekKey,
+                field_name: 'notes',
+                field_value: notes,
+                day: null
+            })
+        });
+        
+        const data = await response.json();
+        if (data.success) {
+            progress = data.progress;
+        } else {
+            throw new Error('Failed to save notes');
+        }
+    } catch (error) {
+        console.error('Error saving weekly expressions notes:', error);
+        showError('Failed to save notes. Please try again.');
+    }
+}
+
+// Progress toggle functions
+async function toggleVoiceJournalingDay(dateStr, element) {
+    const day = dateStr;
+    const dayId = day.replace(/-/g, '_');
+    const completeBtn = document.getElementById(`voice_journaling_complete_${dayId}`);
+    
+    if (!completeBtn) return;
+    
+    const isCompleted = completeBtn.classList.contains('completed');
+    const newState = !isCompleted;
+    
+    try {
+        const response = await fetch('/api/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'voice_journaling',
+                day: day,
+                completed: newState,
+                week_key: currentWeek
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            weeklySummary = data.weekly_summary;
+            updateProgressSummary();
+            
+            // Update complete button
+            if (newState) {
+                completeBtn.classList.add('completed');
+                completeBtn.textContent = '✓ Completed';
+            } else {
+                completeBtn.classList.remove('completed');
+                completeBtn.textContent = 'Mark as completed';
+            }
+            
+            // Update day box visual state
+            const activityContainer = document.querySelector('[data-activity-id="voice_journaling"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${day}"]`) : null;
+            if (dayBox) {
+                if (newState) {
+                    dayBox.classList.add('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
+                        const mark = document.createElement('span');
+                        mark.className = 'completed-mark';
+                        mark.textContent = '✓';
+                        dayActions.insertBefore(mark, dayActions.firstChild);
+                    }
+                    
+                    // Close the recording UI if it's open
+                    const recordingUI = document.getElementById(`voice_journaling_recording_ui_${dayId}`);
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
+                } else {
+                    dayBox.classList.remove('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions) {
+                        const mark = dayActions.querySelector('.completed-mark');
+                        if (mark) mark.remove();
+                    }
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error updating progress:', error);
+        showError('Failed to update progress. Please try again.');
+    }
+}
+
+async function toggleShadowingDay(dateStr, element) {
+    const day = dateStr;
+    const dayId = day.replace(/-/g, '_');
+    const completeBtn = document.getElementById(`shadowing_practice_complete_${dayId}`);
+    
+    if (!completeBtn) return;
+    
+    const isCompleted = completeBtn.classList.contains('completed');
+    const newState = !isCompleted;
+    
+    try {
+        const response = await fetch('/api/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'shadowing_practice',
+                day: day,
+                completed: newState,
+                week_key: currentWeek
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            weeklySummary = data.weekly_summary;
+            updateProgressSummary();
+            
+            if (newState) {
+                completeBtn.classList.add('completed');
+                completeBtn.textContent = '✓ Completed';
+            } else {
+                completeBtn.classList.remove('completed');
+                completeBtn.textContent = 'Mark as completed';
+            }
+            
+            // Update day box visual state and close recording UI
+            const activityContainer = document.querySelector('[data-activity-id="shadowing_practice"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${day}"]`) : null;
+            if (dayBox) {
+                if (newState) {
+                    dayBox.classList.add('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
+                        const mark = document.createElement('span');
+                        mark.className = 'completed-mark';
+                        mark.textContent = '✓';
+                        dayActions.insertBefore(mark, dayActions.firstChild);
+                    }
+                    
+                    // Close the recording UI if it's open
+                    const recordingUI = document.getElementById(`shadowing_practice_recording_ui_${dayId}`);
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
+                } else {
+                    dayBox.classList.remove('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions) {
+                        const mark = dayActions.querySelector('.completed-mark');
+                        if (mark) mark.remove();
+                    }
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error updating progress:', error);
+        showError('Failed to update progress. Please try again.');
+    }
+}
+
+async function togglePromptDay(dateStr, element) {
+    const day = dateStr;
+    const dayId = day.replace(/-/g, '_');
+    const completeBtn = document.getElementById(`weekly_speaking_prompt_complete_${dayId}`);
+    
+    if (!completeBtn) return;
+    
+    const isCompleted = completeBtn.classList.contains('completed');
+    const newState = !isCompleted;
+    
+    try {
+        const response = await fetch('/api/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'weekly_speaking_prompt',
+                day: day,
+                completed: newState,
+                week_key: currentWeek
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            weeklySummary = data.weekly_summary;
+            updateProgressSummary();
+            
+            if (newState) {
+                completeBtn.classList.add('completed');
+                completeBtn.textContent = '✓ Completed';
+            } else {
+                completeBtn.classList.remove('completed');
+                completeBtn.textContent = 'Mark as completed';
+            }
+            
+            // Update day box visual state and close recording UI
+            const activityContainer = document.querySelector('[data-activity-id="weekly_speaking_prompt"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${day}"]`) : null;
+            if (dayBox) {
+                if (newState) {
+                    dayBox.classList.add('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
+                        const mark = document.createElement('span');
+                        mark.className = 'completed-mark';
+                        mark.textContent = '✓';
+                        dayActions.insertBefore(mark, dayActions.firstChild);
+                    }
+                    
+                    // Close the recording UI if it's open
+                    const recordingUI = document.getElementById(`weekly_speaking_prompt_recording_ui_${dayId}`);
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
+                } else {
+                    dayBox.classList.remove('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions) {
+                        const mark = dayActions.querySelector('.completed-mark');
+                        if (mark) mark.remove();
+                    }
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error updating progress:', error);
+        showError('Failed to update progress. Please try again.');
+    }
+}
+
+// Toggle weekly expressions day completion
+async function toggleWeeklyExpressionsDay(dateStr, element) {
+    const newCompletedState = !element.classList.contains('completed');
+    
+    // Get current MP3 file from UI when marking as completed
+    let currentMp3File = null;
+    if (newCompletedState) {
+        const activityProgress = getActivityProgress('weekly_expressions');
+        currentMp3File = activityProgress?.mp3_file || null;
+    }
+    
+    try {
+        const response = await fetch('/api/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'weekly_expressions',
+                day: dateStr,
+                completed: newCompletedState,
+                mp3_file: currentMp3File  // Include current MP3 file when marking as completed
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        if (data.success) {
+            progress = data.progress;
+            weeklySummary = data.weekly_summary;
+            updateProgressSummary();
+            
+            // Update UI - scope to weekly_expressions activity
+            const activityContainer = document.querySelector('[data-activity-id="weekly_expressions"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
+            if (dayBox) {
+                const dayId = dateStr.replace(/-/g, '_');
+                const recordingUI = document.getElementById(`weekly_expressions_recording_ui_${dayId}`);
+                
+                if (newCompletedState) {
+                    dayBox.classList.add('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
+                        const mark = document.createElement('span');
+                        mark.className = 'completed-mark';
+                        mark.textContent = '✓';
+                        dayActions.insertBefore(mark, dayActions.firstChild);
+                    }
+                    element.textContent = '✓ Completed';
+                    element.classList.add('completed');
+                    
+                    // Close the recording UI if it's open
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
+                } else {
+                    dayBox.classList.remove('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions) {
+                        const mark = dayActions.querySelector('.completed-mark');
+                        if (mark) mark.remove();
+                    }
+                    element.textContent = 'Mark as completed';
+                    element.classList.remove('completed');
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error updating progress:', error);
+        alert(`Failed to update progress: ${error.message}`);
+    }
+}
+
+// Toggle podcast shadowing day completion
+async function togglePodcastShadowingDay(dateStr, element) {
+    const newCompletedState = !element.classList.contains('completed');
+    
+    // Get current MP3 file from UI when marking as completed
+    let currentMp3File = null;
+    if (newCompletedState) {
+        const activityProgress = getActivityProgress('podcast_shadowing');
+        currentMp3File = activityProgress?.mp3_file || null;
+    }
+    
+    try {
+        const response = await fetch('/api/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'podcast_shadowing',
+                day: dateStr,
+                completed: newCompletedState,
+                mp3_file: currentMp3File  // Include current MP3 file when marking as completed
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        if (data.success) {
+            progress = data.progress;
+            weeklySummary = data.weekly_summary;
+            updateProgressSummary();
+            
+            // Update visual state - scope to podcast_shadowing activity
+            const activityContainer = document.querySelector('[data-activity-id="podcast_shadowing"]');
+            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
+            if (dayBox) {
+                if (newCompletedState) {
+                    dayBox.classList.add('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
+                        const mark = document.createElement('span');
+                        mark.className = 'completed-mark';
+                        mark.textContent = '✓';
+                        dayActions.insertBefore(mark, dayActions.firstChild);
+                    }
+                    element.textContent = '✓ Completed';
+                    element.classList.add('completed');
+                    
+                    // Close the recording UI if it's open
+                    const dayId = dateStr.replace(/-/g, '_');
+                    const recordingUI = document.getElementById(`podcast_shadowing_recording_ui_${dayId}`);
+                    if (recordingUI && recordingUI.style.display !== 'none') {
+                        recordingUI.style.display = 'none';
+                        dayBox.classList.remove('active');
+                    }
+                } else {
+                    dayBox.classList.remove('completed');
+                    const dayActions = dayBox.querySelector('.day-actions');
+                    if (dayActions) {
+                        const mark = dayActions.querySelector('.completed-mark');
+                        if (mark) mark.remove();
+                    }
+                    element.textContent = 'Mark as completed';
+                    element.classList.remove('completed');
+                }
+            }
+        } else {
+            throw new Error(data.error || 'Failed to update progress');
+        }
+    } catch (error) {
+        console.error('Error updating progress:', error);
+        showError(`Failed to save progress: ${error.message}`);
+    }
+}
+
+// Audio generation functions (these will be defined later, but declared here for reference)
+async function generateAudioForScript(weekKey, scriptNum, buttonElement, sourceType) {
+    // This function will be defined later in the file
+    // Placeholder to ensure it's available when onclick is called
+}
+
+// generatePodcastTypecastAudio (moved to top, see line 5817)
+
+// Save prompt notes (auto-saves silently on blur)
+async function savePromptNotes(weekKey) {
+    const notesId = `notes-weekly_speaking_prompt-${weekKey}`;
+    const notesTextarea = document.getElementById(notesId);
+    if (!notesTextarea) {
+        return; // Silently fail if textarea not found
+    }
+    
+    const notes = notesTextarea.value || '';
+    
+    try {
+        const response = await fetch('/api/activity-info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                activity_id: 'weekly_speaking_prompt',
+                week_key: weekKey,
+                field_name: 'notes',
+                field_value: notes
+            })
+        });
+        
+        const data = await response.json();
+        if (data.success) {
+            progress = data.progress;
+            // Silent save - no popup notification
+        } else {
+            console.error('Failed to save notes:', data.error);
+        }
+    } catch (error) {
+        console.error('Error saving notes:', error);
+        // Silent fail - don't show error popup for auto-save
+    }
+}
+
+// Toggle script visibility (for hints/scripts)
+function toggleScript(scriptId) {
+    const scriptElement = document.getElementById(scriptId);
+    const toggleElement = document.getElementById(`toggle-${scriptId}`);
+    
+    if (!scriptElement || !toggleElement) return;
+    
+    if (scriptElement.style.display === 'none') {
+        scriptElement.style.display = 'block';
+        toggleElement.textContent = '▼';
+    } else {
+        scriptElement.style.display = 'none';
+        toggleElement.textContent = '▶';
+    }
+}
+
+// Regenerate activity content
+async function regenerateActivity(activityId, weekKey, buttonElement) {
+    // Find the button if not provided
+    const button = buttonElement || document.querySelector(`#activity-options-${activityId}-${weekKey} .activity-option-btn`);
+    const originalText = button ? button.textContent : '';
+    
+    // Update button to show loading state
+    if (button) {
+        button.disabled = true;
+        button.textContent = '⏳ Re-generating...';
+    }
+    
+    try {
+        const response = await fetch(`/api/generate/${activityId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                week_key: weekKey
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            await loadWeek(weekKey);
+            showSuccess(`${activityId.replace(/_/g, ' ')} regenerated successfully!`);
+        } else {
+            throw new Error(data.error || 'Failed to regenerate');
+        }
+    } catch (error) {
+        console.error('Error regenerating activity:', error);
+        showError(`Failed to regenerate ${activityId.replace(/_/g, ' ')}: ${error.message}`);
+    } finally {
+        // Restore button state
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    }
+}
+
+// Change podcast shadowing MP3 file
+async function changePodcastShadowingMP3(weekKey, buttonElement) {
+    const button = buttonElement || document.querySelector(`#activity-options-podcast_shadowing-${weekKey} .activity-option-btn`);
+    const originalText = button ? button.textContent : '';
+    
+    const videoSelect = document.getElementById(`podcast-video-select-${weekKey}`);
+    const chapterSelect = document.getElementById(`podcast-chapter-select-${weekKey}`);
+    
+    // Get selected video and chapter
+    const videoId = videoSelect ? videoSelect.value : null;
+    const chapterIndex = chapterSelect ? parseInt(chapterSelect.value) : null;
+    
+    // Update button to show loading state
+    if (button) {
+        button.disabled = true;
+        button.textContent = '⏳ Loading...';
+    }
+    
+    try {
+        const requestBody = {
+            week_key: weekKey
+        };
+        
+        // If video and chapter are selected, include them
+        if (videoId && chapterIndex !== null && !isNaN(chapterIndex)) {
+            requestBody.video_id = videoId;
+            requestBody.chapter_index = chapterIndex;
+        }
+        
+        const response = await fetch('/api/podcast-shadowing/regenerate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            // Update progress immediately before loadWeek
+            progress = data.progress;
+            
+            // Get episode and chapter names from progress data (they're in progress.weeks[weekKey].podcast_shadowing)
+            const podcastProgress = data.progress?.weeks?.[weekKey]?.podcast_shadowing || {};
+            const newMp3File = podcastProgress.mp3_file || data.mp3_file || data.progress_mp3;
+            const newEpisodeName = podcastProgress.episode_name || data.episode_name;
+            const newChapterName = podcastProgress.chapter_name || data.chapter_name;
+            
+            console.log('Before loadWeek:', {
+                newMp3File: newMp3File,
+                newEpisodeName: newEpisodeName,
+                newChapterName: newChapterName,
+                podcastProgress: podcastProgress
+            });
+            
+            await loadWeek(weekKey);
+            
+            // After loadWeek completes, ensure progress is updated and reload transcript/audio
+            // Use multiple attempts with increasing delays to ensure DOM is ready
+            let updateAttempt = 0;
+            const maxAttempts = 5;
+            
+            const attemptUpdate = () => {
+                updateAttempt++;
+                console.log(`Update attempt ${updateAttempt}/${maxAttempts}`);
+                
+                const activityProgress = getActivityProgress('podcast_shadowing');
+                const transcriptElement = document.getElementById(`podcast-shadowing-transcript-${weekKey}`);
+                const audioElement = document.getElementById(`audio-player-podcast-shadowing-${weekKey}`);
+                
+                if (!activityProgress) {
+                    if (updateAttempt < maxAttempts) {
+                        setTimeout(attemptUpdate, 200);
+                    } else {
+                        console.warn('Activity progress not found after all attempts');
+                    }
+                    return;
+                }
+                
+                // Use activityProgress values for episode/chapter names if available
+                const episodeName = activityProgress.episode_name || newEpisodeName;
+                const chapterName = activityProgress.chapter_name || newChapterName;
+                
+                console.log('Elements found:', {
+                    activityProgress: !!activityProgress,
+                    transcriptElement: !!transcriptElement,
+                    audioElement: !!audioElement,
+                    mp3_file: activityProgress.mp3_file,
+                    expected_mp3: newMp3File,
+                    episode_name: episodeName,
+                    chapter_name: chapterName
+                });
+                
+                // Update transcript
+                if (transcriptElement) {
+                    console.log('Loading transcript...');
+                    loadPodcastShadowingTranscript(weekKey);
+                }
+                
+                // Update audio source - force update even if matches to ensure fresh load
+                if (audioElement && activityProgress.mp3_file) {
+                    const sourceElement = audioElement.querySelector('source');
+                    if (sourceElement) {
+                        const expectedSrc = `/api/podcast-shadowing/mp3/${encodeURIComponent(activityProgress.mp3_file)}`;
+                        const currentSrc = sourceElement.src.split('?')[0]; // Remove query params for comparison
+                        
+                        console.log('Audio source check:', {
+                            currentSrc: currentSrc,
+                            expectedSrc: expectedSrc,
+                            matches: currentSrc.includes(encodeURIComponent(activityProgress.mp3_file))
+                        });
+                        
+                        // Always update to ensure fresh load with cache busting
+                        console.log(`Updating audio source from ${currentSrc} to ${expectedSrc}`);
+                        sourceElement.src = expectedSrc + `?t=${Date.now()}`;
+                        audioElement.load();
+                        
+                        // Re-setup audio controls
+                        const currentSpeed = parseFloat(localStorage.getItem(`podcast_shadowing_speed_${weekKey}`)) || 1.0;
+                        setupPodcastShadowingAudioControls(weekKey, currentSpeed);
+                    }
+                }
+                
+                // Update title if episode/chapter names are available
+                if (episodeName && chapterName) {
+                    const titleElement = document.querySelector(`#activity-podcast_shadowing-${weekKey} .audio-player-label`);
+                    if (titleElement) {
+                        const newTitle = `${episodeName} - ${chapterName}`;
+                        console.log('Title updated to:', newTitle);
+                        titleElement.textContent = newTitle;
+                    } else {
+                        console.warn('Title element not found:', `#activity-podcast_shadowing-${weekKey} .audio-player-label`);
+                    }
+                } else {
+                    console.warn('Episode or chapter name missing:', { episodeName, chapterName });
+                }
+                
+                if (updateAttempt < maxAttempts && (!transcriptElement || !audioElement)) {
+                    setTimeout(attemptUpdate, 200);
+                } else {
+                    console.log('Update completed on attempt', updateAttempt);
+                }
+            };
+            
+            // Start update attempts after a short delay
+            setTimeout(attemptUpdate, 300);
+            
+            showSuccess('Podcast shadowing MP3 changed successfully!');
+        } else {
+            throw new Error(data.error || 'Failed to change MP3');
+        }
+    } catch (error) {
+        console.error('Error changing podcast shadowing MP3:', error);
+        showError(`Failed to change MP3: ${error.message}`);
+    } finally {
+        // Restore button state
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    }
+}
+
+// Change weekly expressions MP3 file
+async function changeWeeklyExpressionsMP3(weekKey, buttonElement) {
+    const button = buttonElement || document.querySelector(`#activity-options-weekly_expressions-${weekKey} .activity-option-btn`);
+    const originalText = button ? button.textContent : '';
+    
+    // Update button to show loading state
+    if (button) {
+        button.disabled = true;
+        button.textContent = '⏳ Changing...';
+    }
+    
+    try {
+        const response = await fetch('/api/weekly-expressions/regenerate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                week_key: weekKey
+            })
+        });
+        
+        if (!response.ok) {
+            const errorText = await response.text();
+            let errorMessage = `HTTP error ${response.status}`;
+            try {
+                const errorData = JSON.parse(errorText);
+                errorMessage = errorData.error || errorMessage;
+            } catch (e) {
+                errorMessage = errorText || errorMessage;
+            }
+            throw new Error(errorMessage);
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            progress = data.progress;
+            await loadWeek(weekKey);
+            showSuccess('Weekly expressions MP3 changed successfully!');
+        } else {
+            throw new Error(data.error || 'Failed to change MP3');
+        }
+    } catch (error) {
+        console.error('Error changing weekly expressions MP3:', error);
+        showError(`Failed to change MP3: ${error.message}`);
+    } finally {
+        // Restore button state
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    }
+}
+
+// Setup podcast typecast audio controls
+function setupPodcastTypecastAudioControls(weekKey) {
+    // Load saved speed or default to 1.0
+    const savedSpeed = parseFloat(localStorage.getItem(`podcast_typecast_speed_${weekKey}`)) || 1.0;
+    updatePodcastTypecastSpeedButtonStyles(weekKey, savedSpeed);
+    
+    createAudioPlayer({
+        audioId: `audio-player-typecast-podcast-${weekKey}`,
+        controlsId: `controls-typecast-podcast-${weekKey}`,
+        progressId: `progress-typecast-podcast-${weekKey}`,
+        playheadId: `playhead-typecast-podcast-${weekKey}`,
+        timeDisplayId: `time-typecast-podcast-${weekKey}`,
+        initialSpeed: savedSpeed
+    });
+}
+
+// Load podcast videos and chapters for dropdown
+async function loadPodcastVideosAndChapters(weekKey) {
+    const videoSelect = document.getElementById(`podcast-video-select-${weekKey}`);
+    const chapterSelect = document.getElementById(`podcast-chapter-select-${weekKey}`);
+    
+    if (!videoSelect || !chapterSelect) {
+        return;
+    }
+    
+    try {
+        // Use cache if available, otherwise fetch
+        let videos;
+        if (podcastVideosCache) {
+            videos = podcastVideosCache;
+        } else {
+            const response = await fetch('/api/podcast-shadowing/videos');
+            if (!response.ok) {
+                throw new Error(`HTTP error ${response.status}`);
+            }
+            
+            const data = await response.json();
+            if (!data.success) {
+                throw new Error(data.error || 'Failed to load videos');
+            }
+            
+            videos = data.videos || [];
+            podcastVideosCache = videos;
+        }
+        
+        // Clear existing options
+        videoSelect.innerHTML = '<option value="">Select video...</option>';
+        chapterSelect.innerHTML = '<option value="">Select chapter...</option>';
+        
+        // Populate video dropdown
+        videos.forEach((video, index) => {
+            const option = document.createElement('option');
+            option.value = video.video_id;
+            option.textContent = `${index + 1}. ${video.video_title}`;
+            option.dataset.index = index;
+            option.dataset.videoNumber = index + 1;
+            videoSelect.appendChild(option);
+        });
+        
+        // Note: size attribute makes dropdown always visible, so we'll use CSS instead
+        
+        // Get current selection from progress
+        const activityProgress = getActivityProgress('podcast_shadowing');
+        if (activityProgress && activityProgress.episode_name) {
+            // Find matching video
+            const matchingVideo = videos.find(v => v.video_title === activityProgress.episode_name);
+            if (matchingVideo) {
+                const videoIndex = videos.indexOf(matchingVideo);
+                videoSelect.value = matchingVideo.video_id;
+                // Update chapter dropdown synchronously using cached data
+                updatePodcastChapterSelectSync(weekKey, matchingVideo.chapters, videoIndex + 1);
+                
+                // Find matching chapter if chapter_name exists
+                if (activityProgress.chapter_name && matchingVideo.chapters) {
+                    const matchingChapter = matchingVideo.chapters.find(
+                        ch => ch.title === activityProgress.chapter_name
+                    );
+                    if (matchingChapter !== undefined) {
+                        // Use chapter.chapter_index instead of array index
+                        const chapterIndex = matchingChapter.chapter_index !== undefined 
+                            ? matchingChapter.chapter_index 
+                            : matchingVideo.chapters.indexOf(matchingChapter);
+                        chapterSelect.value = chapterIndex.toString();
+                    }
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error loading podcast videos:', error);
+        videoSelect.innerHTML = '<option value="">Error loading videos</option>';
+    }
+}
+
+// Toggle activity options menu (kebab menu)
+function toggleActivityOptions(activityId, weekKey, event) {
+    if (event) event.stopPropagation();
+    
+    const menu = document.getElementById(`activity-options-${activityId}-${weekKey}`);
+    if (menu) {
+        // Close all other activity option menus first
+        document.querySelectorAll('.activity-options-dropdown').forEach(m => {
+            if (m.id !== `activity-options-${activityId}-${weekKey}`) {
+                m.style.display = 'none';
+            }
+        });
+        
+        // Toggle current menu
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'block';
+            
+            // Load podcast videos and chapters when opening podcast_shadowing dropdown
+            if (activityId === 'podcast_shadowing') {
+                loadPodcastVideosAndChapters(weekKey);
+            }
+        }
+    }
+}
+
+// Update recording UI state
+function updateRecordingUI(activityId, day, state) {
+    const dayId = day.replace(/-/g, '_');
+    const recordBtn = document.getElementById(`${activityId}_record_${dayId}`);
+    const stopBtn = document.getElementById(`${activityId}_stop_${dayId}`);
+    const timerElement = document.getElementById(`${activityId}_timer_${dayId}`);
+    const visualizerDiv = document.getElementById(`${activityId}_visualizer_${dayId}`);
+    
+    if (!recordBtn || !stopBtn) return;
+    
+    switch (state) {
+        case 'idle':
+            recordBtn.style.display = 'inline-block';
+            stopBtn.style.display = 'none';
+            if (timerElement) timerElement.style.display = 'none';
+            if (visualizerDiv) visualizerDiv.style.display = 'none';
+            break;
+        case 'recording':
+            recordBtn.style.display = 'none';
+            stopBtn.style.display = 'inline-block';
+            stopBtn.disabled = false;
+            stopBtn.textContent = '⏹ Stop';
+            if (timerElement) timerElement.style.display = 'inline-block';
+            if (visualizerDiv) visualizerDiv.style.display = 'block';
+            break;
+        case 'processing':
+            recordBtn.style.display = 'none';
+            stopBtn.style.display = 'inline-block';
+            stopBtn.disabled = true;
+            stopBtn.textContent = 'Processing...';
+            // Hide timer and visualizer during processing
+            if (timerElement) timerElement.style.display = 'none';
+            if (visualizerDiv) visualizerDiv.style.display = 'none';
+            break;
+        case 'stopped':
+            recordBtn.style.display = 'inline-block';
+            stopBtn.style.display = 'none';
+            if (stopBtn) {
+                stopBtn.disabled = false;
+                stopBtn.textContent = '⏹ Stop';
+            }
+            break;
+    }
+}
+
+// loadPodcastVideosAndChapters (moved to top of file, see line 1525)
+
+// Load available voices from Typecast.ai
+async function loadVoices() {
+    // Check if voices are already cached in localStorage
+    const cachedVoices = localStorage.getItem('typecast_voices');
+    const cacheTimestamp = localStorage.getItem('typecast_voices_timestamp');
+    const cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours
+    
+    // Use cached voices if they exist and are less than 24 hours old
+    // Skip cache if it's older than 1 hour to ensure fresh voice list
+    if (cachedVoices && cacheTimestamp) {
+        const age = Date.now() - parseInt(cacheTimestamp);
+        if (age < Math.min(cacheExpiry, 60 * 60 * 1000)) { // Use cache if less than 1 hour old
+            try {
+                availableVoices = JSON.parse(cachedVoices);
+                updateVoiceDropdowns();
+                // Still fetch fresh data in background to update cache
+            } catch (e) {
+                // Failed to parse cache, will fetch fresh data
+            }
+        }
+    }
+    
+    // Fetch voices from API
+    try {
+        const response = await fetch('/api/voices?t=' + Date.now()); // Add cache busting
+        const data = await response.json();
+        
+        if (data.success && data.voices && data.voices.length > 0) {
+            availableVoices = data.voices;
+            
+            // Cache the voices in localStorage
+            localStorage.setItem('typecast_voices', JSON.stringify(availableVoices));
+            localStorage.setItem('typecast_voices_timestamp', Date.now().toString());
+            
+            updateVoiceDropdowns();
+            updatePodcastVoiceInfo();
+            
+            // Also populate OpenAI voice dropdowns
+            setTimeout(() => {
+                document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
+                    if (select.options.length <= 1 || (select.options.length > 0 && select.options[0].textContent === 'Loading voices...')) {
+                        populateOpenAIVoiceDropdown(select.id);
+                    }
+                });
+            }, 100);
+        } else {
+            updateVoiceDropdowns();
+            updatePodcastVoiceInfo();
+        }
+    } catch (error) {
+        console.error('Error loading voices:', error);
+        updateVoiceDropdowns();
+        updatePodcastVoiceInfo();
+    }
+}
+
+// formatTimestamp (moved to top of file, see line 1321)
+// displayRecordings (moved to top of file, see line 1334)
+// loadRecordings (moved to top of file, see line 1460)
+
+// Load all recordings for current week
+async function loadAllRecordings() {
+    if (!currentWeek) return;
+    
+    const activities = ['voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt'];
+    const daysOfWeek = getDaysOfWeek();
+    
+    for (const activityId of activities) {
+        for (const day of daysOfWeek) {
+            await loadRecordings(activityId, day.date);
+        }
     }
 }
 
@@ -156,6 +2960,36 @@ function updateTodayDate() {
     todayDateElement.innerHTML = progressBarHtml;
 }
 
+// Get week date range for display (Sunday-Saturday format)
+function getWeekDateRange(weekKey) {
+    const [year, week] = weekKey.split('-W');
+    const weekNum = parseInt(week);
+    
+    // Find the first Sunday of the year (Sunday-Saturday week format)
+    const jan1 = new Date(year, 0, 1);
+    // Convert JS getDay() to Python weekday() format, then calculate days to first Sunday
+    const pythonWeekday = jan1.getDay() === 0 ? 6 : jan1.getDay() - 1;
+    const daysToSunday = (6 - pythonWeekday) % 7;
+    const firstSunday = new Date(jan1);
+    firstSunday.setDate(jan1.getDate() + daysToSunday);
+    
+    // Calculate Sunday of the target week (weeks are 1-indexed)
+    const sundayOfTargetWeek = new Date(firstSunday);
+    sundayOfTargetWeek.setDate(firstSunday.getDate() + (weekNum - 1) * 7);
+    
+    // Calculate Saturday (6 days after Sunday)
+    const saturdayOfTargetWeek = new Date(sundayOfTargetWeek);
+    saturdayOfTargetWeek.setDate(sundayOfTargetWeek.getDate() + 6);
+    
+    // Format dates in PST
+    const sundayStr = sundayOfTargetWeek.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/Los_Angeles' });
+    const saturdayStr = saturdayOfTargetWeek.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'America/Los_Angeles' });
+    
+    return `${sundayStr} - ${saturdayStr}`;
+}
+
+// showError (moved to top of file, see line 44)
+
 // Update week title with current week and date range (Sunday-Saturday format)
 function updateWeekTitle() {
     if (!currentWeek) return;
@@ -204,898 +3038,103 @@ function renderActivities() {
     
 }
 
+// Get activity progress for a specific activity
+function getActivityProgress(activityId) {
+    if (!progress || !progress.weeks || !progress.weeks[currentWeek]) {
+        return null;
+    }
+    
+    const weekData = progress.weeks[currentWeek];
+    const activityData = weekData[activityId];
+    
+    // Handle migration: if voice_journaling is a boolean, return null (will be handled by ensure_week_exists)
+    if (activityId === 'voice_journaling' && typeof activityData === 'boolean') {
+        return null;
+    }
+    
+    return activityData;
+}
+
+// Factory function to get appropriate renderer for activity type
+function getRendererForActivity(activityId) {
+    try {
+        // Check if renderer classes are available
+        if (typeof WeeklyExpressionsRenderer === 'undefined' ||
+            typeof VoiceJournalingRenderer === 'undefined' ||
+            typeof ShadowingPracticeRenderer === 'undefined' ||
+            typeof PodcastShadowingRenderer === 'undefined' ||
+            typeof WeeklySpeakingPromptRenderer === 'undefined') {
+            console.error('Renderer classes not loaded. Check script loading order.');
+            return null;
+        }
+        
+    const renderers = {
+        [ACTIVITY_IDS.WEEKLY_EXPRESSIONS]: new WeeklyExpressionsRenderer(),
+        [ACTIVITY_IDS.VOICE_JOURNALING]: new VoiceJournalingRenderer(),
+        [ACTIVITY_IDS.SHADOWING_PRACTICE]: new ShadowingPracticeRenderer(),
+        [ACTIVITY_IDS.PODCAST_SHADOWING]: new PodcastShadowingRenderer(),
+        [ACTIVITY_IDS.WEEKLY_SPEAKING_PROMPT]: new WeeklySpeakingPromptRenderer()
+    };
+    return renderers[activityId] || new ActivityRenderer();
+    } catch (error) {
+        console.error(`Error creating renderer for ${activityId}:`, error);
+        return null;
+    }
+}
+
 // Create activity element
 function createActivityElement(activity) {
     const div = document.createElement('div');
     div.className = 'activity';
     div.dataset.activityId = activity.id;
     
-    // Get current progress for this activity
-    const activityProgress = getActivityProgress(activity.id);
+    // Get current progress for this activity (declare outside try block so it's accessible later)
+    let activityProgress = null;
     
-    let checkboxHtml = '';
-    if (activity.id === 'weekly_expressions' || activity.id === 'voice_journaling' || activity.id === 'shadowing_practice' || activity.id === 'weekly_speaking_prompt' || activity.id === 'podcast_shadowing') {
-        // Special handling for daily activities (weekly expressions, voice journaling, shadowing practice, and weekly speaking prompt)
-        const daysCompleted = activityProgress?.completed_days || [];
-        const daysOfWeek = getDaysOfWeek();
-        let toggleFunction = 'toggleActivity';
-        if (activity.id === 'weekly_expressions') {
-            toggleFunction = 'toggleWeeklyExpressionsDay';
-        } else if (activity.id === 'podcast_shadowing') {
-            toggleFunction = 'togglePodcastShadowingDay';
-        } else if (activity.id === 'shadowing_practice') {
-            toggleFunction = 'toggleShadowingDay';
-        } else if (activity.id === 'weekly_speaking_prompt') {
-            toggleFunction = 'togglePromptDay';
-        } else if (activity.id === 'voice_journaling') {
-            toggleFunction = 'toggleVoiceJournalingDay';
+    try {
+    // Get current progress for this activity
+        activityProgress = getActivityProgress(activity.id);
+    
+    // Get renderer for this activity type
+    const renderer = getRendererForActivity(activity.id);
+        
+        if (!renderer) {
+            console.error(`No renderer found for activity: ${activity.id}`);
+            div.innerHTML = `<div class="activity-header"><h3>${activity.title}</h3></div><div class="error">Renderer not found</div>`;
+            return div;
         }
         
-        // Helper function to check if a day is completed and get MP3 file (for weekly_expressions)
-        const getCompletedDayInfo = (dateStr) => {
-            for (const entry of daysCompleted) {
-                if (typeof entry === 'string' && entry === dateStr) {
-                    return { completed: true, mp3_file: null };
-                } else if (typeof entry === 'object' && entry.day === dateStr) {
-                    return { completed: true, mp3_file: entry.mp3_file || null };
-                }
-            }
-            return { completed: false, mp3_file: null };
-        };
-        
-        checkboxHtml = `
-            <div class="shadowing-days">
-                ${daysOfWeek.map((day, index) => {
-                    const dateStr = day.date;
-                    const dayId = dateStr.replace(/-/g, '_');
-                    const dayInfo = activity.id === 'weekly_expressions' 
-                        ? getCompletedDayInfo(dateStr)
-                        : { completed: daysCompleted.includes(dateStr), mp3_file: null };
-                    const isChecked = dayInfo.completed;
-                    const mp3File = dayInfo.mp3_file;
-                    return `
-                        <div class="day-container">
-                            <div class="day-box ${isChecked ? 'completed' : ''}" 
-                                 data-day="${dateStr}"
-                                 onclick="toggleRecordingUI('${activity.id}', '${dateStr}', event)">
-                                <span class="day-label">${day.label}</span>
-                                <div class="day-actions">
-                                    ${isChecked ? `<span class="completed-mark">✓</span>` : ''}
-                                </div>
-                            </div>
-                            <div id="${activity.id}_recording_ui_${dayId}" class="recording-ui" style="display: none;" data-activity="${activity.id}" data-day="${dateStr}" data-day-index="${index}">
-                                ${activity.id === 'voice_journaling' ? `<div class="daily-topic" id="${activity.id}_topic_${dayId}"></div>` : ''}
-                                ${activity.id !== 'weekly_expressions' ? `
-                                <div class="recording-controls">
-                                    <button id="${activity.id}_record_${dayId}" class="record-btn" onclick="startRecording('${activity.id}', '${dateStr}'); event.stopPropagation();">🎤 Record</button>
-                                    <button id="${activity.id}_stop_${dayId}" class="stop-btn" onclick="stopRecording(); event.stopPropagation();" style="display: none;">⏹ Stop</button>
-                                    <span id="${activity.id}_timer_${dayId}" class="recording-timer" style="display: none;">00:00</span>
-                                </div>
-                                <div id="${activity.id}_visualizer_${dayId}" class="recording-visualizer" style="display: none;">
-                                    <canvas id="${activity.id}_canvas_${dayId}" width="400" height="60"></canvas>
-                                </div>
-                                <div id="${activity.id}_recordings_${dayId}" class="recordings-list"></div>
-                                ` : ''}
-                                ${activity.id === 'weekly_expressions' ? `
-                                <div class="notes-section" style="margin-top: 15px;">
-                                    <label for="${activity.id}_notes_${dayId}"><strong>Dictation/notes</strong></label>
-                                    <textarea 
-                                        id="${activity.id}_notes_${dayId}" 
-                                        class="prompt-notes" 
-                                        placeholder="Add your notes here..."
-                                        style="min-height: 100px;"
-                                    ></textarea>
-                                </div>
-                                ${isChecked && mp3File ? `
-                                <div class="completed-mp3-info" style="margin-top: 10px; padding: 8px; background-color: #f0f0f0; border-radius: 4px; font-size: 0.85rem; color: #666;">
-                                    <strong>Completed with:</strong> ${escapeHtml(mp3File)}
-                                </div>
-                                ` : ''}
-                                ` : ''}
-                                <div class="recording-controls-secondary">
-                                    <button id="${activity.id}_complete_${dayId}" 
-                                            class="complete-btn ${isChecked ? 'completed' : ''}"
-                                            onclick="${toggleFunction}('${dateStr}', this); event.stopPropagation();">
-                                        ${isChecked ? '✓ Completed' : 'Mark as completed'}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('')}
-            </div>
-        `;
+        // Ensure availableVoices is defined
+        if (typeof availableVoices === 'undefined') {
+            availableVoices = [];
+        }
+    
+    // Render activity content using renderer
+    let activityContent = '';
+    if (activity.id === ACTIVITY_IDS.SHADOWING_PRACTICE || activity.id === ACTIVITY_IDS.PODCAST_SHADOWING) {
+        activityContent = renderer.render(activity, activityProgress, currentWeek, availableVoices);
+    } else {
+        activityContent = renderer.render(activity, activityProgress, currentWeek);
     }
     
-    // Build activity-specific content
-    let activityContent = '';
+    // Render checkboxes and kebab menu using renderer methods
+    const checkboxHtml = renderer.renderCheckboxes(activity, activityProgress, currentWeek);
+    const kebabMenuHtml = renderer.renderKebabMenu(activity, activityProgress, currentWeek);
     
-    if (activity.id === 'weekly_expressions') {
-        // Weekly Expressions: Show audio player (MP3 is automatically assigned based on week)
-        const selectedMp3 = (activityProgress && activityProgress.mp3_file) ? activityProgress.mp3_file : '';
-        
-        activityContent = `
-            <div class="weekly-expressions-content">
-                <div class="audio-player-section" id="weekly-expressions-audio-section-${currentWeek}">
-                    ${selectedMp3 ? `
-                        <div class="audio-player-label" style="margin-bottom: 8px; font-weight: bold;">${escapeHtml(selectedMp3)}</div>
-                        <div class="audio-player-container">
-                            <div class="audio-player-with-options">
-                                <div class="audio-player-wrapper-custom">
-                                    <audio id="audio-player-weekly-expressions-${currentWeek}" data-week="${currentWeek}">
-                                        <source src="/api/weekly-expressions/mp3/${encodeURIComponent(selectedMp3)}" type="audio/mpeg">
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <div class="custom-audio-controls" id="controls-weekly-expressions-${currentWeek}">
-                                        <button class="play-pause-btn" onclick="toggleWeeklyExpressionsPlayPause('${currentWeek}')">▶</button>
-                                        <button class="skip-btn" onclick="skipWeeklyExpressionsAudio('${currentWeek}', -5)" title="Rewind 5 seconds">
-                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                <path d="M11 3L5 8l6 5V3z"/>
-                                                <path d="M3 3h2v10H3V3z"/>
-                                            </svg>
-                                        </button>
-                                        <button class="skip-btn" onclick="skipWeeklyExpressionsAudio('${currentWeek}', 5)" title="Forward 5 seconds">
-                                            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                <path d="M5 3l6 5-6 5V3z"/>
-                                                <path d="M11 3h2v10h-2V3z"/>
-                                            </svg>
-                                        </button>
-                                        <div class="progress-bar-container" onclick="seekWeeklyExpressionsAudio('${currentWeek}', event)">
-                                            <div class="progress-bar" id="progress-weekly-expressions-${currentWeek}"></div>
-                                            <div class="progress-playhead" id="playhead-weekly-expressions-${currentWeek}"></div>
-                                        </div>
-                                        <span class="time-display" id="time-weekly-expressions-${currentWeek}">0:00 / 0:00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 10px;">
-                            <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.0')" data-speed="1.0" style="padding: 6px 16px; border: 1px solid #4a90e2; border-radius: 4px; background: #4a90e2; color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.0x</button>
-                            <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.2')" data-speed="1.2" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.2x</button>
-                            <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.4')" data-speed="1.4" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.4x</button>
-                            <button class="speed-btn" onclick="setWeeklyExpressionsSpeed('${currentWeek}', '1.6')" data-speed="1.6" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.6x</button>
-                        </div>
-                    ` : '<div class="no-mp3-selected" style="padding: 10px; background: #f0f0f0; border-radius: 4px; color: #666;">MP3 file will be automatically assigned for this week.</div>'}
-                </div>
-            </div>
-        `;
-    } else if (activity.id === 'voice_journaling') {
-        // Voice Journaling: Just show target length, topics shown per-day
-        activityContent = `
-            <div class="activity-target-length">
-                <strong>Target length</strong> ${activity.target_length || '2-3 mins'}
-            </div>
-        `;
-    } else if (activity.id === 'shadowing_practice') {
-        // Shadowing Practice: Show tabs for two scripts, audio players for each
-        const audioName = activityProgress?.video_name || '';  // Using video_name field for audio name
-        const script1 = activityProgress?.script1 || activityProgress?.script || '';
-        const script2 = activityProgress?.script2 || '';
-        
-        // Audio URLs and timestamps for Script 1
-        const script1TypecastUrl = activityProgress?.script1_typecast_url || activityProgress?.audio_typecast_url || activityProgress?.audio_url || '';
-        const script1OpenaiUrl = activityProgress?.script1_openai_url || activityProgress?.audio_openai_url || '';
-        const script1TypecastTimestamps = activityProgress?.script1_typecast_timestamps || activityProgress?.typecast_timestamps || [];
-        const script1OpenaiTimestamps = activityProgress?.script1_openai_timestamps || activityProgress?.openai_timestamps || [];
-        
-        // Audio URLs and timestamps for Script 2
-        const script2TypecastUrl = activityProgress?.script2_typecast_url || '';
-        const script2OpenaiUrl = activityProgress?.script2_openai_url || '';
-        const script2TypecastTimestamps = activityProgress?.script2_typecast_timestamps || [];
-        const script2OpenaiTimestamps = activityProgress?.script2_openai_timestamps || [];
-        
-        const voiceName = activityProgress?.voice_name || '';
-        const audioSpeed = activityProgress?.audio_speed || '';
-        
-        // Get settings for each audio source
-        const script1TypecastVoice = activityProgress?.script1_typecast_voice || '';
-        const script1TypecastModel = activityProgress?.script1_typecast_model || '';
-        const script1TypecastSpeed = activityProgress?.script1_typecast_speed || '';
-        const script1OpenaiVoice = activityProgress?.script1_openai_voice || '';
-        const script1OpenaiSpeed = activityProgress?.script1_openai_speed || '';
-        
-        const script2TypecastVoice = activityProgress?.script2_typecast_voice || '';
-        const script2TypecastModel = activityProgress?.script2_typecast_model || '';
-        const script2TypecastSpeed = activityProgress?.script2_typecast_speed || '';
-        const script2OpenaiVoice = activityProgress?.script2_openai_voice || '';
-        const script2OpenaiSpeed = activityProgress?.script2_openai_speed || '';
-        
-        // Helper function to get voice name from voice ID
-        const getVoiceNameFromId = (voiceId) => {
-            if (!voiceId) return '';
-            // Check if it's already a name (doesn't start with 'tc_')
-            if (!voiceId.startsWith('tc_')) {
-                return voiceId;
-            }
-            // Try to find voice name from availableVoices
-            if (availableVoices && availableVoices.length > 0) {
-                const voice = availableVoices.find(v => v.voice_id === voiceId || v.id === voiceId);
-                if (voice) {
-                    return voice.name || voice.voice_name || voiceId;
-                }
-            }
-            // Fallback: return ID if name not found
-            return voiceId;
-        };
-        
-        // Helper function to format voice and model label (for display below player)
-        const formatVoiceModelLabel = (voice, model) => {
-            if (!voice && !model) return '';
-            const parts = [];
-            if (voice) {
-                // Convert voice ID to name if needed
-                const voiceName = getVoiceNameFromId(voice);
-                parts.push(voiceName);
-            }
-            if (model) {
-                const modelDisplay = model === 'ssfm-v21' ? 'SSFM v21' : (model === 'ssfm-v30' ? 'SSFM v30' : model);
-                parts.push(modelDisplay);
-            }
-            return parts.join(', ');
-        };
-        
-        const hasScript1 = script1 && script1.trim() !== '';
-        const hasScript2 = script2 && script2.trim() !== '';
-        const hasTypecastAudio1 = script1TypecastUrl && script1TypecastUrl.trim() !== '';
-        const hasAudio1 = hasTypecastAudio1;
-        const hasTypecastAudio2 = script2TypecastUrl && script2TypecastUrl.trim() !== '';
-        const hasAudio2 = hasTypecastAudio2;
-        
-        // Get saved script tab selection, default to 1
-        const savedScriptNum = parseInt(localStorage.getItem(`shadowing_script_${currentWeek}`)) || 1;
-        const activeScriptNum = (savedScriptNum === 2 && hasScript2) ? 2 : 1;
-        const script1Active = activeScriptNum === 1 ? 'active' : '';
-        const script2Active = activeScriptNum === 2 ? 'active' : '';
-        const tab1Active = activeScriptNum === 1 ? 'active' : '';
-        const tab2Active = activeScriptNum === 2 ? 'active' : '';
-        
-        activityContent = `
-            <div class="shadowing-audio-info">
-                <!-- Tabs for switching between scripts -->
-                <div class="script-tabs">
-                    <button class="script-tab ${tab1Active}" onclick="switchScript('${currentWeek}', 1); event.stopPropagation();" id="tab-${currentWeek}-1">Script 1</button>
-                    ${hasScript2 ? `<button class="script-tab ${tab2Active}" onclick="switchScript('${currentWeek}', 2); event.stopPropagation();" id="tab-${currentWeek}-2">Script 2</button>` : ''}
-                </div>
-                
-                <!-- Script 1 Content -->
-                <div class="script-content ${script1Active}" id="script-${currentWeek}-1">
-                    <div class="script-display">${escapeHtml(script1) || 'No script generated yet'}</div>
-                    ${hasAudio1 ? `
-                    <div class="audio-player-section">
-                            ${script1TypecastUrl ? `
-                                <div class="audio-player-container">
-                        <div class="audio-player-with-options">
-                                        <div class="audio-player-wrapper-custom">
-                                            <audio id="audio-player-typecast-${currentWeek}-1" data-week="${currentWeek}" data-script="1" data-source="typecast">
-                                                <source src="/static/${script1TypecastUrl}?v=${Date.now()}" type="audio/wav">
-                                Your browser does not support the audio element.
-                            </audio>
-                                            <div class="custom-audio-controls" id="controls-typecast-${currentWeek}-1">
-                                                <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 1)">▶</button>
-                                                <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 1, -5)" title="Rewind 5 seconds">
-                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                        <path d="M11 3L5 8l6 5V3z"/>
-                                                        <path d="M3 3h2v10H3V3z"/>
-                                                    </svg>
-                                                </button>
-                                                <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 1, 5)" title="Forward 5 seconds">
-                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                        <path d="M5 3l6 5-6 5V3z"/>
-                                                        <path d="M11 3h2v10h-2V3z"/>
-                                                    </svg>
-                                                </button>
-                                                <div class="progress-bar-container" onclick="seekAudio('typecast', '${currentWeek}', 1, event)">
-                                                    <div class="progress-bar" id="progress-typecast-${currentWeek}-1"></div>
-                                                    <div class="progress-playhead" id="playhead-typecast-${currentWeek}-1"></div>
-                        </div>
-                                                <span class="time-display" id="time-typecast-${currentWeek}-1">0:00 / 0:00</span>
-                                            </div>
-                                        </div>
-                                        <button class="audio-more-options-btn" onclick="toggleAudioRegenOptions('${currentWeek}', 1, 'typecast', event); event.stopPropagation();" title="Audio options">⋮</button>
-                                        <div class="audio-regen-dropdown" id="audio-regen-${currentWeek}-1" style="display: none;">
-                                            <div class="audio-regen-controls">
-                                                ${formatVoiceModelLabel(script1TypecastVoice, script1TypecastModel) ? `
-                                                    <div class="audio-info-item" id="shadowing-voice-info-dropdown-${currentWeek}-1">
-                                                        <strong>Voice:</strong> ${escapeHtml(formatVoiceModelLabel(script1TypecastVoice, script1TypecastModel))}
-                                                    </div>
-                                                ` : ''}
-                                                <div class="audio-option-section">
-                                                    <a href="/static/${script1TypecastUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
-                                                        <span>⬇</span> Download
-                                                    </a>
-                                                </div>
-                                                <div class="audio-option-divider"></div>
-                                                <label><strong>Re-generate Typecast audio</strong></label>
-                                                <select id="voice-select-regen-${currentWeek}-1" class="voice-select-compact">
-                                                    <option value="">Loading voices...</option>
-                                                </select>
-                                                <select id="model-select-regen-${currentWeek}-1" class="model-select-compact" style="display: none;">
-                                                    <option value="ssfm-v21" selected>SSFM v21</option>
-                                                </select>
-                                                <select id="speed-select-regen-${currentWeek}-1" class="speed-select-compact">
-                                                    <option value="0.8">0.8x</option>
-                                                    <option value="0.9">0.9x</option>
-                                                    <option value="1.0" selected>1.0x</option>
-                                                    <option value="1.1">1.1x</option>
-                                                    <option value="1.2">1.2x</option>
-                                                    <option value="1.3">1.3x</option>
-                                                    <option value="1.4">1.4x</option>
-                                                    <option value="1.5">1.5x</option>
-                                                    <option value="1.6">1.6x</option>
-                                                    <option value="1.7">1.7x</option>
-                                                    <option value="1.8">1.8x</option>
-                                                    <option value="1.9">1.9x</option>
-                                                    <option value="2.0">2.0x</option>
-                                                </select>
-                                                <button class="regen-btn-compact" onclick="generateAudioForScript('${currentWeek}', 1, this, 'typecast'); event.stopPropagation();">
-                                                    Re-generate
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ` : ''}
-                            ${false && script1OpenaiUrl ? `
-                                <div class="audio-player-container">
-                                    <div class="audio-player-label">OpenAI${script1OpenaiVoice ? ` (Voice: ${script1OpenaiVoice.charAt(0).toUpperCase() + script1OpenaiVoice.slice(1)})` : ''}</div>
-                                    <div class="audio-player-with-options">
-                                        <div class="audio-player-wrapper-custom">
-                                            <audio id="audio-player-openai-${currentWeek}-1" data-week="${currentWeek}" data-script="1" data-source="openai">
-                                                <source src="/static/${script1OpenaiUrl}?v=${Date.now()}" type="audio/mpeg">
-                                                Your browser does not support the audio element.
-                                            </audio>
-                                            <div class="custom-audio-controls" id="controls-openai-${currentWeek}-1">
-                                                <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 1)">▶</button>
-                                                <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 1, -5)" title="Rewind 5 seconds">
-                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                        <path d="M11 3L5 8l6 5V3z"/>
-                                                        <path d="M3 3h2v10H3V3z"/>
-                                                    </svg>
-                                                </button>
-                                                <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 1, 5)" title="Forward 5 seconds">
-                                                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                        <path d="M5 3l6 5-6 5V3z"/>
-                                                        <path d="M11 3h2v10h-2V3z"/>
-                                                    </svg>
-                                                </button>
-                                                <div class="progress-bar-container" onclick="seekAudio('openai', '${currentWeek}', 1, event)">
-                                                    <div class="progress-bar" id="progress-openai-${currentWeek}-1"></div>
-                                                    <div class="progress-playhead" id="playhead-openai-${currentWeek}-1"></div>
-                                                </div>
-                                                <span class="time-display" id="time-openai-${currentWeek}-1">0:00 / 0:00</span>
-                                            </div>
-                                        </div>
-                                        <button class="audio-more-options-btn" onclick="toggleAudioRegenOptions('${currentWeek}', 1, 'openai', event); event.stopPropagation();" title="Audio options">⋮</button>
-                                        <div class="audio-regen-dropdown" id="audio-regen-openai-${currentWeek}-1" style="display: none;">
-                            <div class="audio-regen-controls">
-                                                <div class="audio-option-section">
-                                                    <a href="/static/${script1OpenaiUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
-                                                        <span>⬇</span> Download
-                                                    </a>
-                                                </div>
-                                                <div class="audio-option-divider"></div>
-                                                <label><strong>Re-generate OpenAI audio</strong></label>
-                                                <select id="voice-select-regen-openai-${currentWeek}-1" class="voice-select-compact">
-                                    <option value="">Loading voices...</option>
-                                </select>
-                                                <select id="speed-select-regen-openai-${currentWeek}-1" class="speed-select-compact">
-                                    <option value="0.8">0.8x</option>
-                                    <option value="0.9">0.9x</option>
-                                    <option value="1.0" selected>1.0x</option>
-                                    <option value="1.1">1.1x</option>
-                                    <option value="1.2">1.2x</option>
-                                    <option value="1.3">1.3x</option>
-                                    <option value="1.4">1.4x</option>
-                                    <option value="1.5">1.5x</option>
-                                    <option value="1.6">1.6x</option>
-                                    <option value="1.7">1.7x</option>
-                                    <option value="1.8">1.8x</option>
-                                    <option value="1.9">1.9x</option>
-                                    <option value="2.0">2.0x</option>
-                                </select>
-                                                <button class="regen-btn-compact" onclick="generateAudioForScript('${currentWeek}', 1, this, 'openai'); event.stopPropagation();">
-                                    Re-generate
-                                </button>
-                            </div>
-                        </div>
-                                    </div>
-                                </div>
-                            ` : ''}
-                            <div style="display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 10px;">
-                                <button class="speed-btn" onclick="setShadowingTypecastSpeed('${currentWeek}', 1, '0.9')" data-speed="0.9" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">0.9x</button>
-                                <button class="speed-btn" onclick="setShadowingTypecastSpeed('${currentWeek}', 1, '1.0')" data-speed="1.0" style="padding: 6px 16px; border: 1px solid #4a90e2; border-radius: 4px; background: #4a90e2; color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.0x</button>
-                                <button class="speed-btn" onclick="setShadowingTypecastSpeed('${currentWeek}', 1, '1.1')" data-speed="1.1" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.1x</button>
-                                <button class="speed-btn" onclick="setShadowingTypecastSpeed('${currentWeek}', 1, '1.2')" data-speed="1.2" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.2x</button>
-                            </div>
-                        </div>
-                    ` : ''}
-                    
-                    <!-- Audio generation for Script 1 (shown when audio is missing) -->
-                    ${!hasTypecastAudio1 ? `
-                    <div class="audio-generation-section">
-                        <div class="audio-generation-header">
-                            <strong>Generate Audio</strong>
-                        </div>
-                            
-                            ${!hasTypecastAudio1 ? `
-                            <!-- Typecast Settings -->
-                            <div class="audio-source-settings">
-                                <label class="source-label"><strong>Typecast</strong></label>
-                        <div class="audio-generation-options">
-                                    <select id="voice-select-typecast-${currentWeek}-1" class="voice-select" ${!hasScript1 ? 'disabled' : ''}>
-                                <option value="">Loading voices...</option>
-                            </select>
-                                    <select id="model-select-typecast-${currentWeek}-1" class="model-select" ${!hasScript1 ? 'disabled' : ''} style="display: none;">
-                                        <option value="ssfm-v21" selected>SSFM v21</option>
-                                    </select>
-                                    <select id="speed-select-typecast-${currentWeek}-1" class="speed-select" ${!hasScript1 ? 'disabled' : ''}>
-                                <option value="0.8">0.8x</option>
-                                <option value="0.9">0.9x</option>
-                                <option value="1.0" selected>1.0x</option>
-                                <option value="1.1">1.1x</option>
-                                <option value="1.2">1.2x</option>
-                                <option value="1.3">1.3x</option>
-                                <option value="1.4">1.4x</option>
-                                <option value="1.5">1.5x</option>
-                                <option value="1.6">1.6x</option>
-                                <option value="1.7">1.7x</option>
-                                <option value="1.8">1.8x</option>
-                                <option value="1.9">1.9x</option>
-                                <option value="2.0">2.0x</option>
-                            </select>
-                                </div>
-                            </div>
-                            ` : ''}
-                            
-                            
-                            <div class="audio-generation-actions">
-                                <button class="generate-audio-btn" onclick="generateAudioForScript('${currentWeek}', 1, this)" ${!hasScript1 ? 'disabled' : ''} style="min-width: 120px;">
-                                    Generate ${!hasTypecastAudio1 ? 'Typecast' : ''}
-                            </button>
-                        </div>
-                    </div>
-                    ` : ''}
-                </div>
-                
-                <!-- Script 2 Content -->
-                ${hasScript2 ? `
-                    <div class="script-content ${script2Active}" id="script-${currentWeek}-2">
-                        <div class="script-display">${escapeHtml(script2)}</div>
-                        ${hasAudio2 ? `
-                            <div class="audio-player-section">
-                                ${script2TypecastUrl ? `
-                                    <div class="audio-player-container">
-                                        <div class="audio-player-with-options">
-                                            <div class="audio-player-wrapper-custom">
-                                                <audio id="audio-player-typecast-${currentWeek}-2" data-week="${currentWeek}" data-script="2" data-source="typecast">
-                                                    <source src="/static/${script2TypecastUrl}?v=${Date.now()}" type="audio/wav">
-                                                    Your browser does not support the audio element.
-                                                </audio>
-                                                <div class="custom-audio-controls" id="controls-typecast-${currentWeek}-2">
-                                                    <button class="play-pause-btn" onclick="togglePlayPause('typecast', '${currentWeek}', 2)">▶</button>
-                                                    <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 2, -5)" title="Rewind 5 seconds">
-                                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                            <path d="M11 3L5 8l6 5V3z"/>
-                                                            <path d="M3 3h2v10H3V3z"/>
-                                                        </svg>
-                                                    </button>
-                                                    <button class="skip-btn" onclick="skipShadowingAudio('typecast', '${currentWeek}', 2, 5)" title="Forward 5 seconds">
-                                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                            <path d="M5 3l6 5-6 5V3z"/>
-                                                            <path d="M11 3h2v10h-2V3z"/>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="progress-bar-container" onclick="seekAudio('typecast', '${currentWeek}', 2, event)">
-                                                        <div class="progress-bar" id="progress-typecast-${currentWeek}-2"></div>
-                                                        <div class="progress-playhead" id="playhead-typecast-${currentWeek}-2"></div>
-                                                    </div>
-                                                    <span class="time-display" id="time-typecast-${currentWeek}-2">0:00 / 0:00</span>
-                                                </div>
-                                            </div>
-                                            <button class="audio-more-options-btn" onclick="toggleAudioRegenOptions('${currentWeek}', 2, 'typecast', event); event.stopPropagation();" title="Audio options">⋮</button>
-                                            <div class="audio-regen-dropdown" id="audio-regen-${currentWeek}-2" style="display: none;">
-                                                <div class="audio-regen-controls">
-                                                    ${formatVoiceModelLabel(script2TypecastVoice, script2TypecastModel) ? `
-                                                        <div class="audio-info-item" id="shadowing-voice-info-dropdown-${currentWeek}-2">
-                                                            <strong>Voice:</strong> ${escapeHtml(formatVoiceModelLabel(script2TypecastVoice, script2TypecastModel))}
-                                                        </div>
-                                                    ` : ''}
-                                                    <div class="audio-option-section">
-                                                        <a href="/static/${script2TypecastUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
-                                                            <span>⬇</span> Download
-                                                        </a>
-                                                    </div>
-                                                    <div class="audio-option-divider"></div>
-                                                    <label><strong>Re-generate Typecast audio</strong></label>
-                                                    <select id="voice-select-regen-${currentWeek}-2" class="voice-select-compact">
-                                                        <option value="">Loading voices...</option>
-                                                    </select>
-                                                    <select id="model-select-regen-${currentWeek}-2" class="model-select-compact" style="display: none;">
-                                                        <option value="ssfm-v21" selected>SSFM v21</option>
-                                                    </select>
-                                                    <select id="speed-select-regen-${currentWeek}-2" class="speed-select-compact">
-                                                        <option value="0.8">0.8x</option>
-                                                        <option value="0.9">0.9x</option>
-                                                        <option value="1.0" selected>1.0x</option>
-                                                        <option value="1.1">1.1x</option>
-                                                        <option value="1.2">1.2x</option>
-                                                        <option value="1.3">1.3x</option>
-                                                        <option value="1.4">1.4x</option>
-                                                        <option value="1.5">1.5x</option>
-                                                        <option value="1.6">1.6x</option>
-                                                        <option value="1.7">1.7x</option>
-                                                        <option value="1.8">1.8x</option>
-                                                        <option value="1.9">1.9x</option>
-                                                        <option value="2.0">2.0x</option>
-                                                    </select>
-                                                    <button class="regen-btn-compact" onclick="generateAudioForScript('${currentWeek}', 2, this, 'typecast'); event.stopPropagation();">
-                                                        Re-generate
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                ` : ''}
-                                ${false && script2OpenaiUrl ? `
-                                    <div class="audio-player-container">
-                                        <div class="audio-player-label">OpenAI${script2OpenaiVoice ? ` (Voice: ${script2OpenaiVoice.charAt(0).toUpperCase() + script2OpenaiVoice.slice(1)})` : ''}</div>
-                                        <div class="audio-player-with-options">
-                                            <div class="audio-player-wrapper-custom">
-                                                <audio id="audio-player-openai-${currentWeek}-2" data-week="${currentWeek}" data-script="2" data-source="openai">
-                                                    <source src="/static/${script2OpenaiUrl}?v=${Date.now()}" type="audio/mpeg">
-                                                    Your browser does not support the audio element.
-                                                </audio>
-                                                <div class="custom-audio-controls" id="controls-openai-${currentWeek}-2">
-                                                    <button class="play-pause-btn" onclick="togglePlayPause('openai', '${currentWeek}', 2)">▶</button>
-                                                    <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 2, -5)" title="Rewind 5 seconds">
-                                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                            <path d="M11 3L5 8l6 5V3z"/>
-                                                            <path d="M3 3h2v10H3V3z"/>
-                                                        </svg>
-                                                    </button>
-                                                    <button class="skip-btn" onclick="skipShadowingAudio('openai', '${currentWeek}', 2, 5)" title="Forward 5 seconds">
-                                                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                            <path d="M5 3l6 5-6 5V3z"/>
-                                                            <path d="M11 3h2v10h-2V3z"/>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="progress-bar-container" onclick="seekAudio('openai', '${currentWeek}', 2, event)">
-                                                        <div class="progress-bar" id="progress-openai-${currentWeek}-2"></div>
-                                                        <div class="progress-playhead" id="playhead-openai-${currentWeek}-2"></div>
-                                                    </div>
-                                                    <span class="time-display" id="time-openai-${currentWeek}-2">0:00 / 0:00</span>
-                                                </div>
-                                            </div>
-                                            <button class="audio-more-options-btn" onclick="toggleAudioRegenOptions('${currentWeek}', 2, 'openai', event); event.stopPropagation();" title="Audio options">⋮</button>
-                                            <div class="audio-regen-dropdown" id="audio-regen-openai-${currentWeek}-2" style="display: none;">
-                                                <div class="audio-regen-controls">
-                                                    <div class="audio-option-section">
-                                                        <a href="/static/${script2OpenaiUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
-                                                            <span>⬇</span> Download
-                                                        </a>
-                                                    </div>
-                                                    <div class="audio-option-divider"></div>
-                                                    <label><strong>Re-generate OpenAI audio</strong></label>
-                                                    <select id="voice-select-regen-openai-${currentWeek}-2" class="voice-select-compact">
-                                                        <option value="">Loading voices...</option>
-                                                    </select>
-                                                    <select id="speed-select-regen-openai-${currentWeek}-2" class="speed-select-compact">
-                                                        <option value="0.8">0.8x</option>
-                                                        <option value="0.9">0.9x</option>
-                                                        <option value="1.0" selected>1.0x</option>
-                                                        <option value="1.1">1.1x</option>
-                                                        <option value="1.2">1.2x</option>
-                                                        <option value="1.3">1.3x</option>
-                                                        <option value="1.4">1.4x</option>
-                                                        <option value="1.5">1.5x</option>
-                                                        <option value="1.6">1.6x</option>
-                                                        <option value="1.7">1.7x</option>
-                                                        <option value="1.8">1.8x</option>
-                                                        <option value="1.9">1.9x</option>
-                                                        <option value="2.0">2.0x</option>
-                                                    </select>
-                                                    <button class="regen-btn-compact" onclick="generateAudioForScript('${currentWeek}', 2, this, 'openai'); event.stopPropagation();">
-                                                        Re-generate
-                                                    </button>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </div>
-                                ` : ''}
-                            <div style="display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 10px;">
-                                <button class="speed-btn" onclick="setShadowingTypecastSpeed('${currentWeek}', 2, '0.9')" data-speed="0.9" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">0.9x</button>
-                                <button class="speed-btn" onclick="setShadowingTypecastSpeed('${currentWeek}', 2, '1.0')" data-speed="1.0" style="padding: 6px 16px; border: 1px solid #4a90e2; border-radius: 4px; background: #4a90e2; color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.0x</button>
-                                <button class="speed-btn" onclick="setShadowingTypecastSpeed('${currentWeek}', 2, '1.1')" data-speed="1.1" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.1x</button>
-                                <button class="speed-btn" onclick="setShadowingTypecastSpeed('${currentWeek}', 2, '1.2')" data-speed="1.2" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.2x</button>
-                            </div>
-                        </div>
-                        ` : ''}
-                        
-                        <!-- Audio generation for Script 2 (shown when audio is missing) -->
-                        ${!hasTypecastAudio2 ? `
-                            <div class="audio-generation-section">
-                                <div class="audio-generation-header">
-                                    <strong>Generate Audio</strong>
-                                </div>
-                                
-                                ${!hasTypecastAudio2 ? `
-                                <!-- Typecast Settings -->
-                                <div class="audio-source-settings">
-                                    <label class="source-label"><strong>Typecast</strong></label>
-                                    <div class="audio-generation-options">
-                                        <select id="voice-select-typecast-${currentWeek}-2" class="voice-select" ${!hasScript2 ? 'disabled' : ''}>
-                                            <option value="">Loading voices...</option>
-                                        </select>
-                                        <select id="model-select-typecast-${currentWeek}-2" class="model-select" ${!hasScript2 ? 'disabled' : ''} style="display: none;">
-                                            <option value="ssfm-v21" selected>SSFM v21</option>
-                                        </select>
-                                        <select id="speed-select-typecast-${currentWeek}-2" class="speed-select" ${!hasScript2 ? 'disabled' : ''}>
-                                            <option value="0.8">0.8x</option>
-                                            <option value="0.9">0.9x</option>
-                                            <option value="1.0" selected>1.0x</option>
-                                            <option value="1.1">1.1x</option>
-                                            <option value="1.2">1.2x</option>
-                                            <option value="1.3">1.3x</option>
-                                            <option value="1.4">1.4x</option>
-                                            <option value="1.5">1.5x</option>
-                                            <option value="1.6">1.6x</option>
-                                            <option value="1.7">1.7x</option>
-                                            <option value="1.8">1.8x</option>
-                                            <option value="1.9">1.9x</option>
-                                            <option value="2.0">2.0x</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                ` : ''}
-                                
-                                
-                                <div class="audio-generation-actions">
-                                    <button class="generate-audio-btn" onclick="generateAudioForScript('${currentWeek}', 2, this)" ${!hasScript2 ? 'disabled' : ''} style="min-width: 120px;">
-                                        Generate ${!hasTypecastAudio2 ? 'Typecast' : ''}
-                                    </button>
-                                </div>
-                            </div>
-                        ` : ''}
-                    </div>
-                ` : ''}
-            </div>
-        `;
-    } else if (activity.id === 'podcast_shadowing') {
-        // Podcast Shadowing: Show transcript script and audio player
-        const selectedMp3 = (activityProgress && activityProgress.mp3_file) ? activityProgress.mp3_file : '';
-        const episodeName = (activityProgress && activityProgress.episode_name) ? activityProgress.episode_name : '';
-        const chapterName = (activityProgress && activityProgress.chapter_name) ? activityProgress.chapter_name : '';
-        const transcriptPath = (activityProgress && activityProgress.transcript_path) ? activityProgress.transcript_path : '';
-        const typecastAudioUrl = (activityProgress && activityProgress.typecast_audio_url) ? activityProgress.typecast_audio_url : '';
-        const typecastVoice = (activityProgress && activityProgress.typecast_voice) ? activityProgress.typecast_voice : '';
-        const typecastSpeed = (activityProgress && activityProgress.typecast_speed) ? activityProgress.typecast_speed : 1.0;
-        const typecastModel = (activityProgress && activityProgress.typecast_model) ? activityProgress.typecast_model : 'ssfm-v30';
+    // Build final HTML using renderer's buildActivityHTML method
+    div.innerHTML = renderer.buildActivityHTML(activity, activityContent, checkboxHtml, kebabMenuHtml);
+    } catch (error) {
+        console.error(`Error rendering activity ${activity.id}:`, error);
+        div.innerHTML = `<div class="activity-header"><h3>${activity.title}</h3></div><div class="error">Error rendering activity: ${error.message}</div>`;
+    }
+    
+    // Handle post-render initialization for specific activities
+    if (activity.id === ACTIVITY_IDS.PODCAST_SHADOWING && activityProgress) {
+        const transcriptPath = activityProgress?.transcript_path || '';
+        const selectedMp3 = activityProgress?.mp3_file || '';
+        const typecastAudioUrl = activityProgress?.typecast_audio_url || '';
         const hasTypecastAudio = typecastAudioUrl && typecastAudioUrl.trim() !== '';
         
-        // Helper function to get voice name from voice ID (for podcast)
-        const getPodcastVoiceNameFromId = (voiceId) => {
-            if (!voiceId) return '';
-            // Check if it's already a name (doesn't start with 'tc_')
-            if (!voiceId.startsWith('tc_')) {
-                return voiceId;
-            }
-            // Try to find voice name from availableVoices
-            if (availableVoices && availableVoices.length > 0) {
-                const voice = availableVoices.find(v => v.voice_id === voiceId || v.id === voiceId);
-                if (voice) {
-                    return voice.name || voice.voice_name || voiceId;
-                }
-            }
-            // Fallback: return ID if name not found
-            return voiceId;
-        };
-        
-        // Format voice and model label for podcast
-        const formatPodcastVoiceModelLabel = (voice, model) => {
-            if (!voice && !model) return '';
-            const parts = [];
-            if (voice) {
-                const voiceName = getPodcastVoiceNameFromId(voice);
-                parts.push(voiceName);
-            }
-            if (model) {
-                const modelDisplay = model === 'ssfm-v21' ? 'SSFM v21' : (model === 'ssfm-v30' ? 'SSFM v30' : model);
-                parts.push(modelDisplay);
-            }
-            return parts.join(', ');
-        };
-        
-        // Display format: "[Episode name] - [Chapter name]" or fallback to filename
-        const displayLabel = (episodeName && chapterName) 
-            ? `${escapeHtml(episodeName)} - ${escapeHtml(chapterName)}`
-            : (selectedMp3 ? escapeHtml(selectedMp3) : '');
-        
-        activityContent = `
-            <div class="shadowing-audio-info">
-                ${selectedMp3 && displayLabel ? `
-                    <!-- Title Section -->
-                    <div class="audio-player-label" style="margin-bottom: 12px; font-weight: bold; font-size: 1.05em;">${displayLabel}</div>
-                ` : ''}
-                <!-- Script/Transcript Section -->
-                <div class="script-content active">
-                    <div class="script-display" id="podcast-shadowing-transcript-${currentWeek}">
-                        ${transcriptPath ? '<div style="color: #999; font-style: italic;">Loading transcript...</div>' : 'No transcript available'}
-                    </div>
-                </div>
-                <!-- Audio Player Section with Dropdown -->
-                <div style="margin-top: 2rem;">
-                    <!-- Audio Source Dropdown -->
-                    <div style="margin-bottom: 1rem;">
-                        <select id="podcast-audio-source-${currentWeek}" onchange="switchPodcastAudioSource('${currentWeek}', this.value)" style="padding: 0.5rem 1rem; font-size: 0.95rem; border: 1px solid #ddd; border-radius: 4px; background-color: white; cursor: pointer;">
-                            <option value="1">Podcast</option>
-                            <option value="2">Typecast</option>
-                        </select>
-                    </div>
-                    <!-- Podcast Audio Player Content -->
-                    <div class="script-content active podcast-audio-content" id="podcast-script-${currentWeek}-1">
-                        ${selectedMp3 ? `
-                        <div class="audio-player-section" id="podcast-shadowing-audio-section-${currentWeek}">
-                            <div class="audio-player-container">
-                                <!-- Spacer to match Typecast label height -->
-                                <div class="audio-player-label" style="visibility: hidden;">Placeholder</div>
-                                <div class="audio-player-with-options">
-                                    <div class="audio-player-wrapper-custom">
-                                        <audio id="audio-player-podcast-shadowing-${currentWeek}" data-week="${currentWeek}">
-                                            <source src="/api/podcast-shadowing/mp3/${encodeURIComponent(selectedMp3)}" type="audio/mpeg">
-                                            Your browser does not support the audio element.
-                                        </audio>
-                                        <div class="custom-audio-controls" id="controls-podcast-shadowing-${currentWeek}">
-                                            <button class="play-pause-btn" onclick="togglePodcastShadowingPlayPause('${currentWeek}')">▶</button>
-                                            <button class="skip-btn" onclick="skipPodcastShadowingAudio('${currentWeek}', -5)" title="Rewind 5 seconds">
-                                                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                    <path d="M11 3L5 8l6 5V3z"/>
-                                                    <path d="M3 3h2v10H3V3z"/>
-                                                </svg>
-                                            </button>
-                                            <button class="skip-btn" onclick="skipPodcastShadowingAudio('${currentWeek}', 5)" title="Forward 5 seconds">
-                                                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                    <path d="M5 3l6 5-6 5V3z"/>
-                                                    <path d="M11 3h2v10h-2V3z"/>
-                                                </svg>
-                                            </button>
-                                            <div class="progress-bar-container" onclick="seekPodcastShadowingAudio('${currentWeek}', event)">
-                                                <div class="progress-bar" id="progress-podcast-shadowing-${currentWeek}"></div>
-                                                <div class="progress-playhead" id="playhead-podcast-shadowing-${currentWeek}"></div>
-                                            </div>
-                                            <span class="time-display" id="time-podcast-shadowing-${currentWeek}">0:00 / 0:00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 10px;">
-                                <button class="speed-btn" onclick="setPodcastShadowingSpeed('${currentWeek}', '0.85')" data-speed="0.85" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">0.85x</button>
-                                <button class="speed-btn" onclick="setPodcastShadowingSpeed('${currentWeek}', '0.9')" data-speed="0.9" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">0.9x</button>
-                                <button class="speed-btn" onclick="setPodcastShadowingSpeed('${currentWeek}', '0.95')" data-speed="0.95" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">0.95x</button>
-                                <button class="speed-btn" onclick="setPodcastShadowingSpeed('${currentWeek}', '1.0')" data-speed="1.0" style="padding: 6px 16px; border: 1px solid #4a90e2; border-radius: 4px; background: #4a90e2; color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.0x</button>
-                            </div>
-                        </div>
-                        ` : '<div class="no-mp3-selected" style="padding: 10px; background: #f0f0f0; border-radius: 4px; color: #666;">MP3 file will be automatically assigned for this week.</div>'}
-                    </div>
-                    <!-- Typecast Audio Player Content -->
-                    <div class="script-content podcast-audio-content" id="podcast-script-${currentWeek}-2">
-                        ${hasTypecastAudio ? `
-                        <div class="audio-player-section">
-                            <div class="audio-player-container">
-                                <div class="audio-player-with-options">
-                                    <div class="audio-player-wrapper-custom">
-                                        <audio id="audio-player-typecast-podcast-${currentWeek}" data-week="${currentWeek}" data-source="typecast">
-                                            <source src="/static/${typecastAudioUrl}?v=${Date.now()}" type="audio/wav">
-                                            Your browser does not support the audio element.
-                                        </audio>
-                                        <div class="custom-audio-controls" id="controls-typecast-podcast-${currentWeek}">
-                                            <button class="play-pause-btn" onclick="togglePodcastTypecastPlayPause('${currentWeek}')">▶</button>
-                                            <button class="skip-btn" onclick="skipPodcastTypecastAudio('${currentWeek}', -5)" title="Rewind 5 seconds">
-                                                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                    <path d="M11 3L5 8l6 5V3z"/>
-                                                    <path d="M3 3h2v10H3V3z"/>
-                                                </svg>
-                                            </button>
-                                            <button class="skip-btn" onclick="skipPodcastTypecastAudio('${currentWeek}', 5)" title="Forward 5 seconds">
-                                                <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                                                    <path d="M5 3l6 5-6 5V3z"/>
-                                                    <path d="M11 3h2v10h-2V3z"/>
-                                                </svg>
-                                            </button>
-                                            <div class="progress-bar-container" onclick="seekPodcastTypecastAudio('${currentWeek}', event)">
-                                                <div class="progress-bar" id="progress-typecast-podcast-${currentWeek}"></div>
-                                                <div class="progress-playhead" id="playhead-typecast-podcast-${currentWeek}"></div>
-                                            </div>
-                                            <span class="time-display" id="time-typecast-podcast-${currentWeek}">0:00 / 0:00</span>
-                                        </div>
-                                    </div>
-                                    <button class="audio-more-options-btn" onclick="togglePodcastTypecastRegenOptions('${currentWeek}', event); event.stopPropagation();" title="Audio options">⋮</button>
-                                    <div class="audio-regen-dropdown" id="audio-regen-podcast-typecast-${currentWeek}" style="display: none;">
-                                        <div class="audio-regen-controls">
-                                            ${formatPodcastVoiceModelLabel(typecastVoice, typecastModel) ? `
-                                                <div class="audio-info-item" id="podcast-voice-info-dropdown-${currentWeek}">
-                                                    <strong>Voice:</strong> ${escapeHtml(formatPodcastVoiceModelLabel(typecastVoice, typecastModel))}
-                                                </div>
-                                            ` : ''}
-                                            <div class="audio-option-section">
-                                                <a href="/static/${typecastAudioUrl}" class="download-audio-link" download onclick="event.stopPropagation();" title="Download audio">
-                                                    <span>⬇</span> Download
-                                                </a>
-                                            </div>
-                                            <div class="audio-option-divider"></div>
-                                            <label><strong>Re-generate Typecast audio</strong></label>
-                                            <select id="voice-select-regen-podcast-${currentWeek}" class="voice-select-compact">
-                                                <option value="">Loading voices...</option>
-                                            </select>
-                                            <select id="model-select-regen-podcast-${currentWeek}" class="model-select-compact">
-                                                <option value="ssfm-v21" ${typecastModel === 'ssfm-v21' ? 'selected' : ''}>SSFM v21</option>
-                                                <option value="ssfm-v30" ${typecastModel === 'ssfm-v30' ? 'selected' : ''}>SSFM v30</option>
-                                            </select>
-                                            <select id="speed-select-regen-podcast-${currentWeek}" class="speed-select-compact">
-                                                <option value="0.8" ${typecastSpeed === 0.8 ? 'selected' : ''}>0.8x</option>
-                                                <option value="0.9" ${typecastSpeed === 0.9 ? 'selected' : ''}>0.9x</option>
-                                                <option value="1.0" ${typecastSpeed === 1.0 ? 'selected' : ''}>1.0x</option>
-                                                <option value="1.1" ${typecastSpeed === 1.1 ? 'selected' : ''}>1.1x</option>
-                                                <option value="1.2" ${typecastSpeed === 1.2 ? 'selected' : ''}>1.2x</option>
-                                                <option value="1.3" ${typecastSpeed === 1.3 ? 'selected' : ''}>1.3x</option>
-                                                <option value="1.4" ${typecastSpeed === 1.4 ? 'selected' : ''}>1.4x</option>
-                                                <option value="1.5" ${typecastSpeed === 1.5 ? 'selected' : ''}>1.5x</option>
-                                                <option value="1.6" ${typecastSpeed === 1.6 ? 'selected' : ''}>1.6x</option>
-                                                <option value="1.7" ${typecastSpeed === 1.7 ? 'selected' : ''}>1.7x</option>
-                                                <option value="1.8" ${typecastSpeed === 1.8 ? 'selected' : ''}>1.8x</option>
-                                                <option value="1.9" ${typecastSpeed === 1.9 ? 'selected' : ''}>1.9x</option>
-                                                <option value="2.0" ${typecastSpeed === 2.0 ? 'selected' : ''}>2.0x</option>
-                                            </select>
-                                            <button class="regen-btn-compact" onclick="generatePodcastTypecastAudio('${currentWeek}', this); event.stopPropagation();">
-                                                Re-generate
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 10px;">
-                                <button class="speed-btn" onclick="setPodcastTypecastSpeed('${currentWeek}', '0.85')" data-speed="0.85" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">0.85x</button>
-                                <button class="speed-btn" onclick="setPodcastTypecastSpeed('${currentWeek}', '0.9')" data-speed="0.9" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">0.9x</button>
-                                <button class="speed-btn" onclick="setPodcastTypecastSpeed('${currentWeek}', '0.95')" data-speed="0.95" style="padding: 6px 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; color: #333; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">0.95x</button>
-                                <button class="speed-btn" onclick="setPodcastTypecastSpeed('${currentWeek}', '1.0')" data-speed="1.0" style="padding: 6px 16px; border: 1px solid #4a90e2; border-radius: 4px; background: #4a90e2; color: #fff; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; min-width: 65px; width: 65px; text-align: center; box-sizing: border-box;">1.0x</button>
-                            </div>
-                        </div>
-                        ` : `
-                        <div class="audio-player-section">
-                            <div class="audio-generation-options">
-                                <label><strong>Generate Typecast Audio</strong></label>
-                                <select id="voice-select-podcast-${currentWeek}" class="voice-select">
-                                    <option value="">Loading voices...</option>
-                                </select>
-                                <select id="model-select-podcast-${currentWeek}" class="model-select">
-                                    <option value="ssfm-v21">SSFM v21</option>
-                                    <option value="ssfm-v30" selected>SSFM v30</option>
-                                </select>
-                                <select id="speed-select-podcast-${currentWeek}" class="speed-select">
-                                    <option value="0.8">0.8x</option>
-                                    <option value="0.9">0.9x</option>
-                                    <option value="1.0" selected>1.0x</option>
-                                    <option value="1.1">1.1x</option>
-                                    <option value="1.2">1.2x</option>
-                                    <option value="1.3">1.3x</option>
-                                    <option value="1.4">1.4x</option>
-                                    <option value="1.5">1.5x</option>
-                                    <option value="1.6">1.6x</option>
-                                    <option value="1.7">1.7x</option>
-                                    <option value="1.8">1.8x</option>
-                                    <option value="1.9">1.9x</option>
-                                    <option value="2.0">2.0x</option>
-                                </select>
-                                <button class="generate-audio-btn" onclick="generatePodcastTypecastAudio('${currentWeek}', this)" ${!transcriptPath ? 'disabled' : ''} style="min-width: 120px;">
-                                    Generate
-                                </button>
-                            </div>
-                        </div>
-                        `}
-                    </div>
-                </div>
-            </div>
-        `;
         if (transcriptPath && selectedMp3) {
             setTimeout(() => loadPodcastShadowingTranscript(currentWeek), 100);
         }
@@ -1120,133 +3159,26 @@ function createActivityElement(activity) {
         setTimeout(() => {
             const audioElement = document.getElementById(`audio-player-podcast-shadowing-${currentWeek}`);
             if (audioElement) {
+                // Ensure audio source is set to the current MP3 file
+                if (selectedMp3) {
+                    const sourceElement = audioElement.querySelector('source');
+                    if (sourceElement) {
+                        const expectedSrc = `/api/podcast-shadowing/mp3/${encodeURIComponent(selectedMp3)}`;
+                        if (!sourceElement.src.includes(encodeURIComponent(selectedMp3))) {
+                            console.log('Updating audio source in createActivityElement:', expectedSrc);
+                            sourceElement.src = expectedSrc + `?t=${Date.now()}`;
+                            audioElement.load();
+                        }
+                    }
+                }
                 const currentSpeed = parseFloat(localStorage.getItem(`podcast_shadowing_speed_${currentWeek}`)) || 1.0;
                 setupPodcastShadowingAudioControls(currentWeek, currentSpeed);
                 updatePodcastShadowingSpeedButtonStyles(currentWeek, currentSpeed);
             }
         }, 200);
-    } else if (activity.id === 'weekly_speaking_prompt') {
-        // Weekly Speaking Prompt: Show prompt with hints and notes
-        const prompt = activityProgress?.prompt || '';
-        
-        // Parse prompt to separate main question from hints
-        let mainPrompt = prompt || 'No prompt generated yet';
-        let hints = '';
-        
-        // Check for various hint indicators
-        const hintIndicators = [
-            'Consider the following hints',
-            'Consider the following',
-            'Hints for structuring',
-            'The following hints'
-        ];
-        
-        let hintSplitIndex = -1;
-        let hintIndicator = '';
-        
-        for (const indicator of hintIndicators) {
-            const index = prompt.indexOf(indicator);
-            if (index !== -1) {
-                hintSplitIndex = index;
-                hintIndicator = indicator;
-                break;
-            }
-        }
-        
-        if (hintSplitIndex !== -1) {
-            mainPrompt = prompt.substring(0, hintSplitIndex).trim();
-            hints = prompt.substring(hintSplitIndex).trim();
-        }
-        
-        const hintsId = `hints-${activity.id}`;
-        
-        const notes = activityProgress?.notes || '';
-        const notesId = `notes-${activity.id}-${currentWeek}`;
-        
-        activityContent = `
-            <div class="prompt-section">
-                <div class="prompt-text"><span class="prompt-indicator">"</span>${escapeHtml(mainPrompt)}</div>
-                ${hints ? `
-                    <div class="hints-section">
-                        <div class="hints-header" onclick="toggleScript('${hintsId}')">
-                            <span class="hints-label">Hints</span>
-                            <span class="script-toggle" id="toggle-${hintsId}">▶</span>
-                        </div>
-                        <div class="hints-content" id="${hintsId}" style="display: none;">
-                            <div class="hints-text">${escapeHtml(hints)}</div>
-                        </div>
-                    </div>
-                ` : ''}
-                <div class="notes-section">
-                    <label for="${notesId}"><strong>Your notes / brainstorming</strong></label>
-                    <textarea 
-                        id="${notesId}" 
-                        class="prompt-notes" 
-                        placeholder="Write your thoughts, brainstorm ideas, or draft your response here... (Auto-saved)"
-                        onblur="savePromptNotes('${currentWeek}')"
-                    >${escapeHtml(notes)}</textarea>
-                </div>
-            </div>
-        `;
     }
-    
-    // Add kebab menu button for re-generate
-    const hasContent = (activity.id === 'voice_journaling' && activityProgress?.topics?.length > 0) ||
-                       (activity.id === 'shadowing_practice' && (activityProgress?.script1 || activityProgress?.script)) ||
-                       (activity.id === 'weekly_speaking_prompt' && activityProgress?.prompt) ||
-                       (activity.id === 'weekly_expressions' && activityProgress?.mp3_file) ||
-                       (activity.id === 'podcast_shadowing' && activityProgress?.mp3_file);
-    
-    // Always show kebab menu for activities that can be generated individually (except voice_journaling)
-    // Voice journaling is typically generated with all activities, so only show button when content exists
-    const showKebabMenu = activity.id === 'voice_journaling' ? hasContent : true;
-    
-    div.innerHTML = `
-        <div class="activity-header">
-            <h3>${activity.title}</h3>
-            ${showKebabMenu ? `
-                <button class="activity-kebab-btn" onclick="toggleActivityOptions('${activity.id}', '${currentWeek}', event); event.stopPropagation();" title="Options">⋮</button>
-                <div class="activity-options-dropdown" id="activity-options-${activity.id}-${currentWeek}" style="display: none;">
-                    ${activity.id === 'weekly_expressions' ? `
-                        <button class="activity-option-btn" onclick="changeWeeklyExpressionsMP3('${currentWeek}', this); event.stopPropagation();">
-                            ${hasContent ? 'Change MP3' : 'Generate MP3'}
-                        </button>
-                    ` : activity.id === 'podcast_shadowing' ? `
-                        <button class="activity-option-btn" onclick="changePodcastShadowingMP3('${currentWeek}', this); event.stopPropagation();">
-                            ${hasContent ? 'Change MP3' : 'Generate MP3'}
-                        </button>
-                    ` : `
-                        <button class="activity-option-btn" onclick="regenerateActivity('${activity.id}', '${currentWeek}', this); event.stopPropagation();">
-                            ${hasContent ? `Re-generate ${activity.title}` : `Generate ${activity.title}`}
-                        </button>
-                    `}
-                </div>
-            ` : ''}
-        </div>
-        ${activityContent}
-        <div class="activity-actions">
-            ${checkboxHtml}
-        </div>
-    `;
     
     return div;
-}
-
-// Get current progress for an activity
-function getActivityProgress(activityId) {
-    if (!progress || !progress.weeks || !progress.weeks[currentWeek]) {
-        return null;
-    }
-    
-    const weekData = progress.weeks[currentWeek];
-    const activityData = weekData[activityId];
-    
-    // Handle migration: if voice_journaling is a boolean, return null (will be handled by ensure_week_exists)
-    if (activityId === 'voice_journaling' && typeof activityData === 'boolean') {
-        return null;
-    }
-    
-    return activityData;
 }
 
 // Get days of current week (Sunday-Saturday) based on week key
@@ -1388,37 +3320,6 @@ async function toggleVoiceJournalingDay(dateStr, element) {
     } catch (error) {
         console.error('Error updating progress:', error);
         showError(`Failed to save progress: ${error.message}`);
-    }
-}
-
-// Toggle activity completion (legacy function, kept for backwards compatibility)
-async function toggleActivity(activityId, checkbox) {
-    const completed = checkbox.checked;
-    
-    try {
-        const response = await fetch('/api/progress', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                activity_id: activityId,
-                completed: completed
-            })
-        });
-        
-        const data = await response.json();
-        if (data.success) {
-            progress = data.progress;
-            weeklySummary = data.weekly_summary;
-            updateProgressSummary();
-        } else {
-            throw new Error('Failed to update progress');
-        }
-    } catch (error) {
-        console.error('Error updating progress:', error);
-        checkbox.checked = !completed; // Revert checkbox
-        showError('Failed to save progress. Please try again.');
     }
 }
 
@@ -1610,6 +3511,8 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
     }
 }
 
+// Toggle podcast shadowing day completion (moved to top, see line 1990)
+
 // Toggle weekly speaking prompt day
 async function togglePromptDay(dateStr, element) {
     const newCompletedState = !element.classList.contains('completed');
@@ -1742,42 +3645,7 @@ async function updatePrompt(activityId, value) {
     }
 }
 
-// Save prompt notes (auto-saves silently on blur)
-async function savePromptNotes(weekKey) {
-    const notesId = `notes-weekly_speaking_prompt-${weekKey}`;
-    const notesTextarea = document.getElementById(notesId);
-    if (!notesTextarea) {
-        return; // Silently fail if textarea not found
-    }
-    
-    const notes = notesTextarea.value || '';
-    
-    try {
-        const response = await fetch('/api/activity-info', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                activity_id: 'weekly_speaking_prompt',
-                week_key: weekKey,
-                field_name: 'notes',
-                field_value: notes
-            })
-        });
-        
-        const data = await response.json();
-        if (data.success) {
-            progress = data.progress;
-            // Silent save - no popup notification
-        } else {
-            console.error('Failed to save notes:', data.error);
-        }
-    } catch (error) {
-        console.error('Error saving notes:', error);
-        // Silent fail - don't show error popup for auto-save
-    }
-}
+// savePromptNotes (moved to top of file, see line 1511)
 
 // Save weekly expressions notes for a specific day
 async function saveWeeklyExpressionsNotes(day, notes) {
@@ -1808,309 +3676,98 @@ async function saveWeeklyExpressionsNotes(day, notes) {
     }
 }
 
-// Show error message
-function showError(message) {
-    // Simple error display - could be enhanced with a toast notification
-    alert(message);
-}
+// showError (moved to top of file, see line 44)
+// showSuccess (moved to top of file, see line 50)
 
-function showSuccess(message) {
-    // Create a temporary success notification
-    const notification = document.createElement('div');
-    notification.style.cssText = 'position: fixed; top: 20px; right: 20px; background-color: #4caf50; color: white; padding: 12px 20px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 10000; font-size: 0.9rem;';
-    notification.textContent = '✓ ' + message;
-    document.body.appendChild(notification);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        notification.style.transition = 'opacity 0.3s';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 300);
-    }, 3000);
-}
+// toggleScript (moved to top of file, see line 1548)
 
-// Toggle script visibility
-function toggleScript(scriptId) {
-    const scriptDiv = document.getElementById(scriptId);
-    const toggleIcon = document.getElementById('toggle-' + scriptId);
-    
-    if (scriptDiv) {
-        // Check if it's a script-content (uses active class) or hints-content (uses display style)
-        if (scriptDiv.classList.contains('script-content')) {
-            // Toggle active class for script-content
-            if (scriptDiv.classList.contains('active')) {
-                scriptDiv.classList.remove('active');
-                if (toggleIcon) toggleIcon.textContent = '▶';
-            } else {
-                scriptDiv.classList.add('active');
-                if (toggleIcon) toggleIcon.textContent = '▼';
-            }
-        } else if (scriptDiv.classList.contains('hints-content')) {
-            // Use display style for hints-content
-            if (scriptDiv.style.display === 'none' || !scriptDiv.style.display) {
-                scriptDiv.style.display = 'block';
-                if (toggleIcon) toggleIcon.textContent = '▼';
-            } else {
-                scriptDiv.style.display = 'none';
-                if (toggleIcon) toggleIcon.textContent = '▶';
-            }
-        }
-    }
-}
+// Switch audio source for podcast shadowing (moved to top of file, see line 277)
 
-// Toggle podcast shadowing day completion
-async function togglePodcastShadowingDay(dateStr, element) {
-    const newCompletedState = !element.classList.contains('completed');
+// switchScript (moved to top of file, see line 808)
+// toggleAudioRegenOptions (moved to top of file, see line 831)
+
+// toggleActivityOptions (moved to top of file, see line 1598)
+// regenerateActivity (moved to top of file, see line 1564)
+
+// podcastVideosCache (moved to top of file, see line 41)
+// loadPodcastVideosAndChapters (moved to top of file, see line 1527)
+
+// Update chapter dropdown synchronously (using provided chapters)
+function updatePodcastChapterSelectSync(weekKey, chapters, videoNumber) {
+    const chapterSelect = document.getElementById(`podcast-chapter-select-${weekKey}`);
+    const videoSelect = document.getElementById(`podcast-video-select-${weekKey}`);
     
-    // Get current MP3 file from UI when marking as completed
-    let currentMp3File = null;
-    if (newCompletedState) {
-        const activityProgress = getActivityProgress('podcast_shadowing');
-        currentMp3File = activityProgress?.mp3_file || null;
+    if (!chapterSelect || !chapters) {
+        return;
     }
     
-    try {
-        const response = await fetch('/api/progress', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                activity_id: 'podcast_shadowing',
-                day: dateStr,
-                completed: newCompletedState,
-                mp3_file: currentMp3File  // Include current MP3 file when marking as completed
-            })
-        });
-        
-        if (!response.ok) {
-            const errorText = await response.text();
-            let errorMessage = `HTTP error ${response.status}`;
-            try {
-                const errorData = JSON.parse(errorText);
-                errorMessage = errorData.error || errorMessage;
-            } catch (e) {
-                errorMessage = errorText || errorMessage;
-            }
-            alert(`Failed to update progress: ${errorMessage}`);
+    // Get video number from selected video or parameter
+    let videoNum = videoNumber;
+    if (!videoNum && videoSelect) {
+        const selectedOption = videoSelect.options[videoSelect.selectedIndex];
+        videoNum = selectedOption ? parseInt(selectedOption.dataset.videoNumber) || 1 : 1;
+    }
+    if (!videoNum) videoNum = 1;
+    
+    // Clear chapter dropdown
+    chapterSelect.innerHTML = '<option value="">Select chapter...</option>';
+    
+    // Populate chapter dropdown with format: videoNumber-chapterNumber. chapterTitle
+    chapters.forEach((chapter, index) => {
+        const option = document.createElement('option');
+        option.value = chapter.chapter_index;
+        option.textContent = `${videoNum}-${index + 1}. ${chapter.title}`;
+        chapterSelect.appendChild(option);
+    });
+    
+    // Note: size attribute makes dropdown always visible, so we'll use CSS instead
+}
+
+// updatePodcastChapterSelect (moved to top of file, see line 1005)
+// updatePodcastChapterSelectSync (moved to top of file, see line 1038)
+function updatePodcastChapterSelect(weekKey) {
+    const videoSelect = document.getElementById(`podcast-video-select-${weekKey}`);
+    const chapterSelect = document.getElementById(`podcast-chapter-select-${weekKey}`);
+    
+    if (!videoSelect || !chapterSelect) {
+        return;
+    }
+    
+    const selectedVideoId = videoSelect.value;
+    
+    // Clear chapter dropdown
+    chapterSelect.innerHTML = '<option value="">Select chapter...</option>';
+    
+    if (!selectedVideoId) {
+        return;
+    }
+    
+    // Use cache if available
+    if (podcastVideosCache) {
+        const selectedVideo = podcastVideosCache.find(v => v.video_id === selectedVideoId);
+        if (selectedVideo && selectedVideo.chapters) {
+            const videoIndex = podcastVideosCache.indexOf(selectedVideo);
+            updatePodcastChapterSelectSync(weekKey, selectedVideo.chapters, videoIndex + 1);
             return;
         }
-        
-        const data = await response.json();
-        if (data.success) {
-            progress = data.progress;
-            weeklySummary = data.weekly_summary;
-            updateProgressSummary();
-            
-            // Update visual state - scope to podcast_shadowing activity
-            const activityContainer = document.querySelector('[data-activity-id="podcast_shadowing"]');
-            const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
-            if (dayBox) {
-                if (newCompletedState) {
-                    dayBox.classList.add('completed');
-                    const dayActions = dayBox.querySelector('.day-actions');
-                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
-                        const mark = document.createElement('span');
-                        mark.className = 'completed-mark';
-                        mark.textContent = '✓';
-                        dayActions.insertBefore(mark, dayActions.firstChild);
-                    }
-                    element.textContent = '✓ Completed';
-                    element.classList.add('completed');
-                    
-                    // Close the recording UI if it's open
-                    const dayId = dateStr.replace(/-/g, '_');
-                    const recordingUI = document.getElementById(`podcast_shadowing_recording_ui_${dayId}`);
-                    if (recordingUI && recordingUI.style.display !== 'none') {
-                        recordingUI.style.display = 'none';
-                        dayBox.classList.remove('active');
-                    }
-                } else {
-                    dayBox.classList.remove('completed');
-                    const dayActions = dayBox.querySelector('.day-actions');
-                    if (dayActions) {
-                        const mark = dayActions.querySelector('.completed-mark');
-                        if (mark) mark.remove();
-                    }
-                    element.textContent = 'Mark as completed';
-                    element.classList.remove('completed');
+    }
+    
+    // Otherwise fetch videos
+    fetch('/api/podcast-shadowing/videos')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                podcastVideosCache = data.videos || [];
+                const selectedVideo = podcastVideosCache.find(v => v.video_id === selectedVideoId);
+                if (selectedVideo && selectedVideo.chapters) {
+                    const videoIndex = podcastVideosCache.indexOf(selectedVideo);
+                    updatePodcastChapterSelectSync(weekKey, selectedVideo.chapters, videoIndex + 1);
                 }
             }
-        } else {
-            alert(`Failed to update progress: ${data.error || 'Unknown error'}`);
-        }
-    } catch (error) {
-        console.error('Error updating progress:', error);
-        alert(`Error updating progress: ${error.message}`);
-    }
-}
-
-// Switch audio source for podcast shadowing
-function switchPodcastAudioSource(weekKey, sourceNum) {
-    // Switch audio source for podcast shadowing using dropdown
-    const script1 = document.getElementById(`podcast-script-${weekKey}-1`);
-    const script2 = document.getElementById(`podcast-script-${weekKey}-2`);
-    
-    if (sourceNum === '1') {
-        if (script1) script1.classList.add('active');
-        if (script2) script2.classList.remove('active');
-    } else {
-        if (script1) script1.classList.remove('active');
-        if (script2) script2.classList.add('active');
-    }
-    
-    // Save selection to localStorage
-    localStorage.setItem(`podcast_audio_source_${weekKey}`, sourceNum);
-}
-
-// Switch between script tabs
-function switchScript(weekKey, scriptNum) {
-    // Update tab buttons
-    const tab1 = document.getElementById(`tab-${weekKey}-1`);
-    const tab2 = document.getElementById(`tab-${weekKey}-2`);
-    const script1 = document.getElementById(`script-${weekKey}-1`);
-    const script2 = document.getElementById(`script-${weekKey}-2`);
-    
-    if (scriptNum === 1) {
-        if (tab1) tab1.classList.add('active');
-        if (tab2) tab2.classList.remove('active');
-        if (script1) script1.classList.add('active');
-        if (script2) script2.classList.remove('active');
-    } else {
-        if (tab1) tab1.classList.remove('active');
-        if (tab2) tab2.classList.add('active');
-        if (script1) script1.classList.remove('active');
-        if (script2) script2.classList.add('active');
-    }
-    
-    // Save selection to localStorage
-    localStorage.setItem(`shadowing_script_${weekKey}`, scriptNum.toString());
-}
-
-// Toggle audio regenerate options menu (kebab menu)
-function toggleAudioRegenOptions(weekKey, scriptNum, sourceType, event) {
-    if (event) event.stopPropagation();
-    
-    // Handle both typecast and openai dropdowns
-    const menuId = sourceType === 'openai' ? `audio-regen-openai-${weekKey}-${scriptNum}` : `audio-regen-${weekKey}-${scriptNum}`;
-    const menu = document.getElementById(menuId);
-    
-    if (menu) {
-        // Close all other audio regen menus
-        document.querySelectorAll('.audio-regen-dropdown').forEach(m => {
-            if (m.id !== menuId) m.style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error loading chapters:', error);
         });
-        
-        if (menu.style.display === 'none') {
-            menu.style.display = 'block';
-            // Populate voice dropdown if not already populated
-            const voiceSelectId = sourceType === 'openai' ? `voice-select-regen-openai-${weekKey}-${scriptNum}` : `voice-select-regen-${weekKey}-${scriptNum}`;
-            const voiceSelect = document.getElementById(voiceSelectId);
-            if (voiceSelect && voiceSelect.options.length <= 1) {
-                if (sourceType === 'openai') {
-                    populateOpenAIVoiceDropdown(voiceSelectId);
-                } else {
-                    updateVoiceDropdowns();
-                }
-            }
-            
-            // Also populate generation dropdowns if they exist
-            if (sourceType === 'openai') {
-                const genVoiceSelectId = `voice-select-openai-${weekKey}-${scriptNum}`;
-                const genVoiceSelect = document.getElementById(genVoiceSelectId);
-                if (genVoiceSelect && genVoiceSelect.options.length <= 1) {
-                    populateOpenAIVoiceDropdown(genVoiceSelectId);
-                }
-            } else {
-                const genVoiceSelectId = `voice-select-typecast-${weekKey}-${scriptNum}`;
-                const genVoiceSelect = document.getElementById(genVoiceSelectId);
-                if (genVoiceSelect && genVoiceSelect.options.length <= 1) {
-                    updateVoiceDropdowns();
-                }
-            }
-        } else {
-            menu.style.display = 'none';
-        }
-    }
-}
-
-// Toggle activity options menu (kebab menu)
-function toggleActivityOptions(activityId, weekKey, event) {
-    if (event) event.stopPropagation();
-    
-    const menu = document.getElementById(`activity-options-${activityId}-${weekKey}`);
-    if (menu) {
-        // Close all other activity option menus
-        document.querySelectorAll('.activity-options-dropdown').forEach(m => {
-            if (m.id !== menu.id) m.style.display = 'none';
-        });
-        
-        if (menu.style.display === 'none') {
-            menu.style.display = 'block';
-        } else {
-            menu.style.display = 'none';
-        }
-    }
-}
-
-// Regenerate activity content
-async function regenerateActivity(activityId, weekKey, buttonElement) {
-    // Find the button if not provided
-    const button = buttonElement || document.querySelector(`#activity-options-${activityId}-${weekKey} .activity-option-btn`);
-    const originalText = button ? button.textContent : '';
-    
-    // Update button to show loading state
-    if (button) {
-        button.disabled = true;
-        button.textContent = '⏳ Re-generating...';
-    }
-    
-    try {
-        const response = await fetch(`/api/generate/${activityId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                week_key: weekKey
-            })
-        });
-        
-        if (!response.ok) {
-            const errorText = await response.text();
-            let errorMessage = `HTTP error ${response.status}`;
-            try {
-                const errorData = JSON.parse(errorText);
-                errorMessage = errorData.error || errorMessage;
-            } catch (e) {
-                errorMessage = errorText || errorMessage;
-            }
-            throw new Error(errorMessage);
-        }
-        
-        const data = await response.json();
-        
-        if (data.success) {
-            progress = data.progress;
-            await loadWeek(weekKey);
-            showSuccess(`${activityId.replace(/_/g, ' ')} regenerated successfully!`);
-        } else {
-            throw new Error(data.error || 'Failed to regenerate');
-        }
-    } catch (error) {
-        console.error('Error regenerating activity:', error);
-        showError(`Failed to regenerate ${activityId.replace(/_/g, ' ')}: ${error.message}`);
-    } finally {
-        // Restore button state
-        if (button) {
-            button.disabled = false;
-            button.textContent = originalText;
-        }
-    }
 }
 
 // Change podcast shadowing MP3 file
@@ -2118,21 +3775,36 @@ async function changePodcastShadowingMP3(weekKey, buttonElement) {
     const button = buttonElement || document.querySelector(`#activity-options-podcast_shadowing-${weekKey} .activity-option-btn`);
     const originalText = button ? button.textContent : '';
     
+    const videoSelect = document.getElementById(`podcast-video-select-${weekKey}`);
+    const chapterSelect = document.getElementById(`podcast-chapter-select-${weekKey}`);
+    
+    // Get selected video and chapter
+    const videoId = videoSelect ? videoSelect.value : null;
+    const chapterIndex = chapterSelect ? parseInt(chapterSelect.value) : null;
+    
     // Update button to show loading state
     if (button) {
         button.disabled = true;
-        button.textContent = '⏳ Changing...';
+        button.textContent = '⏳ Loading...';
     }
     
     try {
+        const requestBody = {
+            week_key: weekKey
+        };
+        
+        // If video and chapter are selected, include them
+        if (videoId && chapterIndex !== null && !isNaN(chapterIndex)) {
+            requestBody.video_id = videoId;
+            requestBody.chapter_index = chapterIndex;
+        }
+        
         const response = await fetch('/api/podcast-shadowing/regenerate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                week_key: weekKey
-            })
+            body: JSON.stringify(requestBody)
         });
         
         if (!response.ok) {
@@ -2151,15 +3823,35 @@ async function changePodcastShadowingMP3(weekKey, buttonElement) {
         
         if (data.success) {
             progress = data.progress;
+            
+            // Clean up existing audio players for this week before reloading
+            // This ensures old audio elements are properly disposed
+            const podcastShadowingId = `audio-player-podcast-shadowing-${weekKey}`;
+            const podcastTypecastId = `audio-player-typecast-podcast-${weekKey}`;
+            
+            const shadowingPlayer = audioPlayers.get(podcastShadowingId);
+            if (shadowingPlayer && shadowingPlayer.audioElement) {
+                shadowingPlayer.audioElement.pause();
+                shadowingPlayer.audioElement.src = '';
+            }
+            audioPlayers.delete(podcastShadowingId);
+            
+            const typecastPlayer = audioPlayers.get(podcastTypecastId);
+            if (typecastPlayer && typecastPlayer.audioElement) {
+                typecastPlayer.audioElement.pause();
+                typecastPlayer.audioElement.src = '';
+            }
+            audioPlayers.delete(podcastTypecastId);
+            
             // Reload the current week to show new MP3 file
             await loadWeek(weekKey);
-            showSuccess('MP3 file changed successfully!');
+            showSuccess('Chapter loaded successfully!');
         } else {
             throw new Error(data.error || 'Failed to change MP3');
         }
     } catch (error) {
         console.error('Error changing podcast shadowing MP3:', error);
-        showError(`Failed to change MP3: ${error.message}`);
+        showError(`Failed to load chapter: ${error.message}`);
     } finally {
         // Restore button state
         if (button) {
@@ -2226,39 +3918,7 @@ async function changeWeeklyExpressionsMP3(weekKey, buttonElement) {
 }
 
 // Download audio file
-function downloadAudio(audioUrl, sourceType, weekKey, scriptNum) {
-    if (!audioUrl) {
-        showError('No audio file available to download');
-        return;
-    }
-    
-    try {
-        // Construct the full URL
-        const fullUrl = `/static/${audioUrl}`;
-        
-        // Extract filename from URL or create a default one
-        const urlParts = audioUrl.split('/');
-        let filename = urlParts[urlParts.length - 1];
-        
-        // If no filename, create one based on parameters
-        if (!filename || filename === audioUrl) {
-            const extension = sourceType === 'openai' ? 'mp3' : 'wav';
-            filename = `script${scriptNum}_${sourceType}_${weekKey}.${extension}`;
-        }
-        
-        // Create a temporary anchor element to trigger download
-        const link = document.createElement('a');
-        link.href = fullUrl;
-        link.download = filename;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    } catch (error) {
-        console.error('Error downloading audio:', error);
-        showError(`Failed to download audio: ${error.message}`);
-    }
-}
+// downloadAudio (moved to top of file, see line 994)
 
 // Close dropdowns when clicking outside
 document.addEventListener('click', function(event) {
@@ -2285,21 +3945,7 @@ document.addEventListener('click', function(event) {
     });
 });
 
-
-// Toggle sidebar visibility
-function toggleSidebar() {
-    const sidebar = document.getElementById('weekSidebar');
-    
-    if (sidebar) {
-        if (sidebar.classList.contains('hidden')) {
-            // Show sidebar
-            sidebar.classList.remove('hidden');
-        } else {
-            // Collapse sidebar to narrow bar
-            sidebar.classList.add('hidden');
-        }
-    }
-}
+// toggleSidebar (moved to top of file, see line 803)
 
 // Generate audio for a specific script
 async function generateAudioForScript(weekKey, scriptNum, buttonElement, sourceType = null) {
@@ -2505,81 +4151,6 @@ async function generateAudioForScript(weekKey, scriptNum, buttonElement, sourceT
     }
 }
 
-// Generate audio from script using Typecast (LEGACY - NOT USED, kept for backwards compatibility)
-// All audio generation now uses generateAudioForScript() instead
-async function generateAudio(weekKey, buttonElement) {
-    if (!weekKey) weekKey = currentWeek;
-    
-    const button = buttonElement || document.querySelector(`.generate-audio-btn`);
-    const wasRegenerating = button && button.textContent.includes('Re-generate');
-    
-    // Get selected voice and speed
-    const voiceSelect = document.getElementById(`voice-select-${weekKey}`);
-    const speedSelect = document.getElementById(`speed-select-${weekKey}`);
-    const voiceId = voiceSelect ? voiceSelect.value : null;
-    const speed = speedSelect ? parseFloat(speedSelect.value) : 1.0;
-    
-    if (button) {
-        button.disabled = true;
-        button.textContent = wasRegenerating ? '⏳ Re-generating audio...' : '⏳ Generating audio...';
-    }
-    
-    try {
-        const response = await fetch('/api/generate-audio', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                week_key: weekKey,
-                voice_id: voiceId,
-                speed: speed
-            })
-        });
-        
-        const data = await response.json();
-        
-        if (data.success) {
-            progress = data.progress;
-            
-            // Reload the current week to show new audio player
-            await loadWeek(weekKey);
-            
-            // Force reload the audio player with cache-busting after a brief delay
-            setTimeout(() => {
-                const audioElement = document.querySelector('audio');
-                if (audioElement) {
-                    const sourceElement = audioElement.querySelector('source');
-                    if (sourceElement) {
-                        const currentSrc = sourceElement.src;
-                        const baseSrc = currentSrc.split('?')[0];
-                        sourceElement.src = baseSrc + '?v=' + Date.now();
-                        audioElement.load(); // Force reload the audio
-                    }
-                }
-            }, 100);
-            
-            if (button) {
-                button.disabled = false;
-                button.textContent = 'Re-generate audio';
-            }
-            
-            showError('Audio generated successfully!');
-        } else {
-            throw new Error(data.error || 'Failed to generate audio');
-        }
-    } catch (error) {
-        console.error('Error generating audio:', error);
-        showError(`Failed to generate audio: ${error.message}`);
-        if (button) {
-            button.disabled = false;
-            // Restore original button text based on whether audio existed before
-            const hadAudio = progress?.weeks?.[weekKey]?.shadowing_practice?.audio_url;
-            button.textContent = hadAudio ? 'Re-generate audio' : 'Generate audio';
-        }
-    }
-}
-
 // Generate all weekly content using ChatGPT
 async function generateAllContent() {
     const button = document.getElementById('generateAllBtn');
@@ -2642,139 +4213,18 @@ async function generateAllContent() {
     }
 }
 
+// cleanupAudioPlayersForWeek (moved to top of file, see line 758)
+
 // Load a specific week
-async function loadWeek(weekKey) {
-    try {
-        // Remove cache-busting parameter if present
-        const cleanWeekKey = weekKey.split('?')[0];
-        
-        // Reload full progress structure first to get all weeks (with cache busting)
-        const progressResponse = await fetch('/api/progress?t=' + Date.now());
-        const progressData = await progressResponse.json();
-        progress = progressData.progress;
-        
-        // Load the specific week (with cache busting)
-        const response = await fetch(`/api/week/${cleanWeekKey}?t=` + Date.now());
-        const weekData = await response.json();
-        
-        currentWeek = weekData.week_key;
-        progress.weeks = progress.weeks || {};
-        progress.weeks[cleanWeekKey] = weekData.progress;
-        weeklySummary = weekData.summary;
-        
-        // Force re-render
-        renderPage();
-        updateWeekList();
-        
-        // Update voice dropdowns after rendering
-        updateVoiceDropdowns();
-        
-        // Populate OpenAI voice dropdowns after rendering
-        setTimeout(() => {
-            document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
-                if (select.options.length <= 1 || (select.options.length > 0 && select.options[0].textContent === 'Loading voices...')) {
-                    populateOpenAIVoiceDropdown(select.id);
-                }
-            });
-        }, 150);
-    } catch (error) {
-        console.error('Error loading week:', error);
-        showError('Failed to load week. Please try again.');
-    }
-}
+// loadWeek (moved to top of file, see line 758)
 
-// Get all available weeks from progress
-function getAllWeeks() {
-    if (!progress || !progress.weeks) return [];
-    
-    // Return all weeks (including past, current, and future)
-    const allWeeks = Object.keys(progress.weeks);
-    
-    return allWeeks.sort(); // Oldest to newest
-}
+// Get all available weeks from progress (moved to top of file, see line 62)
 
-// Format week key for display
-function formatWeekKeyForDisplay(weekKey) {
-    const [year, week] = weekKey.split('-W');
-    return `Week ${parseInt(week)}, ${year}`;
-}
+// Format week key for display (moved to top of file, see line 95)
 
-// Get week date range for display (Sunday-Saturday format)
-function getWeekDateRange(weekKey) {
-    const [year, week] = weekKey.split('-W');
-    const weekNum = parseInt(week);
-    
-    // Find the first Sunday of the year (Sunday-Saturday week format)
-    const jan1 = new Date(year, 0, 1);
-    // Convert JS getDay() to Python weekday() format, then calculate days to first Sunday
-    const pythonWeekday = jan1.getDay() === 0 ? 6 : jan1.getDay() - 1;
-    const daysToSunday = (6 - pythonWeekday) % 7;
-    const firstSunday = new Date(jan1);
-    firstSunday.setDate(jan1.getDate() + daysToSunday);
-    
-    // Calculate Sunday of the target week (weeks are 1-indexed)
-    const sundayOfTargetWeek = new Date(firstSunday);
-    sundayOfTargetWeek.setDate(firstSunday.getDate() + (weekNum - 1) * 7);
-    
-    // Calculate Saturday (6 days after Sunday)
-    const saturdayOfTargetWeek = new Date(sundayOfTargetWeek);
-    saturdayOfTargetWeek.setDate(sundayOfTargetWeek.getDate() + 6);
-    
-    // Format dates in PST
-    const sundayStr = sundayOfTargetWeek.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/Los_Angeles' });
-    const saturdayStr = saturdayOfTargetWeek.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'America/Los_Angeles' });
-    
-    return `${sundayStr} - ${saturdayStr}`;
-}
+// Get week date range for display (moved to top of file, see line 161)
 
-// Update week list in sidebar
-function updateWeekList() {
-    const weekList = document.getElementById('weekList');
-    if (!weekList) return;
-    
-    const weeks = getAllWeeks();
-    weekList.innerHTML = '';
-    
-    if (weeks.length === 0) {
-        weekList.innerHTML = '<p style="color: #7f8c8d; font-size: 0.85rem; text-align: center; padding: 1rem;">No weeks available</p>';
-        return;
-    }
-    
-    // Get current week from backend using Sunday-Saturday format
-    const today = new Date();
-    const currentYear = today.getFullYear();
-    const currentWeekNum = getSundayWeek(today);
-    const actualCurrentWeek = `${currentYear}-W${currentWeekNum.toString().padStart(2, '0')}`;
-    
-    weeks.forEach(weekKey => {
-        const weekItem = document.createElement('div');
-        weekItem.className = 'week-item';
-        weekItem.id = `week-item-${weekKey}`;
-        
-        if (weekKey === currentWeek) {
-            weekItem.classList.add('active');
-        }
-        
-        if (weekKey === actualCurrentWeek) {
-            weekItem.classList.add('current-week');
-        }
-        
-        const weekLabel = document.createElement('div');
-        weekLabel.className = 'week-label';
-        weekLabel.textContent = formatWeekKeyForDisplay(weekKey);
-        
-        const weekRange = document.createElement('div');
-        weekRange.className = 'week-range';
-        weekRange.textContent = getWeekDateRange(weekKey);
-        
-        weekItem.appendChild(weekLabel);
-        weekItem.appendChild(weekRange);
-        
-        weekItem.onclick = () => selectWeek(weekKey);
-        
-        weekList.appendChild(weekItem);
-    });
-}
+// Update week list in sidebar (moved to top of file, see line 72)
 
 // Scroll to current week in the week list
 function scrollToCurrentWeek() {
@@ -2800,29 +4250,7 @@ function scrollToCurrentWeek() {
         });
 }
 
-// Helper function to get Sunday-Saturday week number
-function getSundayWeek(date) {
-    // Convert to PST
-    const pstDate = new Date(date.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
-    
-    // Find the first Sunday of the year
-    const jan1 = new Date(pstDate.getFullYear(), 0, 1);
-    const daysToSunday = (7 - jan1.getDay()) % 7;
-    const firstSunday = new Date(jan1);
-    firstSunday.setDate(jan1.getDate() + daysToSunday);
-    
-    // If date is before first Sunday, it belongs to last week of previous year
-    if (pstDate < firstSunday) {
-        const dec31 = new Date(pstDate.getFullYear() - 1, 11, 31);
-        return getSundayWeek(dec31);
-    }
-    
-    // Calculate weeks since first Sunday
-    const daysSince = Math.floor((pstDate - firstSunday) / (24 * 60 * 60 * 1000));
-    const weekNum = Math.floor(daysSince / 7) + 1;
-    
-    return weekNum;
-}
+// Helper function to get Sunday-Saturday week number (moved to top of file, see line 72)
 
 // Get week key from string (e.g., "2024-W45")
 function parseWeekKey(weekString) {
@@ -2904,265 +4332,13 @@ async function selectWeek(weekKey) {
     await loadWeek(weekKey);
 }
 
-// Go to current week
-async function goToCurrentWeek() {
-    try {
-        // Reload full progress structure first to get all weeks and actual current week
-        const progressResponse = await fetch('/api/progress');
-        const progressData = await progressResponse.json();
-        progress = progressData.progress;
-        
-        // Get the actual current week key from the backend
-        const actualCurrentWeek = progressData.current_week;
-        
-        // Load that specific week to ensure we're showing the correct week
-        await loadWeek(actualCurrentWeek);
-        
-        // Scroll to current week in the sidebar
-        setTimeout(() => {
-            scrollToCurrentWeek();
-        }, 100); // Small delay to ensure DOM is updated
-    } catch (error) {
-        console.error('Error loading current week:', error);
-        showError('Failed to load current week. Please try again.');
-    }
-}
+// goToCurrentWeek (moved to top of file, see line 684)
 
-// Load available voices from Typecast.ai
-let availableVoices = [];
+// Load available voices from Typecast.ai (moved to top of file, see line 304)
 
-async function loadVoices() {
-    // Check if voices are already cached in localStorage
-    const cachedVoices = localStorage.getItem('typecast_voices');
-    const cacheTimestamp = localStorage.getItem('typecast_voices_timestamp');
-    const cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours
-    
-    // Use cached voices if they exist and are less than 24 hours old
-    // Skip cache if it's older than 1 hour to ensure fresh voice list
-    if (cachedVoices && cacheTimestamp) {
-        const age = Date.now() - parseInt(cacheTimestamp);
-        if (age < Math.min(cacheExpiry, 60 * 60 * 1000)) { // Use cache if less than 1 hour old
-            try {
-                availableVoices = JSON.parse(cachedVoices);
-                updateVoiceDropdowns();
-                // Still fetch fresh data in background to update cache
-            } catch (e) {
-                // Failed to parse cache, will fetch fresh data
-            }
-        }
-    }
-    
-    // Fetch voices from API
-    try {
-        const response = await fetch('/api/voices?t=' + Date.now()); // Add cache busting
-        const data = await response.json();
-        
-        if (data.success && data.voices && data.voices.length > 0) {
-            availableVoices = data.voices;
-            
-            // Cache the voices in localStorage
-            localStorage.setItem('typecast_voices', JSON.stringify(availableVoices));
-            localStorage.setItem('typecast_voices_timestamp', Date.now().toString());
-            
-            updateVoiceDropdowns();
-            updatePodcastVoiceInfo();
-            
-            // Also populate OpenAI voice dropdowns
-            setTimeout(() => {
-                document.querySelectorAll('select[id*="voice-select-openai-"]').forEach(select => {
-                    if (select.options.length <= 1 || (select.options.length > 0 && select.options[0].textContent === 'Loading voices...')) {
-                        populateOpenAIVoiceDropdown(select.id);
-                    }
-                });
-            }, 100);
-        } else {
-            updateVoiceDropdowns();
-            updatePodcastVoiceInfo();
-        }
-    } catch (error) {
-        console.error('Error loading voices:', error);
-        updateVoiceDropdowns();
-    }
-}
+// Update voice dropdowns (moved to top of file, see line 171)
 
-function updateVoiceDropdowns() {
-    // Only update Typecast voice dropdowns (exclude OpenAI ones)
-    const voiceSelects = document.querySelectorAll('.voice-select, .voice-select-compact, select[id^="voice-select-regen-"]');
-    
-    voiceSelects.forEach(select => {
-        // Skip OpenAI voice dropdowns
-        if (select.id && select.id.includes('openai')) {
-            return;
-        }
-        
-        const currentValue = select.value;
-        
-        // Clear existing options
-        select.innerHTML = '';
-        
-        if (availableVoices.length === 0) {
-            select.innerHTML = '<option value="">No voices available</option>';
-            return;
-        }
-        
-        // Add voice options
-        availableVoices.forEach(voice => {
-            const option = document.createElement('option');
-            option.value = voice.voice_id;
-            option.textContent = voice.name || voice.voice_id;
-            select.appendChild(option);
-        });
-        
-        // Restore previous selection if it exists
-        if (currentValue && Array.from(select.options).some(opt => opt.value === currentValue)) {
-            select.value = currentValue;
-        } else {
-            // Default to Dylan if available
-            const dylanOption = Array.from(select.options).find(opt => 
-                opt.textContent === 'Dylan'
-            );
-            if (dylanOption) {
-                select.value = dylanOption.value;
-            } else {
-                // Fallback to first voice if Dylan not found
-                select.selectedIndex = 0;
-            }
-        }
-    });
-    
-}
-
-// Update podcast voice info display with voice names
-function updatePodcastVoiceInfo() {
-    if (!availableVoices || availableVoices.length === 0) return;
-    if (!progress || !progress.weeks) return;
-    
-    // Helper function to get voice name from voice ID
-    const getPodcastVoiceNameFromId = (voiceId) => {
-        if (!voiceId) return '';
-        // Check if it's already a name (doesn't start with 'tc_')
-        if (!voiceId.startsWith('tc_')) {
-            return voiceId;
-        }
-        // Try to find voice name from availableVoices
-        const voice = availableVoices.find(v => v.voice_id === voiceId || v.id === voiceId);
-        if (voice) {
-            return voice.name || voice.voice_name || voiceId;
-        }
-        // Fallback: return ID if name not found
-        return voiceId;
-    };
-    
-    // Format voice and model label
-    const formatPodcastVoiceModelLabel = (voice, model) => {
-        if (!voice && !model) return '';
-        const parts = [];
-        if (voice) {
-            const voiceName = getPodcastVoiceNameFromId(voice);
-            parts.push(voiceName);
-        }
-        if (model) {
-            const modelDisplay = model === 'ssfm-v21' ? 'SSFM v21' : (model === 'ssfm-v30' ? 'SSFM v30' : model);
-            parts.push(modelDisplay);
-        }
-        return parts.join(', ');
-    };
-    
-    // Update podcast voice info in dropdown
-    document.querySelectorAll('[id^="podcast-voice-info-dropdown-"]').forEach(element => {
-        const weekKey = element.id.replace('podcast-voice-info-dropdown-', '');
-        
-        // Get activity progress for this specific week
-        const weekData = progress.weeks[weekKey];
-        if (!weekData) return;
-        
-        const activityProgress = weekData['podcast_shadowing'];
-        if (!activityProgress) return;
-        
-        const typecastVoice = activityProgress.typecast_voice || '';
-        const typecastModel = activityProgress.typecast_model || '';
-        
-        if (!typecastVoice && !typecastModel) {
-            element.style.display = 'none';
-            return;
-        }
-        
-        const label = formatPodcastVoiceModelLabel(typecastVoice, typecastModel);
-        if (label) {
-            element.innerHTML = `<strong>Voice:</strong> ${escapeHtml(label)}`;
-            element.style.display = '';
-        } else {
-            element.style.display = 'none';
-        }
-    });
-    
-    // Update shadowing voice info in dropdowns
-    document.querySelectorAll('[id^="shadowing-voice-info-dropdown-"]').forEach(element => {
-        const fullId = element.id.replace('shadowing-voice-info-dropdown-', '');
-        // ID format: "2024-1-1" or "2024-52-2" (weekKey-scriptNum)
-        // Find the last dash to separate weekKey and scriptNum
-        const lastDashIndex = fullId.lastIndexOf('-');
-        if (lastDashIndex === -1) return;
-        
-        const weekKey = fullId.substring(0, lastDashIndex);
-        const scriptNum = fullId.substring(lastDashIndex + 1);
-        
-        // Get activity progress for this specific week
-        const weekData = progress.weeks[weekKey];
-        if (!weekData) return;
-        
-        const activityProgress = weekData['shadowing_practice'];
-        if (!activityProgress) return;
-        
-        const typecastVoice = scriptNum === '1' 
-            ? (activityProgress.script1_typecast_voice || '')
-            : (activityProgress.script2_typecast_voice || '');
-        const typecastModel = scriptNum === '1'
-            ? (activityProgress.script1_typecast_model || '')
-            : (activityProgress.script2_typecast_model || '');
-        
-        if (!typecastVoice && !typecastModel) {
-            element.style.display = 'none';
-            return;
-        }
-        
-        // Helper function to get voice name from voice ID
-        const getVoiceNameFromId = (voiceId) => {
-            if (!voiceId) return '';
-            if (!voiceId.startsWith('tc_')) {
-                return voiceId;
-            }
-            const voice = availableVoices.find(v => v.voice_id === voiceId || v.id === voiceId);
-            if (voice) {
-                return voice.name || voice.voice_name || voiceId;
-            }
-            return voiceId;
-        };
-        
-        // Format voice and model label
-        const formatVoiceModelLabel = (voice, model) => {
-            if (!voice && !model) return '';
-            const parts = [];
-            if (voice) {
-                const voiceName = getVoiceNameFromId(voice);
-                parts.push(voiceName);
-            }
-            if (model) {
-                const modelDisplay = model === 'ssfm-v21' ? 'SSFM v21' : (model === 'ssfm-v30' ? 'SSFM v30' : model);
-                parts.push(modelDisplay);
-            }
-            return parts.join(', ');
-        };
-        
-        const label = formatVoiceModelLabel(typecastVoice, typecastModel);
-        if (label) {
-            element.innerHTML = `<strong>Voice:</strong> ${escapeHtml(label)}`;
-            element.style.display = '';
-        } else {
-            element.style.display = 'none';
-        }
-    });
-}
+// Update podcast voice info (moved to top of file, see line 223)
 
 // Populate OpenAI voice dropdown with OpenAI voices
 function populateOpenAIVoiceDropdown(selectId) {
@@ -3211,152 +4387,14 @@ function populateOpenAIVoiceDropdown(selectId) {
 
 // ==================== RECORDING FUNCTIONALITY ====================
 
-let mediaRecorder = null;
-let audioChunks = [];
-let currentRecordingActivity = null;
-let currentRecordingDay = null;
-let recordingTimer = null;
-let recordingStartTime = null;
-let audioContext = null;
-let analyser = null;
-let animationId = null;
-
-// Toggle recording UI for a specific day
-function toggleRecordingUI(activityId, day, event) {
-    // Prevent event bubbling
-    if (event) event.stopPropagation();
-    
-    const dayId = day.replace(/-/g, '_');
-    const recordingUI = document.getElementById(`${activityId}_recording_ui_${dayId}`);
-    
-    // Find the day box within the current activity's container
-    const activityContainer = document.querySelector(`[data-activity-id="${activityId}"]`);
-    const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${day}"]`) : null;
-    
-    if (!recordingUI) return;
-    
-    // Close all other recording UIs for this activity and remove active state
-    const allRecordingUIs = document.querySelectorAll(`[id^="${activityId}_recording_ui_"]`);
-    // Only select day boxes within this activity's container
-    const allDayBoxes = activityContainer ? activityContainer.querySelectorAll(`[data-day]`) : [];
-    allRecordingUIs.forEach(ui => {
-        if (ui.id !== recordingUI.id && ui.style.display !== 'none') {
-            ui.style.display = 'none';
-        }
-    });
-    allDayBoxes.forEach(box => {
-        if (box.getAttribute('data-day') !== day) {
-            box.classList.remove('active');
-        }
-    });
-    
-    // Toggle current UI
-    if (recordingUI.style.display === 'none') {
-        recordingUI.style.display = 'block';
-        if (dayBox) dayBox.classList.add('active');
-        
-        // For voice journaling, show the daily topic
-        if (activityId === 'voice_journaling') {
-            const dayIndex = parseInt(recordingUI.getAttribute('data-day-index') || '0');
-            const topics = progress?.weeks?.[currentWeek]?.voice_journaling?.topics || [];
-            const topic = topics[dayIndex] || "No topic generated yet. Click 'Generate content' to create topics.";
-            
-            const topicElement = document.getElementById(`${activityId}_topic_${dayId}`);
-            if (topicElement) {
-                topicElement.innerHTML = `<strong>Today's Topic</strong> ${escapeHtml(topic)}`;
-            }
-        }
-        
-        // For weekly expressions, load notes
-        if (activityId === 'weekly_expressions') {
-            // Load notes for this day
-            const notesTextarea = document.getElementById(`${activityId}_notes_${dayId}`);
-            if (notesTextarea) {
-                const notes = progress?.weeks?.[currentWeek]?.weekly_expressions?.notes?.[day] || '';
-                notesTextarea.value = notes;
-            }
-        }
-        
-        // Load recordings when opening (skip for weekly_expressions)
-        if (activityId !== 'weekly_expressions') {
-        loadRecordings(activityId, day);
-        }
-    } else {
-        recordingUI.style.display = 'none';
-        if (dayBox) dayBox.classList.remove('active');
-    }
-}
-
-// Delete a recording
-async function deleteRecording(activityId, day, filename) {
-    if (!confirm('Are you sure you want to delete this recording?')) {
-        return;
-    }
-    
-    try {
-        const response = await fetch('/api/delete-recording', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                activity_id: activityId,
-                week_key: currentWeek,
-                day: day,
-                filename: filename
-            })
-        });
-        
-        if (response.ok) {
-            const data = await response.json();
-            if (data.success) {
-                showSuccess('Recording deleted successfully');
-                // Reload recordings for this day
-                await loadRecordings(activityId, day);
-                
-                // If no recordings left, unmark as completed
-                const recordingsResponse = await fetch('/api/get-recordings', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        activity_id: activityId,
-                        week_key: currentWeek,
-                        day: day
-                    })
-                });
-                
-                if (recordingsResponse.ok) {
-                    const recordingsData = await recordingsResponse.json();
-                    if (recordingsData.success && (!recordingsData.recordings || recordingsData.recordings.length === 0)) {
-                        // No recordings left, unmark as completed
-                        const completeBtn = document.querySelector(`#${activityId}_complete_${day.replace(/-/g, '_')}`);
-                        if (completeBtn && completeBtn.classList.contains('completed')) {
-                            // Trigger the toggle function to unmark as completed
-                            if (activityId === 'voice_journaling') {
-                                await toggleVoiceJournalingDay(day, completeBtn);
-                            } else if (activityId === 'shadowing_practice') {
-                                await toggleShadowingDay(day, completeBtn);
-                            } else if (activityId === 'weekly_speaking_prompt') {
-                                await togglePromptDay(day, completeBtn);
-                            }
-                        }
-                    }
-                }
-            } else {
-                showError('Failed to delete recording: ' + (data.error || 'Unknown error'));
-            }
-        } else {
-            showError('Failed to delete recording');
-        }
-    } catch (error) {
-        console.error('Error deleting recording:', error);
-        showError('Failed to delete recording');
-    }
-}
-
-// Start recording
+// Recording variables (moved to top of file, see lines 30-38)
+// startRecordingTimer (moved to top of file, see line 1133)
+// stopRecordingTimer (moved to top of file, see line 1151)
+// startVisualization (moved to top of file, see line 1159)
+// startRecording (moved to top of file, see line 1223)
+// stopRecording (moved to top of file, see line 1278)
+// deleteRecording (moved to top of file, see line 1286)
+// saveRecording (defined below)
 async function startRecording(activityId, day) {
     try {
         // Request microphone access
@@ -3421,70 +4459,8 @@ async function startRecording(activityId, day) {
     }
 }
 
-// Start recording timer
-function startRecordingTimer(activityId, day) {
-    const dayId = day.replace(/-/g, '_');
-    const timerElement = document.getElementById(`${activityId}_timer_${dayId}`);
-    
-    if (!timerElement) return;
-    
-    timerElement.style.display = 'inline-block';
-    
-    recordingTimer = setInterval(() => {
-        const elapsed = Date.now() - recordingStartTime;
-        const minutes = Math.floor(elapsed / 60000);
-        const seconds = Math.floor((elapsed % 60000) / 1000);
-        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    }, 100);
-}
-
-// Start waveform visualization
-function startVisualization(activityId, day) {
-    const dayId = day.replace(/-/g, '_');
-    const visualizerDiv = document.getElementById(`${activityId}_visualizer_${dayId}`);
-    const canvas = document.getElementById(`${activityId}_canvas_${dayId}`);
-    
-    if (!canvas || !analyser) return;
-    
-    visualizerDiv.style.display = 'block';
-    const canvasContext = canvas.getContext('2d');
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
-    
-    function draw() {
-        animationId = requestAnimationFrame(draw);
-        
-        analyser.getByteTimeDomainData(dataArray);
-        
-        canvasContext.fillStyle = '#f8f9fa';
-        canvasContext.fillRect(0, 0, canvas.width, canvas.height);
-        
-        canvasContext.lineWidth = 2;
-        canvasContext.strokeStyle = '#dc3545';
-        canvasContext.beginPath();
-        
-        const sliceWidth = canvas.width / bufferLength;
-        let x = 0;
-        
-        for (let i = 0; i < bufferLength; i++) {
-            const v = dataArray[i] / 128.0;
-            const y = v * canvas.height / 2;
-            
-            if (i === 0) {
-                canvasContext.moveTo(x, y);
-            } else {
-                canvasContext.lineTo(x, y);
-            }
-            
-            x += sliceWidth;
-        }
-        
-        canvasContext.lineTo(canvas.width, canvas.height / 2);
-        canvasContext.stroke();
-    }
-    
-    draw();
-}
+// startRecordingTimer (moved to top of file, see line 1133)
+// startVisualization (moved to top of file, see line 1159)
 
 // Stop recording
 function stopRecording() {
@@ -3494,290 +4470,16 @@ function stopRecording() {
     }
 }
 
-// Save recording to server
-async function saveRecording(audioBlob, activityId, day) {
-    try {
-        
-        const formData = new FormData();
-        formData.append('audio', audioBlob, 'recording.webm');
-        formData.append('activity_id', activityId);
-        formData.append('week_key', currentWeek);
-        formData.append('day', day);
-        
-        const response = await fetch('/api/save-recording', {
-            method: 'POST',
-            body: formData
-        });
-        
-        
-        if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(`Server error: ${response.status} - ${errorText}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data.success) {
-            showSuccess('Recording saved successfully!');
-            
-            // Reload recordings for this day
-            await loadRecordings(activityId, day);
-        } else {
-            showError('Failed to save recording: ' + (data.error || 'Unknown error'));
-        }
-    } catch (error) {
-        console.error('Error saving recording:', error);
-        showError('Failed to save recording: ' + error.message);
-    }
-}
+// saveRecording (moved to top of file, see line 1294)
 
-// Auto-mark day as completed when recording is saved
-async function autoMarkDayCompleted(activityId, day) {
-    try {
-        const response = await fetch('/api/progress', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                activity_id: activityId,
-                day: day,
-                completed: true,
-                week_key: currentWeek
-            })
-        });
-        
-        if (response.ok) {
-            const data = await response.json();
-            if (data.success) {
-                progress = data.progress;
-                weeklySummary = data.weekly_summary;
-                updateProgressSummary();
-                
-                // Update visual state of the day box
-                const dayId = day.replace(/-/g, '_');
-                const dayBox = document.querySelector(`[data-day="${day}"]`);
-                if (dayBox && !dayBox.classList.contains('completed')) {
-                    dayBox.classList.add('completed');
-                    const dayActions = dayBox.querySelector('.day-actions');
-                    if (dayActions && !dayActions.querySelector('.completed-mark')) {
-                        const mark = document.createElement('span');
-                        mark.className = 'completed-mark';
-                        mark.textContent = '✓';
-                        dayActions.insertBefore(mark, dayActions.firstChild);
-                    }
-                }
-            }
-        }
-    } catch (error) {
-        console.error('Error auto-marking day as completed:', error);
-        // Don't show error to user - completion is secondary to recording save
-    }
-}
+// autoMarkDayCompleted (moved to top of file, see line 1485)
 
-// Load all recordings for current week
-async function loadAllRecordings() {
-    if (!currentWeek) return;
-    
-    const activities = ['voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt'];
-    const daysOfWeek = getDaysOfWeek();
-    
-    for (const activityId of activities) {
-        for (const day of daysOfWeek) {
-            await loadRecordings(activityId, day.date);
-        }
-    }
-}
+// loadAllRecordings (moved to top of file, see line 2351)
+// loadRecordings (moved to top of file, see line 1460)
+// displayRecordings (moved to top of file, see line 1334)
+// formatTimestamp (moved to top of file, see line 1321)
 
-// Load recordings for a specific activity and day
-async function loadRecordings(activityId, day) {
-    try {
-        const response = await fetch('/api/get-recordings', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                activity_id: activityId,
-                week_key: currentWeek,
-                day: day
-            })
-        });
-        
-        const data = await response.json();
-        
-        if (data.success) {
-            displayRecordings(activityId, day, data.recordings);
-        }
-    } catch (error) {
-        console.error('Error loading recordings:', error);
-    }
-}
-
-// Display recordings in the UI
-async function displayRecordings(activityId, day, recordings) {
-    const dayId = day.replace(/-/g, '_');
-    const recordingsList = document.querySelector(`#${activityId}_recordings_${dayId}`);
-    const recordBtn = document.querySelector(`#${activityId}_record_${dayId}`);
-    const completeBtn = document.querySelector(`#${activityId}_complete_${dayId}`);
-    const dayBox = document.querySelector(`[data-day="${day}"]`);
-    
-    if (!recordingsList) return;
-    
-    const hasRecordings = recordings && recordings.length > 0;
-    
-    // Update record button text
-    if (recordBtn) {
-        if (hasRecordings) {
-            recordBtn.innerHTML = '🔄 Re-record';
-        } else {
-            recordBtn.innerHTML = '🎤 Record';
-        }
-    }
-    
-    // Enable/disable complete button based on recordings
-    if (completeBtn) {
-        if (hasRecordings) {
-            completeBtn.disabled = false;
-            completeBtn.title = '';
-        } else {
-            completeBtn.disabled = true;
-            completeBtn.title = 'Record audio first to mark as completed';
-            // If user somehow marked it complete before, uncheck it and sync with backend
-            if (completeBtn.classList.contains('completed')) {
-                completeBtn.classList.remove('completed');
-                completeBtn.textContent = 'Mark as completed';
-                
-                // Also update the day box visual state
-                if (dayBox) {
-                    dayBox.classList.remove('completed');
-                    const dayActions = dayBox.querySelector('.day-actions');
-                    if (dayActions) {
-                        const mark = dayActions.querySelector('.completed-mark');
-                        if (mark) mark.remove();
-                    }
-                }
-                
-                // Sync with backend - unmark as completed
-                try {
-                    let toggleFunction;
-                    if (activityId === 'voice_journaling') {
-                        toggleFunction = 'toggleVoiceJournalingDay';
-                    } else if (activityId === 'shadowing_practice') {
-                        toggleFunction = 'toggleShadowingDay';
-                    } else if (activityId === 'weekly_speaking_prompt') {
-                        toggleFunction = 'togglePromptDay';
-                    }
-                    
-                    if (toggleFunction) {
-                        const response = await fetch('/api/progress', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                activity_id: activityId,
-                                day: day,
-                                completed: false,
-                                week_key: currentWeek
-                            })
-                        });
-                        
-                        if (response.ok) {
-                            const data = await response.json();
-                            if (data.success) {
-                                progress = data.progress;
-                                weeklySummary = data.weekly_summary;
-                                updateProgressSummary();
-                            }
-                        }
-                    }
-                } catch (error) {
-                    console.error('Error syncing completion state:', error);
-                    // Don't show error to user - this is a background sync
-                }
-            }
-        }
-    }
-    
-    if (!hasRecordings) {
-        recordingsList.innerHTML = '<p class="no-recordings">No recording yet</p>';
-        return;
-    }
-    
-    // Show only the most recent recording
-    const recording = recordings[recordings.length - 1];
-    recordingsList.innerHTML = '';
-    
-    const recordingDiv = document.createElement('div');
-    recordingDiv.className = 'recording-item';
-    
-    const timestamp = formatTimestamp(recording.timestamp);
-    
-    // Build transcription HTML if available (only for voice_journaling)
-    let transcriptionHtml = '';
-    if (activityId === 'voice_journaling' && recording.transcription) {
-        transcriptionHtml = `
-            <div class="recording-transcription">
-                <div class="transcription-label">Transcription:</div>
-                <div class="transcription-text">${escapeHtml(recording.transcription)}</div>
-            </div>
-        `;
-    }
-    
-    recordingDiv.innerHTML = `
-        <div class="recording-info">
-            <span class="recording-time">Recorded: ${timestamp}</span>
-            <button class="delete-recording-btn" onclick="deleteRecording('${activityId}', '${day}', '${recording.filename}'); event.stopPropagation();">🗑️ Delete</button>
-        </div>
-        <audio controls class="recording-player">
-            <source src="${recording.url}" type="audio/webm">
-            Your browser does not support audio playback.
-        </audio>
-        ${transcriptionHtml}
-    `;
-    
-    recordingsList.appendChild(recordingDiv);
-}
-
-// Format timestamp for display
-function formatTimestamp(timestamp) {
-    // timestamp format: YYYYMMDD_HHMMSS
-    const year = timestamp.substring(0, 4);
-    const month = timestamp.substring(4, 6);
-    const day = timestamp.substring(6, 8);
-    const hour = timestamp.substring(9, 11);
-    const minute = timestamp.substring(11, 13);
-    const second = timestamp.substring(13, 15);
-    
-    return `${month}/${day} ${hour}:${minute}:${second}`;
-}
-
-// Update recording UI state
-function updateRecordingUI(activityId, day, state) {
-    const dayId = day.replace(/-/g, '_');
-    const recordBtn = document.querySelector(`#${activityId}_record_${dayId}`);
-    const stopBtn = document.querySelector(`#${activityId}_stop_${dayId}`);
-    const timerElement = document.querySelector(`#${activityId}_timer_${dayId}`);
-    const visualizerDiv = document.querySelector(`#${activityId}_visualizer_${dayId}`);
-    
-    if (!recordBtn || !stopBtn) return;
-    
-    if (state === 'recording') {
-        recordBtn.style.display = 'none';
-        stopBtn.style.display = 'inline-block';
-    } else {
-        recordBtn.style.display = 'inline-block';
-        stopBtn.style.display = 'none';
-        if (timerElement) {
-            timerElement.style.display = 'none';
-            timerElement.textContent = '00:00';
-        }
-        if (visualizerDiv) {
-            visualizerDiv.style.display = 'none';
-        }
-    }
-}
+// updateRecordingUI (moved to top of file, see line 1413)
 
 // Ensure weekly expressions audio player is updated (MP3 is automatically assigned)
 function ensureWeeklyExpressionsAudioPlayer() {
@@ -3807,7 +4509,7 @@ function updateWeeklyExpressionsAudioPlayer(mp3File) {
                             Your browser does not support the audio element.
                         </audio>
                         <div class="custom-audio-controls" id="controls-weekly-expressions-${currentWeek}">
-                            <button class="play-pause-btn" onclick="toggleWeeklyExpressionsPlayPause('${currentWeek}')">▶</button>
+                            <button class="play-pause-btn">▶</button>
                         <div class="progress-bar-container" onclick="seekWeeklyExpressionsAudio('${currentWeek}', event)">
                             <div class="progress-bar" id="progress-weekly-expressions-${currentWeek}"></div>
                             <div class="progress-playhead" id="playhead-weekly-expressions-${currentWeek}"></div>
@@ -3832,239 +4534,22 @@ function updateWeeklyExpressionsAudioPlayer(mp3File) {
     }
 }
 
-// Set playback speed for weekly expressions audio
-function setWeeklyExpressionsSpeed(weekKey, speed) {
-    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
-    if (audioElement) {
-        const speedValue = parseFloat(speed) || 1.0;
-        audioElement.playbackRate = speedValue;
-        // Update button styles
-        updateSpeedButtonStyles(weekKey, speedValue);
-    }
-}
+// Set playback speed (moved to top of file, see line 637)
+// updateSpeedButtonStyles (moved to top of file, see line 620)
 
-// Toggle play/pause for weekly expressions audio
-function toggleWeeklyExpressionsPlayPause(weekKey) {
-    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
-    if (!audioElement) return;
-    
-    if (audioElement.paused) {
-        audioElement.play();
-    } else {
-        audioElement.pause();
-    }
-    
-    // Update play/pause button
-    updateWeeklyExpressionsPlayPauseButton(weekKey);
-}
-
-// Update play/pause button for weekly expressions
-function updateWeeklyExpressionsPlayPauseButton(weekKey) {
-    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
-    if (!audioElement) return;
-    
-    const controls = document.getElementById(`controls-weekly-expressions-${weekKey}`);
-    if (controls) {
-        const playPauseBtn = controls.querySelector('.play-pause-btn');
-        if (playPauseBtn) {
-            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-        }
-    }
-}
-
-// Seek audio for weekly expressions
-function seekWeeklyExpressionsAudio(weekKey, event) {
-    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
-    const container = event.currentTarget || event.target.closest('.progress-bar-container');
-    if (!audioElement || !container || !audioElement.duration) return;
-    
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const percent = Math.max(0, Math.min(1, x / rect.width));
-    audioElement.currentTime = percent * audioElement.duration;
-    
-    // Update progress bar and playhead immediately
-    updateWeeklyExpressionsProgressBar(weekKey, percent);
-}
-
-// Skip audio for weekly expressions (seconds can be positive or negative)
-function skipWeeklyExpressionsAudio(weekKey, seconds) {
-    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
-    if (!audioElement || !audioElement.duration) return;
-    
-    const newTime = Math.max(0, Math.min(audioElement.duration, audioElement.currentTime + seconds));
-    audioElement.currentTime = newTime;
-    
-    // Update progress bar and playhead immediately
-    const percent = newTime / audioElement.duration;
-    updateWeeklyExpressionsProgressBar(weekKey, percent);
-    
-    // Update time display
-    const timeDisplay = document.getElementById(`time-weekly-expressions-${weekKey}`);
-    if (timeDisplay) {
-        updateTimeDisplay(audioElement, timeDisplay);
-    }
-}
-
-// Update progress bar and playhead for weekly expressions
-function updateWeeklyExpressionsProgressBar(weekKey, percent) {
-    const progressBar = document.getElementById(`progress-weekly-expressions-${weekKey}`);
-    const playhead = document.getElementById(`playhead-weekly-expressions-${weekKey}`);
-    
-    if (progressBar) {
-        progressBar.style.width = (percent * 100) + '%';
-    }
-    if (playhead) {
-        playhead.style.left = (percent * 100) + '%';
-    }
-}
-
-// Handle dragging for weekly expressions audio
-function setupWeeklyExpressionsAudioDrag(weekKey) {
-    const container = document.querySelector(`#controls-weekly-expressions-${weekKey} .progress-bar-container`);
-    const playhead = document.getElementById(`playhead-weekly-expressions-${weekKey}`);
-    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
-    
-    if (!container || !audioElement) return;
-    
-    let isDragging = false;
-    
-    const handleMove = (clientX) => {
-        if (!audioElement.duration) return;
-        const rect = container.getBoundingClientRect();
-        const x = clientX - rect.left;
-        const percent = Math.max(0, Math.min(1, x / rect.width));
-        audioElement.currentTime = percent * audioElement.duration;
-        updateWeeklyExpressionsProgressBar(weekKey, percent);
-    };
-    
-    const startDrag = (e) => {
-        isDragging = true;
-        if (playhead) {
-            playhead.style.transition = 'none';
-        }
-        handleMove(e.clientX);
-        e.preventDefault();
-        e.stopPropagation();
-    };
-    
-    // Make playhead draggable
-    if (playhead) {
-        playhead.addEventListener('mousedown', (e) => {
-            startDrag(e);
-        });
-    }
-    
-    // Make container draggable
-    container.addEventListener('mousedown', (e) => {
-        startDrag(e);
-    });
-    
-    document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            handleMove(e.clientX);
-        }
-    });
-    
-    document.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            if (playhead) {
-                playhead.style.transition = 'left 0.1s linear';
-            }
-        }
-    });
-}
-
-// Set up audio controls event listeners for weekly expressions
 function setupWeeklyExpressionsAudioControls(weekKey, initialSpeed) {
-    const audioElement = document.getElementById(`audio-player-weekly-expressions-${weekKey}`);
-    const playPauseBtn = document.querySelector(`#controls-weekly-expressions-${weekKey} .play-pause-btn`);
-    const progressBar = document.getElementById(`progress-weekly-expressions-${weekKey}`);
-    const timeDisplay = document.getElementById(`time-weekly-expressions-${weekKey}`);
-    
-    if (!audioElement) return;
-    
-    // Set up drag functionality
-    setupWeeklyExpressionsAudioDrag(weekKey);
-    
-    // Set initial playback speed
-    if (initialSpeed) {
-        audioElement.playbackRate = initialSpeed;
-    }
-    
-    // Update play/pause button
-    function updatePlayPauseButton() {
-        if (playPauseBtn) {
-            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-        }
-    }
-    
-    // Update progress bar
-    function updateProgressBar() {
-        if (progressBar && audioElement.duration) {
-            const percent = (audioElement.currentTime / audioElement.duration) * 100;
-            progressBar.style.width = percent + '%';
-            
-            // Update playhead position
-            const playheadId = progressBar.id.replace('progress-', 'playhead-');
-            const playhead = document.getElementById(playheadId);
-            if (playhead) {
-                playhead.style.left = percent + '%';
-            }
-        }
-    }
-    
-    // Update time display
-    function updateTimeDisplayFunc() {
-        if (timeDisplay && audioElement.duration) {
-            updateTimeDisplay(audioElement, timeDisplay);
-        }
-    }
-    
-    // Event listeners
-    audioElement.addEventListener('play', updatePlayPauseButton);
-    audioElement.addEventListener('pause', updatePlayPauseButton);
-    audioElement.addEventListener('timeupdate', () => {
-        updateProgressBar();
-        updateTimeDisplayFunc();
+    createAudioPlayer({
+        audioId: `audio-player-weekly-expressions-${weekKey}`,
+        controlsId: `controls-weekly-expressions-${weekKey}`,
+        progressId: `progress-weekly-expressions-${weekKey}`,
+        playheadId: `playhead-weekly-expressions-${weekKey}`,
+        timeDisplayId: `time-weekly-expressions-${weekKey}`,
+        initialSpeed: initialSpeed || 1.0
     });
-    audioElement.addEventListener('loadedmetadata', () => {
-        updateTimeDisplayFunc();
-    });
-    
-    // Initial update
-    updatePlayPauseButton();
-    updateProgressBar();
-    updateTimeDisplayFunc();
 }
 
-// Set up all weekly expressions audio controls on page load
-function setupAllWeeklyExpressionsAudioControls() {
-    if (!currentWeek) return;
-    const audioElement = document.getElementById(`audio-player-weekly-expressions-${currentWeek}`);
-    if (audioElement) {
-        const currentSpeed = audioElement.playbackRate || 1.0;
-        setupWeeklyExpressionsAudioControls(currentWeek, currentSpeed);
-    }
-}
-
-// Update speed button styles to show which one is active
-function updateSpeedButtonStyles(weekKey, activeSpeed) {
-    const buttons = document.querySelectorAll(`[onclick*="setWeeklyExpressionsSpeed('${weekKey}'"]`);
-    buttons.forEach(btn => {
-        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
-        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
-            btn.style.background = '#4a90e2';
-            btn.style.color = '#fff';
-            btn.style.borderColor = '#4a90e2';
-        } else {
-            btn.style.background = '#fff';
-            btn.style.color = '#333';
-            btn.style.borderColor = '#ddd';
-        }
-    });
-}
+// Set up all weekly expressions audio controls (moved to top of file, see line 636)
+// updateSpeedButtonStyles (moved to top of file, see line 620)
 
 // Set playback speed for weekly expressions audio in day view
 function setWeeklyExpressionsDaySpeed(dayId, speed) {
@@ -4147,225 +4632,62 @@ async function selectMp3File(weekKey, mp3File) {
 }
 
 function togglePlayPause(sourceType, weekKey, scriptNum) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
-    if (!audioElement) return;
-    
-    if (audioElement.paused) {
-        audioElement.play();
-    } else {
-        audioElement.pause();
+    const player = getAudioPlayer(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (player) {
+        player.togglePlayPause();
     }
-    
-    // Update play/pause button immediately
-    updateShadowingPlayPauseButton(sourceType, weekKey, scriptNum);
 }
 
 function seekAudio(sourceType, weekKey, scriptNum, event) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
-    const container = event.currentTarget;
-    if (!audioElement || !container || !audioElement.duration) return;
-    
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const percent = Math.max(0, Math.min(1, x / rect.width));
-    audioElement.currentTime = percent * audioElement.duration;
-    
-    // Update progress bar and playhead immediately
-    updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent);
+    const player = getAudioPlayer(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (player) {
+        player.seek(event);
+    }
 }
 
-// Skip audio for shadowing practice (seconds can be positive or negative)
 function skipShadowingAudio(sourceType, weekKey, scriptNum, seconds) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
-    if (!audioElement || !audioElement.duration) return;
-    
-    const newTime = Math.max(0, Math.min(audioElement.duration, audioElement.currentTime + seconds));
-    audioElement.currentTime = newTime;
-    
-    // Update progress bar and playhead immediately
-    const percent = newTime / audioElement.duration;
-    updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent);
-    
-    // Update time display
-    const timeDisplay = document.getElementById(`time-${sourceType}-${weekKey}-${scriptNum}`);
-    if (timeDisplay) {
-        updateTimeDisplay(audioElement, timeDisplay);
+    const player = getAudioPlayer(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
+    if (player) {
+        player.skip(seconds);
     }
 }
 
-// Update progress bar and playhead for shadowing practice
-function updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent) {
-    const progressBar = document.getElementById(`progress-${sourceType}-${weekKey}-${scriptNum}`);
-    const playhead = document.getElementById(`playhead-${sourceType}-${weekKey}-${scriptNum}`);
-    
-    if (progressBar) {
-        progressBar.style.width = (percent * 100) + '%';
-    }
-    if (playhead) {
-        playhead.style.left = (percent * 100) + '%';
-    }
-}
+// formatTime and updateTimeDisplay (moved to top of file, see lines 151 and 159)
 
-// Handle dragging for shadowing practice audio
-function setupShadowingAudioDrag(sourceType, weekKey, scriptNum) {
-    const container = document.querySelector(`#controls-${sourceType}-${weekKey}-${scriptNum} .progress-bar-container`);
-    const playhead = document.getElementById(`playhead-${sourceType}-${weekKey}-${scriptNum}`);
-    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
-    
-    if (!container || !audioElement) return;
-    
-    let isDragging = false;
-    
-    const handleMove = (clientX) => {
-        if (!audioElement.duration) return;
-        const rect = container.getBoundingClientRect();
-        const x = clientX - rect.left;
-        const percent = Math.max(0, Math.min(1, x / rect.width));
-        audioElement.currentTime = percent * audioElement.duration;
-        updateShadowingProgressBar(sourceType, weekKey, scriptNum, percent);
-    };
-    
-    const startDrag = (e) => {
-        isDragging = true;
-        if (playhead) {
-            playhead.style.transition = 'none';
-        }
-        handleMove(e.clientX);
-        e.preventDefault();
-        e.stopPropagation();
-    };
-    
-    // Make playhead draggable
-    if (playhead) {
-        playhead.addEventListener('mousedown', (e) => {
-            startDrag(e);
-        });
-    }
-    
-    // Make container draggable
-    container.addEventListener('mousedown', (e) => {
-        startDrag(e);
-    });
-    
-    document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            handleMove(e.clientX);
-        }
-    });
-    
-    document.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            if (playhead) {
-                playhead.style.transition = 'left 0.1s linear';
-            }
-        }
-    });
-}
-
-function updateTimeDisplay(audioElement, timeDisplay) {
-    if (!timeDisplay || !audioElement.duration) return;
-    
-    const current = formatTime(audioElement.currentTime);
-    const total = formatTime(audioElement.duration);
-    // Explicitly style the colon to prevent blue dot rendering issue
-    const currentParts = current.split(':');
-    const totalParts = total.split(':');
-    timeDisplay.innerHTML = `<span>${currentParts[0]}</span><span style="color: #666;">:</span><span>${currentParts[1]}</span> <span style="color: #666;">/</span> <span>${totalParts[0]}</span><span style="color: #666;">:</span><span>${totalParts[1]}</span>`;
-}
-
-// Set playback speed for audio player
-function setPlaybackSpeed(sourceType, weekKey, scriptNum, speed) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
-    if (audioElement) {
-        const speedValue = parseFloat(speed) || 1.0;
-        audioElement.playbackRate = speedValue;
-    }
-}
-
-function formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-}
+/**
+ * Unified AudioPlayer class (moved to top of file, see line 27)
+ * Create and register an audio player instance (moved to top of file, see line 218)
+ * Get an audio player instance (moved to top of file, see line 260)
+ */
 
 // Best Answer Audio Player Functions (for shadowing mode)
 function toggleBestAnswerPlayPause(sourceType, weekKey) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
-    if (!audioElement) return;
+    const player = getAudioPlayer(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    if (!player) return;
     
-    if (audioElement.paused) {
-        // Pause other audio sources
+    // Pause other audio source when playing this one
+    if (player.audioElement.paused) {
         const otherSource = sourceType === 'typecast' ? 'openai' : 'typecast';
-        const otherAudio = document.getElementById(`audio-player-${otherSource}-best-answer-${weekKey}`);
-        if (otherAudio && !otherAudio.paused) {
-            otherAudio.pause();
-            updateBestAnswerPlayPauseButton(otherSource, weekKey);
+        const otherPlayer = getAudioPlayer(`audio-player-${otherSource}-best-answer-${weekKey}`);
+        if (otherPlayer && !otherPlayer.audioElement.paused) {
+            otherPlayer.audioElement.pause();
         }
-        audioElement.play();
-    } else {
-        audioElement.pause();
     }
-    updateBestAnswerPlayPauseButton(sourceType, weekKey);
-}
-
-function updateBestAnswerPlayPauseButton(sourceType, weekKey) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
-    const playPauseBtn = document.querySelector(`#controls-${sourceType}-best-answer-${weekKey} .play-pause-btn`);
-    if (playPauseBtn && audioElement) {
-        playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-    }
+    
+    player.togglePlayPause();
 }
 
 function skipBestAnswerAudio(sourceType, weekKey, seconds) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
-    if (!audioElement || !audioElement.duration) return;
-    
-    const newTime = Math.max(0, Math.min(audioElement.duration, audioElement.currentTime + seconds));
-    audioElement.currentTime = newTime;
-    
-    // Update progress bar
-    const progressBar = document.getElementById(`progress-${sourceType}-best-answer-${weekKey}`);
-    const playhead = document.getElementById(`playhead-${sourceType}-best-answer-${weekKey}`);
-    if (progressBar && audioElement.duration) {
-        const percent = newTime / audioElement.duration;
-        progressBar.style.width = (percent * 100) + '%';
-        if (playhead) {
-            playhead.style.left = (percent * 100) + '%';
-        }
-    }
-    
-    // Update time display
-    const timeDisplay = document.getElementById(`time-${sourceType}-best-answer-${weekKey}`);
-    if (timeDisplay) {
-        updateTimeDisplay(audioElement, timeDisplay);
+    const player = getAudioPlayer(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    if (player) {
+        player.skip(seconds);
     }
 }
 
 function seekBestAnswerAudio(sourceType, weekKey, event) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
-    const container = event.currentTarget;
-    if (!audioElement || !audioElement.duration || !container) return;
-    
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const percent = Math.max(0, Math.min(1, x / rect.width));
-    audioElement.currentTime = percent * audioElement.duration;
-    
-    // Update progress bar
-    const progressBar = document.getElementById(`progress-${sourceType}-best-answer-${weekKey}`);
-    const playhead = document.getElementById(`playhead-${sourceType}-best-answer-${weekKey}`);
-    if (progressBar) {
-        progressBar.style.width = (percent * 100) + '%';
-    }
-    if (playhead) {
-        playhead.style.left = (percent * 100) + '%';
-    }
-    
-    // Update time display
-    const timeDisplay = document.getElementById(`time-${sourceType}-best-answer-${weekKey}`);
-    if (timeDisplay) {
-        updateTimeDisplay(audioElement, timeDisplay);
+    const player = getAudioPlayer(`audio-player-${sourceType}-best-answer-${weekKey}`);
+    if (player) {
+        player.seek(event);
     }
 }
 
@@ -4413,205 +4735,33 @@ async function generateBestAnswerAudio(weekKey, buttonElement) {
 
 // Set up audio controls for best answer audio player
 function setupBestAnswerAudioControls(sourceType, weekKey) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
-    const playPauseBtn = document.querySelector(`#controls-${sourceType}-best-answer-${weekKey} .play-pause-btn`);
-    const progressBar = document.getElementById(`progress-${sourceType}-best-answer-${weekKey}`);
-    const timeDisplay = document.getElementById(`time-${sourceType}-best-answer-${weekKey}`);
-    
-    if (!audioElement) return;
-    
-    // Set up drag functionality
-    setupBestAnswerAudioDrag(sourceType, weekKey);
-    
-    // Update play/pause button
-    function updatePlayPauseButton() {
-        if (playPauseBtn) {
-            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-        }
-    }
-    
-    // Update progress bar
-    function updateProgressBar() {
-        if (progressBar && audioElement.duration) {
-            const percent = (audioElement.currentTime / audioElement.duration) * 100;
-            progressBar.style.width = percent + '%';
-            
-            // Update playhead position
-            const playheadId = progressBar.id.replace('progress-', 'playhead-');
-            const playhead = document.getElementById(playheadId);
-            if (playhead) {
-                playhead.style.left = percent + '%';
-            }
-        }
-    }
-    
-    // Update time display
-    function updateTimeDisplayFunc() {
-        if (timeDisplay && audioElement.duration) {
-            updateTimeDisplay(audioElement, timeDisplay);
-        }
-    }
-    
-    // Event listeners
-    audioElement.addEventListener('timeupdate', () => {
-        updateProgressBar();
-        updateTimeDisplayFunc();
+    createAudioPlayer({
+        audioId: `audio-player-${sourceType}-best-answer-${weekKey}`,
+        controlsId: `controls-${sourceType}-best-answer-${weekKey}`,
+        progressId: `progress-${sourceType}-best-answer-${weekKey}`,
+        playheadId: `playhead-${sourceType}-best-answer-${weekKey}`,
+        timeDisplayId: `time-${sourceType}-best-answer-${weekKey}`,
+        initialSpeed: 1.0
     });
-    
-    audioElement.addEventListener('loadedmetadata', () => {
-        updateTimeDisplayFunc();
-    });
-    
-    audioElement.addEventListener('play', updatePlayPauseButton);
-    audioElement.addEventListener('pause', updatePlayPauseButton);
-    
-    // Initial update
-    updatePlayPauseButton();
-    updateTimeDisplayFunc();
-}
-
-// Set up drag functionality for best answer audio
-function setupBestAnswerAudioDrag(sourceType, weekKey) {
-    const container = document.querySelector(`#controls-${sourceType}-best-answer-${weekKey} .progress-bar-container`);
-    const playhead = document.getElementById(`playhead-${sourceType}-best-answer-${weekKey}`);
-    const audioElement = document.getElementById(`audio-player-${sourceType}-best-answer-${weekKey}`);
-    
-    if (!container || !audioElement) return;
-    
-    let isDragging = false;
-    
-    const handleMove = (clientX) => {
-        if (!audioElement.duration) return;
-        const rect = container.getBoundingClientRect();
-        const x = clientX - rect.left;
-        const percent = Math.max(0, Math.min(1, x / rect.width));
-        audioElement.currentTime = percent * audioElement.duration;
-        updateBestAnswerProgressBar(sourceType, weekKey, percent);
-    };
-    
-    const startDrag = (e) => {
-        isDragging = true;
-        if (playhead) {
-            playhead.style.transition = 'none';
-        }
-        handleMove(e.clientX);
-        e.preventDefault();
-        e.stopPropagation();
-    };
-    
-    // Make playhead draggable
-    if (playhead) {
-        playhead.addEventListener('mousedown', (e) => {
-            startDrag(e);
-        });
-    }
-    
-    // Make container draggable
-    container.addEventListener('mousedown', (e) => {
-        startDrag(e);
-    });
-    
-    document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            handleMove(e.clientX);
-        }
-    });
-    
-    document.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            if (playhead) {
-                playhead.style.transition = 'left 0.1s linear';
-            }
-        }
-    });
-}
-
-// Update progress bar for best answer audio
-function updateBestAnswerProgressBar(sourceType, weekKey, percent) {
-    const progressBar = document.getElementById(`progress-${sourceType}-best-answer-${weekKey}`);
-    const playhead = document.getElementById(`playhead-${sourceType}-best-answer-${weekKey}`);
-    
-    if (progressBar) {
-        progressBar.style.width = (percent * 100) + '%';
-    }
-    if (playhead) {
-        playhead.style.left = (percent * 100) + '%';
-    }
 }
 
 // Set up audio controls event listeners for shadowing practice
 function setupShadowingAudioControls(sourceType, weekKey, scriptNum) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
-    const playPauseBtn = document.querySelector(`#controls-${sourceType}-${weekKey}-${scriptNum} .play-pause-btn`);
-    const progressBar = document.getElementById(`progress-${sourceType}-${weekKey}-${scriptNum}`);
-    const timeDisplay = document.getElementById(`time-${sourceType}-${weekKey}-${scriptNum}`);
-    
-    if (!audioElement) return;
-    
     // Restore saved playback speed for typecast audio
+    let initialSpeed = 1.0;
     if (sourceType === 'typecast') {
-        const savedSpeed = parseFloat(localStorage.getItem(`shadowing_typecast_speed_${weekKey}_${scriptNum}`)) || 1.0;
-        audioElement.playbackRate = savedSpeed;
-        updateShadowingTypecastSpeedButtonStyles(weekKey, scriptNum, savedSpeed);
+        initialSpeed = parseFloat(localStorage.getItem(`shadowing_typecast_speed_${weekKey}_${scriptNum}`)) || 1.0;
+        updateShadowingTypecastSpeedButtonStyles(weekKey, scriptNum, initialSpeed);
     }
     
-    // Set up drag functionality
-    setupShadowingAudioDrag(sourceType, weekKey, scriptNum);
-    
-    // Update play/pause button
-    function updatePlayPauseButton() {
-        if (playPauseBtn) {
-            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-        }
-    }
-    
-    // Update progress bar
-    function updateProgressBar() {
-        if (progressBar && audioElement.duration) {
-            const percent = (audioElement.currentTime / audioElement.duration) * 100;
-            progressBar.style.width = percent + '%';
-            
-            // Update playhead position
-            const playheadId = progressBar.id.replace('progress-', 'playhead-');
-            const playhead = document.getElementById(playheadId);
-            if (playhead) {
-                playhead.style.left = percent + '%';
-            }
-        }
-    }
-    
-    // Update time display
-    function updateTimeDisplayFunc() {
-        if (timeDisplay && audioElement.duration) {
-            updateTimeDisplay(audioElement, timeDisplay);
-        }
-    }
-    
-    // Event listeners
-    audioElement.addEventListener('play', updatePlayPauseButton);
-    audioElement.addEventListener('pause', updatePlayPauseButton);
-    audioElement.addEventListener('timeupdate', () => {
-        updateProgressBar();
-        updateTimeDisplayFunc();
+    createAudioPlayer({
+        audioId: `audio-player-${sourceType}-${weekKey}-${scriptNum}`,
+        controlsId: `controls-${sourceType}-${weekKey}-${scriptNum}`,
+        progressId: `progress-${sourceType}-${weekKey}-${scriptNum}`,
+        playheadId: `playhead-${sourceType}-${weekKey}-${scriptNum}`,
+        timeDisplayId: `time-${sourceType}-${weekKey}-${scriptNum}`,
+        initialSpeed: initialSpeed
     });
-    audioElement.addEventListener('loadedmetadata', () => {
-        updateTimeDisplayFunc();
-    });
-    
-    // Initial update
-    updatePlayPauseButton();
-    updateProgressBar();
-    updateTimeDisplayFunc();
-}
-
-// Update play/pause button for shadowing practice (called from togglePlayPause)
-function updateShadowingPlayPauseButton(sourceType, weekKey, scriptNum) {
-    const audioElement = document.getElementById(`audio-player-${sourceType}-${weekKey}-${scriptNum}`);
-    const playPauseBtn = document.querySelector(`#controls-${sourceType}-${weekKey}-${scriptNum} .play-pause-btn`);
-    if (audioElement && playPauseBtn) {
-        playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-    }
 }
 
 // Set up all shadowing practice audio controls on page load
@@ -4633,366 +4783,35 @@ function setupAllShadowingAudioControls() {
     
 }
 
-// Shadowing Practice Audio Controls
-function setShadowingTypecastSpeed(weekKey, scriptNum, speed) {
-    const audioElement = document.getElementById(`audio-player-typecast-${weekKey}-${scriptNum}`);
-    if (audioElement) {
-        const speedValue = parseFloat(speed) || 1.0;
-        audioElement.playbackRate = speedValue;
-        localStorage.setItem(`shadowing_typecast_speed_${weekKey}_${scriptNum}`, speedValue);
-        updateShadowingTypecastSpeedButtonStyles(weekKey, scriptNum, speedValue);
-    }
-}
+// Shadowing Practice Audio Controls (moved to top of file)
+// setShadowingTypecastSpeed (see line 854)
+// updateShadowingTypecastSpeedButtonStyles (see line 863)
 
-function updateShadowingTypecastSpeedButtonStyles(weekKey, scriptNum, activeSpeed) {
-    const scriptContent = document.getElementById(`script-${weekKey}-${scriptNum}`);
-    if (!scriptContent) return;
-    
-    const buttons = scriptContent.querySelectorAll('.speed-btn');
-    buttons.forEach(btn => {
-        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
-        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
-            btn.style.background = '#4a90e2';
-            btn.style.color = '#fff';
-            btn.style.borderColor = '#4a90e2';
-        } else {
-            btn.style.background = '#fff';
-            btn.style.color = '#333';
-            btn.style.borderColor = '#ddd';
-        }
-    });
-}
-
-// Podcast Shadowing Audio Controls
-function setPodcastShadowingSpeed(weekKey, speed) {
-    const audioElement = document.getElementById(`audio-player-podcast-shadowing-${weekKey}`);
-    if (audioElement) {
-        const speedValue = parseFloat(speed) || 1.0;
-        audioElement.playbackRate = speedValue;
-        localStorage.setItem(`podcast_shadowing_speed_${weekKey}`, speedValue);
-        updatePodcastShadowingSpeedButtonStyles(weekKey, speedValue);
-    }
-}
-
-function updatePodcastShadowingSpeedButtonStyles(weekKey, activeSpeed) {
-    const buttons = document.querySelectorAll(`#podcast-script-${weekKey}-1 .speed-btn`);
-    buttons.forEach(btn => {
-        const btnSpeed = parseFloat(btn.getAttribute('data-speed') || btn.textContent.replace('x', ''));
-        if (Math.abs(btnSpeed - activeSpeed) < 0.01) {
-            btn.style.background = '#4a90e2';
-            btn.style.color = '#fff';
-            btn.style.borderColor = '#4a90e2';
-        } else {
-            btn.style.background = '#fff';
-            btn.style.color = '#333';
-            btn.style.borderColor = '#ddd';
-        }
-    });
-}
-
-function togglePodcastShadowingPlayPause(weekKey) {
-    const audioElement = document.getElementById(`audio-player-podcast-shadowing-${weekKey}`);
-    if (!audioElement) return;
-    
-    if (audioElement.paused) {
-        audioElement.play();
-    } else {
-        audioElement.pause();
-    }
-    
-    updatePodcastShadowingPlayPauseButton(weekKey);
-}
-
-function updatePodcastShadowingPlayPauseButton(weekKey) {
-    const audioElement = document.getElementById(`audio-player-podcast-shadowing-${weekKey}`);
-    if (!audioElement) return;
-    
-    const controls = document.getElementById(`controls-podcast-shadowing-${weekKey}`);
-    if (controls) {
-        const playPauseBtn = controls.querySelector('.play-pause-btn');
-        if (playPauseBtn) {
-            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-        }
-    }
-}
-
-function seekPodcastShadowingAudio(weekKey, event) {
-    const audioElement = document.getElementById(`audio-player-podcast-shadowing-${weekKey}`);
-    const container = event.currentTarget || event.target.closest('.progress-bar-container');
-    if (!audioElement || !container || !audioElement.duration) return;
-    
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const percent = Math.max(0, Math.min(1, x / rect.width));
-    audioElement.currentTime = percent * audioElement.duration;
-    
-    updatePodcastShadowingProgressBar(weekKey, percent);
-}
-
-function skipPodcastShadowingAudio(weekKey, seconds) {
-    const audioElement = document.getElementById(`audio-player-podcast-shadowing-${weekKey}`);
-    if (!audioElement || !audioElement.duration) return;
-    
-    const newTime = Math.max(0, Math.min(audioElement.duration, audioElement.currentTime + seconds));
-    audioElement.currentTime = newTime;
-    
-    const percent = newTime / audioElement.duration;
-    updatePodcastShadowingProgressBar(weekKey, percent);
-    
-    const timeDisplay = document.getElementById(`time-podcast-shadowing-${weekKey}`);
-    if (timeDisplay) {
-        updateTimeDisplay(audioElement, timeDisplay);
-    }
-}
-
-function updatePodcastShadowingProgressBar(weekKey, percent) {
-    const progressBar = document.getElementById(`progress-podcast-shadowing-${weekKey}`);
-    const playhead = document.getElementById(`playhead-podcast-shadowing-${weekKey}`);
-    
-    if (progressBar) {
-        progressBar.style.width = (percent * 100) + '%';
-    }
-    if (playhead) {
-        playhead.style.left = (percent * 100) + '%';
-    }
-}
-
-function setupPodcastShadowingAudioDrag(weekKey) {
-    const container = document.querySelector(`#controls-podcast-shadowing-${weekKey} .progress-bar-container`);
-    const playhead = document.getElementById(`playhead-podcast-shadowing-${weekKey}`);
-    const audioElement = document.getElementById(`audio-player-podcast-shadowing-${weekKey}`);
-    
-    if (!container || !audioElement) return;
-    
-    let isDragging = false;
-    
-    const handleMove = (clientX) => {
-        if (!audioElement.duration) return;
-        const rect = container.getBoundingClientRect();
-        const x = clientX - rect.left;
-        const percent = Math.max(0, Math.min(1, x / rect.width));
-        audioElement.currentTime = percent * audioElement.duration;
-        updatePodcastShadowingProgressBar(weekKey, percent);
-    };
-    
-    const startDrag = (e) => {
-        isDragging = true;
-        if (playhead) {
-            playhead.style.transition = 'none';
-        }
-        handleMove(e.clientX);
-        e.preventDefault();
-        e.stopPropagation();
-    };
-    
-    if (playhead) {
-        playhead.addEventListener('mousedown', (e) => {
-            startDrag(e);
-        });
-    }
-    
-    container.addEventListener('mousedown', (e) => {
-        startDrag(e);
-    });
-    
-    document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            handleMove(e.clientX);
-        }
-    });
-    
-    document.addEventListener('mouseup', () => {
-        if (isDragging) {
-            isDragging = false;
-            if (playhead) {
-                playhead.style.transition = 'left 0.1s linear';
-            }
-        }
-    });
-}
+// Podcast Shadowing Audio Controls (moved to top of file)
+// setPodcastShadowingSpeed (see line 901)
+// updatePodcastShadowingSpeedButtonStyles (see line 910)
+// togglePodcastShadowingPlayPause (see line 880)
+// seekPodcastShadowingAudio (see line 887)
+// skipPodcastShadowingAudio (see line 894)
 
 function setupPodcastShadowingAudioControls(weekKey, initialSpeed) {
-    const audioElement = document.getElementById(`audio-player-podcast-shadowing-${weekKey}`);
-    const playPauseBtn = document.querySelector(`#controls-podcast-shadowing-${weekKey} .play-pause-btn`);
-    const progressBar = document.getElementById(`progress-podcast-shadowing-${weekKey}`);
-    const timeDisplay = document.getElementById(`time-podcast-shadowing-${weekKey}`);
-    
-    if (!audioElement) return;
-    
-    setupPodcastShadowingAudioDrag(weekKey);
-    
-    if (initialSpeed) {
-        audioElement.playbackRate = initialSpeed;
-    }
-    
-    function updatePlayPauseButton() {
-        if (playPauseBtn) {
-            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-        }
-    }
-    
-    function updateProgressBar() {
-        if (progressBar && audioElement.duration) {
-            const percent = (audioElement.currentTime / audioElement.duration) * 100;
-            progressBar.style.width = percent + '%';
-            
-            const playheadId = progressBar.id.replace('progress-', 'playhead-');
-            const playhead = document.getElementById(playheadId);
-            if (playhead) {
-                playhead.style.left = percent + '%';
-            }
-        }
-    }
-    
-    function updateTimeDisplayFunc() {
-        if (timeDisplay && audioElement.duration) {
-            updateTimeDisplay(audioElement, timeDisplay);
-        }
-    }
-    
-    audioElement.addEventListener('play', updatePlayPauseButton);
-    audioElement.addEventListener('pause', updatePlayPauseButton);
-    audioElement.addEventListener('timeupdate', () => {
-        updateProgressBar();
-        updateTimeDisplayFunc();
-    });
-    audioElement.addEventListener('loadedmetadata', () => {
-        updateTimeDisplayFunc();
-    });
-    
-    updatePlayPauseButton();
-}
-
-// Podcast Typecast Audio Controls
-function togglePodcastTypecastPlayPause(weekKey) {
-    const audioElement = document.getElementById(`audio-player-typecast-podcast-${weekKey}`);
-    if (!audioElement) return;
-    
-    if (audioElement.paused) {
-        audioElement.play();
-    } else {
-        audioElement.pause();
-    }
-    
-    updatePodcastTypecastPlayPauseButton(weekKey);
-}
-
-function updatePodcastTypecastPlayPauseButton(weekKey) {
-    const audioElement = document.getElementById(`audio-player-typecast-podcast-${weekKey}`);
-    if (!audioElement) return;
-    
-    const controls = document.getElementById(`controls-typecast-podcast-${weekKey}`);
-    if (controls) {
-        const playPauseBtn = controls.querySelector('.play-pause-btn');
-        if (playPauseBtn) {
-            playPauseBtn.textContent = audioElement.paused ? '▶' : '⏸';
-        }
-    }
-}
-
-function seekPodcastTypecastAudio(weekKey, event) {
-    const audioElement = document.getElementById(`audio-player-typecast-podcast-${weekKey}`);
-    const container = event.currentTarget || event.target.closest('.progress-bar-container');
-    if (!audioElement || !container || !audioElement.duration) return;
-    
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const percent = Math.max(0, Math.min(1, x / rect.width));
-    audioElement.currentTime = percent * audioElement.duration;
-    
-    updatePodcastTypecastProgressBar(weekKey, percent);
-}
-
-function skipPodcastTypecastAudio(weekKey, seconds) {
-    const audioElement = document.getElementById(`audio-player-typecast-podcast-${weekKey}`);
-    if (!audioElement || !audioElement.duration) return;
-    
-    const newTime = Math.max(0, Math.min(audioElement.duration, audioElement.currentTime + seconds));
-    audioElement.currentTime = newTime;
-    
-    const percent = newTime / audioElement.duration;
-    updatePodcastTypecastProgressBar(weekKey, percent);
-    
-    const timeDisplay = document.getElementById(`time-typecast-podcast-${weekKey}`);
-    if (timeDisplay) {
-        updateTimeDisplay(audioElement, timeDisplay);
-    }
-}
-
-function updatePodcastTypecastProgressBar(weekKey, percent) {
-    const progressBar = document.getElementById(`progress-typecast-podcast-${weekKey}`);
-    const playhead = document.getElementById(`playhead-typecast-podcast-${weekKey}`);
-    
-    if (progressBar) {
-        progressBar.style.width = (percent * 100) + '%';
-    }
-    if (playhead) {
-        playhead.style.left = (percent * 100) + '%';
-    }
-}
-
-function setPodcastTypecastSpeed(weekKey, speed) {
-    const audioElement = document.getElementById(`audio-player-typecast-podcast-${weekKey}`);
-    if (!audioElement) return;
-    
-    const speedValue = parseFloat(speed);
-    audioElement.playbackRate = speedValue;
-    localStorage.setItem(`podcast_typecast_speed_${weekKey}`, speedValue);
-    updatePodcastTypecastSpeedButtonStyles(weekKey, speedValue);
-}
-
-function updatePodcastTypecastSpeedButtonStyles(weekKey, activeSpeed) {
-    // Find all speed buttons for this week's typecast player
-    const container = document.getElementById(`podcast-script-${weekKey}-2`);
-    if (!container) return;
-    
-    const speedButtons = container.querySelectorAll(`[onclick*="setPodcastTypecastSpeed('${weekKey}'"]`);
-    speedButtons.forEach(btn => {
-        const speed = parseFloat(btn.getAttribute('data-speed'));
-        if (Math.abs(speed - activeSpeed) < 0.01) { // Use small epsilon for float comparison
-            btn.style.background = '#4a90e2';
-            btn.style.color = '#fff';
-            btn.style.borderColor = '#4a90e2';
-        } else {
-            btn.style.background = '#fff';
-            btn.style.color = '#333';
-            btn.style.borderColor = '#ddd';
-        }
+    createAudioPlayer({
+        audioId: `audio-player-podcast-shadowing-${weekKey}`,
+        controlsId: `controls-podcast-shadowing-${weekKey}`,
+        progressId: `progress-podcast-shadowing-${weekKey}`,
+        playheadId: `playhead-podcast-shadowing-${weekKey}`,
+        timeDisplayId: `time-podcast-shadowing-${weekKey}`,
+        initialSpeed: initialSpeed || 1.0
     });
 }
 
-function setupPodcastTypecastAudioControls(weekKey) {
-    const audioElement = document.getElementById(`audio-player-typecast-podcast-${weekKey}`);
-    if (!audioElement) return;
-    
-    // Load saved speed or default to 1.0
-    const savedSpeed = parseFloat(localStorage.getItem(`podcast_typecast_speed_${weekKey}`)) || 1.0;
-    audioElement.playbackRate = savedSpeed;
-    updatePodcastTypecastSpeedButtonStyles(weekKey, savedSpeed);
-    
-    audioElement.addEventListener('play', () => updatePodcastTypecastPlayPauseButton(weekKey));
-    audioElement.addEventListener('pause', () => updatePodcastTypecastPlayPauseButton(weekKey));
-    
-    audioElement.addEventListener('timeupdate', () => {
-        if (audioElement.duration) {
-            const percent = audioElement.currentTime / audioElement.duration;
-            updatePodcastTypecastProgressBar(weekKey, percent);
-            
-            const timeDisplay = document.getElementById(`time-typecast-podcast-${weekKey}`);
-            if (timeDisplay) {
-                updateTimeDisplay(audioElement, timeDisplay);
-            }
-        }
-    });
-    
-    audioElement.addEventListener('loadedmetadata', () => {
-        const timeDisplay = document.getElementById(`time-typecast-podcast-${weekKey}`);
-        if (timeDisplay) {
-            updateTimeDisplay(audioElement, timeDisplay);
-        }
-    });
-}
-
+// Podcast Typecast Audio Controls (moved to top of file)
+// togglePodcastTypecastPlayPause (see line 926)
+// seekPodcastTypecastAudio (see line 933)
+// skipPodcastTypecastAudio (see line 940)
+// setPodcastTypecastSpeed (see line 947)
+// updatePodcastTypecastSpeedButtonStyles (see line 956)
+// togglePodcastTypecastRegenOptions (see line 972)
 function togglePodcastTypecastRegenOptions(weekKey, event) {
     if (event) event.stopPropagation();
     const dropdown = document.getElementById(`audio-regen-podcast-typecast-${weekKey}`);
@@ -5098,9 +4917,21 @@ async function generatePodcastTypecastAudio(weekKey, buttonElement) {
 
 async function loadPodcastShadowingTranscript(weekKey) {
     const transcriptElement = document.getElementById(`podcast-shadowing-transcript-${weekKey}`);
-    if (!transcriptElement) return;
+    if (!transcriptElement) {
+        console.warn('Transcript element not found:', `podcast-shadowing-transcript-${weekKey}`);
+        return;
+    }
     
     try {
+        // Get current activity progress to ensure we're loading the right transcript
+        const activityProgress = getActivityProgress('podcast_shadowing');
+        console.log('Loading transcript with activity progress:', {
+            week_key: weekKey,
+            mp3_file: activityProgress?.mp3_file,
+            episode_name: activityProgress?.episode_name,
+            chapter_name: activityProgress?.chapter_name
+        });
+        
         const response = await fetch('/api/podcast-shadowing/transcript', {
             method: 'POST',
             headers: {
@@ -5120,8 +4951,10 @@ async function loadPodcastShadowingTranscript(weekKey) {
         
         const data = await response.json();
         if (data.success && data.transcript) {
+            console.log('Transcript loaded successfully, length:', data.transcript.length);
             transcriptElement.textContent = data.transcript;
         } else {
+            console.warn('No transcript in response:', data);
             transcriptElement.innerHTML = '<div style="color: #999; font-style: italic;">No transcript available</div>';
         }
     } catch (error) {

@@ -1,0 +1,612 @@
+{
+  "videos": [
+    {
+      "video_id": "4ef0juAMqoE",
+      "video_title": "Brian Chesky’s new playbook",
+      "chapters": [
+        {
+          "chapter_index": 1,
+          "title": "Brian’s background",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter1_Brians_background_formatted.txt",
+          "start_time": 0,
+          "end_time": 318,
+          "audio_filename": "4ef0juAMqoE_0_318.mp3"
+        },
+        {
+          "chapter_index": 2,
+          "title": "The current structure of product management at Airbnb",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter2_Why_Airbnb_no_longer_has_separate_guest_and_host_t_formatted.txt",
+          "start_time": 318,
+          "end_time": 561,
+          "audio_filename": "4ef0juAMqoE_318_561.mp3"
+        },
+        {
+          "chapter_index": 3,
+          "title": "How fast-moving companies become slow-moving bureaucracies",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter3_Why_Brian_says_he_still_has_a_lot_to_prove_formatted.txt",
+          "start_time": 561,
+          "end_time": 740,
+          "audio_filename": "4ef0juAMqoE_561_740.mp3"
+        },
+        {
+          "chapter_index": 4,
+          "title": "Brian’s thoughts on performance marketing",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter4_Paying_it_forward_formatted.txt",
+          "start_time": 740,
+          "end_time": 830,
+          "audio_filename": "4ef0juAMqoE_740_830.mp3"
+        },
+        {
+          "chapter_index": 5,
+          "title": "Airbnb’s rolling two-year roadmap",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter5_A_fun_fact_about_Brian_formatted.txt",
+          "start_time": 830,
+          "end_time": 930,
+          "audio_filename": "4ef0juAMqoE_830_930.mp3"
+        },
+        {
+          "chapter_index": 6,
+          "title": "Brian’s journey as CEO in a growing company",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter6_Airbnbs_origin_story_formatted.txt",
+          "start_time": 930,
+          "end_time": 1114,
+          "audio_filename": "4ef0juAMqoE_930_1114.mp3"
+        },
+        {
+          "chapter_index": 7,
+          "title": "Best practices for A/B testing",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter7_The_current_structure_of_product_management_at_Air_formatted.txt",
+          "start_time": 1114,
+          "end_time": 1230,
+          "audio_filename": "4ef0juAMqoE_1114_1230.mp3"
+        },
+        {
+          "chapter_index": 8,
+          "title": "Who inspired Airbnb’s new direction",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter8_How_fast-moving_companies_become_slow-moving_burea_formatted.txt",
+          "start_time": 1230,
+          "end_time": 1398,
+          "audio_filename": "4ef0juAMqoE_1230_1398.mp3"
+        },
+        {
+          "chapter_index": 9,
+          "title": "The first changes Brian implemented at the onset of the pandemic",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter9_Brians_thoughts_on_performance_marketing_formatted.txt",
+          "start_time": 1398,
+          "end_time": 1491,
+          "audio_filename": "4ef0juAMqoE_1398_1491.mp3"
+        },
+        {
+          "chapter_index": 10,
+          "title": "Why founders should be “in the details”",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter10_Airbnbs_rolling_two-year_roadmap_formatted.txt",
+          "start_time": 1491,
+          "end_time": 1815,
+          "audio_filename": "4ef0juAMqoE_1491_1815.mp3"
+        },
+        {
+          "chapter_index": 11,
+          "title": "Airbnb’s marketing, communication, and creative functions",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter11_Brians_journey_as_CEO_in_a_growing_company_formatted.txt",
+          "start_time": 1815,
+          "end_time": 1898,
+          "audio_filename": "4ef0juAMqoE_1815_1898.mp3"
+        },
+        {
+          "chapter_index": 12,
+          "title": "Advice for founders on how to lead",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter12_Best_practices_for_AB_testing_formatted.txt",
+          "start_time": 1898,
+          "end_time": 2055,
+          "audio_filename": "4ef0juAMqoE_1898_2055.mp3"
+        },
+        {
+          "chapter_index": 13,
+          "title": "Tips for implementing Airbnb’s business methodology",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter13_Who_inspired_Airbnbs_new_direction_formatted.txt",
+          "start_time": 2055,
+          "end_time": 2328,
+          "audio_filename": "4ef0juAMqoE_2055_2328.mp3"
+        },
+        {
+          "chapter_index": 14,
+          "title": "Airbnb’s winter release",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter14_The_first_changes_Brian_implemented_at_the_onset_o_formatted.txt",
+          "start_time": 2328,
+          "end_time": 2507,
+          "audio_filename": "4ef0juAMqoE_2328_2507.mp3"
+        },
+        {
+          "chapter_index": 15,
+          "title": "Why Airbnb no longer has separate guest and host teams",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter15_Why_founders_should_be_in_the_details_formatted.txt",
+          "start_time": 2507,
+          "end_time": 2558,
+          "audio_filename": "4ef0juAMqoE_2507_2558.mp3"
+        },
+        {
+          "chapter_index": 16,
+          "title": "Brian’s thoughts on design trends",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter16_Airbnbs_marketing_communication_and_creative_funct_formatted.txt",
+          "start_time": 2558,
+          "end_time": 2736,
+          "audio_filename": "4ef0juAMqoE_2558_2736.mp3"
+        },
+        {
+          "chapter_index": 17,
+          "title": "The importance of empowering hosts with great tools",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter17_Advice_for_founders_on_how_to_lead_formatted.txt",
+          "start_time": 2736,
+          "end_time": 2757,
+          "audio_filename": "4ef0juAMqoE_2736_2757.mp3"
+        },
+        {
+          "chapter_index": 18,
+          "title": "How setting ambitious goals improves team performance",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter18_Tips_for_implementing_Airbnbs_business_methodology_formatted.txt",
+          "start_time": 2757,
+          "end_time": 3005,
+          "audio_filename": "4ef0juAMqoE_2757_3005.mp3"
+        },
+        {
+          "chapter_index": 19,
+          "title": "Tips for preventing burnout",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter19_Airbnbs_winter_release_formatted.txt",
+          "start_time": 3005,
+          "end_time": 3362,
+          "audio_filename": "4ef0juAMqoE_3005_3362.mp3"
+        },
+        {
+          "chapter_index": 20,
+          "title": "Tips for personal and professional growth",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter20_Brians_thoughts_on_design_trends_formatted.txt",
+          "start_time": 3362,
+          "end_time": 3499,
+          "audio_filename": "4ef0juAMqoE_3362_3499.mp3"
+        },
+        {
+          "chapter_index": 21,
+          "title": "Why Brian says he still has a lot to prove",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter21_The_importance_of_empowering_hosts_with_great_tool_formatted.txt",
+          "start_time": 3499,
+          "end_time": 3778,
+          "audio_filename": "4ef0juAMqoE_3499_3778.mp3"
+        },
+        {
+          "chapter_index": 22,
+          "title": "Paying it forward",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter22_How_setting_ambitious_goals_improves_team_performa_formatted.txt",
+          "start_time": 3778,
+          "end_time": 3903,
+          "audio_filename": "4ef0juAMqoE_3778_3903.mp3"
+        },
+        {
+          "chapter_index": 23,
+          "title": "A fun fact about Brian",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter23_Tips_for_preventing_burnout_formatted.txt",
+          "start_time": 3903,
+          "end_time": 4166,
+          "audio_filename": "4ef0juAMqoE_3903_4166.mp3"
+        },
+        {
+          "chapter_index": 24,
+          "title": "Airbnb’s origin story",
+          "transcript_path": "test_data/transcripts_large/4ef0juAMqoE_chapter24_Tips_for_personal_and_professional_growth_formatted.txt",
+          "start_time": 4166,
+          "end_time": 4408,
+          "audio_filename": "4ef0juAMqoE_4166_4408.mp3"
+        }
+      ]
+    },
+    {
+      "video_id": "YP_QghPLG-8",
+      "video_title": "The art of product management | Shreyas Doshi (Stripe, Twitter, Google, Yahoo)",
+      "chapters": [
+        {
+          "chapter_index": 1,
+          "title": "Shreyas’ upbringing and path into product management",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter1_Shreyas_upbringing_and_path_into_product_managemen_formatted.txt",
+          "start_time": 0,
+          "end_time": 862,
+          "audio_filename": "YP_QghPLG-8_0_862.mp3"
+        },
+        {
+          "chapter_index": 2,
+          "title": "Lessons from working at Stripe, Twitter, Google, and Yahoo",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter2_What_is_opportunity-cost_thinking_and_how_can_you__formatted.txt",
+          "start_time": 862,
+          "end_time": 1632,
+          "audio_filename": "YP_QghPLG-8_862_1632.mp3"
+        },
+        {
+          "chapter_index": 3,
+          "title": "How pre-mortem meetings impacted the culture at Stripe",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter3_Lessons_from_working_at_Stripe_Twitter_Google_and__formatted.txt",
+          "start_time": 1632,
+          "end_time": 2003,
+          "audio_filename": "YP_QghPLG-8_1632_2003.mp3"
+        },
+        {
+          "chapter_index": 4,
+          "title": "What are the best practices in running a pre-mortem meeting?",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter4_How_pre-mortem_meetings_impacted_the_culture_at_St_formatted.txt",
+          "start_time": 2003,
+          "end_time": 2367,
+          "audio_filename": "YP_QghPLG-8_2003_2367.mp3"
+        },
+        {
+          "chapter_index": 5,
+          "title": "The LNO framework: What is it and how did it change the way Shreyas went about his day?",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter5_What_are_the_best_practices_in_running_a_pre-morte_formatted.txt",
+          "start_time": 2367,
+          "end_time": 2886,
+          "audio_filename": "YP_QghPLG-8_2367_2886.mp3"
+        },
+        {
+          "chapter_index": 6,
+          "title": "The two-step tactic you can apply to overcome procrastination on important tasks",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter6_The_LNO_framework_What_is_it_and_how_did_it_change_formatted.txt",
+          "start_time": 2886,
+          "end_time": 3199,
+          "audio_filename": "YP_QghPLG-8_2886_3199.mp3"
+        },
+        {
+          "chapter_index": 7,
+          "title": "The three levels of product work and which level should you optimize for",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter7_The_two-step_tactic_you_can_apply_to_overcome_proc_formatted.txt",
+          "start_time": 3199,
+          "end_time": 3406,
+          "audio_filename": "YP_QghPLG-8_3199_3406.mp3"
+        },
+        {
+          "chapter_index": 8,
+          "title": "How might these product work levels cause conflict or influence your company culture?",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter8_The_three_levels_of_product_work_and_which_level_s_formatted.txt",
+          "start_time": 3406,
+          "end_time": 3823,
+          "audio_filename": "YP_QghPLG-8_3406_3823.mp3"
+        },
+        {
+          "chapter_index": 9,
+          "title": "Common types of problems hiding behind the execution label",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter9_How_might_these_product_work_levels_cause_conflict_formatted.txt",
+          "start_time": 3823,
+          "end_time": 3914,
+          "audio_filename": "YP_QghPLG-8_3823_3914.mp3"
+        },
+        {
+          "chapter_index": 10,
+          "title": "Two traits you need to identify a fake execution problem",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter10_Common_types_of_problems_hiding_behind_the_executi_formatted.txt",
+          "start_time": 3914,
+          "end_time": 4390,
+          "audio_filename": "YP_QghPLG-8_3914_4390.mp3"
+        },
+        {
+          "chapter_index": 11,
+          "title": "The pitfall of ROI thinking",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter11_Two_traits_you_need_to_identify_a_fake_execution_p_formatted.txt",
+          "start_time": 4390,
+          "end_time": 4863,
+          "audio_filename": "YP_QghPLG-8_4390_4863.mp3"
+        },
+        {
+          "chapter_index": 12,
+          "title": "What is opportunity-cost thinking and how can you apply it?",
+          "transcript_path": "test_data/transcripts_large/YP_QghPLG-8_chapter12_The_pitfall_of_ROI_thinking_formatted.txt",
+          "start_time": 4863,
+          "end_time": 5481,
+          "audio_filename": "YP_QghPLG-8_4863_5481.mp3"
+        }
+      ]
+    },
+    {
+      "video_id": "9N4ZgNaWvI0",
+      "video_title": "Product management theater | Marty Cagan (Silicon Valley Product Group)",
+      "chapters": [
+        {
+          "chapter_index": 1,
+          "title": "Marty’s background",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter1_Martys_background_formatted.txt",
+          "start_time": 0,
+          "end_time": 286,
+          "audio_filename": "9N4ZgNaWvI0_0_286.mp3"
+        },
+        {
+          "chapter_index": 2,
+          "title": "His take on the state of product management",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter2_Top-down_vs_bottom-up_cultures_formatted.txt",
+          "start_time": 286,
+          "end_time": 728,
+          "audio_filename": "9N4ZgNaWvI0_286_728.mp3"
+        },
+        {
+          "chapter_index": 3,
+          "title": "Product management theater",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter3_Lightning_round_formatted.txt",
+          "start_time": 728,
+          "end_time": 1113,
+          "audio_filename": "9N4ZgNaWvI0_728_1113.mp3"
+        },
+        {
+          "chapter_index": 4,
+          "title": "Feature teams vs. empowered product teams",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter4_His_take_on_the_state_of_product_management_formatted.txt",
+          "start_time": 1113,
+          "end_time": 1488,
+          "audio_filename": "9N4ZgNaWvI0_1113_1488.mp3"
+        },
+        {
+          "chapter_index": 5,
+          "title": "Skills of a real product manager",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter5_Product_management_theater_formatted.txt",
+          "start_time": 1488,
+          "end_time": 1767,
+          "audio_filename": "9N4ZgNaWvI0_1488_1767.mp3"
+        },
+        {
+          "chapter_index": 6,
+          "title": "The product management reckoning is here",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter6_Feature_teams_vs_empowered_product_teams_formatted.txt",
+          "start_time": 1767,
+          "end_time": 1925,
+          "audio_filename": "9N4ZgNaWvI0_1767_1925.mp3"
+        },
+        {
+          "chapter_index": 7,
+          "title": "Taking control of your product management career",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter7_Skills_of_a_real_product_manager_formatted.txt",
+          "start_time": 1925,
+          "end_time": 2099,
+          "audio_filename": "9N4ZgNaWvI0_1925_2099.mp3"
+        },
+        {
+          "chapter_index": 8,
+          "title": "The challenge of finding reliable product management advice",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter8_The_product_management_reckoning_is_here_formatted.txt",
+          "start_time": 2099,
+          "end_time": 2418,
+          "audio_filename": "9N4ZgNaWvI0_2099_2418.mp3"
+        },
+        {
+          "chapter_index": 9,
+          "title": "The disconnect between good product companies and the product management community",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter9_Taking_control_of_your_product_management_career_formatted.txt",
+          "start_time": 2418,
+          "end_time": 2663,
+          "audio_filename": "9N4ZgNaWvI0_2418_2663.mp3"
+        },
+        {
+          "chapter_index": 10,
+          "title": "Top-down vs. bottom-up cultures",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter10_The_challenge_of_finding_reliable_product_manageme_formatted.txt",
+          "start_time": 2663,
+          "end_time": 2826,
+          "audio_filename": "9N4ZgNaWvI0_2663_2826.mp3"
+        },
+        {
+          "chapter_index": 11,
+          "title": "The shift in product management post-ZIRP era",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter11_The_disconnect_between_good_product_companies_and__formatted.txt",
+          "start_time": 2826,
+          "end_time": 2984,
+          "audio_filename": "9N4ZgNaWvI0_2826_2984.mp3"
+        },
+        {
+          "chapter_index": 12,
+          "title": "The changing landscape of product management",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter12_The_shift_in_product_management_post-ZIRP_era_formatted.txt",
+          "start_time": 2984,
+          "end_time": 3125,
+          "audio_filename": "9N4ZgNaWvI0_2984_3125.mp3"
+        },
+        {
+          "chapter_index": 13,
+          "title": "The disruption of PM skills by AI",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter13_The_changing_landscape_of_product_management_formatted.txt",
+          "start_time": 3125,
+          "end_time": 3356,
+          "audio_filename": "9N4ZgNaWvI0_3125_3356.mp3"
+        },
+        {
+          "chapter_index": 14,
+          "title": "The purpose and content of Marty’s new book, Transformed",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter14_The_disruption_of_PM_skills_by_AI_formatted.txt",
+          "start_time": 3356,
+          "end_time": 3725,
+          "audio_filename": "9N4ZgNaWvI0_3356_3725.mp3"
+        },
+        {
+          "chapter_index": 15,
+          "title": "The product operating model",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter15_The_purpose_and_content_of_Martys_new_book_Transfo_formatted.txt",
+          "start_time": 3725,
+          "end_time": 4107,
+          "audio_filename": "9N4ZgNaWvI0_3725_4107.mp3"
+        },
+        {
+          "chapter_index": 16,
+          "title": "New competencies required for successful product teams",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter16_The_product_operating_model_formatted.txt",
+          "start_time": 4107,
+          "end_time": 4285,
+          "audio_filename": "9N4ZgNaWvI0_4107_4285.mp3"
+        },
+        {
+          "chapter_index": 17,
+          "title": "Marty’s thoughts on product ops",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter17_New_competencies_required_for_successful_product_t_formatted.txt",
+          "start_time": 4285,
+          "end_time": 4513,
+          "audio_filename": "9N4ZgNaWvI0_4285_4513.mp3"
+        },
+        {
+          "chapter_index": 18,
+          "title": "Advice for founders who don’t want product managers",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter18_Martys_thoughts_on_product_ops_formatted.txt",
+          "start_time": 4513,
+          "end_time": 4686,
+          "audio_filename": "9N4ZgNaWvI0_4513_4686.mp3"
+        },
+        {
+          "chapter_index": 19,
+          "title": "Lightning round",
+          "transcript_path": "test_data/transcripts_large/9N4ZgNaWvI0_chapter19_Advice_for_founders_who_dont_want_product_managers_formatted.txt",
+          "start_time": 4686,
+          "end_time": 5114,
+          "audio_filename": "9N4ZgNaWvI0_4686_5114.mp3"
+        }
+      ]
+    },
+    {
+      "video_id": "2XgU6T4DalY",
+      "video_title": "How Netflix builds a culture of excellence | Elizabeth Stone (CTO)",
+      "chapters": [
+        {
+          "chapter_index": 1,
+          "title": "Elizabeth’s background",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter1_Elizabeths_background_formatted.txt",
+          "start_time": 0,
+          "end_time": 276,
+          "audio_filename": "2XgU6T4DalY_0_276.mp3"
+        },
+        {
+          "chapter_index": 2,
+          "title": "Life as CTO vs. VP of Data",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter2_Life_as_CTO_vs_VP_of_Data_formatted.txt",
+          "start_time": 276,
+          "end_time": 357,
+          "audio_filename": "2XgU6T4DalY_276_357.mp3"
+        },
+        {
+          "chapter_index": 3,
+          "title": "The role of economists in tech companies",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter3_The_role_of_economists_in_tech_companies_formatted.txt",
+          "start_time": 357,
+          "end_time": 512,
+          "audio_filename": "2XgU6T4DalY_357_512.mp3"
+        },
+        {
+          "chapter_index": 4,
+          "title": "Using economics to understand incentives",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter4_Using_economics_to_understand_incentives_formatted.txt",
+          "start_time": 512,
+          "end_time": 607,
+          "audio_filename": "2XgU6T4DalY_512_607.mp3"
+        },
+        {
+          "chapter_index": 5,
+          "title": "Success and career growth",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter5_Success_and_career_growth_formatted.txt",
+          "start_time": 607,
+          "end_time": 1215,
+          "audio_filename": "2XgU6T4DalY_607_1215.mp3"
+        },
+        {
+          "chapter_index": 6,
+          "title": "Setting expectations",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter6_Setting_expectations_formatted.txt",
+          "start_time": 1215,
+          "end_time": 1502,
+          "audio_filename": "2XgU6T4DalY_1215_1502.mp3"
+        },
+        {
+          "chapter_index": 7,
+          "title": "Advice for how to avoid burnout",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter7_Advice_for_how_to_avoid_burnout_formatted.txt",
+          "start_time": 1502,
+          "end_time": 1664,
+          "audio_filename": "2XgU6T4DalY_1502_1664.mp3"
+        },
+        {
+          "chapter_index": 8,
+          "title": "Netflix culture: high talent density",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter8_Netflix_culture_high_talent_density_formatted.txt",
+          "start_time": 1664,
+          "end_time": 1831,
+          "audio_filename": "2XgU6T4DalY_1664_1831.mp3"
+        },
+        {
+          "chapter_index": 9,
+          "title": "Netflix culture: candor and directness",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter9_Netflix_culture_candor_and_directness_formatted.txt",
+          "start_time": 1831,
+          "end_time": 1905,
+          "audio_filename": "2XgU6T4DalY_1831_1905.mp3"
+        },
+        {
+          "chapter_index": 10,
+          "title": "The Keeper Test",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter10_The_Keeper_Test_formatted.txt",
+          "start_time": 1905,
+          "end_time": 2341,
+          "audio_filename": "2XgU6T4DalY_1905_2341.mp3"
+        },
+        {
+          "chapter_index": 11,
+          "title": "Maintaining a high bar for excellence",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter11_Maintaining_a_high_bar_for_excellence_formatted.txt",
+          "start_time": 2341,
+          "end_time": 2634,
+          "audio_filename": "2XgU6T4DalY_2341_2634.mp3"
+        },
+        {
+          "chapter_index": 12,
+          "title": "Netflix culture: freedom and responsibility",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter12_Netflix_culture_freedom_and_responsibility_formatted.txt",
+          "start_time": 2634,
+          "end_time": 2778,
+          "audio_filename": "2XgU6T4DalY_2634_2778.mp3"
+        },
+        {
+          "chapter_index": 13,
+          "title": "Unconventional processes at Netflix",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter13_Unconventional_processes_at_Netflix_formatted.txt",
+          "start_time": 2778,
+          "end_time": 2875,
+          "audio_filename": "2XgU6T4DalY_2778_2875.mp3"
+        },
+        {
+          "chapter_index": 14,
+          "title": "Examples of candor",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter14_Examples_of_candor_formatted.txt",
+          "start_time": 2875,
+          "end_time": 3104,
+          "audio_filename": "2XgU6T4DalY_2875_3104.mp3"
+        },
+        {
+          "chapter_index": 15,
+          "title": "Data and insights team structure",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter15_Data_and_insights_team_structure_formatted.txt",
+          "start_time": 3104,
+          "end_time": 3612,
+          "audio_filename": "2XgU6T4DalY_3104_3612.mp3"
+        },
+        {
+          "chapter_index": 16,
+          "title": "Staying close to teams",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter16_Staying_close_to_teams_formatted.txt",
+          "start_time": 3612,
+          "end_time": 3751,
+          "audio_filename": "2XgU6T4DalY_3612_3751.mp3"
+        },
+        {
+          "chapter_index": 17,
+          "title": "Advice on being present",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter17_Advice_on_being_present_formatted.txt",
+          "start_time": 3751,
+          "end_time": 4060,
+          "audio_filename": "2XgU6T4DalY_3751_4060.mp3"
+        },
+        {
+          "chapter_index": 18,
+          "title": "Lightning round",
+          "transcript_path": "test_data/transcripts_large/2XgU6T4DalY_chapter18_Lightning_round_formatted.txt",
+          "start_time": 4060,
+          "end_time": 4424,
+          "audio_filename": "2XgU6T4DalY_4060_4424.mp3"
+        }
+      ]
+    }
+  ]
+}

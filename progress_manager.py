@@ -119,6 +119,62 @@ def get_current_week_key() -> str:
     return get_week_key(datetime.now(PST))
 
 
+def is_future_week(week_key: str) -> bool:
+    """
+    Check if a week is in the future (after current week).
+    
+    Args:
+        week_key: Week key in format 'YYYY-WW' (e.g., '2024-45')
+    
+    Returns:
+        True if week is in the future, False otherwise
+    """
+    current_week = get_current_week_key()
+    
+    try:
+        current_year_str, current_week_str = current_week.split('-W')
+        current_year = int(current_year_str)
+        current_week_num = int(current_week_str)
+        
+        year_str, week_str = week_key.split('-W')
+        year = int(year_str)
+        week_num = int(week_str)
+        
+        if year > current_year:
+            return True
+        elif year == current_year:
+            return week_num > current_week_num
+        else:
+            return False
+    except (ValueError, AttributeError):
+        return False
+
+
+def get_previous_week_key(week_key: str) -> Optional[str]:
+    """
+    Get the previous week key.
+    
+    Args:
+        week_key: Week key in format 'YYYY-WW' (e.g., '2024-45')
+    
+    Returns:
+        Previous week key or None if invalid
+    """
+    try:
+        year_str, week_str = week_key.split('-W')
+        year = int(year_str)
+        week_num = int(week_str)
+        
+        week_num -= 1
+        if week_num < 1:
+            week_num = 53
+            year -= 1
+        
+        return f"{year}-W{week_num:02d}"
+    except (ValueError, AttributeError):
+        return None
+
+
 def is_shadowing_mode(week_key: str) -> bool:
     """
     Check if a week should use shadowing mode for weekly_speaking_prompt.
@@ -418,9 +474,165 @@ def get_random_mp3_file(week_key: str, progress: Dict[str, Any] = None, exclude_
         return get_mp3_file_for_week(week_key)
 
 
+def get_all_podcast_videos_and_chapters() -> Dict[str, Any]:
+    """
+    Get all available videos and their chapters for podcast shadowing.
+    Only returns chapters that have Large model formatted transcripts.
+    Videos are returned in the order specified in playlist_metadata.json.
+    
+    Returns:
+        Dictionary with structure:
+        {
+            'videos': [
+                {
+                    'video_id': str,
+                    'video_title': str,
+                    'chapters': [
+                        {
+                            'chapter_index': int,
+                            'title': str,
+                            'start_time': int,
+                            'end_time': int,
+                            'audio_filename': str,
+                            'transcript_path': str (optional)
+                        },
+                        ...
+                    ]
+                },
+                ...
+            ]
+        }
+    """
+    import json
+    from pathlib import Path
+    
+    clips_dir = Path('youtube-transcriber-for-shadowing/test_data/clips')
+    transcripts_large_dir = Path('youtube-transcriber-for-shadowing/test_data/transcripts_large')
+    
+    result = {'videos': []}
+    
+    # Only load from formatted_chapters_list.json - no fallback
+    formatted_list_path = transcripts_large_dir / 'formatted_chapters_list.json'
+    
+    if not formatted_list_path.exists():
+        return result
+    
+    try:
+        with open(formatted_list_path, 'r', encoding='utf-8') as f:
+            formatted_data = json.load(f)
+        
+        # Verify that audio files exist and filter accordingly
+        videos_with_audio = []
+        for video in formatted_data.get('videos', []):
+            video_chapters = []
+            for chapter in video.get('chapters', []):
+                # Check if audio file exists
+                audio_filename = chapter.get('audio_filename')
+                if audio_filename:
+                    audio_path = clips_dir / audio_filename
+                    if audio_path.exists():
+                        # Verify transcript file exists
+                        transcript_path_str = chapter.get('transcript_path', '')
+                        if transcript_path_str:
+                            transcript_path = Path(transcript_path_str)
+                            # Handle relative paths
+                            if not transcript_path.is_absolute():
+                                transcript_path = Path('youtube-transcriber-for-shadowing') / transcript_path
+                            
+                            if transcript_path.exists():
+                                chapter_info = {
+                                    'chapter_index': chapter.get('chapter_index'),
+                                    'title': chapter.get('title', ''),
+                                    'start_time': chapter.get('start_time', 0),
+                                    'end_time': chapter.get('end_time', 0),
+                                    'audio_filename': audio_filename,
+                                    'transcript_path': str(transcript_path)
+                                }
+                                video_chapters.append(chapter_info)
+            
+            if video_chapters:
+                videos_with_audio.append({
+                    'video_id': video.get('video_id', ''),
+                    'video_title': video.get('video_title', 'Unknown'),
+                    'chapters': video_chapters
+                })
+        
+        return {'videos': videos_with_audio}
+    except (json.JSONDecodeError, IOError, KeyError) as e:
+        # If formatted list fails, return empty result
+        return result
+
+
+def get_podcast_clip_by_selection(video_id: str, chapter_index: int) -> Optional[Dict[str, Any]]:
+    """
+    Get a specific podcast clip by video_id and chapter_index.
+    Only returns clips that have Large model formatted transcripts.
+    
+    Args:
+        video_id: Video ID
+        chapter_index: Chapter index
+    
+    Returns:
+        Dictionary with clip information:
+        {
+            'audio_filename': str,
+            'video_title': str,
+            'title': str,
+            'transcript_path': str (optional)
+        }
+        or None if not found
+    """
+    import json
+    from pathlib import Path
+    
+    clips_dir = Path('youtube-transcriber-for-shadowing/test_data/clips')
+    transcripts_large_dir = Path('youtube-transcriber-for-shadowing/test_data/transcripts_large')
+    
+    if not clips_dir.exists():
+        return None
+    
+    # Only load from formatted_chapters_list.json - no fallback
+    formatted_list_path = transcripts_large_dir / 'formatted_chapters_list.json'
+    
+    if not formatted_list_path.exists():
+        return None
+    
+    try:
+        with open(formatted_list_path, 'r', encoding='utf-8') as f:
+            formatted_data = json.load(f)
+        
+        # Find the specific video and chapter
+        for video in formatted_data.get('videos', []):
+            if video.get('video_id') == video_id:
+                for chapter in video.get('chapters', []):
+                    if chapter.get('chapter_index') == chapter_index:
+                        audio_filename = chapter.get('audio_filename')
+                        if audio_filename:
+                            audio_path = clips_dir / audio_filename
+                            if audio_path.exists():
+                                transcript_path_str = chapter.get('transcript_path', '')
+                                if transcript_path_str:
+                                    transcript_path = Path(transcript_path_str)
+                                    if not transcript_path.is_absolute():
+                                        transcript_path = Path('youtube-transcriber-for-shadowing') / transcript_path
+                                    
+                                    if transcript_path.exists():
+                                        return {
+                                            'audio_filename': audio_filename,
+                                            'video_title': video.get('video_title', 'Unknown'),
+                                            'title': chapter.get('title', ''),
+                                            'transcript_path': str(transcript_path)
+                                        }
+    except (json.JSONDecodeError, IOError, KeyError):
+        pass
+    
+    return None
+
+
 def get_random_podcast_clip(week_key: str, progress: Dict[str, Any] = None, exclude_current: str = None) -> Optional[Dict[str, Any]]:
     """
     Get a random complete podcast clip for podcast_shadowing, preferring unused clips.
+    Only returns clips that have Large model formatted transcripts.
     
     Args:
         week_key: Week key in format 'YYYY-WW' (e.g., '2024-45')
@@ -442,60 +654,48 @@ def get_random_podcast_clip(week_key: str, progress: Dict[str, Any] = None, excl
     from pathlib import Path
     
     clips_dir = Path('youtube-transcriber-for-shadowing/test_data/clips')
-    transcripts_dir = Path('youtube-transcriber-for-shadowing/test_data/transcripts')
+    transcripts_large_dir = Path('youtube-transcriber-for-shadowing/test_data/transcripts_large')
     
-    if not clips_dir.exists() or not transcripts_dir.exists():
+    if not clips_dir.exists():
         return None
     
-    # Get all available clips by scanning metadata files
+    # Only load from formatted_chapters_list.json - no fallback
+    formatted_list_path = transcripts_large_dir / 'formatted_chapters_list.json'
     all_clips = []
     
-    # Find all metadata files
-    metadata_files = list(transcripts_dir.glob('*_metadata.json'))
+    if not formatted_list_path.exists():
+        return None
     
-    for metadata_file in metadata_files:
-        try:
-            with open(metadata_file, 'r', encoding='utf-8') as f:
-                video_metadata = json.load(f)
+    try:
+        with open(formatted_list_path, 'r', encoding='utf-8') as f:
+            formatted_data = json.load(f)
+        
+        # Collect all clips with audio files
+        for video in formatted_data.get('videos', []):
+            video_id = video.get('video_id', '')
+            video_title = video.get('video_title', 'Unknown')
             
-            video_id = video_metadata.get('video_id', '')
-            video_title = video_metadata.get('title', 'Unknown')
-            chapters = video_metadata.get('chapters', [])
-            
-            for chapter in chapters:
-                start_time = int(chapter.get('start_time', 0))
-                end_time = int(chapter.get('end_time', 0))
-                chapter_title = chapter.get('title', '')
-                
-                # Check if clip file exists
-                clip_filename = f"{video_id}_{start_time}_{end_time}.mp3"
-                clip_path = clips_dir / clip_filename
-                
-                if clip_path.exists():
-                    # Find transcript file
-                    chapter_idx = chapter.get('chapter_index', 0)
-                    safe_title = "".join(c for c in chapter_title if c.isalnum() or c in (' ', '-', '_')).strip()
-                    safe_title = safe_title.replace(' ', '_')[:50]
-                    transcript_filename = f"{video_id}_chapter{chapter_idx}_{safe_title}.txt"
-                    transcript_path = transcripts_dir / transcript_filename
-                    
-                    # Also check for formatted transcript
-                    formatted_transcript_filename = f"{video_id}_chapter{chapter_idx}_{safe_title}_formatted.txt"
-                    formatted_transcript_path = transcripts_dir / formatted_transcript_filename
-                    
-                    # Prefer formatted transcript if available
-                    final_transcript_path = formatted_transcript_path if formatted_transcript_path.exists() else transcript_path
-                    
-                    clip_info = {
-                        'audio_filename': clip_filename,
-                        'video_title': video_title,
-                        'title': chapter_title,
-                        'transcript_path': str(final_transcript_path) if final_transcript_path.exists() else None
-                    }
-                    all_clips.append(clip_info)
-        except (json.JSONDecodeError, IOError, KeyError) as e:
-            # Skip invalid metadata files
-            continue
+            for chapter in video.get('chapters', []):
+                audio_filename = chapter.get('audio_filename')
+                if audio_filename:
+                    audio_path = clips_dir / audio_filename
+                    if audio_path.exists():
+                        transcript_path_str = chapter.get('transcript_path', '')
+                        if transcript_path_str:
+                            transcript_path = Path(transcript_path_str)
+                            if not transcript_path.is_absolute():
+                                transcript_path = Path('youtube-transcriber-for-shadowing') / transcript_path
+                            
+                            if transcript_path.exists():
+                                clip_info = {
+                                    'audio_filename': audio_filename,
+                                    'video_title': video_title,
+                                    'title': chapter.get('title', ''),
+                                    'transcript_path': str(transcript_path)
+                                }
+                                all_clips.append(clip_info)
+    except (json.JSONDecodeError, IOError, KeyError):
+        return None
     
     if not all_clips:
         return None
@@ -657,13 +857,42 @@ def update_progress(progress: Dict[str, Any], activity_id: str, week_key: str = 
     
     ensure_week_exists(progress, week_key)
     
-    if activity_id in ["weekly_expressions", "voice_journaling", "shadowing_practice", "weekly_speaking_prompt"]:
+    if activity_id in ["weekly_expressions", "voice_journaling", "shadowing_practice", "weekly_speaking_prompt", "podcast_shadowing"]:
         if day is None:
             day = datetime.now().strftime('%Y-%m-%d')
         activity_key = activity_id
         
         if activity_id == "weekly_expressions":
             # For weekly_expressions, store day and MP3 file info together
+            completed_days = progress["weeks"][week_key][activity_key]["completed_days"]
+            
+            if completed:
+                # Check if day already exists (could be old format string or new format dict)
+                day_exists = False
+                for i, entry in enumerate(completed_days):
+                    if isinstance(entry, dict):
+                        if entry.get("day") == day:
+                            day_exists = True
+                            # Update existing entry with MP3 file if provided
+                            if mp3_file:
+                                entry["mp3_file"] = mp3_file
+                            break
+                    elif isinstance(entry, str) and entry == day:
+                        # Migrate old format to new format
+                        day_exists = True
+                        completed_days[i] = {"day": day, "mp3_file": mp3_file or ""}
+                        break
+                
+                if not day_exists:
+                    # Add new entry
+                    completed_days.append({"day": day, "mp3_file": mp3_file or ""})
+            else:
+                # Remove entry (handle both old and new formats)
+                completed_days[:] = [e for e in completed_days 
+                                     if (isinstance(e, dict) and e.get("day") != day) or 
+                                        (isinstance(e, str) and e != day)]
+        elif activity_id == "podcast_shadowing":
+            # For podcast_shadowing, store day and MP3 file info together (like weekly_expressions)
             completed_days = progress["weeks"][week_key][activity_key]["completed_days"]
             
             if completed:

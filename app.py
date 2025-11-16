@@ -82,7 +82,7 @@ def api_update_progress():
     week_key = data.get('week_key')
     completed = data.get('completed', True)
     day = data.get('day')  # For shadowing practice
-    mp3_file = data.get('mp3_file')  # For weekly_expressions
+    mp3_file = data.get('mp3_file')  # For weekly_expressions and podcast_shadowing
     
     if not activity_id:
         return jsonify({'error': 'activity_id is required'}), 400
@@ -245,6 +245,54 @@ def api_generate_content(activity_id):
     elif activity_id == 'shadowing_practice':
         has_existing_content = bool(current_week_data.get('shadowing_practice', {}).get('script1') or 
                                    current_week_data.get('shadowing_practice', {}).get('script'))
+        
+        # Check if this is a future week and first-time generation
+        from progress_manager import is_future_week, get_previous_week_key
+        is_future = is_future_week(week_key)
+        
+        # If future week and no existing content, copy from previous week
+        if is_future and not has_existing_content:
+            prev_week_key = get_previous_week_key(week_key)
+            if prev_week_key and prev_week_key in progress.get('weeks', {}):
+                prev_week_data = progress['weeks'][prev_week_key].get('shadowing_practice', {})
+                
+                # Copy scripts and audio URLs from previous week
+                if prev_week_data.get('script1') or prev_week_data.get('script'):
+                    current_week_data['shadowing_practice']['script1'] = prev_week_data.get('script1') or prev_week_data.get('script', '')
+                    current_week_data['shadowing_practice']['script2'] = prev_week_data.get('script2', '')
+                    current_week_data['shadowing_practice']['script'] = prev_week_data.get('script1') or prev_week_data.get('script', '')
+                    
+                    # Copy audio URLs and settings
+                    for script_num in [1, 2]:
+                        for field in ['typecast_url', 'openai_url', 'typecast_voice', 'typecast_model', 'typecast_speed', 
+                                     'openai_voice', 'openai_speed', 'typecast_timestamps', 'openai_timestamps']:
+                            field_name = f'script{script_num}_{field}'
+                            if field_name in prev_week_data:
+                                current_week_data['shadowing_practice'][field_name] = prev_week_data[field_name]
+                    
+                    # Copy legacy fields
+                    for field in ['audio_url', 'audio_typecast_url', 'audio_openai_url']:
+                        if field in prev_week_data:
+                            current_week_data['shadowing_practice'][field] = prev_week_data[field]
+                    
+                    # Mark as existing content to skip generation
+                    has_existing_content = True
+                    result = {
+                        'script1': current_week_data['shadowing_practice'].get('script1', ''),
+                        'script2': current_week_data['shadowing_practice'].get('script2', ''),
+                        'copied_from_previous_week': True
+                    }
+                    
+                    progress['last_updated'] = datetime.now().isoformat()
+                    if save_progress(progress):
+                        return jsonify({
+                            'success': True,
+                            'progress': progress,
+                            'generated': result
+                        })
+                    else:
+                        return jsonify({'error': 'Failed to save copied content'}), 500
+        
         # For regeneration, include current script to avoid repetition
         if has_existing_content:
             current_script = current_week_data.get('shadowing_practice', {}).get('script1') or \
@@ -278,6 +326,26 @@ def api_generate_content(activity_id):
             progress['weeks'][week_key]['shadowing_practice']['script2'] = scripts['script2']
             # Keep 'script' for backwards compatibility (defaults to script1)
             progress['weeks'][week_key]['shadowing_practice']['script'] = scripts['script1']
+            
+            # Reset audio URLs when scripts are regenerated
+            # Clear all audio-related fields for both scripts
+            for script_num in [1, 2]:
+                for field in ['typecast_url', 'openai_url', 'typecast_voice', 'typecast_model', 'typecast_speed',
+                             'openai_voice', 'openai_speed', 'typecast_timestamps', 'openai_timestamps']:
+                    field_name = f'script{script_num}_{field}'
+                    if field_name in progress['weeks'][week_key]['shadowing_practice']:
+                        if field in ['typecast_speed', 'openai_speed']:
+                            progress['weeks'][week_key]['shadowing_practice'][field_name] = 1.0
+                        elif field == 'typecast_model':
+                            progress['weeks'][week_key]['shadowing_practice'][field_name] = 'ssfm-v30'
+                        else:
+                            progress['weeks'][week_key]['shadowing_practice'][field_name] = ''
+            
+            # Clear legacy audio fields
+            for field in ['audio_url', 'audio_typecast_url', 'audio_openai_url']:
+                if field in progress['weeks'][week_key]['shadowing_practice']:
+                    progress['weeks'][week_key]['shadowing_practice'][field] = ''
+            
             result = {'script1': scripts['script1'], 'script2': scripts['script2']}
             
         elif activity_id == 'weekly_speaking_prompt':
@@ -775,6 +843,38 @@ def api_generate_all():
         current_week_data.get('weekly_speaking_prompt', {}).get('prompt')
     )
     
+    # Check if this is a future week and first-time generation for shadowing_practice
+    from progress_manager import is_future_week, get_previous_week_key
+    is_future = is_future_week(week_key)
+    shadowing_copied = False
+    
+    # If future week and no existing shadowing content, copy from previous week
+    if is_future and not current_week_data.get('shadowing_practice', {}).get('script1') and not current_week_data.get('shadowing_practice', {}).get('script'):
+        prev_week_key = get_previous_week_key(week_key)
+        if prev_week_key and prev_week_key in progress.get('weeks', {}):
+            prev_week_data = progress['weeks'][prev_week_key].get('shadowing_practice', {})
+            
+            # Copy scripts and audio URLs from previous week
+            if prev_week_data.get('script1') or prev_week_data.get('script'):
+                current_week_data['shadowing_practice']['script1'] = prev_week_data.get('script1') or prev_week_data.get('script', '')
+                current_week_data['shadowing_practice']['script2'] = prev_week_data.get('script2', '')
+                current_week_data['shadowing_practice']['script'] = prev_week_data.get('script1') or prev_week_data.get('script', '')
+                
+                # Copy audio URLs and settings
+                for script_num in [1, 2]:
+                    for field in ['typecast_url', 'openai_url', 'typecast_voice', 'typecast_model', 'typecast_speed', 
+                                 'openai_voice', 'openai_speed', 'typecast_timestamps', 'openai_timestamps']:
+                        field_name = f'script{script_num}_{field}'
+                        if field_name in prev_week_data:
+                            current_week_data['shadowing_practice'][field_name] = prev_week_data[field_name]
+                
+                # Copy legacy fields
+                for field in ['audio_url', 'audio_typecast_url', 'audio_openai_url']:
+                    if field in prev_week_data:
+                        current_week_data['shadowing_practice'][field] = prev_week_data[field]
+                
+                shadowing_copied = True
+    
     if has_existing_content:
         # Include current week's content to avoid regenerating the same content
         current_topics = current_week_data.get('voice_journaling', {}).get('topics', [])
@@ -806,10 +906,37 @@ def api_generate_all():
             previous_content.get('voice_journaling_topics'),
             regenerate=has_existing_content
         )  # 7 daily topics
-        scripts = generate_shadowing_scripts(
-            previous_content.get('shadowing_scripts'),
-            regenerate=has_existing_content
-        )
+        
+        # Only generate scripts if not copied from previous week
+        if not shadowing_copied:
+            scripts = generate_shadowing_scripts(
+                previous_content.get('shadowing_scripts'),
+                regenerate=has_existing_content
+            )
+            progress['weeks'][week_key]['shadowing_practice']['script1'] = scripts['script1']
+            progress['weeks'][week_key]['shadowing_practice']['script2'] = scripts['script2']
+            # Keep 'script' for backwards compatibility (defaults to script1)
+            progress['weeks'][week_key]['shadowing_practice']['script'] = scripts['script1']
+            
+            # Reset audio URLs when scripts are regenerated
+            # Clear all audio-related fields for both scripts
+            for script_num in [1, 2]:
+                for field in ['typecast_url', 'openai_url', 'typecast_voice', 'typecast_model', 'typecast_speed',
+                             'openai_voice', 'openai_speed', 'typecast_timestamps', 'openai_timestamps']:
+                    field_name = f'script{script_num}_{field}'
+                    if field_name in progress['weeks'][week_key]['shadowing_practice']:
+                        if field in ['typecast_speed', 'openai_speed']:
+                            progress['weeks'][week_key]['shadowing_practice'][field_name] = 1.0
+                        elif field == 'typecast_model':
+                            progress['weeks'][week_key]['shadowing_practice'][field_name] = 'ssfm-v30'
+                        else:
+                            progress['weeks'][week_key]['shadowing_practice'][field_name] = ''
+            
+            # Clear legacy audio fields
+            for field in ['audio_url', 'audio_typecast_url', 'audio_openai_url']:
+                if field in progress['weeks'][week_key]['shadowing_practice']:
+                    progress['weeks'][week_key]['shadowing_practice'][field] = ''
+        
         # Generate prompt only (original mode)
         prompt = generate_weekly_prompt(
             previous_content.get('weekly_prompts'),
@@ -827,16 +954,23 @@ def api_generate_all():
         
         # Update progress
         progress['weeks'][week_key]['voice_journaling']['topics'] = voice_journaling_topics
-        progress['weeks'][week_key]['shadowing_practice']['script1'] = scripts['script1']
-        progress['weeks'][week_key]['shadowing_practice']['script2'] = scripts['script2']
-        # Keep 'script' for backwards compatibility (defaults to script1)
-        progress['weeks'][week_key]['shadowing_practice']['script'] = scripts['script1']
+        # Note: shadowing_practice scripts are already updated above (either copied or generated)
         # Note: audio_url is NOT updated here - use separate "Generate audio" button
         progress['weeks'][week_key]['weekly_speaking_prompt']['prompt'] = prompt
         progress['weeks'][week_key]['weekly_speaking_prompt']['words'] = weekly_prompt_words
-        if shadowing_active:
-            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_script'] = best_answer_script
-            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_hints'] = best_answer_hints
+        
+        # Check if shadowing mode is active (weeks <= 2025-W52)
+        from progress_manager import is_shadowing_mode
+        if is_shadowing_mode(week_key):
+            # Generate best answer script and hints for shadowing mode
+            from chatgpt_generator import generate_weekly_prompt_best_answer
+            best_answer_data = generate_weekly_prompt_best_answer(
+                previous_content.get('weekly_prompts'),
+                regenerate=has_existing_content,
+                week_key=week_key
+            )
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_script'] = best_answer_data['best_answer_script']
+            progress['weeks'][week_key]['weekly_speaking_prompt']['best_answer_hints'] = best_answer_data['best_answer_hints']
         
         progress['last_updated'] = datetime.now().isoformat()
         
@@ -1258,7 +1392,8 @@ def api_serve_podcast_shadowing_mp3(filename):
 
 
 def remove_transcript_header(transcript_text: str) -> str:
-    """Remove metadata header (Chapter, Video, Time, separator) from transcript."""
+    """Remove metadata header (Chapter, Video, Time, separator) and HTML comments from transcript."""
+    import re
     lines = transcript_text.split('\n')
     content_lines = []
     skip_header = True
@@ -1274,6 +1409,18 @@ def remove_transcript_header(transcript_text: str) -> str:
             skip_header = False
         
         if not skip_header:
+            # Skip HTML comments (e.g., <!--TIMESTAMP:00:00-->)
+            stripped = line.strip()
+            if stripped.startswith('<!--') and stripped.endswith('-->'):
+                continue
+            # Skip lines that are just bracketed text like ["Bloodline"] or [timestamp] ["text"]
+            # Also skip lines that are just quoted text like "Bloodline" (transcription artifacts)
+            # Skip lines that are only brackets: ["text"] or [timestamp] ["text"]
+            if re.match(r'^\[.*?\]\s*$', stripped) or re.match(r'^\[\d{2}:\d{2}\]\s*\[.*?\]\s*$', stripped):
+                continue
+            # Skip lines that are only quoted text: "text" (likely transcription artifacts)
+            if re.match(r'^"[^"]*"\s*$', stripped):
+                continue
             content_lines.append(line)
     
     # Join and clean up
@@ -1436,13 +1583,30 @@ def api_get_podcast_shadowing_transcript():
         return jsonify({'error': f'Failed to read transcript: {str(e)}'}), 500
 
 
+@app.route('/api/podcast-shadowing/videos', methods=['GET'])
+def api_get_podcast_videos():
+    """Get all available videos and chapters for podcast shadowing."""
+    from progress_manager import get_all_podcast_videos_and_chapters
+    
+    try:
+        videos_data = get_all_podcast_videos_and_chapters()
+        return jsonify({
+            'success': True,
+            'videos': videos_data.get('videos', [])
+        })
+    except Exception as e:
+        return jsonify({'error': f'Failed to get videos: {str(e)}'}), 500
+
+
 @app.route('/api/podcast-shadowing/regenerate', methods=['POST'])
 def api_regenerate_podcast_shadowing_mp3():
-    """Get a random complete podcast clip for podcast_shadowing, preferring unused clips."""
-    from progress_manager import get_random_podcast_clip
+    """Get a podcast clip for podcast_shadowing, either by selection or random."""
+    from progress_manager import get_random_podcast_clip, get_podcast_clip_by_selection
     
     data = request.get_json()
     week_key = data.get('week_key') if data else None
+    video_id = data.get('video_id') if data else None
+    chapter_index = data.get('chapter_index') if data else None
     
     if week_key is None:
         week_key = get_current_week_key()
@@ -1453,8 +1617,12 @@ def api_regenerate_podcast_shadowing_mp3():
     # Get current MP3 file to exclude it from selection
     current_mp3 = progress['weeks'][week_key].get('podcast_shadowing', {}).get('mp3_file', '')
     
-    # Get random complete podcast clip (preferring unused clips)
-    podcast_clip = get_random_podcast_clip(week_key, progress, exclude_current=current_mp3)
+    # If video_id and chapter_index are provided, get specific clip
+    if video_id is not None and chapter_index is not None:
+        podcast_clip = get_podcast_clip_by_selection(video_id, chapter_index)
+    else:
+        # Otherwise, get random complete podcast clip (preferring unused clips)
+        podcast_clip = get_random_podcast_clip(week_key, progress, exclude_current=current_mp3)
     
     if not podcast_clip:
         return jsonify({'error': 'No complete podcast clips available'}), 404
