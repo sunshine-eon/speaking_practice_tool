@@ -32,6 +32,12 @@ from typecast_generator import (
 app = Flask(__name__)
 
 
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    """Explicitly serve static files for Vercel compatibility."""
+    return send_from_directory(app.static_folder, filename)
+
+
 @app.route('/')
 def index():
     """Render the main dashboard."""
@@ -1400,8 +1406,8 @@ def remove_transcript_header(transcript_text: str) -> str:
     
     for line in lines:
         if skip_header:
-            # Skip header lines (Chapter, Video, Time, separator, empty lines after separator)
-            if line.startswith('Chapter') or line.startswith('Video') or line.startswith('Time'):
+            # Skip header lines (Chapter, Video, Time, Model, separator, empty lines after separator)
+            if line.startswith('Chapter') or line.startswith('Video') or line.startswith('Time') or line.startswith('Model'):
                 continue
             if line.strip().startswith('=') or line.strip() == '':
                 continue
