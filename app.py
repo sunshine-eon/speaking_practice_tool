@@ -35,8 +35,20 @@ app = Flask(__name__, static_folder='static', static_url_path='/static')
 @app.route('/static/<path:filename>')
 def serve_static(filename):
     """Explicitly serve static files for Vercel compatibility, including subdirectories."""
-    static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
-    return send_from_directory(static_dir, filename)
+    # Try multiple possible paths for Vercel serverless environment
+    possible_paths = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static'),
+        os.path.join(os.getcwd(), 'static'),
+        'static'
+    ]
+    
+    for static_dir in possible_paths:
+        file_path = os.path.join(static_dir, filename)
+        if os.path.exists(file_path):
+            return send_from_directory(static_dir, filename)
+    
+    # If file not found, return 404 with helpful error
+    return jsonify({'error': f'Static file not found: {filename}', 'searched_paths': possible_paths}), 404
 
 
 @app.route('/')

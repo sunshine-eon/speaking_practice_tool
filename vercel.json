@@ -9,15 +9,13 @@
   "routes": [
     {
       "src": "/static/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      },
       "dest": "/static/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/app.py"
     }
-  ]
+  ],
+  "public": false
 }
 
