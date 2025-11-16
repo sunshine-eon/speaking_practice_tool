@@ -30,8 +30,31 @@ from typecast_generator import (
 )
 
 # Configure Flask with explicit static folder for Vercel
-static_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
+# Try multiple possible paths for Vercel serverless environment
+base_dir = os.path.dirname(os.path.abspath(__file__))
+possible_static_paths = [
+    os.path.join(base_dir, 'static'),
+    os.path.join(os.getcwd(), 'static'),
+    'static',
+]
+
+static_folder_path = None
+for path in possible_static_paths:
+    if os.path.exists(path):
+        static_folder_path = path
+        break
+
+# Fallback to relative path if none found (for Vercel)
+if static_folder_path is None:
+    static_folder_path = 'static'
+
 app = Flask(__name__, static_folder=static_folder_path, static_url_path='/static')
+
+# Add explicit route for static files to ensure they're served
+@app.route('/static/<path:filename>')
+def serve_static_files(filename):
+    """Explicitly serve static files for Vercel compatibility."""
+    return app.send_static_file(filename)
 
 
 @app.route('/')
