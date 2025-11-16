@@ -34,7 +34,7 @@ app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
-    """Explicitly serve static files for Vercel compatibility."""
+    """Explicitly serve static files for Vercel compatibility, including subdirectories."""
     static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
     return send_from_directory(static_dir, filename)
 
