@@ -39,16 +39,32 @@ def serve_static(filename):
     possible_paths = [
         os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static'),
         os.path.join(os.getcwd(), 'static'),
-        'static'
+        'static',
+        os.path.join('/var/task', 'static'),  # Vercel Lambda path
+        os.path.join('/var/runtime', 'static'),  # Alternative Lambda path
     ]
+    
+    # Debug: log current working directory and __file__ path
+    import sys
+    debug_info = {
+        'filename': filename,
+        'cwd': os.getcwd(),
+        '__file__': __file__,
+        '__file__ dir': os.path.dirname(os.path.abspath(__file__)),
+        'sys.path': sys.path[:3]  # First 3 paths
+    }
     
     for static_dir in possible_paths:
         file_path = os.path.join(static_dir, filename)
         if os.path.exists(file_path):
             return send_from_directory(static_dir, filename)
     
-    # If file not found, return 404 with helpful error
-    return jsonify({'error': f'Static file not found: {filename}', 'searched_paths': possible_paths}), 404
+    # If file not found, return 404 with helpful error including debug info
+    return jsonify({
+        'error': f'Static file not found: {filename}',
+        'searched_paths': possible_paths,
+        'debug_info': debug_info
+    }), 404
 
 
 @app.route('/')
