@@ -29,42 +29,9 @@ from typecast_generator import (
     get_available_voices,
 )
 
-app = Flask(__name__, static_folder='static', static_url_path='/static')
-
-
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    """Explicitly serve static files for Vercel compatibility, including subdirectories."""
-    # Try multiple possible paths for Vercel serverless environment
-    possible_paths = [
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static'),
-        os.path.join(os.getcwd(), 'static'),
-        'static',
-        os.path.join('/var/task', 'static'),  # Vercel Lambda path
-        os.path.join('/var/runtime', 'static'),  # Alternative Lambda path
-    ]
-    
-    # Debug: log current working directory and __file__ path
-    import sys
-    debug_info = {
-        'filename': filename,
-        'cwd': os.getcwd(),
-        '__file__': __file__,
-        '__file__ dir': os.path.dirname(os.path.abspath(__file__)),
-        'sys.path': sys.path[:3]  # First 3 paths
-    }
-    
-    for static_dir in possible_paths:
-        file_path = os.path.join(static_dir, filename)
-        if os.path.exists(file_path):
-            return send_from_directory(static_dir, filename)
-    
-    # If file not found, return 404 with helpful error including debug info
-    return jsonify({
-        'error': f'Static file not found: {filename}',
-        'searched_paths': possible_paths,
-        'debug_info': debug_info
-    }), 404
+# Configure Flask with explicit static folder for Vercel
+static_folder_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
+app = Flask(__name__, static_folder=static_folder_path, static_url_path='/static')
 
 
 @app.route('/')
