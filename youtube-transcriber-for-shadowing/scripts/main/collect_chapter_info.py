@@ -2,6 +2,12 @@
 
 import json
 import logging
+import sys
+from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
 from youtube_transcriber import Config
 from youtube_transcriber.playlist_handler import PlaylistHandler
 from youtube_transcriber.utils import setup_logging

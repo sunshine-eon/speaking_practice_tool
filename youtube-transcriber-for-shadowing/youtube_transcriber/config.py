@@ -27,12 +27,14 @@ class Config:
         self.audio_dir = base_dir / "audio"
         self.clips_dir = base_dir / "clips"
         self.transcripts_dir = base_dir / "transcripts"
+        self.metadata_dir = base_dir / "metadata"
         self.db_path = base_dir / "transcripts.db"
         
         # Create directories if they don't exist
         self.audio_dir.mkdir(parents=True, exist_ok=True)
         self.clips_dir.mkdir(parents=True, exist_ok=True)
         self.transcripts_dir.mkdir(parents=True, exist_ok=True)
+        self.metadata_dir.mkdir(parents=True, exist_ok=True)
         
         # Whisper settings
         self.whisper_model = whisper_model

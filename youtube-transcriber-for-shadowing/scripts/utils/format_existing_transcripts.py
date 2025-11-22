@@ -5,8 +5,8 @@ import json
 import sys
 from pathlib import Path
 
-# Add current directory to path
-sys.path.insert(0, str(Path(__file__).parent))
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from youtube_transcriber.transcript_formatter import format_transcript_to_script
 
@@ -118,7 +118,15 @@ def format_existing_transcripts(transcripts_dir: Path, reformat: bool = False, d
         print("Updating formatted_chapters_list.json...")
         print("="*60)
         try:
-            from generate_large_formatted_list import generate_large_formatted_list
+            # Import from same directory
+            import importlib.util
+            spec = importlib.util.spec_from_file_location(
+                "generate_large_formatted_list",
+                Path(__file__).parent / "generate_large_formatted_list.py"
+            )
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            generate_large_formatted_list = module.generate_large_formatted_list
             
             result = generate_large_formatted_list()
             

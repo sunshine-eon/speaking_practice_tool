@@ -8,17 +8,14 @@ from typing import List, Tuple, Dict, Optional
 from dataclasses import dataclass
 
 # Import transcriber and clipper modules
-try:
-    from youtube_transcriber import Config
-    from youtube_transcriber.transcriber import Transcriber
-    from youtube_transcriber.audio_clipper import AudioClipper
-except ImportError:
-    # If running from parent directory
-    import sys
-    sys.path.insert(0, str(Path(__file__).parent))
-    from youtube_transcriber import Config
-    from youtube_transcriber.transcriber import Transcriber
-    from youtube_transcriber.audio_clipper import AudioClipper
+import sys
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
+from youtube_transcriber import Config
+from youtube_transcriber.transcriber import Transcriber
+from youtube_transcriber.audio_clipper import AudioClipper
 
 logger = logging.getLogger(__name__)
 

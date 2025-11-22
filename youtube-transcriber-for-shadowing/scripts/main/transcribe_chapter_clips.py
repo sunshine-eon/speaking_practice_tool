@@ -5,108 +5,17 @@ import json
 import logging
 import sys
 from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
 from youtube_transcriber import Config
 from youtube_transcriber.transcriber import Transcriber
+from youtube_transcriber.video_finder import find_videos_with_missing_transcripts, find_untranscribed_videos
 from youtube_transcriber.utils import setup_logging
 
 # Setup logging
 setup_logging(logging.INFO)
-
-
-def find_videos_with_missing_transcripts(config: Config):
-    """
-    Find all videos that have metadata.json but are missing transcript files.
-    
-    Returns:
-        List of dicts with video_id, title, missing_chapters info
-    """
-    transcripts_dir = config.transcripts_dir
-    metadata_files = list(config.metadata_dir.glob('*_metadata.json'))
-    
-    missing_transcripts = []
-    
-    for metadata_file in metadata_files:
-        video_id = metadata_file.stem.replace('_metadata', '')
-        
-        if video_id == 'playlist':
-            continue
-        
-        try:
-            with open(metadata_file, 'r', encoding='utf-8') as f:
-                metadata = json.load(f)
-            
-            chapters = metadata.get('chapters', [])
-            if not chapters:
-                continue
-                
-            missing_chapters = []
-            
-            for chapter_idx, chapter in enumerate(chapters, 1):
-                chapter_title = chapter.get('title', f'Chapter {chapter_idx}')
-                safe_title = ''.join(c for c in chapter_title if c.isalnum() or c in (' ', '-', '_')).strip()
-                safe_title = safe_title.replace(' ', '_')[:50]
-                transcript_file = transcripts_dir / f'{video_id}_chapter{chapter_idx}_{safe_title}.txt'
-                
-                if not transcript_file.exists():
-                    missing_chapters.append(chapter_idx)
-            
-            if missing_chapters:
-                missing_transcripts.append({
-                    'video_id': video_id,
-                    'title': metadata.get('title', 'Unknown'),
-                    'missing_chapters': missing_chapters,
-                    'total_chapters': len(chapters)
-                })
-        except Exception as e:
-            logging.error(f'Error processing {metadata_file}: {e}')
-    
-    return missing_transcripts
-
-
-def find_untranscribed_videos(limit: int = 5, transcripts_dir: Path = None):
-    """
-    Find latest videos that haven't been transcribed with large model.
-    
-    Args:
-        limit: Number of videos to return
-        transcripts_dir: Directory to check for existing transcripts
-        
-    Returns:
-        List of video dictionaries
-    """
-    # Load playlist metadata
-    metadata_path = Path('test_data/metadata/playlist_metadata.json')
-    if not metadata_path.exists():
-        print("✗ Playlist metadata not found!")
-        return []
-    
-    with open(metadata_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    
-    # Get all videos sorted by upload_date
-    videos = data.get('videos', [])
-    videos_sorted = sorted(videos, key=lambda x: x.get('upload_date', ''), reverse=True)
-    
-    # Check which videos already have transcripts
-    if transcripts_dir is None:
-        transcripts_dir = Path('test_data/transcripts_large')
-    
-    transcribed_videos = set()
-    if transcripts_dir.exists():
-        for file in transcripts_dir.glob('*_chapter*.txt'):
-            video_id = file.name.split('_chapter')[0]
-            transcribed_videos.add(video_id)
-    
-    # Find videos without transcripts
-    untranscribed = []
-    for video in videos_sorted:
-        video_id = video.get('video_id', '')
-        if video_id and video_id not in transcribed_videos:
-            upload_date = video.get('upload_date', '')
-            if upload_date:
-                untranscribed.append(video)
-    
-    return untranscribed[:limit]
 
 
 def transcribe_chapter_clips(video_id: str, config: Config = None, 
@@ -215,6 +124,60 @@ def transcribe_chapter_clips(video_id: str, config: Config = None,
     return results
 
 
+def process_videos_batch(videos: list, config: Config, validate: bool = True, 
+                        verbose: bool = True, auto_mode: bool = False):
+    """
+    Process multiple videos in batch.
+    
+    Args:
+        videos: List of video dictionaries or video IDs
+        config: Configuration object
+        validate: Whether to validate transcripts
+        verbose: Whether to print progress
+        auto_mode: Skip confirmation prompts
+    """
+    for idx, video in enumerate(videos, 1):
+        # Handle both dict and string (video_id) formats
+        if isinstance(video, dict):
+            video_id = video.get('video_id', '')
+            video_title = video.get('title', 'Unknown')
+        else:
+            video_id = video
+            video_title = video_id
+        
+        if verbose:
+            print("="*60)
+            print(f"[{idx}/{len(videos)}] Processing: {video_id}")
+            if isinstance(video, dict):
+                print(f"Title: {video_title[:80]}...")
+            print("="*60)
+            print()
+        
+        try:
+            transcribe_chapter_clips(video_id, config, validate=validate, verbose=verbose)
+        except Exception as e:
+            logging.error(f"Error transcribing {video_id}: {e}", exc_info=True)
+            if verbose:
+                print(f"✗ Error processing {video_id}: {e}")
+                print()
+        
+        if not auto_mode and idx < len(videos):
+            print(f"\nContinue with next video? (y/n): ", end="")
+            try:
+                response = input().strip().lower()
+                if response != 'y':
+                    print("\nUser requested to stop.")
+                    break
+            except (KeyboardInterrupt, EOFError):
+                print("\n\nStopped.")
+                break
+    
+    if verbose:
+        print("="*60)
+        print("All transcriptions complete!")
+        print("="*60)
+
+
 def main():
     """Main CLI interface."""
     parser = argparse.ArgumentParser(
@@ -263,10 +226,11 @@ def main():
     # Handle different modes
     if args.missing:
         # Find and transcribe missing transcripts
-        print("="*60)
-        print("Finding videos with missing transcripts...")
-        print("="*60)
-        print()
+        if verbose:
+            print("="*60)
+            print("Finding videos with missing transcripts...")
+            print("="*60)
+            print()
         
         missing_videos = find_videos_with_missing_transcripts(config)
         
@@ -274,13 +238,15 @@ def main():
             print("✓ All videos have complete transcripts!")
             return
         
-        print(f"Found {len(missing_videos)} videos with missing transcripts")
-        print()
+        if verbose:
+            print(f"Found {len(missing_videos)} videos with missing transcripts")
+            print()
         
         if args.limit:
             missing_videos = missing_videos[:args.limit]
-            print(f"Processing first {args.limit} videos...")
-            print()
+            if verbose:
+                print(f"Processing first {args.limit} videos...")
+                print()
         
         if not args.auto:
             response = input("Continue? (y/n): ").strip().lower()
@@ -288,59 +254,41 @@ def main():
                 print("Cancelled.")
                 return
         
-        for idx, video_info in enumerate(missing_videos, 1):
-            video_id = video_info['video_id']
-            title = video_info['title']
-            missing_count = len(video_info['missing_chapters'])
-            total_count = video_info['total_chapters']
-            
-            if verbose:
-                print("="*60)
-                print(f"[{idx}/{len(missing_videos)}] Processing: {video_id}")
-                print(f"Title: {title[:80]}...")
-                print(f"Missing: {missing_count}/{total_count} chapters")
-                print("="*60)
-                print()
-            
-            try:
-                transcribe_chapter_clips(video_id, config, validate=validate, verbose=verbose)
-            except Exception as e:
-                logging.error(f"Error transcribing {video_id}: {e}", exc_info=True)
-                if verbose:
-                    print(f"✗ Error processing {video_id}: {e}")
-                    print()
-        
-        if verbose:
-            print("="*60)
-            print("All transcriptions complete!")
-            print("="*60)
+        process_videos_batch(missing_videos, config, validate=validate, 
+                           verbose=verbose, auto_mode=args.auto)
     
     elif args.latest:
         # Transcribe latest untranscribed videos
-        print("="*60)
-        print("Finding latest untranscribed videos...")
-        print("="*60)
+        if verbose:
+            print("="*60)
+            print("Finding latest untranscribed videos...")
+            print("="*60)
         
-        untranscribed = find_untranscribed_videos(limit=args.latest, transcripts_dir=transcripts_dir)
+        untranscribed = find_untranscribed_videos(
+            limit=args.latest, 
+            transcripts_dir=transcripts_dir,
+            metadata_dir=config.metadata_dir
+        )
         
         if not untranscribed:
             print("✓ All videos have been transcribed!")
             return
         
-        print(f"\nFound {len(untranscribed)} untranscribed videos:")
-        for i, video in enumerate(untranscribed, 1):
-            upload_date = video.get('upload_date', '')
-            if len(upload_date) == 8:
-                formatted_date = f'{upload_date[:4]}-{upload_date[4:6]}-{upload_date[6:8]}'
-            else:
-                formatted_date = upload_date
-            print(f"  {i}. [{formatted_date}] {video.get('title', 'Unknown')[:60]}...")
-            print(f"     Video ID: {video.get('video_id', 'N/A')}, Chapters: {len(video.get('chapters', []))}")
-        
-        print(f"\nModel: {config.whisper_model}")
-        print(f"Output directory: {config.transcripts_dir}")
-        print("="*60)
-        print()
+        if verbose:
+            print(f"\nFound {len(untranscribed)} untranscribed videos:")
+            for i, video in enumerate(untranscribed, 1):
+                upload_date = video.get('upload_date', '')
+                if len(upload_date) == 8:
+                    formatted_date = f'{upload_date[:4]}-{upload_date[4:6]}-{upload_date[6:8]}'
+                else:
+                    formatted_date = upload_date
+                print(f"  {i}. [{formatted_date}] {video.get('title', 'Unknown')[:60]}...")
+                print(f"     Video ID: {video.get('video_id', 'N/A')}, Chapters: {len(video.get('chapters', []))}")
+            
+            print(f"\nModel: {config.whisper_model}")
+            print(f"Output directory: {config.transcripts_dir}")
+            print("="*60)
+            print()
         
         if not args.auto:
             print("⚠️  Warning: This may take a long time depending on the number of chapters.")
@@ -350,40 +298,8 @@ def main():
                 print("Cancelled.")
                 return
         
-        for video_idx, video in enumerate(untranscribed, 1):
-            video_id = video.get('video_id', '')
-            video_title = video.get('title', 'Unknown')
-            
-            if verbose:
-                print("\n" + "="*60)
-                print(f"Processing Video {video_idx}/{len(untranscribed)}: {video_title}")
-                print(f"Video ID: {video_id}")
-                print("="*60)
-                print()
-            
-            try:
-                transcribe_chapter_clips(video_id, config, validate=validate, verbose=verbose)
-            except Exception as e:
-                logging.error(f"Error processing video {video_id}: {e}", exc_info=True)
-                if verbose:
-                    print(f"\n✗ Error processing video {video_id}: {e}")
-                continue
-            
-            if not args.auto and video_idx < len(untranscribed):
-                print(f"\nContinue with next video? (y/n): ", end="")
-                try:
-                    response = input().strip().lower()
-                    if response != 'y':
-                        print("\nUser requested to stop.")
-                        break
-                except (KeyboardInterrupt, EOFError):
-                    print("\n\nStopped.")
-                    break
-        
-        if verbose:
-            print("\n" + "="*60)
-            print("All videos processed!")
-            print("="*60)
+        process_videos_batch(untranscribed, config, validate=validate, 
+                           verbose=verbose, auto_mode=args.auto)
     
     elif args.video_id:
         # Transcribe specific video

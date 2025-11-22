@@ -25,7 +25,7 @@ def find_videos_without_transcripts(config: Config):
     
     for video_id in video_ids:
         # Check metadata to see total chapters
-        metadata_path = transcripts_dir / f"{video_id}_metadata.json"
+        metadata_path = config.metadata_dir / f"{video_id}_metadata.json"
         total_chapters = 0
         
         if metadata_path.exists():
@@ -142,7 +142,7 @@ if __name__ == "__main__":
     incomplete = []
     none = []
     for video_id in videos_to_transcribe:
-        metadata_path = config.transcripts_dir / f"{video_id}_metadata.json"
+        metadata_path = config.metadata_dir / f"{video_id}_metadata.json"
         transcript_files = list(config.transcripts_dir.glob(f"{video_id}_chapter*.txt"))
         
         if len(transcript_files) > 0:

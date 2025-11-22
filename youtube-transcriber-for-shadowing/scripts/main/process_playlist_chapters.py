@@ -2,12 +2,18 @@
 
 import logging
 import json
+import sys
 from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
 from youtube_transcriber import Config
 from youtube_transcriber.playlist_handler import PlaylistHandler
 from youtube_transcriber.transcript_searcher import TranscriptSearcher
 from youtube_transcriber.audio_clipper import AudioClipper
 from youtube_transcriber.transcriber import Transcriber
+from youtube_transcriber.audio_utils import find_audio_file, ensure_audio_file
 from youtube_transcriber.utils import setup_logging
 
 # Setup logging
@@ -106,23 +112,19 @@ def process_playlist_chapters(playlist_url: str, config: Config = None,
         
         try:
             # Step 1: Download audio if needed
-            audio_path = None
-            for ext in ['.mp3', '.m4a', '.webm', '.opus']:
-                candidate = config.audio_dir / f"{video_id}{ext}"
-                if candidate.exists():
-                    audio_path = candidate
-                    print(f"✓ Audio file already exists: {audio_path.name}")
-                    break
+            audio_path = find_audio_file(config, video_id)
             
             if not audio_path:
                 print("Downloading audio...")
-                audio_path = handler.download_audio(video_url)
+                audio_path = ensure_audio_file(config, handler, video_id, video_url)
                 if audio_path:
                     print(f"✓ Audio download completed: {audio_path.name}")
                 else:
                     print("✗ Audio download failed")
                     results['errors'].append(f"{video_id}: Audio download failed")
                     continue
+            else:
+                print(f"✓ Audio file already exists: {audio_path.name}")
             
             # Step 2: Transcribe if needed
             transcript_path = config.transcripts_dir / f"{video_id}.json"
