@@ -112,14 +112,14 @@ def transcribe_batch(video_ids: list, batch_size: int = 5):
         # Skip prompt in auto mode
         auto_mode = "--auto" in sys.argv or "-y" in sys.argv
         if batch_idx < total_batches - 1 and not auto_mode:
-            print(f"\n다음 배치를 진행하시겠습니까? (y/n): ", end="")
+            print(f"\nContinue with next batch? (y/n): ", end="")
             try:
                 response = input().strip().lower()
                 if response != 'y':
-                    print("\n사용자가 중단을 요청했습니다.")
+                    print("\nUser requested to stop.")
                     break
             except (KeyboardInterrupt, EOFError):
-                print("\n\n중단되었습니다.")
+                print("\n\nStopped.")
                 break
     
     print("\n" + "="*60)
@@ -169,14 +169,14 @@ if __name__ == "__main__":
     auto_mode = "--auto" in sys.argv or "-y" in sys.argv
     
     if not auto_mode:
-        print(f"\n이 영상들을 5개씩 배치로 처리하시겠습니까? (y/n): ", end="")
+        print(f"\nProcess these videos in batches of 5? (y/n): ", end="")
         try:
             response = input().strip().lower()
             if response != 'y':
-                print("취소되었습니다.")
+                print("Cancelled.")
                 sys.exit(0)
         except (KeyboardInterrupt, EOFError):
-            print("\n취소되었습니다.")
+            print("\nCancelled.")
             sys.exit(0)
     
     transcribe_batch(videos_to_transcribe, batch_size=5)

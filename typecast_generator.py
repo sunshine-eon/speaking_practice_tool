@@ -11,6 +11,9 @@ This doesn't affect TTS functionality which works correctly with X-API-KEY.
 """
 
 import os
+import json
+from datetime import datetime
+from pathlib import Path
 import requests
 from config import TYPECAST_API_KEY
 
@@ -350,6 +353,19 @@ def _generate_single_chunk_audio(chunk_text, voice_id, model, speed, api_key):
             "audio_format": "wav"
         }
     }
+    
+    # Log API request to typecast_requests.log
+    log_file = Path("typecast_requests.log")
+    try:
+        with open(log_file, 'a', encoding='utf-8') as f:
+            f.write("=" * 60 + "\n")
+            f.write(f"TYPECAST API REQUEST - {datetime.now().isoformat()}\n")
+            f.write("=" * 60 + "\n")
+            f.write(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
+            f.write("=" * 60 + "\n\n")
+    except Exception as e:
+        # Don't fail the request if logging fails
+        print(f"Warning: Failed to write to typecast_requests.log: {e}")
     
     # Make request to generate audio
     response = requests.post(tts_url, headers=headers, json=payload)

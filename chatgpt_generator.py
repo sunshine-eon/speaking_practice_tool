@@ -106,7 +106,7 @@ The script should be in TED talk style:
 - Clear structure with an introduction, main points, and conclusion
 - Natural, conversational delivery style
 - Varied sentence structures for engaging rhythm
-- Topics can be: science, psychology, productivity, innovation, personal growth, technology, culture, history, creativity, or any inspiring educational content
+- Topics can be: psychology, productivity, innovation, personal growth, technology, culture, history, creativity, human behavior, society, environment, or any inspiring educational content (AVOID natural sciences topics like biology, chemistry, physics, cells, anatomy, etc.)
 
 The script should be interesting to speak aloud, have natural pauses, and help build speaking confidence through engaging content."""
     
@@ -131,7 +131,7 @@ TED TALK STYLE:
 - Personal stories or examples to illustrate points
 - Clear narrative flow
 - Varied sentence lengths for natural rhythm
-- Topic: Choose from science, psychology, productivity, innovation, personal growth, technology, culture, history, creativity
+- Topic: Choose from psychology, productivity, innovation, personal growth, technology, culture, history, creativity, human behavior, society, environment (AVOID natural sciences topics like biology, chemistry, physics, cells, anatomy, etc.)
 
 IMPORTANT: Count your words as you write. The final script MUST be between 875-1,250 words. Do not stop until you reach this word count. Write the full script now."""
     
@@ -366,7 +366,7 @@ You MUST generate COMPLETELY DIFFERENT scripts with:
 1. DIFFERENT topics for both scripts (not daily routines, productivity, or communication)
 2. DIFFERENT openings (not "Welcome to today's shadowing practice")
 3. DIFFERENT structure and content
-4. Fresh, unique TED talk-style topics (science, psychology, innovation, culture, history, creativity, etc.)
+4. Fresh, unique TED talk-style topics (psychology, innovation, culture, history, creativity, human behavior, society, environment, technology, etc.) - AVOID natural sciences topics (biology, chemistry, physics, cells, anatomy, etc.)
 5. Each script should be 500-700 words with COMPLETELY NEW content
 
 DO NOT use any part of the existing scripts. Create something entirely new."""
@@ -398,7 +398,7 @@ TED TALK STYLE:
 - Personal stories or examples to illustrate points
 - Clear narrative flow
 - Varied sentence lengths for natural rhythm
-- Topics: Choose from science, psychology, innovation, culture, history, creativity, human behavior, society, environment, technology (general topics - NOT career/job specific)
+- Topics: Choose from psychology, innovation, culture, history, creativity, human behavior, society, environment, technology, career, professional development. AVOID natural sciences topics (biology, chemistry, physics, cells, anatomy, etc.) - focus on topics that are more relatable and don't require specialized scientific knowledge.
 
 {previous_topics_note}
 {regeneration_note}

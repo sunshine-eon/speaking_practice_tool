@@ -82,7 +82,9 @@ def api_update_progress():
     week_key = data.get('week_key')
     completed = data.get('completed', True)
     day = data.get('day')  # For shadowing practice
-    mp3_file = data.get('mp3_file')  # For weekly_expressions and podcast_shadowing
+    mp3_file = data.get('mp3_file')  # For weekly_expressions
+    episode_name = data.get('episode_name')  # For podcast_shadowing
+    chapter_name = data.get('chapter_name')  # For podcast_shadowing
     
     if not activity_id:
         return jsonify({'error': 'activity_id is required'}), 400
@@ -100,7 +102,8 @@ def api_update_progress():
         week_key = get_current_week_key()
     
     # Update progress
-    update_progress(progress, activity_id, week_key, completed, day, mp3_file=mp3_file)
+    update_progress(progress, activity_id, week_key, completed, day, 
+                   mp3_file=mp3_file, episode_name=episode_name, chapter_name=chapter_name)
     
     # Save to file
     try:
@@ -715,111 +718,6 @@ def api_generate_weekly_prompt_audio():
         return jsonify({'error': f'Failed to generate audio: {str(e)}'}), 500
 
 
-@app.route('/api/generate-audio', methods=['POST'])
-def api_generate_audio():
-    """
-    Generate audio from both scripts using both Typecast and OpenAI TTS.
-    NOTE: This endpoint is legacy and may not be actively used.
-    For new code, use /api/generate-audio-single instead.
-    """
-    data = request.get_json()
-    week_key = data.get('week_key') if data else None
-    voice_id = data.get('voice_id') if data else None
-    speed = data.get('speed', 1.0) if data else 1.0
-    
-    if week_key is None:
-        week_key = get_current_week_key()
-    
-    progress = load_progress()
-    ensure_week_exists(progress, week_key)
-    
-    script1 = progress['weeks'][week_key]['shadowing_practice'].get('script1', '')
-    script2 = progress['weeks'][week_key]['shadowing_practice'].get('script2', '')
-    
-    # Fallback to legacy 'script' field if script1 doesn't exist
-    if not script1:
-        script1 = progress['weeks'][week_key]['shadowing_practice'].get('script', '')
-    
-    if not script1:
-        return jsonify({'error': 'No scripts available. Generate scripts first.'}), 400
-    
-    try:
-        # Generate audio for Script 1
-        typecast_result1 = generate_shadowing_audio_for_week(script1, f"{week_key}_script1", voice_id=voice_id, speed=speed, return_timestamps=True)
-        openai_result1 = generate_shadowing_audio_openai_for_week(script1, f"{week_key}_script1", speed=speed, return_timestamps=True)
-        
-        # Generate audio for Script 2 (if it exists)
-        typecast_result2 = None
-        openai_result2 = None
-        if script2:
-            typecast_result2 = generate_shadowing_audio_for_week(script2, f"{week_key}_script2", voice_id=voice_id, speed=speed, return_timestamps=True)
-            openai_result2 = generate_shadowing_audio_openai_for_week(script2, f"{week_key}_script2", speed=speed, return_timestamps=True)
-        
-        if typecast_result1 and openai_result1:
-            typecast_url1, typecast_timestamps1 = typecast_result1
-            openai_url1, openai_timestamps1 = openai_result1
-            
-            # Get voice name from available voices
-            from typecast_generator import get_available_voices
-            voice_name = None
-            if voice_id:
-                voices = get_available_voices(language='eng')
-                for v in voices:
-                    if v.get('voice_id') == voice_id:
-                        voice_name = v.get('name')
-                        break
-            
-            # Store Script 1 audio
-            progress['weeks'][week_key]['shadowing_practice']['script1_typecast_url'] = typecast_url1
-            progress['weeks'][week_key]['shadowing_practice']['script1_openai_url'] = openai_url1
-            progress['weeks'][week_key]['shadowing_practice']['script1_typecast_timestamps'] = typecast_timestamps1
-            progress['weeks'][week_key]['shadowing_practice']['script1_openai_timestamps'] = openai_timestamps1
-            
-            # Store Script 2 audio (if generated)
-            if typecast_result2 and openai_result2:
-                typecast_url2, typecast_timestamps2 = typecast_result2
-                openai_url2, openai_timestamps2 = openai_result2
-                progress['weeks'][week_key]['shadowing_practice']['script2_typecast_url'] = typecast_url2
-                progress['weeks'][week_key]['shadowing_practice']['script2_openai_url'] = openai_url2
-                progress['weeks'][week_key]['shadowing_practice']['script2_typecast_timestamps'] = typecast_timestamps2
-                progress['weeks'][week_key]['shadowing_practice']['script2_openai_timestamps'] = openai_timestamps2
-            
-            # Keep legacy fields for backwards compatibility (pointing to script1)
-            progress['weeks'][week_key]['shadowing_practice']['audio_url'] = typecast_url1
-            progress['weeks'][week_key]['shadowing_practice']['audio_typecast_url'] = typecast_url1
-            progress['weeks'][week_key]['shadowing_practice']['audio_openai_url'] = openai_url1
-            
-            if voice_name:
-                progress['weeks'][week_key]['shadowing_practice']['voice_name'] = voice_name
-            if speed:
-                progress['weeks'][week_key]['shadowing_practice']['audio_speed'] = speed
-            progress['last_updated'] = datetime.now().isoformat()
-            
-            # Save to file
-            if save_progress(progress):
-                result = {
-                    'success': True,
-                    'progress': progress,
-                    'script1_typecast_url': typecast_url1,
-                    'script1_openai_url': openai_url1,
-                    'script1_typecast_timestamps': typecast_timestamps1,
-                    'script1_openai_timestamps': openai_timestamps1
-                }
-                if typecast_result2 and openai_result2:
-                    result['script2_typecast_url'] = typecast_url2
-                    result['script2_openai_url'] = openai_url2
-                    result['script2_typecast_timestamps'] = typecast_timestamps2
-                    result['script2_openai_timestamps'] = openai_timestamps2
-                return jsonify(result)
-            else:
-                return jsonify({'error': 'Failed to save audio URLs'}), 500
-        else:
-            return jsonify({'error': 'Failed to generate audio for Script 1'}), 500
-            
-    except Exception as e:
-        return jsonify({'error': f'Failed to generate audio: {str(e)}'}), 500
-
-
 @app.route('/api/generate-all', methods=['POST'])
 def api_generate_all():
     """Generate all weekly content (words, script, prompt, audio) using ChatGPT and Typecast.ai."""
@@ -1252,6 +1150,7 @@ def api_delete_recording():
 @app.route('/api/weekly-expressions/mp3-list', methods=['GET'])
 def api_get_mp3_list():
     """Get list of available MP3 files."""
+    # Directory containing MP3 files (Korean directory name preserved for filesystem compatibility)
     mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     
     if not os.path.exists(mp3_dir):
@@ -1271,6 +1170,7 @@ def api_get_mp3_list():
 @app.route('/api/weekly-expressions/mp3/<path:filename>', methods=['GET'])
 def api_serve_mp3(filename):
     """Serve MP3 files."""
+    # Directory containing MP3 files (Korean directory name preserved for filesystem compatibility)
     mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     
     # Security: ensure filename doesn't contain path traversal
@@ -1309,6 +1209,7 @@ def api_select_mp3():
     ensure_week_exists(progress, week_key)
     
     # Verify file exists
+    # Directory containing MP3 files (Korean directory name preserved for filesystem compatibility)
     mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     filepath = os.path.join(mp3_dir, mp3_file)
     if not os.path.exists(filepath):
@@ -1401,9 +1302,25 @@ def remove_transcript_header(transcript_text: str) -> str:
     for line in lines:
         if skip_header:
             # Skip header lines (Chapter, Video, Time, separator, empty lines after separator)
-            if line.startswith('Chapter') or line.startswith('Video') or line.startswith('Time'):
+            stripped = line.strip()
+            # Check for various metadata patterns
+            if (stripped.startswith('Chapter') or 
+                stripped.startswith('Video') or 
+                stripped.startswith('Time') or
+                stripped.startswith('Episode') or
+                stripped.startswith('Title') or
+                stripped.startswith('Model') or
+                re.match(r'^Chapter\s*:', stripped, re.IGNORECASE) or
+                re.match(r'^Video\s*:', stripped, re.IGNORECASE) or
+                re.match(r'^Time\s*:', stripped, re.IGNORECASE) or
+                re.match(r'^Episode\s*:', stripped, re.IGNORECASE) or
+                re.match(r'^Model\s*:', stripped, re.IGNORECASE)):
                 continue
-            if line.strip().startswith('=') or line.strip() == '':
+            # Skip separator lines (===, ---, etc.)
+            if re.match(r'^[=\-_\s]+$', stripped):
+                continue
+            # Skip empty lines at the beginning
+            if stripped == '':
                 continue
             # First non-header line found, start collecting content
             skip_header = False
@@ -1421,11 +1338,25 @@ def remove_transcript_header(transcript_text: str) -> str:
             # Skip lines that are only quoted text: "text" (likely transcription artifacts)
             if re.match(r'^"[^"]*"\s*$', stripped):
                 continue
+            # Skip metadata-like lines (e.g., "Chapter: X", "Video: Y", "Model: large")
+            if re.match(r'^(Chapter|Video|Time|Episode|Title|Model)\s*:.*$', stripped, re.IGNORECASE):
+                continue
             content_lines.append(line)
     
-    # Join and clean up
+    # Join and clean up - remove leading/trailing empty lines
     result = '\n'.join(content_lines).strip()
-    return result
+    # Remove any remaining metadata patterns at the start
+    lines = result.split('\n')
+    cleaned_lines = []
+    for line in lines:
+        stripped = line.strip()
+        # Skip any remaining metadata lines
+        if (re.match(r'^(Chapter|Video|Time|Episode|Title|Model)\s*:.*$', stripped, re.IGNORECASE) or
+            re.match(r'^[=\-_\s]+$', stripped)):
+            continue
+        cleaned_lines.append(line)
+    
+    return '\n'.join(cleaned_lines).strip()
 
 
 @app.route('/api/podcast-shadowing/generate-typecast-audio', methods=['POST'])
@@ -1491,11 +1422,34 @@ def api_generate_podcast_typecast_audio():
             if typecast_result:
                 audio_url, timestamps = typecast_result
                 
-                # Update progress
+                # Get current chapter info
+                podcast_shadowing = progress['weeks'][week_key].get('podcast_shadowing', {})
+                video_id = podcast_shadowing.get('video_id')
+                chapter_index = podcast_shadowing.get('chapter_index')
+                
+                # Update current progress (for immediate display)
                 progress['weeks'][week_key]['podcast_shadowing']['typecast_audio_url'] = audio_url
                 progress['weeks'][week_key]['podcast_shadowing']['typecast_voice'] = voice_id or ""
                 progress['weeks'][week_key]['podcast_shadowing']['typecast_speed'] = speed
                 progress['weeks'][week_key]['podcast_shadowing']['typecast_model'] = model
+                
+                # Save audio info per chapter if we can identify the chapter (global across all weeks)
+                if video_id is not None and chapter_index is not None:
+                    # Initialize global podcast_chapter_audio dictionary if it doesn't exist
+                    if 'podcast_chapter_audio' not in progress:
+                        progress['podcast_chapter_audio'] = {}
+                    
+                    # Create chapter key (global, not week-specific)
+                    chapter_key = f"{video_id}_{chapter_index}"
+                    
+                    # Save audio info for this specific chapter (shared across all weeks)
+                    progress['podcast_chapter_audio'][chapter_key] = {
+                        'typecast_audio_url': audio_url,
+                        'typecast_voice': voice_id or "",
+                        'typecast_speed': speed,
+                        'typecast_model': model
+                    }
+                
                 progress['last_updated'] = datetime.now().isoformat()
                 
                 if save_progress(progress):
@@ -1631,10 +1585,21 @@ def api_regenerate_podcast_shadowing_mp3():
     new_mp3_file = podcast_clip['audio_filename']
     old_transcript_path = progress['weeks'][week_key]['podcast_shadowing'].get('transcript_path', '')
     
+    # Get video_id and chapter_index for this clip
+    # Prefer values from podcast_clip (if available), otherwise use values from request
+    if 'video_id' in podcast_clip:
+        video_id = podcast_clip['video_id']
+    if 'chapter_index' in podcast_clip:
+        chapter_index = podcast_clip['chapter_index']
+    
     progress['weeks'][week_key]['podcast_shadowing']['mp3_file'] = new_mp3_file
     # Store episode name and chapter name for display
     progress['weeks'][week_key]['podcast_shadowing']['episode_name'] = podcast_clip.get('video_title', '')
     progress['weeks'][week_key]['podcast_shadowing']['chapter_name'] = podcast_clip.get('title', '')
+    # Store video_id and chapter_index for chapter identification
+    if video_id is not None and chapter_index is not None:
+        progress['weeks'][week_key]['podcast_shadowing']['video_id'] = video_id
+        progress['weeks'][week_key]['podcast_shadowing']['chapter_index'] = chapter_index
     # Store transcript path (relative to workspace root)
     new_transcript_path = ''
     if podcast_clip.get('transcript_path'):
@@ -1651,12 +1616,36 @@ def api_regenerate_podcast_shadowing_mp3():
             new_transcript_path = podcast_clip['transcript_path']
             progress['weeks'][week_key]['podcast_shadowing']['transcript_path'] = new_transcript_path
     
-    # Clear Typecast audio if MP3 file changed or transcript path changed
-    if (current_mp3 != new_mp3_file) or (old_transcript_path != new_transcript_path):
-        progress['weeks'][week_key]['podcast_shadowing']['typecast_audio_url'] = ''
-        progress['weeks'][week_key]['podcast_shadowing']['typecast_voice'] = ''
-        progress['weeks'][week_key]['podcast_shadowing']['typecast_speed'] = 1.0
-        progress['weeks'][week_key]['podcast_shadowing']['typecast_model'] = 'ssfm-v30'
+    # Initialize global podcast_chapter_audio dictionary if it doesn't exist
+    if 'podcast_chapter_audio' not in progress:
+        progress['podcast_chapter_audio'] = {}
+    
+    # Create chapter key for identifying this specific chapter (global across all weeks)
+    chapter_key = None
+    if video_id is not None and chapter_index is not None:
+        chapter_key = f"{video_id}_{chapter_index}"
+        
+        # Check if we have saved audio for this chapter (from any week)
+        if chapter_key in progress['podcast_chapter_audio']:
+            # Load saved audio information for this chapter
+            saved_audio = progress['podcast_chapter_audio'][chapter_key]
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_audio_url'] = saved_audio.get('typecast_audio_url', '')
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_voice'] = saved_audio.get('typecast_voice', '')
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_speed'] = saved_audio.get('typecast_speed', 1.0)
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_model'] = saved_audio.get('typecast_model', 'ssfm-v30')
+        else:
+            # No saved audio for this chapter, clear current audio info
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_audio_url'] = ''
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_voice'] = ''
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_speed'] = 1.0
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_model'] = 'ssfm-v30'
+    else:
+        # If we can't identify the chapter, clear audio info (fallback behavior)
+        if (current_mp3 != new_mp3_file) or (old_transcript_path != new_transcript_path):
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_audio_url'] = ''
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_voice'] = ''
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_speed'] = 1.0
+            progress['weeks'][week_key]['podcast_shadowing']['typecast_model'] = 'ssfm-v30'
     
     progress['last_updated'] = datetime.now().isoformat()
     

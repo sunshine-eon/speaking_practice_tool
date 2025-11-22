@@ -56,6 +56,35 @@ def format_existing_transcripts(transcripts_dir: Path):
     print("\n" + "="*60)
     print(f"Summary: {success_count} succeeded, {error_count} failed")
     print("="*60)
+    
+    # Update formatted_chapters_list.json after formatting
+    if success_count > 0:
+        print("\n" + "="*60)
+        print("Updating formatted_chapters_list.json...")
+        print("="*60)
+        try:
+            from generate_large_formatted_list import generate_large_formatted_list
+            import json
+            
+            result = generate_large_formatted_list()
+            
+            # Save to JSON file
+            output_path = transcripts_dir / 'formatted_chapters_list.json'
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(result, f, indent=2, ensure_ascii=False)
+            
+            total_videos = len(result['videos'])
+            total_chapters = sum(len(v['chapters']) for v in result['videos'])
+            
+            print(f"✅ Updated {output_path}")
+            print(f"   - {total_videos} videos")
+            print(f"   - {total_chapters} chapters with formatted transcripts")
+        except Exception as e:
+            print(f"⚠️  Warning: Failed to update formatted_chapters_list.json: {e}")
+            import traceback
+            traceback.print_exc()
 
 if __name__ == "__main__":
     import sys
