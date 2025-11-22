@@ -37,6 +37,10 @@ server.pid
 *.webm
 audio/
 recordings/
+static/audio/
+
+# YouTube transcriber test data
+youtube-transcriber-for-shadowing/test_data/
 
 # macOS
 .DS_Store
@@ -45,3 +49,9 @@ recordings/
 *.tmp
 *.temp
 progress.json
+
+# Study/learning markdown files
+app.py.md
+REFACTORING_GUIDE.md
+REFACTORING_EVALUATION.md
+REFACTORING_REPORT.md

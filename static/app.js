@@ -141,6 +141,47 @@ function formatWeekKeyForDisplay(weekKey) {
     return `Week ${parseInt(week)}, ${year}`;
 }
 
+// Helper function to create SVG progress bar
+function createProgressSVG(completedDays, isActive) {
+    const width = 60;
+    const height = 17;
+    const rowHeight = 3.5;
+    const rowGap = 1;
+    const segmentWidth = width / 7;
+    
+    const completedColor = isActive ? 'rgba(255, 255, 255, 0.8)' : '#2ecc71';
+    const emptyColor = isActive ? 'rgba(255, 255, 255, 0.1)' : '#f8f9fa';
+    const borderColor = isActive ? 'rgba(255, 255, 255, 0.4)' : '#f8f9fa';
+    
+    let svgContent = '';
+    
+    for (let row = 0; row < 4; row++) {
+        const y = row * (rowHeight + rowGap);
+        const rowCompleted = completedDays[row] || [];
+        
+        for (let col = 0; col < 7; col++) {
+            const x = col * segmentWidth;
+            const isCompleted = rowCompleted.includes(col);
+            const fillColor = isCompleted ? completedColor : emptyColor;
+            
+            svgContent += `<rect x="${x}" y="${y}" width="${segmentWidth}" height="${rowHeight}" fill="${fillColor}"/>`;
+            
+            if (isCompleted && col < 6 && rowCompleted.includes(col + 1)) {
+                const borderX = (col + 1) * segmentWidth;
+                svgContent += `<line x1="${borderX}" y1="${y}" x2="${borderX}" y2="${y + rowHeight}" stroke="${borderColor}" stroke-width="1"/>`;
+            }
+        }
+    }
+    
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', width);
+    svg.setAttribute('height', height);
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    svg.innerHTML = svgContent;
+    
+    return svg;
+}
+
 // Update week list in sidebar
 function updateWeekList() {
     const weekList = document.getElementById('weekList');
@@ -181,8 +222,75 @@ function updateWeekList() {
         weekRange.className = 'week-range';
         weekRange.textContent = getWeekDateRange(weekKey);
         
-        weekItem.appendChild(weekLabel);
-        weekItem.appendChild(weekRange);
+        // Create week header container for flex layout
+        const weekHeader = document.createElement('div');
+        weekHeader.className = 'week-header';
+        weekHeader.style.cssText = 'display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;';
+        
+        const weekLabelContainer = document.createElement('div');
+        weekLabelContainer.className = 'week-label-container';
+        weekLabelContainer.style.cssText = 'flex: 1;';
+        weekLabelContainer.appendChild(weekLabel);
+        weekLabelContainer.appendChild(weekRange);
+        
+        // Create SVG progress bar
+        const weekProgress = document.createElement('div');
+        weekProgress.className = 'week-progress';
+        weekProgress.style.cssText = 'width: 60px; height: 17px; flex-shrink: 0;';
+        
+        // Get completed days for each activity
+        const weekData = progress?.weeks?.[weekKey] || {};
+        const activities = [
+            ACTIVITY_IDS?.WEEKLY_EXPRESSIONS || 'weekly_expressions',
+            ACTIVITY_IDS?.VOICE_JOURNALING || 'voice_journaling',
+            ACTIVITY_IDS?.SHADOWING_PRACTICE || 'shadowing_practice',
+            ACTIVITY_IDS?.PODCAST_SHADOWING || 'podcast_shadowing'
+        ];
+        
+        // Get week start date (Sunday)
+        const weekStart = getWeekStartDate(weekKey);
+        
+        // Convert completed days to row format [row0_indices, row1_indices, row2_indices, row3_indices]
+        const completedDaysByRow = activities.map(activityId => {
+    const activityData = weekData[activityId];
+            const completedDays = activityData?.completed_days || [];
+            const completedIndices = [];
+        
+        for (let i = 0; i < 7; i++) {
+                const date = new Date(weekStart);
+                date.setDate(date.getDate() + i);
+                const dateStr = date.toISOString().split('T')[0];
+                
+                // Check if this day is completed
+                let isCompleted = false;
+                if (Array.isArray(completedDays)) {
+                    if (completedDays.some(entry => {
+                        if (typeof entry === 'string') {
+                            return entry === dateStr;
+                        } else if (typeof entry === 'object' && entry.day) {
+                            return entry.day === dateStr;
+                        }
+            return false;
+                    })) {
+                        isCompleted = true;
+                    }
+                }
+                
+                if (isCompleted) {
+                    completedIndices.push(i);
+                }
+            }
+            
+            return completedIndices;
+        });
+        
+        // Create SVG
+        const svg = createProgressSVG(completedDaysByRow, weekKey === currentWeek);
+        weekProgress.appendChild(svg);
+        
+        weekHeader.appendChild(weekLabelContainer);
+        weekHeader.appendChild(weekProgress);
+        weekItem.appendChild(weekHeader);
         
         weekItem.onclick = () => selectWeek(weekKey);
         
@@ -1187,7 +1295,7 @@ function updatePodcastChapterSelectSync(weekKey, chapters, videoNumber) {
         // Use chapter.chapter_index instead of array index
         const chapterIndex = chapter.chapter_index !== undefined ? chapter.chapter_index : index;
         option.value = chapterIndex.toString();
-        // Format: "비디오넘버-챕터넘버. 챕터제목"
+        // Format: "video-number-chapter-number. chapter-title"
         const chapterTitle = chapter.title || `Chapter ${index + 1}`;
         option.textContent = `${videoNumber}-${index + 1}. ${chapterTitle}`;
         
@@ -1522,19 +1630,24 @@ async function displayRecordings(activityId, day, recordings) {
     const recordingsList = document.querySelector(`#${activityId}_recordings_${dayId}`);
     const recordBtn = document.querySelector(`#${activityId}_record_${dayId}`);
     const completeBtn = document.querySelector(`#${activityId}_complete_${dayId}`);
-    const dayBox = document.querySelector(`[data-day="${day}"]`);
     
     if (!recordingsList) return;
     
     const hasRecordings = recordings && recordings.length > 0;
     
-    // Update record button text
+    // Check if day is completed (only check completeBtn if it exists)
+    // If completeBtn doesn't exist yet, default to not completed
+    const isCompleted = completeBtn ? completeBtn.classList.contains('completed') : false;
+    
+    // Update record button text and disable if completed
     if (recordBtn) {
         if (hasRecordings) {
             recordBtn.innerHTML = '🔄 Re-record';
         } else {
             recordBtn.innerHTML = '🎤 Record';
         }
+        // Disable record button only if completed (default to enabled if completeBtn not found)
+        recordBtn.disabled = isCompleted;
     }
     
     // Enable/disable complete button based on recordings
@@ -1630,7 +1743,7 @@ async function displayRecordings(activityId, day, recordings) {
     recordingDiv.innerHTML = `
         <div class="recording-info">
             <span class="recording-time">Recorded: ${timestamp}</span>
-            <button class="delete-recording-btn" onclick="deleteRecording('${activityId}', '${day}', '${recording.filename}'); event.stopPropagation();">🗑️ Delete</button>
+            <button class="delete-recording-btn" onclick="deleteRecording('${activityId}', '${day}', '${recording.filename}'); event.stopPropagation();" ${isCompleted ? 'disabled' : ''}>🗑️ Delete</button>
         </div>
         <audio controls class="recording-player">
             <source src="${recording.url}" type="audio/webm">
@@ -1931,6 +2044,9 @@ async function toggleVoiceJournalingDay(dateStr, element) {
                     }
                 }
             }
+            
+            // Update re-record and delete buttons based on completion state
+            await loadRecordings('voice_journaling', day);
         }
     } catch (error) {
         console.error('Error updating progress:', error);
@@ -2006,6 +2122,9 @@ async function toggleShadowingDay(dateStr, element) {
                     }
                 }
             }
+            
+            // Update re-record and delete buttons based on completion state
+            await loadRecordings('shadowing_practice', day);
         }
     } catch (error) {
         console.error('Error updating progress:', error);
@@ -2081,6 +2200,9 @@ async function togglePromptDay(dateStr, element) {
                     }
                 }
             }
+            
+            // Update re-record and delete buttons based on completion state
+            await loadRecordings('weekly_speaking_prompt', day);
         }
     } catch (error) {
         console.error('Error updating progress:', error);
@@ -2097,6 +2219,19 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
     if (newCompletedState) {
         const activityProgress = getActivityProgress('weekly_expressions');
         currentMp3File = activityProgress?.mp3_file || null;
+        
+        // Save dictation/notes before marking as completed
+        const dayId = dateStr.replace(/-/g, '_');
+        const notesTextarea = document.getElementById(`weekly_expressions_notes_${dayId}`);
+        if (notesTextarea) {
+            const notes = notesTextarea.value || '';
+            try {
+                await saveWeeklyExpressionsNotes(dateStr, notes);
+            } catch (error) {
+                console.error('Error saving notes:', error);
+                // Continue with marking as completed even if notes save fails
+            }
+        }
     }
     
     try {
@@ -2177,11 +2312,13 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
 async function togglePodcastShadowingDay(dateStr, element) {
     const newCompletedState = !element.classList.contains('completed');
     
-    // Get current MP3 file from UI when marking as completed
-    let currentMp3File = null;
+    // Get current episode and chapter info from UI when marking as completed
+    let episodeName = null;
+    let chapterName = null;
     if (newCompletedState) {
         const activityProgress = getActivityProgress('podcast_shadowing');
-        currentMp3File = activityProgress?.mp3_file || null;
+        episodeName = activityProgress?.episode_name || null;
+        chapterName = activityProgress?.chapter_name || null;
     }
     
     try {
@@ -2194,7 +2331,8 @@ async function togglePodcastShadowingDay(dateStr, element) {
                 activity_id: 'podcast_shadowing',
                 day: dateStr,
                 completed: newCompletedState,
-                mp3_file: currentMp3File  // Include current MP3 file when marking as completed
+                episode_name: episodeName,
+                chapter_name: chapterName
             })
         });
         
@@ -2216,10 +2354,13 @@ async function togglePodcastShadowingDay(dateStr, element) {
             weeklySummary = data.weekly_summary;
             updateProgressSummary();
             
-            // Update visual state - scope to podcast_shadowing activity
+            // Update UI - scope to podcast_shadowing activity
             const activityContainer = document.querySelector('[data-activity-id="podcast_shadowing"]');
             const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${dateStr}"]`) : null;
             if (dayBox) {
+                const dayId = dateStr.replace(/-/g, '_');
+                const recordingUI = document.getElementById(`podcast_shadowing_recording_ui_${dayId}`);
+                
                 if (newCompletedState) {
                     dayBox.classList.add('completed');
                     const dayActions = dayBox.querySelector('.day-actions');
@@ -2229,12 +2370,32 @@ async function togglePodcastShadowingDay(dateStr, element) {
                         mark.textContent = '✓';
                         dayActions.insertBefore(mark, dayActions.firstChild);
                     }
+                    
+                    // Add episode/chapter info inside the recording UI (like weekly_expressions)
+                    if (recordingUI && (episodeName || chapterName)) {
+                        const existingInfo = recordingUI.querySelector('.completed-chapter-info');
+                        if (existingInfo) existingInfo.remove();
+                        
+                        const displayText = (episodeName && chapterName) 
+                            ? `${escapeHtml(episodeName)} - ${escapeHtml(chapterName)}`
+                            : (episodeName ? escapeHtml(episodeName) : escapeHtml(chapterName || ''));
+                        
+                        const chapterInfo = document.createElement('div');
+                        chapterInfo.className = 'completed-chapter-info';
+                        chapterInfo.style.cssText = 'margin-top: 10px; padding: 8px; background-color: #f0f0f0; border-radius: 4px; font-size: 0.85rem; color: #666;';
+                        chapterInfo.innerHTML = `<strong>Completed with:</strong> ${displayText}`;
+                        
+                        const controlsSecondary = recordingUI.querySelector('.recording-controls-secondary');
+                        if (controlsSecondary) {
+                            controlsSecondary.insertAdjacentElement('beforebegin', chapterInfo);
+                        } else {
+                            recordingUI.appendChild(chapterInfo);
+                        }
+                    }
+                    
                     element.textContent = '✓ Completed';
                     element.classList.add('completed');
                     
-                    // Close the recording UI if it's open
-                    const dayId = dateStr.replace(/-/g, '_');
-                    const recordingUI = document.getElementById(`podcast_shadowing_recording_ui_${dayId}`);
                     if (recordingUI && recordingUI.style.display !== 'none') {
                         recordingUI.style.display = 'none';
                         dayBox.classList.remove('active');
@@ -2246,10 +2407,26 @@ async function togglePodcastShadowingDay(dateStr, element) {
                         const mark = dayActions.querySelector('.completed-mark');
                         if (mark) mark.remove();
                     }
+                    
                     element.textContent = 'Mark as completed';
                     element.classList.remove('completed');
+                    
+                    // Re-enable record and delete buttons immediately (even if recording UI is closed)
+                    const dayId = dateStr.replace(/-/g, '_');
+                    const recordBtn = document.querySelector(`#podcast_shadowing_record_${dayId}`);
+                    if (recordBtn) recordBtn.disabled = false;
+                    const deleteBtns = document.querySelectorAll(`#podcast_shadowing_recordings_${dayId} .delete-recording-btn`);
+                    deleteBtns.forEach(btn => btn.disabled = false);
+                    
+                    if (recordingUI) {
+                        const chapterInfo = recordingUI.querySelector('.completed-chapter-info');
+                        if (chapterInfo) chapterInfo.remove();
+                    }
                 }
             }
+            
+            // Update re-record and delete buttons based on completion state
+            await loadRecordings('podcast_shadowing', dateStr);
         } else {
             throw new Error(data.error || 'Failed to update progress');
         }
@@ -2961,6 +3138,26 @@ function updateTodayDate() {
 }
 
 // Get week date range for display (Sunday-Saturday format)
+// Get the start date (Sunday) of a given week
+function getWeekStartDate(weekKey) {
+    const [year, week] = weekKey.split('-W');
+    const weekNum = parseInt(week);
+    
+    // Find the first Sunday of the year (Sunday-Saturday week format)
+    const jan1 = new Date(year, 0, 1);
+    // Convert JS getDay() to Python weekday() format, then calculate days to first Sunday
+    const pythonWeekday = jan1.getDay() === 0 ? 6 : jan1.getDay() - 1;
+    const daysToSunday = (6 - pythonWeekday) % 7;
+    const firstSunday = new Date(jan1);
+    firstSunday.setDate(jan1.getDate() + daysToSunday);
+    
+    // Calculate Sunday of the target week (weeks are 1-indexed)
+    const sundayOfTargetWeek = new Date(firstSunday);
+    sundayOfTargetWeek.setDate(firstSunday.getDate() + (weekNum - 1) * 7);
+    
+    return sundayOfTargetWeek;
+}
+
 function getWeekDateRange(weekKey) {
     const [year, week] = weekKey.split('-W');
     const weekNum = parseInt(week);
@@ -3022,6 +3219,33 @@ function updateProgressSummary() {
         progressFill.style.width = `${percentage}%`;
         progressText.textContent = `${completed}/${total} completed`;
     }
+    
+    // Update streak display
+    updateStreakDisplay();
+}
+
+// Update streak display
+function updateStreakDisplay() {
+    if (!weeklySummary || weeklySummary.streak === undefined) return;
+    
+    const streakDisplay = document.getElementById('streakDisplay');
+    if (!streakDisplay) return;
+    
+    const streak = weeklySummary.streak || 0;
+    
+    if (streak === 0) {
+        streakDisplay.style.display = 'none';
+        return;
+    }
+    
+    // Create streak HTML - more engaging display
+    streakDisplay.innerHTML = `
+        <div class="streak-container">
+            <span class="streak-value">${streak}</span>
+            <span class="streak-label">days strong!</span>
+        </div>
+    `;
+    streakDisplay.style.display = 'block';
 }
 
 // Render activities
@@ -3410,6 +3634,19 @@ async function toggleWeeklyExpressionsDay(dateStr, element) {
     if (newCompletedState) {
         const activityProgress = getActivityProgress('weekly_expressions');
         currentMp3File = activityProgress?.mp3_file || null;
+        
+        // Save dictation/notes before marking as completed
+        const dayId = dateStr.replace(/-/g, '_');
+        const notesTextarea = document.getElementById(`weekly_expressions_notes_${dayId}`);
+        if (notesTextarea) {
+            const notes = notesTextarea.value || '';
+            try {
+                await saveWeeklyExpressionsNotes(dateStr, notes);
+            } catch (error) {
+                console.error('Error saving notes:', error);
+                // Continue with marking as completed even if notes save fails
+            }
+        }
     }
     
     try {
@@ -4084,23 +4321,38 @@ async function generateAudioForScript(weekKey, scriptNum, buttonElement, sourceT
         if (data.success) {
             progress = data.progress;
             
-            // Verify audio URLs were generated based on what was requested
-            const weekData = progress?.weeks?.[weekKey]?.shadowing_practice;
-            const typecastUrl = weekData?.[`script${scriptNum}_typecast_url`];
-            const openaiUrl = weekData?.[`script${scriptNum}_openai_url`];
+            // Verify audio URLs were actually generated (check both API response and progress data)
+            const typecastUrl = data.typecast_url || progress?.weeks?.[weekKey]?.shadowing_practice?.[`script${scriptNum}_typecast_url`];
+            const openaiUrl = data.openai_url || progress?.weeks?.[weekKey]?.shadowing_practice?.[`script${scriptNum}_openai_url`];
             
+            const typecastGenerated = !!typecastUrl;
+            const openaiGenerated = !!openaiUrl;
             
-            // Show success message based on what was generated
+            // Show success message based on what was actually generated
             if (sourceType === 'openai') {
-                showError('OpenAI audio generated successfully!');
+                showSuccess('OpenAI audio generated successfully!');
             } else if (sourceType === 'typecast') {
-                showError('Typecast audio generated successfully!');
+                showSuccess('Typecast audio generated successfully!');
             } else {
-                // Show warnings if any
-                if (data.warnings && data.warnings.length > 0) {
-                    showError(`Audio generated with warnings: ${data.warnings.join(', ')}`);
+                // When sourceType is null (both requested), check what was actually generated
+                if (typecastGenerated && openaiGenerated) {
+                    // Show warnings if any
+                    if (data.warnings && data.warnings.length > 0) {
+                        showSuccess(`Both audio types generated with warnings: ${data.warnings.join(', ')}`);
+                    } else {
+                        showSuccess('Both Typecast and OpenAI audio generated successfully!');
+                    }
+                } else if (typecastGenerated) {
+                    showSuccess('Typecast audio generated successfully!');
+                } else if (openaiGenerated) {
+                    showSuccess('OpenAI audio generated successfully!');
                 } else {
-                    showError('Both Typecast and OpenAI audio generated successfully!');
+                    // Fallback: show warnings or generic message
+                    if (data.warnings && data.warnings.length > 0) {
+                        showError(`Audio generation completed with warnings: ${data.warnings.join(', ')}`);
+                    } else {
+                        showError('Audio generation completed, but no URLs were returned.');
+                    }
                 }
             }
             
@@ -4718,8 +4970,11 @@ async function generateBestAnswerAudio(weekKey, buttonElement) {
         const data = await response.json();
         
         if (data.success) {
-            // Reload progress and refresh UI
-            await loadData();
+            progress = data.progress;
+            
+            // Reload the current week to show new audio player
+            await loadWeek(weekKey);
+            
             showSuccess('Audio generated successfully!');
         } else {
             showError(data.error || 'Failed to generate audio');
@@ -4902,7 +5157,12 @@ async function generatePodcastTypecastAudio(weekKey, buttonElement) {
         const data = await response.json();
         
         if (data.success) {
-            location.reload();
+            progress = data.progress;
+            
+            // Reload the current week to show new audio player
+            await loadWeek(weekKey);
+            
+            showSuccess('Podcast audio generated successfully!');
         } else {
             throw new Error(data.error || 'Unknown error');
         }

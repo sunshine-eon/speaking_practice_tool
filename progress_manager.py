@@ -379,6 +379,7 @@ def get_mp3_file_for_week(week_key: str) -> Optional[str]:
     Returns:
         MP3 filename or None if no MP3 files found
     """
+    # Directory containing MP3 files (Korean directory name preserved for filesystem compatibility)
     mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     
     if not os.path.exists(mp3_dir):
@@ -422,6 +423,7 @@ def get_random_mp3_file(week_key: str, progress: Dict[str, Any] = None, exclude_
     Returns:
         MP3 filename or None if no MP3 files found
     """
+    # Directory containing MP3 files (Korean directory name preserved for filesystem compatibility)
     mp3_dir = 'references/네이티브 영어표현력 사전_mp3'
     
     if not os.path.exists(mp3_dir):
@@ -621,7 +623,9 @@ def get_podcast_clip_by_selection(video_id: str, chapter_index: int) -> Optional
                                             'audio_filename': audio_filename,
                                             'video_title': video.get('video_title', 'Unknown'),
                                             'title': chapter.get('title', ''),
-                                            'transcript_path': str(transcript_path)
+                                            'transcript_path': str(transcript_path),
+                                            'video_id': video_id,
+                                            'chapter_index': chapter_index
                                         }
     except (json.JSONDecodeError, IOError, KeyError):
         pass
@@ -691,7 +695,9 @@ def get_random_podcast_clip(week_key: str, progress: Dict[str, Any] = None, excl
                                     'audio_filename': audio_filename,
                                     'video_title': video_title,
                                     'title': chapter.get('title', ''),
-                                    'transcript_path': str(transcript_path)
+                                    'transcript_path': str(transcript_path),
+                                    'video_id': video_id,
+                                    'chapter_index': chapter.get('chapter_index')
                                 }
                                 all_clips.append(clip_info)
     except (json.JSONDecodeError, IOError, KeyError):
@@ -840,17 +846,20 @@ def ensure_week_exists(progress: Dict[str, Any], week_key: str) -> None:
 
 
 def update_progress(progress: Dict[str, Any], activity_id: str, week_key: str = None, 
-                   completed: bool = True, day: str = None, mp3_file: str = None) -> Dict[str, Any]:
+                   completed: bool = True, day: str = None, mp3_file: str = None,
+                   episode_name: str = None, chapter_name: str = None) -> Dict[str, Any]:
     """
     Update progress for a specific activity.
     
     Args:
         progress: Current progress dictionary
-        activity_id: One of 'weekly_expressions', 'voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt'
+        activity_id: One of 'weekly_expressions', 'voice_journaling', 'shadowing_practice', 'weekly_speaking_prompt', 'podcast_shadowing'
         week_key: Week key (defaults to current week)
         completed: Whether the activity is completed
-        day: For weekly_expressions, voice_journaling, shadowing_practice and weekly_speaking_prompt, the day to mark (format: 'YYYY-MM-DD')
+        day: For weekly_expressions, voice_journaling, shadowing_practice, weekly_speaking_prompt and podcast_shadowing, the day to mark (format: 'YYYY-MM-DD')
         mp3_file: For weekly_expressions, the MP3 file that was used when marking as completed
+        episode_name: For podcast_shadowing, the episode name that was used when marking as completed
+        chapter_name: For podcast_shadowing, the chapter name that was used when marking as completed
     """
     if week_key is None:
         week_key = get_current_week_key()
@@ -892,7 +901,7 @@ def update_progress(progress: Dict[str, Any], activity_id: str, week_key: str = 
                                      if (isinstance(e, dict) and e.get("day") != day) or 
                                         (isinstance(e, str) and e != day)]
         elif activity_id == "podcast_shadowing":
-            # For podcast_shadowing, store day and MP3 file info together (like weekly_expressions)
+            # For podcast_shadowing, store day and episode/chapter info together (like weekly_expressions with MP3)
             completed_days = progress["weeks"][week_key][activity_key]["completed_days"]
             
             if completed:
@@ -902,19 +911,34 @@ def update_progress(progress: Dict[str, Any], activity_id: str, week_key: str = 
                     if isinstance(entry, dict):
                         if entry.get("day") == day:
                             day_exists = True
-                            # Update existing entry with MP3 file if provided
+                            # Update existing entry with episode/chapter info if provided
+                            if episode_name:
+                                entry["episode_name"] = episode_name
+                            if chapter_name:
+                                entry["chapter_name"] = chapter_name
+                            # Keep mp3_file for backward compatibility
                             if mp3_file:
                                 entry["mp3_file"] = mp3_file
                             break
                     elif isinstance(entry, str) and entry == day:
                         # Migrate old format to new format
                         day_exists = True
-                        completed_days[i] = {"day": day, "mp3_file": mp3_file or ""}
+                        completed_days[i] = {
+                            "day": day,
+                            "episode_name": episode_name or "",
+                            "chapter_name": chapter_name or "",
+                            "mp3_file": mp3_file or ""
+                        }
                         break
                 
                 if not day_exists:
                     # Add new entry
-                    completed_days.append({"day": day, "mp3_file": mp3_file or ""})
+                    completed_days.append({
+                        "day": day,
+                        "episode_name": episode_name or "",
+                        "chapter_name": chapter_name or "",
+                        "mp3_file": mp3_file or ""
+                    })
             else:
                 # Remove entry (handle both old and new formats)
                 completed_days[:] = [e for e in completed_days 
@@ -929,6 +953,58 @@ def update_progress(progress: Dict[str, Any], activity_id: str, week_key: str = 
     
     progress["last_updated"] = datetime.now().isoformat()
     return progress
+
+
+def calculate_streak(progress: Dict[str, Any]) -> int:
+    """
+    Calculate the current streak (consecutive days with any activity completed).
+    Checks from today backwards until finding a day that had no activities completed.
+    
+    Args:
+        progress: Progress dictionary
+    
+    Returns:
+        Number of consecutive days with at least one activity completed (including today if completed)
+    """
+    if not progress or "weeks" not in progress:
+        return 0
+    
+    # Get all completed days across all activities
+    completed_dates = set()
+    activity_ids = ["weekly_expressions", "voice_journaling", "shadowing_practice", 
+                    "weekly_speaking_prompt", "podcast_shadowing"]
+    
+    for week_key, week_data in progress["weeks"].items():
+        for activity_id in activity_ids:
+            if activity_id not in week_data:
+                continue
+            
+            completed_days = week_data[activity_id].get("completed_days", [])
+            for entry in completed_days:
+                if isinstance(entry, dict):
+                    day = entry.get("day")
+                    if day:
+                        completed_dates.add(day)
+                elif isinstance(entry, str):
+                    completed_dates.add(entry)
+    
+    if not completed_dates:
+        return 0
+    
+    # Convert to date objects for easier comparison
+    completed_date_objects = {datetime.strptime(d, '%Y-%m-%d').date() for d in completed_dates}
+    
+    # Start from today and count backwards
+    today = datetime.now(PST).date()
+    streak = 0
+    current_date = today
+    
+    # Count consecutive days backwards
+    while current_date in completed_date_objects:
+        streak += 1
+        current_date = current_date - timedelta(days=1)
+    
+    return streak
 
 
 def get_weekly_progress_summary(progress: Dict[str, Any], week_key: str = None) -> Dict[str, Any]:
@@ -948,6 +1024,9 @@ def get_weekly_progress_summary(progress: Dict[str, Any], week_key: str = None) 
     shadowing_days = len(week_data["shadowing_practice"]["completed_days"])
     prompt_days = len(week_data["weekly_speaking_prompt"]["completed_days"])
     
+    # Calculate overall streak (any activity completed counts)
+    streak = calculate_streak(progress)
+    
     return {
         "week_key": week_key,
         "weekly_expressions_days": weekly_expressions_days,
@@ -960,7 +1039,8 @@ def get_weekly_progress_summary(progress: Dict[str, Any], week_key: str = None) 
             1 if voice_journaling_days > 0 else 0,
             1 if shadowing_days > 0 else 0,
             1 if prompt_days > 0 else 0
-        ])
+        ]),
+        "streak": streak
     }
 
 
@@ -970,10 +1050,17 @@ def load_progress() -> Dict[str, Any]:
         try:
             with open(PROGRESS_FILE, 'r', encoding='utf-8') as f:
                 progress = json.load(f)
+                # Initialize global podcast_chapter_audio if it doesn't exist
+                if 'podcast_chapter_audio' not in progress:
+                    progress['podcast_chapter_audio'] = {}
                 return progress
         except (json.JSONDecodeError, IOError):
-            return get_default_progress()
-    return get_default_progress()
+            progress = get_default_progress()
+            progress['podcast_chapter_audio'] = {}
+            return progress
+    progress = get_default_progress()
+    progress['podcast_chapter_audio'] = {}
+    return progress
 
 
 def save_progress(progress: Dict[str, Any]) -> bool:

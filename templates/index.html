@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speaking Practice Roadmap - Phase 1</title>
-    <link rel="stylesheet" href="/static/style.css?v={{ timestamp }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ timestamp }}">
 </head>
 <body>
     <div class="main-container">
         <div class="content-area">
             <header>
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <h1 id="weekTitle" style="margin: 0;">Speaking Practice Roadmap</h1>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <h1 id="weekTitle" style="margin: 0;">Speaking Practice Roadmap</h1>
+                        <div id="streakDisplay" class="streak-display" style="display: none;"></div>
+                    </div>
                     <button id="generateAllBtn" class="generate-all-btn" onclick="generateAllContent()">Generate content</button>
                 </div>
                 <p id="todayDate" class="today-date"></p>
@@ -42,16 +45,16 @@
         </aside>
     </div>
 
-    <script src="/static/constants.js?v={{ timestamp }}"></script>
-    <script src="/static/utils/VoiceUtils.js?v={{ timestamp }}"></script>
-    <script src="/static/templates/AudioPlayerTemplate.js?v={{ timestamp }}"></script>
-    <script src="/static/renderers/ActivityRenderer.js?v={{ timestamp }}"></script>
-    <script src="/static/renderers/WeeklyExpressionsRenderer.js?v={{ timestamp }}"></script>
-    <script src="/static/renderers/VoiceJournalingRenderer.js?v={{ timestamp }}"></script>
-    <script src="/static/renderers/WeeklySpeakingPromptRenderer.js?v={{ timestamp }}"></script>
-    <script src="/static/renderers/ShadowingPracticeRenderer.js?v={{ timestamp }}"></script>
-    <script src="/static/renderers/PodcastShadowingRenderer.js?v={{ timestamp }}"></script>
-    <script src="/static/app.js?v={{ timestamp }}&build=3"></script>
+    <script src="{{ url_for('static', filename='constants.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='utils/VoiceUtils.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='templates/AudioPlayerTemplate.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='renderers/ActivityRenderer.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='renderers/WeeklyExpressionsRenderer.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='renderers/VoiceJournalingRenderer.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='renderers/WeeklySpeakingPromptRenderer.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='renderers/ShadowingPracticeRenderer.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='renderers/PodcastShadowingRenderer.js') }}?v={{ timestamp }}"></script>
+    <script src="{{ url_for('static', filename='app.js') }}?v={{ timestamp }}&build=3"></script>
 </body>
 </html>
 

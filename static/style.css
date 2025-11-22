@@ -52,6 +52,35 @@ header h1 {
     margin-bottom: 1rem;
 }
 
+.streak-display {
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    border-radius: 8px;
+    border: 1px solid #ffd89b;
+    box-shadow: 0 1px 3px rgba(255, 216, 155, 0.2);
+}
+
+.streak-container {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    white-space: nowrap;
+}
+
+.streak-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #e67e22;
+    line-height: 1;
+}
+
+.streak-label {
+    font-size: 0.85rem;
+    color: #d35400;
+    line-height: 1;
+    font-weight: 500;
+}
+
 .week-progress-bar {
     display: flex;
     gap: 4px;
@@ -130,7 +159,7 @@ header h1 {
 
 /* Week Sidebar */
 .week-sidebar {
-    width: 280px;
+    width: 320px;
     flex-shrink: 0;
     background-color: white;
     border-left: 1px solid #e0e0e0;
@@ -315,6 +344,7 @@ header h1 {
 
 .week-item .week-label {
     font-weight: 500;
+    line-height: 1.2;
 }
 
 .week-item .week-range {
@@ -325,6 +355,31 @@ header h1 {
 
 .week-item.active .week-range {
     color: rgba(255, 255, 255, 0.8);
+}
+
+/* week-label과 progress를 병렬로 배치하기 위한 컨테이너 */
+.week-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.week-label-container {
+    flex: 1;
+}
+
+/* 프로그레스 표시 영역 - SVG 버전 */
+.week-progress {
+    width: 60px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.week-progress svg {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .phase-title {
@@ -565,6 +620,9 @@ header h1 {
 
 .audio-player-section {
     margin-bottom: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .audio-controls {
@@ -888,23 +946,39 @@ header h1 {
     flex: 1;
     min-height: 0;
     max-height: 400px;
+    max-width: 70ch;
+}
+
+.script-display p {
+    margin: 0 0 1.5em 0;
+}
+
+.script-display p:last-child {
+    margin-bottom: 0;
 }
 
 /* Audio player section - below script */
 .audio-player-section {
     margin-top: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .audio-player-with-options {
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
-    padding: 0.875rem;
+    padding: 0.75rem;
     background-color: white;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-height: 48px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .audio-more-options-btn {
@@ -917,7 +991,7 @@ header h1 {
     border-radius: 4px;
     transition: all 0.2s ease;
     line-height: 1;
-    height: 36px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1359,9 +1433,16 @@ header h1 {
     color: white;
 }
 
-.record-btn:hover {
+.record-btn:hover:not(:disabled) {
     background-color: #c82333;
     transform: translateY(-1px);
+}
+
+.record-btn:disabled {
+    background-color: #d6d6d6;
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .stop-btn {
@@ -1458,9 +1539,16 @@ header h1 {
     transition: all 0.2s ease;
 }
 
-.delete-recording-btn:hover {
+.delete-recording-btn:hover:not(:disabled) {
     background-color: #c82333;
     transform: translateY(-1px);
+}
+
+.delete-recording-btn:disabled {
+    background-color: #d6d6d6;
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .recording-player {
@@ -1550,6 +1638,9 @@ header h1 {
 /* Audio player container */
 .audio-player-container {
     margin-bottom: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .audio-player-label {
@@ -1766,6 +1857,10 @@ header h1 {
 .audio-player-wrapper-custom {
     flex: 1;
     position: relative;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Hide native audio controls for custom audio players */
@@ -1897,9 +1992,12 @@ header h1 {
 /* Audio player with options - kebab button inline */
 .audio-player-with-options {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .audio-more-options-btn {

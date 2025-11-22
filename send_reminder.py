@@ -13,6 +13,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 from dotenv import load_dotenv
+from progress_manager import load_progress, calculate_streak
 
 # Load environment variables
 load_dotenv()
@@ -39,17 +40,28 @@ def send_reminder_email():
         print("❌ Error: REMINDER_EMAIL_TO not set in .env file")
         return False
     
+    # Get current streak
+    try:
+        progress = load_progress()
+        streak = calculate_streak(progress)
+        streak_message = f"🔥 Your current streak: {streak} days in a row!\n\n" if streak > 0 else ""
+    except Exception as e:
+        print(f"⚠️ Warning: Could not load streak information: {e}")
+        streak_message = ""
+    
     # Email content (customizable)
     subject = "🎤 Speaking Practice Reminder"
     
-    body = """
+    body = f"""
 Hi!
 
 This is your reminder to practice speaking today! 🗣️
 
-Daily activities:
+{streak_message}Daily activities:
+• Weekly Expressions (dictation practice)
 • Voice Journaling (2-3 mins)
 • Shadowing Practice (daily practice)
+• Podcast Shadowing
 • Weekly Speaking Prompt (3-5 mins)
 
 Open your speaking practice tool: http://localhost:5001/
