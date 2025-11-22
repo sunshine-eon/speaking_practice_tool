@@ -1631,6 +1631,10 @@ async function displayRecordings(activityId, day, recordings) {
     const recordBtn = document.querySelector(`#${activityId}_record_${dayId}`);
     const completeBtn = document.querySelector(`#${activityId}_complete_${dayId}`);
     
+    // Find the activity container and then the day box within it
+    const activityContainer = document.querySelector(`#${activityId}`);
+    const dayBox = activityContainer ? activityContainer.querySelector(`[data-day="${day}"]`) : null;
+    
     if (!recordingsList) return;
     
     const hasRecordings = recordings && recordings.length > 0;
@@ -2649,6 +2653,10 @@ async function changePodcastShadowingMP3(weekKey, buttonElement) {
                 const episodeName = activityProgress.episode_name || newEpisodeName;
                 const chapterName = activityProgress.chapter_name || newChapterName;
                 
+                // Check if Typecast audio exists for this chapter
+                const hasTypecastAudio = activityProgress.typecast_audio_url && 
+                                        activityProgress.typecast_audio_url.trim() !== '';
+                
                 console.log('Elements found:', {
                     activityProgress: !!activityProgress,
                     transcriptElement: !!transcriptElement,
@@ -2656,13 +2664,45 @@ async function changePodcastShadowingMP3(weekKey, buttonElement) {
                     mp3_file: activityProgress.mp3_file,
                     expected_mp3: newMp3File,
                     episode_name: episodeName,
-                    chapter_name: chapterName
+                    chapter_name: chapterName,
+                    hasTypecastAudio: hasTypecastAudio,
+                    typecast_audio_url: activityProgress.typecast_audio_url
                 });
                 
                 // Update transcript
                 if (transcriptElement) {
                     console.log('Loading transcript...');
                     loadPodcastShadowingTranscript(weekKey);
+                }
+                
+                // If Typecast audio exists, ensure it's displayed (loadWeek should have handled this, but double-check)
+                if (hasTypecastAudio) {
+                    // Check if Typecast audio player section exists
+                    const typecastAudioSection = document.getElementById(`podcast-script-${weekKey}-2`);
+                    const typecastAudioPlayer = document.getElementById(`audio-player-typecast-podcast-${weekKey}`);
+                    
+                    if (typecastAudioSection && typecastAudioPlayer) {
+                        // Ensure Typecast audio section is visible
+                        typecastAudioSection.style.display = 'block';
+                        
+                        // Update audio source if needed
+                        const sourceElement = typecastAudioPlayer.querySelector('source');
+                        if (sourceElement) {
+                            const expectedSrc = `/static/${activityProgress.typecast_audio_url}?v=${Date.now()}`;
+                            if (!sourceElement.src.includes(activityProgress.typecast_audio_url)) {
+                                sourceElement.src = expectedSrc;
+                                typecastAudioPlayer.load();
+                            }
+                        }
+                        
+                        // Setup Typecast audio controls
+                        const savedSpeed = activityProgress.typecast_speed || 1.0;
+                        setupPodcastTypecastAudioControls(weekKey);
+                        
+                        console.log('Typecast audio player updated and displayed');
+                    } else {
+                        console.warn('Typecast audio elements not found, may need to reload activity');
+                    }
                 }
                 
                 // Update audio source - force update even if matches to ensure fresh load
@@ -3372,9 +3412,14 @@ function createActivityElement(activity) {
         }
         setTimeout(() => {
             const savedSource = localStorage.getItem(`podcast_audio_source_${currentWeek}`);
-            if (savedSource) {
-                const dropdown = document.getElementById(`podcast-audio-source-${currentWeek}`);
-                if (dropdown) {
+            const dropdown = document.getElementById(`podcast-audio-source-${currentWeek}`);
+            if (dropdown) {
+                // If Typecast audio exists and no saved preference, default to Typecast
+                if (hasTypecastAudio && !savedSource) {
+                    dropdown.value = '2';
+                    switchPodcastAudioSource(currentWeek, '2');
+                    localStorage.setItem(`podcast_audio_source_${currentWeek}`, '2');
+                } else if (savedSource) {
                     dropdown.value = savedSource;
                     switchPodcastAudioSource(currentWeek, savedSource);
                 }
@@ -5213,6 +5258,44 @@ async function loadPodcastShadowingTranscript(weekKey) {
         if (data.success && data.transcript) {
             console.log('Transcript loaded successfully, length:', data.transcript.length);
             transcriptElement.textContent = data.transcript;
+            
+            // After loading transcript, check if Typecast audio exists and display player if it does
+            const activityProgress = getActivityProgress('podcast_shadowing');
+            const typecastAudioUrl = activityProgress?.typecast_audio_url || '';
+            const hasTypecastAudio = typecastAudioUrl && typecastAudioUrl.trim() !== '';
+            
+            if (hasTypecastAudio) {
+                // Ensure Typecast audio player section is visible
+                const typecastAudioSection = document.getElementById(`podcast-script-${weekKey}-2`);
+                if (typecastAudioSection) {
+                    typecastAudioSection.style.display = 'block';
+                    
+                    // Setup Typecast audio controls if not already set up
+                    setupPodcastTypecastAudioControls(weekKey);
+                    
+                    // Update audio source dropdown to show Typecast is selected
+                    const dropdown = document.getElementById(`podcast-audio-source-${weekKey}`);
+                    if (dropdown) {
+                        dropdown.value = '2'; // Typecast
+                        switchPodcastAudioSource(weekKey, '2');
+                    }
+                    
+                    // Update audio source if needed
+                    const typecastAudioPlayer = document.getElementById(`audio-player-typecast-podcast-${weekKey}`);
+                    if (typecastAudioPlayer) {
+                        const sourceElement = typecastAudioPlayer.querySelector('source');
+                        if (sourceElement) {
+                            const expectedSrc = `/static/${typecastAudioUrl}?v=${Date.now()}`;
+                            if (!sourceElement.src.includes(typecastAudioUrl)) {
+                                sourceElement.src = expectedSrc;
+                                typecastAudioPlayer.load();
+                            }
+                        }
+                    }
+                    
+                    console.log('Typecast audio player displayed after transcript load');
+                }
+            }
         } else {
             console.warn('No transcript in response:', data);
             transcriptElement.innerHTML = '<div style="color: #999; font-style: italic;">No transcript available</div>';

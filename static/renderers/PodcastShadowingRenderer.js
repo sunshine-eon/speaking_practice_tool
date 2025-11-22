@@ -58,7 +58,7 @@ class PodcastShadowingRenderer extends ActivityRenderer {
                 <!-- Podcast Audio Player Content -->
                 ${selectedMp3 ? this.renderPodcastAudio(currentWeek, selectedMp3) : `<div class="audio-player-section" id="podcast-script-${currentWeek}-1" style="display: none;"><div class="no-mp3-selected" style="padding: 10px; background: #f0f0f0; border-radius: 4px; color: #666;">Please select a chapter and click "Get" to load audio.</div></div>`}
                 <!-- Typecast Audio Player Content -->
-                ${hasTypecastAudio ? this.renderTypecastAudio(currentWeek, typecastAudioUrl, typecastVoice, typecastModel, typecastSpeed, formatPodcastVoiceModelLabel, true) : this.renderTypecastGeneration(currentWeek, transcriptPath, true)}
+                ${hasTypecastAudio ? this.renderTypecastAudio(currentWeek, typecastAudioUrl, typecastVoice, typecastModel, typecastSpeed, formatPodcastVoiceModelLabel, false) : this.renderTypecastGeneration(currentWeek, transcriptPath, true)}
             </div>
             <style>
                 [data-activity-id="podcast_shadowing"] .activity-actions {

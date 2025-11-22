@@ -50,6 +50,9 @@ youtube-transcriber-for-shadowing/test_data/
 *.temp
 progress.json
 
+# Progress backups (local only, not committed to git)
+progress_backups/
+
 # Study/learning markdown files
 app.py.md
 REFACTORING_GUIDE.md

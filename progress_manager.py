@@ -1023,6 +1023,7 @@ def get_weekly_progress_summary(progress: Dict[str, Any], week_key: str = None) 
     voice_journaling_days = len(week_data["voice_journaling"]["completed_days"])
     shadowing_days = len(week_data["shadowing_practice"]["completed_days"])
     prompt_days = len(week_data["weekly_speaking_prompt"]["completed_days"])
+    podcast_shadowing_days = len(week_data.get("podcast_shadowing", {}).get("completed_days", []))
     
     # Calculate overall streak (any activity completed counts)
     streak = calculate_streak(progress)
@@ -1033,12 +1034,14 @@ def get_weekly_progress_summary(progress: Dict[str, Any], week_key: str = None) 
         "voice_journaling_days": voice_journaling_days,
         "shadowing_practice_days": shadowing_days,
         "weekly_speaking_prompt_days": prompt_days,
-        "total_activities": 4,
+        "podcast_shadowing_days": podcast_shadowing_days,
+        "total_activities": 5,
         "completed_activities": sum([
             1 if weekly_expressions_days > 0 else 0,
             1 if voice_journaling_days > 0 else 0,
             1 if shadowing_days > 0 else 0,
-            1 if prompt_days > 0 else 0
+            1 if prompt_days > 0 else 0,
+            1 if podcast_shadowing_days > 0 else 0
         ]),
         "streak": streak
     }
@@ -1063,9 +1066,73 @@ def load_progress() -> Dict[str, Any]:
     return progress
 
 
-def save_progress(progress: Dict[str, Any]) -> bool:
-    """Save progress to JSON file."""
+def create_backup(progress: Dict[str, Any]) -> Optional[str]:
+    """
+    Create a backup of progress data before saving.
+    Returns the backup file path if successful, None otherwise.
+    """
     try:
+        # Create backups directory if it doesn't exist
+        backup_dir = 'progress_backups'
+        os.makedirs(backup_dir, exist_ok=True)
+        
+        # Create backup filename with timestamp
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        backup_filename = f'progress_backup_{timestamp}.json'
+        backup_path = os.path.join(backup_dir, backup_filename)
+        
+        # Save backup
+        with open(backup_path, 'w', encoding='utf-8') as f:
+            json.dump(progress, f, indent=2, ensure_ascii=False)
+        
+        # Keep only the most recent 50 backups to avoid disk space issues
+        cleanup_old_backups(backup_dir, keep_count=50)
+        
+        return backup_path
+    except Exception as e:
+        print(f"Warning: Failed to create backup: {e}")
+        return None
+
+
+def cleanup_old_backups(backup_dir: str, keep_count: int = 50) -> None:
+    """
+    Remove old backup files, keeping only the most recent keep_count files.
+    """
+    try:
+        backup_files = []
+        for filename in os.listdir(backup_dir):
+            if filename.startswith('progress_backup_') and filename.endswith('.json'):
+                filepath = os.path.join(backup_dir, filename)
+                if os.path.isfile(filepath):
+                    mtime = os.path.getmtime(filepath)
+                    backup_files.append((mtime, filepath))
+        
+        # Sort by modification time (newest first)
+        backup_files.sort(reverse=True)
+        
+        # Remove old backups
+        if len(backup_files) > keep_count:
+            for _, filepath in backup_files[keep_count:]:
+                try:
+                    os.remove(filepath)
+                except Exception as e:
+                    print(f"Warning: Failed to remove old backup {filepath}: {e}")
+    except Exception as e:
+        print(f"Warning: Failed to cleanup old backups: {e}")
+
+
+def save_progress(progress: Dict[str, Any]) -> bool:
+    """
+    Save progress to JSON file with automatic backup.
+    Creates a backup before saving to prevent data loss.
+    """
+    try:
+        # Create backup before saving
+        backup_path = create_backup(progress)
+        if backup_path:
+            print(f"Backup created: {backup_path}")
+        
+        # Save progress
         with open(PROGRESS_FILE, 'w', encoding='utf-8') as f:
             json.dump(progress, f, indent=2, ensure_ascii=False)
         return True
@@ -1085,3 +1152,64 @@ def save_progress(progress: Dict[str, Any]) -> bool:
         traceback.print_exc()
         return False
 
+
+
+def list_backups() -> List[Dict[str, Any]]:
+    """
+    List all available backup files with metadata.
+    Returns a list of dictionaries with backup information.
+    """
+    backups = []
+    backup_dir = 'progress_backups'
+    
+    if not os.path.exists(backup_dir):
+        return backups
+    
+    try:
+        for filename in os.listdir(backup_dir):
+            if filename.startswith('progress_backup_') and filename.endswith('.json'):
+                filepath = os.path.join(backup_dir, filename)
+                if os.path.isfile(filepath):
+                    mtime = os.path.getmtime(filepath)
+                    size = os.path.getsize(filepath)
+                    backups.append({
+                        'filename': filename,
+                        'filepath': filepath,
+                        'modified_time': datetime.fromtimestamp(mtime),
+                        'size': size
+                    })
+        
+        # Sort by modification time (newest first)
+        backups.sort(key=lambda x: x['modified_time'], reverse=True)
+        return backups
+    except Exception as e:
+        print(f"Error listing backups: {e}")
+        return backups
+
+
+def restore_from_backup(backup_filepath: str) -> bool:
+    """
+    Restore progress from a backup file.
+    
+    Args:
+        backup_filepath: Path to the backup file to restore from
+    
+    Returns:
+        True if restoration was successful, False otherwise
+    """
+    try:
+        # Load backup
+        with open(backup_filepath, 'r', encoding='utf-8') as f:
+            backup_data = json.load(f)
+        
+        # Create a backup of current progress before restoring
+        current_progress = load_progress()
+        create_backup(current_progress)
+        
+        # Restore from backup
+        return save_progress(backup_data)
+    except Exception as e:
+        print(f"Error restoring from backup: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
