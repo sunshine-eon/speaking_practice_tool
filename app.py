@@ -29,7 +29,54 @@ from typecast_generator import (
     get_available_voices,
 )
 
-app = Flask(__name__)
+# Configure Flask with explicit static folder for Vercel
+# Try multiple possible paths for Vercel serverless environment
+base_dir = os.path.dirname(os.path.abspath(__file__))
+possible_static_paths = [
+    os.path.join(base_dir, 'static'),
+    os.path.join(os.getcwd(), 'static'),
+    'static',
+    os.path.join('/var/task', 'static'),  # Vercel Lambda path
+]
+
+static_folder_path = None
+for path in possible_static_paths:
+    if os.path.exists(path):
+        static_folder_path = path
+        break
+
+# Fallback to relative path if none found (for Vercel)
+if static_folder_path is None:
+    static_folder_path = 'static'
+
+app = Flask(__name__, static_folder=static_folder_path, static_url_path='/static')
+
+# Add explicit route for static files to ensure they're served
+@app.route('/static/<path:filename>')
+def serve_static_files(filename):
+    """Explicitly serve static files for Vercel compatibility."""
+    try:
+        return app.send_static_file(filename)
+    except Exception as e:
+        # Debug: return error with path information
+        import sys
+        debug_info = {
+            'error': str(e),
+            'filename': filename,
+            'static_folder': app.static_folder,
+            'cwd': os.getcwd(),
+            '__file__': __file__,
+            'base_dir': base_dir,
+            'static_exists': os.path.exists(static_folder_path) if static_folder_path else False,
+            'searched_paths': possible_static_paths
+        }
+        # Try to list files in static folder if it exists
+        if static_folder_path and os.path.exists(static_folder_path):
+            try:
+                debug_info['static_files'] = os.listdir(static_folder_path)[:10]
+            except:
+                pass
+        return jsonify(debug_info), 404
 
 
 @app.route('/')
